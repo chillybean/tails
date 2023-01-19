@@ -1098,7 +1098,7 @@ end
 
 def launch_tor_browser(**opts)
   launch_app(
-    'tor-browser.desktop',
+    'org.boum.tails.TorBrowser.desktop',
     'Firefox',
     **opts
   )

@@ -2,6 +2,14 @@ def browser
   Dogtail::Application.new('Firefox')
 end
 
+def desktop_portal
+  Dogtail::Application.new('xdg-desktop-portal-gtk')
+end
+
+def desktop_portal_save_as_dialog
+  desktop_portal.child(roleName: 'file chooser')
+end
+
 def save_page_as
   browser.child(
     description: 'Open application menu',
@@ -11,7 +19,7 @@ def save_page_as
     name:     'Save page as\u2026',
     roleName: 'push button'
   ).press
-  browser.child('Save As', roleName: 'file chooser')
+  desktop_portal_save_as_dialog
 end
 
 def browser_url_entry
@@ -287,10 +295,9 @@ When /^I download some file in the Tor Browser$/ do
            .button('Save File')
   try_for(10) { button.sensitive? }
   button.press
-  @torbrowser
-    .child(roleName: 'file chooser')
-    .button('Save')
-    .click
+  file_dialog = desktop_portal_save_as_dialog
+  file_dialog.child('Save', roleName: 'push button').click
+
   @torbrowser
     .button('Downloads')
     .press
@@ -520,7 +527,7 @@ When /^I can print the current page as "([^"]+[.]pdf)" to the (default downloads
                end
   @screen.press('ctrl', 'p')
   @torbrowser.child('Save', roleName: 'push button').press
-  file_dialog = @torbrowser.child('Save As', roleName: 'file chooser')
+  file_dialog = desktop_portal_save_as_dialog
   # Enter the output filename in the text entry
   text_entry = file_dialog.child('Name', roleName: 'label').labelee
   filename = "#{output_dir}/#{output_file}"
