@@ -53,6 +53,7 @@ Note: `rngd` (2-unofficial-mt.14-1) does not modify any parameter in
 # Entropy pool initialization
 
 The Linux kernel initializes its RNG with various sources, including:
+
 * Hardware RNGs (if available)
 * CPU instructions like RDSEED, RDRAND, or RDTSC
 * interrupt timings, including input events (keyboard, mouse, etc.)
@@ -99,6 +100,7 @@ The scripts do basically the same `systemd-random-seed.service` does
 ([see the source code](https://github.com/systemd/systemd/blob/56932080194c8489ada31e7191b1fa391603aa63/src/random-seed/random-seed.c#L398)).
 
 During boot:
+
 * Read the seed from the location it was stored at.
 * Write the seed to /dev/urandom, which causes it to be mixed in with
   the existing bytes in the entropy pool.
@@ -107,11 +109,13 @@ During boot:
   shutting down properly.
 
 During shutdown:
+
 * Update the seed with random bytes from /dev/urandom to save the
   entropy gathered during the session.
 
 Sources to learn more about the Linux kernel's RNG and its recent
 changes:
+
 * All articles in [this LWN kernel index entry](https://lwn.net/Kernel/Index/#Random_numbers),
   especially:
   * [The article on the jitter entropy introduced in Linux 5.4](https://lwn.net/Articles/802360/).
