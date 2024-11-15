@@ -1,6 +1,12 @@
 class FindFailed < StandardError
 end
 
+class FindTextFailed < FindFailed
+end
+
+class OcrError < StandardError
+end
+
 # This exception means that the error depends on some sort of breakage
 # which should not be considered a proper test failure.
 # A test raising this should be re-run, not considered as failed.
@@ -241,6 +247,27 @@ class Screen
                       'on the screen'
   end
 
+  def ocr(language: 'eng')
+    screenshot = "#{$config['TMPDIR']}/screenshot.png"
+    $vm.display.screenshot(screenshot)
+    stdout, stderr, p = Open3.capture3(
+      Hash[ENV], 'tesseract', '-l', language, screenshot, '-'
+    )
+    raise OcrError, stderr if p.exitstatus != 0
+
+    stdout
+  end
+
+  def wait_text(text, timeout, **opts)
+    lang = opts[:language] || 'eng'
+    try_for(timeout, delay: 0, log: false) do
+      ocr(language: lang).downcase.include?(text.downcase)
+    end
+  rescue Timeout::Error
+    debug_log("Could not find text, here is full ocr:\n#{ocr(language: lang)}")
+    raise FindTextFailed
+  end
+
   def press(*sequence, **opts)
     opts[:log] = true if opts[:log].nil?
     # This is the minimum time (in seconds) between invocations of
@@ -479,7 +506,9 @@ class ImageBumpingScreen
 
   screen_methods = Screen.instance_methods - Object.instance_methods
   overrides = [:find, :exists, :wait, :find_any, :exists_any,
-               :wait_any, :hover, :click,]
+               :wait_any,
+               :ocr, :find_text,
+               :hover, :click,]
   screen_methods.each do |m|
     if overrides.include?(m)
       define_method(m) do |*args, **opts|
