@@ -1,0 +1,151 @@
+#!/usr/bin/env python3
+
+"""
+A powerful filter for Whisperback messages.
+It will parse them, then you can filter them using python code to perform all the queries you want.
+
+### Usage
+
+You need to provide a list of files over stdin.
+
+If you have notmuch, this would work:
+    notmuch search --output=files date:1M.. and GPT | ./whisperback-processor  'm.fat_resized'
+
+If you don't, but you have a maildir:
+    find | ./whisperback-processor  'm.fat_resized'
+"""
+
+import email.parser
+import json
+import re
+import subprocess
+import sys
+from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
+from pathlib import Path
+
+splitter = re.compile("======= content of ([^\n]+) =======")
+
+
+class WhisperbackReport:
+    messageid: str
+    whisperbackid: str
+    body: str
+
+    def __init__(self, messageid, whisperbackid, body):
+        self.messageid = messageid
+        self.whisperbackid = whisperbackid
+        self.body = body
+        self.parts = self.split_body(body)
+
+    def split_body(self, body) -> dict:
+        m = ["preamble", *splitter.split(body)]
+        assert len(m) % 2 == 0
+        parts = {}
+        for i in range(len(m) // 2):
+            name = m[2 * i]
+            value = m[2 * i + 1]
+            parts[name] = value
+        return parts
+
+    @property
+    def fat_size(self) -> int:
+        key = "/usr/local/sbin/tails-block-device-info"
+        if key not in self.parts:
+            raise Unknown
+        json.loads(self.parts[key])
+        return 42
+
+    @property
+    def fat_resized(self) -> bool:
+        return self.fat_size > 4 * 2**30
+
+    @property
+    def reporter(self) -> str | None:
+        from_line = [
+                line.strip()
+                for line in self.parts['preamble'].split('\n')
+                if line.strip().startswith('From: ')]
+        if not from_line:
+            return None
+        return from_line[0].split()[-1]
+        
+
+class Unknown(Exception):
+    """This exception is raised when you are fetching some data which is not available in this message"""
+
+
+def parse_encrypted_part(part: "email.message.Message") -> str:
+    p = subprocess.run(
+        ["/usr/bin/gpg", "-d"], input=part.as_bytes(), capture_output=True, check=True
+    )
+    decrypted_part: bytes = p.stdout
+    subpart = email.parser.BytesParser().parsebytes(decrypted_part)
+    if subpart.is_multipart():  # older emails (Schleuder)
+        texts = [
+            subsubpart.get_payload(decode=True) or "" for subsubpart in subpart.walk()
+        ]
+        body = max(*texts, key=len)
+        return body.decode("utf8")
+    else:  # more recent emails (ie: not Schleuder)
+        body = subpart.get_payload(decode=True)
+        return body.decode("utf8")
+
+
+class InvalidError(Exception):
+    pass
+
+
+def parse_email(fname: Path) -> WhisperbackReport:
+    msg = email.parser.BytesParser().parse(fname.open("rb"))
+    if not msg.is_multipart():
+        raise InvalidError
+    if msg.get_content_type() != "multipart/encrypted":
+        raise InvalidError
+    if not any(p.get_content_type() == "application/pgp-encrypted" for p in msg.walk()):
+        raise InvalidError
+    if not any(p.get_content_type() == "application/octet-stream" for p in msg.walk()):
+        raise InvalidError
+    for part in msg.walk():
+        if part.get_content_type() == "application/octet-stream":
+            body = parse_encrypted_part(part)
+            break
+    return WhisperbackReport(msg["message-id"], msg["subject"].split()[-1], body=body)
+
+
+def main():
+    p = ArgumentParser(formatter_class=ArgumentDefaultsHelpFormatter)
+    p.add_argument(
+        "--output",
+        default="file",
+        choices=["file", "wid", "mid"],
+        help="What to output for matching messages. file | wid (Whisperback ID) | mid (Message-ID)",
+    )
+    p.add_argument('--files0', action='store_const', dest='filedelimiter', const='\0',
+                   help='Stdin is \\0-separated; otherwise it\'s \\n-separated')
+    p.add_argument('filter', help='The expression would be eval()-ed; the message is available as `m`')
+    args = p.parse_args()
+
+    files = sys.stdin.read().split(args.filedelimiter)
+    for file in files:
+        try:
+            m = parse_email(Path(file))
+        except Exception:
+            continue
+        try:
+            if not eval(sys.argv[-1], None, {"m": m}):
+                continue
+        except Unknown:
+            continue
+
+        if args.output == 'file':
+            print(file)
+        elif args.output == 'wid':
+            print(m.whisperbackid)
+        elif args.output == 'mid':
+            print(m.messageid)
+        else:
+            print("This should not have happened", file=sys.stderr)
+
+
+if __name__ == "__main__":
+    main()
