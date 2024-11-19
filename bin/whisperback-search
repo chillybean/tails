@@ -26,6 +26,10 @@ from pathlib import Path
 splitter = re.compile("======= content of ([^\n]+) =======")
 
 
+class Unknown(Exception):
+    """This exception is raised when you are fetching some data which is not available in this message"""
+
+
 class WhisperbackReport:
     messageid: str
     whisperbackid: str
@@ -68,10 +72,6 @@ class WhisperbackReport:
         if not from_line:
             return None
         return from_line[0].split()[-1]
-        
-
-class Unknown(Exception):
-    """This exception is raised when you are fetching some data which is not available in this message"""
 
 
 def parse_encrypted_part(part: "email.message.Message") -> str:
@@ -120,6 +120,10 @@ def main():
         choices=["file", "wid", "mid"],
         help="What to output for matching messages. file | wid (Whisperback ID) | mid (Message-ID)",
     )
+    p.add_argument('--select', default='passing',
+                   choices=['passing', 'unknown'],
+                   help="What messages to show.")
+    p.add_argument('--invert-match', action='store_const', default=lambda x: x, const=lambda x: not x, dest='invert')
     p.add_argument('--files0', action='store_const', dest='filedelimiter', const='\0',
                    help='Stdin is \\0-separated; otherwise it\'s \\n-separated')
     p.add_argument('filter', help='The expression would be eval()-ed; the message is available as `m`')
@@ -132,9 +136,12 @@ def main():
         except Exception:
             continue
         try:
-            if not eval(sys.argv[-1], None, {"m": m}):
-                continue
+            result = bool(eval(args.filter, None, {"m": m}))
+            unknown = False
         except Unknown:
+            unknown = True
+
+        if not args.invert(result if args.select == "passing" else unknown):
             continue
 
         if args.output == 'file':
