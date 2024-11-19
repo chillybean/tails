@@ -99,6 +99,10 @@ option "override_$_" => (
     predicate  => 1,
 ) for (qw{dev_dir liveos_mountpoint proc_dir run_dir});
 
+option report_no_upgrade =>
+    is       => 'lazy',
+    isa      =>  Bool;
+
 option batch =>
     is  => 'lazy',
     isa => Bool;
@@ -140,6 +144,8 @@ has 'new_signing_key' =>
 =cut
 
 method _build_batch () { 0; }
+
+method _build_report_no_upgrade () { 0; }
 
 method _build_running_system () {
     my @args;
@@ -401,6 +407,14 @@ method run () {
 
         unless ($upgrade_description->contains_upgrade_path) {
             $self->info(__("The system is up-to-date"));
+             $self->dialog(
+        __(
+            "You are currently running the latest version. There is no upgrade available.\n"
+        ),
+        type     => 'info',
+        title    => __(q{Tails is up to date}),
+        ) if $self->report_no_upgrade ;
+
             exit(0);
         }
 
