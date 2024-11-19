@@ -117,17 +117,44 @@ def main():
     p.add_argument(
         "--output",
         default="file",
-        choices=["file", "wid", "mid"],
-        help="What to output for matching messages. file | wid (Whisperback ID) | mid (Message-ID)",
+        choices=["file", "wid", "mid", "eval"],
+        help="What to output for matching messages. wid=Whisperback ID; mid=Message-ID; eval= see --output-eval",
     )
-    p.add_argument('--select', default='passing',
-                   choices=['passing', 'unknown'],
-                   help="What messages to show.")
-    p.add_argument('--invert-match', action='store_const', default=lambda x: x, const=lambda x: not x, dest='invert')
-    p.add_argument('--files0', action='store_const', dest='filedelimiter', const='\0',
-                   help='Stdin is \\0-separated; otherwise it\'s \\n-separated')
-    p.add_argument('filter', help='The expression would be eval()-ed; the message is available as `m`')
+    p.add_argument(
+        "--output-eval",
+        help="An evalued expression that will be displayed. Needs --output=eval"
+    )
+    p.add_argument(
+        "--select",
+        default="passing",
+        choices=["passing", "unknown"],
+        help="What messages to show.",
+    )
+    p.add_argument(
+        "--invert-match",
+        action="store_const",
+        default=lambda x: x,
+        const=lambda x: not x,
+        dest="invert",
+    )
+    p.add_argument(
+        "--files0",
+        action="store_const",
+        dest="filedelimiter",
+        const="\0",
+        help="Stdin is \\0-separated; otherwise it's \\n-separated",
+    )
+    p.add_argument(
+        "filter",
+        help="The expression would be eval()-ed; the message is available as `m`",
+    )
     args = p.parse_args()
+
+    if args.output == 'eval' and not args.output_eval:
+        print("if --output=eval, you must provide a --output-eval=", file=sys.stderr)
+        sys.exit(1)
+    if args.output_eval and args.output != 'eval':
+        print("You provided --output-eval= without setting --output=eval, which is probably not what you want", file=sys.stderr)
 
     files = sys.stdin.read().split(args.filedelimiter)
     for file in files:
@@ -144,12 +171,14 @@ def main():
         if not args.invert(result if args.select == "passing" else unknown):
             continue
 
-        if args.output == 'file':
+        if args.output == "file":
             print(file)
-        elif args.output == 'wid':
+        elif args.output == "wid":
             print(m.whisperbackid)
-        elif args.output == 'mid':
+        elif args.output == "mid":
             print(m.messageid)
+        elif args.output == "eval":
+            print(eval(args.output_eval, None, {"m": m}))
         else:
             print("This should not have happened", file=sys.stderr)
 
