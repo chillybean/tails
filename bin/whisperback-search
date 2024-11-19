@@ -151,6 +151,9 @@ class BaseOutput:
     def add(self, msg: WhisperbackReport):
         pass
 
+    def close(self):
+        pass
+
 
 class OutputFile(BaseOutput, key="file"):
     def add(self, msg: WhisperbackReport):
@@ -173,6 +176,18 @@ class OutputEval(BaseOutput, key="eval"):
 
     def add(self, msg: WhisperbackReport):
         print(eval(self.code, None, {"m": msg}))  # noqa: S307,PGH001 - trusted input
+
+
+class OutputNotmuchQuery(BaseOutput, key="notmuch-query"):
+    def setup(self, args):
+        self.mids = []
+
+    def add(self, msg: WhisperbackReport):
+        self.mids.append(msg.messageid.lstrip("<").rstrip(">"))
+
+    def close(self):
+        query = " or ".join(f"id:{mid}" for mid in self.mids)
+        print(f"( {query} )")
 
 
 def main():
@@ -245,6 +260,7 @@ def main():
             continue
 
         outputter.add(m)
+    outputter.close()
 
 
 if __name__ == "__main__":
