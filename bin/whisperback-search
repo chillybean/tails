@@ -55,10 +55,7 @@ def parse_size(size, base=10):
 
 
 class WhisperbackReport:
-    messageid: str
-    whisperbackid: str
-    body: str
-    file: Path
+    coreboot_re = re.compile(r"""amnesia.*kernel.*ACPI:.*COREBOOT""")
 
     def __init__(self, messageid, whisperbackid, body, file):
         self.messageid = messageid
@@ -91,6 +88,28 @@ class WhisperbackReport:
     @property
     def fat_resized(self) -> bool:
         return self.fat_size > 3 * 2**30
+
+    @property
+    def fsuuid(self) -> str:
+        try:
+            cmdline = self.parts['/proc/cmdline']
+        except KeyError:
+            raise Unknown
+        for arg in cmdline.strip().split():
+            if arg.startswith('FSUUID='):
+                return arg.removeprefix('FSUUID=')
+        return ''
+
+    @property
+    def is_coreboot(self) -> str:
+        return self.coreboot_re.search(self.journal) is not None
+
+    @property
+    def journal(self) -> str:
+        try:
+            return self.parts['/bin/journalctl --catalog --no-pager']
+        except KeyError:
+            raise Unknown
 
     @property
     def reporter(self) -> str | None:
