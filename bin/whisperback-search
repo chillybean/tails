@@ -53,6 +53,18 @@ def parse_size(size, base=10):
         raise ValueError
     return int(float(number) * factor)
 
+class WhisperbackParts:
+    def __init__(self, d: dict):
+        self.parts = d
+
+    def __getitem__(self, key):
+        if key in self.parts:
+            return self.parts[key]
+        raise Unknown
+
+    @property
+    def journal(self) -> str:
+        return self['/bin/journalctl --catalog --no-pager']
 
 class WhisperbackReport:
     coreboot_re = re.compile(r"""amnesia.*kernel.*ACPI:.*COREBOOT""")
@@ -72,13 +84,11 @@ class WhisperbackReport:
             name = m[2 * i]
             value = m[2 * i + 1]
             parts[name] = value
-        return parts
+        return WhisperbackParts(parts)
 
     @property
     def fat_size(self) -> int:
         key = "/usr/local/sbin/tails-block-device-info"
-        if key not in self.parts:
-            raise Unknown
         try:
             data = json.loads(self.parts[key])
         except json.JSONDecodeError as exc:
@@ -91,10 +101,7 @@ class WhisperbackReport:
 
     @property
     def fsuuid(self) -> str:
-        try:
-            cmdline = self.parts['/proc/cmdline']
-        except KeyError:
-            raise Unknown
+        cmdline = self.parts['/proc/cmdline']
         for arg in cmdline.strip().split():
             if arg.startswith('FSUUID='):
                 return arg.removeprefix('FSUUID=')
@@ -102,14 +109,7 @@ class WhisperbackReport:
 
     @property
     def is_coreboot(self) -> str:
-        return self.coreboot_re.search(self.journal) is not None
-
-    @property
-    def journal(self) -> str:
-        try:
-            return self.parts['/bin/journalctl --catalog --no-pager']
-        except KeyError:
-            raise Unknown
+        return self.coreboot_re.search(self.parts.journal) is not None
 
     @property
     def reporter(self) -> str | None:
