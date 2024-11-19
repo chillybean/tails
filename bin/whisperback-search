@@ -79,9 +79,15 @@ class WhisperbackReport:
 
 
 def parse_encrypted_part(part: "email.message.Message") -> str:
-    p = subprocess.run(
-        ["/usr/bin/gpg", "-d"], input=part.as_bytes(), capture_output=True, check=True,
-    )
+    try:
+        p = subprocess.run(
+            ["/usr/bin/gpg", "-d"],
+            input=part.as_bytes(),
+            capture_output=True,
+            check=True,
+        )
+    except subprocess.CalledProcessError as exc:
+        raise DecryptFailureError from exc
     decrypted_part: bytes = p.stdout
     subpart = email.parser.BytesParser().parsebytes(decrypted_part)
     if subpart.is_multipart():  # older emails (Schleuder)
@@ -95,26 +101,33 @@ def parse_encrypted_part(part: "email.message.Message") -> str:
         return body.decode("utf8")
 
 
-class InvalidError(Exception):
+class NotWhisperbackMessageError(Exception):
+    pass
+
+
+class DecryptFailureError(Exception):
     pass
 
 
 def parse_email(fname: Path) -> WhisperbackReport:
     msg = email.parser.BytesParser().parse(fname.open("rb"))
     if not msg.is_multipart():
-        raise InvalidError
+        raise NotWhisperbackMessageError
     if msg.get_content_type() != "multipart/encrypted":
-        raise InvalidError
+        raise NotWhisperbackMessageError
     if not any(p.get_content_type() == "application/pgp-encrypted" for p in msg.walk()):
-        raise InvalidError
+        raise NotWhisperbackMessageError
     if not any(p.get_content_type() == "application/octet-stream" for p in msg.walk()):
-        raise InvalidError
+        raise NotWhisperbackMessageError
     for part in msg.walk():
         if part.get_content_type() == "application/octet-stream":
             body = parse_encrypted_part(part)
             break
     return WhisperbackReport(
-        msg["message-id"], msg["subject"].split()[-1], body=body, file=fname,
+        msg["message-id"],
+        msg["subject"].split()[-1],
+        body=body,
+        file=fname,
     )
 
 
@@ -212,12 +225,16 @@ def main():
     outputter = BaseOutput.get(args.output)()
     outputter.setup(args)
 
-    files = sys.stdin.read().split(args.filedelimiter)
+    files = (Path(line) for line in sys.stdin.read().split(args.filedelimiter))
     for file in files:
+        if not file.is_file():
+            continue
         try:
             m = parse_email(Path(file))
-        except Exception:  # noqa: S112 - there are too many ways for this to fail
+        except (NotWhisperbackMessageError, DecryptFailureError):
             continue
+        except Exception as exc:  # noqa: BLE001
+            print(f"parsing failed for {file} ({exc})", file=sys.stderr)
         try:
             result = bool(eval(args.filter, None, {"m": m}))  # noqa: S307,PGH001 trusted input
             unknown = False
