@@ -112,6 +112,10 @@ class WhisperbackReport:
         return self.coreboot_re.search(self.parts.journal) is not None
 
     @property
+    def is_vm(self) -> bool:
+        return 'QEMU' in self.parts['/usr/sbin/dmidecode -s system-manufacturer']
+
+    @property
     def reporter(self) -> str | None:
         from_line = [
             line.strip()
