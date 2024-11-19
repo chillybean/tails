@@ -135,8 +135,15 @@ class DecryptFailureError(Exception):
     pass
 
 
+WHISPERBACKID_RE = re.compile(r"""Bug report: ([a-z0-9]{20,32})\b""")
+
+
 def parse_email(fname: Path) -> WhisperbackReport:
     msg = email.parser.BytesParser().parse(fname.open("rb"))
+    m = WHISPERBACKID_RE.match(msg["subject"])
+    if m is None:
+        raise NotWhisperbackMessageError
+    wid = m.group(1)
     if not msg.is_multipart():
         raise NotWhisperbackMessageError
     if msg.get_content_type() != "multipart/encrypted":
@@ -151,7 +158,7 @@ def parse_email(fname: Path) -> WhisperbackReport:
             break
     return WhisperbackReport(
         msg["message-id"],
-        msg["subject"].split()[-1],
+        whisperbackid=wid,
         body=body,
         file=fname,
     )
