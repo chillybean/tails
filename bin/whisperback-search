@@ -53,6 +53,7 @@ def parse_size(size, base=10):
         raise ValueError
     return int(float(number) * factor)
 
+
 class WhisperbackParts:
     def __init__(self, d: dict):
         self.parts = d
@@ -64,7 +65,8 @@ class WhisperbackParts:
 
     @property
     def journal(self) -> str:
-        return self['/bin/journalctl --catalog --no-pager']
+        return self["/bin/journalctl --catalog --no-pager"]
+
 
 class WhisperbackReport:
     coreboot_re = re.compile(r"""amnesia.*kernel.*ACPI:.*COREBOOT""")
@@ -101,11 +103,11 @@ class WhisperbackReport:
 
     @property
     def fsuuid(self) -> str:
-        cmdline = self.parts['/proc/cmdline']
+        cmdline = self.parts["/proc/cmdline"]
         for arg in cmdline.strip().split():
-            if arg.startswith('FSUUID='):
-                return arg.removeprefix('FSUUID=')
-        return ''
+            if arg.startswith("FSUUID="):
+                return arg.removeprefix("FSUUID=")
+        return ""
 
     @property
     def is_coreboot(self) -> str:
@@ -113,7 +115,7 @@ class WhisperbackReport:
 
     @property
     def is_vm(self) -> bool:
-        return 'QEMU' in self.parts['/usr/sbin/dmidecode -s system-manufacturer']
+        return "QEMU" in self.parts["/usr/sbin/dmidecode -s system-manufacturer"]
 
     @property
     def reporter(self) -> str | None:
