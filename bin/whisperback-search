@@ -22,6 +22,7 @@ import subprocess
 import sys
 from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 from pathlib import Path
+from typing import ClassVar
 
 splitter = re.compile("======= content of ([^\n]+) =======")
 
@@ -34,12 +35,14 @@ class WhisperbackReport:
     messageid: str
     whisperbackid: str
     body: str
+    file: Path
 
-    def __init__(self, messageid, whisperbackid, body):
+    def __init__(self, messageid, whisperbackid, body, file):
         self.messageid = messageid
         self.whisperbackid = whisperbackid
         self.body = body
         self.parts = self.split_body(body)
+        self.file = file
 
     def split_body(self, body) -> dict:
         m = ["preamble", *splitter.split(body)]
@@ -109,15 +112,49 @@ def parse_email(fname: Path) -> WhisperbackReport:
         if part.get_content_type() == "application/octet-stream":
             body = parse_encrypted_part(part)
             break
-    return WhisperbackReport(msg["message-id"], msg["subject"].split()[-1], body=body)
+    return WhisperbackReport(msg["message-id"], msg["subject"].split()[-1], body=body, file=fname)
 
+class BaseOutput:
+    _REGISTRY: ClassVar = {}
+    def __init_subclass__(cls, key, **kwargs):
+        cls._REGISTRY[key] = cls
+
+    @classmethod
+    def get(cls, key):
+        return cls._REGISTRY[key]
+    @classmethod
+    def get_all(cls):
+        return list(cls._REGISTRY.keys())
+
+    def setup(self, args):
+        pass
+    def add(self, msg: WhisperbackReport):
+        pass
+
+class OutputFile(BaseOutput, key='file'):
+    def add(self, msg: WhisperbackReport):
+        print(msg.file)
+
+class OutputMessageId(BaseOutput, key='mid'):
+    def add(self, msg: WhisperbackReport):
+        print(msg.messageid)
+
+class OutputWhisperbackId(BaseOutput, key='wid'):
+    def add(self, msg: WhisperbackReport):
+        print(msg.whisperbackid)
+
+class OutputEval(BaseOutput, key='eval'):
+    def setup(self, args):
+        self.code = args.output_eval
+    def add(self, msg: WhisperbackReport):
+        print(eval(self.code, None, {"m": msg}))
 
 def main():
     p = ArgumentParser(formatter_class=ArgumentDefaultsHelpFormatter)
     p.add_argument(
         "--output",
         default="file",
-        choices=["file", "wid", "mid", "eval"],
+        choices=list(BaseOutput.get_all()),
         help="What to output for matching messages. wid=Whisperback ID; mid=Message-ID; eval= see --output-eval",
     )
     p.add_argument(
@@ -156,6 +193,9 @@ def main():
     if args.output_eval and args.output != 'eval':
         print("You provided --output-eval= without setting --output=eval, which is probably not what you want", file=sys.stderr)
 
+    outputter = BaseOutput.get(args.output)()
+    outputter.setup(args)
+
     files = sys.stdin.read().split(args.filedelimiter)
     for file in files:
         try:
@@ -171,16 +211,7 @@ def main():
         if not args.invert(result if args.select == "passing" else unknown):
             continue
 
-        if args.output == "file":
-            print(file)
-        elif args.output == "wid":
-            print(m.whisperbackid)
-        elif args.output == "mid":
-            print(m.messageid)
-        elif args.output == "eval":
-            print(eval(args.output_eval, None, {"m": m}))
-        else:
-            print("This should not have happened", file=sys.stderr)
+        outputter.add(m)
 
 
 if __name__ == "__main__":
