@@ -20,7 +20,7 @@ import json
 import re
 import subprocess
 import sys
-from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
+from argparse import ArgumentDefaultsHelpFormatter, ArgumentParser
 from pathlib import Path
 from typing import ClassVar
 
@@ -69,9 +69,10 @@ class WhisperbackReport:
     @property
     def reporter(self) -> str | None:
         from_line = [
-                line.strip()
-                for line in self.parts['preamble'].split('\n')
-                if line.strip().startswith('From: ')]
+            line.strip()
+            for line in self.parts["preamble"].split("\n")
+            if line.strip().startswith("From: ")
+        ]
         if not from_line:
             return None
         return from_line[0].split()[-1]
@@ -79,7 +80,7 @@ class WhisperbackReport:
 
 def parse_encrypted_part(part: "email.message.Message") -> str:
     p = subprocess.run(
-        ["/usr/bin/gpg", "-d"], input=part.as_bytes(), capture_output=True, check=True
+        ["/usr/bin/gpg", "-d"], input=part.as_bytes(), capture_output=True, check=True,
     )
     decrypted_part: bytes = p.stdout
     subpart = email.parser.BytesParser().parsebytes(decrypted_part)
@@ -112,42 +113,54 @@ def parse_email(fname: Path) -> WhisperbackReport:
         if part.get_content_type() == "application/octet-stream":
             body = parse_encrypted_part(part)
             break
-    return WhisperbackReport(msg["message-id"], msg["subject"].split()[-1], body=body, file=fname)
+    return WhisperbackReport(
+        msg["message-id"], msg["subject"].split()[-1], body=body, file=fname,
+    )
+
 
 class BaseOutput:
     _REGISTRY: ClassVar = {}
+
     def __init_subclass__(cls, key, **kwargs):
         cls._REGISTRY[key] = cls
 
     @classmethod
     def get(cls, key):
         return cls._REGISTRY[key]
+
     @classmethod
     def get_all(cls):
         return list(cls._REGISTRY.keys())
 
     def setup(self, args):
         pass
+
     def add(self, msg: WhisperbackReport):
         pass
 
-class OutputFile(BaseOutput, key='file'):
+
+class OutputFile(BaseOutput, key="file"):
     def add(self, msg: WhisperbackReport):
         print(msg.file)
 
-class OutputMessageId(BaseOutput, key='mid'):
+
+class OutputMessageId(BaseOutput, key="mid"):
     def add(self, msg: WhisperbackReport):
         print(msg.messageid)
 
-class OutputWhisperbackId(BaseOutput, key='wid'):
+
+class OutputWhisperbackId(BaseOutput, key="wid"):
     def add(self, msg: WhisperbackReport):
         print(msg.whisperbackid)
 
-class OutputEval(BaseOutput, key='eval'):
+
+class OutputEval(BaseOutput, key="eval"):
     def setup(self, args):
         self.code = args.output_eval
+
     def add(self, msg: WhisperbackReport):
-        print(eval(self.code, None, {"m": msg}))
+        print(eval(self.code, None, {"m": msg}))  # noqa: S307,PGH001 - trusted input
+
 
 def main():
     p = ArgumentParser(formatter_class=ArgumentDefaultsHelpFormatter)
@@ -159,7 +172,7 @@ def main():
     )
     p.add_argument(
         "--output-eval",
-        help="An evalued expression that will be displayed. Needs --output=eval"
+        help="An evalued expression that will be displayed. Needs --output=eval",
     )
     p.add_argument(
         "--select",
@@ -187,11 +200,14 @@ def main():
     )
     args = p.parse_args()
 
-    if args.output == 'eval' and not args.output_eval:
+    if args.output == "eval" and not args.output_eval:
         print("if --output=eval, you must provide a --output-eval=", file=sys.stderr)
         sys.exit(1)
-    if args.output_eval and args.output != 'eval':
-        print("You provided --output-eval= without setting --output=eval, which is probably not what you want", file=sys.stderr)
+    if args.output_eval and args.output != "eval":
+        print(
+            "You provided --output-eval= without setting --output=eval, which is probably not what you want",
+            file=sys.stderr,
+        )
 
     outputter = BaseOutput.get(args.output)()
     outputter.setup(args)
@@ -200,10 +216,10 @@ def main():
     for file in files:
         try:
             m = parse_email(Path(file))
-        except Exception:
+        except Exception:  # noqa: S112 - there are too many ways for this to fail
             continue
         try:
-            result = bool(eval(args.filter, None, {"m": m}))
+            result = bool(eval(args.filter, None, {"m": m}))  # noqa: S307,PGH001 trusted input
             unknown = False
         except Unknown:
             unknown = True
