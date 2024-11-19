@@ -31,6 +31,29 @@ class Unknown(Exception):
     """This exception is raised when you are fetching some data which is not available in this message"""
 
 
+SIZE_RE = re.compile(r"""([0-9.]+)\s*(B|[KMGT]B?)""")
+SIZE_UNITS = ["B", "KB", "MB", "GB", "TB"]
+
+
+def parse_size(size, base=10):
+    m = SIZE_RE.search(size)
+    if m is None:
+        raise ValueError
+    number = float(m.group(1))
+    unit = m.group(2)
+    if unit and not unit.endswith("B"):
+        unit += "B"
+    if base == 10:  # noqa: PLR2004
+        exp = SIZE_UNITS.index(unit) * 3
+        factor = 10**exp
+    elif base == 2:  # noqa: PLR2004
+        exp = SIZE_UNITS.index(unit) * 10
+        factor = 2**exp
+    else:
+        raise ValueError
+    return int(float(number) * factor)
+
+
 class WhisperbackReport:
     messageid: str
     whisperbackid: str
@@ -59,12 +82,15 @@ class WhisperbackReport:
         key = "/usr/local/sbin/tails-block-device-info"
         if key not in self.parts:
             raise Unknown
-        json.loads(self.parts[key])
-        return 42
+        try:
+            data = json.loads(self.parts[key])
+        except json.JSONDecodeError as exc:
+            raise Unknown from exc
+        return parse_size(data["blockdevices"][0]["children"][0]["size"], base=2)
 
     @property
     def fat_resized(self) -> bool:
-        return self.fat_size > 4 * 2**30
+        return self.fat_size > 3 * 2**30
 
     @property
     def reporter(self) -> str | None:
