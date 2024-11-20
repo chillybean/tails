@@ -9,10 +9,10 @@ It will parse them, then you can filter them using python code to perform all th
 You need to provide a list of files over stdin.
 
 If you have notmuch, this would work:
-    notmuch search --output=files date:1M.. and GPT | ./whisperback-processor  'm.fat_resized'
+    notmuch search --output=files date:1M.. and GPT | ./whisperback-search  'm.fat_resized'
 
 If you don't, but you have a maildir:
-    find | ./whisperback-processor  'm.fat_resized'
+    find | ./whisperback-search  'm.fat_resized'
 """
 
 import email.parser
