@@ -110,7 +110,7 @@ class WhisperbackReport:
         return ""
 
     @property
-    def is_coreboot(self) -> str:
+    def is_coreboot(self) -> bool:
         return self.coreboot_re.search(self.parts.journal) is not None
 
     @property
