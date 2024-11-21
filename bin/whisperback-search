@@ -36,7 +36,7 @@ SIZE_UNITS = ["B", "KB", "MB", "GB", "TB"]
 
 
 def parse_size(size, base=10) -> int:
-    m = SIZE_RE.search(size)
+    m = SIZE_RE.search(size.replace(',', '.'))
     if m is None:
         raise ValueError
     number = float(m.group(1))
