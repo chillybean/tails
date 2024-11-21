@@ -12,7 +12,7 @@ If you have notmuch, this would work:
     notmuch search --output=files date:1M.. and GPT | ./bin/whisperback-search  'm.fat_resized'
 
 If you don't, but you have a maildir:
-    find | ./whisperback-search  'm.fat_resized'
+    find | path/to/tails/git/bin/whisperback-search  'm.fat_resized'
 """
 
 import email.parser
