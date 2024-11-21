@@ -35,7 +35,7 @@ SIZE_RE = re.compile(r"""([0-9.]+)\s*(B|[KMGT]B?)""")
 SIZE_UNITS = ["B", "KB", "MB", "GB", "TB"]
 
 
-def parse_size(size, base=10):
+def parse_size(size, base=10) -> int:
     m = SIZE_RE.search(size)
     if m is None:
         raise ValueError
@@ -56,9 +56,9 @@ def parse_size(size, base=10):
 
 class WhisperbackParts:
     def __init__(self, d: dict):
-        self.parts = d
+        self.parts: dict[str, str] = d
 
-    def __getitem__(self, key):
+    def __getitem__(self, key) -> str:
         if key in self.parts:
             return self.parts[key]
         raise Unknown
@@ -82,7 +82,7 @@ class WhisperbackReport:
         self.parts = self.split_body(body)
         self.file = file
 
-    def split_body(self, body) -> dict:
+    def split_body(self, body) -> WhisperbackParts:
         m = ["preamble", *splitter.split(body)]
         assert len(m) % 2 == 0
         parts = {}
@@ -107,7 +107,7 @@ class WhisperbackReport:
 
     @property
     def fsuuid(self) -> str:
-        cmdline = self.parts["/proc/cmdline"]
+        cmdline: str = self.parts["/proc/cmdline"]
         for arg in cmdline.strip().split():
             if arg.startswith("FSUUID="):
                 return arg.removeprefix("FSUUID=")
@@ -123,7 +123,7 @@ class WhisperbackReport:
 
     @property
     def reporter(self) -> str | None:
-        from_line = [
+        from_line: list[str] = [
             line.strip()
             for line in self.parts["preamble"].split("\n")
             if line.strip().startswith("From: ")
@@ -150,10 +150,11 @@ def parse_encrypted_part(part: "email.message.Message") -> str:
             subsubpart.get_payload(decode=True) or "" for subsubpart in subpart.walk()
         ]
         body = max(*texts, key=len)
-        return body.decode("utf8")
     else:  # more recent emails (ie: not Schleuder)
         body = subpart.get_payload(decode=True)
+    if isinstance(body, bytes):
         return body.decode("utf8")
+    return body
 
 
 class NotWhisperbackMessageError(Exception):
