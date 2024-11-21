@@ -25,6 +25,7 @@ from pathlib import Path
 from typing import ClassVar
 
 splitter = re.compile("======= content of ([^\n]+) =======")
+user_questions = re.compile(r"""(What[^\n]*?)\n---------*\n""")
 
 
 class Unknown(Exception):
@@ -62,6 +63,19 @@ class WhisperbackParts:
         if key in self.parts:
             return self.parts[key]
         raise Unknown
+
+    @property
+    def questions(self) -> list[tuple[str, str]]:
+        q_a = user_questions.split(self.parts["preamble"])
+        firstpart = q_a.pop(0)  # this is before questions are asked
+        subject = firstpart.split("\n")[0].split(":", 1)[-1].strip()
+        questions = [("Subject", subject)]
+
+        for i in range(len(q_a) // 2):
+            name = q_a[2 * i]
+            value = q_a[2 * i + 1]
+            questions.append((name, value.strip()))
+        return questions
 
     @property
     def boot_log(self) -> str:
@@ -185,6 +199,18 @@ class WhisperbackReport:
         if not from_line:
             return None
         return from_line[0].split()[-1]
+
+    @property
+    def user_text(self) -> str:
+        """
+        Returns the preamble, if it includes any user-supplied text. Else, an empty string
+        """
+        questions = [
+                (question, answer)
+                for question, answer in self.parts.questions
+                if answer
+                ]
+        return "\n".join(f"{q}: {a}\n\n" for q,a in questions)
 
 
 def parse_encrypted_part(part: "email.message.Message") -> str:
