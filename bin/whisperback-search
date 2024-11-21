@@ -373,6 +373,8 @@ def main():
             )
             continue
 
+        if args.select == "passing" and unknown:
+            continue
         if not args.invert(result if args.select == "passing" else unknown):
             continue
 
