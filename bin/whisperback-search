@@ -357,11 +357,17 @@ def main():
             continue
         except Exception as exc:  # noqa: BLE001
             print(f"parsing failed for {file} ({exc})", file=sys.stderr)
+            continue
         try:
             result = bool(eval(args.filter, None, {"m": m}))  # noqa: S307,PGH001 trusted input
             unknown = False
         except Unknown:
             unknown = True
+        except Exception as exc:
+            print(
+                f"Error while processing message {m.messageid}: {exc}", file=sys.stderr
+            )
+            continue
 
         if not args.invert(result if args.select == "passing" else unknown):
             continue
