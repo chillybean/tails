@@ -64,6 +64,10 @@ class WhisperbackParts:
         raise Unknown
 
     @property
+    def boot_log(self) -> str:
+        return self["/var/log/boot.log"]
+
+    @property
     def journal(self) -> str:
         return self["/bin/journalctl --catalog --no-pager"]
 
