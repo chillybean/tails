@@ -301,9 +301,10 @@ def main():
     p = ArgumentParser(formatter_class=ArgumentDefaultsHelpFormatter)
     p.add_argument(
         "--output",
-        default="file",
+        default=[],
+        action="append",
         choices=list(BaseOutput.get_all()),
-        help="What to output for matching messages. wid=Whisperback ID; mid=Message-ID; eval= see --output-eval",
+        help="What to output for matching messages. default is 'file'. wid=Whisperback ID; mid=Message-ID; eval= see --output-eval",
     )
     p.add_argument(
         "--output-eval",
@@ -338,14 +339,17 @@ def main():
     if args.output == "eval" and not args.output_eval:
         print("if --output=eval, you must provide a --output-eval=", file=sys.stderr)
         sys.exit(1)
-    if args.output_eval and args.output != "eval":
+    if args.output_eval and "eval" not in args.output:
         print(
             "You provided --output-eval= without setting --output=eval, which is probably not what you want",
             file=sys.stderr,
         )
 
-    outputter = BaseOutput.get(args.output)()
-    outputter.setup(args)
+    outs = []
+    for name in args.output or ["file"]:
+        out = BaseOutput.get(name)()
+        out.setup(args)
+        outs.append(out)
 
     files = (Path(line) for line in sys.stdin.read().split(args.filedelimiter))
     for file in files:
@@ -372,8 +376,10 @@ def main():
         if not args.invert(result if args.select == "passing" else unknown):
             continue
 
-        outputter.add(m)
-    outputter.close()
+        for out in outs:
+            out.add(m)
+    for out in outs:
+        out.close()
 
 
 if __name__ == "__main__":
