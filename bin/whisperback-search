@@ -75,6 +75,16 @@ class WhisperbackParts:
     def df(self) -> str:
         return self["/bin/df --human-readable --print-type --exclude-type=fuse.portal"]
 
+    @property
+    def lsblk(self) -> dict:
+        key = "/usr/local/sbin/tails-block-device-info"
+        try:
+            ret: dict = json.loads(self[key])
+        except json.JSONDecodeError as exc:
+            raise Unknown from exc
+        return ret
+
+
 
 class WhisperbackReport:
     coreboot_re = re.compile(r"""amnesia.*kernel.*ACPI:.*COREBOOT""")
@@ -110,19 +120,19 @@ class WhisperbackReport:
         return filesystem == "iso9660"
 
     @property
+    def disk_size(self) -> int:
+        human_size = self.parts.lsblk["blockdevices"][0]["size"]
+        return parse_size(human_size, base=2)
+
+    @property
     def fat_part_size(self) -> int:
         """
         This returns the size, in bytes, of the FAT partition.
 
         This might be different (in case of errors) from the size of the filesystem.
         """
-        key = "/usr/local/sbin/tails-block-device-info"
         try:
-            data = json.loads(self.parts[key])
-        except json.JSONDecodeError as exc:
-            raise Unknown from exc
-        try:
-            human_size = data["blockdevices"][0]["children"][0]["size"]
+            human_size = self.parts.lsblk["blockdevices"][0]["children"][0]["size"]
         except KeyError as exc:
             # it's very odd, but happens, see wb:72e11dad9c9faf4d5a990800a3349dd
             raise Unknown from exc
