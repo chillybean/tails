@@ -71,6 +71,10 @@ class WhisperbackParts:
     def journal(self) -> str:
         return self["/bin/journalctl --catalog --no-pager"]
 
+    @property
+    def df(self) -> str:
+        return self["/bin/df --human-readable --print-type --exclude-type=fuse.portal"]
+
 
 class WhisperbackReport:
     coreboot_re = re.compile(r"""amnesia.*kernel.*ACPI:.*COREBOOT""")
@@ -93,17 +97,57 @@ class WhisperbackReport:
         return WhisperbackParts(parts)
 
     @property
-    def fat_size(self) -> int:
+    def is_iso(self) -> bool:
+        """
+        Returns true if this boot was from ISO
+        """
+        df: list[list[str]] = [
+            line.strip().split() for line in self.parts.df.split("\n") if line.strip()
+        ]
+        filesystem = next(
+            row[1] for row in df if row and row[-1].endswith("/lib/live/mount/medium")
+        )
+        return filesystem == "iso9660"
+
+    @property
+    def fat_part_size(self) -> int:
+        """
+        This returns the size, in bytes, of the FAT partition.
+
+        This might be different (in case of errors) from the size of the filesystem.
+        """
         key = "/usr/local/sbin/tails-block-device-info"
         try:
             data = json.loads(self.parts[key])
         except json.JSONDecodeError as exc:
             raise Unknown from exc
-        return parse_size(data["blockdevices"][0]["children"][0]["size"], base=2)
+        try:
+            human_size = data["blockdevices"][0]["children"][0]["size"]
+        except KeyError as exc:
+            # it's very odd, but happens, see wb:72e11dad9c9faf4d5a990800a3349dd
+            raise Unknown from exc
+        return parse_size(human_size, base=2)
+
+    @property
+    def fat_part_resized(self) -> bool:
+        return self.fat_part_size > 3 * 2**30
+
+    @property
+    def fat_size(self) -> int:
+        """This returns the size, in bytes, of the actual FAT filesystem"""
+        df: list[list[str]] = [
+            line.strip().split() for line in self.parts.df.split("\n") if line.strip()
+        ]
+        vfat_humansize = next(
+            row[2]
+            for row in df
+            if row and row[1] == "vfat" and row[-1].endswith("/lib/live/mount/medium")
+        )
+        return parse_size(vfat_humansize.replace(",", "."), base=2)
 
     @property
     def fat_resized(self) -> bool:
-        return self.fat_size > 3 * 2**30
+        return not self.is_iso and self.fat_size > 3 * 2**30
 
     @property
     def fsuuid(self) -> str:
