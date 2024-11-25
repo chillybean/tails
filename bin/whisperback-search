@@ -37,7 +37,7 @@ SIZE_UNITS = ["B", "KB", "MB", "GB", "TB"]
 
 
 def parse_size(size, base=10) -> int:
-    m = SIZE_RE.search(size.replace(',', '.'))
+    m = SIZE_RE.search(size.replace(",", "."))
     if m is None:
         raise ValueError
     number = float(m.group(1))
@@ -97,7 +97,6 @@ class WhisperbackParts:
         except json.JSONDecodeError as exc:
             raise Unknown from exc
         return ret
-
 
 
 class WhisperbackReport:
@@ -255,11 +254,9 @@ class WhisperbackReport:
         Returns the preamble, if it includes any user-supplied text. Else, an empty string
         """
         questions = [
-                (question, answer)
-                for question, answer in self.parts.questions
-                if answer
-                ]
-        return "\n".join(f"{q}: {a}\n\n" for q,a in questions)
+            (question, answer) for question, answer in self.parts.questions if answer
+        ]
+        return "\n".join(f"{q}: {a}\n\n" for q, a in questions)
 
 
 def parse_encrypted_part(part: "email.message.Message") -> str:
