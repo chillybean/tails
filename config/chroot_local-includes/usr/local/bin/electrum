@@ -131,10 +131,6 @@ def exec_electrum(*args):
 
 
 def should_show_donation_message() -> bool:
-    # Don't show the message if electrum is not persistent
-    if not electrum_config_is_persistent():
-        return False
-
     # Check the environment variable
     if os.environ.get("ELECTRUM_DONATION_MESSAGE") == "0":
         return False
