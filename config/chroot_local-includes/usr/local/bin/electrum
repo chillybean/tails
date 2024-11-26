@@ -51,7 +51,7 @@ class CampaignOption:
 
 class CampaignOptions:
     def __init__(self, *options: CampaignOption):
-        self.options = [opt for opt in options if opt.probability]
+        self.options = [opt for opt in options if opt.probability > 0]
         if sum(opt.probability for opt in self.options) != 100:  # noqa: PLR2004
             raise ValueError("probabilities must sum to 100")
 
