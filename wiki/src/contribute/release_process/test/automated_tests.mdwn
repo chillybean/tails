@@ -821,6 +821,20 @@ The Screen class and dogtail:
   simply hard to "navigate" to the right element in the hierarchy of
   elements of some GUI, due to ambiguity and/or lack of labels.
 
+* When dogtail is not available or not convenient, there are two more
+  tools: images and OCR.
+
+  * Images can be matched, with the most common method being
+    `@screen.wait` (there are actually more). This is very practical
+    to have, with the main disadvantages being that images needs to be
+    bumped over time:
+      1. language changes (and sometimes also localization changes)
+      2. rendering changes (typically when migrating to a new Debian suite)
+
+  * OCR can be matched using `@screen.wait_text`. This is more "greppable",
+    but it still has limitations: don't expect the OCR engine to be able
+    to follow text which is wrapped in a dialog, for example.
+
 The remote shell:
 
 * Useful for testing non-GUI state.
@@ -831,8 +845,7 @@ The remote shell:
 
 * It is acceptable (but not encouraged) to use the remote shell for
   simulating user terminal interaction when we need to analyze the
-  commands output. Ideally we would use OCR, but we lack support for
-  it at the moment, and it might be too unreliable in practice.
+  commands output.
 
 # Limitations and issues
 
