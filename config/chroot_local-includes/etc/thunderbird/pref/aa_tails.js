@@ -24,7 +24,13 @@ pref("mail.tabs.autoHide", true);
 // Try to disable "Would you like to help Thunderbird Mail/News by automatically reporting memory usage, performance, and responsiveness to Mozilla"
 pref("toolkit.telemetry.prompted", 2);
 pref("toolkit.telemetry.rejected", true);
+// toolkit.telemetry.enabled is deprecated, will be removed, and controls a diminishing number of things: https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/internals/preferences.html#preferences
 pref("toolkit.telemetry.enabled", false);
+
+// Actually disable telemetry altogether
+pref("toolkit.telemetry.unified", false);
+// Just to be on the safe side, we set the telemetry server to a non existent one:
+pref("toolkit.telemetry.server", "https://thereisnosuchserver.tails.net/");
 
 // Only allow SSL channels when fetching from the ISP.
 pref("mailnews.auto_config.fetchFromISP.sslOnly", true);
