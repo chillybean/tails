@@ -56,8 +56,7 @@ class CampaignOptions:
             raise ValueError("probabilities must sum to 100")
 
     def choose(self) -> CampaignOption:
-        rand = random.random()  # noqa: S311
-        num = int(round(100 * rand))
+        num = random.randint(1, 100)
         for opt in self.options:
             num -= opt.probability
             if num <= 0:
