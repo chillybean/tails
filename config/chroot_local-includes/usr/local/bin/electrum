@@ -20,7 +20,6 @@ import sys
 import subprocess
 import random
 from dataclasses import dataclass
-from pathlib import Path
 
 # Make electrum use the cursor size configured in GNOME
 # refs: #20206
@@ -33,7 +32,6 @@ translation = gettext.translation("tails", "/usr/share/locale", fallback=True)
 _ = translation.gettext
 
 HOME_DIR = os.environ["HOME"]
-CONF_DIR = Path(HOME_DIR, ".electrum")
 
 
 @dataclass
@@ -135,10 +133,6 @@ def exec_electrum(*args):
 def should_show_donation_message() -> bool:
     # Don't show the message if electrum is not persistent
     if not electrum_config_is_persistent():
-        return False
-
-    # Only show the message if the user has a wallet
-    if not any(Path(CONF_DIR, "wallets").iterdir()):
         return False
 
     # Check the environment variable
