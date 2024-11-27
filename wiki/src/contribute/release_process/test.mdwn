@@ -70,6 +70,17 @@ See:
  - [[test/setup]]
  - [[test/usage]]
 
+GitLab CI
+=========
+
+Verify that the latest [[!tails_gitlab desc="pipeline" tails/tails/-/pipelines]]
+for the branch this release is built from succeeded.
+
+Else, if it failed:
+
+1. report failures to the QA pad
+2. optionally: triage the failure (otherwise the RM will do that)
+
 Tor Browser
 ===========
 
