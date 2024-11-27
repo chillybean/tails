@@ -46,7 +46,6 @@ class CampaignOption:
         return f"{self.address}?label={self.label}"
 
 
-
 class CampaignOptions:
     def __init__(self, *options: CampaignOption):
         self.options = [opt for opt in options if opt.probability > 0]
@@ -54,7 +53,7 @@ class CampaignOptions:
             raise ValueError("probabilities must sum to 100")
 
     def choose(self) -> CampaignOption:
-        num = random.randint(1, 100)
+        num = random.randint(1, 100)  # noqa: S311
         for opt in self.options:
             num -= opt.probability
             if num <= 0:
