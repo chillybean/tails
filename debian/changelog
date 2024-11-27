@@ -1,8 +1,144 @@
 tails (6.10) UNRELEASED; urgency=medium
 
-  * Dummy entry for next release.
+  * Upgrade to Tor Browser 14.0.3 based on Firefox ESR 128.5 (tails/tails!1827)
 
- -- intrigeri <intrigeri@debian.org>  Thu, 31 Oct 2024 08:55:01 +0000
+    Closes issues:
+      - Upgrade to Tor Browser based on Firefox ESR 128.5 (tails/tails#20653)
+
+    Commits:
+      - Fetch Tor Browser from our own archive
+      - Upgrade Tor Browser to 14.0.3 (refs: tails#20653)
+
+  * Refresh Thunderbird patches (refs: tails#20449) (tails/tails!1796)
+
+    Closes issues:
+      - Upgrade to Thunderbird 128 (tails/tails#20449)
+
+    Commits:
+      - Suggest `gbp pq` to help refreshing the Thunderbird patches
+      - patch-thunderbird: shfmt
+      - Update instructions on how to refresh thunderbird patches
+      - Update Thunderbird patches from
+        tails/thunderbird@87c70df2f99105479dd1f3bc604c00fe67474df6
+      - Silence Thunderbird AppArmor profile further
+      - Point submodule to the version with torbrowser-launcher!9 merged
+      - Import relevant rules from Tor Browser AppArmor profile to Thunderbird's
+      - Test suite: adjust for Thunderbird 128 upgrade (refs: tails#20449)
+      - Tor Browser: enable the Wayland Proxy
+      - Thunderbird: enable the Wayland Proxy (refs: tails#20449)
+      - Drop upstreamed bits from Thunderbird AppArmor profile patch (refs:
+        tails#20449)
+      - Thunderbird: deny access to other processes' /proc/$PID
+      - Thunderbird: don't deny adjusting its own OOM score adjustment
+      - Refresh Thunderbird patches (refs: tails#20449)
+
+  * Revert to http://torbrowser-archive.tails.boum.org/ (tails/tails!1785)
+
+    Commits:
+      - Revert to http://torbrowser-archive.tails.boum.org/
+
+  * Tails 2024 fundraiser (tails/tails!1821)
+
+    Closes issues:
+      - Change Electrum incentive for donation campaign 2024 (tails/tails#20671)
+
+    Commits:
+      - Appease ruff
+      - Electrum wrapper: also show donation call when persistence is disabled
+      - Electrum wrapper: also show donation call to "first time users"
+      - Electrum wrapper: move word into link text
+      - Electrum wrapper: fix order of construction arguments
+      - Electrum wrapper: use our usual donation BTC address everywhere
+      - Electrum wrapper: improve readability
+      - Electrum wrapper: fix probability mistake
+      - Tails 2024 fundraiser
+      - refactor mechanism for multiple campaigns
+      - reformat
+
+  * Use torbrowser-archive.tails.net, take 2 (tails/tails!1820)
+
+    Commits:
+      - Revert "Revert to http://torbrowser-archive.tails.boum.org/"
+
+  * Fix support for Trezor hardware wallets in Electrum (tails/tails!1819)
+
+    Closes issues:
+      - Electrum does not support hardware wallet Trezor in Tails 6.0
+        (tails/tails#20138)
+
+    Commits:
+      - Fix support for Trezor hardware wallets in Electrum
+      - Enable bookworm-backports APT source
+
+  * Thunderbird: disable end-of-year donation banner (tails#20664)
+    (tails/tails!1811)
+
+    Closes issues:
+      - Thunderbird 128.4.3esr-1~deb12u1 update breaks many tests (tails/tails#20664)
+
+    Commits:
+      - Thunderbird: disable end-of-year donation banner (tails#20664)
+
+  * Upgrade to Debian Bookworm 12.8 (tails/tails!1809)
+
+    Closes issues:
+      - Upgrade to Bookworm 12.8 (tails/tails#20613)
+
+    Commits:
+      - Upgrade to Debian Bookworm 12.8 (refs: tails#20613)
+
+  * Remove leftovers of deprecated OpenPGP key for tails@boum.org
+    (tails/tails!1807)
+
+    Commits:
+      - Remove leftovers of deprecated OpenPGP key for tails@boum.org
+
+  * Disable Thunderbird archiving telemetry data locally (tails/tails!1803)
+
+    Closes issues:
+      - Thunderbird is saving telemetry data (tails/tails#20661)
+
+    Commits:
+      - also disabling archiving telemetry data
+
+  * systemd-oomd: avoid killing dbus.service (tails/tails!1792)
+
+    Closes issues:
+      - amnesia's dbus.service killed due to OOM when logging in (tails/tails#20631)
+
+    Commits:
+      - systemd-oomd: avoid killing dbus.service
+
+  * Ignore irrelevant firmware-nonfree upgrade candidate (tails/tails!1791)
+
+    Commits:
+      - Ignore irrelevant firmware-nonfree upgrade candidate
+
+  * Build system: bump RAM when more than 10 CPUs are used (tails/tails!1789)
+
+    Closes issues:
+      - Image build FTBFS on intrigeri's machine (tails/tails#20641)
+
+    Commits:
+      - Build system: bump RAM when more than 10 CPUs are used
+
+  * Test suite: wait for persistence to be fully activated instead of merely...
+    (tails/tails!1765)
+
+    Closes issues:
+      - Test suite: Dogtail fails to find Greeter due to it freezing while unlocking
+        Persistent Storage (tails/tails#20619)
+
+    Commits:
+      - Test suite: improve phrasing
+      - Test suite: speed up greeter_language()
+      - Test suite: fix race between restoring Welcome Screen options and calling
+        greeter_language() (refs: tails#20619)
+      - Test suite: wait for persistence to be fully activated instead of merely
+        unlocked (refs: tails#20619)
+      - Test suite: simplify
+
+ -- Tails developers <tails@boum.org>  Wed, 27 Nov 2024 09:28:41 +0000
 
 tails (6.9) unstable; urgency=medium
 
