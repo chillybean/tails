@@ -22,8 +22,8 @@ Tails:
 Web Browser
 -----------
 
-Until the Tor Browser implements clever fine-grained stream isolation
-([[!tor_bug 3455]]) it is merely directed to a dedicated SOCKS port.
+Tor Browser implements [fine-grained stream isolation](https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/3455) on its own. We configure it to use a dedicated SOCKS port
+with the options needed for that feature.
 
 Destination address/port -based circuit isolation
 -------------------------------------------------
