@@ -20,13 +20,12 @@ use Tails::Constants;
 use Tails::UDisks;
 use Try::Tiny;
 use Types::Path::Tiny qw{AbsDir AbsFile AbsPath};
-use Types::Standard qw(Str);
+use Types::Standard qw(InstanceOf Int Str);
 
 use Locale::TextDomain 'tails';
 
 no Moo::sification;
 use Moo;
-use MooX::late;
 
 with 'Tails::Role::HasEncoding';
 with 'Tails::Role::DisplayError::Gtk3';
@@ -39,15 +38,13 @@ use namespace::clean;
 =cut
 
 has 'upgrade_description_url_schema_version' => (
-    lazy_build => 1,
-    is         => 'ro',
-    isa        => 'Int',
+    is         => 'lazy',
+    isa        => Int,
 );
 
 has "$_" => (
-    lazy_build => 1,
-    is         => 'ro',
-    isa        => 'Str',
+    is         => 'lazy',
+    isa        => Str,
 ) for (
         qw{baseurl product_name initial_install_version product_version},
         qw{build_target channel},
@@ -57,27 +54,23 @@ has "$_" => (
 has initial_install_os_release_file => (
     isa        => AbsFile,
     coerce     => AbsFile->coercion,
-    is         => 'ro',
-    lazy_build => 1,
+    is         => 'lazy',
 );
 
 has os_release_file => (
     isa        => AbsFile,
     coerce     => AbsFile->coercion,
-    is         => 'ro',
-    lazy_build => 1,
+    is         => 'lazy',
 );
 
 has "$_" => (
     isa        => AbsDir,
-    is         => 'ro',
-    lazy_build => 1,
+    is         => 'lazy',
 ) for (qw{dev_dir proc_dir run_dir});
 
 has 'udisks' => (
-    lazy_build => 1,
-    is         => 'ro',
-    isa        => 'Tails::UDisks',
+    is         => 'lazy',
+    isa        => InstanceOf['Tails::UDisks'],
     handles    => [ qw{bytes_array_to_string device_installed_with_tails_installer
                        get_block_device_property get_drive_property
                        get_partition_property
@@ -86,67 +79,60 @@ has 'udisks' => (
 
 has 'liveos_mountpoint' => (
     isa        => AbsDir,
-    is         => 'rw',
-    lazy_build => 1,
+    is         => 'lazy',
     coerce     => AbsDir->coercion,
     documentation => q{Mountpoint of the Tails system image.},
 );
 
 has 'boot_drive' => (
-    lazy_build    => 1,
-    is            => 'rw',
-    isa           => 'Str',
+    is            => 'lazy',
+    isa           => Str,
     documentation => q{The UDI of the physical drive where Tails is installed, e.g. /org/freedesktop/UDisks2/drives/Verbatim_ABC_2786.},
 );
 
 has 'boot_block_device' => (
-    lazy_build    => 1,
-    is            => 'rw',
-    isa           => 'Str',
+    is            => 'lazy',
+    isa           => Str,
     documentation => q{The UDI of the block device where Tails is installed, e.g. /org/freedesktop/UDisks2/block_devices/sdb.}
 );
 
 has 'boot_device_file' => (
-    lazy_build    => 1,
-    is            => 'rw',
+    is            => 'lazy',
     isa           => AbsPath,
     coerce        => AbsPath->coercion,
     documentation => q{The path of the physical drive where Tails is installed, e.g. /dev/sdb.},
 );
 
 has 'system_partition' => (
-    lazy_build    => 1,
-    is            => 'rw',
-    isa           => 'Str',
+    is            => 'lazy',
+    isa           => Str,
     documentation => q{The UDI of the partition where Tails is installed, e.g. /org/freedesktop/UDisks2/block_devices/sdb1.},
 );
 
 has 'system_partition_file' => (
-    lazy_build    => 1,
-    is            => 'rw',
+    is            => 'lazy',
     isa           => AbsPath,
     coerce        => AbsPath->coercion,
     documentation => q{The path of the partition where Tails is installed, e.g. /dev/sdb1.},
 );
 
 has 'constants' => (
-    lazy_build => 1,
-    is         => 'ro',
-    isa        => 'Tails::Constants',
+    is         => 'lazy',
+    isa        => InstanceOf['Tails::Constants'],
     handles    => [ qw{system_partition_label}],
 );
 
 has 'main_window' => (
     is  => 'ro',
-    isa => 'Gtk3::Window',
+    isa => InstanceOf['Gtk3::Window'],
 );
 
 foreach (qw{boot_drive_vendor boot_drive_model
             override_started_from_device_installed_with_tails_installer}) {
     has $_ => (
-        lazy_build => 1,
-        is         => 'ro',
-        isa        => 'Str',
+        is         => 'lazy',
+        isa        => Str,
+        predicate  => 1,
     );
 }
 

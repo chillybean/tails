@@ -8,9 +8,10 @@ usage() {
     echo "  Check the entire codebase:"
     echo "   $0"
     echo "  Check Python files changed since REF"
-    echo "   $0 REF"
+    echo "   $0 REF [CMD]"
     echo "  Pass additional options to ruff:"
-    echo "   $0 REF --output-format=junit"
+    echo "   $0 REF [CMD] --output-format=junit"
+    echo "CMD is optional, and can be check,format,fix (default: check)"
 }
 
 conf="$(dirname "$0")/ruff.toml"
@@ -28,10 +29,13 @@ REF="$(git rev-parse "$1")"
 shift 1
 
 if [ "${1:-}" = "check" ] || [ "${1:-}" = "format" ]; then
-    RUFF_CMD="$1"
+    RUFF_CMD=("$1")
+    shift 1
+elif [ "${1:-}" = "fix" ]; then
+    RUFF_CMD=("check" "--fix")
     shift 1
 else
-    RUFF_CMD="check"
+    RUFF_CMD=("check")
 fi
 
 changed_files=$(git diff --name-only "${REF}"...)
@@ -59,4 +63,4 @@ if [ -z "${files_to_check}" ]; then
     exit 0
 fi
 
-echo "${files_to_check}" | xargs -d '\n' ruff "$RUFF_CMD" "--config=$conf" "$@"
+echo "${files_to_check}" | xargs -d '\n' ruff "${RUFF_CMD[@]}" "--config=$conf" "$@"

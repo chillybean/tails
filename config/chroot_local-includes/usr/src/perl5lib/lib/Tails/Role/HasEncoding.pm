@@ -25,14 +25,15 @@ use Function::Parameters;
 
 no Moo::sification;
 use Moo::Role; # Moo::Role exports all methods declared after it's "use"'d
-use MooX::late;
 
 use namespace::clean;
 
 has 'encoding' => (
-    isa        => 'Encode::Encoding|Encode::XS',
-    is         => 'ro',
-    lazy_build => 1,
+    isa => sub {
+        die "incorrect encoding type" unless
+            ($_[0]->isa('Encode::Encoding') or $_[0]->isa('Encode::XS'))
+    },
+    is  => 'lazy',
 );
 
 method _build_encoding () {

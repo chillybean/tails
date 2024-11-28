@@ -69,7 +69,7 @@ build-website:
         --atom \
         --set exclude='^misc\/.*|\.(ar|fa|id|pl|sr_Latn|tr|zh|zh_TW)\.po$' \
         --include '^contribute\/how\/promote\/material\/.*' \
-        --set-yaml add_underlays="['${UNDERLAYS_DIR}/etcher-binary','${UNDERLAYS_DIR}/promotion-material']"
+        --set-yaml add_underlays="['${UNDERLAYS_DIR}/etcher-binary','${UNDERLAYS_DIR}/promotion-material','${CI_PROJECT_DIR}/wiki/src/.well-known']"
 
 deploy-website:
   needs: [build-website, lint-po, check-website-core-pages, check-po-msgfmt, check-po-meta-date, check-translatable-live-website-urls]

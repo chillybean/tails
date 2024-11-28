@@ -15,7 +15,6 @@ use Number::Format;
 use Types::Standard qw(InstanceOf Num);
 
 use Moo::Role;
-use MooX::late;
 
 use Locale::TextDomain 'tails';
 
