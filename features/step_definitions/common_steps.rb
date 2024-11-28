@@ -1557,6 +1557,10 @@ When /^I pause( and then reload step definitions)?$/ do |reload|
   step 'I reload step definitions' if reload
 end
 
+When /^I apply changes$/ do
+  $vm.late_patch
+end
+
 # Useful for debugging Tails features: let's say you want to fix a bug
 # exposed by $SCENARIO, and is working on a fix in $FILE locally. To
 # immediately test your fix, simply inject this step into $SCENARIO,
