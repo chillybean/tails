@@ -639,6 +639,17 @@ class VM
     end
   end
 
+  def patch_l10n
+    tempfile = "#{$config['TMPDIR']}/patch.mo"
+    Dir['po/*.po'].each do |po|
+      language = File.basename(po, '.po')
+      system('msgfmt', '--check', '-o', tempfile, po)
+      vm_mo = "/usr/share/locale/#{language}/LC_MESSAGES/tails.mo"
+      $vm.file_copy_local(tempfile, vm_mo)
+      File.unlink(tempfile)
+    end
+  end
+
   # rubocop:disable Metrics/AbcSize
   # rubocop:disable Metrics/CyclomaticComplexity
   # rubocop:disable Metrics/MethodLength
@@ -700,11 +711,14 @@ class VM
         debug_log("Error in --late-patch: #{src} not a file or a dir")
       end
     end
+
+    patch_l10n
   end
   # rubocop:enable Metrics/AbcSize
   # rubocop:enable Metrics/MethodLength
   # rubocop:enable Metrics/PerceivedComplexity
   # rubocop:enable Metrics/CyclomaticComplexity
+
 
   def file_append(path, lines)
     lines = lines.join("\n") if lines.instance_of?(Array)
