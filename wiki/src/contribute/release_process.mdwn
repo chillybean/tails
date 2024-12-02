@@ -267,6 +267,9 @@ may be worth delaying a Tails release a bit, while waiting for a DSA to happen.
 Sanity check
 ============
 
+Jenkins
+-------
+
 Visit the [Jenkins RM view](https://jenkins.tails.boum.org/view/RM/)
 and check that the jobs for the release branch have good enough results:
 
@@ -285,6 +288,12 @@ and check that the jobs for the release branch have good enough results:
    If it does not pass, evaluate whether the problems fixed in the missing
    package update are worth delaying the release. If not, create an issue
    to track them.
+
+GitLab CI
+---------
+
+Verify that the latest [[!tails_gitlab desc="pipeline" tails/tails/-/pipelines]]
+for the branch this release will be built from succeeded.
 
 Freeze
 ======
