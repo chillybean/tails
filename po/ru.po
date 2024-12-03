@@ -46,9 +46,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-07 09:59+0200\n"
-"PO-Revision-Date: 2024-10-23 15:16+0000\n"
-"Last-Translator: xXx <xxx_xxx_xxxxxxxxx@mail.ru>\n"
+"POT-Creation-Date: 2024-11-28 11:34+0100\n"
+"PO-Revision-Date: 2024-11-06 21:04+0000\n"
+"Last-Translator: Kasey Ryder <Monoxide699@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/tor/tails-gui/ru/"
 ">\n"
 "Language: ru\n"
@@ -58,7 +58,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
-"X-Generator: Weblate 5.8.2-dev\n"
+"X-Generator: Weblate 5.8.2\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -258,60 +258,43 @@ msgstr ""
 msgid "_Create persistent storage"
 msgstr "_Создать постоянное хранилище"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:102
+#: config/chroot_local-includes/usr/local/bin/electrum:69
+#, python-brace-format
 msgid ""
-"Tails needs donations to keep everybody free and safe online.\n"
+"<b>Shape the future of Tails, today.</b>\n"
 "\n"
-"Every bit helps in our fight against surveillance and censorship!\n"
-"\n"
-"<a href=\"file:///usr/share/doc/tails/website/donate.en.html#expenses\">How "
-"we spend our money.</a>"
+"Contribute to <a href=\"{url}\">our ongoing fundraiser</a>!"
 msgstr ""
-"Tails нужна ваша помощь, чтобы все могли пользоваться Интернетом безопасно и "
-"свободно.\n"
-"\n"
-"Каждая копейка помогает в борьбе против слежки и цензуры!\n"
-"\n"
-"<a href=\"file:///usr/share/doc/tails/website/donate.en.html#expenses\">Как "
-"мы распределяем наши доходы.</a>"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:109
+#: config/chroot_local-includes/usr/local/bin/electrum:78
+#, python-brace-format
 msgid ""
-"Tails protects your wallet.\n"
+"<b>Your donations help us innovate and stay independent.</b>\n"
 "\n"
-"Help us keep your bitcoins safe!\n"
-"\n"
-"<a href=\"file:///usr/share/doc/tails/website/donate.en.html#expenses\">How "
-"we spend our money.</a>"
+"Support <a href=\"{url}\">our ongoing fundraiser</a>!"
 msgstr ""
-"Tails защищает ваш кошелёк.\n"
-"\n"
-"Помогите нам в защите ваших биткойнов!\n"
-"\n"
-"<a href=\"file:///usr/share/doc/tails/website/donate.en.html#expenses\">Как "
-"мы распределяем наши доходы.</a>"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:120
+#: config/chroot_local-includes/usr/local/bin/electrum:157
 msgid "Donate Now"
 msgstr "Пожертвуйте сейчас"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:121
+#: config/chroot_local-includes/usr/local/bin/electrum:159
 msgid "Later"
 msgstr "Позже"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:132
+#: config/chroot_local-includes/usr/local/bin/electrum:174
 msgid "Opening Electrum with our donation address..."
 msgstr "Открываем Electrum с нашим адресом для пожертвований…"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:133
+#: config/chroot_local-includes/usr/local/bin/electrum:175
 msgid "Thank you for making the Internet a safer place!"
 msgstr "Спасибо, что сделали Интернет безопаснее!"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:166
+#: config/chroot_local-includes/usr/local/bin/electrum:209
 msgid "Persistence is disabled for Electrum"
 msgstr "Постоянное хранилище для Electrum отключено"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:168
+#: config/chroot_local-includes/usr/local/bin/electrum:211
 msgid ""
 "When you reboot Tails, all of Electrum's data will be lost, including your "
 "Bitcoin wallet.\n"
@@ -323,15 +306,15 @@ msgstr ""
 "Настоятельно рекомендуется запускать Electrum, лишь включив функцию его "
 "сохранения в Постоянном хранилище."
 
-#: config/chroot_local-includes/usr/local/bin/electrum:169
+#: config/chroot_local-includes/usr/local/bin/electrum:213
 msgid "Do you want to start Electrum anyway?"
 msgstr "Всё равно хотите запустить Electrum?"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:172
+#: config/chroot_local-includes/usr/local/bin/electrum:217
 msgid "_Launch"
 msgstr "_Запустить"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:173
+#: config/chroot_local-includes/usr/local/bin/electrum:218
 msgid "_Exit"
 msgstr "_Выйти"
 
@@ -426,8 +409,8 @@ msgid "bytes"
 msgstr "байт"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:197
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:712
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:865
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:716
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:869
 msgid ""
 "For debugging information, execute the following command: sudo tails-"
 "debugging-info"
@@ -627,7 +610,7 @@ msgstr "Идёт загрузка обновления"
 msgid "Downloading the upgrade to {name} {version}..."
 msgstr "Загрузка обновления {name} {version}..."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:705
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:709
 msgid ""
 "<b>The upgrade could not be downloaded.</b>\\n\\nCheck your network "
 "connection, and restart Tails to try upgrading again.\\n\\nIf the problem "
@@ -639,12 +622,12 @@ msgstr ""
 "сохранится, смотрите file:///usr/share/doc/tails/website/doc/upgrade/error/"
 "download.en.html"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:716
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:731
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:720
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:735
 msgid "Error while downloading the upgrade"
 msgstr "Ошибка загрузки обновления"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:726
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:730
 #, perl-brace-format
 msgid ""
 "Output file '{output_file}' does not exist, but tails-iuk-get-target-file "
@@ -653,15 +636,15 @@ msgstr ""
 "Выходного файла '{output_file}' не существует, но tails-iuk-get-target-file "
 "не сообщил о проблеме. Пожалуйста, сообщите об ошибке."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:742
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:746
 msgid "Error while creating temporary downloading directory"
 msgstr "Ошибка создания временной папки для загрузки"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:745
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:749
 msgid "Failed to create temporary download directory"
 msgstr "Создать временную папку для загрузки не удалось"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:757
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:761
 msgid ""
 "The upgrade was successfully downloaded.\n"
 "\n"
@@ -675,15 +658,15 @@ msgstr ""
 "\n"
 "Пожалуйста, сохраните свою работу и закройте все другие приложения."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:762
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:766
 msgid "Upgrade successfully downloaded"
 msgstr "Обновление успешно загружено"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:763
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:767
 msgid "Apply upgrade"
 msgstr "Применить обновление"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:770
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:774
 msgid ""
 "<b>Your Tails device was successfully upgraded.</b>\n"
 "\n"
@@ -699,47 +682,47 @@ msgstr ""
 "\n"
 "Хотите перезапустить сейчас?"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:775
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:779
 msgid "Restart Tails"
 msgstr "Перезапустить Tails"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:776
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:780
 msgid "Restart now"
 msgstr "Перезапустить сейчас"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:777
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:781
 msgid "Restart later"
 msgstr "Перезапустить позднее"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:788
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:792
 msgid "Error while restarting the system"
 msgstr "Ошибка при перезапуске системы"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:789
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:793
 msgid "Failed to restart the system"
 msgstr "Не удалось перезапустить систему"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:802
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:806
 msgid "Error while shutting down the network"
 msgstr "Ошибка при отключении сети"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:803
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:807
 msgid "Failed to shutdown network"
 msgstr "Не удалось отключить сеть"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:813
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:817
 msgid "Error while cancelling the upgrade download"
 msgstr "Ошибка отмены загрузки обновления"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:814
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:818
 msgid "Failed to cancel the upgrade download"
 msgstr "Не удалось отменить загрузку обновления"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:820
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:824
 msgid "Upgrading the system"
 msgstr "Идет обновление системы"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:822
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:826
 msgid ""
 "<b>Your Tails device is being upgraded...</b>\n"
 "\n"
@@ -749,7 +732,7 @@ msgstr ""
 "\n"
 "В целях безопасности сетевое соединение сейчас отключено."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:859
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:863
 msgid ""
 "<b>An error occured while installing the upgrade.</b>\\n\\nYour Tails device "
 "needs to be repaired and might be unable to restart.\\n\\nPlease follow the "
@@ -761,7 +744,7 @@ msgstr ""
 "вновь.\\n\\nПожалуйста, следуйте инструкциям по ссылке file:///usr/share/doc/"
 "tails/website/doc/upgrade/error/install.en.html"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:869
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:873
 msgid "Error while installing the upgrade"
 msgstr "Ошибка установки обновления"
 
@@ -947,7 +930,6 @@ msgid "File System Errors"
 msgstr "Ошибки файловой системы"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:799
-#, fuzzy
 msgid ""
 "Errors were detected in the file system of your Persistent Storage.\n"
 "                \n"
@@ -968,24 +950,23 @@ msgstr ""
 "Если у вас уже есть свежая резервная копия постоянного хранилища, мы "
 "рекомендуем попробовать восстановление.\n"
 "                \n"
-"Если у вас нет резервной копии, мы рекомендуем сначала сделать ее."
+"Если у вас нет резервной копии, мы рекомендуем сначала сделать образ раздела "
+"постоянного хранилища."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:808
 msgid "Repair File System"
 msgstr "Восстановить файловую систему"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:809
-#, fuzzy
 msgid "Create Partition Image"
-msgstr "Создать постоянное хранилище"
+msgstr "Создать образ раздела"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:820
-#, fuzzy
 msgid ""
 "Start Tails to learn how to create a partition image of your Persistent "
 "Storage."
 msgstr ""
-"Запустите Tails, чтобы узнать, как создать резервную копию постоянного "
+"Запустите Tails, чтобы узнать, как создать образ раздела постоянного "
 "хранилища."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:829
@@ -1843,28 +1824,23 @@ msgid "All Networking Disabled"
 msgstr "Все сетевые сервисы отключены"
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:89
-#, fuzzy, sh-format
+#, sh-format
 msgid ""
 "MAC address anonymization failed for one of your network interfaces. The "
 "error recovery also failed, so all networking is disabled."
 msgstr ""
 "Анонимизация MAC-адреса для одного из сетевых интерфейсов не удалась. "
 "Восстановление после ошибки также не удалось, поэтому все сетевые соединения "
-"отключены.\n"
-"\n"
-"Вы можете перезапустить Tails и отключить анонимизацию MAC-адресов."
+"отключены."
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:92
-#, fuzzy, sh-format
+#, sh-format
 msgid ""
 "MAC address anonymization failed for your network interface. The error "
 "recovery also failed, so all networking is disabled."
 msgstr ""
-"Анонимизация MAC-адреса для одного из сетевых интерфейсов не удалась. "
-"Восстановление после ошибки также не удалось, поэтому все сетевые соединения "
-"отключены.\n"
-"\n"
-"Вы можете перезапустить Tails и отключить анонимизацию MAC-адресов."
+"Анонимизация MAC-адреса сетевого интерфейса не удалась. Восстановление после "
+"ошибки также не удалось, поэтому все сетевые соединения отключены."
 
 #: config/chroot_local-includes/usr/local/bin/tails-upgrade-frontend-wrapper:36
 #, python-brace-format
@@ -2726,9 +2702,8 @@ msgid "Unable to connect to the server."
 msgstr "Невозможно соединиться с сервером."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:222
-#, fuzzy
 msgid "Tor is not ready yet"
-msgstr "Tor не готов"
+msgstr "Tor еще не готов"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:224
 msgid "Unable to create or to send the mail."
@@ -2740,6 +2715,9 @@ msgid ""
 "\n"
 "Make sure that you are connected to Tor and click send again."
 msgstr ""
+"\n"
+"\n"
+"Убедитесь, что вы подключены к Tor, и снова нажмите «Отправить»."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:239
 msgid "Your message has been sent."
@@ -4060,6 +4038,37 @@ msgstr "Декабрь"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "Часы"
+
+#~ msgid ""
+#~ "Tails needs donations to keep everybody free and safe online.\n"
+#~ "\n"
+#~ "Every bit helps in our fight against surveillance and censorship!\n"
+#~ "\n"
+#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
+#~ "html#expenses\">How we spend our money.</a>"
+#~ msgstr ""
+#~ "Tails нужна ваша помощь, чтобы все могли пользоваться Интернетом "
+#~ "безопасно и свободно.\n"
+#~ "\n"
+#~ "Каждая копейка помогает в борьбе против слежки и цензуры!\n"
+#~ "\n"
+#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
+#~ "html#expenses\">Как мы распределяем наши доходы.</a>"
+
+#~ msgid ""
+#~ "Tails protects your wallet.\n"
+#~ "\n"
+#~ "Help us keep your bitcoins safe!\n"
+#~ "\n"
+#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
+#~ "html#expenses\">How we spend our money.</a>"
+#~ msgstr ""
+#~ "Tails защищает ваш кошелёк.\n"
+#~ "\n"
+#~ "Помогите нам в защите ваших биткойнов!\n"
+#~ "\n"
+#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
+#~ "html#expenses\">Как мы распределяем наши доходы.</a>"
 
 #~ msgid "Create Backup"
 #~ msgstr "Создать резервную копию"

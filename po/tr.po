@@ -34,7 +34,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-07 09:59+0200\n"
+"POT-Creation-Date: 2024-11-28 11:34+0100\n"
 "PO-Revision-Date: 2024-10-23 15:16+0000\n"
 "Last-Translator: Oğuz Ersen <oguz@ersen.moe>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/tor/tails-gui/tr/"
@@ -241,61 +241,43 @@ msgstr ""
 msgid "_Create persistent storage"
 msgstr "_Kalıcı depolama birimi oluştur"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:102
+#: config/chroot_local-includes/usr/local/bin/electrum:69
+#, python-brace-format
 msgid ""
-"Tails needs donations to keep everybody free and safe online.\n"
+"<b>Shape the future of Tails, today.</b>\n"
 "\n"
-"Every bit helps in our fight against surveillance and censorship!\n"
-"\n"
-"<a href=\"file:///usr/share/doc/tails/website/donate.en.html#expenses\">How "
-"we spend our money.</a>"
+"Contribute to <a href=\"{url}\">our ongoing fundraiser</a>!"
 msgstr ""
-"Tails herkesin özgürlüğünü ve çevrim içi güvenliğini korumak için bağışlara "
-"gerek duyuyor.\n"
-"\n"
-"En küçük katkıların bile izlenme ve sansüre karşı mücadelemizde yardımı "
-"olur!\n"
-"\n"
-"<a href=\"file:///usr/share/doc/tails/website/donate.en."
-"html#expenses\">Paramızı nasıl harcıyoruz.</a>"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:109
+#: config/chroot_local-includes/usr/local/bin/electrum:78
+#, python-brace-format
 msgid ""
-"Tails protects your wallet.\n"
+"<b>Your donations help us innovate and stay independent.</b>\n"
 "\n"
-"Help us keep your bitcoins safe!\n"
-"\n"
-"<a href=\"file:///usr/share/doc/tails/website/donate.en.html#expenses\">How "
-"we spend our money.</a>"
+"Support <a href=\"{url}\">our ongoing fundraiser</a>!"
 msgstr ""
-"Tails cüzdanınızı korur.\n"
-"\n"
-"Bitcoinlerinizi güvende tutmamıza yardımcı olun!\n"
-"\n"
-"<a href=\"file:///usr/share/doc/tails/website/donate.en."
-"html#expenses\">Paramızı nasıl harcıyoruz.</a>"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:120
+#: config/chroot_local-includes/usr/local/bin/electrum:157
 msgid "Donate Now"
 msgstr "Bağış yapın"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:121
+#: config/chroot_local-includes/usr/local/bin/electrum:159
 msgid "Later"
 msgstr "Daha sonra"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:132
+#: config/chroot_local-includes/usr/local/bin/electrum:174
 msgid "Opening Electrum with our donation address..."
 msgstr "Electrum bağış adresimiz ile açılıyor..."
 
-#: config/chroot_local-includes/usr/local/bin/electrum:133
+#: config/chroot_local-includes/usr/local/bin/electrum:175
 msgid "Thank you for making the Internet a safer place!"
 msgstr "İnterneti daha güvenli bir yer yaptığınız için teşekkürler!"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:166
+#: config/chroot_local-includes/usr/local/bin/electrum:209
 msgid "Persistence is disabled for Electrum"
 msgstr "Electrum için kalıcılık devre dışı bırakıldı"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:168
+#: config/chroot_local-includes/usr/local/bin/electrum:211
 msgid ""
 "When you reboot Tails, all of Electrum's data will be lost, including your "
 "Bitcoin wallet.\n"
@@ -307,15 +289,15 @@ msgstr ""
 "Electrum uygulamasının yalnızca kalıcılık özelliği etkin iken çalıştırılması "
 "önerilir."
 
-#: config/chroot_local-includes/usr/local/bin/electrum:169
+#: config/chroot_local-includes/usr/local/bin/electrum:213
 msgid "Do you want to start Electrum anyway?"
 msgstr "Electrum yine de başlatılsın mı?"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:172
+#: config/chroot_local-includes/usr/local/bin/electrum:217
 msgid "_Launch"
 msgstr "_Başlat"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:173
+#: config/chroot_local-includes/usr/local/bin/electrum:218
 msgid "_Exit"
 msgstr "Çı_kış"
 
@@ -400,8 +382,8 @@ msgid "bytes"
 msgstr "bayt"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:197
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:712
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:865
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:716
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:869
 msgid ""
 "For debugging information, execute the following command: sudo tails-"
 "debugging-info"
@@ -599,7 +581,7 @@ msgstr "Güncelleme indiriliyor"
 msgid "Downloading the upgrade to {name} {version}..."
 msgstr "{name} {version} güncellemesi indiriliyor..."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:705
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:709
 msgid ""
 "<b>The upgrade could not be downloaded.</b>\\n\\nCheck your network "
 "connection, and restart Tails to try upgrading again.\\n\\nIf the problem "
@@ -611,12 +593,12 @@ msgstr ""
 "sürüyorsa, file:///usr/share/doc/tails/website/doc/upgrade/error/download.en."
 "html adresine bakabilirsiniz."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:716
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:731
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:720
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:735
 msgid "Error while downloading the upgrade"
 msgstr "Güncelleme indirilirken sorun çıktı"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:726
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:730
 #, perl-brace-format
 msgid ""
 "Output file '{output_file}' does not exist, but tails-iuk-get-target-file "
@@ -625,15 +607,15 @@ msgstr ""
 "'{output_file}' çıktı dosyası bulunamadı ancak tails-iuk-get-target-file "
 "bunu bir sorun olarak bildirmedi. Lütfen bu hatayı bildirin."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:742
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:746
 msgid "Error while creating temporary downloading directory"
 msgstr "Geçiçi indirme klasörü oluşturulurken sorun çıktı"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:745
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:749
 msgid "Failed to create temporary download directory"
 msgstr "Geçici indirme klasörü oluşturulamadı"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:757
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:761
 msgid ""
 "The upgrade was successfully downloaded.\n"
 "\n"
@@ -647,15 +629,15 @@ msgstr ""
 "\n"
 "Lütfen çalışmalarınızı kaydedip açık olan tüm uygulamaları kapatın."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:762
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:766
 msgid "Upgrade successfully downloaded"
 msgstr "Güncelleme indirildi"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:763
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:767
 msgid "Apply upgrade"
 msgstr "Güncellemeyi uygula"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:770
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:774
 msgid ""
 "<b>Your Tails device was successfully upgraded.</b>\n"
 "\n"
@@ -671,47 +653,47 @@ msgstr ""
 "\n"
 "Şimdi yeniden başlatmak ister misiniz?"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:775
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:779
 msgid "Restart Tails"
 msgstr "Tails sistemini yeniden başlat"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:776
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:780
 msgid "Restart now"
 msgstr "Şimdi yeniden başlat"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:777
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:781
 msgid "Restart later"
 msgstr "Daha sonra yeniden başlat"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:788
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:792
 msgid "Error while restarting the system"
 msgstr "Sistem yeniden başlatılırken sorun çıktı"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:789
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:793
 msgid "Failed to restart the system"
 msgstr "Sistem yeniden başlatılamadı"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:802
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:806
 msgid "Error while shutting down the network"
 msgstr "Ağ kapatılırken sorun çıktı"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:803
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:807
 msgid "Failed to shutdown network"
 msgstr "Ağ kapatılamadı"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:813
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:817
 msgid "Error while cancelling the upgrade download"
 msgstr "Güncellemenin indirilmesi iptal edilirken sorun çıktı"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:814
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:818
 msgid "Failed to cancel the upgrade download"
 msgstr "Güncellemenin indirilmesi iptal edilemedi"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:820
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:824
 msgid "Upgrading the system"
 msgstr "Sistem güncelleniyor"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:822
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:826
 msgid ""
 "<b>Your Tails device is being upgraded...</b>\n"
 "\n"
@@ -721,7 +703,7 @@ msgstr ""
 "\n"
 "Güvenlik nedeniyle ağ bağlantısı devre dışı bırakıldı."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:859
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:863
 msgid ""
 "<b>An error occured while installing the upgrade.</b>\\n\\nYour Tails device "
 "needs to be repaired and might be unable to restart.\\n\\nPlease follow the "
@@ -733,7 +715,7 @@ msgstr ""
 "share/doc/tails/website/doc/upgrade/error/install.en.html adresindeki "
 "yönergeleri izleyin."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:869
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:873
 msgid "Error while installing the upgrade"
 msgstr "Güncelleme kurulurken sorun çıktı"
 
@@ -4026,6 +4008,38 @@ msgstr "Aralık"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "Saat"
+
+#~ msgid ""
+#~ "Tails needs donations to keep everybody free and safe online.\n"
+#~ "\n"
+#~ "Every bit helps in our fight against surveillance and censorship!\n"
+#~ "\n"
+#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
+#~ "html#expenses\">How we spend our money.</a>"
+#~ msgstr ""
+#~ "Tails herkesin özgürlüğünü ve çevrim içi güvenliğini korumak için "
+#~ "bağışlara gerek duyuyor.\n"
+#~ "\n"
+#~ "En küçük katkıların bile izlenme ve sansüre karşı mücadelemizde yardımı "
+#~ "olur!\n"
+#~ "\n"
+#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
+#~ "html#expenses\">Paramızı nasıl harcıyoruz.</a>"
+
+#~ msgid ""
+#~ "Tails protects your wallet.\n"
+#~ "\n"
+#~ "Help us keep your bitcoins safe!\n"
+#~ "\n"
+#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
+#~ "html#expenses\">How we spend our money.</a>"
+#~ msgstr ""
+#~ "Tails cüzdanınızı korur.\n"
+#~ "\n"
+#~ "Bitcoinlerinizi güvende tutmamıza yardımcı olun!\n"
+#~ "\n"
+#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
+#~ "html#expenses\">Paramızı nasıl harcıyoruz.</a>"
 
 #~ msgid "Create Backup"
 #~ msgstr "Yedek oluştur"
