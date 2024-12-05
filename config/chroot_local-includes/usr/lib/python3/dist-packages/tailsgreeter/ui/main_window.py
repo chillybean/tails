@@ -190,6 +190,7 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
 
         self.box_storage = builder.get_object("box_storage")
         self.box_storagecreate = builder.get_object("box_storagecreate")
+        self.create_tps_switch = builder.get_object("create_tps_switch")
         self.box_storage_unlock = builder.get_object("box_storage_unlock")
         self.box_storage_unlock_status = builder.get_object("box_storage_unlock_status")
         self.label_storage_unlock_status = builder.get_object(
@@ -256,7 +257,9 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
             if os.path.isfile(partition_error_flag_file):
                 with open(partition_error_flag_file) as f:
                     error_reason = f.read().strip()
-                    if error_reason != "partitioning-corruption":
+                    if error_reason == "partitioning-corruption":
+                        self.create_tps_switch.set_sensitive(False)
+                    else:
                         self.button_start.set_sensitive(False)
                         self.box_storagecreate.set_visible(False)
                         self.box_settings.set_visible(False)
