@@ -200,6 +200,7 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
         )
 
         self.box_storage_error = builder.get_object("box_storage_error")
+        self.box_partition_errors = builder.get_object("box_partition_errors")
         self.button_storage_unlock = builder.get_object("button_storage_unlock")  # type: Gtk.Button
         self.checkbutton_storage_show_passphrase = builder.get_object(
             "checkbutton_storage_show_passphrase"
@@ -248,6 +249,18 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
                 )
                 self.linkbutton_storage_readonly_help.set_visible(True)
             self.box_storage_error.set_visible(not can_unlock)
+        else:
+            partition_error_flag_file = (
+                "/var/lib/live/config/tails.disk-partitioning-errors"
+            )
+            if os.path.isfile(partition_error_flag_file):
+                with open(partition_error_flag_file) as f:
+                    error_reason = f.read().strip()
+                    if error_reason != "partitioning-corruption":
+                        self.button_start.set_sensitive(False)
+                        self.box_storagecreate.set_visible(False)
+                        self.box_settings.set_visible(False)
+                        self.box_partition_errors.set_visible(True)
 
     # Utility methods
 
