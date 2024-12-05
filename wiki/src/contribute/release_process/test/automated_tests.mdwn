@@ -805,20 +805,18 @@ In systemd the remote shell is defined as notify type, that means the remote
 shell can tell systemd, when it is ready. So we just need to make sure that the
 remote shell is needed to be started before another service.
 
-How to achieve that?
+How do you achieve that?
 
-In the service file of the remote shell we define the service, we want to hook
-on in Before.
-Than you need to add `autotest_wait_for_remote_shell` to the boot line; in
-cucumber you can set `@wait_for_remote_shell=true` before the step `the computer
-boots`. After that step you can interact with the remote shell. If you are done
-modifying the state, you need to trigger the READY signal (in Cucumber by
-executing`RemoteShell::SignalReady.new($vm)`). Now the system with further
-boot.
+* In `tails-autotest-remote-shell.service.service` you need add a
+  `Before` directive for the other service. For instance, it currently
+  has `Before=gdm.service` so it starts before the Greeter.
+* The code you want to run before the service can be hooked to run as
+  soon as the remote shell is available (as long as the scenario runs
+  the `the computer boots Tails` step) by passing it as a block to the
+  `add_early_boot_hook` method.
 
-As an example, you can look how the `Tails detects disk read failures` step hooks into the system
-before `gdm.service` is started.
-
+As an example, you can look how the `Tails will detect disk read
+failures` step hooks into the system before `gdm.service` is started.
 
 * [[!tails_gitweb features/hardware_failure.feature]]
 * [[!tails_gitweb features/step_definitions/hardware.rb]]

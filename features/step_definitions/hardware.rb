@@ -1,13 +1,5 @@
-Given /^I start the computer from DVD with network unplugged( and an unsupported graphics card)?$/ do |graphics_card|
-  if graphics_card
-    @boot_options = 'autotest_broken_gnome_shell'
-  else
-    @wait_for_remote_shell = true
-  end
-  step 'the computer is set to boot from the Tails DVD'
-  step 'the network is unplugged'
-  step 'I start the computer'
-  the_computer_boots
+Given /^the computer has an unsupported graphics card$/ do
+  @boot_options = 'autotest_broken_gnome_shell'
 end
 
 When /^Tails detects disk read failures on the (.+)$/ do |device|
@@ -35,7 +27,12 @@ When /^Tails detects disk read failures on the (.+)$/ do |device|
   )
   $vm.execute_successfully("python3 #{fake_ioerror_script_path}")
   try_for(60) { $vm.file_exist?(disk_ioerrors) }
-  RemoteShell::SignalReady.new($vm)
+end
+
+Given /^Tails will detect disk read failures on the (.+)$/ do |device|
+  add_early_boot_hook do
+    step "Tails detects disk read failures on the #{device}"
+  end
 end
 
 Then /^I see a disk failure message$/ do

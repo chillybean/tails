@@ -4,11 +4,13 @@ Feature: Hardware failures
   As a Tails user
   I want to be warned about hardware failures
 
+  @broken_greeter
   Scenario Outline: Alerting about disk read failures before reaching the Welcome Screen
     Given a computer
-    And I start the computer from DVD with network unplugged
-    When Tails detects disk read failures on the <device>
-    Then I see a disk failure message on the splash screen
+    And Tails will detect disk read failures on the <device>
+    When I start the computer
+    Then the computer boots Tails
+    And I see a disk failure message on the splash screen
     Examples:
       | device |
       | SquashFS |

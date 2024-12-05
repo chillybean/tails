@@ -227,15 +227,7 @@ def main():
     fcntl.fcntl(fd, fcntl.F_SETFL, flags | os.O_ASYNC)
     fcntl.fcntl(fd, fcntl.F_SETOWN, os.getpid())
 
-    if (
-        "autotest_wait_for_remote_shell"
-        in pathlib.Path("/proc/cmdline").read_text().split()
-    ):
-        systemd.daemon.notify('STATUS=Wait for "signal ready" from remote shell...\n')
-    else:
-        # Notify systemd that we're ready
-        systemd.daemon.notify("READY=1")
-        systemd.daemon.notify("STATUS=Processing requests...\n")
+    systemd.daemon.notify('STATUS=Wait for "signal ready" from remote shell...\n')
 
     while True:
         # We can avoid an unnecessary delay of up to one second during the
