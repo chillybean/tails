@@ -719,7 +719,6 @@ class VM
   # rubocop:enable Metrics/PerceivedComplexity
   # rubocop:enable Metrics/CyclomaticComplexity
 
-
   def file_append(path, lines)
     lines = lines.join("\n") if lines.instance_of?(Array)
     file_open(path) { |f| return f.append(lines) }
