@@ -19,30 +19,31 @@ title=$(gettext 'Disk partitioning errors')
 details=$(gettext 'Errors were detected in the partitioning of your Tails USB stick.')
 
 if /usr/local/lib/tpscli is-created; then
-    text="$(cat <<EOTEXT
+    text="$(
+        cat <<EOTEXT
 ${details}
 
 $(gettext 'We recommend that you create a backup of your Tails using <i>Tails Cloner</i> to migrate to a new USB stick.')
 EOTEXT
-)"
+    )"
     if zenity \
-           --question --ellipsize \
-           --icon-name=error \
-           --cancel-label="$(gettext 'Close')" \
-           --ok-label="$(gettext 'Open Tails Cloner')" \
-           --title="$title" --text="$text"
-    then
+        --question --ellipsize \
+        --icon-name=error \
+        --cancel-label="$(gettext 'Close')" \
+        --ok-label="$(gettext 'Open Tails Cloner')" \
+        --title="$title" --text="$text"; then
         /usr/local/lib/run-with-user-env tails-installer --backup
     fi
 else
-    text="$(cat <<EOTEXT
+    text="$(
+        cat <<EOTEXT
 ${details}
 
 $(gettext 'Creating a Persistent Storage might not work.')
 
 $(gettext 'We recommend that you reinstall Tails. If the error persists, reinstall on a new USB stick.')
 EOTEXT
-)"
+    )"
     zenity \
         --info --ellipsize \
         --icon-name=error \
