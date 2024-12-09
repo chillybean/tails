@@ -643,7 +643,7 @@ class VM
     tempfile = "#{$config['TMPDIR']}/patch.mo"
     Dir['po/*.po'].each do |po|
       language = File.basename(po, '.po')
-      system('msgfmt', '--check', '-o', tempfile, po)
+      cmd_helper(['msgfmt', '--check', '-o', tempfile, po])
       vm_mo = "/usr/share/locale/#{language}/LC_MESSAGES/tails.mo"
       $vm.file_copy_local(tempfile, vm_mo)
       File.unlink(tempfile)
