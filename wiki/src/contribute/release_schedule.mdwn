@@ -23,26 +23,40 @@ See our actual [[release schedule|contribute/calendar]].
 Schedule
 ========
 
-	  /          2w       \/   2w    /4d\
-	                                     
-	previous            freeze        Tor Browser
-	ESR + Tails         + RC1         ready for QA
-	release                |                |
-	  |                    |                |  new ESR
-	  |                    |                |  + Tails release
-	  ↓                    ↓                ↓  ↓
-	._________._________._________._________._________.
-	0         1         2         3         4
+A typical release week looks like this:
 
-In the above:
+* Monday: get ready, initiate communication with the Applications team
 
-* *Tor Browser ready for QA* means that binaries for the upcoming Tor Browser
-  are available, ready for testing, but they are not officially out yet: it has to go
-  through Tor's QA process first.
+* Tuesday:
 
-* *ESR + Tails release* means Mozilla announces the new Firefox ESR,
-  and we release a new version of Tails (roughly) the same day.
-  This usually happens on Tuesday.
+  1. Once a trustworthy-enough Tor Browser tarball is ready,
+     a Tails Team member
+     [[imports the new Tor Browser|contribute/release_process/tor-browser]]
+     into a new MR, then ensures this MR passes our QA and is merged in time
+     for the next steps.
+
+  2. Mozilla announces the new Firefox ESR release.
+
+  3. The Applications team announces the new Tor Browser release.
+
+* Wednesday:
+
+  1. The [[contribute/working_together/roles/release_manager]]
+     for this release does most of the [[contribute/release_process]].
+
+  2. The RM and Tails Team members start doing
+     [[QA|contribute/release_process/test]] on the candidate Tails images.
+
+  3. A [[contribute/working_together/roles/technical_writer]] writes
+     the release notes for the upcoming Tails release.
+
+* Thursday:
+
+  1. The RM and Tails Team members finish doing
+     [[QA|contribute/release_process/test]] on the candidate Tails images.
+
+  2. The RM completes the release process, which includes announcing the new
+     Tails release to the world.
 
 <a id="versioning"></a>
 
