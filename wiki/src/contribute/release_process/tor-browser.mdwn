@@ -59,7 +59,7 @@ ask later on, especially in terms of timing & availability of a tarball that's
 good enough for us to import.
 
 Wait
-------------
+----
 
 To check if the desired version is available:
 
@@ -88,7 +88,7 @@ To check if the desired version is available:
         ```
 
 Verify
-------------
+------
 
 Set `TBB_DIST_URL` to the chosen URL, and set `TBB_VERSION` to the desired Tor
 Browser version, for example:
@@ -147,7 +147,7 @@ when the tarballs are fetched:
     ) > config/chroot_local-includes/usr/share/tails/tbb-sha256sums.txt
 
 Set download url
----------------------
+----------------
 
 ### If `TBB_DIST_URL` supports http
 
@@ -200,10 +200,8 @@ Download the relevant files:
 Now, put them on some webserver that you can control. Let's say you uploaded them to
 `http://myserver.net/misc/tbb/`. Put *that* URL in `config/chroot_local-includes/usr/share/tails/tbb-dist-url.txt`
 
-
-
 Commit
------------
+------
 
 Lastly, commit:
 
