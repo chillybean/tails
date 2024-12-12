@@ -43,7 +43,7 @@ Then /^I see a disk failure message$/ do
 end
 
 Then /^I see a disk failure message on the splash screen$/ do
-  @screen.wait('PlymouthDiskFailureMessage.png', 60)
+  @screen.wait_text('Error reading data from your Tails USB stick.', 60)
 end
 
 Then /^I can open the hardware failure documentation from the disk failure message$/ do
