@@ -78,8 +78,8 @@ class AboutTails(Gtk.AboutDialog):
         self.spinner.stop()
         self.button.set_sensitive(True)
 
-    def check_for_upgrade(self,task,source_object,task_data,cancellable):
-       subprocess.run(["tails-upgrade-frontend-wrapper","--no-wait", "--report-no-upgrade"])
+    def check_for_upgrade(self, task, source_object, task_data, cancellable):
+       subprocess.run(["tails-upgrade-frontend-wrapper", "--no-wait", "--report-no-upgrade"])
 
 
 AboutTails()
