@@ -262,7 +262,7 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
                     else:
                         self.button_start.set_sensitive(False)
                         self.box_storagecreate.set_visible(False)
-                        self.box_settings.set_visible(False)
+                        self.box_settings.set_sensitive(False)
                         self.box_partition_errors.set_visible(True)
 
     # Utility methods
