@@ -74,7 +74,7 @@ class AboutTails(Gtk.AboutDialog):
         task = Gio.Task.new(self, None, self.check_for_upgrade_finished, None)
         task.set_return_on_cancel(False)
         task.run_in_thread(self.check_for_upgrade)
-    def check_for_upgrade_finished(self,source_object, result, user_data):
+    def check_for_upgrade_finished(self, source_object, result, user_data):
         self.spinner.stop()
         self.button.set_sensitive(True)
 
