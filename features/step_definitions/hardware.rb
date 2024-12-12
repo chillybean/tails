@@ -104,3 +104,18 @@ Then /^the Greeter forbids starting Tails$/ do
     greeter.child('Start Tails', roleName: 'push button').sensitive?
   )
 end
+
+Then /^the Greeter forbids all settings but language$/ do
+  assert(
+    greeter.child('Language', roleName: 'label').sensitive?
+  )
+  assert_false(
+    greeter.child('Keyboard Layout', roleName: 'label').sensitive?
+  )
+  assert_false(
+    greeter.child('Formats', roleName: 'label').sensitive?
+  )
+  assert_false(
+    greeter.child('Additional Settings', roleName: 'label').sensitive?
+  )
+end

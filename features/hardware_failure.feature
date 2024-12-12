@@ -61,3 +61,4 @@ Feature: Hardware failures
     Then Tails is running from USB drive "temp"
     And the Greeter recommends reinstalling Tails due to partitioning errors
     And the Greeter forbids starting Tails
+    And the Greeter forbids all settings but language

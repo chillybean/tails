@@ -263,6 +263,13 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
                         self.button_start.set_sensitive(False)
                         self.box_storagecreate.set_visible(False)
                         self.box_settings.set_sensitive(False)
+                        # The first element is language, which we
+                        # skip, the other two are keyboard layout and
+                        # formats. We only want language to still be
+                        # available so the user can see the error
+                        # message in their preferred language.
+                        for row in list(self.listbox_region)[1:]:
+                            row.set_sensitive(False)
                         self.box_partition_errors.set_visible(True)
 
     # Utility methods
