@@ -44,7 +44,7 @@ Feature: Hardware failures
     And I temporarily create a 7200 MiB disk named "temp"
     And I plug USB drive "temp"
     And I write the Tails USB image to disk "temp"
-    When I start Tails from USB drive "temp"
+    When I start Tails from USB drive "temp" with network unplugged
     Then Tails is running from USB drive "temp"
     And the Greeter forbids creating a persistent partition
     When I log in to a new session
@@ -57,7 +57,7 @@ Feature: Hardware failures
     And I temporarily create a 7200 MiB disk named "temp"
     And I plug USB drive "temp"
     And I write the Tails USB image to disk "temp"
-    When I start Tails from USB drive "temp"
+    When I start Tails from USB drive "temp" with network unplugged
     Then Tails is running from USB drive "temp"
     And the Greeter recommends reinstalling Tails due to partitioning errors
     And the Greeter forbids starting Tails
