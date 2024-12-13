@@ -15,7 +15,7 @@ if [ ! -e "${REPARTITIONING_ERROR_FLAG_FILE}" ]; then
     exit 1
 fi
 
-title=$(gettext 'Disk partitioning errors')
+title=$(gettext 'Partitioning Error')
 details=$(gettext 'Errors were detected in the partitioning of your Tails USB stick.')
 
 if /usr/local/lib/tpscli is-created; then
