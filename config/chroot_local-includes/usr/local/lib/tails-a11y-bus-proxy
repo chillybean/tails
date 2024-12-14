@@ -16,8 +16,15 @@ def main():
     obj = bus.get_object("org.a11y.Bus", "/org/a11y/bus")
     iface = dbus.Interface(obj, dbus_interface="org.a11y.Bus")
     address = str(iface.GetAddress())
-    subprocess.run(["/usr/local/lib/tails-dbus-proxy", "--pid-file", PID_FILE,
-                    address, SOCKET_FILE])
+    subprocess.run(
+        [
+            "/usr/local/lib/tails-dbus-proxy",
+            "--pid-file",
+            PID_FILE,
+            address,
+            SOCKET_FILE,
+        ]
+    )
 
 
 if __name__ == "__main__":
