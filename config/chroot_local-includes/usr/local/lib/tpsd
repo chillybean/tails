@@ -20,9 +20,9 @@ service = None  # type: Optional[Service]
 
 
 def on_bus_acquired(connection: Gio.DBusConnection, name: str) -> None:
-    logger.info(f"Connected to the system bus")
+    logger.info("Connected to the system bus")
     # Start the service
-    global service
+    global service  # noqa: PLW0603
     service = Service(connection, mainloop)
     service.start()
 
