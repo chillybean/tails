@@ -65,7 +65,7 @@ tps_get_features() {
           /org/boum/tails/PersistentStorage \
           org.boum.tails.PersistentStorage \
           GetFeatures | \
-          python3 -c "import sys, json; print(json.dumps(json.load(sys.stdin)['data'][0]))")
+          python3 -I -c "import sys, json; print(json.dumps(json.load(sys.stdin)['data'][0]))")
     echo "${res}"
 }
 
