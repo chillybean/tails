@@ -8,9 +8,10 @@ usage() {
     echo "  Check the entire codebase:"
     echo "   $0"
     echo "  Check Python files changed since REF"
-    echo "   $0 REF"
+    echo "   $0 REF [CMD]"
     echo "  Pass additional options to ruff:"
-    echo "   $0 REF --output-format=junit"
+    echo "   $0 REF [CMD] --output-format=junit"
+    echo "CMD is optional, and can be check,format,fix"
 }
 
 conf="$(dirname "$0")/ruff.toml"
