@@ -35,7 +35,7 @@ Feature: download and verify an upgrade-description file
     And a valid signature made by a trusted key
     When I download and check this upgrade-description file
     Then it should fail
-    And I should be told "certificate verification failed"
+    And I should be told "certificate verification failed|certificate error"
 
   Scenario: Failed download due to expired SSL certificate
     Given a HTTPS server with an expired SSL certificate
@@ -43,7 +43,7 @@ Feature: download and verify an upgrade-description file
     And a valid signature made by a trusted key
     When I download and check this upgrade-description file
     Then it should fail
-    And I should be told "certificate verification failed"
+    And I should be told "certificate verification failed|certificate has expired"
 
   Scenario: Failed download due to SSL certificate that is not valid yet
     Given a HTTPS server with a not-valid-yet SSL certificate
@@ -51,7 +51,7 @@ Feature: download and verify an upgrade-description file
     And a valid signature made by a trusted key
     When I download and check this upgrade-description file
     Then it should fail
-    And I should be told "certificate verification failed"
+    And I should be told "certificate verification failed|certificate error"
 
   Scenario: Failed download when server redirects to cleartext HTTP
     Given a HTTPS server with a valid SSL certificate, that redirects to 127.0.0.2 over cleartext HTTP
