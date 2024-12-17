@@ -258,6 +258,8 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
                 with open(partition_error_flag_file) as f:
                     error_reason = f.read().strip()
                     if error_reason == "partitioning-corruption":
+                        # This is "case 3", which we might want to
+                        # make fatal as well, see tails#20705.
                         self.create_tps_switch.set_sensitive(False)
                     else:
                         self.button_start.set_sensitive(False)
