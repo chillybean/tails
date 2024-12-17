@@ -13,7 +13,7 @@ use Env;
 use File::Copy::Recursive qw{dircopy};
 use File::Find::Rule;
 use Function::Parameters;
-use IPC::System::Simple qw{capturex};
+use IPC::System::Simple qw{capturex systemx};
 use Test::More;
 use Test::BDD::Cucumber::StepFile;
 use Path::Tiny;
@@ -63,7 +63,7 @@ Given qr{^a trusted OpenPGP signing key pair$}, fun ($c) {
 
     dircopy($pristine_gnupg_homedir, $gnupg_homedir);
     assert(-d $gnupg_homedir);
-    assert(path($gnupg_homedir, $_)->exists) for qw{pubring.gpg secring.gpg};
+    assert(path($gnupg_homedir, $_)->exists) for qw{pubring.gpg private-keys-v1.d};
 };
 
 Given qr{^Tails is running from a (DVD|(|manually installed )USB thumb drive)$}, fun ($c) {
@@ -389,6 +389,16 @@ Given qr{^the system partition has not enough free space to install this increme
 
 When qr{^I run tails-upgrade-frontend(| in batch mode)$}, fun ($c) {
     my $batch = defined $c->matches->[0] && length defined $c->matches->[0];
+
+    my $signing_key = Path::Tiny->tempfile;
+    unlink $signing_key;
+    systemx(
+        qw{gpg --batch --quiet --no-permission-warning --armor},
+        '--homedir', $c->{stash}->{scenario}->{trusted_gnupg_homedir},
+        '--output',  $signing_key,
+        '--export'
+    );
+
     my $cmdline = sprintf("%s " .
             "--override_baseurl 'https://127.0.0.1:%s' " .
             "--override_dev_dir '%s' " .
@@ -396,7 +406,7 @@ When qr{^I run tails-upgrade-frontend(| in batch mode)$}, fun ($c) {
             "--override_os_release_file '%s' " .
             "--override_initial_install_os_release_file '%s' " .
             "--override_build_target '%s' " .
-            "--override_trusted_gnupg_homedir '%s' ".
+            "--override_signing_key '%s' ".
             "--override_liveos_mountpoint '%s' ",
         path($bindir, "tails-upgrade-frontend"),
         $c->{stash}->{scenario}->{server}->{https_port},
@@ -405,7 +415,7 @@ When qr{^I run tails-upgrade-frontend(| in batch mode)$}, fun ($c) {
         $c->{stash}->{scenario}->{os_release_file},
         $c->{stash}->{scenario}->{initial_install_os_release_file},
         's390x',
-        $c->{stash}->{scenario}->{trusted_gnupg_homedir},
+        $signing_key,
         $c->{stash}->{scenario}->{liveos_mountpoint},
     );
     $cmdline .= " --batch " if $batch;

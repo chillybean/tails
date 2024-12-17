@@ -74,7 +74,7 @@ option "override_$_" => (
     isa       => Str,
     format    => 's',
     predicate => 1,
-) for (qw{baseurl build_target trusted_gnupg_homedir});
+) for (qw{baseurl build_target signing_key});
 
 option override_initial_install_os_release_file =>
     is        => 'lazy',
@@ -335,9 +335,9 @@ method get_upgrade_description () {
             push @args, ($arg, $self->$attribute);
         }
     }
-    if ($self->has_override_trusted_gnupg_homedir) {
+    if ($self->has_override_signing_key) {
         push @args, (
-            '--trusted_gnupg_homedir', $self->override_trusted_gnupg_homedir
+            '--signing_key', $self->override_signing_key
         );
     }
     my ($stdout, $stderr, $success, $exit_code) = $self->fatal_run_cmd(
