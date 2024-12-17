@@ -6,12 +6,12 @@ set -eu
 . /usr/local/lib/tails-shell-library/tails-greeter.sh
 
 if ! tails_network_enabled; then
-  local dialog_title dialog_text
-  dialog_title=$(gettext "Tor Connection")
-  dialog_text=$(gettext "You turned on Offline Mode in the Welcome Screen.
+    local dialog_title dialog_text
+    dialog_title=$(gettext "Tor Connection")
+    dialog_text=$(gettext "You turned on Offline Mode in the Welcome Screen.
 It is impossible to connect to Tor in Offline Mode.
 To connect to Tor and the Internet, restart Tails without Offline Mode.")
-  exec zenity --error --no-wrap --title "$dialog_title" --text="$dialog_text"
+    exec zenity --error --no-wrap --title "$dialog_title" --text="$dialog_text"
 fi
 
 # If this script is run as amnesia, re-run it as root, so that we have
@@ -19,10 +19,10 @@ fi
 # Before doing so, save the environment in a file, so that we can pass
 # it to the tca process later.
 if [ "$(id -u)" = 1000 ]; then
-  ENVFILE=$(mktemp --suffix -env)
-  export ENVFILE
-  env --null >"${ENVFILE}"
-  exec sudo "$0" "$@"
+    ENVFILE=$(mktemp --suffix -env)
+    export ENVFILE
+    env --null >"${ENVFILE}"
+    exec sudo "$0" "$@"
 fi
 
 CONFIG_FILE=/var/lib/tca/tca.conf
@@ -65,9 +65,9 @@ chmod 600 "${CONFIG_FILE}" "${STATE_FILE}"
 #    runs the actual tca process.
 
 exec \
-  /usr/local/lib/inherit-fd --file "${STATE_FILE}" --socket "${PORTAL_SOCKET}" \
-  /bin/ip netns exec tca \
-  sudo --close-from=5 -u amnesia \
-  /usr/local/lib/run-with-env --env-file="${ENVFILE}" --delete -- \
-  /usr/local/lib/run-with-ibus-and-a11y-bus-proxy -- \
-  /usr/bin/python3 -I /usr/lib/python3/dist-packages/tca/application.py
+    /usr/local/lib/inherit-fd --file "${STATE_FILE}" --socket "${PORTAL_SOCKET}" \
+    /bin/ip netns exec tca \
+    sudo --close-from=5 -u amnesia \
+    /usr/local/lib/run-with-env --env-file="${ENVFILE}" --delete -- \
+    /usr/local/lib/run-with-ibus-and-a11y-bus-proxy -- \
+    /usr/bin/python3 -I /usr/lib/python3/dist-packages/tca/application.py
