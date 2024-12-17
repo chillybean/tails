@@ -70,7 +70,7 @@ method _build_udisks_object () {
 }
 
 method debug (@args) {
-    say STDERR @_ if $ENV{DEBUG};
+    say STDERR @args if $ENV{DEBUG};
 }
 
 method get_udisks_property (Str $type, Defined $object, Str $property) {
