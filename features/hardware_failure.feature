@@ -55,9 +55,9 @@ Feature: Hardware failures
     And all notifications have disappeared
     Then I am recommended to reinstall Tails due to partitioning errors
 
-  Scenario: Case A: The disk GUID was not changed
+  Scenario Outline: Case A: Disk partitioning errors without a persistent partition
     Given a computer
-    And I set Tails to boot with options "test_partitioning_errors=guid"
+    And I set Tails to boot with options "test_partitioning_errors=<error>"
     And I temporarily create a 7200 MiB disk named "temp"
     And I plug USB drive "temp"
     And I write the Tails USB image to disk "temp"
@@ -66,3 +66,8 @@ Feature: Hardware failures
     And the Greeter recommends reinstalling Tails due to partitioning errors
     And the Greeter forbids starting Tails
     And the Greeter forbids all settings but language
+    Examples:
+      | error       |
+      | guid        |
+      | part_resize |
+      | fs_resize   |
