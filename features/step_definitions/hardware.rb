@@ -84,7 +84,7 @@ Then /^I am recommended to migrate to a new USB stick due to partitioning errors
   assert_not_nil(
     warning.children(roleName: 'label')
            .last
-           .text['We recommend that you reinstall Tails']
+           .text['We recommend that you create a backup of your Tails']
   )
 end
 
@@ -93,7 +93,7 @@ Then /^I am recommended to reinstall Tails due to partitioning errors$/ do
   assert_not_nil(
     warning.children(roleName: 'label')
            .last
-           .text['We recommend that you create a backup of your Tails']
+           .text['We recommend that you reinstall Tails']
   )
 end
 
