@@ -378,7 +378,7 @@ When qr{^I download and check (?:this upgrade-description file|an upgrade-descri
     my $signing_key = Path::Tiny->tempfile;
     unlink $signing_key;
     systemx(
-        qw{gpg --batch --quiet --armor},
+        qw{gpg --batch --no-permission-warning --quiet --armor},
         '--homedir', $c->{stash}->{scenario}->{trusted_gnupg_homedir},
         '--output',  $signing_key,
         '--export'

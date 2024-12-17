@@ -223,6 +223,7 @@ Given qr{^a HTTPS server with a valid SSL certificate$}, fun ($c) {
     path($webroot, 'tails-signing-minimal.key')->spew(
         capturex(
             'gpg', '--homedir', $c->{stash}->{scenario}->{trusted_gnupg_homedir},
+                   '--batch', '--no-permission-warning',
                    '--armor', '--export'
         )
     );
@@ -303,7 +304,7 @@ EOF
     assert(-e $desc);
 
     capturex(
-        qw{gpg --batch --quiet},
+        qw{gpg --batch --quiet --no-permission-warning},
         qw{--armor --detach-sign},
         '--homedir', $gnupg_homedir,
         '--output',  $sig,
