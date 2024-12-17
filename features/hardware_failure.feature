@@ -28,15 +28,19 @@ Feature: Hardware failures
       | boot device |
       | boot device with a target error |
 
-  Scenario: Case B: Partitioning corruption with a persistent partition
+  Scenario Outline: Case B: GPT backup corruption with a persistent partition
     Given I have started Tails without network from a USB drive with a persistent partition and stopped at Tails Greeter's login screen
-    And I corrupt the boot device's GPT backup
+    And I corrupt the boot device's GPT backup <thing>
     And I power off the computer
     When I start the computer
     Then the computer boots Tails
     When I log in to a new session
     And all notifications have disappeared
     Then I am recommended to migrate to a new USB stick due to partitioning errors
+    Examples:
+    | thing           |
+    | header          |
+    | partition table |
 
   Scenario: Case 3: Partitioning corruption without a persistent partition
     Given a computer

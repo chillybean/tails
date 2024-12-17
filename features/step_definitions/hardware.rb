@@ -56,19 +56,22 @@ Then /^I see a graphics card failure message on the splash screen$/ do
   @screen.wait('PlymouthGraphicsCardFailureMessage.png', 60)
 end
 
-When /^I corrupt the boot device's GPT backup$/ do
+When /^I corrupt the boot device's GPT backup (header|partition table)$/ do |thing|
   # Code borrowed from the "test_gpt_corruption" case in the
   # first_boot_repartition script.
   parent_device = boot_device.sub(/[0-9]+$/, '')
   sectors = $vm.execute_successfully("blockdev --getsz '#{parent_device}'").stdout.to_i
-  $vm.execute_successfully(
-    "dd if=/dev/zero of='#{parent_device}' bs=512 count=1 seek=#{sectors - 1} " \
-    'oflag=direct'
-  )
-  $vm.execute_successfully(
-    "dd if=/dev/zero of='#{parent_device}' bs=512 count=32 seek=#{sectors - 33} " \
-    'oflag=direct'
-  )
+  if thing == 'header'
+    $vm.execute_successfully(
+      "dd if=/dev/zero of='#{parent_device}' bs=512 count=1 seek=#{sectors - 1} " \
+      'oflag=direct'
+    )
+  else
+    $vm.execute_successfully(
+      "dd if=/dev/zero of='#{parent_device}' bs=512 count=32 seek=#{sectors - 33} " \
+      'oflag=direct'
+    )
+  end
 end
 
 Then /^the Greeter recommends reinstalling Tails due to partitioning errors$/ do
