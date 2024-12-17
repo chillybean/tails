@@ -1,5 +1,3 @@
-#!/usr/bin/python3 -I
-
 import logging
 import os
 from pathlib import Path
