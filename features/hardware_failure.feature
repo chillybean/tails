@@ -42,7 +42,7 @@ Feature: Hardware failures
     | header          |
     | partition table |
 
-  Scenario: Case 3: Partitioning corruption without a persistent partition
+  Scenario: Case 3: GPT backup corruption without a persistent partition
     Given a computer
     And I set Tails to boot with options "test_gpt_corruption=gpt_backup,gpt_backup_table"
     And I temporarily create a 7200 MiB disk named "temp"
