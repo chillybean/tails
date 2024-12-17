@@ -52,11 +52,19 @@ fi
 # Check if the system partition was resized
 SECTORS=$(sgdisk --info=1 "${PARENT_DEVICE}" |
     sed -n '/^Partition size:/ s/^Partition size: \([0-9]\+\) sectors.*/\1/p')
-SIZE=$((SECTORS * 512))
-if [ "${SIZE}" -lt "${MIN_SYSTEM_PARTITION_SIZE}" ]; then
+PART_SIZE=$((SECTORS * 512))
+if [ "${PART_SIZE}" -lt "${MIN_SYSTEM_PARTITION_SIZE}" ]; then
     echo "The system partition was not correctly resized " \
-        "(expected at least ${MIN_SYSTEM_PARTITION_SIZE}, got ${SIZE})."
+        "(expected at least ${MIN_SYSTEM_PARTITION_SIZE}, got ${PART_SIZE})."
     set_error_reason 'system-partition-not-resized'
+    exit 1
+fi
+
+FS_SIZE=$(fatresize --force --info "${PARENT_DEVICE}" | sed -n -E 's/^Cur size: (.*)/\1/p')
+if [ "${FS_SIZE}" -lt "${MIN_SYSTEM_PARTITION_SIZE}" ]; then
+    echo "The system partition's file system was not correctly resized " \
+        "(expected at least ${MIN_SYSTEM_PARTITION_SIZE}, got ${FS_SIZE})."
+    set_error_reason 'fs-not-resized'
     exit 1
 fi
 
