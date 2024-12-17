@@ -103,11 +103,8 @@ if [ "${GUID}" = "17B81DA0-8B1E-4269-9C39-FE5C7B9B58A3" ]; then
 	# `plymouth hide-message` doesn't work (#20401)
 	plymouth display-message --text=""
 else
-	# The "test_gpt_corruption" option is only effective on the first boot. To
-	# avoid confusion, we don't allow booting with this option when it's
-	# not the first boot.
-	if grep -qw "test_gpt_corruption" /proc/cmdline; then
-		MSG="The 'test_gpt_corruption' option is only effective on the first boot, and it's not the first boot. Please remove the 'test_gpt_corruption' option from the boot command line. Press ENTER to shut down."
+	if grep -qw -e "test_gpt_corruption" -e "test_partitioning_errors" /proc/cmdline; then
+		MSG="The 'test_gpt_corruption' and 'test_partitioning_errors' options are only effective on the first boot, and it's not the first boot. Press ENTER to shut down."
 		plymouth message --text="${MSG}"
 		plymouth watch-keystroke >/dev/null
 		poweroff -f

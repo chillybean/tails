@@ -57,7 +57,7 @@ Feature: Hardware failures
 
   Scenario: Case A: The disk GUID was not changed
     Given a computer
-    And I set Tails to boot with options "test_gpt_corruption=guid"
+    And I set Tails to boot with options "test_partitioning_errors=guid"
     And I temporarily create a 7200 MiB disk named "temp"
     And I plug USB drive "temp"
     And I write the Tails USB image to disk "temp"

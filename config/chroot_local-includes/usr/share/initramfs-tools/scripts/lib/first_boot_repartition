@@ -22,6 +22,10 @@ ORIG_DISK_GUID="17B81DA0-8B1E-4269-9C39-FE5C7B9B58A3"
 PARENT_DEVICE="$1"
 SYSTEM_PARTITION="$2"
 
+is_cmdline_test_enabled() {
+    sed -n "s/.*${1}=\([^ ]*\).*/\1/p" /proc/cmdline | grep -qw "${2}"
+}
+
 # We call this after each action that alters the device/partition in any
 # way in an attempt to avoid various races that has caused this script
 # to fail at various points. Examples:
@@ -61,6 +65,9 @@ fi
 # * Create a new system partition of size ${SYSTEM_PARTITION_SIZE}
 # * Set the partition label to "Tails"
 log_begin_msg "Updating partition table"
+if is_cmdline_test_enabled test_partitioning_errors part_resize; then
+    exit 1
+fi
 sgdisk \
     --move-second-header \
     --randomize-guids \
@@ -72,34 +79,32 @@ sgdisk \
 settle
 log_end_msg
 
+if is_cmdline_test_enabled test_partitioning_errors guid; then
+    sgdisk --disk-guid="${ORIG_DISK_GUID}" "${PARENT_DEVICE}"
+fi
+
 if grep -qw "test_gpt_corruption" /proc/cmdline; then
     # Corrupt the MBR and GPT to test that it is correctly detected and
     # reported to the user.
     SECTORS=$(blockdev --getsz "${PARENT_DEVICE}")
 
-    corrupt_options=$(sed -n 's/.*test_gpt_corruption=\([^ ]*\).*/\1/p' /proc/cmdline)
-    if echo "${corrupt_options}" | grep -qw guid; then
-        sgdisk \
-            --disk-guid="${ORIG_DISK_GUID}" \
-            "${PARENT_DEVICE}"
-    fi
-    if echo "${corrupt_options}" | grep -qw mbr; then
+    if is_cmdline_test_enabled test_gpt_corruption mbr; then
         # Corrupt the MBR partition table
         dd if=/dev/zero of="${PARENT_DEVICE}" bs=1 count=64 seek=446
     fi
-    if echo "${corrupt_options}" | grep -qw gpt; then
+    if is_cmdline_test_enabled test_gpt_corruption gpt; then
         # Corrupt the GPT main header
         dd if=/dev/zero of="${PARENT_DEVICE}" bs=512 count=1 seek=1
     fi
-    if echo "${corrupt_options}" | grep -qw gpt_table; then
+    if is_cmdline_test_enabled test_gpt_corruption gpt_table; then
         # Corrupt the GPT main partition table
         dd if=/dev/zero of="${PARENT_DEVICE}" bs=512 count=32 seek=2
     fi
-    if echo "${corrupt_options}" | grep -qw gpt_backup; then
+    if is_cmdline_test_enabled test_gpt_corruption gpt_backup; then
         # Corrupt the GPT backup header
         dd if=/dev/zero of="${PARENT_DEVICE}" bs=512 count=1 seek=$((SECTORS - 1))
     fi
-    if echo "${corrupt_options}" | grep -qw gpt_backup_table; then
+    if is_cmdline_test_enabled test_gpt_corruption gpt_backup_table; then
         # Corrupt the GPT backup partition table
         dd if=/dev/zero of="${PARENT_DEVICE}" bs=512 count=32 seek=$((SECTORS - 33))
     fi
@@ -119,6 +124,9 @@ settle
 # fatresize uses "Mi" for MiB, so we have to append an "i".
 # Also, due to bugs in fatresize (tails/tails#18699) we
 # are limited to grow the filesystem to just below the limit.
+if is_cmdline_test_enabled test_partitioning_errors fs_resize; then
+    exit 1
+fi
 FS_SIZE="$((${SYSTEM_PARTITION_SIZE%M} - 2))"Mi
 fatresize --size="${FS_SIZE}" "${SYSTEM_PARTITION}"
 settle
