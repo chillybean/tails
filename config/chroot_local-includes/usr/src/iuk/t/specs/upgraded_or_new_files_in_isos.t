@@ -4,7 +4,7 @@ use 5.10.1;
 use Data::Dumper;
 use File::Temp qw{tempdir tempfile};
 use Path::Tiny;
-use Tails::IUK qw{upgraded_or_new_files_in_isos};
+use Tails::IUK;
 use Test::Fatal qw{dies_ok};
 
 my @genisoimage_opts = qw{--quiet -J -l -cache-inodes -allow-multidot};

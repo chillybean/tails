@@ -214,10 +214,10 @@ Given qr{^a HTTPS server with (a valid|an invalid|an expired|a not-valid-yet) SS
         assert(-e $ssl_req);
         my $generate_at_dt;
         if ($type eq 'expired') {
-            $generate_at_dt = DateTime->now + DateTime::Duration->new(years => 2);
+            $generate_at_dt = DateTime->now + DateTime::Duration->new(years => -2);
         }
         elsif ($type eq 'not-valid-yet') {
-            $generate_at_dt = DateTime->now + DateTime::Duration->new(years => -2);
+            $generate_at_dt = DateTime->now + DateTime::Duration->new(years => 2);
         }
         my @extra_args;
         if ($type eq 'expired' or $type eq 'not-valid-yet') {
