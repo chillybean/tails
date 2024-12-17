@@ -79,7 +79,7 @@ Then /^the Greeter recommends reinstalling Tails due to partitioning errors$/ do
   )
 end
 
-Then /^I am recommended to create a Tails backup due to partitioning errors$/ do
+Then /^I am recommended to migrate to a new USB stick due to partitioning errors$/ do
   warning = Dogtail::Application.new('zenity').dialog('Partitioning Error')
   warning.children(roleName: 'label')
          .last

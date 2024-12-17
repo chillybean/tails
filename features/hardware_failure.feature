@@ -36,7 +36,7 @@ Feature: Hardware failures
     Then the computer boots Tails
     When I log in to a new session
     And all notifications have disappeared
-    Then I am recommended to create a Tails backup due to partitioning errors
+    Then I am recommended to migrate to a new USB stick due to partitioning errors
 
   Scenario: Case 3: Partitioning corruption without a persistent partition
     Given a computer
