@@ -66,7 +66,7 @@ has 'running_system' => (
 =cut
 
 method _build_signing_key () {
-    my $signing_key = path('/usr/share/doc/tails/website/tails-signing-minimal.key');
+    my $signing_key = path('/usr/share/doc/tails/website/tails-signing.key');
     assert(-f $signing_key);
     return $signing_key;
 }
