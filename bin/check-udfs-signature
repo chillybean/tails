@@ -18,7 +18,7 @@ fi
 
 while read -r upgradesYml; do
     if ! sqop verify "${upgradesYml}.pgp" wiki/src/tails-signing.key \
-         < "${upgradesYml}" &> /dev/null; then
+        <"${upgradesYml}" &>/dev/null; then
         error=true
         echo "${upgradesYml}.pgp invalid signature" >&2
         exit 1
