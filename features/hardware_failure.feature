@@ -37,6 +37,7 @@ Feature: Hardware failures
     When I log in to a new session
     And all notifications have disappeared
     Then I am recommended to migrate to a new USB stick due to partitioning errors
+    And Tails detected partitioning error partitioning-corruption
     Examples:
     | thing           |
     | header          |
@@ -54,6 +55,7 @@ Feature: Hardware failures
     When I log in to a new session
     And all notifications have disappeared
     Then I am recommended to reinstall Tails due to partitioning errors
+    And Tails detected partitioning error partitioning-corruption
 
   Scenario Outline: Case A: Disk partitioning errors without a persistent partition
     Given a computer
@@ -66,8 +68,9 @@ Feature: Hardware failures
     And the Greeter recommends reinstalling Tails due to partitioning errors
     And the Greeter forbids starting Tails
     And the Greeter forbids all settings but language
+    And Tails detected partitioning error <reason>
     Examples:
-      | error       |
-      | guid        |
-      | part_resize |
-      | fs_resize   |
+      | error       | reason                       |
+      | guid        | guid-not-randomized          |
+      | part_resize | system-partition-not-resized |
+      | fs_resize   | fs-not-resized               |

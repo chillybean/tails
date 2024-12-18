@@ -126,3 +126,10 @@ Then /^the Greeter forbids all settings but language$/ do
     greeter.child('Additional Settings', roleName: 'label').sensitive?
   )
 end
+
+Then /^Tails detected partitioning error (.*)$/ do |expected_reason|
+  actual_reason = $vm.file_content(
+    '/var/lib/live/config/tails.disk-partitioning-errors'
+  ).chomp
+  assert_equal(expected_reason, actual_reason)
+end
