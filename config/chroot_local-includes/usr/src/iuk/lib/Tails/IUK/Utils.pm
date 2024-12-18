@@ -121,7 +121,7 @@ fun verify_signature (Str $txt,
     my ($stdout, $stderr);
     my $exit_code;
     my @cmd = (
-        '/usr/bin/sqopv', 'verify',
+        '/usr/bin/sqop', 'verify',
         $signature_file,
         $signing_key,
     );
@@ -131,7 +131,7 @@ fun verify_signature (Str $txt,
 
     if ($exit_code != 0) {
         say STDERR errf(
-            "sqopv failed:\n".
+            "sqop failed:\n".
             "exit code: %{exit_code}i\n\n".
             "stdout:\n%{stdout}s\n\n".
             "stderr:\n%{stderr}s",
