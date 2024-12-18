@@ -99,7 +99,6 @@ class Window(Gtk.ApplicationWindow):
             )
             exit(1)
 
-
     def refresh_view(self):
         # Choose which view to show
         if not self.name_owner:
@@ -314,7 +313,7 @@ class Window(Gtk.ApplicationWindow):
         msg: str,
         msg_is_markup: bool = False,
         details: ErrorDetails = None,
-        with_send_report_button: Optional[bool] = None,
+        with_send_report_button: bool | None = None,
     ):
         if with_send_report_button is None:
             # Don't show the send report button if the failure view is the
