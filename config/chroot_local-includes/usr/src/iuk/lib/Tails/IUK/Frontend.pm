@@ -130,6 +130,10 @@ option 'override_free_space' =>
     predicate     => 1,
     documentation => q{Internal, for test suite only};
 
+has 'new_signing_key' =>
+    is        => 'rw',
+    isa       => AbsFile,
+    predicate => 1;
 
 =head1 CONSTRUCTORS AND BUILDERS
 
@@ -308,25 +312,14 @@ method refresh_signing_key () {
             debugging_info => $self->encoding->decode($_),
         );
     };
-    my ($stdout, $stderr, $exit_code);
-    my $success = 0;
-    $success = 1 if IPC::Run::run ['gpg', '--import'],
-          '<', \$new_key_content, '>', \$stdout, '2>', \$stderr;
-    $exit_code = $?;
-    $success or $self->fatal(
-        $error_msg,
-        title => __(q{Error while updating the signing key}),
-        debugging_info => $self->encoding->decode(errf(
-            "exit code: %{exit_code}i\n\n".
-            "stdout:\n%{stdout}s\n\n".
-            "stderr:\n%{stderr}s",
-            { exit_code => $exit_code, stdout => $stdout, stderr => $stderr }
-        )),
-    );
+    my $new_signing_key = Path::Tiny->tempfile;
+    $new_signing_key->spew($new_key_content);
+    $self->new_signing_key($new_signing_key);
 }
 
 method get_upgrade_description () {
     my @args;
+
     for (qw{baseurl build_target os_release_file initial_install_os_release_file}) {
         my $attribute = "override_$_";
         my $predicate = "has_$attribute";
@@ -340,6 +333,12 @@ method get_upgrade_description () {
             '--signing_key', $self->override_signing_key
         );
     }
+
+    $self->has_new_signing_key or croak("Assertion failed: missing new_signing_key");
+    push @args, (
+        '--extra_signing_key', $self->new_signing_key
+    );
+
     my ($stdout, $stderr, $success, $exit_code) = $self->fatal_run_cmd(
         cmd         => [ 'tails-iuk-get-upgrade-description-file', @args ],
         error_title => __(q{Error while checking for upgrades}),

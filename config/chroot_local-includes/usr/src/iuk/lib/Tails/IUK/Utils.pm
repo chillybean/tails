@@ -32,7 +32,7 @@ use IPC::System::Simple qw{capturex};
 use Path::Tiny;
 use String::Errf qw{errf};
 use Types::Path::Tiny qw{AbsDir AbsFile Path};
-use Types::Standard qw{Str};
+use Types::Standard qw{ArrayRef Str};
 
 
 =head1 FUNCTIONS
@@ -107,7 +107,7 @@ fun space_available_in (AbsDir $dir) {
 
 fun verify_signature (Str $txt,
                       Str $signature_txt,
-                      AbsFile $signing_key) {
+                      ArrayRef[AbsFile] $signing_keys) {
     assert_nonblank($signature_txt);
 
     my   ($signature_fh, $signature_file) = tempfile(CLEANUP => 1);
@@ -123,7 +123,7 @@ fun verify_signature (Str $txt,
     my @cmd = (
         '/usr/bin/sqop', 'verify',
         $signature_file,
-        $signing_key,
+        @{$signing_keys},
     );
 
     IPC::Run::run \@cmd, '<', $txt_file, '>', \$stdout, '2>', \$stderr;

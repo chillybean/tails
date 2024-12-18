@@ -51,6 +51,14 @@ option signing_key => (
     predicate  => 1,
 );
 
+option extra_signing_key => (
+    is         => 'ro',
+    format     => 's',
+    isa        => AbsFile,
+    coerce     => AbsFile->coercion,
+    predicate  => 1,
+);
+
 has 'running_system' => (
     is      => 'lazy',
     isa     => InstanceOf['Tails::RunningSystem'],
@@ -108,7 +116,11 @@ method run () {
     my $description = $self->get_url($self->upgrade_description_file_url);
     my $signature   = $self->get_url($self->upgrade_description_sig_url );
 
-    verify_signature($description, $signature, $self->signing_key)
+    my @certificates = ($self->signing_key);
+    push @certificates, $self->extra_signing_key
+        if $self->has_extra_signing_key;
+
+    verify_signature($description, $signature, \@certificates)
         or croak("Invalid signature");
     $self->matches_running_system($description)
         or croak("Does not match running system");
