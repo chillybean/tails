@@ -66,6 +66,11 @@ fi
 # * Set the partition label to "Tails"
 log_begin_msg "Updating partition table"
 if is_cmdline_test_enabled test_partitioning_errors part_resize; then
+    sgdisk \
+        --move-second-header \
+        --randomize-guids \
+        --change-name=1:Tails \
+        "${PARENT_DEVICE}"
     exit 1
 fi
 sgdisk \
