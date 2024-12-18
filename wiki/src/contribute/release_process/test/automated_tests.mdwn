@@ -26,9 +26,72 @@ with a Continuous Integration server.
 
 See [[contribute/release_process/test/setup]] and [[contribute/release_process/test/usage]].
 
-For particularities of automated tests run on our Jenkins
+## Jenkins
+
+This section documents test suite usage in the context of Jenkins.
+
+For details about how automated tests run on our Jenkins
 infrastructure, see
-[[contribute/working_together/roles/sysadmins/automated_tests_in_Jenkins]].
+[[automated tests in Jenkins|https://gitlab.torproject.org/tpo/tpa/team/-/wikis/tails/services/jenkins/automated-tests-in-jenkins]].
+
+### Full test suite vs. scenarios tagged `@fragile`
+
+Jenkins generally only runs scenarios that are _not_ tagged `@fragile`
+in Gherkin. But it runs the full test suite, including scenarios that
+are tagged `@fragile`, if the images under test were built:
+
+ - from a branch whose name ends with the `-force-all-tests` suffix
+ - from a tag
+ - from the `devel` branch
+ - from the `testing` branch
+
+Therefore, to ask Jenkins to run the full test suite on your topic
+branch, give it a name that ends `-force-all-tests`.
+
+### Trigger a test suite run without rebuilding images
+
+Every `build_Tails_ISO_*` job run triggers a test suite run
+(`test_Tails_ISO_*`), so most of the time, we don't need
+to manually trigger test suite runs.
+
+However, in some cases, all we want is to run the test suite multiple
+times on a given set of Tails images, that were already built. In such
+cases, it is useless and problematic to trigger a build job, merely to
+get the test suite running eventually:
+
+ - It's a waste of resources: it will keep isobuilders uselessly busy,
+   which makes the feedback loop longer for our other team-mates.
+
+ - It forces us to wait at least one extra hour before we get the
+   test suite feedback we want.
+
+Thankfully, there is a way to trigger a test suite run without having
+to rebuild images first. To do so:
+
+1. On the corresponding `test_Tail_ISO_*` job page, click _Build with
+   Parameters_.
+
+2. Set the `UPSTREAMJOB_BUILD_NUMBER` parameter the ID of the `build_Tail_ISO_*`
+   job build you want to test, for example `10`.
+
+   Known issue: <https://gitlab.torproject.org/tpo/tpa/tails/sysadmin/-/issues/18133>
+
+3. Optionally, you may also pass arbitrary arguments to Cucumber
+   via the `EXTRA_CUCUMBER_ARGS` job parameter. For example:
+
+   - If you set this parameter to `features/mac_spoofing.feature`, then Cucumber
+     will run only the scenarios from the `mac_spoofing.feature` feature.
+
+   - If you set this parameter to `--tags @automatic_upgrade`, then Cucumber
+     will run only the scenarios that are tagged `@automatic_upgrade`.
+
+### Known usability issues
+
+We collect a list of other known CI usability issues on a dedicated
+blueprint: [[!tails_blueprint CI_usability]].
+
+If something feels odd, misleading, or confusing, please check that page:
+perhaps it explains the problem you're experiencing; else, please add it.
 
 ## Features
 
@@ -885,7 +948,7 @@ We use the following Cucumber tags on scenarios and features:
   instead, we create a GitLab issue to fix it in the next release.
 
 Our Jenkins setup uses these tags to decide which tests to run:
-[[contribute/working_together/roles/sysadmins/automated_tests_in_Jenkins]].
+[[automated tests in Jenkins|https://gitlab.torproject.org/tpo/tpa/team/-/wikis/tails/services/jenkins/automated-tests-in-jenkins]].
 
 # Tips and tricks
 
