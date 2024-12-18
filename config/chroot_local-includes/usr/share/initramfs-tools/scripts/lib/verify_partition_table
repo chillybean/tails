@@ -40,15 +40,6 @@ set_error_reason() {
 # errors.
 sgdisk --verify "${PARENT_DEVICE}"
 
-# Check if the disk GUID was randomized
-GUID=$(sgdisk --print "${PARENT_DEVICE}" |
-    sed -n '/^Disk identifier (GUID)/ s/^Disk identifier (GUID): // p')
-if [ "${GUID}" = "${ORIG_DISK_GUID}" ]; then
-    echo "The disk GUID was not randomized."
-    set_error_reason 'guid-not-randomized'
-    exit 1
-fi
-
 # Check if the system partition was resized
 SECTORS=$(sgdisk --info=1 "${PARENT_DEVICE}" |
     sed -n '/^Partition size:/ s/^Partition size: \([0-9]\+\) sectors.*/\1/p')
@@ -57,6 +48,15 @@ if [ "${PART_SIZE}" -lt "${MIN_SYSTEM_PARTITION_SIZE}" ]; then
     echo "The system partition was not correctly resized " \
         "(expected at least ${MIN_SYSTEM_PARTITION_SIZE}, got ${PART_SIZE})."
     set_error_reason 'system-partition-not-resized'
+    exit 1
+fi
+
+# Check if the disk GUID was randomized
+GUID=$(sgdisk --print "${PARENT_DEVICE}" |
+    sed -n '/^Disk identifier (GUID)/ s/^Disk identifier (GUID): // p')
+if [ "${GUID}" = "${ORIG_DISK_GUID}" ]; then
+    echo "The disk GUID was not randomized."
+    set_error_reason 'guid-not-randomized'
     exit 1
 fi
 
