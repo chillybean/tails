@@ -11,7 +11,7 @@ usage() {
     echo "   $0 REF [CMD]"
     echo "  Pass additional options to ruff:"
     echo "   $0 REF [CMD] --output-format=junit"
-    echo "CMD is optional, and can be check,format,fix"
+    echo "CMD is optional, and can be check,format,fix (default: check)"
 }
 
 conf="$(dirname "$0")/ruff.toml"
