@@ -32,7 +32,7 @@ EOTEXT
         --cancel-label="$(gettext 'Close')" \
         --ok-label="$(gettext 'Open Tails Cloner')" \
         --title="$title" --text="$text"; then
-        /usr/local/lib/run-with-user-env tails-installer --backup
+        tails-installer --backup
     fi
 else
     text="$(
