@@ -55,6 +55,9 @@ Feature: Hardware failures
     When I log in to a new session
     And all notifications have disappeared
     Then I am recommended to reinstall Tails due to partitioning errors
+    # We are gonna verify the dialog again so we need to clean up the
+    # first instance.
+    And I close the "zenity" window
     And I am told that that Persistent Storage cannot be created
     And Tails detected partitioning error partitioning-corruption
 

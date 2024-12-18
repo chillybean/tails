@@ -93,11 +93,9 @@ end
 
 Then /^I am recommended to reinstall Tails due to partitioning errors$/ do
   warning = Dogtail::Application.new('zenity').dialog('Partitioning Error')
-  assert_not_nil(
-    warning.children(roleName: 'label')
-           .last
-           .text['We recommend that you reinstall Tails']
-  )
+  text = warning.children(roleName: 'label').last.text
+  assert_include(text, 'Creation of Persistent Storage has been disabled')
+  assert_include(text, 'We recommend that you reinstall Tails')
 end
 
 Then /^the Greeter forbids creating a persistent partition$/ do
@@ -128,14 +126,8 @@ Then /^the Greeter forbids all settings but language$/ do
 end
 
 Then /^I am told that that Persistent Storage cannot be created$/ do
-  launch_persistent_storage
-  warning = Dogtail::Application.new('tps-frontend')
-                                .child('Error', roleName: 'alert')
-  assert_not_nil(
-    warning.children(roleName: 'label')
-           .last
-           .text['Creation of Persistent Storage has been disabled']
-  )
+  launch_persistent_storage(check_started: false)
+  step 'I am recommended to reinstall Tails due to partitioning errors'
 end
 
 Then /^Tails detected partitioning error (.*)$/ do |expected_reason|

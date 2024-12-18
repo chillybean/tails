@@ -86,16 +86,8 @@ class Window(Gtk.ApplicationWindow):
         if os.path.isfile(
             "/var/lib/live/config/tails.disk-partitioning-errors"
         ) and not self.service_proxy.get_cached_property("IsCreated"):
-            self.display_error(
-                _("Partitioning Error"),
-                _(
-                    "Errors were detected in the partitioning of your "
-                    "Tails USB stick.\n\n"
-                    "Creation of Persistent Storage has been disabled.\n\n"
-                    "We recommend that you reinstall Tails from scratch. "
-                    "If the error persists, reinstall on a new USB stick."
-                ),
-                with_send_report_button=False,
+            subprocess.check_call(
+                ["/usr/local/lib/tails-report-disk-partitioning-errors"]
             )
             exit(1)
 
