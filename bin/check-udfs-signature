@@ -2,14 +2,15 @@
 
 set -eu
 
+UDFS_DIR=wiki/src/upgrade/v2/
+
 error=false
 while read -r upgradesYml; do
     if ! [ -f "${upgradesYml}.pgp" ]; then
         error=true
         echo "${upgradesYml}.pgp missing" >&2
     fi
-done < <(find "wiki/src/upgrade/" \
-        -type f -name upgrades.yml )
+done < <(find "$UDFS_DIR" -type f -name upgrades.yml)
 
 if $error; then
     exit 1
@@ -21,5 +22,4 @@ while read -r upgradesYml; do
         echo "${upgradesYml}.pgp invalid signature" >&2
         exit 1
     fi
-done < <(find wiki/src/upgrade/ \
-        -type f -name upgrades.yml )
+done < <(find "$UDFS_DIR" -type f -name upgrades.yml)
