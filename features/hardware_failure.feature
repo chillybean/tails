@@ -28,7 +28,7 @@ Feature: Hardware failures
       | boot device |
       | boot device with a target error |
 
-  Scenario Outline: Case B: GPT backup corruption with a persistent partition
+  Scenario Outline: GPT backup corruption with a persistent partition
     Given I have started Tails without network from a USB drive with a persistent partition and stopped at Tails Greeter's login screen
     And I corrupt the boot device's GPT backup <thing>
     And I power off the computer
@@ -43,7 +43,7 @@ Feature: Hardware failures
     | header          |
     | partition table |
 
-  Scenario: Case 3: GPT backup corruption without a persistent partition
+  Scenario: GPT backup corruption without a persistent partition
     Given a computer
     And I set Tails to boot with options "test_gpt_corruption=gpt_backup,gpt_backup_table"
     And I temporarily create a 7200 MiB disk named "temp"
@@ -58,7 +58,7 @@ Feature: Hardware failures
     And I am told that that Persistent Storage cannot be created
     And Tails detected partitioning error partitioning-corruption
 
-  Scenario Outline: Case A: Disk partitioning errors without a persistent partition
+  Scenario Outline: Disk partitioning errors without a persistent partition
     Given a computer
     And I set Tails to boot with options "test_partitioning_errors=<error>"
     And I temporarily create a 7200 MiB disk named "temp"
