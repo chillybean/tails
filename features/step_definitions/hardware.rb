@@ -127,6 +127,17 @@ Then /^the Greeter forbids all settings but language$/ do
   )
 end
 
+Then /^I am told that that Persistent Storage cannot be created$/ do
+  launch_persistent_storage
+  warning = Dogtail::Application.new('tps-frontend')
+                                .child('Error', roleName: 'alert')
+  assert_not_nil(
+    warning.children(roleName: 'label')
+           .last
+           .text['Creation of Persistent Storage has been disabled']
+  )
+end
+
 Then /^Tails detected partitioning error (.*)$/ do |expected_reason|
   actual_reason = $vm.file_content(
     '/var/lib/live/config/tails.disk-partitioning-errors'

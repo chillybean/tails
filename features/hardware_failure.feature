@@ -55,6 +55,7 @@ Feature: Hardware failures
     When I log in to a new session
     And all notifications have disappeared
     Then I am recommended to reinstall Tails due to partitioning errors
+    And I am told that that Persistent Storage cannot be created
     And Tails detected partitioning error partitioning-corruption
 
   Scenario Outline: Case A: Disk partitioning errors without a persistent partition
