@@ -63,6 +63,9 @@ if [ "${GUID}" = "${ORIG_DISK_GUID}" ]; then
     exit 1
 fi
 
+# fatresize without `--force` sometimes results in an input prompt to
+# fix various things with the filesystem, but we only want to query it
+# for its size.
 FS_SIZE=$(fatresize --force --info "${PARENT_DEVICE}" | sed -n -E 's/^Cur size: (.*)/\1/p')
 if [ "${FS_SIZE}" -lt "${MIN_SYSTEM_FS_SIZE}" ]; then
     echo "The system partition's file system was not correctly resized " \
