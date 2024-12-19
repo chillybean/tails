@@ -1390,6 +1390,11 @@ Then /^the Upgrader considers the system as up-to-date$/ do
 end
 
 Given /^the signing key used by the Upgrader is outdated$/ do
+  # We're actually testing the worst case scenario, i.e. the local
+  # version of the key is empty, not just expired. It's easier to
+  # implement it this way. And it's safer: it ensures the Upgrader can
+  # only rely on the version of the key that it will download from
+  # our website.
   key = '/usr/share/doc/tails/website/tails-signing.key'
   $vm.file_overwrite(key, '')
   assert($vm.file_empty?(key))
