@@ -23,7 +23,9 @@ PARENT_DEVICE="$1"
 SYSTEM_PARTITION="$2"
 
 is_cmdline_test_enabled() {
-    sed -n "s/.*${1}=\([^ ]*\).*/\1/p" /proc/cmdline | grep -qw "${2}"
+    parameter="${1}"
+    test="${2}"
+    sed -n "s/.*${parameter}=\([^ ]*\).*/\1/p" /proc/cmdline | grep -qw "${test}"
 }
 
 # We call this after each action that alters the device/partition in any
