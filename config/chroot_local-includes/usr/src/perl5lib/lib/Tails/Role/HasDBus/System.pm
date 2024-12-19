@@ -14,13 +14,13 @@ use Carp::Assert::More;
 use Function::Parameters;
 use Net::DBus qw(:typing);
 use Net::DBus::GLib;
+use Types::Standard qw{InstanceOf};
 
 use Moo::Role;
-use MooX::late;
 use namespace::clean;
 
 has 'dbus'  => (
-    isa        => 'Net::DBus',
+    isa        => InstanceOf['Net::DBus'],
     is         => 'ro',
     required   => 1,
     builder    => '_build_dbus',

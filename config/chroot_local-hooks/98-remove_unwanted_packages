@@ -55,7 +55,12 @@ done
 
 ### Remove unwanted packages that might, or might not,
 ### have been installed during the build.
-for package in gcc-7 libgcc-7-dev procmail; do
+for package in \
+    gcc-7 \
+    libgcc-7-dev \
+    libmoox-late-perl \
+    libsub-handlesvia-perl \
+    procmail; do
     if is_package_installed "${package}"; then
         packages_to_purge="${packages_to_purge} ${package}"
     fi

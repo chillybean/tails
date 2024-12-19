@@ -25,14 +25,14 @@ use Carp::Assert::More;
 use Data::Dumper;
 use English qw{-no_match_vars};
 use File::Temp qw{tempfile};
-use GnuPG::Interface;
 use Filesys::Df;
 use Function::Parameters;
+use IPC::Run;
 use IPC::System::Simple qw{capturex};
 use Path::Tiny;
 use String::Errf qw{errf};
 use Types::Path::Tiny qw{AbsDir AbsFile Path};
-use Types::Standard qw{Str};
+use Types::Standard qw{ArrayRef Str};
 
 
 =head1 FUNCTIONS
@@ -107,23 +107,8 @@ fun space_available_in (AbsDir $dir) {
 
 fun verify_signature (Str $txt,
                       Str $signature_txt,
-                      AbsDir $trusted_gnupg_homedir) {
+                      ArrayRef[AbsFile] $signing_keys) {
     assert_nonblank($signature_txt);
-
-    my $gnupg = GnuPG::Interface->new();
-    $gnupg->options->hash_init(
-        homedir    => $trusted_gnupg_homedir,
-        # We decide what key should be trusted by a given Tails,
-        # and we won't put a key created in the future in there,
-        # so if a key appears to be created in the future,
-        # it must be because the clock has problems,
-        # so we can ignore that.
-        # Same for a key that appears to be expired.
-        # Disable locking entirely: our GnuPG homedir is read-only.
-        extra_args => [
-            qw{--ignore-valid-from --ignore-time-conflict --lock-never}
-        ],
-    );
 
     my   ($signature_fh, $signature_file) = tempfile(CLEANUP => 1);
     print $signature_fh  $signature_txt;
@@ -133,26 +118,32 @@ fun verify_signature (Str $txt,
     print $txt_fh        $txt;
     close $txt_fh;
 
-    my ($stdout, $stderr) = (IO::Handle->new(), IO::Handle->new());
-    my $pid = $gnupg->verify(
-        handles => GnuPG::Handles->new(stdout => $stdout, stderr => $stderr),
-        command_args => [ $signature_file, $txt_file ],
-    );
-    waitpid $pid, 0;
-
-    $CHILD_ERROR == 0 or say STDERR errf(
-        "GnuPG signature verification failed:\n".
-        "exit code: %{exit_code}i\n\n".
-        "stdout:\n%{stdout}s\n\n".
-        "stderr:\n%{stderr}s",
-        {
-            exit_code => $CHILD_ERROR,
-            stdout    => join('', $stdout->getlines),
-            stderr    => join('', $stderr->getlines),
-        }
+    my ($stdout, $stderr);
+    my $exit_code;
+    my @cmd = (
+        '/usr/bin/sqop', 'verify',
+        $signature_file,
+        @{$signing_keys},
     );
 
-    return $CHILD_ERROR == 0;
+    IPC::Run::run \@cmd, '<', $txt_file, '>', \$stdout, '2>', \$stderr;
+    $exit_code = $?;
+
+    if ($exit_code != 0) {
+        say STDERR errf(
+            "sqop failed:\n".
+            "exit code: %{exit_code}i\n\n".
+            "stdout:\n%{stdout}s\n\n".
+            "stderr:\n%{stderr}s",
+            {
+                exit_code => $exit_code,
+                stdout    => $stdout,
+                stderr    => $stderr,
+            },
+        );
+    }
+
+    return $exit_code == 0;
 }
 
 1;
