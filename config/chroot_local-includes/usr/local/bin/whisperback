@@ -37,11 +37,11 @@ def main():
     args = sys.argv[1:]
     assert_allowed_args(args)
     if os.getuid() == LIVE_USER_UID:
-        os.execv("/usr/bin/sudo", ["sudo", "-n", "/usr/local/bin/whisperback"] + args)
+        os.execv("/usr/bin/sudo", ["sudo", "-n", "/usr/local/bin/whisperback", *args])
     if os.getuid() != 0:
         sys.exit(1)
     debugging_info = subprocess.check_output(["/usr/local/sbin/tails-debugging-info"])
-    cmd = ["/usr/local/lib/run-with-user-env", "/usr/bin/whisperback"] + args
+    cmd = ["/usr/local/lib/run-with-user-env", "/usr/bin/whisperback", *args]
     p = subprocess.Popen(cmd, stdin=subprocess.PIPE)
     p.communicate(input=debugging_info)
 
