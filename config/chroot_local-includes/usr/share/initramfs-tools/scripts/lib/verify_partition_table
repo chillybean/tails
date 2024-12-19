@@ -22,6 +22,9 @@ ORIG_DISK_GUID="17B81DA0-8B1E-4269-9C39-FE5C7B9B58A3"
 # software has its own opinion on the exact size things should have,
 # e.g. to align on physical sectors.
 MIN_SYSTEM_PARTITION_SIZE=$((2500 * 1024 * 1024 - 4 * 1024 * 1024))
+# The filesystem might not fill the whole partition so here we accept
+# 32 MiB slack.
+MIN_SYSTEM_FS_SIZE=$((MIN_SYSTEM_PARTITION_SIZE - 32 * 1024 * 1024))
 
 PARENT_DEVICE="$1"
 REPARTITIONING_ERROR_FLAG_FILE="$2"
@@ -61,9 +64,9 @@ if [ "${GUID}" = "${ORIG_DISK_GUID}" ]; then
 fi
 
 FS_SIZE=$(fatresize --force --info "${PARENT_DEVICE}" | sed -n -E 's/^Cur size: (.*)/\1/p')
-if [ "${FS_SIZE}" -lt "${MIN_SYSTEM_PARTITION_SIZE}" ]; then
+if [ "${FS_SIZE}" -lt "${MIN_SYSTEM_FS_SIZE}" ]; then
     echo "The system partition's file system was not correctly resized " \
-        "(expected at least ${MIN_SYSTEM_PARTITION_SIZE}, got ${FS_SIZE})."
+        "(expected at least ${MIN_SYSTEM_FS_SIZE}, got ${FS_SIZE})."
     set_error_reason 'fs-not-resized'
     exit 1
 fi
