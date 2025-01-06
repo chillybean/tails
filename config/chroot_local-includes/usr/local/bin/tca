@@ -61,7 +61,7 @@ chmod 600 "${CONFIG_FILE}" "${STATE_FILE}"
 #    proxy and the IBus bus proxy, so that tca can use them even though
 #    it is running in a separate network namespace.
 #
-# 6. `/usr/bin/python3 /usr/lib/python3/dist-packages/tca/application.py`
+# 6. `/usr/bin/python3 -I /usr/lib/python3/dist-packages/tca/application.py`
 #    runs the actual tca process.
 
 exec \
