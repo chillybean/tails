@@ -46,16 +46,6 @@ Package: python3-blinker python3-flask python3-werkzeug
 Pin: release o=Debian,n=sid
 Pin-Priority: 999
 
-Explanation: Needed by Bookworm's Electrum to support Trezor hardware wallets (#20138)
-Package: src:python-trezor
-Pin: release o=Debian,n=bookworm-backports
-Pin-Priority: 999
-
-Explanation: Needed by python-trezor from bookworm-backports
-Package: src:python-construct-classes src:python-mnemonic
-Pin: release o=Debian,n=bookworm-backports
-Pin-Priority: 999
-
 Package: webext-ublock-origin-firefox
 Pin: release o=Debian,n=sid
 Pin-Priority: 999
