@@ -32,7 +32,7 @@ EOTEXT
         --cancel-label="$(gettext 'Close')" \
         --ok-label="$(gettext 'Open Tails Cloner')" \
         --title="$title" --text="$text"; then
-        tails-installer --backup
+        exec tails-installer --backup
     fi
 else
     text="$(
@@ -44,7 +44,7 @@ $(gettext 'Creation of Persistent Storage has been disabled.')
 $(gettext 'We recommend that you reinstall Tails from scratch. If the error persists, reinstall on a new USB stick.')
 EOTEXT
     )"
-    zenity \
+    exec zenity \
         --info --ellipsize \
         --icon-name=error \
         --title="$title" --text="$text"
