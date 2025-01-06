@@ -267,6 +267,9 @@ may be worth delaying a Tails release a bit, while waiting for a DSA to happen.
 Sanity check
 ============
 
+Jenkins
+-------
+
 Visit the [Jenkins RM view](https://jenkins.tails.boum.org/view/RM/)
 and check that the jobs for the release branch have good enough results:
 
@@ -285,6 +288,12 @@ and check that the jobs for the release branch have good enough results:
    If it does not pass, evaluate whether the problems fixed in the missing
    package update are worth delaying the release. If not, create an issue
    to track them.
+
+GitLab CI
+---------
+
+Verify that the latest [[!tails_gitlab desc="pipeline" tails/tails/-/pipelines]]
+for the branch this release will be built from succeeded.
 
 Freeze
 ======
@@ -759,6 +768,28 @@ Feel free to skip this section when preparing an emergency release.
         git commit -m 'Updating SquashFS sort file' \
             config/binary_rootfs/squashfs.sort && \
         rm -f config/binary_rootfs/squashfs.sort.old
+
+Sanity check: need to redo some steps?
+======================================
+
+If you did some above steps out-of-order, in particular if you merged changes
+after you went through the *Freeze* section:
+
+1. Open a new, full copy of the release process (not the one you're reading
+   right now, in which you've deleted the steps that you've completed).
+
+2. Read everything until this section, looking for steps that have been
+   invalidated by the actions done out-of-order. For example, you might need to
+   update the changelog again. Take note of every such step, keeping it mind
+   that redoing 1 step may in turn invalidate some other subsequent steps.
+
+3. Redo the steps that were invalidated.
+
+   Note: many of these steps are not idempotent, so in some cases you'll need to
+   do something smarter than following the instructions is-is a second time.
+
+4. Close the full copy of the release process that you have used for
+   this section.
 
 Build images
 ============

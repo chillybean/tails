@@ -7,7 +7,6 @@ use Function::Parameters;
 use Types::Standard qw(InstanceOf Str);
 
 use Moo::Role;
-use MooX::late;
 use namespace::clean;
 
 requires 'encoding';

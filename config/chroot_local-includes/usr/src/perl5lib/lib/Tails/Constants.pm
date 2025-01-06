@@ -5,16 +5,15 @@ use strictures 2;
 use autodie qw(:all);
 
 use Function::Parameters;
+use Types::Standard qw{Str};
 
 no Moo::sification;
 use Moo;
-use MooX::late;
 use namespace::clean;
 
 has 'system_partition_label' => (
-    lazy_build => 1,
-    is         => 'ro',
-    isa        => 'Str',
+    is         => 'lazy',
+    isa        => Str,
 );
 
 method _build_system_partition_label () { 'Tails' }

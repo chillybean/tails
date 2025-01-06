@@ -15,6 +15,7 @@ use Env;
 use File::Copy::Recursive qw{dircopy};
 use Function::Parameters;
 use IPC::Run;
+use IPC::System::Simple qw{systemx};
 use Test::More;
 use Test::BDD::Cucumber::StepFile;
 
@@ -31,8 +32,6 @@ my $bindir = path(__FILE__)->parent->parent->parent->parent->child('bin')->absol
 my $t_dir  = path(__FILE__)->parent->parent->parent->parent->child('t')->absolute;
 my $pristine_dev_gnupg_homedir = path($t_dir, 'data', 'dev_gnupg_homedir');
 my $pristine_untrusted_gnupg_homedir = path($t_dir, 'data', 'untrusted_gnupg_homedir');
-my $pristine_expired_dev_gnupg_homedir = path($t_dir, 'data', 'expired_dev_gnupg_homedir');
-my $pristine_future_dev_gnupg_homedir = path($t_dir, 'data', 'future_dev_gnupg_homedir');
 
 $ENV{HARNESS_ACTIVE} = 1;
 
@@ -115,29 +114,15 @@ Given qr{^a trusted Certificate Authority$}, fun ($c) {
     assert(-e $ca_cert);
 };
 
-Given qr{^(a trusted|an untrusted)(|, but expired) OpenPGP signing key pair(| created in the future)$}, fun ($c) {
+Given qr{^(a trusted|an untrusted) OpenPGP signing key pair$}, fun ($c) {
     my $trusted = $c->matches->[0] eq 'a trusted' ? 1 : 0;
-    my $expired = defined $c->matches->[1] && length $c->matches->[1] ? 1 : 0;
-    my $future  = length $c->matches->[2] ? 1 : 0;
-
-    assert(grep(/^1$/, ($future, $expired)) <= 1);
 
     my $pristine_gnupg_homedir;
     my $name;
 
     if ($trusted) {
-        if ($expired) {
-            $name = 'expired_dev_gnupg_homedir';
-            $pristine_gnupg_homedir = $pristine_expired_dev_gnupg_homedir;
-        }
-        elsif ($future) {
-            $name = 'future_dev_gnupg_homedir';
-            $pristine_gnupg_homedir = $pristine_future_dev_gnupg_homedir;
-        }
-        else {
-            $name = 'dev_gnupg_homedir';
-            $pristine_gnupg_homedir = $pristine_dev_gnupg_homedir;
-        }
+        $name = 'dev_gnupg_homedir';
+        $pristine_gnupg_homedir = $pristine_dev_gnupg_homedir;
     }
     else {
         $name = 'untrusted_gnupg_homedir';
@@ -155,7 +140,7 @@ Given qr{^(a trusted|an untrusted)(|, but expired) OpenPGP signing key pair(| cr
 
     dircopy($pristine_gnupg_homedir, $gnupg_homedir);
     assert(-d $gnupg_homedir);
-    assert(-e path($gnupg_homedir, $_)) for qw{pubring.gpg secring.gpg};
+    assert(-e path($gnupg_homedir, $_)) for qw{pubring.gpg private-keys-v1.d};
 };
 
 Given qr{^a non-existing web server$}, fun ($c) {
@@ -214,10 +199,10 @@ Given qr{^a HTTPS server with (a valid|an invalid|an expired|a not-valid-yet) SS
         assert(-e $ssl_req);
         my $generate_at_dt;
         if ($type eq 'expired') {
-            $generate_at_dt = DateTime->now + DateTime::Duration->new(years => 2);
+            $generate_at_dt = DateTime->now + DateTime::Duration->new(years => -2);
         }
         elsif ($type eq 'not-valid-yet') {
-            $generate_at_dt = DateTime->now + DateTime::Duration->new(years => -2);
+            $generate_at_dt = DateTime->now + DateTime::Duration->new(years => 2);
         }
         my @extra_args;
         if ($type eq 'expired' or $type eq 'not-valid-yet') {
@@ -346,14 +331,9 @@ Given qr{^a signature that is too big$}, fun ($c) {
     $sig->spew("a" x $size);
 };
 
-Given qr{^(a valid|an invalid) signature made(| in the future) by (a trusted|an untrusted)(|, but expired) key(| created in the future)$}, fun ($c) {
+Given qr{^(a valid|an invalid) signature made by (a trusted|an untrusted) key$}, fun ($c) {
     my $valid              = $c->matches->[0] eq 'a valid' ? 1 : 0;
-    my $sign_in_the_future = length $c->matches->[1] ? 1 : 0;
-    my $trusted            = $c->matches->[2] eq 'a trusted' ? 1 : 0;
-    my $key_expired        = length $c->matches->[3] ? 1 : 0;
-    my $key_not_valid_yet  = length $c->matches->[4] ? 1 : 0;
-
-    assert(1 >= grep(/^1$/, ( $sign_in_the_future, $key_expired, $key_not_valid_yet )));
+    my $trusted            = $c->matches->[1] eq 'a trusted' ? 1 : 0;
 
     my $webroot = $c->{stash}->{scenario}->{webroot};
     my $desc    = upgrade_description_file($c);
@@ -364,53 +344,15 @@ Given qr{^(a valid|an invalid) signature made(| in the future) by (a trusted|an 
     if ($valid) {
         my $gnupg_homedir;
         if ($trusted) {
-            if ($key_expired) {
-                $gnupg_homedir = $c->{stash}->{scenario}->{expired_dev_gnupg_homedir};
-            }
-            elsif ($key_not_valid_yet) {
-                $gnupg_homedir = $c->{stash}->{scenario}->{future_dev_gnupg_homedir};
-            }
-            else {
-                $gnupg_homedir = $c->{stash}->{scenario}->{dev_gnupg_homedir};
-            }
+            $gnupg_homedir = $c->{stash}->{scenario}->{dev_gnupg_homedir};
             $c->{stash}->{scenario}->{trusted_gnupg_homedir} = $gnupg_homedir;
         }
         else {
             $gnupg_homedir = $c->{stash}->{scenario}->{untrusted_gnupg_homedir};
         }
 
-        my @precmd;
-        if ($key_expired) {
-            my $expired_key_was_still_valid_dt = DateTime->new(
-                year => 2009, month => 06, day => 06
-            );
-            @precmd = (
-                'faketime',
-                sprintf(
-                    '%s %s',
-                    $expired_key_was_still_valid_dt->ymd,
-                    $expired_key_was_still_valid_dt->hms
-                )
-            );
-        }
-        elsif ($sign_in_the_future) {
-            my $in_two_years_dt = DateTime->now + DateTime::Duration->new(years => 2);
-            @precmd = (
-                'faketime',
-                sprintf('%s %s', $in_two_years_dt->ymd, $in_two_years_dt->hms)
-            );
-        }
-        elsif ($key_not_valid_yet) {
-            my $when_key_valid_dt = DateTime->new(year => 2056, month => 2, day => 2);
-            @precmd = (
-                'faketime',
-                sprintf('%s %s', $when_key_valid_dt->ymd, $when_key_valid_dt->hms)
-            );
-        }
-
         my ($stdout, $stderr);
         IPC::Run::run [
-            @precmd,
             qw{gpg --batch --quiet},
             qw{--armor --detach-sign},
             '--homedir', $gnupg_homedir,
@@ -433,18 +375,27 @@ When qr{^I download and check (?:this upgrade-description file|an upgrade-descri
         assert(-e      $c->{stash}->{scenario}->{$_});
     }
 
+    my $signing_key = Path::Tiny->tempfile;
+    unlink $signing_key;
+    systemx(
+        qw{gpg --batch --no-permission-warning --quiet --armor},
+        '--homedir', $c->{stash}->{scenario}->{trusted_gnupg_homedir},
+        '--output',  $signing_key,
+        '--export'
+    );
+
     my $cmdline = sprintf("%s " .
             "--override_baseurl 'https://127.0.0.1:%s' " .
             "--override_os_release_file '%s' " .
             "--override_initial_install_os_release_file '%s' " .
             "--override_build_target '%s' " .
-            "--trusted_gnupg_homedir '%s'",
+            "--signing_key '%s'",
         path($bindir, "tails-iuk-get-upgrade-description-file"),
         $c->{stash}->{scenario}->{server}->{https_port},
         $c->{stash}->{scenario}->{os_release_file},
         $c->{stash}->{scenario}->{initial_install_os_release_file},
         's390x',
-        $c->{stash}->{scenario}->{trusted_gnupg_homedir},
+        $signing_key,
     );
     $ENV{HTTPS_CA_FILE} = $c->{stash}->{scenario}->{ca_cert};
     $c->{stash}->{scenario}->{output} = `$cmdline 2>&1`;

@@ -66,12 +66,11 @@
  
    # should maybe be in abstractions
    /etc/ r,
-@@ -144,6 +135,8 @@
+@@ -144,6 +135,7 @@
    /etc/gre.d/* r,
  
    # noisy
 +  deny @{MOZ_LIBDIR}/vaapitest x,
-+  deny /etc/os-release r,
    deny @{MOZ_LIBDIR}/** w,
    deny /usr/lib/thunderbird-addons/** w,
    deny /usr/lib/xulrunner-addons/** w,

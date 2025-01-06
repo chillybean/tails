@@ -42,8 +42,24 @@ AppArmor profile: [[tor-browser/AppArmor_policy]].
 Upgrade Tor Browser in Tails
 ============================
 
+Communicate
+-----------
+
+Early on release-week-Monday, on the Tor Browser dev IRC channel, announce that
+this week you're the person in charge of monitoring when a new
+just-trustworthy-enough Tor Browser tarball is ready, of importing it into
+Tails, and of running it through our QA.
+
+Rationale: establish a rapport so that the Applications team members who are
+working on the Tor Browser release process have our needs in mind, and match
+these needs with an individual IRC nick they can keep up-to-date. This increases
+the chances you'll be kept in the loop at whatever time is relevant to this
+release process. This also provides context for any question you might need to
+ask later on, especially in terms of timing & availability of a tarball that's
+good enough for us to import.
+
 Wait
-------------
+----
 
 To check if the desired version is available:
 
@@ -72,7 +88,7 @@ To check if the desired version is available:
         ```
 
 Verify
-------------
+------
 
 Set `TBB_DIST_URL` to the chosen URL, and set `TBB_VERSION` to the desired Tor
 Browser version, for example:
@@ -131,7 +147,7 @@ when the tarballs are fetched:
     ) > config/chroot_local-includes/usr/share/tails/tbb-sha256sums.txt
 
 Set download url
----------------------
+----------------
 
 ### If `TBB_DIST_URL` supports http
 
@@ -184,10 +200,8 @@ Download the relevant files:
 Now, put them on some webserver that you can control. Let's say you uploaded them to
 `http://myserver.net/misc/tbb/`. Put *that* URL in `config/chroot_local-includes/usr/share/tails/tbb-dist-url.txt`
 
-
-
 Commit
------------
+------
 
 Lastly, commit:
 

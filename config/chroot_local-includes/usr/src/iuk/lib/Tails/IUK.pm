@@ -25,6 +25,7 @@ use English qw{-no_match_vars};
 use File::Basename;
 use File::Spec::Functions;
 use Function::Parameters;
+use List::Util qw{first};
 use Path::Tiny;
 use Tails::IUK::Utils qw{extract_file_from_iso extract_here_file_from_iso run_as_root};
 use Types::Path::Tiny qw{AbsDir AbsFile AbsPath File};
@@ -375,11 +376,20 @@ method create_squashfs_diff () {
 
     run_as_root("umount", $union_mount);
 
-    run_as_root(
-        # This code is only used from a Git checkout.
+    # This code is only used by the RM from a Git checkout (in which
+    # case the script is in "bin"), or when running the test suite (in
+    # which case the script is in a temporary build "script"
+    # directory). Let's pick the first one that we can find.
+    my $tails_remove_matching_xattrs = first {
+        $_->exists
+    } map {
         path(__FILE__)->parent->parent->parent
-                      ->child('bin', 'tails-remove-matching-xattrs')
-                      ->absolute,
+                      ->child($_, 'tails-remove-matching-xattrs')
+                      ->absolute
+    } ('bin', 'script');
+    assert(defined $tails_remove_matching_xattrs);
+    run_as_root(
+        $tails_remove_matching_xattrs,
         '--directory', $union_upperdir,
         '--prefix', 'trusted.overlay.',
     );

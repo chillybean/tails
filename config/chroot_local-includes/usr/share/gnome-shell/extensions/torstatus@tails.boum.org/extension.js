@@ -43,6 +43,10 @@ class TorStatusIndicator extends PanelMenu.Button {
             'changed', this._onFileChanged.bind(this));
 
         // Create menu
+        this.tca_menu_item = new PopupMenu.PopupMenuItem(_("Open Tor Connection Assistant"));
+        this.tca_menu_item.connect('activate', this._openTca.bind(this));
+        this.menu.addMenuItem(this.tca_menu_item);
+
         this.menu_item = new PopupMenu.PopupMenuItem(_("Open Onion Circuits"));
         this.menu_item.connect('activate', this._openOnionCircuits.bind(this));
         this.menu.addMenuItem(this.menu_item);
@@ -65,6 +69,10 @@ class TorStatusIndicator extends PanelMenu.Button {
 
     _openOnionCircuits() {
         Shell.AppSystem.get_default().lookup_app('onioncircuits.desktop').activate();
+    }
+
+    _openTca() {
+        Shell.AppSystem.get_default().lookup_app('tca.desktop').activate();
     }
 
     _onFileChanged(monitor, file, other_file, event_type, user_data) {
