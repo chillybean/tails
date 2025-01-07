@@ -3,9 +3,9 @@
 tps_is_created() {
     local out
     out="$(gdbus call --system --dest org.boum.tails.PersistentStorage \
-           --object-path "/org/boum/tails/PersistentStorage" \
-           --method org.freedesktop.DBus.Properties.Get \
-           org.boum.tails.PersistentStorage IsCreated)"
+        --object-path "/org/boum/tails/PersistentStorage" \
+        --method org.freedesktop.DBus.Properties.Get \
+        org.boum.tails.PersistentStorage IsCreated)"
 
     if [ "${out}" = "(<true>,)" ]; then
         return 0
@@ -16,9 +16,9 @@ tps_is_created() {
 tps_is_unlocked() {
     local out
     out="$(gdbus call --system --dest org.boum.tails.PersistentStorage \
-           --object-path "/org/boum/tails/PersistentStorage" \
-           --method org.freedesktop.DBus.Properties.Get \
-           org.boum.tails.PersistentStorage IsUnlocked)"
+        --object-path "/org/boum/tails/PersistentStorage" \
+        --method org.freedesktop.DBus.Properties.Get \
+        org.boum.tails.PersistentStorage IsUnlocked)"
 
     if [ "${out}" = "(<true>,)" ]; then
         return 0
@@ -31,9 +31,9 @@ tps_feature_is_active() {
     local object_path="/org/boum/tails/PersistentStorage/Features/${feature}"
     local out
     out="$(gdbus call --system --dest org.boum.tails.PersistentStorage \
-           --object-path "${object_path}" \
-           --method org.freedesktop.DBus.Properties.Get \
-           org.boum.tails.PersistentStorage.Feature IsActive)"
+        --object-path "${object_path}" \
+        --method org.freedesktop.DBus.Properties.Get \
+        org.boum.tails.PersistentStorage.Feature IsActive)"
 
     if [ "${out}" = "(<true>,)" ]; then
         return 0
@@ -46,9 +46,9 @@ tps_feature_is_enabled() {
     local object_path="/org/boum/tails/PersistentStorage/Features/${feature}"
     local out
     out="$(gdbus call --system --dest org.boum.tails.PersistentStorage \
-           --object-path "${object_path}" \
-           --method org.freedesktop.DBus.Properties.Get \
-           org.boum.tails.PersistentStorage.Feature IsEnabled)"
+        --object-path "${object_path}" \
+        --method org.freedesktop.DBus.Properties.Get \
+        org.boum.tails.PersistentStorage.Feature IsEnabled)"
 
     if [ "${out}" = "(<true>,)" ]; then
         return 0
@@ -62,10 +62,10 @@ tps_get_features() {
     #   permissions to call this
     # Output format: ['Feature1', 'Feature2']
     res=$(busctl --json=short call org.boum.tails.PersistentStorage \
-          /org/boum/tails/PersistentStorage \
-          org.boum.tails.PersistentStorage \
-          GetFeatures | \
-          python3 -c "import sys, json; print(json.dumps(json.load(sys.stdin)['data'][0]))")
+        /org/boum/tails/PersistentStorage \
+        org.boum.tails.PersistentStorage \
+        GetFeatures |
+        python3 -I -c "import sys, json; print(json.dumps(json.load(sys.stdin)['data'][0]))")
     echo "${res}"
 }
 
@@ -79,9 +79,9 @@ tps_activate_feature() {
     local feature="${1}"
     local object_path="/org/boum/tails/PersistentStorage/Features/${feature}"
     gdbus call --system --dest org.boum.tails.PersistentStorage \
-         --object-path "${object_path}" \
-         --method org.boum.tails.PersistentStorage.Feature.Activate \
-         > /dev/null
+        --object-path "${object_path}" \
+        --method org.boum.tails.PersistentStorage.Feature.Activate \
+        >/dev/null
 }
 
 tps_deactivate_feature() {
@@ -93,9 +93,9 @@ tps_deactivate_feature() {
     local feature="${1}"
     local object_path="/org/boum/tails/PersistentStorage/Features/${feature}"
     gdbus call --system --dest org.boum.tails.PersistentStorage \
-         --object-path "${object_path}" \
-         --method org.boum.tails.PersistentStorage.Feature.Deactivate \
-         > /dev/null
+        --object-path "${object_path}" \
+        --method org.boum.tails.PersistentStorage.Feature.Deactivate \
+        >/dev/null
 }
 
 tps_ensure_feature_is_active() {
