@@ -42,22 +42,6 @@ Then /^I see a disk failure message$/ do
   @screen.wait('GnomeDiskFailureMessage.png', 10)
 end
 
-Then /^I see an error about (disk partitioning|GPT header|system partition resizing)$/ do |reason|
-  error_message_prefix = 'Something went wrong when starting your Tails USB stick' \
-    ' for the first time: '
-  reason_to_message = {
-    'disk partitioning'         => '',
-    'GPT header'                => 'the GPT header is corrupted',
-    'system partition resizing' => 'resizing the system partition failed',
-  }
-  error_message = error_message_prefix + reason_to_message[reason]
-  try_for(30) do
-    Dogtail::Application.new('zenity')
-                        .children(roleName: 'label')
-                        .any? { |n| n.text.include?(error_message) }
-  end
-end
-
 Then /^I see a disk failure message on the splash screen$/ do
   @screen.wait('PlymouthDiskFailureMessage.png', 60)
 end
@@ -70,4 +54,85 @@ end
 
 Then /^I see a graphics card failure message on the splash screen$/ do
   @screen.wait('PlymouthGraphicsCardFailureMessage.png', 60)
+end
+
+When /^I corrupt the boot device's GPT backup (header|partition table)$/ do |thing|
+  # Code borrowed from the "test_gpt_corruption" case in the
+  # first_boot_repartition script.
+  parent_device = boot_device.sub(/[0-9]+$/, '')
+  sectors = $vm.execute_successfully("blockdev --getsz '#{parent_device}'").stdout.to_i
+  if thing == 'header'
+    $vm.execute_successfully(
+      "dd if=/dev/zero of='#{parent_device}' bs=512 count=1 seek=#{sectors - 1} " \
+      'oflag=direct'
+    )
+  else
+    $vm.execute_successfully(
+      "dd if=/dev/zero of='#{parent_device}' bs=512 count=32 seek=#{sectors - 33} " \
+      'oflag=direct'
+    )
+  end
+end
+
+Then /^the Greeter recommends reinstalling Tails due to partitioning errors$/ do
+  greeter.child(
+    'Errors were detected in the partitioning of your Tails USB stick.\n\n' \
+    'Try reinstalling Tails. If the error persists, reinstall on a new USB stick.',
+    roleName: 'label'
+  )
+end
+
+Then /^I am recommended to migrate to a new USB stick due to partitioning errors$/ do
+  warning = Dogtail::Application.new('zenity').dialog('Partitioning Error')
+  assert_not_nil(
+    warning.children(roleName: 'label')
+           .last
+           .text['We recommend that you create a backup of your Tails']
+  )
+end
+
+Then /^I am recommended to reinstall Tails due to partitioning errors$/ do
+  warning = Dogtail::Application.new('zenity').dialog('Partitioning Error')
+  text = warning.children(roleName: 'label').last.text
+  assert_include(text, 'Creation of Persistent Storage has been disabled')
+  assert_include(text, 'We recommend that you reinstall Tails')
+end
+
+Then /^the Greeter forbids creating a persistent partition$/ do
+  assert_false(
+    greeter.child('Create Persistent Storage', roleName: 'toggle button').sensitive?
+  )
+end
+
+Then /^the Greeter forbids starting Tails$/ do
+  assert_false(
+    greeter.child('Start Tails', roleName: 'push button').sensitive?
+  )
+end
+
+Then /^the Greeter forbids all settings but language$/ do
+  assert(
+    greeter.child('Language', roleName: 'label').sensitive?
+  )
+  assert_false(
+    greeter.child('Keyboard Layout', roleName: 'label').sensitive?
+  )
+  assert_false(
+    greeter.child('Formats', roleName: 'label').sensitive?
+  )
+  assert_false(
+    greeter.child('Additional Settings', roleName: 'label').sensitive?
+  )
+end
+
+Then /^I am told that that Persistent Storage cannot be created$/ do
+  launch_persistent_storage(check_started: false)
+  step 'I am recommended to reinstall Tails due to partitioning errors'
+end
+
+Then /^Tails detected partitioning error (.*)$/ do |expected_reason|
+  actual_reason = $vm.file_content(
+    '/var/lib/live/config/tails.disk-partitioning-errors'
+  ).chomp
+  assert_equal(expected_reason, actual_reason)
 end

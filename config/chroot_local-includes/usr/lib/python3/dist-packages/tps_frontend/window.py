@@ -1,3 +1,4 @@
+import os
 import subprocess
 from logging import getLogger
 
@@ -81,6 +82,14 @@ class Window(Gtk.ApplicationWindow):
             self.state = State[variant.get_string()]
 
         self.refresh_view()
+
+        if os.path.isfile(
+            "/var/lib/live/config/tails.disk-partitioning-errors"
+        ) and not self.service_proxy.get_cached_property("IsCreated"):
+            subprocess.check_call(
+                ["/usr/local/lib/tails-report-disk-partitioning-errors"]
+            )
+            exit(1)
 
     def refresh_view(self):
         # Choose which view to show
@@ -296,7 +305,7 @@ class Window(Gtk.ApplicationWindow):
         msg: str,
         msg_is_markup: bool = False,
         details: ErrorDetails = None,
-        with_send_report_button: Optional[bool] = None,
+        with_send_report_button: bool | None = None,
     ):
         if with_send_report_button is None:
             # Don't show the send report button if the failure view is the
