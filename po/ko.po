@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-28 11:34+0100\n"
+"POT-Creation-Date: 2025-01-08 10:04+0100\n"
 "PO-Revision-Date: 2024-10-23 15:16+0000\n"
 "Last-Translator: Kyeongmin Kim <kyeongmin.dev@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/tor/tails-gui/ko/"
@@ -136,10 +136,9 @@ msgstr "제거"
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:166
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/add_settings_dialog.py:40
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:178
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:456
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:807
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:481
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:832
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:728
-#: config/chroot_local-includes/usr/local/lib/tails-report-disk-resize-errors:38
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:119
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:376
 msgid "Cancel"
@@ -212,9 +211,9 @@ msgstr "Tails가 시작될 때 영구 저장소에서 다음 소프트웨어가 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:194
 msgid ""
-"To add more, install some software using <a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
-"desktop\">APT on the command line</a>."
+"To add more, install some software using <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "소프트웨어를 더 추가하려면 <a href=\"synaptic.desktop\">시냅틱 패키지 관리자"
 "</a> 또는 <a href=\"org.gnome.Terminal.desktop\">터미널에서 APT</a>를 사용하"
@@ -340,33 +339,33 @@ msgid "#{time} left — {downloaded} of {size} ({speed}/sec)\n"
 msgstr "#{time} 남음 — {size} 중 {downloaded} ({speed}/sec)\n"
 
 #. Translators: KB is the short form for kilobyte
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Role/FormatByte.pm:33
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Role/FormatByte.pm:32
 msgid "KB"
 msgstr "KB"
 
 #. Translators: MB is the short form for megabyte
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Role/FormatByte.pm:35
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Role/FormatByte.pm:34
 msgid "MB"
 msgstr "MB"
 
 #. Translators: GB is the short form for gigabyte
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Role/FormatByte.pm:37
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Role/FormatByte.pm:36
 msgid "GB"
 msgstr "GB"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Role/FormatByte.pm:43
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Role/FormatByte.pm:42
 msgid "bytes"
 msgstr "바이트"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:197
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:716
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:869
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:201
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:715
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:868
 msgid ""
 "For debugging information, execute the following command: sudo tails-"
 "debugging-info"
 msgstr "다음 명령으로 디버깅 정보를 확인하세요: sudo tails-debugging-info"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:293
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:297
 msgid ""
 "<b>An error occured while updating the signing key.</b>\\n\\n<b>This "
 "prevents determining whether an upgrade is available from our website.</"
@@ -380,19 +379,15 @@ msgstr ""
 "면 file:///usr/share/doc/tails/website/doc/upgrade/error/check.en.html 을 참"
 "고하세요"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:307
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:311
 msgid "Error while downloading the signing key"
 msgstr "서명 키 다운로드 중 오류 발생"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:318
-msgid "Error while updating the signing key"
-msgstr "서명 키 업데이트 중 오류 발생"
-
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:345
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:344
 msgid "Error while checking for upgrades"
 msgstr "업그레이드 확인 중 오류 발생"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:347
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:346
 msgid ""
 "<b>Could not determine whether an upgrade is available from our website.</"
 "b>\n"
@@ -410,40 +405,40 @@ msgstr ""
 "만약 문제가 계속된다면 file:///usr/share/doc/tails/website/doc/upgrade/error/"
 "check.en.html 을 참고하세요"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:362
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:361
 msgid "no automatic upgrade is available from our website for this version"
 msgstr "이 버전에 대한 웹사이트에서의 자동 업그레이드 없음"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:368
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:367
 msgid "your device was not created using a USB image or Tails Cloner"
 msgstr "USB image 또는 Tails Cloner로 생성된 장치 아님"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:373
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:372
 msgid "Tails was started from a DVD or a read-only device"
 msgstr "Tails가 DVD 또는 읽기 전용 장치에서 시작됨"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:378
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:377
 msgid "there is not enough free space on the Tails system partition"
 msgstr "Tails 시스템 파티션에 충분한 여유 공간 없음"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:383
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:382
 msgid "not enough memory is available on this system"
 msgstr "시스템에 메모리가 충분하지 않음"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:388
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:387
 #, perl-brace-format
 msgid "No explanation available for reason '{reason}'."
 msgstr "'{reason}'에 대한 설명이 없어요."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:411
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:410
 msgid "The system is up-to-date"
 msgstr "최신 시스템임"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:416
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:415
 msgid "This version of Tails is outdated, and may have security issues."
 msgstr "Tails가 옛날 버전이므로 보안 위협이 존재할 수 있어요."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:446
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:445
 #, perl-brace-format
 msgid ""
 "The available incremental upgrade requires {space_needed} of free space on "
@@ -452,7 +447,7 @@ msgstr ""
 "증분 업그레이드를 수행하려면 Tails 시스템 파티션에 {space_needed}의 여유 공간"
 "이 필요하지만 현재 {free_space}만 있어요."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:458
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:457
 #, perl-brace-format
 msgid ""
 "The available incremental upgrade requires {memory_needed} of free memory, "
@@ -461,7 +456,7 @@ msgstr ""
 "증분 업그레이드를 수행하려면 {memory_needed}의 여유 메모리가 필요하지만 현재 "
 "{free_memory}만 있어요."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:469
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:468
 msgid ""
 "An error ocurred while detecting available upgrades.\n"
 "This should not happen. Please report a bug."
@@ -469,12 +464,12 @@ msgstr ""
 "업그레이드 확인 중에 오류가 발생했어요.\n"
 "버그를 신고해주세요. 죄송해요."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:472
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:491
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:471
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:490
 msgid "Error while detecting available upgrades"
 msgstr "업그레이드 확인 중 오류 발생"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:487
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:486
 msgid ""
 "An incremental upgrade is available, but no full upgrade is.\n"
 "This should not happen. Please report a bug."
@@ -482,7 +477,7 @@ msgstr ""
 "증분 업그레이드는 가능하지만 전체 업그레이드는 불가능해요.\n"
 "버그를 신고해주세요. 죄송해요."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:500
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:499
 #, perl-brace-format
 msgid ""
 "<b>You should upgrade to {name} {version}.</b>\n"
@@ -508,19 +503,19 @@ msgstr ""
 "\n"
 "지금 업그레이드할까요?"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:513
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:512
 msgid "Upgrade available"
 msgstr "업그레이드 가능"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:514
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:513
 msgid "Upgrade now"
 msgstr "지금 업그레이드"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:515
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:514
 msgid "Upgrade later"
 msgstr "나중에 업그레이드"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:523
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:522
 #, perl-brace-format
 msgid ""
 "<b>You should do a manual upgrade to the latest version of {name}.</b>\n"
@@ -540,20 +535,20 @@ msgstr ""
 "\n"
 "수동 업그레이드 방법을 알아보려면 {manual_upgrade_url}를 참고하세요"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:533
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:532
 msgid "New version available"
 msgstr "새 버전 있음"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:614
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:613
 msgid "Downloading upgrade"
 msgstr "업그레이드 다운로드 중"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:616
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:615
 #, perl-brace-format
 msgid "Downloading the upgrade to {name} {version}..."
 msgstr "{name} {version} 업그레이드를 다운로드하는 중..."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:709
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:708
 msgid ""
 "<b>The upgrade could not be downloaded.</b>\\n\\nCheck your network "
 "connection, and restart Tails to try upgrading again.\\n\\nIf the problem "
@@ -565,12 +560,12 @@ msgstr ""
 "file:///usr/share/doc/tails/website/doc/upgrade/error/download.en.html 을 참"
 "고하세요"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:720
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:735
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:719
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:734
 msgid "Error while downloading the upgrade"
 msgstr "업그레이드 다운로드 중 오류"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:730
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:729
 #, perl-brace-format
 msgid ""
 "Output file '{output_file}' does not exist, but tails-iuk-get-target-file "
@@ -579,15 +574,15 @@ msgstr ""
 "출력 파일 '{output_file}'이 없음에도 불구하고 tails-iuk-get-target-file의 불"
 "만 사항이 없었어요. 버그를 신고해주세요."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:746
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:745
 msgid "Error while creating temporary downloading directory"
 msgstr "임시 다운로드 디렉터리 생성 중 오류"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:749
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:748
 msgid "Failed to create temporary download directory"
 msgstr "임시 다운로드 디렉터리 생성 실패"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:761
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:760
 msgid ""
 "The upgrade was successfully downloaded.\n"
 "\n"
@@ -601,15 +596,15 @@ msgstr ""
 "\n"
 "진행 중인 작업을 저장하고 다른 응용 프로그램을 모두 닫으세요."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:766
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:765
 msgid "Upgrade successfully downloaded"
 msgstr "업그레이드 다운로드 성공"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:767
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:766
 msgid "Apply upgrade"
 msgstr "업그레이드 적용"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:774
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:773
 msgid ""
 "<b>Your Tails device was successfully upgraded.</b>\n"
 "\n"
@@ -625,47 +620,47 @@ msgstr ""
 "\n"
 "지금 다시 시작할까요?"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:779
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:778
 msgid "Restart Tails"
 msgstr "Tails 다시 시작"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:780
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:779
 msgid "Restart now"
 msgstr "지금 다시 시작"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:781
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:780
 msgid "Restart later"
 msgstr "나중에 다시 시작"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:792
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:791
 msgid "Error while restarting the system"
 msgstr "시스템 다시 시작 중 오류"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:793
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:792
 msgid "Failed to restart the system"
 msgstr "시스템 다시 시작 실패"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:806
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:805
 msgid "Error while shutting down the network"
 msgstr "네트워크 종료 중 오류"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:807
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:806
 msgid "Failed to shutdown network"
 msgstr "네트워크 강제 종료 실패"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:817
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:816
 msgid "Error while cancelling the upgrade download"
 msgstr "업그레이드 다운로드 취소 중 오류"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:818
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:817
 msgid "Failed to cancel the upgrade download"
 msgstr "업그레이드 다운로드 취소 실패"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:824
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:823
 msgid "Upgrading the system"
 msgstr "시스템 업그레이드 중"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:826
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:825
 msgid ""
 "<b>Your Tails device is being upgraded...</b>\n"
 "\n"
@@ -675,7 +670,7 @@ msgstr ""
 "\n"
 "보안상의 이유로 네트워크 연결이 비활성화되었어요."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:863
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:862
 msgid ""
 "<b>An error occured while installing the upgrade.</b>\\n\\nYour Tails device "
 "needs to be repaired and might be unable to restart.\\n\\nPlease follow the "
@@ -686,7 +681,7 @@ msgstr ""
 "상태로 다시 시작하지 못할 수도 있어요.\\n\\nfile:///usr/share/doc/tails/"
 "website/doc/upgrade/error/install.en.html 의 지시를 따르세요"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:873
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:872
 msgid "Error while installing the upgrade"
 msgstr "업그레이드 설치 중 오류"
 
@@ -773,68 +768,69 @@ msgstr "영구 저장소를 잠금 해제하지 않고 Tails를 시작할까요?
 msgid "Start Without Persistent Storage"
 msgstr "영구 저장소 없이 시작"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:245
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:247
 msgid ""
 "Impossible to unlock the Persistent Storage because the USB stick is read-"
 "only."
 msgstr "USB 스틱이 읽기 전용이므로 영구 저장소를 잠금 해제할 수 없어요."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:383
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:414
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:408
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:439
 msgid "Unlocking…"
 msgstr "잠금 해제 중…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:421
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:446
 #, fuzzy
 msgid "Checking the file system…"
 msgstr "파일 시스템 포맷 중..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:454
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:479
 #, fuzzy
 msgid "Repairing the File System"
 msgstr "파일 시스템 포맷 중..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:455
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:480
 #, fuzzy
 msgid "This might take a long time..."
 msgstr "시간이 다소 걸릴 수도 있어요..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:473
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:498
 #, fuzzy
 msgid "Failed to repair the file system of your Persistent Storage."
 msgstr "영구 저장소 구성 실패"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:475
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:500
 msgid "Start Tails to send an error report and learn how to recover your data."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:489
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:514
 msgid "File System Repaired Successfully"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:491
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:516
 msgid ""
 "It's possible that some data was lost during the repair. Please check the "
 "contents of your Persistent Storage and restore any lost data from a backup."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:495
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:520
+#: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:32
 #, fuzzy
 msgid "Close"
 msgstr "_닫기"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:510
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:535
 msgid ""
 "You aborted the repair of the file system. You can either start Tails "
 "without Persistent Storage or restart the computer to try repairing the file "
 "system again."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:729
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:754
 msgid "Start Tails and open the Persistent Storage settings to find out more."
 msgstr "자세히 알아보려면 Tails를 시작하고 영구 저장소 설정을 실행하세요."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:758
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:783
 msgid ""
 "Your Persistent Storage is unlocked. Its content will be available until you "
 "shut down Tails."
@@ -842,26 +838,26 @@ msgstr ""
 "영구 저장소가 잠금 해제되었어요. Tails를 종료할 때까지 내용물에 접근할 수 있"
 "어요."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:773
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:798
 msgid "Incorrect passphrase. Please try again."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:784
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:809
 #, fuzzy
 msgid ""
 "Error reading data from your Persistent Storage. The hardware of your USB "
 "stick is probably failing."
 msgstr "USB 스틱의 하드웨어에 문제가 있는 것 같아요."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:786
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:811
 msgid "Start Tails to learn how to recover your data."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:797
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:822
 msgid "File System Errors"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:799
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:824
 msgid ""
 "Errors were detected in the file system of your Persistent Storage.\n"
 "                \n"
@@ -875,50 +871,50 @@ msgid ""
 "of your Persistent Storage first."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:808
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:833
 msgid "Repair File System"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:809
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:834
 #, fuzzy
 msgid "Create Partition Image"
 msgstr "영구 저장소 생성"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:820
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:845
 #, fuzzy
 msgid ""
 "Start Tails to learn how to create a partition image of your Persistent "
 "Storage."
 msgstr "영구 저장소 생성 실패"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:829
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:854
 #, fuzzy
 msgid "Failed to unlock the Persistent Storage due to file system errors."
 msgstr ""
 "영구 저장소의 잠금을 풀지 못했어요. Tails를 시작한 뒤 오류를 보고해주세요."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:838
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:863
 msgid ""
 "Failed to upgrade the Persistent Storage. Please start Tails and send an "
 "error report."
 msgstr ""
 "영구 저장소를 업그레이드하지 못했어요. Tails를 시작한 뒤 오류를 보고해주세요."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:845
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:870
 msgid ""
 "Failed to unlock the Persistent Storage. Please start Tails and send an "
 "error report."
 msgstr ""
 "영구 저장소의 잠금을 풀지 못했어요. Tails를 시작한 뒤 오류를 보고해주세요."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:853
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:878
 msgid ""
 "Failed to activate the Persistent Storage. Please start Tails and send an "
 "error report."
 msgstr ""
 "영구 저장소를 활성화하지 못했어요. Tails를 시작한 뒤 오류를 보고해주세요."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:864
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:889
 #, fuzzy
 msgid "Upgrading the Persistent Storage. This might take a while…"
 msgstr "영구 저장소를 업그레이드하고 있어요. 잠시만 기다려주세요…"
@@ -1454,43 +1450,40 @@ msgstr "확인"
 msgid "Learn More"
 msgstr "자세히 알아보기"
 
-#: config/chroot_local-includes/usr/local/lib/tails-report-disk-resize-errors:16
-msgid "Disk partitioning errors"
+#: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:18
+#, fuzzy
+msgid "Partitioning Error"
 msgstr "디스크 파티션 오류"
 
-#: config/chroot_local-includes/usr/local/lib/tails-report-disk-resize-errors:22
-msgid ""
-"Something went wrong when starting your Tails USB stick for the first time: "
-"resizing the system partition failed"
+#: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:19
+msgid "Errors were detected in the partitioning of your Tails USB stick."
 msgstr ""
-"Tails USB 스틱을 처음 시작하던 중 문제 발생: 시스템 파티션 크기 조절 실패"
 
-#: config/chroot_local-includes/usr/local/lib/tails-report-disk-resize-errors:27
+#: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:26
+#, fuzzy
 msgid ""
-"It will be impossible to create a Persistent Storage or apply automatic "
-"upgrades."
-msgstr "영구 저장소를 만들거나 자동 업그레이드를 적용할 수 없어요."
+"We recommend that you create a backup of your Tails using <i>Tails Cloner</"
+"i> to migrate to a new USB stick."
+msgstr "다른 USB 스틱에 Tails를 다시 설치하는 것이 좋아요."
 
-#: config/chroot_local-includes/usr/local/lib/tails-report-disk-resize-errors:29
+#: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:33
+#, fuzzy
+msgid "Open Tails Cloner"
+msgstr "Tails 복제기"
+
+#: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:42
+#, fuzzy
+msgid "Creation of Persistent Storage has been disabled."
+msgstr "영구 저장소를 생성하지 못했어요."
+
+#: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:44
+#, fuzzy
 msgid ""
-"Try to follow our instructions on <a href=\"%INSTALLPAGE%\">installing Tails "
-"on a USB stick</a> again or use a different USB stick."
-msgstr ""
-"<a href=\"%INSTALLPAGE%\">USB 스틱에서 Tails 설치하기</a> 지침을 다시 따라하"
-"거나 다른 USB 스틱을 사용하세요."
+"We recommend that you reinstall Tails from scratch. If the error persists, "
+"reinstall on a new USB stick."
+msgstr "다른 USB 스틱에 Tails를 다시 설치하는 것이 좋아요."
 
-#: config/chroot_local-includes/usr/local/lib/tails-report-disk-resize-errors:31
-msgid ""
-"If you have already tried this, please send us an error report to help us "
-"solve this issue."
-msgstr "이미 시도해 보셨는데도 불구하고 문제가 반복된다면 오류를 보고해주세요."
-
-#: config/chroot_local-includes/usr/local/lib/tails-report-disk-resize-errors:39
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/fail_view.ui.in:74
-msgid "Send Error Report"
-msgstr "오류 보고서 보내기"
-
-#: config/chroot_local-includes/usr/src/perl5lib/lib/Tails/RunningSystem.pm:221
+#: config/chroot_local-includes/usr/src/perl5lib/lib/Tails/RunningSystem.pm:207
 #: config/chroot_local-includes/usr/local/bin/tails-upgrade-frontend-wrapper:77
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/application.py:79
 #: config/chroot_local-includes/usr/local/sbin/unsafe-browser:38
@@ -1501,14 +1494,14 @@ msgstr "오류 보고서 보내기"
 msgid "Error"
 msgstr "오류"
 
-#: config/chroot_local-includes/usr/src/perl5lib/lib/Tails/RunningSystem.pm:223
+#: config/chroot_local-includes/usr/src/perl5lib/lib/Tails/RunningSystem.pm:209
 msgid ""
 "The device Tails is running from cannot be found. Maybe you used the 'toram' "
 "option?"
 msgstr ""
 "Tails가 실행되는 장치를 찾을 수 없어요. 혹시 'toram' 옵션을 사용하셨나요?"
 
-#: config/chroot_local-includes/usr/src/perl5lib/lib/Tails/RunningSystem.pm:251
+#: config/chroot_local-includes/usr/src/perl5lib/lib/Tails/RunningSystem.pm:237
 msgid ""
 "The drive Tails is running from cannot be found. Maybe you used the 'toram' "
 "option?"
@@ -1586,9 +1579,9 @@ msgid ""
 "Package Manager</a> or <a href=\"org.gnome.Terminal.desktop\">APT on the "
 "command line</a>."
 msgstr ""
-"<a href=\"synaptic.desktop\">Synaptic 패키지 관리자</a> 또는 <a href=\"org."
-"gnome.Terminal.desktop\">터미널에서 APT</a>를 사용하여 소프트웨어를 설치해보"
-"세요."
+"<a href=\"synaptic.desktop\">Synaptic 패키지 관리자</a> 또는 <a "
+"href=\"org.gnome.Terminal.desktop\">터미널에서 APT</a>를 사용하여 소프트웨어"
+"를 설치해보세요."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:216
 msgid ""
@@ -1596,15 +1589,16 @@ msgid ""
 "some software using <a href=\"synaptic.desktop\">Synaptic Package Manager</"
 "a> or <a href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
-"Tails 시작 시 영구 저장소의 잠금을 해제하고 <a href=\"synaptic."
-"desktop\">Synaptic 패키지 관리자</a> 또는 <a href=\"org.gnome.Terminal."
-"desktop\">터미널에서 APT</a>를 사용하여 소프트웨어를 설치해보세요."
+"Tails 시작 시 영구 저장소의 잠금을 해제하고 <a "
+"href=\"synaptic.desktop\">Synaptic 패키지 관리자</a> 또는 <a "
+"href=\"org.gnome.Terminal.desktop\">터미널에서 APT</a>를 사용하여 소프트웨어"
+"를 설치해보세요."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:229
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
-"gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "영구 저장소를 생성하고 <a href=\"synaptic.desktop\">Synaptic 패키지 관리자</"
 "a> 또는 <a href=\"org.gnome.Terminal.desktop\">터미널에서 APT</a>를 사용하여 "
@@ -1969,6 +1963,11 @@ msgid "Tor Status"
 msgstr "Tor 상태"
 
 #: config/chroot_local-includes/usr/share/gnome-shell/extensions/torstatus@tails.boum.org/extension.js:46
+#, fuzzy
+msgid "Open Tor Connection Assistant"
+msgstr "Tor 연결 열기"
+
+#: config/chroot_local-includes/usr/share/gnome-shell/extensions/torstatus@tails.boum.org/extension.js:50
 msgid "Open Onion Circuits"
 msgstr "Onion 회로 열기"
 
@@ -2041,7 +2040,7 @@ msgstr ""
 "요. 해당 대상에 접근 중인 응용 프로그램을 모두 종료하고 다시 시도하세요."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/application.py:30
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:48
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:49
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:1
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:25
 msgid "Persistent Storage"
@@ -2095,8 +2094,8 @@ msgstr "기능 활성화 중 오류가 발생했어요."
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:347
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:411
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/change_passphrase_dialog.py:115
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:261
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:289
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:270
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:298
 msgid "Details"
 msgstr "세부사항"
 
@@ -2199,7 +2198,7 @@ msgstr "문제 해결에 도움을 주려면 오류 보고서를 보내주세요
 msgid "_Send Error Report"
 msgstr "_오류 보고서 보내기"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:144
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:153
 msgid ""
 "Impossible to delete the Persistent Storage while it is unlocked.\n"
 "\n"
@@ -2211,7 +2210,7 @@ msgstr ""
 "영구 저장소를 삭제하려면 Tails를 다시 시작한 뒤 영구 저장소의 잠금을 해제하"
 "지 말고 영구 저장소 설정을 여세요."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:158
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:167
 msgid ""
 "Impossible to delete the Persistent Storage because the USB stick is read-"
 "only.\n"
@@ -2225,23 +2224,23 @@ msgstr ""
 "영구 저장소를 삭제하려면 USB 스틱의 읽기 전용 보호를 해제하고 Tails를 다시 시"
 "작한 뒤 영구 저장소의 잠금을 해제하지 말고 영구 저장소 설정을 여세요."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:166
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:175
 msgid "Impossible to delete the Persistent Storage"
 msgstr "영구 저장소 삭제 불가"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:174
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:209
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:183
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:218
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:36
 msgid "Delete Persistent Storage"
 msgstr "영구 저장소 삭제"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:178
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:187
 msgid ""
 "Are you sure that you want to delete your Persistent Storage? This action "
 "cannot be undone."
 msgstr "영구 저장소를 정말로 삭제할까요? 이 작업은 취소할 수 없어요."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:182
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:191
 #: config/chroot_local-includes/usr/local/sbin/unsafe-browser:57
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:304
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:121
@@ -2249,54 +2248,54 @@ msgstr "영구 저장소를 정말로 삭제할까요? 이 작업은 취소할 �
 msgid "_Cancel"
 msgstr "_취소"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:183
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:192
 msgid "_Delete Persistent Storage"
 msgstr "_영구 저장소 삭제"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:193
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:202
 msgid "Deleting your Persistent Storage..."
 msgstr "영구 저장소 삭제 중..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:212
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:221
 msgid "_OK"
 msgstr "_확인"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:221
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:230
 msgid ""
 "Sorry, you can't close this app until the ongoing operation has completed."
 msgstr ""
 "죄송하지만 지금 진행 중인 작업이 끝나기 전까지는 이 앱을 닫을 수 없어요."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:224
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:233
 msgid "Please wait"
 msgstr "잠시만 기다려주세요"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:252
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:261
 msgid "Not enough memory to create Persistent Storage"
 msgstr "메모리가 부족하여 영구 저장소를 생성하지 못함"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:259
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:268
 msgid "Failed to create Persistent Storage"
 msgstr "영구 저장소 생성 실패"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:260
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:269
 msgid "An error occurred while creating the Persistent Storage."
 msgstr "영구 저장소 생성 중 오류가 발생했어요."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:280
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:287
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:289
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:296
 msgid "Error deleting Persistent Storage"
 msgstr "영구 저장소 삭제 오류"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:288
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:297
 msgid "An error occurred while deleting the Persistent Storage."
 msgstr "영구 저장소 삭제 중 오류가 발생했어요."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:325
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:334
 msgid "Details (command output)"
 msgstr "세부사항 (명령 출력)"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:340
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:349
 msgid "Failed to open the documentation"
 msgstr "문서 열람 실패"
 
@@ -2736,7 +2735,7 @@ msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:18
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:56
-#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:758
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:827
 msgid "Administration Password"
 msgstr "관리자 비밀번호"
 
@@ -2762,7 +2761,7 @@ msgid "Disable"
 msgstr "비활성화"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:186
-#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:762
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:831
 msgid "MAC Address Anonymization"
 msgstr "MAC 주소 익명화"
 
@@ -2787,7 +2786,7 @@ msgid "Don't anonymize MAC addresses"
 msgstr "MAC 주소 익명화 안 함"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:343
-#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:766
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:835
 msgid "Network Configuration"
 msgstr "네트워크 설정"
 
@@ -2911,23 +2910,35 @@ msgstr "암호화 해제"
 msgid "Impossible to unlock the Persistent Storage."
 msgstr "영구 저장소 잠금 해제가 불가해요."
 
-#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:562
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:563
+#, fuzzy
+msgid "Partitioning Errors"
+msgstr "디스크 파티션 오류"
+
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:599
+msgid ""
+"Errors were detected in the partitioning of your Tails USB stick.\n"
+"\n"
+"Try reinstalling Tails. If the error persists, reinstall on a new USB stick."
+msgstr ""
+
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:631
 msgid "_Additional Settings"
 msgstr "_추가 설정"
 
-#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:645
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:714
 msgid "Add an additional setting"
 msgstr "추가 설정 추가하기"
 
-#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:692
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:761
 msgid "Shutdown"
 msgstr "종료"
 
-#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:701
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:770
 msgid "_Start Tails"
 msgstr "_Tails 시작"
 
-#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:730
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:799
 msgid ""
 "The default settings are safe in most situations. To add a custom setting, "
 "press the \"+\" button below."
@@ -2983,6 +2994,10 @@ msgstr ""
 "영구 저장소 서비스가 갑자기 종료되었어요.\n"
 "\n"
 "오류 보고서를 보내거나 문제 파악을 위해 다음 명령의 출력 결과를 확인해보세요:"
+
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/fail_view.ui.in:74
+msgid "Send Error Report"
+msgstr "오류 보고서 보내기"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:61
 msgid ""
@@ -3885,13 +3900,40 @@ msgstr "12월"
 msgid "Clock"
 msgstr "시계"
 
+#~ msgid "Error while updating the signing key"
+#~ msgstr "서명 키 업데이트 중 오류 발생"
+
+#~ msgid ""
+#~ "Something went wrong when starting your Tails USB stick for the first "
+#~ "time: resizing the system partition failed"
+#~ msgstr ""
+#~ "Tails USB 스틱을 처음 시작하던 중 문제 발생: 시스템 파티션 크기 조절 실패"
+
+#~ msgid ""
+#~ "It will be impossible to create a Persistent Storage or apply automatic "
+#~ "upgrades."
+#~ msgstr "영구 저장소를 만들거나 자동 업그레이드를 적용할 수 없어요."
+
+#~ msgid ""
+#~ "Try to follow our instructions on <a href=\"%INSTALLPAGE%\">installing "
+#~ "Tails on a USB stick</a> again or use a different USB stick."
+#~ msgstr ""
+#~ "<a href=\"%INSTALLPAGE%\">USB 스틱에서 Tails 설치하기</a> 지침을 다시 따라"
+#~ "하거나 다른 USB 스틱을 사용하세요."
+
+#~ msgid ""
+#~ "If you have already tried this, please send us an error report to help us "
+#~ "solve this issue."
+#~ msgstr ""
+#~ "이미 시도해 보셨는데도 불구하고 문제가 반복된다면 오류를 보고해주세요."
+
 #~ msgid ""
 #~ "Tails needs donations to keep everybody free and safe online.\n"
 #~ "\n"
 #~ "Every bit helps in our fight against surveillance and censorship!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~ "html#expenses\">How we spend our money.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/"
+#~ "donate.en.html#expenses\">How we spend our money.</a>"
 #~ msgstr ""
 #~ "온라인에서 모두를 자유롭고 안전하게 보호하기 위해 Tails를 후원해주세요.\n"
 #~ "\n"
@@ -3905,8 +3947,8 @@ msgstr "시계"
 #~ "\n"
 #~ "Help us keep your bitcoins safe!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~ "html#expenses\">How we spend our money.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/"
+#~ "donate.en.html#expenses\">How we spend our money.</a>"
 #~ msgstr ""
 #~ "Tails가 지갑을 보호해드릴게요.\n"
 #~ "\n"
@@ -4052,8 +4094,8 @@ msgstr "시계"
 #~| "\n"
 #~| "Every bit helps in our fight against surveillance and censorship!\n"
 #~| "\n"
-#~| "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~| "html#expenses\">How we spend our money.</a>"
+#~| "<a href=\"file:///usr/share/doc/tails/website/"
+#~| "donate.en.html#expenses\">How we spend our money.</a>"
 #~ msgid ""
 #~ "Our annual fundraiser is live!\n"
 #~ "\n"
