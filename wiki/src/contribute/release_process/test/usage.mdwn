@@ -139,8 +139,22 @@ by the local configuration file:
 
 * `TMPDIR`: String value. Directory where various temporary files
   are written during a test, e.g. VM snapshots and memory dumps,
-  failure screenshots, pcap files and disk images. Defaults to
-  `"/tmp/TailsToaster"`.
+  failure screenshots, pcap files and disk images.
+  Default to `"/tmp/TailsToaster"`.
+
+  This directory must have a large amount of available space. We don't know the
+  exact number but to give you an idea, it's bigger than 16 GiB. So, depending
+  on your local configuration, you might need to change the default, for
+  instance if your `/tmp` is a `tmpfs`.
+
+  If you use a `TMPDIR` that's outside of `/tmp`, you probably want to ensure
+  it's regularly cleaned up. For example you can use this configuration:
+
+        TMPFILES_CONF=/etc/tmpfiles.d/TailsToaster.conf
+        TEST_SUITE_TMPDIR=/var/tmp/TailsToaster
+        echo "D ${TEST_SUITE_TMPDIR} 0755 root root -" \
+           | sudo tee "$TMPFILES_CONF"
+        sudo systemd-tmpfiles --remove --create "$TMPFILES_CONF"
 
 * `NOTIFY_USER_COMMAND`: String value. This arbitrary shell command
   will be executed whenever `pause()` is called, e.g. on test failure
