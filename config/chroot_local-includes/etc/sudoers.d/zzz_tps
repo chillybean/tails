@@ -3,7 +3,7 @@
 # to the tps D-Bus service. See
 # config/chroot_local-includes/usr/local/bin/tails-persistent-storage
 # for details.
-Cmnd_Alias TPS = /usr/local/bin/tails-persistent-storage
+Cmnd_Alias TPS = /usr/local/bin/tails-persistent-storage ""
 Defaults!TPS env_keep+="ENVFILE"
 amnesia   ALL =(tails-persistent-storage)    NOPASSWD: TPS
 

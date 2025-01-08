@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python3 -I
 #
 CLEARNET_USERNAME = "clearnet"
 LIVE_USERNAME = "amnesia"

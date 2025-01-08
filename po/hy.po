@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-28 11:34+0100\n"
+"POT-Creation-Date: 2025-01-08 10:04+0100\n"
 "PO-Revision-Date: 2024-10-23 15:15+0000\n"
 "Last-Translator: emma peel <emma.peel@riseup.net>\n"
 "Language-Team: Armenian <https://hosted.weblate.org/projects/tor/tails-gui/"
@@ -122,10 +122,9 @@ msgstr "Հեռացնել"
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:166
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/add_settings_dialog.py:40
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:178
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:456
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:807
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:481
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:832
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:728
-#: config/chroot_local-includes/usr/local/lib/tails-report-disk-resize-errors:38
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:119
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:376
 msgid "Cancel"
@@ -201,9 +200,9 @@ msgstr ""
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:194
 msgid ""
-"To add more, install some software using <a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
-"desktop\">APT on the command line</a>."
+"To add more, install some software using <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "Ավելին ավելացնելու համար՝ <a href=\"synaptic.desktop\">«Synaptic Package "
 "Manager»-ից</a> կամ <a href=\"org.gnome.Terminal.desktop\">հրամանատողում "
@@ -335,33 +334,33 @@ msgid "#{time} left — {downloaded} of {size} ({speed}/sec)\n"
 msgstr "#մնաց {time}. {downloaded}-ը {size}-ից ({speed}/վրկ)\n"
 
 #. Translators: KB is the short form for kilobyte
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Role/FormatByte.pm:33
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Role/FormatByte.pm:32
 msgid "KB"
 msgstr "ԿԲ"
 
 #. Translators: MB is the short form for megabyte
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Role/FormatByte.pm:35
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Role/FormatByte.pm:34
 msgid "MB"
 msgstr "ՄԲ"
 
 #. Translators: GB is the short form for gigabyte
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Role/FormatByte.pm:37
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Role/FormatByte.pm:36
 msgid "GB"
 msgstr "ԳԲ"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Role/FormatByte.pm:43
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Role/FormatByte.pm:42
 msgid "bytes"
 msgstr "բայթ"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:197
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:716
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:869
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:201
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:715
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:868
 msgid ""
 "For debugging information, execute the following command: sudo tails-"
 "debugging-info"
 msgstr ""
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:293
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:297
 msgid ""
 "<b>An error occured while updating the signing key.</b>\\n\\n<b>This "
 "prevents determining whether an upgrade is available from our website.</"
@@ -370,19 +369,15 @@ msgid ""
 "website/doc/upgrade/error/check.en.html"
 msgstr ""
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:307
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:311
 msgid "Error while downloading the signing key"
 msgstr "Բանալիի ստորագրման ներբեռման սխալ"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:318
-msgid "Error while updating the signing key"
-msgstr "Բանալիի ստորագրման թարմացման սխալ"
-
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:345
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:344
 msgid "Error while checking for upgrades"
 msgstr "Թարմացումները ստուգելու ժամանակ սխալ"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:347
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:346
 msgid ""
 "<b>Could not determine whether an upgrade is available from our website.</"
 "b>\n"
@@ -393,72 +388,72 @@ msgid ""
 "upgrade/error/check.en.html"
 msgstr ""
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:362
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:361
 msgid "no automatic upgrade is available from our website for this version"
 msgstr ""
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:368
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:367
 msgid "your device was not created using a USB image or Tails Cloner"
 msgstr ""
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:373
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:372
 msgid "Tails was started from a DVD or a read-only device"
 msgstr "Tails-ը սկսվել է DVD-ից կամ միայն կարդալու սարքավորումից"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:378
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:377
 msgid "there is not enough free space on the Tails system partition"
 msgstr ""
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:383
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:382
 msgid "not enough memory is available on this system"
 msgstr ""
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:388
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:387
 #, perl-brace-format
 msgid "No explanation available for reason '{reason}'."
 msgstr ""
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:411
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:410
 msgid "The system is up-to-date"
 msgstr "Համակարգը արդի է"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:416
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:415
 msgid "This version of Tails is outdated, and may have security issues."
 msgstr ""
 "Tails-ի այս տարբերակը հնացած է, և կարող է ունենալ անվտագության խնդիրներ:"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:446
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:445
 #, perl-brace-format
 msgid ""
 "The available incremental upgrade requires {space_needed} of free space on "
 "Tails system partition,  but only {free_space} is available."
 msgstr ""
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:458
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:457
 #, perl-brace-format
 msgid ""
 "The available incremental upgrade requires {memory_needed} of free memory, "
 "but only {free_memory} is available."
 msgstr ""
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:469
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:468
 msgid ""
 "An error ocurred while detecting available upgrades.\n"
 "This should not happen. Please report a bug."
 msgstr ""
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:472
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:491
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:471
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:490
 msgid "Error while detecting available upgrades"
 msgstr "Սխալմունք տեղի ունեցավ առկա արդիացումների հայտնաբերման ժամանակ"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:487
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:486
 msgid ""
 "An incremental upgrade is available, but no full upgrade is.\n"
 "This should not happen. Please report a bug."
 msgstr ""
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:500
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:499
 #, perl-brace-format
 msgid ""
 "<b>You should upgrade to {name} {version}.</b>\n"
@@ -474,19 +469,19 @@ msgid ""
 "Do you want to upgrade now?"
 msgstr ""
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:513
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:512
 msgid "Upgrade available"
 msgstr "Առկա է արդիացում"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:514
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:513
 msgid "Upgrade now"
 msgstr "Արդիացնել հիմա"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:515
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:514
 msgid "Upgrade later"
 msgstr "Արդիացնել ավելի ուշ"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:523
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:522
 #, perl-brace-format
 msgid ""
 "<b>You should do a manual upgrade to the latest version of {name}.</b>\n"
@@ -499,20 +494,20 @@ msgid ""
 "To learn how to do a manual upgrade, go to {manual_upgrade_url}"
 msgstr ""
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:533
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:532
 msgid "New version available"
 msgstr "Առկա է նոր տարբերակը"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:614
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:613
 msgid "Downloading upgrade"
 msgstr "Ներբեռնվում է արդիացումը"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:616
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:615
 #, perl-brace-format
 msgid "Downloading the upgrade to {name} {version}..."
 msgstr "Նեբեռնվում է {name} {version}-ի արդիացումը..."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:709
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:708
 msgid ""
 "<b>The upgrade could not be downloaded.</b>\\n\\nCheck your network "
 "connection, and restart Tails to try upgrading again.\\n\\nIf the problem "
@@ -520,27 +515,27 @@ msgid ""
 "download.en.html"
 msgstr ""
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:720
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:735
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:719
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:734
 msgid "Error while downloading the upgrade"
 msgstr "Սխալմունք տեղի ունեցավ արդիացման ժամանակ"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:730
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:729
 #, perl-brace-format
 msgid ""
 "Output file '{output_file}' does not exist, but tails-iuk-get-target-file "
 "did not complain. Please report a bug."
 msgstr ""
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:746
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:745
 msgid "Error while creating temporary downloading directory"
 msgstr "Սխալ՝ ներբեռնման ժամանակավոր գրացուցակի ստեղծման ժամանակ"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:749
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:748
 msgid "Failed to create temporary download directory"
 msgstr "Ներբեռնման ժամանակավոր գրացուցակի ստեղծումը ձախողվեց"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:761
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:760
 msgid ""
 "The upgrade was successfully downloaded.\n"
 "\n"
@@ -554,15 +549,15 @@ msgstr ""
 "\n"
 "Խնդրում ենք պահպանել Ձեր աշխատանքը և փակել մյուս բոլոր աշխատահավելումները:"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:766
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:765
 msgid "Upgrade successfully downloaded"
 msgstr "Արդիացումը հաջողությամբ ներբեռնվեց"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:767
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:766
 msgid "Apply upgrade"
 msgstr "Կիրառել արդիացումը"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:774
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:773
 msgid ""
 "<b>Your Tails device was successfully upgraded.</b>\n"
 "\n"
@@ -578,47 +573,47 @@ msgstr ""
 "\n"
 "Ցանկանու՞մ եք վերսկսել հիմա:"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:779
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:778
 msgid "Restart Tails"
 msgstr "Վերսկսել Tails-ը"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:780
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:779
 msgid "Restart now"
 msgstr "Վերսկսել հիմա"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:781
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:780
 msgid "Restart later"
 msgstr "Վերսկսել ավելի ուշ"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:792
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:791
 msgid "Error while restarting the system"
 msgstr "Սխալմունք տեղի ունեցավ համակարգի վերսկսման ժամանակ"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:793
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:792
 msgid "Failed to restart the system"
 msgstr "Համակարգի վերսկսումը ձախողվեց"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:806
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:805
 msgid "Error while shutting down the network"
 msgstr "Սխալմունք տեղի ունեցավ ցանցը վերջացնելու ժանանակ"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:807
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:806
 msgid "Failed to shutdown network"
 msgstr "Ցանցի վերջացումը ձախողվեց"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:817
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:816
 msgid "Error while cancelling the upgrade download"
 msgstr "Սխալ՝ արդիացման ներբեռնումը չեղարկելու ժամանակ"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:818
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:817
 msgid "Failed to cancel the upgrade download"
 msgstr "Արդիացման ներբեռնումը չեղարկելը ձախողվեց"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:824
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:823
 msgid "Upgrading the system"
 msgstr "Համակարգի արդիացում"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:826
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:825
 msgid ""
 "<b>Your Tails device is being upgraded...</b>\n"
 "\n"
@@ -628,7 +623,7 @@ msgstr ""
 "\n"
 "Անվտանգության պատճառներով ցանցային միացումը կարողազրկված է:"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:863
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:862
 msgid ""
 "<b>An error occured while installing the upgrade.</b>\\n\\nYour Tails device "
 "needs to be repaired and might be unable to restart.\\n\\nPlease follow the "
@@ -636,7 +631,7 @@ msgid ""
 "install.en.html"
 msgstr ""
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:873
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:872
 msgid "Error while installing the upgrade"
 msgstr "Սխալմունք տեղի ունեցավ արդիացման տեղադրման ժամանակ"
 
@@ -725,70 +720,71 @@ msgstr ""
 msgid "Start Without Persistent Storage"
 msgstr "Մեկնարկել առանց հաստատակամ պահեստարանի"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:245
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:247
 msgid ""
 "Impossible to unlock the Persistent Storage because the USB stick is read-"
 "only."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:383
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:414
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:408
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:439
 msgid "Unlocking…"
 msgstr "Ապակողպում…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:421
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:446
 #, fuzzy
 msgid "Checking the file system…"
 msgstr "Համակարգի արդիացում"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:454
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:479
 #, fuzzy
 msgid "Repairing the File System"
 msgstr "Համակարգի արդիացում"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:455
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:480
 #, fuzzy
 msgid "This might take a long time..."
 msgstr "Սա կարող մի փոքր շատ տևել..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:473
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:498
 #, fuzzy
 msgid "Failed to repair the file system of your Persistent Storage."
 msgstr "Չստացվեց կարգավորել Ձեր հաստատակամ պահեստարանը"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:475
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:500
 msgid "Start Tails to send an error report and learn how to recover your data."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:489
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:514
 msgid "File System Repaired Successfully"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:491
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:516
 msgid ""
 "It's possible that some data was lost during the repair. Please check the "
 "contents of your Persistent Storage and restore any lost data from a backup."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:495
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:520
+#: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:32
 #, fuzzy
 msgid "Close"
 msgstr "_Փակել"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:510
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:535
 msgid ""
 "You aborted the repair of the file system. You can either start Tails "
 "without Persistent Storage or restart the computer to try repairing the file "
 "system again."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:729
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:754
 msgid "Start Tails and open the Persistent Storage settings to find out more."
 msgstr ""
 "Մեկնարկեք Tails-ը և բացեք հաստատակամ պահեստարանի կարգավորումները՝ ավելին "
 "պարզելու համար:"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:758
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:783
 #, fuzzy
 msgid ""
 "Your Persistent Storage is unlocked. Its content will be available until you "
@@ -797,25 +793,25 @@ msgstr ""
 "Ձեր հաստատակամ պահեստարանը արգելաբացվել է: Նորից արգելափակելու համար "
 "վերսկսեք Tails-ը:"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:773
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:798
 msgid "Incorrect passphrase. Please try again."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:784
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:809
 msgid ""
 "Error reading data from your Persistent Storage. The hardware of your USB "
 "stick is probably failing."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:786
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:811
 msgid "Start Tails to learn how to recover your data."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:797
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:822
 msgid "File System Errors"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:799
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:824
 msgid ""
 "Errors were detected in the file system of your Persistent Storage.\n"
 "                \n"
@@ -829,30 +825,30 @@ msgid ""
 "of your Persistent Storage first."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:808
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:833
 msgid "Repair File System"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:809
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:834
 #, fuzzy
 msgid "Create Partition Image"
 msgstr "Ստեղծել հաստատակամ պահեստարան"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:820
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:845
 #, fuzzy
 msgid ""
 "Start Tails to learn how to create a partition image of your Persistent "
 "Storage."
 msgstr "Չստացվեց ստեղծել հաստատակամ պահեստարանը"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:829
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:854
 #, fuzzy
 msgid "Failed to unlock the Persistent Storage due to file system errors."
 msgstr ""
 "Հաստատակամ պահեստարանի ապակողպումը ձախողվեց: Խնդրում ենք սկսել Tails-ը և "
 "ուղարկել զեկույց սխալի մասին:"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:838
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:863
 msgid ""
 "Failed to upgrade the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -860,7 +856,7 @@ msgstr ""
 "Հաստատակամ պահեստարանի արդիացումը ձախողվեց: Խնդրում ենք սկսել Tails-ը և "
 "ուղարկել զեկույց սխալի մասին:"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:845
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:870
 msgid ""
 "Failed to unlock the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -868,7 +864,7 @@ msgstr ""
 "Հաստատակամ պահեստարանի ապակողպումը ձախողվեց: Խնդրում ենք սկսել Tails-ը և "
 "ուղարկել զեկույց սխալի մասին:"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:853
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:878
 msgid ""
 "Failed to activate the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -876,7 +872,7 @@ msgstr ""
 "Հաստատակամ պահեստարանի գործարկումը ձախողվեց: Խնդրում ենք սկսել Tails-ը և "
 "ուղարկել զեկույց սխալի մասին:"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:864
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:889
 #, fuzzy
 msgid "Upgrading the Persistent Storage. This might take a while…"
 msgstr "Արդիացվում է հաստատակամ պահեստարանը: Սա կարող է երկար տևել…"
@@ -1381,40 +1377,37 @@ msgstr ""
 msgid "Learn More"
 msgstr "Իմանալ ավելին"
 
-#: config/chroot_local-includes/usr/local/lib/tails-report-disk-resize-errors:16
-msgid "Disk partitioning errors"
+#: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:18
+msgid "Partitioning Error"
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/lib/tails-report-disk-resize-errors:22
+#: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:19
+msgid "Errors were detected in the partitioning of your Tails USB stick."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:26
 msgid ""
-"Something went wrong when starting your Tails USB stick for the first time: "
-"resizing the system partition failed"
+"We recommend that you create a backup of your Tails using <i>Tails Cloner</"
+"i> to migrate to a new USB stick."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/lib/tails-report-disk-resize-errors:27
+#: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:33
+#, fuzzy
+msgid "Open Tails Cloner"
+msgstr "Tails-ի տեղադրիչ"
+
+#: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:42
+#, fuzzy
+msgid "Creation of Persistent Storage has been disabled."
+msgstr "Ձեր հաստատակամ պահեստարանի ստեղծումը ձախողվեց:"
+
+#: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:44
 msgid ""
-"It will be impossible to create a Persistent Storage or apply automatic "
-"upgrades."
+"We recommend that you reinstall Tails from scratch. If the error persists, "
+"reinstall on a new USB stick."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/lib/tails-report-disk-resize-errors:29
-msgid ""
-"Try to follow our instructions on <a href=\"%INSTALLPAGE%\">installing Tails "
-"on a USB stick</a> again or use a different USB stick."
-msgstr ""
-
-#: config/chroot_local-includes/usr/local/lib/tails-report-disk-resize-errors:31
-msgid ""
-"If you have already tried this, please send us an error report to help us "
-"solve this issue."
-msgstr ""
-
-#: config/chroot_local-includes/usr/local/lib/tails-report-disk-resize-errors:39
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/fail_view.ui.in:74
-msgid "Send Error Report"
-msgstr "Ուղարկել զեկույց սխալի մասին"
-
-#: config/chroot_local-includes/usr/src/perl5lib/lib/Tails/RunningSystem.pm:221
+#: config/chroot_local-includes/usr/src/perl5lib/lib/Tails/RunningSystem.pm:207
 #: config/chroot_local-includes/usr/local/bin/tails-upgrade-frontend-wrapper:77
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/application.py:79
 #: config/chroot_local-includes/usr/local/sbin/unsafe-browser:38
@@ -1425,13 +1418,13 @@ msgstr "Ուղարկել զեկույց սխալի մասին"
 msgid "Error"
 msgstr "Սխալ"
 
-#: config/chroot_local-includes/usr/src/perl5lib/lib/Tails/RunningSystem.pm:223
+#: config/chroot_local-includes/usr/src/perl5lib/lib/Tails/RunningSystem.pm:209
 msgid ""
 "The device Tails is running from cannot be found. Maybe you used the 'toram' "
 "option?"
 msgstr ""
 
-#: config/chroot_local-includes/usr/src/perl5lib/lib/Tails/RunningSystem.pm:251
+#: config/chroot_local-includes/usr/src/perl5lib/lib/Tails/RunningSystem.pm:237
 msgid ""
 "The drive Tails is running from cannot be found. Maybe you used the 'toram' "
 "option?"
@@ -1524,8 +1517,8 @@ msgstr ""
 #, fuzzy
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
-"gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "Ավելին ավելացնելու համար՝ <a href=\"synaptic.desktop\">«Synaptic Package "
 "Manager»-ից</a> կամ <a href=\"org.gnome.Terminal.desktop\">հրամանատողում "
@@ -1859,6 +1852,11 @@ msgid "Tor Status"
 msgstr "Tor-ի կարգավիճակը"
 
 #: config/chroot_local-includes/usr/share/gnome-shell/extensions/torstatus@tails.boum.org/extension.js:46
+#, fuzzy
+msgid "Open Tor Connection Assistant"
+msgstr "Բացել Tor միացում"
+
+#: config/chroot_local-includes/usr/share/gnome-shell/extensions/torstatus@tails.boum.org/extension.js:50
 msgid "Open Onion Circuits"
 msgstr "Բացել Onion շղթաներ"
 
@@ -1921,7 +1919,7 @@ msgid ""
 msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/application.py:30
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:48
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:49
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:1
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:25
 msgid "Persistent Storage"
@@ -1976,8 +1974,8 @@ msgstr "Հատկության ապագործարկման սխալ {}"
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:347
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:411
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/change_passphrase_dialog.py:115
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:261
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:289
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:270
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:298
 #, fuzzy
 msgid "Details"
 msgstr "Tails"
@@ -2083,7 +2081,7 @@ msgstr "Խնդրի լուծման համար կարող եք ուղարկել զ
 msgid "_Send Error Report"
 msgstr "_Ուղարկել սխալի զեկույցը"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:144
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:153
 msgid ""
 "Impossible to delete the Persistent Storage while it is unlocked.\n"
 "\n"
@@ -2095,7 +2093,7 @@ msgstr ""
 "Հաստատակամ պահեստարանը ջնջելու համար վերսկսեք Tails-ն հաստատակամ պահեստարանի "
 "արգելաբացման և բացեք հաստատակամ պահեստարանի կարգավորումները նորից:"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:158
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:167
 msgid ""
 "Impossible to delete the Persistent Storage because the USB stick is read-"
 "only.\n"
@@ -2111,17 +2109,17 @@ msgstr ""
 "պաշտպանությունը, վերսկսեք Tails-ն հաստատակամ պահեստարանի արգելաբացման և "
 "բացեք հաստատակամ պահեստարանի կարգավորումները նորից:"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:166
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:175
 msgid "Impossible to delete the Persistent Storage"
 msgstr "Անհնար է ջնջել հաստատակամ պահեստարանը"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:174
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:209
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:183
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:218
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:36
 msgid "Delete Persistent Storage"
 msgstr "Ջնջել հաստատակամ պահեստարանը"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:178
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:187
 msgid ""
 "Are you sure that you want to delete your Persistent Storage? This action "
 "cannot be undone."
@@ -2129,7 +2127,7 @@ msgstr ""
 "Վստա՞հ եք, որ ցանկանում եք ջնջել Ձեր հաստատակամ պահեստարանը: Այս "
 "գործողությունը հնարավոր չէ հետարկել:"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:182
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:191
 #: config/chroot_local-includes/usr/local/sbin/unsafe-browser:57
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:304
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:121
@@ -2137,55 +2135,55 @@ msgstr ""
 msgid "_Cancel"
 msgstr "_Չեղարկել"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:183
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:192
 msgid "_Delete Persistent Storage"
 msgstr "_Ջնջել հաստատակամ պահեստարանը"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:193
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:202
 msgid "Deleting your Persistent Storage..."
 msgstr "Ջնջվում է Ձեր հաստատակամ պահեստարանը..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:212
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:221
 msgid "_OK"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:221
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:230
 msgid ""
 "Sorry, you can't close this app until the ongoing operation has completed."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:224
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:233
 msgid "Please wait"
 msgstr "Խնդրում ենք սպասել"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:252
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:261
 msgid "Not enough memory to create Persistent Storage"
 msgstr "Հիշողությունը բավարար չէ հաստատակամ պահեստարանի ստեղծման համար"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:259
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:268
 msgid "Failed to create Persistent Storage"
 msgstr "Չստացվեց ստեղծել հաստատակամ պահեստարանը"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:260
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:269
 #, fuzzy
 msgid "An error occurred while creating the Persistent Storage."
 msgstr "Հաստատակամ պահեստարանի ջնջման սխալ"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:280
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:287
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:289
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:296
 msgid "Error deleting Persistent Storage"
 msgstr "Հաստատակամ պահեստարանի ջնջման սխալ"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:288
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:297
 #, fuzzy
 msgid "An error occurred while deleting the Persistent Storage."
 msgstr "Հաստատակամ պահեստարանի ջնջման սխալ"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:325
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:334
 msgid "Details (command output)"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:340
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:349
 #, fuzzy
 msgid "Failed to open the documentation"
 msgstr "Tails-ի ուղեցույց"
@@ -2615,7 +2613,7 @@ msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:18
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:56
-#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:758
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:827
 msgid "Administration Password"
 msgstr ""
 
@@ -2639,7 +2637,7 @@ msgid "Disable"
 msgstr "Կարողազրկել"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:186
-#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:762
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:831
 msgid "MAC Address Anonymization"
 msgstr "MAC հասցեի անանունացում"
 
@@ -2660,7 +2658,7 @@ msgid "Don't anonymize MAC addresses"
 msgstr "Չանանունացնել MAC հասցեները"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:343
-#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:766
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:835
 msgid "Network Configuration"
 msgstr "Ցանցի կարգավորում"
 
@@ -2765,23 +2763,34 @@ msgstr "Ապակողպել գաղտնագրումը"
 msgid "Impossible to unlock the Persistent Storage."
 msgstr "Անհնար է ապակողպել հաստատակամ պահեստարանը:"
 
-#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:562
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:563
+msgid "Partitioning Errors"
+msgstr ""
+
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:599
+msgid ""
+"Errors were detected in the partitioning of your Tails USB stick.\n"
+"\n"
+"Try reinstalling Tails. If the error persists, reinstall on a new USB stick."
+msgstr ""
+
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:631
 msgid "_Additional Settings"
 msgstr "_Հավելյալ կարգավորումներ"
 
-#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:645
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:714
 msgid "Add an additional setting"
 msgstr "Ավելացնել հավելյալ կարգավորում"
 
-#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:692
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:761
 msgid "Shutdown"
 msgstr "Վերջացում"
 
-#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:701
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:770
 msgid "_Start Tails"
 msgstr "_Սկսել Tails-ը"
 
-#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:730
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:799
 msgid ""
 "The default settings are safe in most situations. To add a custom setting, "
 "press the \"+\" button below."
@@ -2833,6 +2842,10 @@ msgid ""
 "You can send an error report or check the output of the following commands "
 "to investigate:"
 msgstr ""
+
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/fail_view.ui.in:74
+msgid "Send Error Report"
+msgstr "Ուղարկել զեկույց սխալի մասին"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:61
 msgid ""
@@ -3692,6 +3705,9 @@ msgstr "Դեկտեմբեր"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "Ժամացույց"
+
+#~ msgid "Error while updating the signing key"
+#~ msgstr "Բանալիի ստորագրման թարմացման սխալ"
 
 #, fuzzy
 #~| msgid "Create"
