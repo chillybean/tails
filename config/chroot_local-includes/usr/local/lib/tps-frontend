@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3 -I
 
 # Parts of this script are based on GNOME Music
 # https://gitlab.gnome.org/GNOME/gnome-music
@@ -54,14 +54,14 @@ def main():
     args = parser.parse_args()
 
     # Set up logging
-    debug = args.debug or \
-        os.getenv("DEBUG") or \
-        "debug" in Path("/proc/cmdline").read_text().split()
+    debug = (
+        args.debug
+        or os.getenv("DEBUG")
+        or "debug" in Path("/proc/cmdline").read_text().split()
+    )
     log_level = logging.DEBUG if debug else logging.INFO
-    log_format = \
-        "%(levelname)s:%(filename)s:%(lineno)d: %(message)s"
-    logging.basicConfig(level=log_level,
-                        format=log_format)
+    log_format = "%(levelname)s:%(filename)s:%(lineno)d: %(message)s"
+    logging.basicConfig(level=log_level, format=log_format)
 
     set_exception_hook()
     set_internationalization()
@@ -75,11 +75,10 @@ def main():
     bus = Gio.DBusConnection.new_sync(
         socket_connection,
         None,
-        Gio.DBusConnectionFlags.NONE |
-        Gio.DBusConnectionFlags.MESSAGE_BUS_CONNECTION,
+        Gio.DBusConnectionFlags.NONE | Gio.DBusConnectionFlags.MESSAGE_BUS_CONNECTION,
         None,
         None,
-        )  # type: Gio.DBusConnection
+    )  # type: Gio.DBusConnection
 
     app = Application(bus)
     signal.signal(signal.SIGINT, signal.SIG_DFL)
@@ -87,5 +86,5 @@ def main():
     return app.run()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

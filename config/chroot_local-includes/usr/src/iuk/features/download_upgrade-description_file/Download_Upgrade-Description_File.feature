@@ -10,8 +10,6 @@ Feature: download and verify an upgrade-description file
     And a HTTPS random port
     And a trusted Certificate Authority
     And a trusted OpenPGP signing key pair
-    And a trusted, but expired OpenPGP signing key pair
-    And a trusted OpenPGP signing key pair created in the future
     And an untrusted OpenPGP signing key pair
 
   Scenario: Failed download of a non-existing upgrade-description
@@ -35,7 +33,7 @@ Feature: download and verify an upgrade-description file
     And a valid signature made by a trusted key
     When I download and check this upgrade-description file
     Then it should fail
-    And I should be told "certificate verification failed"
+    And I should be told "certificate verification failed|certificate error"
 
   Scenario: Failed download due to expired SSL certificate
     Given a HTTPS server with an expired SSL certificate
@@ -43,7 +41,7 @@ Feature: download and verify an upgrade-description file
     And a valid signature made by a trusted key
     When I download and check this upgrade-description file
     Then it should fail
-    And I should be told "certificate verification failed"
+    And I should be told "certificate verification failed|certificate has expired"
 
   Scenario: Failed download due to SSL certificate that is not valid yet
     Given a HTTPS server with a not-valid-yet SSL certificate
@@ -51,7 +49,7 @@ Feature: download and verify an upgrade-description file
     And a valid signature made by a trusted key
     When I download and check this upgrade-description file
     Then it should fail
-    And I should be told "certificate verification failed"
+    And I should be told "certificate verification failed|certificate error"
 
   Scenario: Failed download when server redirects to cleartext HTTP
     Given a HTTPS server with a valid SSL certificate, that redirects to 127.0.0.2 over cleartext HTTP
@@ -106,30 +104,6 @@ Feature: download and verify an upgrade-description file
     When I download and check this upgrade-description file
     Then it should fail
     And I should be told "Maximum file size exceeded"
-
-  Scenario: Successful download, signature made in the future
-    Given a HTTPS server with a valid SSL certificate
-    And an upgrade-description that matches the initially installed Tails
-    And a valid signature made in the future by a trusted key
-    When I download and check this upgrade-description file
-    Then it should succeed
-    And the upgrade-description content should be printed
-
-  Scenario: Successful download, signature made by an expired key
-    Given a HTTPS server with a valid SSL certificate
-    And an upgrade-description that matches the initially installed Tails
-    And a valid signature made by a trusted, but expired key
-    When I download and check this upgrade-description file
-    Then it should succeed
-    And the upgrade-description content should be printed
-
-  Scenario: Successful download, signature made by a key created in the future
-    Given a HTTPS server with a valid SSL certificate
-    And an upgrade-description that matches the initially installed Tails
-    And a valid signature made by a trusted key created in the future
-    When I download and check this upgrade-description file
-    Then it should succeed
-    And the upgrade-description content should be printed
 
   Scenario: Well-signed upgrade-description does not match the running Tails' product name
     Given a HTTPS server with a valid SSL certificate

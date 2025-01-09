@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-28 11:34+0100\n"
+"POT-Creation-Date: 2025-01-08 10:04+0100\n"
 "PO-Revision-Date: 2024-10-23 15:16+0000\n"
 "Last-Translator: Ronald Nguyen <liard_smutting@sl.vern.cc>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/tor/tails-gui/"
@@ -126,10 +126,9 @@ msgstr "Gỡ bỏ"
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:166
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/add_settings_dialog.py:40
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:178
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:456
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:807
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:481
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:832
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:728
-#: config/chroot_local-includes/usr/local/lib/tails-report-disk-resize-errors:38
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:119
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:376
 msgid "Cancel"
@@ -204,13 +203,13 @@ msgstr ""
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:194
 msgid ""
-"To add more, install some software using <a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
-"desktop\">APT on the command line</a>."
+"To add more, install some software using <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
-"Để thêm vào nữa, hãy cài đặt một số phần mềm sử dụng <a href=\"synaptic."
-"desktop\">Trình quản lý gói Synaptic</a> hoặc <a href=\"org.gnome.Terminal."
-"desktop\">APT trên dòng lệnh command line</a>."
+"Để thêm vào nữa, hãy cài đặt một số phần mềm sử dụng <a "
+"href=\"synaptic.desktop\">Trình quản lý gói Synaptic</a> hoặc <a "
+"href=\"org.gnome.Terminal.desktop\">APT trên dòng lệnh command line</a>."
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:154
 msgid "_Create persistent storage"
@@ -333,27 +332,27 @@ msgid "#{time} left — {downloaded} of {size} ({speed}/sec)\n"
 msgstr "#{time} còn lại — {downloaded} trong {size} ({speed}/giây)\n"
 
 #. Translators: KB is the short form for kilobyte
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Role/FormatByte.pm:33
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Role/FormatByte.pm:32
 msgid "KB"
 msgstr "KB"
 
 #. Translators: MB is the short form for megabyte
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Role/FormatByte.pm:35
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Role/FormatByte.pm:34
 msgid "MB"
 msgstr "MB"
 
 #. Translators: GB is the short form for gigabyte
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Role/FormatByte.pm:37
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Role/FormatByte.pm:36
 msgid "GB"
 msgstr "GB"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Role/FormatByte.pm:43
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Role/FormatByte.pm:42
 msgid "bytes"
 msgstr "bytes"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:197
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:716
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:869
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:201
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:715
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:868
 msgid ""
 "For debugging information, execute the following command: sudo tails-"
 "debugging-info"
@@ -361,7 +360,7 @@ msgstr ""
 "Để có thông tin gỡ rối, thực thi dòng lệnh dưới đây: sudo tails-debugging-"
 "info"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:293
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:297
 msgid ""
 "<b>An error occured while updating the signing key.</b>\\n\\n<b>This "
 "prevents determining whether an upgrade is available from our website.</"
@@ -373,22 +372,18 @@ msgstr ""
 "b>\\n\\n<b>Điều này ngăn chặn việc xác định rằng một bản cập nhật có khả "
 "dụng từ trang web của chúng tôi không.</b>\\n\\nKiểm tra kết nối mạng của "
 "bạn, và khởi động lại Tails để thử nâng cấp lại.\\n\\nNếu vấn đề vẫn tồn "
-"tại, hãy tới tập tin:///usr/share/doc/tails/website/doc/upgrade/error/check."
-"en.html"
+"tại, hãy tới tập tin:///usr/share/doc/tails/website/doc/upgrade/error/"
+"check.en.html"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:307
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:311
 msgid "Error while downloading the signing key"
 msgstr "Đã có lỗi trong khi tải khóa key chữ ký xuống"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:318
-msgid "Error while updating the signing key"
-msgstr "Đã có lỗi trong khi cập nhật khoá key chữ ký"
-
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:345
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:344
 msgid "Error while checking for upgrades"
 msgstr "Đã có lỗi khi kiểm tra các bản cập nhật"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:347
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:346
 msgid ""
 "<b>Could not determine whether an upgrade is available from our website.</"
 "b>\n"
@@ -407,42 +402,42 @@ msgstr ""
 "Nếu vấn đề vẫn tồn tại, đi tới file:///usr/share/doc/tails/website/doc/"
 "upgrade/error/check.en.html"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:362
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:361
 msgid "no automatic upgrade is available from our website for this version"
 msgstr "không có sẵn việc tự động nâng cấp từ website cho phiên bản này"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:368
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:367
 msgid "your device was not created using a USB image or Tails Cloner"
 msgstr ""
 "thiết bị của bạn đã không được khởi tạo bằng cách sử dụng ổ đĩa image USB "
 "hoặc trình nhân bản Tails Cloner"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:373
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:372
 msgid "Tails was started from a DVD or a read-only device"
 msgstr "Tails được khởi động từ DVD hoặc một thiết bị chỉ cho phép đọc"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:378
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:377
 msgid "there is not enough free space on the Tails system partition"
 msgstr "không có đủ khoảng trống trên phân vùng hệ thống của Tails"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:383
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:382
 msgid "not enough memory is available on this system"
 msgstr "không có đủ bộ nhớ sẵn có trên hệ thống"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:388
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:387
 #, perl-brace-format
 msgid "No explanation available for reason '{reason}'."
 msgstr "Không có giải thích nào là khả dụng cho lý do '{reason}'."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:411
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:410
 msgid "The system is up-to-date"
 msgstr "Hệ thống đang ở trạng thái mới nhất"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:416
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:415
 msgid "This version of Tails is outdated, and may have security issues."
 msgstr "Phiên bản Tails này đã lỗi thời, và có thể có vài vấn đề an ninh."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:446
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:445
 #, perl-brace-format
 msgid ""
 "The available incremental upgrade requires {space_needed} of free space on "
@@ -451,7 +446,7 @@ msgstr ""
 "Nâng cấp gia tăng khả dụng yêu cầu {space_needed} của không gian trống trên "
 "phẩn ổ đĩa hệ thống Tails,  nhưng chỉ {free_space} là khả dụng."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:458
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:457
 #, perl-brace-format
 msgid ""
 "The available incremental upgrade requires {memory_needed} of free memory, "
@@ -460,7 +455,7 @@ msgstr ""
 "Nâng cấp gia tăng khả dụng yêu cầu {memory_needed} của bộ nhớ trống, nhưng "
 "chỉ {free_memory} là khả dụng."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:469
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:468
 msgid ""
 "An error ocurred while detecting available upgrades.\n"
 "This should not happen. Please report a bug."
@@ -468,12 +463,12 @@ msgstr ""
 "Đã có một lỗi xảy ra trong khi dò tìm các bản cập nhật khả dụng.\n"
 "Điều này không nên xảy ra. Xin vui lòng báo cáo lại lỗi bug."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:472
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:491
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:471
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:490
 msgid "Error while detecting available upgrades"
 msgstr "Có lỗi khi phát hiện những bản cập nhật có sẵn"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:487
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:486
 msgid ""
 "An incremental upgrade is available, but no full upgrade is.\n"
 "This should not happen. Please report a bug."
@@ -481,7 +476,7 @@ msgstr ""
 "Việc nâng cấp thêm đang có sẵn, nhưng không có nâng cấp toàn bộ.\n"
 "Việc này không nên xảy ra. Vui lòng báo lỗi."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:500
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:499
 #, perl-brace-format
 msgid ""
 "<b>You should upgrade to {name} {version}.</b>\n"
@@ -509,19 +504,19 @@ msgstr ""
 "\n"
 "Bạn có muốn nâng cấp ngay bây giờ không?"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:513
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:512
 msgid "Upgrade available"
 msgstr "Bản nâng cấp có sẵn"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:514
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:513
 msgid "Upgrade now"
 msgstr "Nâng cấp ngay bây giờ"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:515
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:514
 msgid "Upgrade later"
 msgstr "Nâng cấp sau"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:523
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:522
 #, perl-brace-format
 msgid ""
 "<b>You should do a manual upgrade to the latest version of {name}.</b>\n"
@@ -544,20 +539,20 @@ msgstr ""
 "Để tìm hiểu cách làm thế nào để thực hiện nâng cấp thủ công, đi tới "
 "{manual_upgrade_url}"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:533
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:532
 msgid "New version available"
 msgstr "Phiên bản mới đã có sẵn"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:614
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:613
 msgid "Downloading upgrade"
 msgstr "Đang tải bản cập nhật"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:616
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:615
 #, perl-brace-format
 msgid "Downloading the upgrade to {name} {version}..."
 msgstr "Đang tải xuống bản cập nhật cho {name} {version}..."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:709
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:708
 msgid ""
 "<b>The upgrade could not be downloaded.</b>\\n\\nCheck your network "
 "connection, and restart Tails to try upgrading again.\\n\\nIf the problem "
@@ -568,12 +563,12 @@ msgstr ""
 "động lại Tails để thử nâng cấp lại.\\n\\nNếu vấn đề vẫn còn, đi tới file:///"
 "usr/share/doc/tails/website/doc/upgrade/error/download.en.html"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:720
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:735
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:719
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:734
 msgid "Error while downloading the upgrade"
 msgstr "Có lỗi khi tải bản cập nhật"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:730
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:729
 #, perl-brace-format
 msgid ""
 "Output file '{output_file}' does not exist, but tails-iuk-get-target-file "
@@ -582,15 +577,15 @@ msgstr ""
 "Tập tin trích xuất '{output_file}' không tồn tại, nhưng tập tin tails-iuk-"
 "get-target-file đã không phàn nàn gì cả. Xin hãy báo cáo lại một lỗi bug."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:746
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:745
 msgid "Error while creating temporary downloading directory"
 msgstr "Có lỗi khi đang tạo thư mục tải về tạm thời"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:749
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:748
 msgid "Failed to create temporary download directory"
 msgstr "Thất bại khi tạo thư mục tải về tạm thời"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:761
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:760
 msgid ""
 "The upgrade was successfully downloaded.\n"
 "\n"
@@ -604,15 +599,15 @@ msgstr ""
 "\n"
 "Xin vui lòng sao lưu lại công việc của bạn và đóng tất cả các ứng dụng khác."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:766
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:765
 msgid "Upgrade successfully downloaded"
 msgstr "Bản cập nhật đã được tải xuống thành công"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:767
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:766
 msgid "Apply upgrade"
 msgstr "Áp dụng nâng cấp"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:774
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:773
 msgid ""
 "<b>Your Tails device was successfully upgraded.</b>\n"
 "\n"
@@ -628,47 +623,47 @@ msgstr ""
 "\n"
 "Bạn có muốn khởi động lại bây giờ không?"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:779
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:778
 msgid "Restart Tails"
 msgstr "Khởi động lại Tails"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:780
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:779
 msgid "Restart now"
 msgstr "Khởi động lại bây giờ"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:781
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:780
 msgid "Restart later"
 msgstr "Khởi động lại sau"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:792
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:791
 msgid "Error while restarting the system"
 msgstr "Có lỗi khi khởi động lại hệ thống"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:793
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:792
 msgid "Failed to restart the system"
 msgstr "Thất bại khi khởi đông lại hệ thống"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:806
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:805
 msgid "Error while shutting down the network"
 msgstr "Có lỗi khi đang đóng mạng lưới"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:807
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:806
 msgid "Failed to shutdown network"
 msgstr "Tắt mạng lưới thất bại"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:817
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:816
 msgid "Error while cancelling the upgrade download"
 msgstr "Có lỗi trong khi dừng tải xuống bản cập nhật"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:818
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:817
 msgid "Failed to cancel the upgrade download"
 msgstr "Đã thất bại khi dừng tải xuống bản cập nhật"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:824
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:823
 msgid "Upgrading the system"
 msgstr "Đang nâng cấp hệ thống"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:826
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:825
 msgid ""
 "<b>Your Tails device is being upgraded...</b>\n"
 "\n"
@@ -678,7 +673,7 @@ msgstr ""
 "\n"
 "Vì những lý do bảo mật, kết nối mạng hiện đang được vô hiệu hoá."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:863
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:862
 msgid ""
 "<b>An error occured while installing the upgrade.</b>\\n\\nYour Tails device "
 "needs to be repaired and might be unable to restart.\\n\\nPlease follow the "
@@ -690,7 +685,7 @@ msgstr ""
 "theo các hướng dẫn tại file:///usr/share/doc/tails/website/doc/upgrade/error/"
 "install.en.html"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:873
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:872
 msgid "Error while installing the upgrade"
 msgstr "Có lỗi khi đang cài đặt bản cập nhật"
 
@@ -779,7 +774,7 @@ msgstr ""
 msgid "Start Without Persistent Storage"
 msgstr "Khởi động mà Không có Ổ đĩa lưu trữ Bền vững"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:245
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:247
 msgid ""
 "Impossible to unlock the Persistent Storage because the USB stick is read-"
 "only."
@@ -787,63 +782,64 @@ msgstr ""
 "Không có khả năng mở khoá Vùng Lưu Trữ Bền vững bởi USB được thiết lập chế "
 "độ thuần đọc read-only."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:383
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:414
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:408
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:439
 msgid "Unlocking…"
 msgstr "Đang mở khóa…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:421
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:446
 #, fuzzy
 msgid "Checking the file system…"
 msgstr "Đang Format hệ thống file tập tin..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:454
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:479
 #, fuzzy
 msgid "Repairing the File System"
 msgstr "Đang Format hệ thống file tập tin..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:455
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:480
 #, fuzzy
 msgid "This might take a long time..."
 msgstr "Việc này có thể mất chút thời gian..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:473
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:498
 #, fuzzy
 msgid "Failed to repair the file system of your Persistent Storage."
 msgstr ""
 "Đã thất bại khi định cấu hình cho Dung lượng lưu trữ liên tục dài hạn của bạn"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:475
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:500
 msgid "Start Tails to send an error report and learn how to recover your data."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:489
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:514
 msgid "File System Repaired Successfully"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:491
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:516
 msgid ""
 "It's possible that some data was lost during the repair. Please check the "
 "contents of your Persistent Storage and restore any lost data from a backup."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:495
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:520
+#: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:32
 msgid "Close"
 msgstr "Đóng"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:510
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:535
 msgid ""
 "You aborted the repair of the file system. You can either start Tails "
 "without Persistent Storage or restart the computer to try repairing the file "
 "system again."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:729
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:754
 msgid "Start Tails and open the Persistent Storage settings to find out more."
 msgstr ""
 "Khởi động Tails và mở Cài đặt Ổ đĩa lưu trữ Bền vững để tìm hiểu thêm nữa."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:758
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:783
 msgid ""
 "Your Persistent Storage is unlocked. Its content will be available until you "
 "shut down Tails."
@@ -851,26 +847,26 @@ msgstr ""
 "Ổ đĩa lưu trữ Bền vững của bạn được mở khoá. Nội dung của nó sẽ được khả "
 "dụng cho tới khi bạn tắt Tails đi."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:773
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:798
 msgid "Incorrect passphrase. Please try again."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:784
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:809
 #, fuzzy
 msgid ""
 "Error reading data from your Persistent Storage. The hardware of your USB "
 "stick is probably failing."
 msgstr "Phần cứng của ổ USB của bạn có thể đang bị lỗi."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:786
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:811
 msgid "Start Tails to learn how to recover your data."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:797
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:822
 msgid "File System Errors"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:799
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:824
 msgid ""
 "Errors were detected in the file system of your Persistent Storage.\n"
 "                \n"
@@ -884,30 +880,30 @@ msgid ""
 "of your Persistent Storage first."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:808
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:833
 msgid "Repair File System"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:809
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:834
 #, fuzzy
 msgid "Create Partition Image"
 msgstr "Tạo một vùng lưu trữ liên tục kéo dài"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:820
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:845
 #, fuzzy
 msgid ""
 "Start Tails to learn how to create a partition image of your Persistent "
 "Storage."
 msgstr "Đã thất bại khi khởi tạo Ổ đĩa lưu trữ Bền vững"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:829
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:854
 #, fuzzy
 msgid "Failed to unlock the Persistent Storage due to file system errors."
 msgstr ""
 "Đã thất bại khi mở khoá Ổ đĩa lưu trữ Bền vững. Xin vui lòng khởi động Tails "
 "và gửi một báo cáo lỗi."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:838
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:863
 msgid ""
 "Failed to upgrade the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -915,7 +911,7 @@ msgstr ""
 "Đã thất bại khi nâng cấp Ổ đĩa lưu trữ Bền vững. Xin vui lòng khởi động "
 "Tails và gửi đi một báo cáo lỗi."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:845
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:870
 msgid ""
 "Failed to unlock the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -923,7 +919,7 @@ msgstr ""
 "Đã thất bại khi mở khoá Ổ đĩa lưu trữ Bền vững. Xin vui lòng khởi động Tails "
 "và gửi một báo cáo lỗi."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:853
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:878
 msgid ""
 "Failed to activate the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -931,7 +927,7 @@ msgstr ""
 "Đã thất bại khi kích hoạt Ổ đĩa lưu trữ Bền vững. Xin vui lòng khởi động "
 "Tails và gửi đi một báo cáo lỗi."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:864
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:889
 #, fuzzy
 msgid "Upgrading the Persistent Storage. This might take a while…"
 msgstr ""
@@ -1485,41 +1481,40 @@ msgstr "Bỏ qua"
 msgid "Learn More"
 msgstr "Tìm hiểu thêm"
 
-#: config/chroot_local-includes/usr/local/lib/tails-report-disk-resize-errors:16
-msgid "Disk partitioning errors"
+#: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:18
+#, fuzzy
+msgid "Partitioning Error"
+msgstr "Phân vùng và ổ đĩa"
+
+#: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:19
+msgid "Errors were detected in the partitioning of your Tails USB stick."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/lib/tails-report-disk-resize-errors:22
-msgid ""
-"Something went wrong when starting your Tails USB stick for the first time: "
-"resizing the system partition failed"
-msgstr ""
-
-#: config/chroot_local-includes/usr/local/lib/tails-report-disk-resize-errors:27
-msgid ""
-"It will be impossible to create a Persistent Storage or apply automatic "
-"upgrades."
-msgstr ""
-
-#: config/chroot_local-includes/usr/local/lib/tails-report-disk-resize-errors:29
-msgid ""
-"Try to follow our instructions on <a href=\"%INSTALLPAGE%\">installing Tails "
-"on a USB stick</a> again or use a different USB stick."
-msgstr ""
-
-#: config/chroot_local-includes/usr/local/lib/tails-report-disk-resize-errors:31
+#: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:26
 #, fuzzy
 msgid ""
-"If you have already tried this, please send us an error report to help us "
-"solve this issue."
-msgstr "Bạn có thể gửi đi một báo cáo sự cố để giúp khắc phục vấn đề."
+"We recommend that you create a backup of your Tails using <i>Tails Cloner</"
+"i> to migrate to a new USB stick."
+msgstr "Chúng tôi khuyên bạn nên cài đặt lại Tails trên một ổ USB khác."
 
-#: config/chroot_local-includes/usr/local/lib/tails-report-disk-resize-errors:39
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/fail_view.ui.in:74
-msgid "Send Error Report"
-msgstr "Gửi báo cáo lỗi"
+#: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:33
+#, fuzzy
+msgid "Open Tails Cloner"
+msgstr "Trình clone nhân bản Tails"
 
-#: config/chroot_local-includes/usr/src/perl5lib/lib/Tails/RunningSystem.pm:221
+#: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:42
+#, fuzzy
+msgid "Creation of Persistent Storage has been disabled."
+msgstr "Việc khởi tạo Vùng Lưu Trữ Bền vữngi của bạn đã thất bại."
+
+#: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:44
+#, fuzzy
+msgid ""
+"We recommend that you reinstall Tails from scratch. If the error persists, "
+"reinstall on a new USB stick."
+msgstr "Chúng tôi khuyên bạn nên cài đặt lại Tails trên một ổ USB khác."
+
+#: config/chroot_local-includes/usr/src/perl5lib/lib/Tails/RunningSystem.pm:207
 #: config/chroot_local-includes/usr/local/bin/tails-upgrade-frontend-wrapper:77
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/application.py:79
 #: config/chroot_local-includes/usr/local/sbin/unsafe-browser:38
@@ -1530,7 +1525,7 @@ msgstr "Gửi báo cáo lỗi"
 msgid "Error"
 msgstr "Lỗi"
 
-#: config/chroot_local-includes/usr/src/perl5lib/lib/Tails/RunningSystem.pm:223
+#: config/chroot_local-includes/usr/src/perl5lib/lib/Tails/RunningSystem.pm:209
 msgid ""
 "The device Tails is running from cannot be found. Maybe you used the 'toram' "
 "option?"
@@ -1538,7 +1533,7 @@ msgstr ""
 "Thiết bị mà Tails đang chạy từ đó ra không thể được tìm thấy. Có lẽ bạn đã "
 "sử dụng tuỳ chọn 'toram'?"
 
-#: config/chroot_local-includes/usr/src/perl5lib/lib/Tails/RunningSystem.pm:251
+#: config/chroot_local-includes/usr/src/perl5lib/lib/Tails/RunningSystem.pm:237
 msgid ""
 "The drive Tails is running from cannot be found. Maybe you used the 'toram' "
 "option?"
@@ -1617,9 +1612,9 @@ msgid ""
 "Package Manager</a> or <a href=\"org.gnome.Terminal.desktop\">APT on the "
 "command line</a>."
 msgstr ""
-"Để làm điều đó, hãy cài đặt một số phần mềm sử dụng <a href=\"synaptic."
-"desktop\">Trình quản lý gói Synaptic</a> hoặc <a href=\"org.gnome.Terminal."
-"desktop\">APT trên dòng lệnh command</a>."
+"Để làm điều đó, hãy cài đặt một số phần mềm sử dụng <a "
+"href=\"synaptic.desktop\">Trình quản lý gói Synaptic</a> hoặc <a "
+"href=\"org.gnome.Terminal.desktop\">APT trên dòng lệnh command</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:216
 #, fuzzy
@@ -1630,15 +1625,15 @@ msgid ""
 msgstr ""
 "Để làm điều đó, mở khoá ổ đĩa liên tục kéo dài của bạn khi bắt đầu khởi động "
 "Tails vầ cài đặt một số phần mềm sử dụng <a href=\"synaptic.desktop\">Trình "
-"quản lý gói package Synaptic</a> hoặc <a href=\"org.gnome.Terminal."
-"desktop\">APT trên dòng lệnh command</a>."
+"quản lý gói package Synaptic</a> hoặc <a "
+"href=\"org.gnome.Terminal.desktop\">APT trên dòng lệnh command</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:229
 #, fuzzy
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
-"gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "Để làm điều đó, khởi tạo một vùng lưu trữ liên tục kéo dài và cài đặt một số "
 "phần mềm sử dụng <a href=\"synaptic.desktop\">Trình quản lý gói package "
@@ -2008,6 +2003,11 @@ msgid "Tor Status"
 msgstr "Trạng thái Tor"
 
 #: config/chroot_local-includes/usr/share/gnome-shell/extensions/torstatus@tails.boum.org/extension.js:46
+#, fuzzy
+msgid "Open Tor Connection Assistant"
+msgstr "Mở kết nối Tor"
+
+#: config/chroot_local-includes/usr/share/gnome-shell/extensions/torstatus@tails.boum.org/extension.js:50
 msgid "Open Onion Circuits"
 msgstr "Mở các mạch nối Onion"
 
@@ -2086,7 +2086,7 @@ msgstr ""
 "mục tiêu target và thử lại."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/application.py:30
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:48
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:49
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:1
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:25
 msgid "Persistent Storage"
@@ -2140,8 +2140,8 @@ msgstr "Có lỗi xảy ra trong khi kích hoạt tính năng."
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:347
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:411
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/change_passphrase_dialog.py:115
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:261
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:289
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:270
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:298
 msgid "Details"
 msgstr "Các chi tiết"
 
@@ -2246,7 +2246,7 @@ msgstr "Bạn có thể gửi đi một báo cáo sự cố để giúp khắc p
 msgid "_Send Error Report"
 msgstr "_Gửi Báo cáo Sự cố"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:144
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:153
 #, fuzzy
 msgid ""
 "Impossible to delete the Persistent Storage while it is unlocked.\n"
@@ -2257,7 +2257,7 @@ msgstr ""
 "Để xoá bỏ đi Ổ đĩa lưu trữ Bền vững, hãy khởi động lại Tails mà không mở "
 "khoá Ổ đĩa lưu trữ Bền vững và rồi mở cài đặt Ổ đĩa lưu trữ Bền vững trở lại."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:158
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:167
 #, fuzzy
 msgid ""
 "Impossible to delete the Persistent Storage because the USB stick is read-"
@@ -2270,18 +2270,18 @@ msgstr ""
 "Để xoá bỏ đi Ổ đĩa lưu trữ Bền vững, hãy khởi động lại Tails mà không mở "
 "khoá Ổ đĩa lưu trữ Bền vững và rồi mở cài đặt Ổ đĩa lưu trữ Bền vững trở lại."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:166
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:175
 #, fuzzy
 msgid "Impossible to delete the Persistent Storage"
 msgstr "Đã thất bại khi khởi tạo Ổ đĩa lưu trữ Bền vững"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:174
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:209
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:183
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:218
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:36
 msgid "Delete Persistent Storage"
 msgstr "Xoá bỏ Ổ đĩa lưu trữ Bền vững"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:178
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:187
 msgid ""
 "Are you sure that you want to delete your Persistent Storage? This action "
 "cannot be undone."
@@ -2289,7 +2289,7 @@ msgstr ""
 "Bạn có chắc chắn rằng bạn muốn xoá bỏ đi Ổ đĩa lưu trữ Bền vững của bạn chứ? "
 "Hành động này một khi thực hiện rồi sẽ không thể hoàn tác được."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:182
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:191
 #: config/chroot_local-includes/usr/local/sbin/unsafe-browser:57
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:304
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:121
@@ -2297,58 +2297,58 @@ msgstr ""
 msgid "_Cancel"
 msgstr "_Hủy bỏ"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:183
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:192
 msgid "_Delete Persistent Storage"
 msgstr "_Xoá bỏ Ổ đĩa lưu trữ Bền vững"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:193
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:202
 #, fuzzy
 msgid "Deleting your Persistent Storage..."
 msgstr "Đang xoá bỏ đi Ổ đĩa lưu trữ Bền vững của bạn"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:212
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:221
 msgid "_OK"
 msgstr "_OK"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:221
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:230
 msgid ""
 "Sorry, you can't close this app until the ongoing operation has completed."
 msgstr ""
 "Xin thứ lỗi, bạn không thể đóng app ứng dụng này lại cho tới khi tác vụ hiện "
 "thời trở nên hoàn thành."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:224
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:233
 msgid "Please wait"
 msgstr "Xin hãy đợi"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:252
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:261
 msgid "Not enough memory to create Persistent Storage"
 msgstr "Không đủ dung lượng bộ nhớ để khởi tạo Ổ đĩa lưu trữ Bền vững"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:259
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:268
 msgid "Failed to create Persistent Storage"
 msgstr "Đã thất bại khi khởi tạo Ổ đĩa lưu trữ Bền vững"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:260
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:269
 #, fuzzy
 msgid "An error occurred while creating the Persistent Storage."
 msgstr "Có trục trặc khi xoá bỏ đi Ổ đĩa lưu trữ Bền vững"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:280
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:287
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:289
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:296
 msgid "Error deleting Persistent Storage"
 msgstr "Có trục trặc khi xoá bỏ đi Ổ đĩa lưu trữ Bền vững"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:288
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:297
 #, fuzzy
 msgid "An error occurred while deleting the Persistent Storage."
 msgstr "Có trục trặc khi xoá bỏ đi Ổ đĩa lưu trữ Bền vững"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:325
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:334
 msgid "Details (command output)"
 msgstr "Các chi tiết (đầu ra output dòng lệnh command)"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:340
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:349
 #, fuzzy
 msgid "Failed to open the documentation"
 msgstr "Tài liệu về Tails"
@@ -2806,7 +2806,7 @@ msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:18
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:56
-#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:758
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:827
 msgid "Administration Password"
 msgstr "Mật khẩu Quản trị"
 
@@ -2832,7 +2832,7 @@ msgid "Disable"
 msgstr "Vô hiệu"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:186
-#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:762
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:831
 msgid "MAC Address Anonymization"
 msgstr "Ẩn danh hoá địa chỉ MAC"
 
@@ -2857,7 +2857,7 @@ msgid "Don't anonymize MAC addresses"
 msgstr "Không ẩn danh các địa chỉ MAC"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:343
-#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:766
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:835
 msgid "Network Configuration"
 msgstr "Cấu hình mạng lưới"
 
@@ -2987,23 +2987,35 @@ msgstr "Mở khoá Mã hoá"
 msgid "Impossible to unlock the Persistent Storage."
 msgstr "Đã thất bại khi khởi tạo Ổ đĩa lưu trữ Bền vững"
 
-#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:562
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:563
+#, fuzzy
+msgid "Partitioning Errors"
+msgstr "Phân vùng và ổ đĩa"
+
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:599
+msgid ""
+"Errors were detected in the partitioning of your Tails USB stick.\n"
+"\n"
+"Try reinstalling Tails. If the error persists, reinstall on a new USB stick."
+msgstr ""
+
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:631
 msgid "_Additional Settings"
 msgstr "_Cài đặt bổ sung"
 
-#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:645
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:714
 msgid "Add an additional setting"
 msgstr "Thêm một cài đặt bổ sung"
 
-#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:692
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:761
 msgid "Shutdown"
 msgstr "Tắt đi"
 
-#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:701
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:770
 msgid "_Start Tails"
 msgstr "_Khởi chạy Tails"
 
-#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:730
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:799
 msgid ""
 "The default settings are safe in most situations. To add a custom setting, "
 "press the \"+\" button below."
@@ -3060,6 +3072,10 @@ msgstr ""
 "\n"
 "Bạn có thể gửi một báo cáo lõi hoặc kiểm tra các thông tin xuất của các dòng "
 "lệnh command sau để điều tra:"
+
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/fail_view.ui.in:74
+msgid "Send Error Report"
+msgstr "Gửi báo cáo lỗi"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:61
 msgid ""
@@ -3991,38 +4007,56 @@ msgstr "Tháng mười hai"
 msgid "Clock"
 msgstr "Đồng hồ"
 
+#~ msgid "Error while updating the signing key"
+#~ msgstr "Đã có lỗi trong khi cập nhật khoá key chữ ký"
+
 #, fuzzy
+#~ msgid ""
+#~ "If you have already tried this, please send us an error report to help us "
+#~ "solve this issue."
+#~ msgstr "Bạn có thể gửi đi một báo cáo sự cố để giúp khắc phục vấn đề."
+
+#, fuzzy
+#~| msgid ""
+#~| "Tails protects your wallet.\n"
+#~| "\n"
+#~| "Help us keep your bitcoins safe!\n"
+#~| "\n"
+#~| "<a href=\"file:///usr/share/doc/tails/website/"
+#~| "donate.en.html#expenses\">How we spend our money.</a>"
 #~ msgid ""
 #~ "Tails needs donations to keep everybody free and safe online.\n"
 #~ "\n"
 #~ "Every bit helps in our fight against surveillance and censorship!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~ "html#expenses\">How we spend our money.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/"
+#~ "donate.en.html#expenses\">How we spend our money.</a>"
 #~ msgstr ""
 #~ "Tails bảo vệ cho túi tiền, ví của bạn.\n"
 #~ "\n"
 #~ "Hãy giúp đỡ chúng tôi giữ cho những đồng bitcoin của các bạn được an "
 #~ "toàn!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~ "html#expenses\">Chúng tôi chi tiêu tiền bạc của chúng tôi như thế nào.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/"
+#~ "donate.en.html#expenses\">Chúng tôi chi tiêu tiền bạc của chúng tôi như "
+#~ "thế nào.</a>"
 
 #~ msgid ""
 #~ "Tails protects your wallet.\n"
 #~ "\n"
 #~ "Help us keep your bitcoins safe!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~ "html#expenses\">How we spend our money.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/"
+#~ "donate.en.html#expenses\">How we spend our money.</a>"
 #~ msgstr ""
 #~ "Tails bảo vệ cho túi tiền, ví của bạn.\n"
 #~ "\n"
 #~ "Hãy giúp đỡ chúng tôi giữ cho những đồng bitcoin của các bạn được an "
 #~ "toàn!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~ "html#expenses\">Chúng tôi chi tiêu tiền bạc của chúng tôi như thế nào.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/"
+#~ "donate.en.html#expenses\">Chúng tôi chi tiêu tiền bạc của chúng tôi như "
+#~ "thế nào.</a>"
 
 #, fuzzy
 #~| msgid "Create"
@@ -4160,8 +4194,8 @@ msgstr "Đồng hồ"
 #~| "\n"
 #~| "Every bit helps in our fight against surveillance and censorship!\n"
 #~| "\n"
-#~| "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~| "html#expenses\">How we spend our money.</a>"
+#~| "<a href=\"file:///usr/share/doc/tails/website/"
+#~| "donate.en.html#expenses\">How we spend our money.</a>"
 #~ msgid ""
 #~ "Our annual fundraiser is live!\n"
 #~ "\n"
@@ -4176,8 +4210,9 @@ msgstr "Đồng hồ"
 #~ "Mỗi chút một những đóng góp hỗ trợ cho cuộc đấu tranh của chúng tôi kháng "
 #~ "lại sự theo dõi và kiểm duyệt!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~ "html#expenses\">Chúng tôi chi tiêu tiền bạc của chúng tôi như thế nào.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/"
+#~ "donate.en.html#expenses\">Chúng tôi chi tiêu tiền bạc của chúng tôi như "
+#~ "thế nào.</a>"
 
 #~ msgid "Name of the affected software"
 #~ msgstr "Tên của phần mềm bị ảnh hưởng"

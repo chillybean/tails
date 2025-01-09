@@ -1,3 +1,271 @@
+tails (6.11) unstable; urgency=medium
+
+  * Upgrade to Thunderbird 128.5.0esr-1~deb12u1
+
+  * Resolve "Upgrade to Tor Browser 14.0.4 based on Firefox ESR 128.6"
+    (tails/tails!1874)
+
+    Closes issues:
+      - Upgrade to Tor Browser 14.0.4 based on Firefox ESR 128.6 (tails/tails#20683)
+
+    Commits:
+      - Fetch Tor Browser from our own archive
+      - Upgrade Tor Browser to 14.0.4-build1 (refs: tails#20683)
+
+  * Fix tails-iuk test suite on current sid (tails/tails!1862)
+
+    Commits:
+      - IUK test suite: support error messages from current sid
+      - IUK test suite: fix logic error
+      - IUK test suite: fix test suite failing to locate tails-remove-matching-xattrs
+      - IUK test suite: remove useless and broken code that makes test output noisy
+
+  * Report partitioning and resizing errors earlier (tails/tails!1843)
+
+    Closes issues:
+      - Report earlier errors about the partition table, partition header, and resizing
+        (tails/tails#20531)
+
+    Commits:
+      - Use exec where applicable
+      - Document partition errors and workarounds
+      - Explain why `fatresize --info` needs the `--force` option
+      - Allow some slack when verifying that the Tails filesystem was resized
+      - Use variables for increased code readability
+      - Reuse dialog instead of duplicating it
+      - Test suite: consistently allow launch_*() to pass options to launch_app()
+      - Appease ruff
+      - shfmt
+      - Test suite: drop "case 3/A/B" from scenario names that were useful during the
+        review of !1843
+      - Drop unnecessary wrapper
+      - Test suite: check that Persistent Storage cannot be created when partitioning
+        errors were detected
+      - Disallow creating persistent storage when partitioning errors were detected
+      - Test suite: check that verify_partition_table sets the correct reason
+      - verify_partition_table: move GUID check after partition resizing check
+      - Improve test_partitioning_errors=part_resize
+      - Test suite: expand testing of partitioning errors
+      - Test suite: improve scenario name
+      - Add kernel cmdline options for causing partition/filesystem resizing errors on
+        first boot
+      - Verify that the filesystem on the system partition was resized (refs:
+        tails#20531)
+      - Test suite: split scenario
+      - Test suite: fix step definitions that were swapped
+      - Tets suite: actually verify that the text was found
+      - Drop useless keywords from Tails Installer's .desktop file
+      - Welcome Screen: add code comment for future follow-up (refs: tails#20705)
+      - Test suite: improve step name
+      - Test suite: optimize two scenarios that don't need the network
+      - Improve dialog title.
+      - Welcome Screen: make keyboard layout and formats insensitive when forbidding
+        login
+      - Welcome Screen: make settings box insensitive instead of hiding it
+      - Clarify what we mean with "reinstall".
+      - shfmt
+      - Global rename: resize-errors → partitioning-errors
+      - Give users recommendations on what to do when partition corruption is detected.
+      - Welcome Screen: disable creation of Persistent Storage when partition
+        corruption is detected
+      - Welcome Screen: warn when partitioning errors are found and disallow login
+      - Test suite: add tests for early reporting of partitioning errors (refs:
+        tails#20531)
+
+  * Resolve "Remove translatable links to our live website introduced in !1821"
+    (tails/tails!1834)
+
+    Commits:
+      - Italian translation for the failing strings
+      - Update PO files.
+      - electrum: URLs should not be translatable
+
+  * FIX LPE #20702 (tails/tails-private!2)
+
+    Closes issues:
+      - tails/tails#20702
+
+    Commits:
+      - Update comments
+      - Enable unbuffered mode via -u instead of environment variable
+      - unittests are run without -I
+      - shfmt
+      - python3 shall always use -I
+      - ruff fix
+      - ruff format
+      - FIX possible LPE via user-controlled imports
+      - Translated using Weblate (Spanish)
+      - Translated using Weblate (Spanish)
+
+  * Ignore irrelevant package update candidates (tails/tails!1848)
+
+    Closes issues:
+      - needed-package-updates: upgrade APT snapshot for blinker, firmware-sof, flask
+        and python-werkzeug (tails/tails#20690)
+
+    Commits:
+      - Ignore irrelevant package update candidates
+
+  * Remove broken & unmaintainable support for Trezor hardware wallets in Electrum
+    (tails/tails!1872)
+
+    Closes issues:
+      - Remove broken support for Trezor hardware wallets in Electrum: not maintainable
+        (tails/tails#20689)
+
+    Commits:
+      - Explain why we removed (broken) Trezor support
+      - Revert "Enable bookworm-backports APT source", that was only added for Trezor
+      - Revert "Fix support for Trezor hardware wallets in Electrum"
+      - Remove broken support for Trezor hardware wallets in Electrum: not maintainable
+
+  * Update snapshot of the Debian archive to 2025010602 (tails/tails!1871)
+
+    Closes issues:
+      - Update firmware-{free,nonfree} to 20241210-1 (tails/tails#20717)
+
+    Commits:
+      - Install python3-itsdangerous from sid
+      - Update snapshot of the Debian archive to 2025010602
+
+  * Make GNOME Text Editor not restore previous document (tails/tails!1870)
+
+    Closes issues:
+      - Disable Text Editor restoring previous session (tails/tails#20704)
+
+    Commits:
+      - Make GNOME Text Editor not restore previous document
+
+  * Fix several LPE caused by allowing passing arbitrary arguments via sudo to
+    wrappers (tails/tails-private!5)
+
+    Closes issues:
+      - tails/tails#20709
+      - tails/tails#20710
+
+    Commits:
+      - Fix RUF005
+      - Implement defense in depth for the WhisperBack sudo+wrapper setup
+      - Don't allow passing arbitrary arguments to the tca wrapper
+      - Don't allow passing arbitrary arguments to the tails-persistent-storage wrapper
+      - Don't allow passing arbitrary arguments to the tails-installer wrapper
+      - Don't allow passing arbitrary arguments to the onioncircuits wrapper
+
+  * Upgrader: migrate away from MooX::late and Sub::HandlesVia, and migrate UDF
+    signature verification from GnuPG to Sequoia SOP (tails/tails!1863)
+
+    Closes issues:
+      - tails/tails#20701
+      - Migrate Upgrader's UDF signature verification from GnuPG to Sequoia SOP
+        (tails/tails#17825)
+
+    Commits:
+      - Add comment
+      - Adjust to new verify_signature() syntax
+      - shfmt
+      - Test suite: adjust outdated/broken signing key test to Sequoia
+      - Upgrader: adjust refreshing the signing key from our website to Sequoia
+      - check-udfs-signature: use the same OpenPGP tooling and source of trust as our
+        Upgrader
+      - check-udfs-signature: only check UDFs v2
+      - Upgrader: use the full version of our signing key
+      - Re-import historical self-signatures on our signing key
+      - shfmt
+      - Upgrader: don't build a GnuPG keyring, we don't use GnuPG anymore
+      - Update design doc
+      - Update dependencies
+      - Upgrader: use sqop instead of sqopv
+      - IUK test suite: hide some irrelevant warnings
+      - Upgrader: migrate UDF signature verification from GnuPG to Sequoia SOP
+      - Update dependencies
+      - perl5lib: port away from MooX::late
+      - iuk, perl5lib: drop usage of MooX::late when we don't actually need it
+      - Improve code style
+
+  * Add "fix" sub-command to bin/test-utils/ruff (tails/tails!1860)
+
+    Commits:
+      - Document default sub-command
+      - update ruff usage message
+      - bin/test-utils/ruff fix
+
+  * Thunderbird: undo denying /etc/os-release in AppArmor profile
+    (tails/tails!1856)
+
+    Closes issues:
+      - Upgrade to Thunderbird 128 (tails/tails#20449)
+
+    Commits:
+      - Thunderbird: undo denying /etc/os-release in AppArmor profile
+
+  * Stop installing libudev-dev (tails/tails!1831)
+
+    Commits:
+      - shfmt
+      - Stop installing libudev-dev
+
+  * Add link to Tor connection from Onion icon menu (tails/tails!1830)
+
+    Closes issues:
+      - Add link to Tor Connection from Onion icon menu (tails/tails#18541)
+
+    Commits:
+      - Add link to Tor connection from Onion icon menu
+
+  * Install python3-itsdangerous from sid to support recent python3-flask
+    (tails/tails!1828)
+
+    Commits:
+      - Install python3-itsdangerous from sid
+
+  * 20-time.sh: don't block execution (refs: tails#20668) (tails/tails!1817)
+
+    Closes issues:
+      - 20-time.sh is blocking the NM dispatcher queue (tails/tails#20668)
+
+    Commits:
+      - shfmt
+      - 20-time.sh: don't block execution (refs: tails#20668)
+
+  * Add tooling for powerful search of WhisperBack reports (tails/tails!1812)
+
+    Closes issues:
+      - Simplify processing of Whisperback reports (tails/tails#20666)
+
+    Commits:
+      - ruff format
+      - detect version
+      - add has_persistence
+      - check if the user supplied any text
+      - add disk_size method
+      - handle corner-case in selection
+      - multiple outputs can be provided
+      - better exception handling while processing emails
+      - distinguish fat and fat_part
+      - fix size parsing
+      - fix type hinting and please mypy
+      - Add ability to access boot.log directly via m.parts.boot_log in filter
+      - Fix typing
+      - Assume running from a Maildir where whisperback-search does not live
+      - Assume running from Tails Git tree
+      - Fix user-facing typos
+      - fix tool name
+      - ruff format
+      - is_vm
+      - ad-hoc WhisperbackParts class
+      - query fsuuid and coreboot
+      - Fix whisperback id
+      - determine fat_size
+      - --output=notmuch-query
+      - better handle exception during parsing
+      - ruff reformat
+      - output modes are more modular
+      - --output-eval= for flexible output
+      - allow to select based on Unknown + invert
+      - whisperback-search does what it says
+
+ -- Tails developers <tails@boum.org>  Wed, 08 Jan 2025 12:23:33 +0100
+
 tails (6.10) unstable; urgency=medium
 
   * Upgrade to Tor Browser 14.0.3 based on Firefox ESR 128.5 (tails/tails!1827)

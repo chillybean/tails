@@ -1041,69 +1041,76 @@ def launch_app(desktop_file_name, app_name, **options)
   app
 end
 
-def launch_gnome_disks
+def launch_gnome_disks(**opts)
   launch_app(
     'org.gnome.DiskUtility.desktop',
-    'gnome-disks'
+    'gnome-disks',
+    **opts
   )
 end
 
-def launch_gnome_terminal
+def launch_gnome_terminal(**opts)
   launch_app(
     'org.gnome.Terminal.desktop',
-    'gnome-terminal-server'
+    'gnome-terminal-server',
+    **opts
   )
 end
 
-def launch_nautilus
+def launch_nautilus(**opts)
   launch_app(
     'org.gnome.Nautilus.desktop',
-    'org.gnome.Nautilus'
+    'org.gnome.Nautilus',
+    **opts
   )
 end
 
-def launch_persistent_storage
+def launch_persistent_storage(**opts)
   launch_app(
     'org.boum.tails.PersistentStorage.desktop',
-    'tps-frontend'
+    'tps-frontend',
+    **opts
   )
 end
 
-def launch_tails_backup
+def launch_tails_backup(**opts)
   launch_app(
     'tails-backup.desktop',
-    'zenity'
+    'zenity',
+    **opts
   )
 end
 
-def launch_thunderbird
+def launch_thunderbird(**opts)
   launch_app(
     'thunderbird.desktop',
-    'Thunderbird'
+    'Thunderbird',
+    **opts
   )
 end
 
-def launch_tor_browser(**options)
+def launch_tor_browser(**opts)
   launch_app(
     'tor-browser.desktop',
     'Firefox',
-    **options
+    **opts
   )
 end
 
-def launch_unlock_veracrypt_volumes
+def launch_unlock_veracrypt_volumes(**opts)
   launch_app(
     'unlock-veracrypt-volumes.desktop',
-    'unlock-veracrypt-volumes'
+    'unlock-veracrypt-volumes',
+    **opts
   )
 end
 
-def launch_unsafe_browser(**options)
-  options[:timeout] ||= 60
+def launch_unsafe_browser(**opts)
+  opts[:timeout] ||= 60
   launch_app(
     'unsafe-browser.desktop',
     'Firefox',
-    **options
+    **opts
   )
 end
 
@@ -1555,6 +1562,10 @@ end
 When /^I pause( and then reload step definitions)?$/ do |reload|
   pause(quiet: true)
   step 'I reload step definitions' if reload
+end
+
+When /^I apply changes$/ do
+  $vm.late_patch
 end
 
 # Useful for debugging Tails features: let's say you want to fix a bug

@@ -6,7 +6,6 @@ Before=gdm.service
 [Service]
 Type=notify
 ExecStart=/usr/local/sbin/tails-detect-disk-ioerrors
-Environment=PYTHONUNBUFFERED=1
 
 [Install]
 WantedBy=multi-user.target
