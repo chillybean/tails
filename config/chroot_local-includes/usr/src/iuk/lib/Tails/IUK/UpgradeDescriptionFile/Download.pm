@@ -24,7 +24,7 @@ use Path::Tiny;
 use Tails::RunningSystem;
 use Tails::IUK::Utils;
 use Types::Standard qw{InstanceOf Str};
-use Types::Path::Tiny qw{AbsDir};
+use Types::Path::Tiny qw{AbsFile};
 use YAML::Any;
 
 use namespace::clean;
@@ -43,11 +43,19 @@ option "$_" => (
 ) for (qw{override_baseurl override_build_target override_os_release_file
           override_initial_install_os_release_file});
 
-option trusted_gnupg_homedir => (
+option signing_key => (
     is         => 'lazy',
     format     => 's',
-    isa        => AbsDir,
-    coerce     => AbsDir->coercion,
+    isa        => AbsFile,
+    coerce     => AbsFile->coercion,
+    predicate  => 1,
+);
+
+option extra_signing_key => (
+    is         => 'ro',
+    format     => 's',
+    isa        => AbsFile,
+    coerce     => AbsFile->coercion,
     predicate  => 1,
 );
 
@@ -65,10 +73,10 @@ has 'running_system' => (
 
 =cut
 
-method _build_trusted_gnupg_homedir () {
-    my $trusted_gnupg_homedir = path('/var/lib/tails-upgrade-frontend/.gnupg');
-    assert(-d $trusted_gnupg_homedir);
-    return $trusted_gnupg_homedir;
+method _build_signing_key () {
+    my $signing_key = path('/usr/share/doc/tails/website/tails-signing.key');
+    assert(-f $signing_key);
+    return $signing_key;
 }
 
 method _build_running_system () {
@@ -108,7 +116,11 @@ method run () {
     my $description = $self->get_url($self->upgrade_description_file_url);
     my $signature   = $self->get_url($self->upgrade_description_sig_url );
 
-    verify_signature($description, $signature, $self->trusted_gnupg_homedir)
+    my @certificates = ($self->signing_key);
+    push @certificates, $self->extra_signing_key
+        if $self->has_extra_signing_key;
+
+    verify_signature($description, $signature, \@certificates)
         or croak("Invalid signature");
     $self->matches_running_system($description)
         or croak("Does not match running system");

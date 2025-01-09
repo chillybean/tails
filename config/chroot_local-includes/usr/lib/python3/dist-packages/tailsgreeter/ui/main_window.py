@@ -190,6 +190,7 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
 
         self.box_storage = builder.get_object("box_storage")
         self.box_storagecreate = builder.get_object("box_storagecreate")
+        self.create_tps_switch = builder.get_object("create_tps_switch")
         self.box_storage_unlock = builder.get_object("box_storage_unlock")
         self.box_storage_unlock_status = builder.get_object("box_storage_unlock_status")
         self.label_storage_unlock_status = builder.get_object(
@@ -200,6 +201,7 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
         )
 
         self.box_storage_error = builder.get_object("box_storage_error")
+        self.box_partition_errors = builder.get_object("box_partition_errors")
         self.button_storage_unlock = builder.get_object("button_storage_unlock")  # type: Gtk.Button
         self.checkbutton_storage_show_passphrase = builder.get_object(
             "checkbutton_storage_show_passphrase"
@@ -248,6 +250,29 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
                 )
                 self.linkbutton_storage_readonly_help.set_visible(True)
             self.box_storage_error.set_visible(not can_unlock)
+        else:
+            partition_error_flag_file = (
+                "/var/lib/live/config/tails.disk-partitioning-errors"
+            )
+            if os.path.isfile(partition_error_flag_file):
+                with open(partition_error_flag_file) as f:
+                    error_reason = f.read().strip()
+                    if error_reason == "partitioning-corruption":
+                        # This is "case 3", which we might want to
+                        # make fatal as well, see tails#20705.
+                        self.create_tps_switch.set_sensitive(False)
+                    else:
+                        self.button_start.set_sensitive(False)
+                        self.box_storagecreate.set_visible(False)
+                        self.box_settings.set_sensitive(False)
+                        # The first element is language, which we
+                        # skip, the other two are keyboard layout and
+                        # formats. We only want language to still be
+                        # available so the user can see the error
+                        # message in their preferred language.
+                        for row in list(self.listbox_region)[1:]:
+                            row.set_sensitive(False)
+                        self.box_partition_errors.set_visible(True)
 
     # Utility methods
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-28 11:34+0100\n"
+"POT-Creation-Date: 2025-01-08 10:04+0100\n"
 "PO-Revision-Date: 2024-10-23 15:16+0000\n"
 "Last-Translator: emma peel <emma.peel@riseup.net>\n"
 "Language-Team: Malayalam <https://hosted.weblate.org/projects/tor/tails-gui/"
@@ -129,10 +129,9 @@ msgstr "ഒഴിവാക്കുക"
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:166
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/add_settings_dialog.py:40
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:178
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:456
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:807
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:481
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:832
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:728
-#: config/chroot_local-includes/usr/local/lib/tails-report-disk-resize-errors:38
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:119
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:376
 #, fuzzy
@@ -208,9 +207,9 @@ msgstr ""
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:194
 msgid ""
-"To add more, install some software using <a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
-"desktop\">APT on the command line</a>."
+"To add more, install some software using <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "കൂടുതൽ ചേർക്കാൻ, കമാൻഡ് ലൈനിൽ <a href=\"synaptic.desktop\">സിനാപ്റ്റിക് പാക്കേജ് "
 "മാനേജർ </a>അല്ലെങ്കിൽ <a href=\"org.gnome.Terminal.desktop\">എപിടി </"
@@ -341,34 +340,34 @@ msgid "#{time} left — {downloaded} of {size} ({speed}/sec)\n"
 msgstr ""
 
 #. Translators: KB is the short form for kilobyte
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Role/FormatByte.pm:33
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Role/FormatByte.pm:32
 msgid "KB"
 msgstr ""
 
 #. Translators: MB is the short form for megabyte
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Role/FormatByte.pm:35
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Role/FormatByte.pm:34
 msgid "MB"
 msgstr ""
 
 #. Translators: GB is the short form for gigabyte
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Role/FormatByte.pm:37
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Role/FormatByte.pm:36
 msgid "GB"
 msgstr ""
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Role/FormatByte.pm:43
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Role/FormatByte.pm:42
 msgid "bytes"
 msgstr ""
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:197
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:716
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:869
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:201
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:715
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:868
 msgid ""
 "For debugging information, execute the following command: sudo tails-"
 "debugging-info"
 msgstr ""
 "ഡീബഗ്ഗിംഗ് വിവരങ്ങൾക്കായി, ഇനിപ്പറയുന്ന കമാൻഡ് നടപ്പിലാക്കുക: sudo tails-debugging-info"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:293
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:297
 msgid ""
 "<b>An error occured while updating the signing key.</b>\\n\\n<b>This "
 "prevents determining whether an upgrade is available from our website.</"
@@ -377,19 +376,15 @@ msgid ""
 "website/doc/upgrade/error/check.en.html"
 msgstr ""
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:307
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:311
 msgid "Error while downloading the signing key"
 msgstr ""
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:318
-msgid "Error while updating the signing key"
-msgstr ""
-
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:345
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:344
 msgid "Error while checking for upgrades"
 msgstr "അപ്‌ഗ്രേഡുകൾക്കായി പരിശോധിക്കുമ്പോൾ പിശക്"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:347
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:346
 msgid ""
 "<b>Could not determine whether an upgrade is available from our website.</"
 "b>\n"
@@ -407,67 +402,67 @@ msgstr ""
 "പ്രശ്നം നിലനിൽക്കുകയാണെങ്കിൽ, ഫയലിലേക്ക് പോകുക file:///usr/share/doc/tails/website/"
 "doc/upgrade/error/check.en.html"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:362
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:361
 msgid "no automatic upgrade is available from our website for this version"
 msgstr "ഈ പതിപ്പിനായി ഞങ്ങളുടെ വെബ്‌സൈറ്റിൽ നിന്ന് യാന്ത്രിക നവീകരണമൊന്നും ലഭ്യമല്ല"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:368
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:367
 #, fuzzy
 msgid "your device was not created using a USB image or Tails Cloner"
 msgstr ""
 "ഒരു യുഎസ്ബി ഇമേജ് അല്ലെങ്കിൽ ടെയിൽസ് ഇൻസ്റ്റാളർ ഉപയോഗിച്ച് നിങ്ങളുടെ ഉപകരണം സൃഷ്ടിച്ചിട്ടില്ല"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:373
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:372
 msgid "Tails was started from a DVD or a read-only device"
 msgstr "ഡിവിഡിയിൽ നിന്നോ വായിക്കാൻ മാത്രമുള്ള ഉപകരണത്തിൽ നിന്നോ ടൈൽസ് ആരംഭിച്ചു"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:378
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:377
 msgid "there is not enough free space on the Tails system partition"
 msgstr "ടെയിൽസ് സിസ്റ്റം പാർട്ടീഷനിൽ മതിയായ ഇടമില്ല"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:383
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:382
 msgid "not enough memory is available on this system"
 msgstr "ഈ സിസ്റ്റത്തിൽ മതിയായ മെമ്മറി ലഭ്യമല്ല"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:388
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:387
 #, perl-brace-format
 msgid "No explanation available for reason '{reason}'."
 msgstr ""
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:411
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:410
 msgid "The system is up-to-date"
 msgstr "സിസ്റ്റം കാലികമാണ്"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:416
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:415
 msgid "This version of Tails is outdated, and may have security issues."
 msgstr "ടെയിൽ‌സിന്റെ ഈ പതിപ്പ് കാലഹരണപ്പെട്ടതാണ്, മാത്രമല്ല സുരക്ഷാ പ്രശ്‌നങ്ങൾ‌ ഉണ്ടാകാം."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:446
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:445
 #, perl-brace-format
 msgid ""
 "The available incremental upgrade requires {space_needed} of free space on "
 "Tails system partition,  but only {free_space} is available."
 msgstr ""
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:458
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:457
 #, perl-brace-format
 msgid ""
 "The available incremental upgrade requires {memory_needed} of free memory, "
 "but only {free_memory} is available."
 msgstr ""
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:469
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:468
 msgid ""
 "An error ocurred while detecting available upgrades.\n"
 "This should not happen. Please report a bug."
 msgstr ""
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:472
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:491
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:471
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:490
 msgid "Error while detecting available upgrades"
 msgstr "ലഭ്യമായ അപ്‌ഗ്രേഡുകൾ കണ്ടെത്തുമ്പോൾ പിശക്"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:487
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:486
 msgid ""
 "An incremental upgrade is available, but no full upgrade is.\n"
 "This should not happen. Please report a bug."
@@ -476,7 +471,7 @@ msgstr ""
 "പാടില്ല.\n"
 "ഒരു ബഗ് റിപ്പോർട്ട് ചെയ്യുക.."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:500
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:499
 #, perl-brace-format
 msgid ""
 "<b>You should upgrade to {name} {version}.</b>\n"
@@ -492,19 +487,19 @@ msgid ""
 "Do you want to upgrade now?"
 msgstr ""
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:513
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:512
 msgid "Upgrade available"
 msgstr "അപ്‌ഗ്രേഡ് ലഭ്യമാണ്"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:514
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:513
 msgid "Upgrade now"
 msgstr "ഇപ്പോൾ പുതുക്കുക"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:515
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:514
 msgid "Upgrade later"
 msgstr "പിന്നീട് നവീകരിക്കുക"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:523
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:522
 #, fuzzy, perl-brace-format
 msgid ""
 "<b>You should do a manual upgrade to the latest version of {name}.</b>\n"
@@ -525,20 +520,20 @@ msgstr ""
 "\n"
 "To learn how to do a manual upgrade, go to {manual_upgrade_url}"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:533
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:532
 msgid "New version available"
 msgstr "പുതിയ പതിപ്പ് ലഭ്യമാണ്"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:614
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:613
 msgid "Downloading upgrade"
 msgstr "നവീകരണം ഡൗൺലോഡുചെയ്യുന്നു"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:616
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:615
 #, perl-brace-format
 msgid "Downloading the upgrade to {name} {version}..."
 msgstr ""
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:709
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:708
 #, fuzzy
 msgid ""
 "<b>The upgrade could not be downloaded.</b>\\n\\nCheck your network "
@@ -551,27 +546,27 @@ msgstr ""
 "നിലനിൽക്കുകയാണെങ്കിൽ, ഫയലിലേക്ക് പോകുക file:///usr/share/doc/tails/website/doc/"
 "upgrade/error/download.en.html"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:720
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:735
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:719
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:734
 msgid "Error while downloading the upgrade"
 msgstr "അപ്‌ഗ്രേഡ് ഡൗൺലോഡുചെയ്യുമ്പോൾ പിശക്"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:730
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:729
 #, perl-brace-format
 msgid ""
 "Output file '{output_file}' does not exist, but tails-iuk-get-target-file "
 "did not complain. Please report a bug."
 msgstr ""
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:746
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:745
 msgid "Error while creating temporary downloading directory"
 msgstr "താൽ‌ക്കാലിക ഡൗൺ‌ലോഡിംഗ് ഡയറക്‌ടറി സൃഷ്‌ടിക്കുമ്പോൾ പിശക്"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:749
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:748
 msgid "Failed to create temporary download directory"
 msgstr "താൽക്കാലിക ഡൗൺലോഡ് ഡയറക്‌ടറി സൃഷ്‌ടിക്കുന്നതിൽ പരാജയപ്പെട്ടു"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:761
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:760
 msgid ""
 "The upgrade was successfully downloaded.\n"
 "\n"
@@ -580,15 +575,15 @@ msgid ""
 "Please save your work and close all other applications."
 msgstr ""
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:766
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:765
 msgid "Upgrade successfully downloaded"
 msgstr "അപ്‌ഗ്രേഡുചെയ്‌തു വിജയകരമായി ഡൗൺലോഡുചെയ്‌തു"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:767
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:766
 msgid "Apply upgrade"
 msgstr "നവീകരണം പ്രയോഗിക്കുക"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:774
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:773
 msgid ""
 "<b>Your Tails device was successfully upgraded.</b>\n"
 "\n"
@@ -604,54 +599,54 @@ msgstr ""
 "\n"
 "നിങ്ങൾ‌ ഇപ്പോൾ‌ പുനരാരംഭിക്കാൻ‌ താൽ‌പ്പര്യപ്പെടുന്നോ?"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:779
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:778
 msgid "Restart Tails"
 msgstr "ടൈൽസ് പുനരാരംഭിക്കുക"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:780
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:779
 msgid "Restart now"
 msgstr "ഇപ്പോൾ പുനരാരംഭിക്കുക"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:781
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:780
 msgid "Restart later"
 msgstr "പിന്നീട് പുനരാരംഭിക്കുക"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:792
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:791
 msgid "Error while restarting the system"
 msgstr "സിസ്റ്റം പുനരാരംഭിക്കുമ്പോൾ പിശക്"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:793
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:792
 msgid "Failed to restart the system"
 msgstr "സിസ്റ്റം പുനരാരംഭിക്കുന്നതിൽ പരാജയപ്പെട്ടു"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:806
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:805
 msgid "Error while shutting down the network"
 msgstr "നെറ്റ്‌വർക്ക് ഷട്ട് ഡൗൺ ചെയ്യുമ്പോൾ പിശക്"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:807
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:806
 msgid "Failed to shutdown network"
 msgstr "നെറ്റ്‌വർക്ക് അടയ്‌ക്കുന്നതിൽ പരാജയപ്പെട്ടു"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:817
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:816
 msgid "Error while cancelling the upgrade download"
 msgstr ""
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:818
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:817
 msgid "Failed to cancel the upgrade download"
 msgstr ""
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:824
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:823
 msgid "Upgrading the system"
 msgstr "സിസ്റ്റം നവീകരിക്കുന്നു"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:826
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:825
 msgid ""
 "<b>Your Tails device is being upgraded...</b>\n"
 "\n"
 "For security reasons, the network connection is now disabled."
 msgstr ""
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:863
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:862
 #, fuzzy
 msgid ""
 "<b>An error occured while installing the upgrade.</b>\\n\\nYour Tails device "
@@ -664,7 +659,7 @@ msgstr ""
 "നിർദ്ദേശങ്ങൾ പാലിക്കുക file:///usr/share/doc/tails/website/doc/upgrade/error/"
 "install.en.html"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:873
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:872
 msgid "Error while installing the upgrade"
 msgstr "നവീകരണം ഇൻസ്റ്റാൾ ചെയ്യുമ്പോൾ പിശക്"
 
@@ -756,67 +751,68 @@ msgstr "സ്ഥിരമായ സംഭരണം അൺലോക്കുച�
 msgid "Start Without Persistent Storage"
 msgstr "സ്ഥിരമായ സംഭരണം സൃഷ്ടിക്കുക"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:245
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:247
 msgid ""
 "Impossible to unlock the Persistent Storage because the USB stick is read-"
 "only."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:383
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:414
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:408
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:439
 msgid "Unlocking…"
 msgstr "അൺലോക്കുചെയ്യുന്നു…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:421
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:446
 #, fuzzy
 msgid "Checking the file system…"
 msgstr "ഫയൽസിസ്റ്റം പരിശോധിക്കുന്നു ..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:454
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:479
 #, fuzzy
 msgid "Repairing the File System"
 msgstr "ഫയൽസിസ്റ്റം പരിശോധിക്കുന്നു ..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:455
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:480
 #, fuzzy
 msgid "This might take a long time..."
 msgstr "ഇതൊരല്പം സമയം എടുക്കും..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:473
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:498
 #, fuzzy
 msgid "Failed to repair the file system of your Persistent Storage."
 msgstr "സ്ഥിരമായ സംഭരണം സൃഷ്ടിക്കുക"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:475
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:500
 msgid "Start Tails to send an error report and learn how to recover your data."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:489
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:514
 msgid "File System Repaired Successfully"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:491
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:516
 msgid ""
 "It's possible that some data was lost during the repair. Please check the "
 "contents of your Persistent Storage and restore any lost data from a backup."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:495
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:520
+#: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:32
 msgid "Close"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:510
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:535
 msgid ""
 "You aborted the repair of the file system. You can either start Tails "
 "without Persistent Storage or restart the computer to try repairing the file "
 "system again."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:729
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:754
 msgid "Start Tails and open the Persistent Storage settings to find out more."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:758
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:783
 #, fuzzy
 msgid ""
 "Your Persistent Storage is unlocked. Its content will be available until you "
@@ -824,25 +820,25 @@ msgid ""
 msgstr ""
 "നിങ്ങളുടെ സ്ഥിരമായ സംഭരണം അൺലോക്കുചെയ്‌തു. ഇത് വീണ്ടും ലോക്കുചെയ്യാൻ വാലുകൾ പുനരാരംഭിക്കുക."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:773
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:798
 msgid "Incorrect passphrase. Please try again."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:784
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:809
 msgid ""
 "Error reading data from your Persistent Storage. The hardware of your USB "
 "stick is probably failing."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:786
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:811
 msgid "Start Tails to learn how to recover your data."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:797
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:822
 msgid "File System Errors"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:799
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:824
 msgid ""
 "Errors were detected in the file system of your Persistent Storage.\n"
 "                \n"
@@ -856,46 +852,46 @@ msgid ""
 "of your Persistent Storage first."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:808
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:833
 msgid "Repair File System"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:809
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:834
 #, fuzzy
 msgid "Create Partition Image"
 msgstr "സ്ഥിരമായ സംഭരണം സൃഷ്ടിക്കുക"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:820
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:845
 #, fuzzy
 msgid ""
 "Start Tails to learn how to create a partition image of your Persistent "
 "Storage."
 msgstr "സ്ഥിരമായ സംഭരണം സൃഷ്ടിക്കുക"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:829
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:854
 #, fuzzy
 msgid "Failed to unlock the Persistent Storage due to file system errors."
 msgstr "സ്ഥിരമായ സംഭരണം സൃഷ്ടിക്കുക"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:838
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:863
 msgid ""
 "Failed to upgrade the Persistent Storage. Please start Tails and send an "
 "error report."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:845
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:870
 msgid ""
 "Failed to unlock the Persistent Storage. Please start Tails and send an "
 "error report."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:853
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:878
 msgid ""
 "Failed to activate the Persistent Storage. Please start Tails and send an "
 "error report."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:864
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:889
 #, fuzzy
 msgid "Upgrading the Persistent Storage. This might take a while…"
 msgstr "നിങ്ങളുടെ സ്ഥിരമായ സംഭരണം സൃഷ്‌ടിക്കുന്നത് പരാജയപ്പെട്ടു."
@@ -1412,41 +1408,41 @@ msgstr ""
 msgid "Learn More"
 msgstr "കൂടുതൽ അറിയു"
 
-#: config/chroot_local-includes/usr/local/lib/tails-report-disk-resize-errors:16
-msgid "Disk partitioning errors"
-msgstr ""
-
-#: config/chroot_local-includes/usr/local/lib/tails-report-disk-resize-errors:22
-msgid ""
-"Something went wrong when starting your Tails USB stick for the first time: "
-"resizing the system partition failed"
-msgstr ""
-
-#: config/chroot_local-includes/usr/local/lib/tails-report-disk-resize-errors:27
-msgid ""
-"It will be impossible to create a Persistent Storage or apply automatic "
-"upgrades."
-msgstr ""
-
-#: config/chroot_local-includes/usr/local/lib/tails-report-disk-resize-errors:29
-msgid ""
-"Try to follow our instructions on <a href=\"%INSTALLPAGE%\">installing Tails "
-"on a USB stick</a> again or use a different USB stick."
-msgstr ""
-
-#: config/chroot_local-includes/usr/local/lib/tails-report-disk-resize-errors:31
-msgid ""
-"If you have already tried this, please send us an error report to help us "
-"solve this issue."
-msgstr ""
-
-#: config/chroot_local-includes/usr/local/lib/tails-report-disk-resize-errors:39
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/fail_view.ui.in:74
+#: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:18
 #, fuzzy
-msgid "Send Error Report"
-msgstr "വിസ്‌പർബാക്ക് പിശക് റിപ്പോർട്ടിംഗ്"
+msgid "Partitioning Error"
+msgstr "പാർട്ടീഷനുകളും ഡ്രൈവുകളും"
 
-#: config/chroot_local-includes/usr/src/perl5lib/lib/Tails/RunningSystem.pm:221
+#: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:19
+msgid "Errors were detected in the partitioning of your Tails USB stick."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:26
+msgid ""
+"We recommend that you create a backup of your Tails using <i>Tails Cloner</"
+"i> to migrate to a new USB stick."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:33
+#, fuzzy
+msgid "Open Tails Cloner"
+msgstr "ടെയിൽസ് ഇൻസ്റ്റാളർ"
+
+#: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:42
+#, fuzzy
+msgid "Creation of Persistent Storage has been disabled."
+msgstr "നിങ്ങളുടെ സ്ഥിരമായ സംഭരണം സൃഷ്‌ടിക്കുന്നത് പരാജയപ്പെട്ടു."
+
+#: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:44
+#, fuzzy
+msgid ""
+"We recommend that you reinstall Tails from scratch. If the error persists, "
+"reinstall on a new USB stick."
+msgstr ""
+"അങ്ങനെ ചെയ്യുന്നതിന്, ഒരു യുഎസ്ബി സ്റ്റിക്കിൽ ടെയിൽസ് ഇൻസ്റ്റാൾ ചെയ്ത് സ്ഥിരമായ ഒരു സ്റ്റോറേജ് "
+"സൃഷ്ടിക്കുക."
+
+#: config/chroot_local-includes/usr/src/perl5lib/lib/Tails/RunningSystem.pm:207
 #: config/chroot_local-includes/usr/local/bin/tails-upgrade-frontend-wrapper:77
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/application.py:79
 #: config/chroot_local-includes/usr/local/sbin/unsafe-browser:38
@@ -1457,7 +1453,7 @@ msgstr "വിസ്‌പർബാക്ക് പിശക് റിപ്പ�
 msgid "Error"
 msgstr "പിശക്"
 
-#: config/chroot_local-includes/usr/src/perl5lib/lib/Tails/RunningSystem.pm:223
+#: config/chroot_local-includes/usr/src/perl5lib/lib/Tails/RunningSystem.pm:209
 msgid ""
 "The device Tails is running from cannot be found. Maybe you used the 'toram' "
 "option?"
@@ -1465,7 +1461,7 @@ msgstr ""
 "ടൈൽ പ്രേവര്തിക്കുന്ന ഉപകരണം കണ്ടുകിട്ടുന്നില്ല . ചിലപ്പോൾ നിങ്ങൾ ടോർ ആം "
 "തിരഞ്ഞെടുത്തിട്ടുണ്ടാകും ?"
 
-#: config/chroot_local-includes/usr/src/perl5lib/lib/Tails/RunningSystem.pm:251
+#: config/chroot_local-includes/usr/src/perl5lib/lib/Tails/RunningSystem.pm:237
 msgid ""
 "The drive Tails is running from cannot be found. Maybe you used the 'toram' "
 "option?"
@@ -1563,12 +1559,13 @@ msgstr ""
 #, fuzzy
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
-"gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
-"അങ്ങനെ ചെയ്യുന്നതിന്, സ്ഥിരമായ ഒരു സംഭരണം സൃഷ്ടിച്ച് കമാൻഡ് ലൈനിൽ <a href=\"synaptic."
-"desktop\">സിനാപ്റ്റിക് പാക്കേജ് മാനേജർ </a>അല്ലെങ്കിൽ <a href=\"org.gnome.Terminal."
-"desktop\">എപിടി </a>ഉപയോഗിച്ച് കുറച്ച് സോഫ്റ്റ്വെയർ ഇൻസ്റ്റാൾ ചെയ്യുക."
+"അങ്ങനെ ചെയ്യുന്നതിന്, സ്ഥിരമായ ഒരു സംഭരണം സൃഷ്ടിച്ച് കമാൻഡ് ലൈനിൽ <a "
+"href=\"synaptic.desktop\">സിനാപ്റ്റിക് പാക്കേജ് മാനേജർ </a>അല്ലെങ്കിൽ <a "
+"href=\"org.gnome.Terminal.desktop\">എപിടി </a>ഉപയോഗിച്ച് കുറച്ച് സോഫ്റ്റ്വെയർ "
+"ഇൻസ്റ്റാൾ ചെയ്യുക."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:247
 #, fuzzy
@@ -1895,6 +1892,11 @@ msgid "Tor Status"
 msgstr "ടോർ സ്ഥിതിഗതികൾ"
 
 #: config/chroot_local-includes/usr/share/gnome-shell/extensions/torstatus@tails.boum.org/extension.js:46
+#, fuzzy
+msgid "Open Tor Connection Assistant"
+msgstr "നെറ്റ്വർക്ക് കണക്ഷൻസ്"
+
+#: config/chroot_local-includes/usr/share/gnome-shell/extensions/torstatus@tails.boum.org/extension.js:50
 msgid "Open Onion Circuits"
 msgstr "ഒണിയൻ സർക്യൂട്ടുകൾ തുറക്കുക"
 
@@ -1959,7 +1961,7 @@ msgid ""
 msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/application.py:30
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:48
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:49
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:1
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:25
 #, fuzzy
@@ -2019,8 +2021,8 @@ msgstr "സ്ഥിരമായ സംഭരണം സൃഷ്ടിക്ക�
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:347
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:411
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/change_passphrase_dialog.py:115
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:261
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:289
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:270
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:298
 #, fuzzy
 msgid "Details"
 msgstr "ടൈൽസ്"
@@ -2128,7 +2130,7 @@ msgstr ""
 msgid "_Send Error Report"
 msgstr "വിസ്‌പർബാക്ക് പിശക് റിപ്പോർട്ടിംഗ്"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:144
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:153
 msgid ""
 "Impossible to delete the Persistent Storage while it is unlocked.\n"
 "\n"
@@ -2136,7 +2138,7 @@ msgid ""
 "Persistent Storage and open the Persistent Storage settings again."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:158
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:167
 msgid ""
 "Impossible to delete the Persistent Storage because the USB stick is read-"
 "only.\n"
@@ -2146,25 +2148,25 @@ msgid ""
 "the Persistent Storage settings again."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:166
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:175
 #, fuzzy
 msgid "Impossible to delete the Persistent Storage"
 msgstr "സ്ഥിരമായ സംഭരണം സൃഷ്ടിക്കുക"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:174
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:209
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:183
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:218
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:36
 #, fuzzy
 msgid "Delete Persistent Storage"
 msgstr "സ്ഥിരമായ സംഭരണം സൃഷ്ടിക്കുക"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:178
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:187
 msgid ""
 "Are you sure that you want to delete your Persistent Storage? This action "
 "cannot be undone."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:182
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:191
 #: config/chroot_local-includes/usr/local/sbin/unsafe-browser:57
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:304
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:121
@@ -2172,60 +2174,60 @@ msgstr ""
 msgid "_Cancel"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:183
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:192
 #, fuzzy
 msgid "_Delete Persistent Storage"
 msgstr "സ്ഥിരമായ സംഭരണം സൃഷ്ടിക്കുക"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:193
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:202
 #, fuzzy
 msgid "Deleting your Persistent Storage..."
 msgstr "സ്ഥിരമായ സംഭരണം സൃഷ്ടിക്കുക"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:212
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:221
 msgid "_OK"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:221
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:230
 msgid ""
 "Sorry, you can't close this app until the ongoing operation has completed."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:224
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:233
 msgid "Please wait"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:252
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:261
 #, fuzzy
 msgid "Not enough memory to create Persistent Storage"
 msgstr "സ്ഥിരമായ സംഭരണം സൃഷ്ടിക്കുക"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:259
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:268
 #, fuzzy
 msgid "Failed to create Persistent Storage"
 msgstr "സ്ഥിരമായ സംഭരണം സൃഷ്ടിക്കുക"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:260
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:269
 #, fuzzy
 msgid "An error occurred while creating the Persistent Storage."
 msgstr "എൻക്രിപ്റ്റുചെയ്‌ത _പെർസിസ്റ്റന്റ് സ്റ്റോറേജ്"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:280
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:287
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:289
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:296
 #, fuzzy
 msgid "Error deleting Persistent Storage"
 msgstr "എൻക്രിപ്റ്റുചെയ്‌ത _പെർസിസ്റ്റന്റ് സ്റ്റോറേജ്"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:288
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:297
 #, fuzzy
 msgid "An error occurred while deleting the Persistent Storage."
 msgstr "എൻക്രിപ്റ്റുചെയ്‌ത _പെർസിസ്റ്റന്റ് സ്റ്റോറേജ്"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:325
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:334
 msgid "Details (command output)"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:340
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:349
 #, fuzzy
 msgid "Failed to open the documentation"
 msgstr "ടെയിൽസ് ഡോക്യുമെന്റേഷൻ"
@@ -2663,12 +2665,12 @@ msgid ""
 "Authentication is required to remove a package from your additional software "
 "($(command_line))"
 msgstr ""
-"നിങ്ങളുടെ അധിക സോഫ്റ്റ്വെയറിൽ നിന്ന് ഒരു പാക്കേജ് നീക്കംചെയ്യുന്നതിന് ഓതെന്റിക്കേറ്റ് ആവശ്യമാണ് "
-"($(command_line))"
+"നിങ്ങളുടെ അധിക സോഫ്റ്റ്വെയറിൽ നിന്ന് ഒരു പാക്കേജ് നീക്കംചെയ്യുന്നതിന് ഓതെന്റിക്കേറ്റ് ആവശ്യമാണ് ($"
+"(command_line))"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:18
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:56
-#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:758
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:827
 msgid "Administration Password"
 msgstr "അഡ്മിനിസ്ട്രേഷൻ പാസ്‌വേഡ്"
 
@@ -2694,7 +2696,7 @@ msgid "Disable"
 msgstr "പ്രവർത്തനരഹിതമാക്കു"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:186
-#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:762
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:831
 msgid "MAC Address Anonymization"
 msgstr ""
 
@@ -2715,7 +2717,7 @@ msgid "Don't anonymize MAC addresses"
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:343
-#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:766
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:835
 msgid "Network Configuration"
 msgstr "നെറ്റ്‌വർക്ക് കോൺഫിഗറേഷൻ"
 
@@ -2823,24 +2825,36 @@ msgstr ""
 msgid "Impossible to unlock the Persistent Storage."
 msgstr "സ്ഥിരമായ സംഭരണം സൃഷ്ടിക്കുക"
 
-#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:562
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:563
+#, fuzzy
+msgid "Partitioning Errors"
+msgstr "പാർട്ടീഷനുകളും ഡ്രൈവുകളും"
+
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:599
+msgid ""
+"Errors were detected in the partitioning of your Tails USB stick.\n"
+"\n"
+"Try reinstalling Tails. If the error persists, reinstall on a new USB stick."
+msgstr ""
+
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:631
 msgid "_Additional Settings"
 msgstr "_ അധിക ക്രമീകരണങ്ങൾ"
 
-#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:645
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:714
 msgid "Add an additional setting"
 msgstr "ഒരു അധിക ക്രമീകരണം ചേർക്കുക"
 
-#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:692
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:761
 #, fuzzy
 msgid "Shutdown"
 msgstr "Shutdown"
 
-#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:701
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:770
 msgid "_Start Tails"
 msgstr "_സ്റ്റാർട്ട് ടെയിൽസ്"
 
-#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:730
+#: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:799
 msgid ""
 "The default settings are safe in most situations. To add a custom setting, "
 "press the \"+\" button below."
@@ -2899,6 +2913,11 @@ msgid ""
 "You can send an error report or check the output of the following commands "
 "to investigate:"
 msgstr ""
+
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/fail_view.ui.in:74
+#, fuzzy
+msgid "Send Error Report"
+msgstr "വിസ്‌പർബാക്ക് പിശക് റിപ്പോർട്ടിംഗ്"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:61
 msgid ""

@@ -1389,23 +1389,15 @@ Then /^the Upgrader considers the system as up-to-date$/ do
   end
 end
 
-def upgrader_trusted_signing_subkeys
-  $vm.execute_successfully(
-    'sudo -u tails-upgrade-frontend ' \
-    'gpg --batch --list-keys --with-colons ' + TAILS_SIGNING_KEY
-  ).stdout.split("\n")
-     .select { |line| /^sub:/.match(line) }
-     .map { |line| line[/^sub:.:\d+:\d+:(?<subkeyid>[A-F0-9]+):/, 'subkeyid'] }
-end
-
 Given /^the signing key used by the Upgrader is outdated$/ do
-  upgrader_trusted_signing_subkeys.each do |subkeyid|
-    $vm.execute_successfully(
-      'sudo -u tails-upgrade-frontend ' \
-      "gpg --batch --yes --delete-keys '#{subkeyid}!'"
-    )
-  end
-  assert_equal(0, upgrader_trusted_signing_subkeys.length)
+  # We're actually testing the worst case scenario, i.e. the local
+  # version of the key is empty, not just expired. It's easier to
+  # implement it this way. And it's safer: it ensures the Upgrader can
+  # only rely on the version of the key that it will download from
+  # our website.
+  key = '/usr/share/doc/tails/website/tails-signing.key'
+  $vm.file_overwrite(key, '')
+  assert($vm.file_empty?(key))
 end
 
 Given /^a current signing key is available on our website$/ do

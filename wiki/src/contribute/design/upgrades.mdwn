@@ -474,17 +474,7 @@ in the new ISO.
 
 upgrade-description file polling, parsing and verification is
 implemented in Perl. Signature verification is made using
-`GnuPG::Interface`'s `verify` method.
-
-The verify method is run on a `GnuPG::Interface` object built with
-`--homedir` pointed to a dedicated keyring directory, created at Tails
-boot or ISO build time, that contains only the Tails signing public
-OpenPGP key, which is assigned the minimum level of trust so that
-GnuPG trusts the signatures made with the associated private key.
-
-The `verify` method return value is `waitpid`'d for, and the GnuPG
-child process exit status examined (zero means verification succeeded,
-non-zero means verification failure).
+Sequoia SOP.
 
 <a id="security"></a>
 

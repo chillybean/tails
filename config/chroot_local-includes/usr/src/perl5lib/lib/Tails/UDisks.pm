@@ -17,34 +17,30 @@ use IPC::System::Simple qw{capturex};
 use Syntax::Keyword::Junction qw{any};
 use List::Util qw{first};
 use Tails::Constants;
-use Types::Standard qw{ArrayRef Defined Str};
+use Types::Standard qw{ArrayRef Defined InstanceOf Str};
 use Types::Path::Tiny qw{Path};
 use Unix::Mknod qw(:all);
 
 no Moo::sification;
 use Moo;
-use MooX::late;
 use namespace::clean;
 
 with 'Tails::Role::HasDBus::System';
 
 has 'constants' => (
-    is         => 'ro',
-    isa        => 'Tails::Constants',
-    lazy_build => 1,
+    is         => 'lazy',
+    isa        => InstanceOf['Tails::Constants'],
     handles    => [ qw{system_partition_label}],
 );
 
 has 'udisks_service' => (
-    is         => 'ro',
-    lazy_build => 1, # Let's decide the right initialization order in BUILD
-    isa        => 'Net::DBus::RemoteService',
+    is         => 'lazy', # Let's decide the right initialization order in BUILD
+    isa        => InstanceOf['Net::DBus::RemoteService'],
 );
 
 has 'udisks_object' => (
-    is         => 'ro',
-    lazy_build => 1, # Let's decide the right initialization order in BUILD
-    isa        => 'Net::DBus::RemoteObject',
+    is         => 'lazy', # Let's decide the right initialization order in BUILD
+    isa        => InstanceOf['Net::DBus::RemoteObject'],
 );
 
 method BUILD (@args) {
@@ -70,7 +66,7 @@ method _build_udisks_object () {
 }
 
 method debug (@args) {
-    say STDERR @_ if $ENV{DEBUG};
+    say STDERR @args if $ENV{DEBUG};
 }
 
 method get_udisks_property (Str $type, Defined $object, Str $property) {
