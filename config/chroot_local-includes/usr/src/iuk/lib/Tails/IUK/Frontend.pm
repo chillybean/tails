@@ -702,17 +702,12 @@ method get_target_files (HashRef $upgrade_path, AbsDir $destdir) {
             };
         }
         $success and defined $exit_code and $exit_code == 0 or $self->fatal(
-            errf("<b>%{error_msg}s</b>\n\n%{details}s",
+            errf("<b>%{error_msg}s</b>",
                  {
                      error_msg => __(
                          q{<b>The upgrade could not be downloaded.</b>\n\n}.
                          q{Check your network connection, and restart }.
                          q{Tails to try upgrading again.\n\n}.
-                         q{If the problem persists, go to }.
-                         q{file:///usr/share/doc/tails/website/doc/upgrade/error/download.en.html}
-                     ),
-                     details   => __(
-                         q{For debugging information, execute the following command: sudo tails-debugging-info}
                      ),
                  }
             ),
