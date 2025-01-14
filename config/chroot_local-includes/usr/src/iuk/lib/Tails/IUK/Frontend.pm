@@ -706,8 +706,7 @@ method get_target_files (HashRef $upgrade_path, AbsDir $destdir) {
                  {
                      error_msg => __(
                          q{<b>The upgrade could not be downloaded.</b>\n\n}.
-                         q{Check your network connection, and restart }.
-                         q{Tails to try upgrading again.\n\n}.
+                         q{Check your network connection, and restart Tails to try upgrading again.}
                      ),
                  }
             ),
