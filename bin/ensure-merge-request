@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 #
 # Given the names of a project and source/target branches, this script creates
-# a Merge Request from source to target, unless the source branch is already
-# merge into target branch or another Merge Request from source to target
-# already exists.
+# a Merge Request from source to target, unless if the source branch is already
+# merged into the target branch or if another Merge Request from the same
+# source to the same target already exists.
 #
 # It expects a GitLab Access Token in the GITLAB_PRIVATE_TOKEN environment
 # variable.
@@ -19,21 +19,16 @@
 # Access Token creation
 # ---------------------
 #
-# The creation and configuration of an Access Token needs to be done every year
-# because GitLab tokens expire after at most 1 year:
+# Create and configure an Access Token:
 #
-# 1. Login as root in GitLab
+# 1. Login as `role-branch-merger` in GitLab
 #
-# 2. Impersonate the
-#    [`role-branch-merger`](https://gitlab.tails.boum.org/admin/users/role-branch-merger)
-#    user
-#
-# 3. Create a [Personal Access Token for the `role-branch-merger`
+# 2. Create a [Personal Access Token for the `role-branch-merger`
 #    user](https://gitlab.tails.boum.org/-/user_settings/personal_access_tokens)
 #    with:
 #
 #    - Token name: `GITLAB_PRIVATE_TOKEN`
-#    - Expiration date: 1 year from now
+#    - Expiration date: click the X and leave empty
 #    - Select scope: `api`
 #
 # Scheduled Pipeline creation
@@ -42,11 +37,11 @@
 # This only needs to be done once, with a user that has Maintainer privileges in
 # this project:
 #
-# 3. Go to the [Pipeline Schedules
+# 1. Go to the [Pipeline Schedules
 #    page](https://gitlab.tails.boum.org/tails/gitlab-config/-/pipeline_schedules)
 #    of this project
 #
-# 4. Create a new schedule with:
+# 2. Create a new schedule with:
 #    - Description: Ensure MR for tails/tails from master into stable
 #    - Custom interval pattern: `20 19 * * *`
 #    - Cron timezone: `[UTC 0] UTC`
