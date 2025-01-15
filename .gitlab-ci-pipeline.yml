@@ -28,6 +28,7 @@ build-website:
         IKIWIKI_RCS_OPTION: --rcs git
     - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
     - changes:
+        - .gitlab-ci.yml
         - .gitlab-ci-pipeline.yml
   image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/ikiwiki:bookworm
   cache:
@@ -104,6 +105,7 @@ lint-po:
   rules:
     - if: '$CI_COMMIT_BRANCH =~ /^master|stable|testing|devel$/'
     - changes:
+        - .gitlab-ci.yml
         - .gitlab-ci-pipeline.yml
         - ./**.po
   script:
@@ -155,6 +157,7 @@ check-po-msgfmt:
   rules:
     - if: '$CI_COMMIT_BRANCH =~ /^master|stable|testing|devel$/'
     - changes:
+        - .gitlab-ci.yml
         - .gitlab-ci-pipeline.yml
         - ./**.po
   script:
@@ -165,6 +168,7 @@ check-po-meta-date:
   rules:
     - if: '$CI_COMMIT_BRANCH =~ /^master|stable|testing|devel$/'
     - changes:
+        - .gitlab-ci.yml
         - .gitlab-ci-pipeline.yml
         - ./**.po
   script:
@@ -309,6 +313,7 @@ apt-snapshots-expiry:
   rules:
     - if: '$CI_COMMIT_BRANCH =~ /^stable|testing|devel$/'
     - changes:
+        - .gitlab-ci.yml
         - .gitlab-ci-pipeline.yml
         - config/APT_snapshots.d/*/serial
         - vagrant/definitions/tails-builder/config/APT_snapshots.d/*/serial
@@ -338,6 +343,7 @@ https-get-expired:
   rules:
     - if: '$CI_COMMIT_BRANCH =~ /^stable|testing|devel$/'
     - changes:
+        - .gitlab-ci.yml
         - .gitlab-ci-pipeline.yml
         - config/chroot_local-includes/usr/src/https-get-expired.go
         - config/chroot_local-includes/etc/default/htpdate.pools
@@ -352,6 +358,7 @@ https-get-expired-sid:
   rules:
     - if: '$CI_COMMIT_BRANCH == "devel"'
     - changes:
+        - .gitlab-ci.yml
         - .gitlab-ci-pipeline.yml
         - config/chroot_local-includes/usr/src/https-get-expired.go
         - config/chroot_local-includes/etc/default/htpdate.pools
