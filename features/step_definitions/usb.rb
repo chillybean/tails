@@ -365,6 +365,9 @@ def available_memory_kib
 end
 
 Given /^the system is( very)? low on memory$/ do |very_low|
+  # NOTE: this step has to support being called multiple times in
+  # a single scenario.
+
   # If we're asked to make the system very low on memory, then
   # we leave only 200 MiB of memory available, otherwise we leave 550
   # MiB (550 MiB is enough to create a Persistent Storage with the
