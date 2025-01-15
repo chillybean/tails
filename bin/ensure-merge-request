@@ -43,9 +43,10 @@
 #    - Activated: selected
 
 import argparse
-import gitlab
 import os
 import time
+
+import gitlab
 
 
 class StubMR:
@@ -56,16 +57,14 @@ class StubMR:
 
 def get_project(server_url, private_token, project):
     gl = gitlab.Gitlab(url=server_url, private_token=private_token)
-    p = gl.projects.get(project)
-    return p
+    return gl.projects.get(project)
 
 
 def create_mr(project, source, target, dry_run):
     title = f"Merge branch '{source}' into '{target}'"
 
     if dry_run:
-        mr = StubMR(title)
-        return mr
+        return StubMR(title)
 
     params = {
         "source_branch": source,
@@ -73,8 +72,7 @@ def create_mr(project, source, target, dry_run):
         "title": title,
         "labels": ["Core Work:Foundations Team"],
     }
-    mr = project.mergerequests.create(params)
-    return mr
+    return project.mergerequests.create(params)
 
 
 def has_pipeline(mr):
@@ -84,7 +82,7 @@ def has_pipeline(mr):
         and p.status in ["pending", "running"],
         pipelines,
     )
-    return len([p for p in relevant])
+    return len(list(relevant))
 
 
 def merge_mr_when_pipeline_succeeds(mr, pipeline_timeout):
@@ -137,7 +135,7 @@ def parse_args():
         epilog="Pass the GitLab private token via the GITLAB_PRIVATE_TOKEN environment variable.",
     )
     parser.add_argument(
-        "--project", help="Project in which to create the MR", required=True
+        "--project", help="Project in which to create the MR", required=True,
     )
     parser.add_argument("--source", help="Source branch of the MR", required=True)
     parser.add_argument("--target", help="Target branch of the MR", required=True)
@@ -155,7 +153,7 @@ def main(server_url, private_token):
     args = parse_args()
     project = get_project(server_url, private_token, args.project)
     return ensure_mr(
-        project, args.source, args.target, args.pipeline_timeout, args.dry_run
+        project, args.source, args.target, args.pipeline_timeout, args.dry_run,
     )
 
 
