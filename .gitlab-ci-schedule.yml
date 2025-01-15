@@ -4,7 +4,7 @@ Ensure MR from master into stable:
   image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/python3-gitlab:bookworm
   script:
     - |
-      python3 ./bin/ensure-merge-request \
+      ./bin/ensure-merge-request \
           --project tails/tails \
           --source master \
           --target stable \
