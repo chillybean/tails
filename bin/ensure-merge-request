@@ -13,13 +13,11 @@
 # Setting up a Scheduled Pipeline
 # ===============================
 #
-# If used in a Scheduled Pipeline, an Access Token with enough privileges and the
-# Scheduled Pipeline itself must be manually created.
+# You will need enough privileges to create/run CI/CD pipelines and merge the
+# expected branches.
 #
-# Access Token creation
-# ---------------------
-#
-# Create and configure an Access Token:
+# For the tails/tails> project, we currently use the `role-branch-merger` user
+# for that, please adapt the following steps to your use case:
 #
 # 1. Login as `role-branch-merger` in GitLab
 #
@@ -31,18 +29,12 @@
 #    - Expiration date: click the X and leave empty
 #    - Select scope: `api`
 #
-# Scheduled Pipeline creation
-# ---------------------------
+# 3. Go to the [Pipeline Schedules
+#    page](https://gitlab.tails.boum.org/tails/tails/-/pipeline_schedules)
+#    of the tails/tails> project
 #
-# This only needs to be done once, with a user that has Maintainer privileges in
-# this project:
-#
-# 1. Go to the [Pipeline Schedules
-#    page](https://gitlab.tails.boum.org/tails/gitlab-config/-/pipeline_schedules)
-#    of this project
-#
-# 2. Create a new schedule with:
-#    - Description: Ensure MR for tails/tails from master into stable
+# 4. Create a new schedule with:
+#    - Description:  Run with `role-branch-merger` permissions
 #    - Custom interval pattern: `20 19 * * *`
 #    - Cron timezone: `[UTC 0] UTC`
 #    - Select target branch or tag: `master`
