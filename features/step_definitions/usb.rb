@@ -373,7 +373,7 @@ Given /^the system is( very)? low on memory$/ do |very_low|
 
   # Ensure that the zram swap is disabled, to avoid that the memory
   # pressure is relieved by swapping.
-  $vm.execute_successfully('zramswap stop')
+  $vm.execute_successfully('swapoff --all')
 
   # Get the amount of available memory
   mem_available_kib = available_memory_kib
