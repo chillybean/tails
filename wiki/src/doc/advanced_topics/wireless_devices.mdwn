@@ -76,21 +76,3 @@ This technique uses the command line.
        2: gps0: GPS
                Soft blocked: no
                Hard blocked: no
-
-<!--
-
-Enable Bluetooth
-----------------
-
-Bluetooth is not enabled by default in Tails because it is insecure
-when trying to protect from a local adversary.
-
-XXX: one also needs to remove `sudo rm
-/etc/modprobe.d/no-bluetooth.conf && sudo udevadm trigger && sudo
-rfkill unblock bluetooth`.
-
-To use Bluetooth in Tails nonetheless, you have to
-[[set up an administration password at boot time|doc/first_steps/welcome_screen/administration_password]]
-and install the `gnome-bluetooth` package.
-
--->
