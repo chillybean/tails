@@ -47,7 +47,7 @@ class TorStatusIndicator extends PanelMenu.Button {
         this.tca_menu_item.connect('activate', this._openTca.bind(this));
         this.menu.addMenuItem(this.tca_menu_item);
 
-        this.menu_item = new PopupMenu.PopupMenuItem(_("Open Onion Circuits"));
+        this.menu_item = new PopupMenu.PopupMenuItem(_("View Tor Circuits"));
         this.menu_item.connect('activate', this._openOnionCircuits.bind(this));
         this.menu.addMenuItem(this.menu_item);
 
