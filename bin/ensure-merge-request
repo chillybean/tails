@@ -135,7 +135,9 @@ def parse_args():
         epilog="Pass the GitLab private token via the GITLAB_PRIVATE_TOKEN environment variable.",
     )
     parser.add_argument(
-        "--project", help="Project in which to create the MR", required=True,
+        "--project",
+        help="Project in which to create the MR",
+        required=True,
     )
     parser.add_argument("--source", help="Source branch of the MR", required=True)
     parser.add_argument("--target", help="Target branch of the MR", required=True)
@@ -153,7 +155,11 @@ def main(server_url, private_token):
     args = parse_args()
     project = get_project(server_url, private_token, args.project)
     return ensure_mr(
-        project, args.source, args.target, args.pipeline_timeout, args.dry_run,
+        project,
+        args.source,
+        args.target,
+        args.pipeline_timeout,
+        args.dry_run,
     )
 
 
