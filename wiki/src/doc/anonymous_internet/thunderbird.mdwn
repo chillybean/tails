@@ -95,6 +95,52 @@ Support](https://support.mozilla.org/en-US/products/thunderbird) website.
 
 </div>
 
+<h1 id="news">Reading RSS and Atom news feeds</h1>
+
+On top of reading emails, you can read news feeds that use the RSS and Atom
+standards in *Thunderbird*.
+
+To create a feed account:
+
+1. Choose  **[[!img lib/open-menu.png alt="Menu" class=symbolic link=no]]</span>&nbsp;▸
+   Account Settings** from the main window of *Thunderbird*.
+
+1. In the **Account Settings** tab, choose **Account Actions&nbsp;▸ Add Feed
+   Account**.
+
+1. In the **Feed Account Wizard**, click **Next** and **Finish**.
+
+   A new feed account named **Blogs & News Feeds** appears in the sidebar.
+
+1. Click on the **Manage Subscriptions** button in the right pane.
+
+1. In the **Feed Subscriptions** dialog, enter the URL of the news feed that
+   you want to follow in the **Feed URL** field.
+
+   For example, to subscribe to the Tails news feed, enter the following URL.
+
+       https://tails.net/news/index.en.rss
+
+   Sites often have a feed icon <i class="fa fa-rss"></i> that points to their
+   RSS or Atom feed.
+
+   If a site has no feed icon, right-click on the home or news page of the site
+   and choose **View Page Source** in the shortcut menu. In the source of the
+   page look for a link of type *application/rss+xml* or
+   *application/atom+xml*. No all sites have a news feed.
+
+   [[!wikipedia RSS]] and [[!wikipedia Atom (web standard) desc="Atom"]] are
+   similar standards and their differences don't really matter to readers.
+
+1. Click **Add**.
+
+   *Thunderbird* verifies and downloads the content of the feed.
+
+1. Close the **Feed Subscriptions** dialog and the **Account Settings** tab.
+
+1. A new feed account named **Blogs & News Feeds** appears in the sidebar of
+   the main window of *Thunderbird*.
+
 <h1 id="privacy">Enhanced privacy</h1>
 
 <span class="application">Thunderbird</span> in Tails is configured
