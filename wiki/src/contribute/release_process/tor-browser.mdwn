@@ -71,7 +71,14 @@ To check if the desired version is available:
         (
             set -eu
             typeset -a tbbUrls
-            tbbUrls=( 'https://archive.torproject.org/tor-package-archive/torbrowser/?C=M;O=D' 'https://www.torproject.org/dist/torbrowser/?C=M;O=D' 'https://people.torproject.org/~'{boklm,gk,ma1,morgan,pierov}'/builds/?C=M;O=D' 'https://tb-build-0'{2,3}'.torproject.org/~'{boklm,ma1,morgan,pierov}'/builds/torbrowser/release/unsigned/'  )
+            tbbUrls=( 'https://archive.torproject.org/tor-package-archive/torbrowser/?C=M;O=D' 'https://www.torproject.org/dist/torbrowser/?C=M;O=D' 'https://people.torproject.org/~'{boklm,gk,ma1,morgan,pierov}'/builds/?C=M;O=D' )
+            for i in $(seq 1 20); do
+                buildserver="tb-build-$(printf %02d "${i}").torproject.org"
+                if host "$buildserver" &> /dev/null; then
+                    tbbUrls+=("https://${buildserver}/~"{boklm,ma1,morgan,pierov}'/builds/torbrowser/release/unsigned/')
+                fi
+            done
+            echo "Scanning ${tbbUrls[@]}"
             while true
             do
                 if (for u in "${tbbUrls[@]}"; do
