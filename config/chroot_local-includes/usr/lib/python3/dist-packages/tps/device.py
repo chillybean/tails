@@ -489,7 +489,7 @@ class TPSPartition:
                     "/dev/mapper/TailsData",
                 ]
             ).strip()
-            if output != '/dev/mapper/TailsData: LABEL="TailsData" TYPE="ext4"':
+            if not 'LABEL="TailsData"' in output and not 'TYPE="ext4"' in output:
                 raise InvalidCleartextDeviceError(
                     f"Cleartext device is not what we expect: {output}"
                 )
