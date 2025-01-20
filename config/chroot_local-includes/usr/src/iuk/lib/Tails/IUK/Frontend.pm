@@ -194,11 +194,7 @@ method fatal_run_cmd (Str :$error_msg, ArrayRef :$cmd, Maybe[Str] :$as = undef, 
     $success = 1 if IPC::Run::run \@cmd, '>', \$stdout, '2>', \$stderr;
     $exit_code = $?;
     $success or $self->fatal(
-        errf("<b>%{error_msg}s</b>",
-             {
-                 error_msg => $error_msg,
-             },
-        ),
+        "<b>$error_msg</b>",
         title          => $error_title,
         debugging_info => $self->encoding->decode(errf(
             "exit code: %{exit_code}i\n\n".
@@ -699,13 +695,9 @@ method get_target_files (HashRef $upgrade_path, AbsDir $destdir) {
             };
         }
         $success and defined $exit_code and $exit_code == 0 or $self->fatal(
-            errf("<b>%{error_msg}s</b>",
-                 {
-                     error_msg => __(
-                         q{<b>The upgrade could not be downloaded.</b>\n\n}.
-                         q{Check your network connection, and restart Tails to try upgrading again.}
-                     ),
-                 }
+            __(
+                q{<b>The upgrade could not be downloaded.</b>\n\n}.
+                q{Check your network connection, and restart Tails to try upgrading again.}
             ),
             title => __(q{Error while downloading the upgrade}),
             debugging_info => $self->encoding->decode(errf(
@@ -847,15 +839,11 @@ method install_iuk (HashRef $upgrade_path, AbsDir $target_files_tempdir) {
     $zenity_h->kill_kill unless $self->batch;
 
     $success or $self->fatal(
-        $self->encoding->decode(errf("<b>%{error_msg}s</b>",
-             {
-                 error_msg => __(
-                     q{<b>An error occured while installing the upgrade.</b>\n\n}.
-                     q{Your Tails device needs to be repaired and might be unable to restart.\n\n}.
-                     q{Please follow the instructions at }.
-                     q{file:///usr/share/doc/tails/website/doc/upgrade/error/install.en.html}
-                 ),
-             },
+        $self->encoding->decode(__(
+            q{<b>An error occured while installing the upgrade.</b>\n\n}.
+            q{Your Tails device needs to be repaired and might be unable to restart.\n\n}.
+            q{Please follow the instructions at }.
+            q{file:///usr/share/doc/tails/website/doc/upgrade/error/install.en.html}
         )),
         title => __(q{Error while installing the upgrade}),
         debugging_info => $self->encoding->decode(errf(
