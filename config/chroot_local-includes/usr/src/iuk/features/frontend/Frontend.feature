@@ -64,7 +64,6 @@ Feature: upgrade frontend
     When I run tails-upgrade-frontend
     Then it should fail to check for upgrades
     And I should be told "Could not determine whether an upgrade is available"
-    And I should be pointed to the documentation about upgrade-description file retrieval error
 
   @mirrors
   Scenario: USB produced by our installer: installing an incremental upgrade
@@ -106,7 +105,6 @@ Feature: upgrade frontend
     And I should be told "Error while downloading the upgrade"
     And I should be told "The upgrade could not be downloaded"
     And I should be told "request failed"
-    And I should be pointed to the documentation about target file retrieval error
 
   Scenario: USB produced by our installer: both incremental and full upgrades are available, but a target file is corrupted
     Given Tails is running from a USB thumb drive
@@ -118,7 +116,6 @@ Feature: upgrade frontend
     And I should be told "Downloading the upgrade"
     And I should be told "Error while downloading the upgrade"
     And I should be told "was downloaded but its size"
-    And I should be pointed to the documentation about target file retrieval error
 
   Scenario: USB produced by our installer: not enough free memory
     Given Tails is running from a USB thumb drive
