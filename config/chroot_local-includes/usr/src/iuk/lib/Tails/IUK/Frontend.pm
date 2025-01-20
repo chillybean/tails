@@ -198,7 +198,7 @@ method fatal_run_cmd (Str :$error_msg, ArrayRef :$cmd, Maybe[Str] :$as = undef, 
              {
                  error_msg => $error_msg,
              },
-         ),
+        ),
         title          => $error_title,
         debugging_info => $self->encoding->decode(errf(
             "exit code: %{exit_code}i\n\n".
