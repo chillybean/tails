@@ -87,5 +87,5 @@ if tor_has_bootstrapped || ask_for_confirmation; then
 
     start_browser "${@}"
 else
-    gtk-launch tca.desktop
+    /usr/local/bin/gtk-abspath-launch /usr/share/applications/tca.desktop
 fi
