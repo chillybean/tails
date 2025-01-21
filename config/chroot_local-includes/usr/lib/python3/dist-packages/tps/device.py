@@ -476,9 +476,23 @@ class TPSPartition:
             cmd += ["--header", str(header_file)]
         try:
             executil.check_call(cmd, text=True, input=passphrase)
-            # Try to mount the device to ensure that the partition was
-            # successfully unlocked and contains a valid filesystem.
-            self._test_mounting_device("/dev/mapper/TailsData")
+            # It is conceivable that a corrupt LUKS header could
+            # successfully decrypt, but the cleartext would be junk,
+            # e.g. if the master key is corrupted. But if we see the
+            # expected filesystem type and label we can be pretty sure
+            # it was not corrupt.
+            output = executil.check_output(
+                [
+                    "blkid",
+                    "--match-tag=LABEL",
+                    "--match-tag=TYPE",
+                    "/dev/mapper/TailsData",
+                ]
+            ).strip()
+            if 'LABEL="TailsData"' not in output and 'TYPE="ext4"' not in output:
+                raise InvalidCleartextDeviceError(
+                    f"Cleartext device is not what we expect: {output}"
+                )
         except subprocess.CalledProcessError as err:
             if err.returncode == 2:
                 raise IncorrectPassphraseError(err) from err
@@ -492,22 +506,6 @@ class TPSPartition:
                 is_open = False
             if is_open:
                 executil.check_call(["cryptsetup", "close", "TailsData"])
-
-    @staticmethod
-    def _test_mounting_device(device_path: str):
-        """Try to mount the specified device"""
-        with tempfile.TemporaryDirectory() as tmpdir:
-            try:
-                executil.check_call(["mount", device_path, tmpdir])
-            finally:
-                # Unmount the device if it is mounted
-                try:
-                    executil.check_call(["mountpoint", "-q", tmpdir])
-                    is_mounted = True
-                except subprocess.CalledProcessError:
-                    is_mounted = False
-                if is_mounted:
-                    executil.check_call(["umount", tmpdir])
 
     def backup_luks_header(self):
         luks_header_backup = Path(LUKS_HEADER_BACKUP_PATH)
