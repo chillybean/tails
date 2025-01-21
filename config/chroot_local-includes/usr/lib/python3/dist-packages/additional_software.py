@@ -229,9 +229,9 @@ def notify_failure(summary, details=None):
 
 def show_system_log():
     """Show additional packages configuration window."""
-    run_with_user_env("gtk-launch", "org.gnome.TextEditor.desktop", ASP_LOG_FILE)
+    run_with_user_env("/usr/local/bin/gtk-abspath-launch", "/usr/share/applications/org.gnome.TextEditor.desktop", ASP_LOG_FILE)
 
 
 def show_configuration_window():
     """Show additional packages configuration window."""
-    run_with_user_env("gtk-launch", "org.boum.tails.AdditionalSoftware.desktop")
+    run_with_user_env("/usr/local/bin/gtk-abspath-launch", "/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop")
