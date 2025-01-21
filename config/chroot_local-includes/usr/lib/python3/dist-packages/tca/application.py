@@ -1,5 +1,6 @@
 #!/usr/bin/python3 -I
 
+import atexit
 import functools
 import sys
 import logging
@@ -85,6 +86,7 @@ class TCAApplication(Gtk.Application):
             "status": None,
             "reason": None,
         }
+        atexit.register(self.portal.call_async, "unlock-bootstrap", None)
 
     def load_configuration(self):
         """Load our configuration, possibly asynchronously."""

@@ -457,6 +457,7 @@ class StepConnectProgressMixin:
         self.connection_progress.set_fraction(0.0, allow_going_back=True)
         self.show_connect_pbar()
         if not self.state["progress"]["success"]:
+            self.app.portal.call_async("lock-bootstrap", None)
             if not self.state["hide"]["hide"]:
                 self.get_object("label_status").set_text(
                     _("Synchronizing the system's clock…")
@@ -1217,6 +1218,8 @@ class TCAMainWindow(
 
     def on_tor_working_changed(self, working: bool):
         log.info("Tor working changed %s", working)
+        if working:
+            self.app.portal.call_async("unlock-bootstrap", None)
         self._move_to_right_step()
         log.debug(self.state["step"])
 

@@ -33,6 +33,7 @@ from tinyrpc.protocols import RPCRequest, RPCResponse
 from tinyrpc.protocols.jsonrpc import JSONRPCParseError, JSONRPCProtocol
 
 TPS_TOR_CONFIG_FEATURE_NAME = "TorConfiguration"
+BOOTSTRAP_LOCK_FILE = "/var/lib/tca/bootstrapping.lock"
 
 log = getLogger("tca-portal")
 
@@ -325,6 +326,8 @@ class Handler(socketserver.StreamRequestHandler):
         "set-system-time": SetTimeCommand(),
         "read-tca-config": RootCommand(("/bin/cat", TCA_CONFIG_FILE), False),
         "write-tca-config": WriteFileCommand(TCA_CONFIG_FILE),
+        "lock-bootstrap": RootCommand(("/usr/bin/touch", BOOTSTRAP_LOCK_FILE), False),
+        "unlock-bootstrap": RootCommand(("/usr/bin/rm", BOOTSTRAP_LOCK_FILE), False),
     }
     valid_commands: ClassVar = set(spawn_commands.keys())
 
