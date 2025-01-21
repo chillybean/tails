@@ -1,24 +1,24 @@
+# ruff: noqa: E402
 import os.path
 
-from gi.repository import Gdk, Gio, Gtk, GLib
 import inspect
 from logging import getLogger
-import subprocess
 from typing import TYPE_CHECKING
+
+import gi
+gi.require_version('Gio', '2.0')
+from gi.repository import Gdk, Gio, Gtk
 
 from tps_frontend import (
     FEATURES_VIEW_UI_FILE,
     DBUS_FEATURES_PATH,
     DBUS_SERVICE_NAME,
     DBUS_FEATURE_INTERFACE,
-    CUSTOM_FEATURE_UI_FILE,
-    _,
 )
 from tps_frontend.view import View
 from tps_frontend.feature import Feature, CustomFeatureRow
 
 if TYPE_CHECKING:
-    from gi.repository import Handy
     from tps_frontend.window import Window
 
 logger = getLogger(__name__)
