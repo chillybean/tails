@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 #
 # Given the names of a project and source/target branches, this script creates
-# a Merge Request from source to target, unless if the source branch is already
-# merged into the target branch or if another Merge Request from the same
+# a Merge Request from source to target, unless the source branch is already
+# merged into the target branch or another Merge Request from the same
 # source to the same target already exists.
 #
 # It expects a GitLab Access Token in the GITLAB_PRIVATE_TOKEN environment
@@ -16,7 +16,7 @@
 # You will need enough privileges to create/run CI/CD pipelines and merge the
 # expected branches.
 #
-# For the tails/tails> project, we currently use the `role-branch-merger` user
+# For the tails/tails project, we currently use the `role-branch-merger` user
 # for that, please adapt the following steps to your use case:
 #
 # 1. Login as `role-branch-merger` in GitLab
@@ -31,20 +31,22 @@
 #
 # 3. Go to the [Pipeline Schedules
 #    page](https://gitlab.tails.boum.org/tails/tails/-/pipeline_schedules)
-#    of the tails/tails> project
+#    of the tails/tails project
 #
 # 4. Create a new schedule with:
 #    - Description:  Run with `role-branch-merger` permissions
 #    - Custom interval pattern: `20 19 * * *`
 #    - Cron timezone: `[UTC 0] UTC`
 #    - Select target branch or tag: `master`
-#    - Add a `GITLAB_PRIVATE_TOKEN` variable with value from the variable created in the previous section.
+#    - Add a `GITLAB_PRIVATE_TOKEN` variable with value from the variable
+#      created in the previous section.
 #    - Activated: selected
 
 import argparse
-import gitlab
 import os
 import time
+
+import gitlab
 
 
 class StubMR:
@@ -55,16 +57,14 @@ class StubMR:
 
 def get_project(server_url, private_token, project):
     gl = gitlab.Gitlab(url=server_url, private_token=private_token)
-    p = gl.projects.get(project)
-    return p
+    return gl.projects.get(project)
 
 
 def create_mr(project, source, target, dry_run):
     title = f"Merge branch '{source}' into '{target}'"
 
     if dry_run:
-        mr = StubMR(title)
-        return mr
+        return StubMR(title)
 
     params = {
         "source_branch": source,
@@ -72,8 +72,7 @@ def create_mr(project, source, target, dry_run):
         "title": title,
         "labels": ["Core Work:Foundations Team"],
     }
-    mr = project.mergerequests.create(params)
-    return mr
+    return project.mergerequests.create(params)
 
 
 def has_pipeline(mr):
@@ -83,7 +82,7 @@ def has_pipeline(mr):
         and p.status in ["pending", "running"],
         pipelines,
     )
-    return len([p for p in relevant])
+    return len(list(relevant))
 
 
 def merge_mr_when_pipeline_succeeds(mr, pipeline_timeout):
@@ -136,7 +135,9 @@ def parse_args():
         epilog="Pass the GitLab private token via the GITLAB_PRIVATE_TOKEN environment variable.",
     )
     parser.add_argument(
-        "--project", help="Project in which to create the MR", required=True
+        "--project",
+        help="Project in which to create the MR",
+        required=True,
     )
     parser.add_argument("--source", help="Source branch of the MR", required=True)
     parser.add_argument("--target", help="Target branch of the MR", required=True)
@@ -154,7 +155,11 @@ def main(server_url, private_token):
     args = parse_args()
     project = get_project(server_url, private_token, args.project)
     return ensure_mr(
-        project, args.source, args.target, args.pipeline_timeout, args.dry_run
+        project,
+        args.source,
+        args.target,
+        args.pipeline_timeout,
+        args.dry_run,
     )
 
 

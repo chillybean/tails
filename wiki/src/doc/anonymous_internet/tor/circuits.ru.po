@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2024-04-11 14:09+0000\n"
+"POT-Creation-Date: 2025-01-16 22:15+0000\n"
 "PO-Revision-Date: 2021-12-24 09:10+0000\n"
 "Last-Translator: dedmoroz <cj75300@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -104,6 +104,24 @@ msgstr ""
 #| msgid "The first relay or *entry guard*. If you configured Tor bridges, one of your bridges is the first relay."
 msgid "   If you configured a Tor bridge, your bridge is your entry guard.\n"
 msgstr "Первый узел (входной или *сторожевой*). Если вы подключались к Tor через мост, он и станет первым узлом."
+
+#. type: Plain text
+#, no-wrap
+msgid ""
+"   The entry guard is the same for all circuits, as a way of [protecting\n"
+"   against *end-to-end correlation*\n"
+"   attacks](https://support.torproject.org/about/entry-guards/).\n"
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid "   But, your entry guard changes every time you restart Tails.\n"
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid "   To keep the same entry guard across different Tails sessions, use a bridge.\n"
+msgstr ""
 
 #. type: Bullet: '2. '
 #, fuzzy
