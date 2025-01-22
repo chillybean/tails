@@ -273,11 +273,17 @@ class Handler(socketserver.StreamRequestHandler):
     spawn_commands: ClassVar = {  # some commands just mean "run this specified commands as LIVE_USERNAME, please"
         "scan-qrcode": UserCommand(("/usr/bin/zbarcam", "--raw", "--oneshot"), False),
         "open-unsafebrowser": UserCommand(
-            ("/usr/local/bin/gtk-abspath-launch", "/usr/share/applications/unsafe-browser.desktop"),
+            (
+                "/usr/local/bin/gtk-abspath-launch",
+                "/usr/share/applications/unsafe-browser.desktop",
+            ),
             False,
         ),
         "open-tbb": UserCommandTransientSystemdScope(
-            ("/usr/local/bin/gtk-abspath-launch", "/usr/share/applications/tor-browser.desktop"),
+            (
+                "/usr/local/bin/gtk-abspath-launch",
+                "/usr/share/applications/tor-browser.desktop",
+            ),
             False,
         ),
         "open-networkmonitor": UserCommandTransientSystemdScope(
@@ -285,7 +291,10 @@ class Handler(socketserver.StreamRequestHandler):
             False,
         ),
         "open-onioncircuits": UserCommandTransientSystemdScope(
-            ("/usr/local/bin/gtk-abspath-launch", "/usr/share/applications/onioncircuits.desktop"),
+            (
+                "/usr/local/bin/gtk-abspath-launch",
+                "/usr/share/applications/onioncircuits.desktop",
+            ),
             False,
         ),
         "open-documentation": UserCommandTransientSystemdScope(
