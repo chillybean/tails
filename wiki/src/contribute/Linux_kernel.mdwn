@@ -49,7 +49,7 @@ the Linux kernel, be it from stable, sid, or anywhere. To do that, check
 `git log -p -GKERNEL_VERSION -- auto config` to find what commit you want
 to revert.
 
-The Foundations Team has to make this decision
+The Tails Team has to make this decision
 during every Tails release cycle. Due to the way we manage our APT
 repositories and to the fact we don't publish release candidates for
 Tails bugfix releases, how this decision is made and implemented
@@ -64,7 +64,7 @@ automatically if the ABI is bumped.
 
 # Process
 
-A Foundations Team member (generally the team lead, so far) creates
+A Tails Team member (generally the Team Lead or the person wearing the Front Desk hat, so far) creates
 a tracking issue whenever:
 
  - A new major version of Linux is released. At this point, that
@@ -74,7 +74,7 @@ a tracking issue whenever:
    relevant security fixes or changes the ABI is uploaded to Debian
    _unstable_.
 
-Once this new kernel is available in our APT snapshots a Foundations
+Once this new kernel is available in our APT snapshots a Tails
 Team member (you!) gathers the data that will inform our decision.
 There are two aspects to it: how it works for us and what the
 risk/benefit of the upgrade is.
