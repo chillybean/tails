@@ -289,8 +289,8 @@ method refresh_signing_key () {
         __(
             q{<b>An error occurred while updating the signing key.</b>\n\n}.
             q{<b>This prevents determining whether an upgrade is available from our website.</b>\n\n}.
-            q{Check your network connection, and restart Tails to try upgrading again.\n\n}.
-            q{If the problem persists, try doing a manual upgrade instead.},
+            q{Check your network connection and restart Tails.\n\n}.
+            q{If the problem persists, try doing a manual upgrade.},
         );
     try {
         $new_key_content = Tails::Download::HTTPS->new(
@@ -337,8 +337,8 @@ method get_upgrade_description () {
         error_title => __(q{Error while checking for upgrades}),
         error_msg   => __(
             "<b>Could not determine whether an upgrade is available from our website.</b>\n\n".
-            "Check your network connection, and restart Tails to try upgrading again.\n\n".
-            "If the problem persists, try doing a manual upgrade instead.",
+            "Check your network connection and restart Tails.\n\n".
+            "If the problem persists, try doing a manual upgrade.",
     ));
 
     return ($stdout, $stderr, $success, $exit_code);
