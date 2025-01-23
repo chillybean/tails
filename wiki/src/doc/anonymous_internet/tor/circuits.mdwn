@@ -69,8 +69,8 @@ circuit or troubleshoot issues on the Tor network. To do so:
 
    For example, if you download the same file again, Tor uses a new circuit.
 
-<h1 id="restart">Closing and restarting all Tor circuits</h1>
+<h1 id="restart">Closing and replacing all Tor circuits</h1>
 
-The only way of replacing all Tor circuits reliably in Tails is to restart.
-
-Restarting also changes your entry guard, the first relay in all circuits.
+Tails restarts Tor and all circuits are replaced if you disconnect and
+reconnect from your local network, for example, by turning the Wi-Fi off and on
+again.
