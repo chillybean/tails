@@ -16,9 +16,9 @@ If Tails is already [[connected to the Tor
 network|doc/anonymous_internet/tor]], a list of Tor circuits appears in the
 left pane of *Onion Circuits*.
 
-<!-- Note for translators: the entry guard in use when you take the screenshot
+<!-- Note for translators: the entry guards in use when you take the screenshot
 onion-circuits.png is in a position to identify you. You might prefer to leave it
-untranslated.-->
+untranslated. -->
 
 When you connect to a destination server, for example, when visiting a website,
 the connection appears in the list below the circuit it uses.
@@ -33,13 +33,13 @@ to **tails.net** goes through the 3 relays **drk**, **kicka**, and
 
 1. The first relay, here **drk**, is called the *entry guard*.
 
-   If you configured a Tor bridge, your bridge is your entry guard.
+   If you configured a Tor bridge, your bridge is your only entry guard.
 
-   The entry guard is the same for all circuits, as a way of [protecting
+   Otherwise, Tor uses only 2 different entry guards, as a way of [protecting
    against *end-to-end correlation*
    attacks](https://support.torproject.org/about/entry-guards/).
 
-   But, your entry guard changes every time you restart Tails.
+   But, your entry guards change every time you restart Tails.
 
    To keep the same entry guard across different Tails sessions, use a bridge.
 
