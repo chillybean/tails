@@ -33,15 +33,20 @@ to **tails.net** goes through the 3 relays **drk**, **kicka**, and
 
 1. The first relay, here **drk**, is called the *entry guard*.
 
-   If you configured a Tor bridge, your bridge is your only entry guard.
+   If you use a Tor bridge:
 
-   Otherwise, Tor uses only 2 different entry guards, as a way of [protecting
-   against *end-to-end correlation*
-   attacks](https://support.torproject.org/about/entry-guards/).
+   - Tor uses the bridge as your entry guard.
 
-   But, your entry guards change every time you restart Tails.
+   If you don't use a Tor bridge:
 
-   To keep the same entry guard across different Tails sessions, use a bridge.
+   - Tor uses only 2 different relays as your entry guards, as a way of
+     [protecting against *end-to-end correlation*
+     attacks](https://support.torproject.org/about/entry-guards/).
+
+   - Your entry guards change every time you restart Tails.
+
+     To keep the same entry guard across different Tails sessions, use a
+     Tor bridge instead.
 
 2. The second relay, here **kicka**, is called the *middle relay*.
 
