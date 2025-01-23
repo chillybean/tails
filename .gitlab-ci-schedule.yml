@@ -4,8 +4,20 @@ Ensure MR from master into stable:
   image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/python3-gitlab:bookworm
   script:
     - |
-      python3 ./bin/ensure-merge-request \
+      ./bin/ensure-merge-request \
           --project tails/tails \
           --source master \
           --target stable \
+          --pipeline-timeout 120
+
+Ensure MR from stable into devel:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+  image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/python3-gitlab:bookworm
+  script:
+    - |
+      ./bin/ensure-merge-request \
+          --project tails/tails \
+          --source stable \
+          --target devel \
           --pipeline-timeout 120

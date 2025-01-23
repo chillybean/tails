@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tails\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2024-05-06 23:46+0000\n"
+"POT-Creation-Date: 2025-01-17 00:01+0000\n"
 "PO-Revision-Date: 2024-10-21 14:03+0000\n"
 "Last-Translator: Benjamin Held <Benjamin.Held@protonmail.com>\n"
 "Language-Team: Tails translators <tails@boum.org>\n"
@@ -37,8 +37,8 @@ msgid ""
 "- Reading [[!wikipedia RSS]] and [[!wikipedia Atom_(Web_standard) "
 "desc=\"Atom\"]] feeds for news and blogs"
 msgstr ""
-"- Lesen von [[!wikipedia_de RSS_(Web-Feed) desc=\"RSS\"]] und [["
-"!wikipedia_de Atom_(Format) desc=\"Atom\"]] Feeds für Nachrichten und Blogs"
+"- Lesen von [[!wikipedia_de RSS_(Web-Feed) desc=\"RSS\"]] und [[!"
+"wikipedia_de Atom_(Format) desc=\"Atom\"]] Feeds für Nachrichten und Blogs"
 
 #. type: Plain text
 #, no-wrap
@@ -75,8 +75,7 @@ msgid ""
 msgstr ""
 "<p>Um Ihre \n"
 "E-Mails, Feeds und Einstellungen über verschiedene Arbeitssitzungen \n"
-"hinweg zu speichern, aktivieren Sie die [[Thunderbird-E-Mail-Client|"
-"persistent_storage/configure#thunderbird]]-Funktion \n"
+"hinweg zu speichern, aktivieren Sie die [[Thunderbird-E-Mail-Client|persistent_storage/configure#thunderbird]]-Funktion \n"
 "des persistenten Speichers.</p>\n"
 
 #. type: Plain text
@@ -92,6 +91,18 @@ msgstr ""
 "Für weitere Dokumentation besuchen Sie die offizielle Website des "
 "[*Thunderbird*-Supports](https://support.mozilla.org/en-US/products/"
 "thunderbird)."
+
+#. type: Plain text
+#, no-wrap
+msgid "<div class=\"bug\">\n"
+msgstr "<div class=\"bug\">\n"
+
+#. type: Plain text
+#, no-wrap
+msgid ""
+"<p>The <a href=\"https://support.mozilla.org/en-US/kb/instant-messaging-and-chat\">chat\n"
+"features of <i>Thunderbird</i></a> don't work in Tails.</p>\n"
+msgstr ""
 
 #. type: Plain text
 #, no-wrap
@@ -205,12 +216,9 @@ msgid ""
 "        and store them in the Persistent Storage.\n"
 msgstr ""
 "      - Mit <span class=\"guilabel\">POP</span> lädt\n"
-"        <span class=\"application\">Thunderbird</span> die E-Mails, die "
-"sich\n"
-"        im Posteingang des Servers befinden, herunter und löscht diese "
-"möglicherweise vom\n"
-"\tServer. POP ist besser geeignet, wenn Sie nur von Tails aus auf Ihre E-"
-"Mails zugreifen\n"
+"        <span class=\"application\">Thunderbird</span> die E-Mails, die sich\n"
+"        im Posteingang des Servers befinden, herunter und löscht diese möglicherweise vom\n"
+"\tServer. POP ist besser geeignet, wenn Sie nur von Tails aus auf Ihre E-Mails zugreifen\n"
 "        und diese im beständigen Speicherbereich speichern.\n"
 
 #. type: Plain text
@@ -252,6 +260,112 @@ msgid ""
 "    choose between POP and IMAP.</p>\n"
 "  </li>\n"
 "</ol>\n"
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid "<h1 id=\"news\">Reading RSS and Atom news feeds</h1>\n"
+msgstr ""
+
+#. type: Plain text
+msgid ""
+"On top of reading emails, you can read news feeds that use the RSS and Atom "
+"standards in *Thunderbird*."
+msgstr ""
+
+#. type: Plain text
+msgid "To create a feed account:"
+msgstr ""
+
+#. type: Bullet: '1. '
+#, fuzzy
+#| msgid ""
+#| "Choose **[[!img lib/open-menu.png alt=\"Menu\" class=\"symbolic\" "
+#| "link=\"no\"]]&nbsp;▸ Account Settings**."
+msgid ""
+"Choose **[[!img lib/open-menu.png alt=\"Menu\" class=symbolic link=no]]</"
+"span>&nbsp;▸ Account Settings** from the main window of *Thunderbird*."
+msgstr ""
+"Wählen Sie **[[!img lib/open-menu.png alt=\"Menü\" class=\"symbolic\" "
+"link=\"no\"]]&nbsp;▸ Kontoeinstellungen** aus."
+
+#. type: Bullet: '1. '
+msgid ""
+"In the **Account Settings** tab, choose **Account Actions&nbsp;▸ Add Feed "
+"Account**."
+msgstr ""
+
+#. type: Bullet: '1. '
+msgid "In the **Feed Account Wizard**, click **Next** and **Finish**."
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid "   A new feed account named **Blogs & News Feeds** appears in the sidebar.\n"
+msgstr ""
+
+#. type: Bullet: '1. '
+msgid "Click on the **Manage Subscriptions** button in the right pane."
+msgstr ""
+
+#. type: Bullet: '1. '
+msgid ""
+"In the **Feed Subscriptions** dialog, enter the URL of the news feed that "
+"you want to follow in the **Feed URL** field."
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid "   For example, to subscribe to the Tails news feed, enter the following URL.\n"
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid "       https://tails.net/news/index.en.rss\n"
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid ""
+"   Sites often have a feed icon <i class=\"fa fa-rss\"></i> that points to their\n"
+"   RSS or Atom feed.\n"
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid ""
+"   If a site has no feed icon, right-click on the home or news page of the site\n"
+"   and choose **View Page Source** in the shortcut menu. In the source of the\n"
+"   page look for a link of type *application/rss+xml* or\n"
+"   *application/atom+xml*. No all sites have a news feed.\n"
+msgstr ""
+
+#. type: Plain text
+#, fuzzy, no-wrap
+#| msgid "- Reading [[!wikipedia RSS]] and [[!wikipedia Atom_(Web_standard) desc=\"Atom\"]] feeds for news and blogs"
+msgid ""
+"   [[!wikipedia RSS]] and [[!wikipedia Atom (web standard) desc=\"Atom\"]] are\n"
+"   similar standards and their differences don't really matter to readers.\n"
+msgstr "- Lesen von [[!wikipedia_de RSS_(Web-Feed) desc=\"RSS\"]] und [[!wikipedia_de Atom_(Format) desc=\"Atom\"]] Feeds für Nachrichten und Blogs"
+
+#. type: Bullet: '1. '
+msgid "Click **Add**."
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid "   *Thunderbird* verifies and downloads the content of the feed.\n"
+msgstr ""
+
+#. type: Bullet: '1. '
+msgid ""
+"Close the **Feed Subscriptions** dialog and the **Account Settings** tab."
+msgstr ""
+
+#. type: Bullet: '1. '
+msgid ""
+"A new feed account named **Blogs & News Feeds** appears in the sidebar of "
+"the main window of *Thunderbird*."
 msgstr ""
 
 #. type: Plain text
@@ -333,13 +447,7 @@ msgid ""
 "package using the [[Additional Software|persistent_storage/additional_software]]\n"
 "feature. Replace <span class=\"command-placeholder\">lang</span> with the code\n"
 "for your language. For example, `vi` for Vietnamese.\n"
-msgstr ""
-"Um *Thunderbird* in einer anderen Sprache zu verwenden, können Sie das <code"
-">thunderbird-l10n-<span class=\"command-placeholder\">lang</span></code>-"
-"Paket mit der [[Zusätzliche Software|persistent_storage/"
-"additional_software]]-Funktion installieren. Ersetzen Sie <span class"
-"=\"command-placeholder\">lang</span> durch den Code für Ihre Sprache. Zum "
-"Beispiel `vi` für Vietnamesisch.\n"
+msgstr "Um *Thunderbird* in einer anderen Sprache zu verwenden, können Sie das <code>thunderbird-l10n-<span class=\"command-placeholder\">lang</span></code>-Paket mit der [[Zusätzliche Software|persistent_storage/additional_software]]-Funktion installieren. Ersetzen Sie <span class=\"command-placeholder\">lang</span> durch den Code für Ihre Sprache. Zum Beispiel `vi` für Vietnamesisch.\n"
 
 #. type: Plain text
 msgid ""
@@ -378,10 +486,8 @@ msgid ""
 "not by email.</p>\n"
 msgstr ""
 "<p><i>GnuPG</i> und <i>[[Kleopatra|encryption_and_privacy/kleopatra]]</i>\n"
-" ermöglichen Ihnen die Arbeit mit OpenPGP-verschlüsseltem Text und Dateien. "
-"Erwägen Sie die Verwendung von\n"
-"<i>Kleopatra</i> anstelle von <i>Thunderbird</i>, wenn Sie verschlüsselten "
-"Text und Dateien austauschen möchten,\n"
+" ermöglichen Ihnen die Arbeit mit OpenPGP-verschlüsseltem Text und Dateien. Erwägen Sie die Verwendung von\n"
+"<i>Kleopatra</i> anstelle von <i>Thunderbird</i>, wenn Sie verschlüsselten Text und Dateien austauschen möchten,\n"
 "jedoch nicht per E-Mail.</p>\n"
 
 #. type: Plain text
@@ -390,8 +496,7 @@ msgid ""
 "<p>The OpenPGP keys stored in <i>GnuPG</i> and <i>Kleopatra</i> are separate from the keys\n"
 "stored in <i>Thunderbird</i>.</p>\n"
 msgstr ""
-"<p>Die in <i>GnuPG</i> und <i>Kleopatra</i> gespeicherten OpenPGP-Schlüssel "
-"sind getrennt von den\n"
+"<p>Die in <i>GnuPG</i> und <i>Kleopatra</i> gespeicherten OpenPGP-Schlüssel sind getrennt von den\n"
 "in <i>Thunderbird</i> gespeicherten Schlüsseln.</p>\n"
 
 #. type: Plain text
@@ -403,10 +508,8 @@ msgid ""
 "instructions|openpgp_migration]].</p>\n"
 msgstr ""
 "<p>Seit Tails 4.13 (November 2020) ersetzt <em>Thunderbird</em> 78 die  \n"
-"<em>Enigmail</em>-Erweiterung durch eine integrierte Unterstützung für "
-"OpenPGP-Verschlüsselung. Wenn  \n"
-"Sie <em>Enigmail</em> vor Tails 4.13 verwendet haben, folgen Sie unseren "
-"[[Migrationsanweisungen|openpgp_migration]].</p>\n"
+"<em>Enigmail</em>-Erweiterung durch eine integrierte Unterstützung für OpenPGP-Verschlüsselung. Wenn  \n"
+"Sie <em>Enigmail</em> vor Tails 4.13 verwendet haben, folgen Sie unseren [[Migrationsanweisungen|openpgp_migration]].</p>\n"
 
 #. type: Plain text
 msgid ""
@@ -448,8 +551,8 @@ msgid ""
 "Choose **[[!img lib/open-menu.png alt=\"Menu\" class=\"symbolic\" "
 "link=\"no\"]]&nbsp;▸ Settings**."
 msgstr ""
-"Wählen Sie **[[!img lib/open-menu.png alt=\"Menü\" class=\"symbolic\" link="
-"\"no\"]]&nbsp;▸ Einstellungen** aus."
+"Wählen Sie **[[!img lib/open-menu.png alt=\"Menü\" class=\"symbolic\" "
+"link=\"no\"]]&nbsp;▸ Einstellungen** aus."
 
 #. type: Bullet: '1. '
 msgid "Choose **Privacy & Security**."
@@ -497,8 +600,7 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "<h3>Export your private key using <em>Kleopatra</em></h3>\n"
-msgstr ""
-"<h3>Exportieren Sie Ihren privaten Schlüssel mit <em>Kleopatra</em></h3>\n"
+msgstr "<h3>Exportieren Sie Ihren privaten Schlüssel mit <em>Kleopatra</em></h3>\n"
 
 #. type: Plain text
 msgid "From the desktop:"
@@ -529,8 +631,7 @@ msgstr "Schließe *Kleopatra*."
 #. type: Plain text
 #, no-wrap
 msgid "<h3>Import your private key in <em>Thunderbird</em></h3>\n"
-msgstr ""
-"<h3>Importieren Sie Ihren privaten Schlüssel in <em>Thunderbird</em></h3>\n"
+msgstr "<h3>Importieren Sie Ihren privaten Schlüssel in <em>Thunderbird</em></h3>\n"
 
 #. type: Plain text
 msgid "In *Thunderbird*:"
@@ -541,8 +642,8 @@ msgid ""
 "Choose **[[!img lib/open-menu.png alt=\"Menu\" class=\"symbolic\" "
 "link=\"no\"]]&nbsp;▸ Account Settings**."
 msgstr ""
-"Wählen Sie **[[!img lib/open-menu.png alt=\"Menü\" class=\"symbolic\" link="
-"\"no\"]]&nbsp;▸ Kontoeinstellungen** aus."
+"Wählen Sie **[[!img lib/open-menu.png alt=\"Menü\" class=\"symbolic\" "
+"link=\"no\"]]&nbsp;▸ Kontoeinstellungen** aus."
 
 #. type: Bullet: '1. '
 msgid ""
@@ -691,10 +792,6 @@ msgstr ""
 
 #~ msgid "Save your private key in your *Home* directory."
 #~ msgstr "Den eigenen privaten Schlüssel im *Persönlichen Ordner* speichern."
-
-#, no-wrap
-#~ msgid "<div class=\"bug\">\n"
-#~ msgstr "<div class=\"bug\">\n"
 
 #~ msgid ""
 #~ "In the **Your Acceptance** tab of the **Key Properties** dialog, select "

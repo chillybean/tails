@@ -35,6 +35,14 @@ to **tails.net** goes through the 3 relays **drk**, **kicka**, and
 
    If you configured a Tor bridge, your bridge is your entry guard.
 
+   The entry guard is the same for all circuits, as a way of [protecting
+   against *end-to-end correlation*
+   attacks](https://support.torproject.org/about/entry-guards/).
+
+   But, your entry guard changes every time you restart Tails.
+
+   To keep the same entry guard across different Tails sessions, use a bridge.
+
 2. The second relay, here **kicka**, is called the *middle relay*.
 
 3. The third relay, here **Quetzalcoatl**, is called the *exit node*.
