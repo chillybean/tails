@@ -287,7 +287,7 @@ method refresh_signing_key () {
     my ($error_msg, $new_key_content);
     $error_msg =
         __(
-            q{<b>An error occured while updating the signing key.</b>\n\n}.
+            q{<b>An error occurred while updating the signing key.</b>\n\n}.
             q{<b>This prevents determining whether an upgrade is available from our website.</b>\n\n}.
             q{Check your network connection, and restart Tails to try upgrading again.\n\n}.
             q{If the problem persists, try doing a manual upgrade instead.},
@@ -840,7 +840,7 @@ method install_iuk (HashRef $upgrade_path, AbsDir $target_files_tempdir) {
 
     $success or $self->fatal(
         $self->encoding->decode(__(
-            q{<b>An error occured while installing the upgrade.</b>\n\n}.
+            q{<b>An error occurred while installing the upgrade.</b>\n\n}.
             q{Your Tails device needs to be repaired and might be unable to restart.\n\n}.
             q{Please follow the instructions at }.
             q{file:///usr/share/doc/tails/website/doc/upgrade/error/install.en.html}
