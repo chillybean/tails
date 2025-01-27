@@ -13,11 +13,13 @@ require_version("Gtk", "3.0")
 from gi.repository import GLib, Gio, Gtk, GdkPixbuf  # NOQA: E402
 
 
+translation = gettext.translation("tails", "/usr/share/locale", fallback=True)
+_ = translation.gettext
+
 class AboutTails(Gtk.AboutDialog):
     """A simple class showing the dialog"""
 
     def __init__(self):
-        gettext.install("tails")
         Gtk.AboutDialog.__init__(self)
 
         self.set_program_name(_("Tails"))
