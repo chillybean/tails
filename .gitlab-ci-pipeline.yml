@@ -366,3 +366,15 @@ https-get-expired-sid:
     - *install-https-get-expired-build-deps
     - *build-https-get-expired
     - *test-https-get-expired
+
+Ensure MR from stable into devel:
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "stable"'
+  image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/python3-gitlab:bookworm
+  script:
+    - |
+      ./bin/ensure-merge-request \
+          --project tails/tails \
+          --source stable \
+          --target devel \
+          --pipeline-timeout 120
