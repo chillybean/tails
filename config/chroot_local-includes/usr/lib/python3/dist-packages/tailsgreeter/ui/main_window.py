@@ -778,14 +778,15 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
                 logging.error(e)
                 glib_idle_add_once(self.on_tps_activation_failed)
                 return
-            if self.tps_upgrade_failed:
-                glib_idle_add_once(self.on_tps_upgrade_failed)
-                return
 
             if not os.listdir(persistent_settings_dir):
                 self.apply_settings()
             else:
                 self.load_settings()
+
+            if self.tps_upgrade_failed:
+                glib_idle_add_once(self.on_tps_upgrade_failed)
+                return
 
             glib_idle_add_once(on_tps_activation_success)
 
