@@ -194,14 +194,7 @@ method fatal_run_cmd (Str :$error_msg, ArrayRef :$cmd, Maybe[Str] :$as = undef, 
     $success = 1 if IPC::Run::run \@cmd, '>', \$stdout, '2>', \$stderr;
     $exit_code = $?;
     $success or $self->fatal(
-        errf("<b>%{error_msg}s</b>\n\n%{details}s",
-             {
-                 error_msg => $error_msg,
-                 details   => __(
-                     q{For debugging information, execute the following command: sudo tails-debugging-info}
-                 ),
-             },
-         ),
+        "<b>$error_msg</b>",
         title          => $error_title,
         debugging_info => $self->encoding->decode(errf(
             "exit code: %{exit_code}i\n\n".
@@ -294,10 +287,10 @@ method refresh_signing_key () {
     my ($error_msg, $new_key_content);
     $error_msg =
         __(
-            q{<b>An error occured while updating the signing key.</b>\n\n}.
+            q{<b>An error occurred while updating the signing key.</b>\n\n}.
             q{<b>This prevents determining whether an upgrade is available from our website.</b>\n\n}.
-            q{Check your network connection, and restart Tails to try upgrading again.\n\n}.
-            q{If the problem persists, go to file:///usr/share/doc/tails/website/doc/upgrade/error/check.en.html},
+            q{Check your network connection and restart Tails.\n\n}.
+            q{If the problem persists, try doing a manual upgrade.},
         );
     try {
         $new_key_content = Tails::Download::HTTPS->new(
@@ -344,8 +337,8 @@ method get_upgrade_description () {
         error_title => __(q{Error while checking for upgrades}),
         error_msg   => __(
             "<b>Could not determine whether an upgrade is available from our website.</b>\n\n".
-            "Check your network connection, and restart Tails to try upgrading again.\n\n".
-            "If the problem persists, go to file:///usr/share/doc/tails/website/doc/upgrade/error/check.en.html",
+            "Check your network connection and restart Tails.\n\n".
+            "If the problem persists, try doing a manual upgrade.",
     ));
 
     return ($stdout, $stderr, $success, $exit_code);
@@ -702,19 +695,9 @@ method get_target_files (HashRef $upgrade_path, AbsDir $destdir) {
             };
         }
         $success and defined $exit_code and $exit_code == 0 or $self->fatal(
-            errf("<b>%{error_msg}s</b>\n\n%{details}s",
-                 {
-                     error_msg => __(
-                         q{<b>The upgrade could not be downloaded.</b>\n\n}.
-                         q{Check your network connection, and restart }.
-                         q{Tails to try upgrading again.\n\n}.
-                         q{If the problem persists, go to }.
-                         q{file:///usr/share/doc/tails/website/doc/upgrade/error/download.en.html}
-                     ),
-                     details   => __(
-                         q{For debugging information, execute the following command: sudo tails-debugging-info}
-                     ),
-                 }
+            __(
+                q{<b>The upgrade could not be downloaded.</b>\n\n}.
+                q{Check your network connection, and restart Tails to try upgrading again.}
             ),
             title => __(q{Error while downloading the upgrade}),
             debugging_info => $self->encoding->decode(errf(
@@ -856,18 +839,11 @@ method install_iuk (HashRef $upgrade_path, AbsDir $target_files_tempdir) {
     $zenity_h->kill_kill unless $self->batch;
 
     $success or $self->fatal(
-        $self->encoding->decode(errf("<b>%{error_msg}s</b>\n\n%{details}s",
-             {
-                 error_msg => __(
-                     q{<b>An error occured while installing the upgrade.</b>\n\n}.
-                     q{Your Tails device needs to be repaired and might be unable to restart.\n\n}.
-                     q{Please follow the instructions at }.
-                     q{file:///usr/share/doc/tails/website/doc/upgrade/error/install.en.html}
-                 ),
-                 details   => __(
-                     q{For debugging information, execute the following command: sudo tails-debugging-info}
-                 ),
-             },
+        $self->encoding->decode(__(
+            q{<b>An error occurred while installing the upgrade.</b>\n\n}.
+            q{Your Tails device needs to be repaired and might be unable to restart.\n\n}.
+            q{Please follow the instructions at }.
+            q{file:///usr/share/doc/tails/website/doc/upgrade/error/install.en.html}
         )),
         title => __(q{Error while installing the upgrade}),
         debugging_info => $self->encoding->decode(errf(

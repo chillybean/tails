@@ -291,7 +291,7 @@ sub adjustDate {
             try {
                 $output = capturex($datecommand, $dateparam, '@' . $newtime);
             } catch {
-                error "An error occured setting the time\n$output";
+                error "An error occurred setting the time\n$output";
             };
             $> = getpwnam($runas) if $runas;
         }
