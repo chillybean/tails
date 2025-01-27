@@ -7,13 +7,16 @@ running Tails installation.
 import gettext
 import subprocess
 from gi import require_version
-require_version('Gtk', '3.0')
+
+require_version("Gtk", "3.0")
 from gi.repository import GLib, Gio, Gtk, GdkPixbuf
 
 from tailslib.release import VERSION_DATA
 
+
 class AboutTails(Gtk.AboutDialog):
     """A simple class showing the dialog"""
+
     def __init__(self):
         gettext.install("tails")
         Gtk.AboutDialog.__init__(self)
@@ -32,8 +35,11 @@ class AboutTails(Gtk.AboutDialog):
         self.spinner = Gtk.Spinner()
         self.vbox.pack_start(self.spinner, True, True, 0)
         try:
-            self.set_logo(GdkPixbuf.Pixbuf.new_from_file_at_size(
-                '/usr/share/tails/tails-logo-flat-inverted.svg', 400, 200))
+            self.set_logo(
+                GdkPixbuf.Pixbuf.new_from_file_at_size(
+                    "/usr/share/tails/tails-logo-flat-inverted.svg", 400, 200
+                )
+            )
         except GLib.GError:
             pass
 
@@ -74,12 +80,15 @@ class AboutTails(Gtk.AboutDialog):
         task = Gio.Task.new(self, None, self.check_for_upgrade_finished, None)
         task.set_return_on_cancel(False)
         task.run_in_thread(self.check_for_upgrade)
+
     def check_for_upgrade_finished(self, source_object, result, user_data):
         self.spinner.stop()
         self.button.set_sensitive(True)
 
     def check_for_upgrade(self, task, source_object, task_data, cancellable):
-       subprocess.run(["tails-upgrade-frontend-wrapper", "--no-wait", "--report-no-upgrade"])
+        subprocess.run(
+            ["tails-upgrade-frontend-wrapper", "--no-wait", "--report-no-upgrade"]
+        )
 
 
 AboutTails()
