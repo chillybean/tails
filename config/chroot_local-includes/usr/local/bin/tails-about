@@ -86,7 +86,12 @@ class AboutTails(Gtk.AboutDialog):
 
     def check_for_upgrade(self, task, source_object, task_data, cancellable):
         subprocess.run(
-            ["tails-upgrade-frontend-wrapper", "--no-wait", "--report-no-upgrade"]
+            [
+                "/usr/local/bin/tails-upgrade-frontend-wrapper",
+                "--no-wait",
+                "--report-no-upgrade",
+            ],
+            check=False,
         )
 
 
