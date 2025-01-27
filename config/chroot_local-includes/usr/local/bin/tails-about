@@ -51,7 +51,7 @@ class AboutTails(Gtk.AboutDialog):
         if VERSION_DATA["TAILS_DISTRIBUTION"] == "UNRELEASED":
             version += " " + _("UNRELEASED")
             if "TAILS_GIT_BASE_BRANCH" in VERSION_DATA:
-                built_name += "+%s@%s" % (
+                built_name += "+{}@{}".format(
                     VERSION_DATA["TAILS_GIT_BASE_BRANCH"],
                     VERSION_DATA["TAILS_GIT_BASE_COMMIT"],
                 )
