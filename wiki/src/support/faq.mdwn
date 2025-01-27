@@ -411,6 +411,43 @@ Here is some of the software we are often asked to include in Tails:
 
 - **rar/unrar**: not [[Free Software|doc/about/license]]
 
+<h2 id="messaging">Can I use messaging apps like WhatsApp, Telegram, or Signal in Tails?</h2>
+
+Adding [*Signal*](https://signal.org/) is very high in our priorities but
+complicated because *Signal* is not available in Debian by default and updates
+very often.
+
+Because no single app will ever meet the needs of all our users, we might also
+make it easier to install other messaging apps. ([[!tails_ticket 14567]])
+
+In Tails, you can already chat over XMPP using
+[[Pidgin|doc/anonymous_internet/pidgin]] and create anonymous chat rooms using
+[[OnionShare|doc/anonymous_internet/onionshare]].
+
+Current alternatives:
+
+- **Signal**
+
+  You can follow this tutorial to [install *Signal Desktop* on
+  Tails](https://0xacab.org/about.privacy/messengers-on-tails-os/-/wikis/Signal/Install-Signal-desktop)
+  and link to an existing *Signal* account.
+
+  To create a *Signal* account for a new telephone number from Tails, follow
+  this tutorial on [registering an account using
+  `signal-cli`](https://0xacab.org/about.privacy/messengers-on-tails-os/-/wikis/Signal/Registration-and-Provisioning-via-signal-cli).
+
+- **WhatsApp**
+
+  *WhatsApp Web* works in *Tor Browser* as of January 2025. *WhatsApp Web* has
+  been unreliable in *Tor Browser* in the past and might stop working in the
+  future.
+
+- **Telegram Web**
+
+  *Telegram Web* does not work in *Tor Browser* as of January 2025. *Telegram
+  Web* has been working in *Tor Browser* in the past and might work again in
+  the future.
+
 <h2 id="voip">Can I do voice or video calls from Tails?</h2>
 
 Not yet.
