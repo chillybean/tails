@@ -10,27 +10,11 @@ The upgrade could not be installed.
 
 This is probably caused by a software error in Tails Upgrader.
 
-Reporting us the problem
-------------------------
+If you set up an [[administration password|first_steps/welcome_screen/administration_password]] when starting Tails and
+are comfortable with the command line, please [[report the
+problem to us|install#report]] before repairing your Tails USB stick.
 
-If you are comfortable with the command line, please [[report us the
-problem|support/talk]].
-
-Include in your report:
-
-- The debugging information that appears in the error message
-
-- The output of the five following commands, run in a
-  [[*Terminal*|first_steps/desktop#terminal]]:
-
-      ls -l /lib/live/mount/medium/live
-      cat /lib/live/mount/medium/live/Tails.module
-      mount
-      df -h
-      free -m
-
-Repairing your Tails USB stick
-------------------------------
+<h2 id="repair">Repairing your Tails USB stick</h2>
 
 To repair your Tails USB stick, please try doing a [[manual upgrade|upgrade#manual]].
 
@@ -40,5 +24,14 @@ To repair your Tails USB stick, please try doing a [[manual upgrade|upgrade#manu
 
 </div>
 
-If the manual upgrade fails as well, please [[report another
-error|first_steps/whisperback]].
+<h2 id="report">Reporting us the problem</h2>
+
+1. Open a *Terminal*.
+
+1. Execute the following command:
+
+   <p class="command">sudo tails-debugging-info > /home/amnesia/tails-debugging-info</p>
+
+1. Copy the file *tails-debugging-info* from your *Home* directory to an external USB stick.
+
+1. Send us the file *tails-debugging-info* by [[email|support/talk]].

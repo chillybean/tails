@@ -245,7 +245,7 @@ class WhisperBackUI:
                 finished_callback=cb_finished_progress,
             )
         except whisperBack.exceptions.EncryptionException as e:
-            self.show_exception_dialog(_("An error occured during encryption."), e)
+            self.show_exception_dialog(_("An error occurred during encryption."), e)
             self.progression_dialog.hide()
 
         return False
