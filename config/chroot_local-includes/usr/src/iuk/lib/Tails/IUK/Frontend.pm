@@ -408,12 +408,12 @@ method run () {
         unless ($upgrade_description->contains_upgrade_path) {
           $self->info(__("The system is up-to-date"));
           $self->dialog(
-                        __(
-                           "You are currently running the latest version. There is no upgrade available.\n"
-                          ),
-                        type     => 'info',
-                        title    => __(q{Tails is up to date}),
-                       ) if $self->report_no_upgrade ;
+              __(
+                  "You are currently running the latest version. There is no upgrade available.\n"
+              ),
+              type     => 'info',
+              title    => __(q{Tails is up to date}),
+          ) if $self->report_no_upgrade ;
           exit(0);
         }
 
