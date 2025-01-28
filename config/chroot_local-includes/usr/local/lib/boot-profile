@@ -1,12 +1,21 @@
 #!/usr/bin/python3 -I
 
-from pyinotify import WatchManager, Notifier, \
-    ThreadedNotifier, ProcessEvent, IN_OPEN, IN_ACCESS, IN_CREATE, IN_MOVED_TO
+import atexit
+import os.path
 import re
 import sys
-import atexit
-from signal import signal, SIGTERM
-import os.path
+from signal import SIGTERM, signal
+
+from pyinotify import (
+    IN_ACCESS,
+    IN_CREATE,
+    IN_MOVED_TO,
+    IN_OPEN,
+    Notifier,
+    ProcessEvent,
+    ThreadedNotifier,
+    WatchManager,
+)
 
 # Ignore files matching this regular expression
 IGNORE_RE = "^/(tmp|sys|proc|dev|live/cow)"
