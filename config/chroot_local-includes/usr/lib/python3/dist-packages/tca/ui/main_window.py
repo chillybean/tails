@@ -457,14 +457,17 @@ class StepConnectProgressMixin:
         self.connection_progress.set_fraction(0.0, allow_going_back=True)
         self.show_connect_pbar()
         if not self.state["progress"]["success"]:
-            self.app.portal.call_async("lock-bootstrap", None)
-            if not self.state["hide"]["hide"]:
-                self.get_object("label_status").set_text(
-                    _("Synchronizing the system's clock…")
-                )
-                self.app.set_time_from_network(self.cb_system_time_set_from_network)
-            else:
-                self.spawn_tor_connect()
+
+            def finish_before_show_progress(gjsonrpcclient, res, error, errordata):
+                if not self.state["hide"]["hide"]:
+                    self.get_object("label_status").set_text(
+                        _("Synchronizing the system's clock…")
+                    )
+                    self.app.set_time_from_network(self.cb_system_time_set_from_network)
+                else:
+                    self.spawn_tor_connect()
+
+            self.app.portal.call_async("lock-bootstrap", finish_before_show_progress)
         else:
             self._step_progress_success_screen()
 
