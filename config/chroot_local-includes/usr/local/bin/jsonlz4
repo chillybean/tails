@@ -15,13 +15,13 @@ Examples:
     {sys.argv[0]} -d < infile.json.lz4 > outfile.json
     {sys.argv[0]} -c < infile.json > outfile.json.lz4"""
 
-stdin = os.fdopen(sys.stdin.fileno(), 'rb')
-stdout = os.fdopen(sys.stdout.fileno(), 'wb')
+stdin = os.fdopen(sys.stdin.fileno(), "rb")
+stdout = os.fdopen(sys.stdout.fileno(), "wb")
 
-if sys.argv[1:] == ['-c']:
-    stdout.write(b'mozLz40\0' + lz4.block.compress(stdin.read()))
-elif sys.argv[1:] == ['-d']:
-    assert stdin.read(8) == b'mozLz40\0'
+if sys.argv[1:] == ["-c"]:
+    stdout.write(b"mozLz40\0" + lz4.block.compress(stdin.read()))
+elif sys.argv[1:] == ["-d"]:
+    assert stdin.read(8) == b"mozLz40\0"
     stdout.write(lz4.block.decompress(stdin.read()))
 else:
     print(usage)

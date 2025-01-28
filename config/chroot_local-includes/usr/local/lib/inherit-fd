@@ -17,21 +17,38 @@ def main():
     # Parse arguments
     parser = argparse.ArgumentParser()
     kernel_options = Path("/proc/cmdline").read_text().split()
-    parser.add_argument("--debug", action="store_true",
-                        default=os.getenv("DEBUG") or "debug" in kernel_options,
-                        help="Enable debug logging")
-    parser.add_argument("--socket", action="append", default=[], metavar="PATH",
-                        help="Open the specified socket")
-    parser.add_argument("--dbus-system-bus", action="store_true",
-                        help="Open the D-Bus system bus socket")
-    parser.add_argument("--file", action="append", default=[], metavar="PATH",
-                        help="Open the specified file in read-write mode")
+    parser.add_argument(
+        "--debug",
+        action="store_true",
+        default=os.getenv("DEBUG") or "debug" in kernel_options,
+        help="Enable debug logging",
+    )
+    parser.add_argument(
+        "--socket",
+        action="append",
+        default=[],
+        metavar="PATH",
+        help="Open the specified socket",
+    )
+    parser.add_argument(
+        "--dbus-system-bus",
+        action="store_true",
+        help="Open the D-Bus system bus socket",
+    )
+    parser.add_argument(
+        "--file",
+        action="append",
+        default=[],
+        metavar="PATH",
+        help="Open the specified file in read-write mode",
+    )
     parser.add_argument("CMD", help="Command to run")
-    parser.add_argument("ARGS", nargs=argparse.REMAINDER,
-                        help="Arguments to pass to the command")
+    parser.add_argument(
+        "ARGS", nargs=argparse.REMAINDER, help="Arguments to pass to the command"
+    )
     args = parser.parse_args()
 
-    if args.ARGS and args.ARGS[0] == '--':
+    if args.ARGS and args.ARGS[0] == "--":
         args.ARGS = args.ARGS[1:]
 
     # Set up logging
@@ -63,5 +80,5 @@ def main():
     os.execvp(args.CMD, [args.CMD, *args.ARGS])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
