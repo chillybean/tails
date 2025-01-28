@@ -40,7 +40,7 @@ def main():
 
     if len(errors):
         print("Found Python executables without -I in their shebang:\n")
-        print("\n".join([f"  - {error}" for error in errors]))
+        print("\n".join(f"  - {error}" for error in errors))
         sys.exit(1)
 
 
