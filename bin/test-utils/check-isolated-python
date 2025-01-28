@@ -38,7 +38,7 @@ def main():
         if not shebang_isolates(file):
             errors.append(str(file))
 
-    if len(errors):
+    if errors:
         print("Found Python executables without -I in their shebang:\n")
         print("\n".join(f"  - {error}" for error in errors))
         sys.exit(1)
