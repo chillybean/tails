@@ -551,11 +551,14 @@ When /^I (can|cannot) save the current page as "([^"]+[.]html)" to the (.*) (dir
   if is_gnome_bookmark
     output_dir_bookmark = file_dialog.child(description: output_dir,
                                             roleName:    'list item')
-    output_dir_bookmark.grabFocus
     # We have had problems with the Space press not causing the
     # bookmark to be selected despite it being focused (tails#20356,
     # tails#20159)
-    try_for(10, delay: 2) do
+    try_for(20) do
+      output_dir_bookmark.grabFocus
+      # We have had problems with Tor Browser crashing if Space is
+      # pressed to quickly after .grabFocus (tails#20692)
+      sleep 3
       @screen.press('Space')
       output_dir_bookmark.selected?
     end
