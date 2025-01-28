@@ -1,5 +1,3 @@
-#!/usr/bin/python3 -I
-
 # This file is part of Tails.
 
 import subprocess
