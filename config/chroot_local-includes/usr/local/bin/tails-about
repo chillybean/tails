@@ -40,8 +40,8 @@ class AboutTails(Gtk.AboutDialog):
         try:
             self.set_logo(
                 GdkPixbuf.Pixbuf.new_from_file_at_size(
-                    "/usr/share/tails/tails-logo-flat-inverted.svg", 400, 200
-                )
+                    "/usr/share/tails/tails-logo-flat-inverted.svg", 400, 200,
+                ),
             )
         except GLib.GError:
             pass
