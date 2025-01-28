@@ -148,6 +148,11 @@ ruff-format-changed-files:
     - git fetch origin "${CI_MERGE_REQUEST_TARGET_BRANCH_NAME:?}"
     - ./bin/test-utils/ruff "origin/${CI_MERGE_REQUEST_TARGET_BRANCH_NAME:?}" format --check
 
+check-isolated-python:
+  script:
+    - apt-get -qy install git python3-sh
+    - ./bin/test-utils/check-isolated-python
+
 check-website-core-pages:
   script:
     - apt-get -qy install git
