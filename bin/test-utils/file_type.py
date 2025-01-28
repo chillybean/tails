@@ -1,4 +1,3 @@
-from typing import Optional
 from pathlib import Path
 import os
 import re
@@ -10,7 +9,7 @@ class Language:
     SHEBANGS = ()
     SHEBANGS_ONLY_EXECUTABLE = True
 
-    def extract_shebang(self, file: Path) -> Optional[str]:
+    def extract_shebang(self, file: Path) -> str | None:
         with file.open("rb") as buf:
             start = buf.read(2)
             if start != b"#!":
