@@ -459,6 +459,10 @@ class StepConnectProgressMixin:
         if not self.state["progress"]["success"]:
 
             def finish_before_show_progress(gjsonrpcclient, res, error, errordata):
+                if not res or res.get("returncode", -1) != 0:
+                    self.log.error(
+                        f"error when calling 'lock-bootstrap' via portal: {error}"
+                    )
                 if not self.state["hide"]["hide"]:
                     self.get_object("label_status").set_text(
                         _("Synchronizing the system's clock…")
