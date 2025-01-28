@@ -1,10 +1,6 @@
-#!/usr/bin/python3 -I
-
-# This file is part of Tails.
-
 import subprocess
 
 
 def is_password_set():
-    output = subprocess.check_output(["passwd", "--status"])
+    output = subprocess.check_output(["/bin/passwd", "--status"])
     return output.split()[1] == b"P"
