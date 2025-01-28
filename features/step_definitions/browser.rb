@@ -540,6 +540,33 @@ When /^I can print the current page as "([^"]+[.]pdf)" to the (default downloads
   end
 end
 
+def activate_places_sidebar_item(parent, path)
+  list_item = parent.child(description: path, roleName: 'list item')
+  # We have had problems with the Space press not causing the
+  # bookmark to be selected despite it being focused (tails#20356,
+  # tails#20159)
+  try_for(20) do
+    # Unlike the native file picker, the XDG Desktop Portal file
+    # picker use here has this issue: grabbing focus of the list item
+    # and then pressing Space to activate it does nothing, which for
+    # the native file picker selects the list item in its list box and
+    # changes the directory. So we also manually making the list item
+    # selected and then it works as expected.
+    # Furthermore, our Dogtail::Node#select is implemented with
+    # .doActionNamed('select'), but for some reason that action is not
+    # available for this list item like it usually is. So we instead
+    # call .select() which Dogtail implements differently and is
+    # available for this list item node.
+    list_item.call_tree_api_method('select')
+    list_item.grabFocus
+    @screen.press('Space')
+    # If we successfully selected the bookmark then the path will be
+    # updated accordingly, and each path component is a 'toggle
+    # button' labelled with the name of the folder.
+    parent.child?(path.split('/').last, roleName: 'toggle button', retry: false)
+  end
+end
+
 When /^I (can|cannot) save the current page as "([^"]+[.]html)" to the (.*) (directory|GNOME bookmark)$/ do |should_work, output_file, output_dir, bookmark|
   should_work = should_work == 'can'
   is_gnome_bookmark = bookmark == 'GNOME bookmark'
@@ -556,19 +583,7 @@ When /^I (can|cannot) save the current page as "([^"]+[.]html)" to the (.*) (dir
                end
 
   if is_gnome_bookmark
-    output_dir_bookmark = file_dialog.child(description: output_dir,
-                                            roleName:    'list item')
-    # We have had problems with the Space press not causing the
-    # bookmark to be selected despite it being focused (tails#20356,
-    # tails#20159)
-    try_for(20) do
-      output_dir_bookmark.grabFocus
-      # We have had problems with Tor Browser crashing if Space is
-      # pressed to quickly after .grabFocus (tails#20692)
-      sleep 3
-      @screen.press('Space')
-      output_dir_bookmark.selected?
-    end
+    activate_places_sidebar_item(file_dialog, output_dir)
   else
     # Enter the output directory in the text entry
     text_entry = file_dialog.child('Name', roleName: 'label').labelee
