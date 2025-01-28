@@ -6,12 +6,13 @@ running Tails installation.
 
 import gettext
 import subprocess
+
 from gi import require_version
-from tailslib.release import VERSION_DATA
 
 require_version("Gtk", "3.0")
-from gi.repository import GLib, Gio, Gtk, GdkPixbuf  # NOQA: E402
+from gi.repository import GdkPixbuf, Gio, GLib, Gtk  # NOQA: E402
 
+from tailslib.release import VERSION_DATA  # NOQA: E402
 
 translation = gettext.translation("tails", "/usr/share/locale", fallback=True)
 _ = translation.gettext
