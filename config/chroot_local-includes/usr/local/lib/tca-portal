@@ -25,12 +25,13 @@ from subprocess import PIPE, Popen
 from typing import ClassVar
 
 import systemd.daemon
-from tailslib import CLEARNET_USERNAME, PERSISTENT_STORAGE_USERNAME
-from tailslib.logutils import configure_logging
-from tca.config import CONFIG_FILE as TCA_CONFIG_FILE
 from tinyrpc.exc import InvalidRequestError
 from tinyrpc.protocols import RPCRequest, RPCResponse
 from tinyrpc.protocols.jsonrpc import JSONRPCParseError, JSONRPCProtocol
+
+from tailslib import CLEARNET_USERNAME, PERSISTENT_STORAGE_USERNAME
+from tailslib.logutils import configure_logging
+from tca.config import CONFIG_FILE as TCA_CONFIG_FILE
 
 TPS_TOR_CONFIG_FEATURE_NAME = "TorConfiguration"
 

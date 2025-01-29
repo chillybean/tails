@@ -4,14 +4,14 @@ import argparse
 import logging
 import os
 from pathlib import Path
-from gi.repository import GLib, Gio
+from typing import Optional
+
+from gi.repository import Gio, GLib
 
 import tps
 import tps.logging
 from tps import DBUS_SERVICE_NAME
 from tps.service import Service
-
-from typing import Optional
 
 logger = tps.logging.get_logger(__name__)
 
