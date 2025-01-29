@@ -5,17 +5,23 @@ running Tails installation.
 """
 
 import gettext
+import subprocess
 
 from gi import require_version
-require_version('Gtk', '3.0')
-from gi.repository import GLib, Gtk, GdkPixbuf
 
-from tailslib.release import VERSION_DATA
+require_version("Gtk", "3.0")
+from gi.repository import GdkPixbuf, Gio, GLib, Gtk  # NOQA: E402
+
+from tailslib.release import VERSION_DATA  # NOQA: E402
+
+translation = gettext.translation("tails", "/usr/share/locale", fallback=True)
+_ = translation.gettext
+
 
 class AboutTails(Gtk.AboutDialog):
     """A simple class showing the dialog"""
+
     def __init__(self):
-        gettext.install("tails")
         Gtk.AboutDialog.__init__(self)
 
         self.set_program_name(_("Tails"))
@@ -25,9 +31,20 @@ class AboutTails(Gtk.AboutDialog):
         headerbar.set_show_close_button(True)
         self.set_titlebar(headerbar)
 
+        self.button = Gtk.Button.new_with_label(_("Check for Upgrades"))
+        self.button.connect("clicked", self.on_check_for_upgrade_clicked)
+        self.vbox.pack_start(self.button, True, True, 0)
+
+        self.spinner = Gtk.Spinner()
+        self.vbox.pack_start(self.spinner, True, True, 0)
         try:
-            self.set_logo(GdkPixbuf.Pixbuf.new_from_file_at_size(
-                '/usr/share/tails/tails-logo-flat-inverted.svg', 400, 200))
+            self.set_logo(
+                GdkPixbuf.Pixbuf.new_from_file_at_size(
+                    "/usr/share/tails/tails-logo-flat-inverted.svg",
+                    400,
+                    200,
+                ),
+            )
         except GLib.GError:
             pass
 
@@ -39,7 +56,7 @@ class AboutTails(Gtk.AboutDialog):
         if VERSION_DATA["TAILS_DISTRIBUTION"] == "UNRELEASED":
             version += " " + _("UNRELEASED")
             if "TAILS_GIT_BASE_BRANCH" in VERSION_DATA:
-                built_name += "+%s@%s" % (
+                built_name += "+{}@{}".format(
                     VERSION_DATA["TAILS_GIT_BASE_BRANCH"],
                     VERSION_DATA["TAILS_GIT_BASE_COMMIT"],
                 )
@@ -61,6 +78,27 @@ class AboutTails(Gtk.AboutDialog):
         self.connect("response", Gtk.main_quit)
         self.show_all()
         Gtk.main()
+
+    def on_check_for_upgrade_clicked(self, button):
+        self.spinner.start()
+        self.button.set_sensitive(False)
+        task = Gio.Task.new(self, None, self.check_for_upgrade_finished, None)
+        task.set_return_on_cancel(False)
+        task.run_in_thread(self.check_for_upgrade)
+
+    def check_for_upgrade_finished(self, source_object, result, user_data):
+        self.spinner.stop()
+        self.button.set_sensitive(True)
+
+    def check_for_upgrade(self, task, source_object, task_data, cancellable):
+        subprocess.run(
+            [
+                "/usr/local/bin/tails-upgrade-frontend-wrapper",
+                "--no-wait",
+                "--report-no-upgrade",
+            ],
+            check=False,
+        )
 
 
 AboutTails()

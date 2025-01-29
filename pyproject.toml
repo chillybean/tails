@@ -130,3 +130,15 @@ extend-ignore = [
     # Accept commonly used "TODO:Bookworm"
     "TD007",
 ]
+
+[tool.ruff.isort]
+known-first-party = [
+    "tailsgreeter",
+    "tailslib",
+    "tca",
+    "tps",
+    "tps_frontend",
+    "tails_installer",
+    "unlock_veracrypt_volumes",
+    "whisperBack",
+]
