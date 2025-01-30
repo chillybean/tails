@@ -6,8 +6,7 @@ the current Tor circuits and connections.
 To open **Onion Circuits**, click on the
 Tor status icon ([[!img lib/symbolic/tor-disconnected.png alt="Tor status menu" link="no" class="symbolic"]]
 or [[!img lib/symbolic/tor-connected.png alt="Tor status menu" link="no"
-class="symbolic"]]) in the top-right corner and choose **Open Onion
-Circuits**.
+class="symbolic"]]) in the top-right corner and choose **View Tor Circuits**.
 
 [[!toc]]
 
@@ -17,9 +16,9 @@ If Tails is already [[connected to the Tor
 network|doc/anonymous_internet/tor]], a list of Tor circuits appears in the
 left pane of *Onion Circuits*.
 
-<!-- Note for translators: the entry guard in use when you take the screenshot
+<!-- Note for translators: the entry guards in use when you take the screenshot
 onion-circuits.png is in a position to identify you. You might prefer to leave it
-untranslated.-->
+untranslated. -->
 
 When you connect to a destination server, for example, when visiting a website,
 the connection appears in the list below the circuit it uses.
@@ -34,15 +33,20 @@ to **tails.net** goes through the 3 relays **drk**, **kicka**, and
 
 1. The first relay, here **drk**, is called the *entry guard*.
 
-   If you configured a Tor bridge, your bridge is your entry guard.
+   If you use a Tor bridge:
 
-   The entry guard is the same for all circuits, as a way of [protecting
-   against *end-to-end correlation*
-   attacks](https://support.torproject.org/about/entry-guards/).
+   - Tor uses the bridge as your entry guard.
 
-   But, your entry guard changes every time you restart Tails.
+   If you don't use a Tor bridge:
 
-   To keep the same entry guard across different Tails sessions, use a bridge.
+   - Tor uses only 2 different relays as your entry guards, as a way of
+     [protecting against *end-to-end correlation*
+     attacks](https://support.torproject.org/about/entry-guards/).
+
+   - Your entry guards change every time you restart Tails.
+
+     To keep the same entry guard across different Tails sessions, use a
+     Tor bridge instead.
 
 2. The second relay, here **kicka**, is called the *middle relay*.
 
@@ -69,3 +73,9 @@ circuit or troubleshoot issues on the Tor network. To do so:
    circuit to replace the circuit that you closed.
 
    For example, if you download the same file again, Tor uses a new circuit.
+
+<h1 id="restart">Closing and replacing all Tor circuits</h1>
+
+Tails restarts Tor and all circuits are replaced if you disconnect and
+reconnect from your local network, for example, by turning the Wi-Fi off and on
+again.
