@@ -1,3 +1,5 @@
+require 'English'
+
 class FindFailed < StandardError
 end
 
@@ -250,10 +252,8 @@ class Screen
   def ocr(language: 'eng')
     screenshot = "#{$config['TMPDIR']}/screenshot.png"
     $vm.display.screenshot(screenshot)
-    stdout, stderr, p = Open3.capture3(
-      Hash[ENV], 'tesseract', '-l', language, screenshot, '-'
-    )
-    raise OcrError, stderr if p.exitstatus != 0
+    stdout = `convert #{screenshot} -resize 2048x -brightness-contrast 0x30% -colorspace Gray - | tesseract -l #{language} - -`
+    raise OcrError unless $CHILD_STATUS.success?
 
     stdout
   end
