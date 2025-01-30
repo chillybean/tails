@@ -5,7 +5,7 @@ set -eu
 # This script is used to create a pseudo flatpak runtime from the Tails
 # root filesystem.
 
-NEW_INCLUDES_DIR=/mnt/config/chroot_local-includes
+NEW_INCLUDES_DIR=/mnt/tails.git/config/chroot_local-includes
 MERGEBASE=/var/lib/flatpak/runtime/org.boum.tails.Platform/x86_64/stable/active/files
 RUNDIR=/run/tails-flatpak-runtime-overlay
 DIRS="/usr/bin /usr/lib /usr/lib64 /usr/sbin /usr/include /usr/libexec /usr/local /usr/share"
@@ -36,7 +36,7 @@ create() {
         fi
 
         # If the early_patch boot parameter is used, we also overlay the
-        # /mnt/config/chroot_local-includes directory over the runtime, so
+        # /mnt/tails.git/config/chroot_local-includes directory over the runtime, so
         # we can easily test changes to the runtime without having to rebuild
         # the squashfs filesystem. This is only used for development.
         if grep -qw early_patch /proc/cmdline && [ -d "${NEW_INCLUDES_DIR}${dir}" ]; then
