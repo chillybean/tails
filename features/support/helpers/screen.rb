@@ -252,7 +252,10 @@ class Screen
   def ocr(language: 'eng')
     screenshot = "#{$config['TMPDIR']}/screenshot.png"
     $vm.display.screenshot(screenshot)
-    stdout = `convert #{screenshot} -resize 2048x -brightness-contrast 0x30% -colorspace Gray - | tesseract -l #{language} - -`
+    cmd = "convert #{screenshot}" \
+      ' -resize 2048x -brightness-contrast 0x30% -colorspace Gray -' \
+      " | tesseract -l #{language} - -"
+    stdout = `#{cmd}`
     raise OcrError unless $CHILD_STATUS.success?
 
     stdout
