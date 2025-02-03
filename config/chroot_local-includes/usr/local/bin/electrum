@@ -64,22 +64,22 @@ class CampaignOptions:
 # We use different addresses to track which version of the incentive leads to
 # more donations
 CAMPAIGN = CampaignOptions(
-    CampaignOption(
+    CampaignOption(  # benevolent
         _(
-            "<b>Shape the future of Tails, today.</b>\n\n"
-            'Contribute to <a href="{url}">our ongoing fundraiser</a>!',
-        ).format(url="https://tails.net/news/2024-fundraiser/"),
+            "Tails needs donations to keep everybody free and safe "
+            "online.\n\nEvery bit helps in our fight against surveillance "
+            "and censorship!\n\n",
+        ),
         "bitcoin:bc1qjg53lww9jrm506dj0g0szmk4pxt6f55x8dncuv",
-        "Tails 2024 fundraiser",
+        "Donation to Tails",
         50,
     ),
-    CampaignOption(
+    CampaignOption(  # selfish
         _(
-            "<b>Your donations help us innovate and stay independent.</b>\n\n"
-            'Support <a href="{url}">our ongoing fundraiser</a>!',
-        ).format(url="https://tails.net/news/2024-fundraiser/"),
+            "Tails protects your wallet.\n\nHelp us keep your bitcoins safe!\n\n",
+        ),
         "bitcoin:bc1qjg53lww9jrm506dj0g0szmk4pxt6f55x8dncuv",
-        "Donate to Tails 2024",
+        "Donation to Tails",
         50,
     ),
     CampaignOption(
@@ -106,9 +106,8 @@ def main(*args):
     if len(args) > 0:
         exec_electrum(*args)
 
-    if not electrum_config_is_persistent():
-        if not verify_start():
-            return
+    if not electrum_config_is_persistent() and not verify_start():
+        return
 
     # Disable update checking for all users (even those who made their config
     # persistent before we changed this value in the default config), because
@@ -136,9 +135,9 @@ def should_show_donation_message() -> bool:
     elif os.environ.get("ELECTRUM_DONATION_MESSAGE") == "1":
         return True
 
-    # If the other conditions are met, show the message in 1/10 of the
+    # If the other conditions are met, show the message in 1/20 of the
     # cases.
-    return random.randint(0, 9) == 0  # noqa: S311
+    return random.randint(0, 19) == 0  # noqa: S311
 
 
 def show_donation_message():
@@ -173,7 +172,7 @@ def show_donation_message():
                 "--",
                 _("Opening Electrum with our donation address..."),
                 _("Thank you for making the Internet a safer place!"),
-            ]
+            ],
         )
         exec_electrum(CAMPAIGN.full_address)
     else:
@@ -208,11 +207,13 @@ def verify_start():
 
     disabled_text = _("Persistence is disabled for Electrum")
     warning_text = _(
-        "When you reboot Tails, all of Electrum's data will be lost, including your Bitcoin wallet.\nIt is strongly recommended to only run Electrum when its persistence feature is activated."
+        "When you reboot Tails, all of Electrum's data will be lost, including your Bitcoin wallet.\nIt is strongly recommended to only run Electrum when its persistence feature is activated.",
     )
     question_text = _("Do you want to start Electrum anyway?")
     dialog_msg = "<b><big>{}</big></b>\n\n{}\n\n{}\n".format(
-        disabled_text, warning_text, question_text
+        disabled_text,
+        warning_text,
+        question_text,
     )
     launch_text = _("_Launch")
     exit_text = _("_Exit")
