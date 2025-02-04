@@ -263,12 +263,16 @@ class Screen
 
   def wait_text(text, timeout, **opts)
     lang = opts[:language] || 'eng'
-    try_for(timeout, delay: 0, log: false) do
-      ocr(language: lang).downcase.include?(text.downcase)
+    begin
+      ocr_text = nil
+      try_for(timeout, delay: 0, log: false) do
+        ocr_text = ocr(language: lang)
+        ocr_text.downcase.include?(text.downcase)
+      end
+    rescue Timeout::Error
+      debug_log("Could not find text, here is full ocr:\n¨#{ocr_text}¨")
+      raise FindTextFailed
     end
-  rescue Timeout::Error
-    debug_log("Could not find text, here is full ocr:\n#{ocr(language: lang)}")
-    raise FindTextFailed
   end
 
   def press(*sequence, **opts)
