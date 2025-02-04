@@ -1,10 +1,13 @@
 #!/usr/bin/python3 -I
 
+import os
 import time
 from argparse import ArgumentParser
 
 import stem
 import stem.connection
+
+TCA_BOOTSTRAP_LOCK_FILE = "/var/lib/tca/bootstrapping.lock"
 
 
 def get_parser():
@@ -35,6 +38,8 @@ def connect(args):
 
 
 def is_tor_ok(controller, args):
+    if os.path.isfile(TCA_BOOTSTRAP_LOCK_FILE):
+        return False
     try:
         progress = (
             controller.get_info("status/bootstrap-phase").split()[2].split("=")[1]
