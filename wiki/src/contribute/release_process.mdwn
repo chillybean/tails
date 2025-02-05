@@ -163,12 +163,12 @@ To release Tails you need:
      the `role-release-automation` GitLab user's API token, which you'll find in
      `rm.git`'s keyringer. Test it with:
 
-         python-gitlab --gitlab TailsRM -o json  project-issue get --project-id 3 --iid 18122 | jq .title
+         python-gitlab --gitlab TailsRM -o json  project-issue get --project-id 2 --iid 6094 | jq .title
 
    - In the `Tails` section, set the value of the `private_token` option to a
      GitLab API token for your own user. Test it with:
 
-         python-gitlab --gitlab Tails -o json  project-issue get --project-id 3 --iid 18122 | jq .title
+         python-gitlab --gitlab Tails -o json  project-issue get --project-id 2 --iid 6094 | jq .title
 
 * `~/.config/tails/release_management/local.yml`
 
