@@ -10,9 +10,23 @@ image that you downloaded earlier.</p>
 
 <p><a href="https://etcher.balena.io/"><i>balenaEtcher</i></a> is the Free Software tool that we recommend to install Tails from macOS.</p>
 
-Instead of using <span class="application">balenaEtcher</span>, you can
-also [[!toggle id="dd" text="install Tails using `dd` on the command
-line"]].
+<div class="attack">
+
+<p>We stopped recommending <i>balenaEtcher</i> to install Tails from Windows in
+2025 because <i>balenaEtcher</i> shares [[!tails_ticket 16381 desc="sensitive
+information"]] to the Balena company that allows identifying who is installing
+Tails.</p>
+
+<p>We have not updated our installation instructions for macOS yet.</p>
+
+<p>If you are worried about being identified as a Tails user, you can instead:</p>
+
+<ul>
+  <li>[[!toggle id="dd" text="Install Tails using `dd` on the command line"]].</li>
+  <li>Install Tails using <a href="https://www.raspberrypi.com/software/"><i>Raspberry Pi Imager</i></a>.</li>
+</ul>
+
+</div>
 
 [[!toggleable id="dd" text="""
 
