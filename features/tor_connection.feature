@@ -6,9 +6,13 @@ Feature: Tor Connection helps the user in connecting to Tor
     Background:
         Given I have started Tails from DVD without network and logged in
 
-    # Scenario: Starting Tor Connection before connecting to wifi
-    #     When I start "Tor Connection" via GNOME Activities Overview
-    #     Then the Tor Connection Assistant reports that I am not connected to a local network
+    Scenario: Starting Tor Connection before connecting to wifi
+        When I start "Tor Connection" via GNOME Activities Overview
+        Then the Tor Connection Assistant reports that I am not connected to a local network
+        When I plug a wifi adapter
+        Then Tor Connection suggests me to connect to wifi
+        And I click on the Wi-Fi settings
+        And The Wi-Fi settings are displayed
 
     # # this is not great, but it's the current status
     # Scenario: switching to a network with no Internet doesn't yield any error message
