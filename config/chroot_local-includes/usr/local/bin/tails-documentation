@@ -105,7 +105,12 @@ def main():
     # and is therefore closed immediately when tails-documentation exits.
     os.execv(
         "/usr/bin/systemd-cat",
-        ["/usr/bin/systemd-cat", "/usr/bin/gtk-launch", "tor-browser.desktop", uri],
+        [
+            "/usr/bin/systemd-cat",
+            "/usr/local/bin/gtk-abspath-launch",
+            "/usr/share/applications/tor-browser.desktop",
+            uri,
+        ],
     )
 
 

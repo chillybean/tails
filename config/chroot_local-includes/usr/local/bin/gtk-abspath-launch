@@ -1,0 +1,38 @@
+#!/usr/bin/python3 -I
+
+import argparse
+
+import gi
+
+gi.require_version("Gdk", "3.0")
+gi.require_version("Gtk", "3.0")
+gi.require_version("Gio", "2.0")
+from gi.repository import Gdk, Gio, Gtk  # noqa: E402
+
+
+def str_to_gfile(s) -> Gio.File:
+    return Gio.File.new_for_commandline_arg(s)
+
+
+def main():
+    p = argparse.ArgumentParser()
+    p.add_argument("desktop", help="Path to the .desktop file")
+    p.add_argument(
+        "app_args",
+        metavar="ARGUMENT",
+        nargs="*",
+        type=str_to_gfile,
+        help="Arguments for the application",
+    )
+    args = p.parse_args()
+
+    app = Gio.DesktopAppInfo.new_from_filename(args.desktop)
+    # noinspection PyArgumentList
+    display: Gdk.Display = Gdk.Display.get_default()
+    launch_context: Gdk.AppLaunchContext = display.get_app_launch_context()
+    launch_context.set_timestamp(Gtk.get_current_event_time())
+    app.launch(files=args.app_args, context=launch_context)
+
+
+if __name__ == "__main__":
+    main()
