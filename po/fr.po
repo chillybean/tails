@@ -46,9 +46,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-08 10:04+0100\n"
-"PO-Revision-Date: 2024-10-23 15:15+0000\n"
-"Last-Translator: Guillaume THOMAS <t.guillaume319@laposte.net>\n"
+"POT-Creation-Date: 2025-02-05 10:11+0100\n"
+"PO-Revision-Date: 2025-01-18 13:00+0000\n"
+"Last-Translator: Onyhil <onyhil@riseup.net>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/tor/tails-gui/fr/"
 ">\n"
 "Language: fr\n"
@@ -57,7 +57,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
 "1000000 == 0 ? 1 : 2;\n"
-"X-Generator: Weblate 5.8.2-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -160,15 +160,15 @@ msgid "This will stop installing {packages} automatically."
 msgstr "Cela arrêtera l’installation automatique de {packages}."
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:165
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:177
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:180
 msgid "Remove"
 msgstr "Supprimer"
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:166
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/add_settings_dialog.py:40
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:178
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:481
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:832
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:483
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:840
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:728
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:119
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:376
@@ -246,7 +246,7 @@ msgstr ""
 "stockage persistant lors du démarrage de Tails."
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:194
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:197
 msgid ""
 "To add more, install some software using <a "
 "href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
@@ -261,42 +261,51 @@ msgid "_Create persistent storage"
 msgstr "_Créer un stockage persistant"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:69
-#, python-brace-format
+#, fuzzy
 msgid ""
-"<b>Shape the future of Tails, today.</b>\n"
+"Tails needs donations to keep everybody free and safe online.\n"
 "\n"
-"Contribute to <a href=\"{url}\">our ongoing fundraiser</a>!"
+"Every bit helps in our fight against surveillance and censorship!\n"
+"\n"
+msgstr ""
+"Tails recherche des dons pour assurer la liberté et la sécurité de chacun en "
+"ligne.\n"
+"\n"
+"Chaque centime nous aide dans notre lutte contre la surveillance et la "
+"censure !\n"
+"\n"
+"<a href=\"file:///usr/share/doc/tails/website/donate.fr.html#expenses\" "
+">Comment nous utilisons notre argent.</a>"
+
+#: config/chroot_local-includes/usr/local/bin/electrum:79
+msgid ""
+"Tails protects your wallet.\n"
+"\n"
+"Help us keep your bitcoins safe!\n"
+"\n"
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/bin/electrum:78
-#, python-brace-format
-msgid ""
-"<b>Your donations help us innovate and stay independent.</b>\n"
-"\n"
-"Support <a href=\"{url}\">our ongoing fundraiser</a>!"
-msgstr ""
-
-#: config/chroot_local-includes/usr/local/bin/electrum:157
+#: config/chroot_local-includes/usr/local/bin/electrum:156
 msgid "Donate Now"
 msgstr "Faites un don"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:159
+#: config/chroot_local-includes/usr/local/bin/electrum:158
 msgid "Later"
 msgstr "Plus tard"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:174
+#: config/chroot_local-includes/usr/local/bin/electrum:173
 msgid "Opening Electrum with our donation address..."
 msgstr "Ouvrez Electrum avec l'adresse de donation..."
 
-#: config/chroot_local-includes/usr/local/bin/electrum:175
+#: config/chroot_local-includes/usr/local/bin/electrum:174
 msgid "Thank you for making the Internet a safer place!"
 msgstr "Merci de faire de l'internet un endroit plus sûr !"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:209
+#: config/chroot_local-includes/usr/local/bin/electrum:208
 msgid "Persistence is disabled for Electrum"
 msgstr "La persistance est désactivée pour Electrum"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:211
+#: config/chroot_local-includes/usr/local/bin/electrum:210
 msgid ""
 "When you reboot Tails, all of Electrum's data will be lost, including your "
 "Bitcoin wallet.\n"
@@ -308,15 +317,15 @@ msgstr ""
 "Il est fortement recommandé de n’utiliser Electrum qu’avec la fonctionnalité "
 "de persistance activée."
 
-#: config/chroot_local-includes/usr/local/bin/electrum:213
+#: config/chroot_local-includes/usr/local/bin/electrum:212
 msgid "Do you want to start Electrum anyway?"
 msgstr "Voulez-vous quand même démarrer Electrum ?"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:217
+#: config/chroot_local-includes/usr/local/bin/electrum:218
 msgid "_Launch"
 msgstr "_Lancer"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:218
+#: config/chroot_local-includes/usr/local/bin/electrum:219
 msgid "_Exit"
 msgstr "_Quitter"
 
@@ -405,23 +414,13 @@ msgstr "Go"
 msgid "bytes"
 msgstr "octets"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:201
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:715
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:868
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:296
+#, fuzzy
 msgid ""
-"For debugging information, execute the following command: sudo tails-"
-"debugging-info"
-msgstr ""
-"Pour obtenir les renseignements de débogage, exécutez la commande suivante : "
-"sudo tails-debugging-info"
-
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:297
-msgid ""
-"<b>An error occured while updating the signing key.</b>\\n\\n<b>This "
+"<b>An error occurred while updating the signing key.</b>\\n\\n<b>This "
 "prevents determining whether an upgrade is available from our website.</"
-"b>\\n\\nCheck your network connection, and restart Tails to try upgrading "
-"again.\\n\\nIf the problem persists, go to file:///usr/share/doc/tails/"
-"website/doc/upgrade/error/check.en.html"
+"b>\\n\\nCheck your network connection and restart Tails.\\n\\nIf the problem "
+"persists, try doing a manual upgrade."
 msgstr ""
 "<b>Une erreur est survenue pendant la mise à jour de la clé de signature.</"
 "b>\\n\\n<b>Cela empêche de déterminer si une mise à jour est disponible sur "
@@ -429,23 +428,23 @@ msgstr ""
 "pour essayer de retenter la mise à jour.\\n\\nSi le problème persiste, "
 "consultez file:///usr/share/doc/tails/website/doc/upgrade/error/check.fr.html"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:311
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:310
 msgid "Error while downloading the signing key"
 msgstr "Erreur de téléchargement de la clé de signature"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:344
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:343
 msgid "Error while checking for upgrades"
 msgstr "Erreur de vérification de la présence de mises à jour"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:346
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:345
+#, fuzzy
 msgid ""
 "<b>Could not determine whether an upgrade is available from our website.</"
 "b>\n"
 "\n"
-"Check your network connection, and restart Tails to try upgrading again.\n"
+"Check your network connection and restart Tails.\n"
 "\n"
-"If the problem persists, go to file:///usr/share/doc/tails/website/doc/"
-"upgrade/error/check.en.html"
+"If the problem persists, try doing a manual upgrade."
 msgstr ""
 "<b>Impossible de déterminer si une mise à jour est disponible sur notre site "
 "Web.</b>\n"
@@ -456,45 +455,56 @@ msgstr ""
 "Si le problème persiste, consultez file:///usr/share/doc/tails/website/doc/"
 "upgrade/error/check.fr.html"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:361
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:360
 msgid "no automatic upgrade is available from our website for this version"
 msgstr ""
 "aucune mise à jour automatique n’est disponible sur notre site Web pour "
 "cette version"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:367
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:366
 msgid "your device was not created using a USB image or Tails Cloner"
 msgstr ""
 "votre appareil n'a pas été créé à l'aide d'une image USB ou de Tails Cloner"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:372
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:371
 msgid "Tails was started from a DVD or a read-only device"
 msgstr ""
 "Tails a été démarré à partir d’un DVD ou d’un périphérique en lecture seule"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:377
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:376
 msgid "there is not enough free space on the Tails system partition"
 msgstr "il n’y a pas assez d’espace libre sur la partition système de Tails"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:382
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:381
 msgid "not enough memory is available on this system"
 msgstr "il n’y a pas assez de mémoire disponible sur ce système"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:387
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:386
 #, perl-brace-format
 msgid "No explanation available for reason '{reason}'."
 msgstr "Il n’y a aucune explication pour la raison « {reason} »."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:410
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:409
 msgid "The system is up-to-date"
 msgstr "Le système est à jour"
 
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:412
+msgid ""
+"You are currently running the latest version. There is no upgrade "
+"available.\n"
+msgstr ""
+
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:415
+#, fuzzy
+msgid "Tails is up to date"
+msgstr "Le système est à jour"
+
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:421
 msgid "This version of Tails is outdated, and may have security issues."
 msgstr ""
 "Cette version de Tails est obsolète et peut poser des problèmes de sécurité."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:445
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:451
 #, perl-brace-format
 msgid ""
 "The available incremental upgrade requires {space_needed} of free space on "
@@ -503,7 +513,7 @@ msgstr ""
 "La mise à jour incrémentielle proposée exige {space_needed} d’espace libre "
 "sur la partition système de Tails, mais il n’y en a que {free_space}."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:457
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:463
 #, perl-brace-format
 msgid ""
 "The available incremental upgrade requires {memory_needed} of free memory, "
@@ -512,7 +522,7 @@ msgstr ""
 "La mise à jour incrémentielle proposée exige {memory_needed} d’espace libre, "
 "mais il n’y en a que {free_memory}."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:468
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:474
 msgid ""
 "An error ocurred while detecting available upgrades.\n"
 "This should not happen. Please report a bug."
@@ -520,12 +530,12 @@ msgstr ""
 "Une erreur est survenue lors de la détection des mise à jour disponibles.\n"
 "Cela ne devrait pas se produire. Veuillez signaler un bogue."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:471
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:490
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:477
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:496
 msgid "Error while detecting available upgrades"
 msgstr "Erreur de détection des mises à jour disponibles"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:486
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:492
 msgid ""
 "An incremental upgrade is available, but no full upgrade is.\n"
 "This should not happen. Please report a bug."
@@ -534,7 +544,7 @@ msgstr ""
 "complète ne l’est.\n"
 "Cela ne devrait pas se produire. Veuillez signaler un bogue."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:499
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:505
 #, perl-brace-format
 msgid ""
 "<b>You should upgrade to {name} {version}.</b>\n"
@@ -562,19 +572,19 @@ msgstr ""
 "\n"
 "Voulez-vous mettre à jour maintenant ?"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:512
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:518
 msgid "Upgrade available"
 msgstr "Une mise à jour est disponible"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:513
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:519
 msgid "Upgrade now"
 msgstr "Mettre à jour maintenant"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:514
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:520
 msgid "Upgrade later"
 msgstr "Mettre à jour plus tard"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:522
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:528
 #, perl-brace-format
 msgid ""
 "<b>You should do a manual upgrade to the latest version of {name}.</b>\n"
@@ -598,37 +608,36 @@ msgstr ""
 "Pour savoir comment effectuer une mise à jour manuelle, rendez-vous sur "
 "{manual_upgrade_url}"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:532
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:538
 msgid "New version available"
 msgstr "Une nouvelle version est disponible"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:613
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:619
 msgid "Downloading upgrade"
 msgstr "Téléchargement de la mise à jour"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:615
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:621
 #, perl-brace-format
 msgid "Downloading the upgrade to {name} {version}..."
 msgstr "Téléchargement de la mise à jour vers {name} {version}…"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:708
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:712
+#, fuzzy
 msgid ""
 "<b>The upgrade could not be downloaded.</b>\\n\\nCheck your network "
-"connection, and restart Tails to try upgrading again.\\n\\nIf the problem "
-"persists, go to file:///usr/share/doc/tails/website/doc/upgrade/error/"
-"download.en.html"
+"connection, and restart Tails to try upgrading again."
 msgstr ""
 "<b>La mise à jour n’a pas pu être téléchargée.</b>\\n\\nVérifiez votre "
 "connexion réseau et redémarrez Tails pour retenter de mettre à jour.\\n\\nSi "
 "le problème persiste, consultez file:///usr/share/doc/tails/website/doc/"
 "upgrade/error/download.fr.html"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:719
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:734
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:715
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:730
 msgid "Error while downloading the upgrade"
 msgstr "Erreur de téléchargement de la mise à jour"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:729
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:725
 #, perl-brace-format
 msgid ""
 "Output file '{output_file}' does not exist, but tails-iuk-get-target-file "
@@ -637,15 +646,15 @@ msgstr ""
 "Le fichier de sortie « {output_file} » n’existe pas, mais tails-iuk-get-"
 "target-file ne s’en est pas plaint. Veuillez signaler un bogue."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:745
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:741
 msgid "Error while creating temporary downloading directory"
 msgstr "Erreur de création du répertoire temporaire de téléchargement"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:748
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:744
 msgid "Failed to create temporary download directory"
 msgstr "Échec de création du répertoire temporaire de téléchargement"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:760
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:756
 msgid ""
 "The upgrade was successfully downloaded.\n"
 "\n"
@@ -660,15 +669,15 @@ msgstr ""
 "\n"
 "Veuillez enregistrer vos travaux et fermer toutes autres applications."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:765
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:761
 msgid "Upgrade successfully downloaded"
 msgstr "La mise à jour a été téléchargée avec succès"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:766
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:762
 msgid "Apply upgrade"
 msgstr "Appliquer la mise à jour"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:773
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:769
 msgid ""
 "<b>Your Tails device was successfully upgraded.</b>\n"
 "\n"
@@ -684,47 +693,47 @@ msgstr ""
 "\n"
 "Voulez-vous redémarrer maintenant  ?"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:778
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:774
 msgid "Restart Tails"
 msgstr "Redémarrer Tails"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:779
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:775
 msgid "Restart now"
 msgstr "Redémarrer maintenant"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:780
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:776
 msgid "Restart later"
 msgstr "Redémarrer plus tard"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:791
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:787
 msgid "Error while restarting the system"
 msgstr "Erreur de redémarrage du système"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:792
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:788
 msgid "Failed to restart the system"
 msgstr "Échec de redémarrage du système"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:805
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:801
 msgid "Error while shutting down the network"
 msgstr "Erreur de désactivation du réseau"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:806
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:802
 msgid "Failed to shutdown network"
 msgstr "Échec d’arrêt du réseau"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:816
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:812
 msgid "Error while cancelling the upgrade download"
 msgstr "Erreur d’annulation du téléchargement de la mise à jour"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:817
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:813
 msgid "Failed to cancel the upgrade download"
 msgstr "Échec d’annulation du téléchargement de la mise à jour"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:823
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:819
 msgid "Upgrading the system"
 msgstr "Mise à jour du système"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:825
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:821
 msgid ""
 "<b>Your Tails device is being upgraded...</b>\n"
 "\n"
@@ -735,19 +744,20 @@ msgstr ""
 "Pour des raisons de sécurité, la connexion au réseau est actuellement "
 "désactivée."
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:862
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:856
+#, fuzzy
 msgid ""
-"<b>An error occured while installing the upgrade.</b>\\n\\nYour Tails device "
-"needs to be repaired and might be unable to restart.\\n\\nPlease follow the "
-"instructions at file:///usr/share/doc/tails/website/doc/upgrade/error/"
-"install.en.html"
+"<b>An error occurred while installing the upgrade.</b>\\n\\nYour Tails "
+"device needs to be repaired and might be unable to restart.\\n\\nPlease "
+"follow the instructions at file:///usr/share/doc/tails/website/doc/upgrade/"
+"error/install.en.html"
 msgstr ""
 "<b>Une erreur est survenue durant l’installation de la mise à jour.</"
 "b>\\n\\nVotre périphérique Tails doit être réparé et pourrait ne pas "
 "redémarrer.\\n\\nVeuillez suivre les instructions sur file:///usr/share/doc/"
 "tails/website/doc/upgrade/error/install.fr.html"
 
-#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:872
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:861
 msgid "Error while installing the upgrade"
 msgstr "Erreur d’installation de la mise à jour"
 
@@ -799,7 +809,7 @@ msgstr "Navigateur _non sécurisé"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/additional_settings.py:371
 msgid "Enabled (default)"
-msgstr "Désactivé (par défaut)"
+msgstr "Activé (par défaut)"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/additional_settings.py:373
 msgid "Disabled"
@@ -845,64 +855,56 @@ msgstr ""
 "lecture seule."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:408
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:439
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:440
 msgid "Unlocking…"
 msgstr "Déverrouillage…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:446
-#, fuzzy
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:448
 msgid "Checking the file system…"
-msgstr "Formatage du système de fichiers..."
+msgstr "Vérification du système de fichiers…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:479
-#, fuzzy
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:481
 msgid "Repairing the File System"
-msgstr "Formatage du système de fichiers..."
+msgstr "Réparation du système de fichiers..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:480
-#, fuzzy
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:482
 msgid "This might take a long time..."
-msgstr "Cela peut prendre du temps…"
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:498
-#, fuzzy
-msgid "Failed to repair the file system of your Persistent Storage."
-msgstr "Échec de configuration de votre espace de stockage persistant"
+msgstr "Cela peut prendre long temps…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:500
+msgid "Failed to repair the file system of your Persistent Storage."
+msgstr "Échec de la réparation de votre espace de stockage persistant."
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:502
 msgid "Start Tails to send an error report and learn how to recover your data."
 msgstr ""
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:514
-msgid "File System Repaired Successfully"
-msgstr ""
+"Démarrez Tails pour envoyer un signalement d'erreur et en savoir plus sur "
+"comment récupérer vos données."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:516
+msgid "File System Repaired Successfully"
+msgstr "Système de fichiers réparé avec succès"
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:518
 msgid ""
 "It's possible that some data was lost during the repair. Please check the "
 "contents of your Persistent Storage and restore any lost data from a backup."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:520
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:522
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:32
 #, fuzzy
 msgid "Close"
-msgstr "_Fermer"
+msgstr "Fermer"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:535
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:537
 msgid ""
 "You aborted the repair of the file system. You can either start Tails "
 "without Persistent Storage or restart the computer to try repairing the file "
 "system again."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:754
-msgid "Start Tails and open the Persistent Storage settings to find out more."
-msgstr ""
-"Lancez Tails et ouvrez les paramètres du stockage persistant afin d'en "
-"savoir plus."
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:783
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:759
 msgid ""
 "Your Persistent Storage is unlocked. Its content will be available until you "
 "shut down Tails."
@@ -910,26 +912,33 @@ msgstr ""
 "Votre stockage persistant est déverrouillé. Son contenu sera disponible "
 "jusqu'à ce que vous fermiez Tails."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:798
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:772
+msgid "Start Tails and open the Persistent Storage settings to find out more."
+msgstr ""
+"Lancez Tails et ouvrez les paramètres du stockage persistant afin d'en "
+"savoir plus."
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:806
 msgid "Incorrect passphrase. Please try again."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:809
-#, fuzzy
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:817
 msgid ""
 "Error reading data from your Persistent Storage. The hardware of your USB "
 "stick is probably failing."
-msgstr "Le matériel de votre clé USB est probablement défaillant."
+msgstr ""
+"Erreur lors de la lecture des données du stockage persistant. Le matériel de "
+"votre clé USB est probablement défaillant."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:811
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:819
 msgid "Start Tails to learn how to recover your data."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:822
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:830
 msgid "File System Errors"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:824
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:832
 msgid ""
 "Errors were detected in the file system of your Persistent Storage.\n"
 "                \n"
@@ -943,30 +952,31 @@ msgid ""
 "of your Persistent Storage first."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:833
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:841
+#, fuzzy
 msgid "Repair File System"
-msgstr ""
+msgstr "Réparer le système de fichiers"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:834
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:842
 #, fuzzy
 msgid "Create Partition Image"
 msgstr "Créer un stockage persistant"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:845
-#, fuzzy
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:853
 msgid ""
 "Start Tails to learn how to create a partition image of your Persistent "
 "Storage."
-msgstr "Échec de la création du stockage persistant"
+msgstr ""
+"Démarrer Tails pour en savoir plus sur la création du stockage persistant."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:854
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:862
 #, fuzzy
 msgid "Failed to unlock the Persistent Storage due to file system errors."
 msgstr ""
 "Échec du déverrouillage du stockage persistant. Merci de démarrer Tails et "
 "d'envoyer un signalement de l'erreur."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:863
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:871
 msgid ""
 "Failed to upgrade the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -974,7 +984,7 @@ msgstr ""
 "Échec de la mise à jour du stockage persistant. Veuillez démarrer Tails et "
 "envoyer un rapport d'erreur."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:870
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:878
 msgid ""
 "Failed to unlock the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -982,7 +992,7 @@ msgstr ""
 "Échec du déverrouillage du stockage persistant. Merci de démarrer Tails et "
 "d'envoyer un signalement de l'erreur."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:878
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:886
 msgid ""
 "Failed to activate the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -990,8 +1000,7 @@ msgstr ""
 "Échec de l'activation du stockage persistant. Merci de démarrer Tails et "
 "d'envoyer un signalement de l'erreur."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:889
-#, fuzzy
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:897
 msgid "Upgrading the Persistent Storage. This might take a while…"
 msgstr ""
 "Mise à jour du stockage persistant. Cela peut prendre un certain temps…"
@@ -1016,9 +1025,10 @@ msgid "Error activating Persistent Storage: {}"
 msgstr "Erreur d'activation du stockage persistant : {}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/settings/persistence.py:202
-#, fuzzy
 msgid "Failed to abort when repairing Persistent Storage filesystem: {}"
-msgstr "Échec du démarrage du service de stockage persistant"
+msgstr ""
+"Impossible d'annulé lors de la réparation du système de fichier du stockage "
+"persistant : {}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/region_settings.py:191
 msgid "_Language"
@@ -1550,37 +1560,36 @@ msgid "Learn More"
 msgstr "En apprendre davantage"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:18
-#, fuzzy
 msgid "Partitioning Error"
-msgstr "Erreurs de partitionnement du disque"
+msgstr "Erreurs de partitionnement"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:19
 msgid "Errors were detected in the partitioning of your Tails USB stick."
-msgstr ""
+msgstr "Erreurs détectées lors du partitionnement de votre clé USB Tails."
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:26
-#, fuzzy
 msgid ""
 "We recommend that you create a backup of your Tails using <i>Tails Cloner</"
 "i> to migrate to a new USB stick."
-msgstr "Nous vous recommandons de réinstaller Tails sur une autre clé USB."
+msgstr ""
+"Nous vous recommandons de créer une sauvegarde de votre Tails en utilisant "
+"<i>Tails Cloner</i> pour utiliser sur une autre clé USB."
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:33
-#, fuzzy
 msgid "Open Tails Cloner"
-msgstr "Tails Cloner"
+msgstr "Ouvrir Tails Cloner"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:42
-#, fuzzy
 msgid "Creation of Persistent Storage has been disabled."
-msgstr "La création de votre Stockage Persistant a échoué."
+msgstr "La création du Stockage Persistant est désactivé."
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:44
-#, fuzzy
 msgid ""
 "We recommend that you reinstall Tails from scratch. If the error persists, "
 "reinstall on a new USB stick."
-msgstr "Nous vous recommandons de réinstaller Tails sur une autre clé USB."
+msgstr ""
+"Nous vous recommandons de réinstaller Tails depuis zéro. Si l'erreur "
+"persiste, réinstallez Tails sur une autre clé USB."
 
 #: config/chroot_local-includes/usr/src/perl5lib/lib/Tails/RunningSystem.pm:207
 #: config/chroot_local-includes/usr/local/bin/tails-upgrade-frontend-wrapper:77
@@ -1626,21 +1635,26 @@ msgstr "Redémarrer"
 msgid "Power Off"
 msgstr "Éteindre"
 
-#: config/chroot_local-includes/usr/local/bin/tails-about:21
+#: config/chroot_local-includes/usr/local/bin/tails-about:27
 #: ../config/chroot_local-includes/usr/share/desktop-directories/Tails.directory.in.h:1
 msgid "Tails"
 msgstr "Tails"
 
-#: config/chroot_local-includes/usr/local/bin/tails-about:24
+#: config/chroot_local-includes/usr/local/bin/tails-about:30
 #: ../config/chroot_local-includes/usr/share/applications/tails-about.desktop.in.h:1
 msgid "About Tails"
 msgstr "À propos de Tails"
 
-#: config/chroot_local-includes/usr/local/bin/tails-about:40
+#: config/chroot_local-includes/usr/local/bin/tails-about:34
+#, fuzzy
+msgid "Check for Upgrades"
+msgstr "Erreur de vérification de la présence de mises à jour"
+
+#: config/chroot_local-includes/usr/local/bin/tails-about:57
 msgid "UNRELEASED"
 msgstr "NON LIBÉRÉE"
 
-#: config/chroot_local-includes/usr/local/bin/tails-about:47
+#: config/chroot_local-includes/usr/local/bin/tails-about:64
 #, python-format
 msgid "Built from %s"
 msgstr "Construit à partir de %s"
@@ -1664,17 +1678,17 @@ msgstr ""
 msgid "Failed to remove {pkg}"
 msgstr "Échec de la suppression de {pkg}"
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:144
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:147
 msgid "Failed to read additional software configuration"
 msgstr "Échec de la lecture de la configuration des logiciels supplémentaires"
 
 #. Translators: Don't translate {package}, it's a placeholder and will be replaced.
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:173
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:176
 #, python-brace-format
 msgid "Stop installing {package} automatically"
 msgstr "Arrêter d’installer {package} automatiquement"
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:204
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:207
 msgid ""
 "To do so, install some software using <a href=\"synaptic.desktop\">Synaptic "
 "Package Manager</a> or <a href=\"org.gnome.Terminal.desktop\">APT on the "
@@ -1684,7 +1698,7 @@ msgstr ""
 "href=\"synaptic.desktop\">gestionnaire de paquets Synaptic</a> ou <a "
 "href=\"org.gnome.Terminal.desktop\">APT en ligne de commande</a>."
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:216
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:219
 msgid ""
 "To do so, unlock your Persistent Storage when starting Tails and install "
 "some software using <a href=\"synaptic.desktop\">Synaptic Package Manager</"
@@ -1695,7 +1709,7 @@ msgstr ""
 "href=\"synaptic.desktop\">gestionnaire de paquets Synaptic</a> ou <a "
 "href=\"org.gnome.Terminal.desktop\">APT en ligne de commande</a>."
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:229
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:232
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
 "href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
@@ -1705,17 +1719,17 @@ msgstr ""
 "utilisant le <a href=\"synaptic.desktop\">gestionnaire de paquets Synaptic</"
 "a> ou <a href=\"org.gnome.Terminal.desktop\">APT en ligne de commande</a>."
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:247
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:250
 msgid "To do so, install Tails on a USB stick and create a Persistent Storage."
 msgstr ""
 "Pour ce faire, installez Tails sur une clé USB et créez un espace de "
 "stockage persistant."
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:293
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:296
 msgid "[package not available]"
 msgstr "[paquet non disponible]"
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:300
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:303
 msgid "[description not available]"
 msgstr "[description non disponible]"
 
@@ -1824,30 +1838,24 @@ msgid "All Networking Disabled"
 msgstr "La mise en réseau est désactivée"
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:89
-#, fuzzy, sh-format
+#, sh-format
 msgid ""
 "MAC address anonymization failed for one of your network interfaces. The "
 "error recovery also failed, so all networking is disabled."
 msgstr ""
 "L’anonymisation de l’adresse MAC a échoué pour une de vos interfaces réseau. "
 "Le dépannage de cette erreur a également échoué, toutes les fonctions de "
-"réseau sont donc désactivées.\n"
-"\n"
-"Vous préférerez peut-être redémarrer Tails et désactiver l’anonymisation de "
-"l’adresse MAC."
+"réseau sont donc désactivées."
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:92
-#, fuzzy, sh-format
+#, sh-format
 msgid ""
 "MAC address anonymization failed for your network interface. The error "
 "recovery also failed, so all networking is disabled."
 msgstr ""
-"L’anonymisation de l’adresse MAC a échoué pour une de vos interfaces réseau. "
-"Le dépannage de cette erreur a également échoué, toutes les fonctions de "
-"réseau sont donc désactivées.\n"
-"\n"
-"Vous préférerez peut-être redémarrer Tails et désactiver l’anonymisation de "
-"l’adresse MAC."
+"L’anonymisation de l’adresse MAC a échoué pour votre interface réseau. Le "
+"dépannage de cette erreur a également échoué, toutes les fonctions de réseau "
+"sont donc désactivées."
 
 #: config/chroot_local-includes/usr/local/bin/tails-upgrade-frontend-wrapper:36
 #, python-brace-format
@@ -1931,13 +1939,13 @@ msgstr ""
 "stockage persistant</a> sur votre clé USB Tails."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:269
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:790
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:798
 #, python-brace-format
 msgid "Invalid: {exception}"
 msgstr "Invalide : {exception}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:281
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:803
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:811
 msgid "You need to configure an obfs4 bridge to hide that you are using Tor"
 msgstr ""
 "Vous devez utiliser un pont obfs4 pour dissimuler le fait que vous utilisez "
@@ -1965,61 +1973,61 @@ msgstr ""
 "Le QR code n'est pas valide. Essayez d'envoyer un autre courriel ou de le "
 "scanner à nouveau."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:462
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:468
 msgid "Synchronizing the system's clock…"
 msgstr "Synchronisation de l’horloge système…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:512
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:520
 msgid "Connecting to Tor without bridges…"
 msgstr "Connexion à Tor sans pont…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:519
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:543
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:527
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:551
 msgid "Connecting to Tor with default bridges…"
 msgstr "Connexion à Tor avec les ponts par défaut…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:526
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:534
 msgid "Connecting to Tor with a custom bridge…"
 msgstr "Connexion à Tor avec un pont personnalisé…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:634
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:642
 msgid "Connected to Tor successfully with bridges"
 msgstr "Connecté à Tor avec succès avec des ponts"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:636
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:644
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1960
 msgid "Connected to Tor successfully"
 msgstr "Vous êtes connecté à Tor avec succès"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:640
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:648
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1985
 msgid "You can now browse the Internet anonymously and uncensored."
 msgstr "Vous pouvez désormais parcourir Internet anonymement et sans censure."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:718
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:726
 msgid "This local network seems to be blocking access to Tor."
 msgstr "Il semblerait que ce réseau local bloque l'accès à Tor."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:793
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:801
 msgid "Bridge address malformed"
 msgstr "L’adresse du pont est malformée"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:811
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:819
 msgid "Setting a bridge is needed if you want to hide that you are using Tor"
 msgstr ""
 "La mise en place d'un pont est nécessaire si vous cherchez à cacher le fait "
 "que vous utilisez Tor"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1026
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1034
 #, python-brace-format
 msgid "Scanned {bridge_type} bridge: <b>{bridge_info}</b>."
 msgstr "Scannée {bridge_type} pont : <b>{bridge_info}</b>."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1115
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1123
 msgid "Are you sure you want to lose progress?"
 msgstr "Voulez-vous vraiment perdre la progression ?"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1119
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1127
 msgid ""
 "Tails will continue connecting to Tor after you close the Tor Connection "
 "assistant.\n"
@@ -2033,11 +2041,11 @@ msgstr ""
 "Si la connexion à Tor échoue, vous devrez de nouveau attendre la fin de la "
 "barre de progression afin de dépanner votre connexion."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1125
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1133
 msgid "Close and Lose Progress"
 msgstr "Fermer et renoncer aux progrès réalisés"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1127
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1135
 msgid "Wait"
 msgstr "Attendre"
 
@@ -2085,13 +2093,13 @@ msgid "Tor Status"
 msgstr "État de Tor"
 
 #: config/chroot_local-includes/usr/share/gnome-shell/extensions/torstatus@tails.boum.org/extension.js:46
-#, fuzzy
 msgid "Open Tor Connection Assistant"
-msgstr "Ouvrir la connexion à Tor"
+msgstr "Ouvrir l'assistant de connexion à Tor"
 
 #: config/chroot_local-includes/usr/share/gnome-shell/extensions/torstatus@tails.boum.org/extension.js:50
-msgid "Open Onion Circuits"
-msgstr "Ouvrir Circuits onion"
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2039
+msgid "View Tor Circuits"
+msgstr "Visualiser les circuits Tor"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:348
 #, python-brace-format
@@ -2134,7 +2142,7 @@ msgstr "Activation du stockage persistant..."
 msgid "Finishing setting up the Persistent Storage..."
 msgstr "Fin de la configuration du stockage persistant..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:699
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:697
 msgid ""
 "Can't unmount Persistent Storage, some process is still using it. Please "
 "close all applications that could be accessing it and try again. If that "
@@ -2146,7 +2154,7 @@ msgstr ""
 "réessayer. Si cela ne fonctionne pas, redémarrez Tails et essayez de "
 "supprimer le stockage persistant sans le déverrouiller."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:732
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:730
 msgid ""
 "Not enough memory to change the passphrase of the Persistent Storage. Try "
 "again after closing some applications or rebooting."
@@ -2725,9 +2733,8 @@ msgid "Unable to connect to the server."
 msgstr "Impossible de se connecter au serveur."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:222
-#, fuzzy
 msgid "Tor is not ready yet"
-msgstr "Tor n’est pas prêt"
+msgstr "Tor n’est pas encore prêt"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:224
 msgid "Unable to create or to send the mail."
@@ -2739,13 +2746,17 @@ msgid ""
 "\n"
 "Make sure that you are connected to Tor and click send again."
 msgstr ""
+"\n"
+"\n"
+"Assurez-vous d'être connecté à Tor et cliquez sur envoyer à nouveau."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:239
 msgid "Your message has been sent."
 msgstr "Votre message a été envoyé."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:248
-msgid "An error occured during encryption."
+#, fuzzy
+msgid "An error occurred during encryption."
 msgstr "Une erreur est survenue lors du chiffrement."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:317
@@ -3057,9 +3068,8 @@ msgid "Show Passphrase"
 msgstr "Afficher la phrase de passe"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:421
-#, fuzzy
 msgid "Enter your passphrase"
-msgstr "Confirmer la phrase de passe :"
+msgstr "Saisissez votre phrase de passe"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:436
 msgid "Unlock Encryption"
@@ -3080,6 +3090,10 @@ msgid ""
 "\n"
 "Try reinstalling Tails. If the error persists, reinstall on a new USB stick."
 msgstr ""
+"Erreurs détectées lors du partitionnement de votre clé USB Tails.\n"
+"\n"
+"Essayez de réinstaller Tails. Si l'erreur persiste, réinstallez Tails sur "
+"une autre clé USB."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:631
 msgid "_Additional Settings"
@@ -3962,10 +3976,6 @@ msgstr "Démarrer le Navigateur Tor"
 msgid "Open Network Monitor"
 msgstr "Ouvrir le moniteur du réseau"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2039
-msgid "View Tor Circuits"
-msgstr "Visualiser les circuits Tor"
-
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2053
 msgid "Reset Tor Connection"
 msgstr "Réinitialiser la connexion à Tor"
@@ -4096,6 +4106,16 @@ msgstr "décembre"
 msgid "Clock"
 msgstr "Horloge"
 
+#~ msgid ""
+#~ "For debugging information, execute the following command: sudo tails-"
+#~ "debugging-info"
+#~ msgstr ""
+#~ "Pour obtenir les renseignements de débogage, exécutez la commande "
+#~ "suivante : sudo tails-debugging-info"
+
+#~ msgid "Open Onion Circuits"
+#~ msgstr "Ouvrir Circuits onion"
+
 #~ msgid "Error while updating the signing key"
 #~ msgstr "Erreur de mise à jour de la clé de signature"
 
@@ -4127,23 +4147,6 @@ msgstr "Horloge"
 #~ msgstr ""
 #~ "Si vous avez déjà essayé, veuillez nous envoyer un rapport d'erreur en "
 #~ "anglais, pour nous aider à résoudre ce problème."
-
-#~ msgid ""
-#~ "Tails needs donations to keep everybody free and safe online.\n"
-#~ "\n"
-#~ "Every bit helps in our fight against surveillance and censorship!\n"
-#~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/"
-#~ "donate.en.html#expenses\">How we spend our money.</a>"
-#~ msgstr ""
-#~ "Tails recherche des dons pour assurer la liberté et la sécurité de chacun "
-#~ "en ligne.\n"
-#~ "\n"
-#~ "Chaque centime nous aide dans notre lutte contre la surveillance et la "
-#~ "censure !\n"
-#~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.fr.html#expenses\" "
-#~ ">Comment nous utilisons notre argent.</a>"
 
 #~ msgid ""
 #~ "Tails protects your wallet.\n"

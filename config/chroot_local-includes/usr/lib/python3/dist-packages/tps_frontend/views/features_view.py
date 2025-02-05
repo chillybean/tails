@@ -1,24 +1,25 @@
+# ruff: noqa: E402
 import os.path
 
-from gi.repository import Gdk, Gio, Gtk, GLib
 import inspect
 from logging import getLogger
-import subprocess
 from typing import TYPE_CHECKING
+
+import gi
+
+gi.require_version("Gio", "2.0")
+from gi.repository import Gdk, Gio, Gtk
 
 from tps_frontend import (
     FEATURES_VIEW_UI_FILE,
     DBUS_FEATURES_PATH,
     DBUS_SERVICE_NAME,
     DBUS_FEATURE_INTERFACE,
-    CUSTOM_FEATURE_UI_FILE,
-    _,
 )
 from tps_frontend.view import View
 from tps_frontend.feature import Feature, CustomFeatureRow
 
 if TYPE_CHECKING:
-    from gi.repository import Handy
     from tps_frontend.window import Window
 
 logger = getLogger(__name__)
@@ -185,7 +186,9 @@ class FeaturesView(View):
         launch_context = display.get_app_launch_context()  # type: Gdk.AppLaunchContext
         launch_context.set_timestamp(Gtk.get_current_event_time())
         # noinspection PyArgumentList
-        app = Gio.DesktopAppInfo.new("org.boum.tails.AdditionalSoftware.desktop")
+        app = Gio.DesktopAppInfo.new_from_filename(
+            "/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop"
+        )
         app.launch(context=launch_context)
 
     def on_activate_link(self, label: Gtk.Label, uri: str):
