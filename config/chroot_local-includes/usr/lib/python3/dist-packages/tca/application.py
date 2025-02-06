@@ -25,7 +25,11 @@ from tca.torutils import (
     TorLauncherNetworkUtils,
 )
 from tca.timeutils import GET_NETWORK_TIME_RETURN_CODE
-from tca.ui.asyncutils import ExternalProperty, ExternalPropertyCommandBool, GJsonRpcClient
+from tca.ui.asyncutils import (
+    ExternalProperty,
+    ExternalPropertyCommandBool,
+    GJsonRpcClient,
+)
 from tailslib.logutils import configure_logging
 from tailslib.tor import TOR_HAS_BOOTSTRAPPED_PATH
 
@@ -75,7 +79,7 @@ class TorInfo(ExternalProperty):
 
 
 class TorDisableNetwork(TorInfo):
-    INFO = 'DisableNetwork'
+    INFO = "DisableNetwork"
 
     def normalize(self, value):
         return value == "1"
