@@ -1087,3 +1087,25 @@ def allow_connecting_to_possibly_rfc1918_host(host)
     add_extra_allowed_host(ip.to_s, 443)
   end
 end
+
+Then /^the Tor Connection Assistant reports that I am not connected to a local network$/ do
+  tor_connection_assistant.child?('No Wi-Fi detected')
+end
+When(/^I plug a wifi adapter$/) do
+  $vm.execute('modprobe mac80211_hwsim radios=1')
+end
+
+Then(/^Tor Connection suggests me to connect to wifi$/) do
+  tor_connection_assistant.child?('Connect to a local network')
+end
+
+Then(/^I click on the Wi-Fi settings$/) do
+  try_for(10) do
+    tor_connection_assistant.child('Open Wi-Fi settings').click
+    true
+  end
+end
+
+Then(/^The Wi-Fi settings are displayed$/) do
+  Dogtail::Application.new('gnome-control-center').child?('Settings')
+end
