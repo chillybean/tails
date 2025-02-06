@@ -950,11 +950,6 @@ class TCAMainWindow(
         Gtk.ApplicationWindow.__init__(
             self, title=tca.config.LOCALIZED_APPLICATION_TITLE, application=app
         )
-        self.app = app
-        self.app.tor_is_working.connect("changed", self.on_tor_working_changed)
-        self.app.tor_disable_network.connect("changed", self.on_tor_state_changed)
-
-    def finish_init(self) -> None:
         # self.state collects data from user interactions. Its main key is the step name
         self.state: dict[str, Any] = {
             "hide": {},
@@ -965,6 +960,9 @@ class TCAMainWindow(
             "offline": {},
             "time": {},
         }
+        self.app = app
+
+    def finish_init(self) -> None:
         if self.app.args.debug_statefile is not None:
             log.debug("loading debug statefile")
             with open(self.app.args.debug_statefile) as buf:
@@ -1018,6 +1016,9 @@ class TCAMainWindow(
         self.add(builder.get_object("box_main_container"))
         self.show()
         self.change_box(self.state["step"])
+
+        self.app.tor_is_working.connect("changed", self.on_tor_working_changed)
+        self.app.tor_disable_network.connect("changed", self.on_tor_state_changed)
 
     @property
     def last_scanned_qrcode(self):

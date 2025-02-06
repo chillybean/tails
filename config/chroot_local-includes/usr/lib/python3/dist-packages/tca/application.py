@@ -120,9 +120,7 @@ class TCAApplication(Gtk.Application):
         self.has_unlocked_persistence = has_unlocked_persistence()
         self.tor_disable_network = TorDisableNetwork(self.controller)
         self.tor_is_working = TorIsWorking()
-        self.tor_is_working.check()
         self.wifi_is_available = WifiAvailable()
-        self.wifi_is_available.register_polling(1)
         self.log.debug(
             "Persistence = %s, unlocked = %s",
             self.has_persistence,
@@ -229,7 +227,9 @@ class TCAApplication(Gtk.Application):
         GLib.timeout_add(1, self.do_fetch_nm_state)
         GLib.timeout_add(1, self.do_monitor_tor_is_working)
         self.tor_disable_network.check()
+        self.tor_is_working.check()
         self.tor_disable_network.register_polling(1)
+        self.wifi_is_available.register_polling(1)
 
         try:
             systemd.daemon.notify("READY=1")
