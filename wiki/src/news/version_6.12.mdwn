@@ -55,6 +55,21 @@ Tails.</p>
 
 For more details, read our [[!tails_gitweb debian/changelog desc="changelog"]].
 
+<h1 id="issues">Known issues</h1>
+
+- When installing additional software from your Persistent Storage fails, the
+  **Configure** and **Show Log** buttons in the notification don't work.
+
+  [[!img additional_software.png link="no" class="screenshot" alt="Notification: The installation of your additional software failed"]]
+
+  - To configure your additional software, choose **Applications&nbsp;▸
+    Persistent Storage** and click on the [[!img lib/emblem-system.png
+    class="symbolic" link="no"]] button of the **Additional Software** feature.
+
+  - To show the log, execute the following command in a *Terminal*.
+
+    <p class="command">cat /run/live-additional-software/log</p>
+
 <h1 id="get">Get Tails 6.12</h1>
 
 ## To upgrade your Tails USB stick and keep your Persistent Storage
