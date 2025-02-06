@@ -2,13 +2,277 @@ tails (6.13) UNRELEASED; urgency=medium
 
   * Dummy entry for next release.
 
- -- anonym <anonym@riseup.net>  Thu, 09 Jan 2025 12:44:07 +0100
+ -- intrigeri <intrigeri@debian.org>  Thu, 06 Feb 2025 10:15:31 +0000
 
-tails (6.12) UNRELEASED; urgency=medium
+tails (6.12) unstable; urgency=medium
 
-  * Dummy entry for next release.
+  * Upgrade to Thunderbird 1:128.6.0esr-1~deb12u1
 
- -- anonym <anonym@riseup.net>  Thu, 09 Jan 2025 12:42:29 +0100
+  * Fail the build if any Mite-generated code is found (tails/tails-private!4)
+
+    Commits:
+      - Fail the build if any Mite-generated code is found
+
+  * revert Tails donation campaign (tails/tails!1922)
+
+    Closes issues:
+      - Revert Electrum donation incentive to out-of-donation-campaign status,
+        post-2024-fundraiser (tails/tails#20763)
+
+    Commits:
+      - Fix Ruff ISC001
+      - Ruff format
+      - Make comment match the code
+      - remove broken links from donation message
+      - ruff format
+      - revert Tails donation campaign
+
+  * address gtk-launch security issues (tails/tails-private!7)
+
+    Commits:
+      - ruff format
+      - rename variable
+      - ruff format
+      - explicitly select the intended desktop file
+      - ruff
+      - shfmt
+      - gtk-abspath-launch everywhere
+      - fix #20733: safe desktop file launching
+
+  * Wait until TCA is completely finished before considering Tor being bootstrapped
+    (tails/tails!1900)
+
+    Closes issues:
+      - htpdate fails when reconnecting to the network due to its startup being racy
+        vs. Tor Connection restarting tor (tails/tails#20530)
+
+    Commits:
+      - TCA: log errors when calling lock-bootstrap
+      - TCA: avoid race condition
+      - Wait until TCA is completely finished before considering Tor being bootstrapped
+
+  * Test suite: revert to old UEFI boot config for older versions of Libvirt
+    (tails/tails!1893)
+
+    Closes issues:
+      - "Booting Tails from a USB drive in UEFI mode" scenario fails on Jenkins: "Guest
+        has not initialized display (yet)." (tails/tails#20681)
+
+    Commits:
+      - Test suite: revert to old UEFI boot config for older versions of Libvirt
+
+  * Upgrade to Bookworm 12.9 (tails/tails!1883)
+
+    Closes issues:
+      - Upgrade to Bookworm 12.9 (tails/tails#20715)
+
+    Commits:
+      - Add the comment I wished had been there
+      - Test suite: don't try to unload the zram kernel module
+      - Update snapshot of the "debian" archive to 2025011401
+
+  * Welcome Screen: fix threading issues that freezes GUI when activating
+    persistence (tails/tails!1774)
+
+    Closes issues:
+      - Welcome Screen: threading issues freeze GUI when activating persistence
+        (tails/tails#20635)
+
+    Commits:
+      - Welcome Screen: do not abort enabling persistence on LUKS2 upgrade failure
+      - Welcome Screen: run tps activation code in its own thread (refs: tails#20635)
+      - Welcome Screen: only modify the GUI in the main loop/thread
+
+  * Upgrade Tor Browser to 14.0.5 (tails/tails!1926)
+
+    Closes issues:
+      - Upgrade to Tor Browser 14.0.5 for Tails 6.12 (tails/tails#20730)
+
+    Commits:
+      - Upgrade Tor Browser to 14.0.5-build1 (refs: tails#20730)
+
+  * Ignore irrelevant zd1211-firmware 1:1.5-13 update (tails/tails!1919)
+
+    Commits:
+      - Ignore irrelevant zd1211-firmware 1:1.5-13 update
+
+  * Ensure all included Tails-made Python executables run in isolated mode
+    (tails/tails!1911)
+
+    Closes issues:
+      - Enforce "-I" in Python shebang (tails/tails#20719)
+
+    Commits:
+      - Be more idiomatic
+      - Don't use generator when iterator is sufficient
+      - Don't for None values implicitly
+      - Use absolute path (Ruff S607)
+      - Remove superfluous comment
+      - Remove useless shebang on non-executable file (Ruff EXE001)
+      - Ensure all included Tails-made Python executables run in isolated mode
+      - Remove confusing executable bit
+      - Fix Ruff UP007
+      - is-file-type: extract code to library
+
+  * Upgrade onioncircuits to 0.8.2-1 (tails/tails!1903)
+
+    Commits:
+      - Update snapshot of the debian archive to 2025012201
+
+  * Merge stable into devel whenever stable is updated, rather than via a schedule
+    (tails/tails!1897)
+
+    Commits:
+      - Update doc: we don't use a personal access token anymore
+      - Merge stable into devel whenever stable is updated, rather than via a schedule
+
+  * Document restarting as the way to replace all circuits (tails/tails!1894)
+
+    Closes issues:
+      - Document restarting Tor to change all circuits (tails/tails#18476)
+
+    Commits:
+      - Use parallel structure
+      - Tor now uses 2 different entry guards
+      - Instruct to restart Tor instead of restarting Tails
+      - Document restarting as the way to replace all circuits
+      - Cross-reference the doc on Onion Circuits
+      - Improve label
+
+  * Test suite: Bump the time we wait before checking memory poisoning, again
+    (tails/tails!1892)
+
+    Commits:
+      - Test suite: Bump the time we wait before checking memory poisoning, again
+
+  * Regularly merge stable into devel (tails/tails!1889)
+
+    Closes issues:
+      - Regularly merge master branch into stable and stable into devel
+        (tails/tails#18003)
+
+    Commits:
+      - Appease ruff format
+      - Lint
+      - Wrap
+      - Nitpick language
+      - Fix typos
+      - Regularly merge stable into devel
+      - Rely on shebang
+
+  * htpdate: replace flaky democracynow.org (tails/tails!1887)
+
+    Closes issues:
+      - https-get-expired failing regularly for democracy.now (tails/tails#20721)
+
+    Commits:
+      - htpdate: replace democracynow.org with www.libreoffice.org
+
+  * Update troubleshooting instructions when automatic upgrades fail
+    (tails/tails!1884)
+
+    Closes issues:
+      - Outdated suggestion to run "sudo tails-debugging-info" (tails/tails#20466)
+
+    Commits:
+      - There might not be any automatic upgrade
+      - Fix spelling
+      - Fix grammar
+      - Ask to report before repairing
+      - IUK test suite: drop obsolete steps
+      - Simplify: remove calls to errf(), which are not needed anymore
+      - Actually remove /doc/upgrade/error/download
+      - Fix indentation
+      - Simplify
+      - Remove instructions to sudo tails-debugging-info
+      - Update references
+      - Replace /doc/upgrade/error/check
+      - Instruct to send tails-debugging-info if people have an admin password
+      - People might not be in Tails
+      - Put instructions to repair first
+      - Format consistently within file
+      - Remove /doc/upgrade/error/download
+
+  * Make 99-zzz_check_uids_and_gids abort on failure again (tails/tails!1881)
+
+    Closes issues:
+      - 99-zzz_check_uids_and_gids does not abort on failure anymore
+        (tails/tails#20677)
+
+    Commits:
+      - shfmt
+      - Fix UID & GID stability
+      - Update expected /etc/passwd and /etc/group: add systemd-oom user & group
+      - Update expected /etc/passwd and /etc/group: remove pulseaudio user & groups
+      - Make 99-zzz_check_uids_and_gids fail on mismatch
+
+  * Test suite: attempt to avoid triggering a GTK file chooser assertion
+    (tails/tails!1878)
+
+    Closes issues:
+      - Tor Browser frequently crashes in test suite due to
+        Gtk:ERROR:../../../gtk/gtkpathbar.c:1342:set_button_image_get_info_cb:
+        assertion failed: (cancellable == data->button_data->cancellable)
+        (tails/tails#20692)
+
+    Commits:
+      - Test suite: avoid Tor Browser crash in Save As dialog (refs tails#20692)
+
+  * automatically merge branch `master` into `stable` (tails/tails!1876)
+
+    Commits:
+      - CI: monitor all the relevant configuration files
+      - update config doc of automatic branch merger pipeline
+      - automatically merge branch `master` into `stable`
+
+  * Allow checking for upgrades manually (tails/tails!1818)
+
+    Closes issues:
+      - Allow checking for upgrades manually (tails/tails#20654)
+
+    Commits:
+      - ruff format
+      - Apply Ruff imports sort in a few places to validate configuration
+      - Add missing trailing commas (Ruff COM812)
+      - Apply isort/Ruff import order
+      - Port isort configuration to Ruff
+      - Build system: bump RAM when more than 10 CPUs are used, again
+      - ruff format
+      - Fix Ruff F821
+      - Fix Ruff S607 and PLW1510
+      - Fix import order
+      - Fix Ruff UP031
+      - ruff format
+      - Fix indentation
+      - Move --report-no-upgrade to UPGRADE_FRONTEND
+      - Fix indentation
+      - Improve code style
+      - Improve code style
+      - Apply 1 suggestion(s) to 1 file(s)
+      - Allow checking for upgrades manually (Refs: #20654)
+
+  * Welcome Screen: actually show the user the tps LUKS2 upgrade failure message
+    (tails/tails!1773)
+
+    Closes issues:
+      - Welcome Screen: if persistent storage LUKS upgrade fails the message will not
+        be shown to the user (tails/tails#20634)
+
+    Commits:
+      - Fix org.ruff.E713: Test for membership should be `not in`
+      - tpsd: don't assume fixed order of blkid output
+      - tpsd: don't mount the filesystem when testing the LUKS passphrase
+      - Welcome Screen: actually show the user the tps upgrade failure message (refs:
+        tails#20634)
+      - Welcome Screen: improve code readability
+
+  * Add keyboard shortcut to open GNOME Terminal (tails/tails!1381)
+
+    Commits:
+      - Apply 1 suggestion(s) to 1 file(s)
+      - include gnome-terminal shortcut
+
+ -- Tails developers <tails@boum.org>  Wed, 05 Feb 2025 10:30:06 +0000
 
 tails (6.11) unstable; urgency=medium
 
