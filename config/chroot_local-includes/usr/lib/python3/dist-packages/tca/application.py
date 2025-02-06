@@ -42,6 +42,7 @@ dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
 class WifiAvailable(ExternalPropertyCommandBool):
     COMMAND = ("/usr/local/lib/have-wifi",)
 
+
 class TorIsWorking(ExternalProperty):
     def check(self):
         value = TOR_HAS_BOOTSTRAPPED_PATH.exists()
@@ -55,6 +56,29 @@ class TorIsWorking(ExternalProperty):
         else:
             return
         self.on_value_received(value)
+
+
+class TorInfo(ExternalProperty):
+    def __init__(self, controller):
+        super().__init__()
+        self.controller = controller
+
+    def normalize(self, value):
+        return value
+
+    def check(self):
+        resp = self.controller.get_conf(self.INFO)
+        if resp is None:
+            self.log.warning("No response from tor (asking %s)", self.INFO)
+        else:
+            self.on_value_received(self.normalize(resp))
+
+
+class TorDisableNetwork(TorInfo):
+    INFO = 'DisableNetwork'
+
+    def normalize(self, value):
+        return value == "1"
 
 
 class TCAApplication(Gtk.Application):
@@ -92,9 +116,9 @@ class TCAApplication(Gtk.Application):
         self.window = None
         self.sys_dbus = dbus.SystemBus()
         self.last_nm_state = None
-        self.tor_info: dict[str, Any] = {"DisableNetwork": None}
         self.has_persistence = has_persistence()
         self.has_unlocked_persistence = has_unlocked_persistence()
+        self.tor_disable_network = TorDisableNetwork(self.controller)
         self.tor_is_working = TorIsWorking()
         self.tor_is_working.check()
         self.wifi_is_available = WifiAvailable()
@@ -130,25 +154,6 @@ class TCAApplication(Gtk.Application):
         monitor.connect("changed", self.tor_is_working.on_file_event)
 
         return False
-
-    def check_tor_state(self, repeat: bool):
-        # this is called periodically
-        changed = set()
-        for infokey in ["DisableNetwork"]:
-            resp = self.controller.get_conf(infokey)
-            if resp is None:
-                self.log.warn("No response from tor (asking %s)", infokey)
-            else:
-                if self.tor_info[infokey] != resp:
-                    changed.add(infokey)
-                self.tor_info[infokey] = resp
-
-        if changed:
-            self.log.info("tor state changed: %s", ",".join(changed))
-            if hasattr(self.window, "on_tor_state_changed"):
-                GLib.idle_add(self.window.on_tor_state_changed, self.tor_info, changed)
-
-        return repeat
 
     @property
     def is_tor_working(self) -> bool:
@@ -223,10 +228,8 @@ class TCAApplication(Gtk.Application):
         # one time only
         GLib.timeout_add(1, self.do_fetch_nm_state)
         GLib.timeout_add(1, self.do_monitor_tor_is_working)
-        GLib.timeout_add(1, self.check_tor_state, False)
-
-        # timers
-        GLib.timeout_add(1000, self.check_tor_state, True)
+        self.tor_disable_network.check()
+        self.tor_disable_network.register_polling(1)
 
         try:
             systemd.daemon.notify("READY=1")
