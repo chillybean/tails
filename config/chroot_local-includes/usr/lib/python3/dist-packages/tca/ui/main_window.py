@@ -1019,6 +1019,20 @@ class TCAMainWindow(
 
         self.app.tor_is_working.connect("changed", self.on_tor_working_changed)
         self.app.tor_disable_network.connect("changed", self.on_tor_state_changed)
+        self.app.wifi_is_available.connect("changed", self.on_wifi_is_available_changed)
+        self.on_wifi_is_available_changed(self.app.wifi_is_available)
+
+    def on_wifi_is_available_changed(self, prop):
+        wifi_available = bool(prop.value)
+        self.builder.get_object("step_offline_wifi_not_available").set_visible(
+            not wifi_available,
+        )
+        self.builder.get_object("step_offline_wifi_available").set_visible(
+            wifi_available,
+        )
+        self.builder.get_object("step_offline_wificonf").set_visible(
+            wifi_available,
+        )
 
     @property
     def last_scanned_qrcode(self):
