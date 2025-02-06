@@ -10,6 +10,7 @@ gi.require_version("Gdk", "3.0")
 gi.require_version("Gtk", "3.0")
 gi.require_version("Gio", "2.0")
 from gi.repository import Gdk, Gio, Gtk  # noqa: E402
+from systemd import journal  # noqa: E402
 
 
 def str_to_gfile(s) -> Gio.File:
@@ -37,21 +38,31 @@ def main():
     bus_name = args.desktop.name.removesuffix(".desktop")
     if Gio.dbus_is_name(bus_name):
         object_path = "/" + bus_name.replace(".", "/")
-        subprocess.run(
-            [
-                "/usr/bin/busctl",
-                "--quiet",
-                "--user",
-                "call",
-                bus_name,
-                object_path,
-                "org.freedesktop.DBus.Peer",
-                "Ping",
-            ],
+        try:
+            subprocess.run(
+                [
+                    "/usr/bin/busctl",
+                    "--quiet",
+                    "--user",
+                    "call",
+                    bus_name,
+                    object_path,
+                    "org.freedesktop.DBus.Peer",
+                    "Ping",
+                ],
+                check=True,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
+            )
+        except subprocess.CalledProcessError as exc:
             # Some applications don't really expose themselves on DBus
-            # (ie: org.gnome.Evince). Therefore failures are ok.
-            check=False,
-        )
+            # (ie: org.gnome.Evince or org.boum.tails.PersistentStorage).
+            # Therefore failures are ok, we just print them.
+            journal.send(
+                exc.output.decode().strip(),
+                SYSLOG_IDENTIFIER="gtk-abspath-launch",
+                PRIORITY=5,
+            )
 
 
 if __name__ == "__main__":
