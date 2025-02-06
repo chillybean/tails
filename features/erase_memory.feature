@@ -16,7 +16,7 @@ Feature: System memory erasure on shutdown
     When I start a process allocating 128 MiB of memory with a known pattern
     Then patterns cover at least 128 MiB in the guest's memory
     When I kill the allocating process
-    Then I find very few patterns in the guest's memory after 3 seconds
+    Then I find very few patterns in the guest's memory after 5 seconds
 
   Scenario: Erasure of tmpfs data on unmount
     Given I have started Tails from DVD without network and logged in
