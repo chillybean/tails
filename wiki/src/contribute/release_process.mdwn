@@ -1979,19 +1979,6 @@ Wait for each of these pages to include:
  - at least 6 working mirrors
  - at least one among the fallback mirrors: https://download.tails.net/tails/?mirrorlist
 
-
-To disable mirrors that are lagging behind:
-
-1. Set their weight to 0 in the
-   [mirrors pool](https://gitlab.tails.boum.org/tails/mirror-pool/-/blob/master/mirrors.json).
-
-2. Push to the [[!tails_gitlab tails/mirror-pool]] `master` branch.
-
-3. Verify that the CI pipeline passed on `https://gitlab.tails.boum.org/tails/mirror-pool/-/pipelines`.
-
-4. Notify <sysadmins@tails.net>, so they communicate with the operators of the
-   outdated mirrors.
-
 Sanity checks
 -------------
 
