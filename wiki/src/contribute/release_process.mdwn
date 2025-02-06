@@ -1125,6 +1125,9 @@ To build the IUKS, run this command:
           echo "ERROR! Not enough free space in ${OUR_TMPDIR:?}"
           exit 2
        fi
+       CPU_CORES=$(grep '^core id' /proc/cpuinfo | sort -u | wc -l)
+       MAX_JOBS=4
+       JOBS=$(( CPU_CORES > MAX_JOBS ? MAX_JOBS : CPU_CORES ))
        time                                                                   \
        sudo                                                                   \
        nice                                                                   \
@@ -1138,7 +1141,7 @@ To build the IUKS, run this command:
            --source-versions "${IUK_SOURCE_VERSIONS?:}"                       \
            --new-version "${VERSION?:}"                                       \
            --verbose                                                          \
-           --jobs "$(grep '^core id' /proc/cpuinfo | sort -u | wc -l)"        \
+           --jobs "${JOBS?:}"                                                 \
            2>&1 | tee "$IUK_CREATION_LOG"
     ) && \
      cd "${IUKS_DIR?:}" && \
