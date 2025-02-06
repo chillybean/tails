@@ -25,17 +25,23 @@ from tca.torutils import (
     TorLauncherNetworkUtils,
 )
 from tca.timeutils import GET_NETWORK_TIME_RETURN_CODE
-from tca.ui.asyncutils import GJsonRpcClient
+from tca.ui.asyncutils import ExternalPropertyCommandBool, GJsonRpcClient
 from tailslib.logutils import configure_logging
 from tailslib.tor import TOR_HAS_BOOTSTRAPPED_PATH
 
 
+gi.require_version("Gio", "2.0")
 gi.require_version("GLib", "2.0")
 gi.require_version("Gtk", "3.0")
-from gi.repository import GLib, Gtk, Gio  # noqa: E402
+from gi.repository import Gio, GLib, Gtk  # noqa: E402
 
 
 dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
+
+
+class WifiAvailable(ExternalPropertyCommandBool):
+    COMMAND = ("/usr/local/lib/have-wifi",)
+
 
 
 class TCAApplication(Gtk.Application):
@@ -77,6 +83,8 @@ class TCAApplication(Gtk.Application):
         self.tor_info: dict[str, Any] = {"DisableNetwork": None}
         self.has_persistence = has_persistence()
         self.has_unlocked_persistence = has_unlocked_persistence()
+        self.wifi_is_available = WifiAvailable()
+        self.wifi_is_available.register_polling(1)
         self.log.debug(
             "Persistence = %s, unlocked = %s",
             self.has_persistence,
