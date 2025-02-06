@@ -25,7 +25,7 @@ from tca.torutils import (
     TorLauncherNetworkUtils,
 )
 from tca.timeutils import GET_NETWORK_TIME_RETURN_CODE
-from tca.ui.asyncutils import ExternalPropertyCommandBool, GJsonRpcClient
+from tca.ui.asyncutils import ExternalProperty, ExternalPropertyCommandBool, GJsonRpcClient
 from tailslib.logutils import configure_logging
 from tailslib.tor import TOR_HAS_BOOTSTRAPPED_PATH
 
@@ -41,6 +41,20 @@ dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
 
 class WifiAvailable(ExternalPropertyCommandBool):
     COMMAND = ("/usr/local/lib/have-wifi",)
+
+class TorIsWorking(ExternalProperty):
+    def check(self):
+        value = TOR_HAS_BOOTSTRAPPED_PATH.exists()
+        self.on_value_received(value)
+
+    def on_file_event(self, monitor, _file, otherfile, event):
+        if event == Gio.FileMonitorEvent.CREATED:
+            value = True
+        elif event == Gio.FileMonitorEvent.DELETED:
+            value = False
+        else:
+            return
+        self.on_value_received(value)
 
 
 class TCAApplication(Gtk.Application):
@@ -78,10 +92,11 @@ class TCAApplication(Gtk.Application):
         self.window = None
         self.sys_dbus = dbus.SystemBus()
         self.last_nm_state = None
-        self._tor_is_working: bool = TOR_HAS_BOOTSTRAPPED_PATH.exists()
         self.tor_info: dict[str, Any] = {"DisableNetwork": None}
         self.has_persistence = has_persistence()
         self.has_unlocked_persistence = has_unlocked_persistence()
+        self.tor_is_working = TorIsWorking()
+        self.tor_is_working.check()
         self.wifi_is_available = WifiAvailable()
         self.wifi_is_available.register_polling(1)
         self.log.debug(
@@ -112,19 +127,9 @@ class TCAApplication(Gtk.Application):
         f = Gio.File.new_for_path(str(TOR_HAS_BOOTSTRAPPED_PATH))
         monitor = f.monitor(Gio.FileMonitorFlags.NONE, None)
         self._tor_is_working_monitor = monitor  # otherwise it will get GC'ed
-        monitor.connect("changed", self.check_tor_is_working)
+        monitor.connect("changed", self.tor_is_working.on_file_event)
 
         return False
-
-    def check_tor_is_working(self, monitor, _file, otherfile, event):
-        if event == Gio.FileMonitorEvent.CREATED:
-            self._tor_is_working = True
-        elif event == Gio.FileMonitorEvent.DELETED:
-            self._tor_is_working = False
-        else:
-            return
-        self.log.info("tor_is_working = %s", self._tor_is_working)
-        GLib.idle_add(self.window.on_tor_working_changed, self.is_tor_working)
 
     def check_tor_state(self, repeat: bool):
         # this is called periodically
@@ -147,7 +152,7 @@ class TCAApplication(Gtk.Application):
 
     @property
     def is_tor_working(self) -> bool:
-        return bool(self._tor_is_working)
+        return bool(self.tor_is_working.value)
 
     @property
     def is_tor_over_bridges(self) -> bool:

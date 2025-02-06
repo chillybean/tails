@@ -951,6 +951,7 @@ class TCAMainWindow(
             self, title=tca.config.LOCALIZED_APPLICATION_TITLE, application=app
         )
         self.app = app
+        self.app.tor_is_working.connect("changed", self.on_tor_working_changed)
 
     def finish_init(self) -> None:
         # self.state collects data from user interactions. Its main key is the step name
@@ -1223,7 +1224,8 @@ class TCAMainWindow(
         self._move_to_right_step()
         log.debug(self.state["step"])
 
-    def on_tor_working_changed(self, working: bool):
+    def on_tor_working_changed(self, prop):
+        working: bool = prop.value
         log.info("Tor working changed %s", working)
         if working:
             self.app.portal.call_async("unlock-bootstrap", None)
