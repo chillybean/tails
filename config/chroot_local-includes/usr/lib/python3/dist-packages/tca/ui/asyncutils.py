@@ -3,6 +3,7 @@ from typing import Any, ClassVar
 from collections.abc import Callable
 import socket
 from logging import getLogger
+import time
 
 import gi
 from tinyrpc.protocols.jsonrpc import JSONRPCProtocol
@@ -191,3 +192,76 @@ def idle_add_chain(functions: list[Callable]):
             idle_add_chain(functions)
 
     GLib.idle_add(wrapped_fn)
+
+
+class ExternalProperty(GObject.Object):
+    """
+    This class (and its subclasses) provides a way to encapsulate complex properties that we need to track
+    about the other world.
+
+    Every property is a new class, which should subclass this one.
+
+    In most cases, you just need to define the `check` method.
+
+    polling is very easy, but it's not hard to run checks asynchronously.
+    """
+    __gsignals__: ClassVar[dict] = {
+            "changed": (
+                GObject.SIGNAL_RUN_LAST,
+                GObject.TYPE_NONE,
+                (),
+                ),
+            }
+
+    def __init__(self):
+        GObject.GObject.__init__(self)
+        self.value = None
+        self.last_change = None
+
+    def register_polling(self, interval_seconds: int):
+        GLib.timeout_add_seconds(interval_seconds, self.tick)
+
+    def tick(self) -> bool:
+        """wrapper over self.check which makes sure polling is re-run, by returning True"""
+        self.check()
+        return True
+
+    def on_value_received(self, new_value):
+        if self.last_change is None or new_value != self.value:
+            self.value = new_value
+            self.last_change = time.time()
+            self.emit("changed")
+
+    def check(self):
+        # this is the only method subclasses MUST implement
+        # the return value is discarded:
+        # to actually submit a new value, call on_value_received
+        raise NotImplementedError
+
+
+class ExternalPropertyCommand(ExternalProperty):
+    """
+    This class provides everything you need when you want to run a process and only need its status code.
+
+    This class makes it extremely easy to monitor such a process: just subclass and define COMMAND.
+    """
+    def normalize_retval(self, retval: int):
+        return retval
+
+    def check(self):
+        def on_received(spawn, retval):
+            self.on_value_received(self.normalize_retval(retval))
+
+        test = GAsyncSpawn()
+        test.connect("process-done", on_received)
+        test.run(self.COMMAND)
+
+
+class ExternalPropertyCommandBool(ExternalPropertyCommand):
+    """
+    It's very common that commands have exit code zero on success, nonzero on failure.
+
+    This class makes it extremely easy to monitor such a process: just subclass and define COMMAND.
+    """
+    def normalize_retval(self, retval: int) -> bool:
+        return retval == 0
