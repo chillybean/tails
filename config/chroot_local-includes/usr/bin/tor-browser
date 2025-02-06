@@ -40,8 +40,8 @@ export TOR_NO_DISPLAY_NETWORK_SETTINGS='yes'
 export MOZ_ENABLE_WAYLAND=1
 
 ask_for_confirmation() {
-    if [ "${TOR_BROWSER_SKIP_OFFLINE_WARNING:-}" = 'yes' ] || \
-       pgrep -u "${LIVE_USERNAME}" -f "${TBB_INSTALL}/firefox.real"; then
+    if [ "${TOR_BROWSER_SKIP_OFFLINE_WARNING:-}" = 'yes' ] ||
+        pgrep -u "${LIVE_USERNAME}" -f "${TBB_INSTALL}/firefox.real"; then
         return
     fi
 
@@ -51,7 +51,7 @@ ask_for_confirmation() {
     dialog_start=$(gettext "Start Tor Browser Offline")
     dialog_cancel=$(gettext "Open Tor Connection")
     zenity --question --ellipsize --title "$dialog_title" --text="$dialog_text" \
-           --default-cancel --ok-label "$dialog_start" --cancel-label "$dialog_cancel"
+        --default-cancel --ok-label "$dialog_start" --cancel-label "$dialog_cancel"
 }
 
 start_browser() {
@@ -73,12 +73,11 @@ start_browser() {
     configure_best_tor_browser_locale "${PROFILE}"
 
     exec_firefox -allow-remote \
-                 --class "Tor Browser" \
-                 --name "Tor Browser" \
-                 -profile "${PROFILE}" \
-                 "${@}"
+        --class "Tor Browser" \
+        --name "Tor Browser" \
+        -profile "${PROFILE}" \
+        "${@}"
 }
-
 
 if tor_has_bootstrapped || ask_for_confirmation; then
     # Torbutton 1.5.1+ uses those environment variables
@@ -87,5 +86,5 @@ if tor_has_bootstrapped || ask_for_confirmation; then
 
     start_browser "${@}"
 else
-    gtk-launch tca.desktop
+    /usr/local/bin/gtk-abspath-launch /usr/share/applications/tca.desktop
 fi

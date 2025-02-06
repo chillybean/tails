@@ -9,7 +9,7 @@ def vm_memory_base(cpus)
   # RAM, especially when defaulcomp (xz) is used. We only adjust for
   # more than 10 cpus since that's the only situation where we have
   # observed RAM shortage.
-  memory += (cpus - 10) * 60 if cpus > 10
+  memory += (cpus - 10) * 120 if cpus > 10
   memory
 end
 

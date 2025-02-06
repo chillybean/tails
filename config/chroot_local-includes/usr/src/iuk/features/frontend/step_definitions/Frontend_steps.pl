@@ -469,20 +469,6 @@ Then qr{^I should not be told anything}, fun ($c) {
     is($c->{stash}->{scenario}->{output}, "");
 };
 
-Then qr{^I should be pointed to the documentation about upgrade-description file retrieval error$}, fun ($c) {
-    like(
-        $c->{stash}->{scenario}->{output},
-        qr{/usr/share/doc/tails/website/doc/upgrade/error/check}
-    );
-};
-
-Then qr{^I should be pointed to the documentation about target file retrieval error$}, fun ($c) {
-    like(
-        $c->{stash}->{scenario}->{output},
-        qr{/usr/share/doc/tails/website/doc/upgrade/error/download}
-    );
-};
-
 Then qr{^I should be told "([^"]+)"$}, fun ($c) {
     my $expected_err = $c->matches->[0];
     like($c->{stash}->{scenario}->{output}, qr{$expected_err});
