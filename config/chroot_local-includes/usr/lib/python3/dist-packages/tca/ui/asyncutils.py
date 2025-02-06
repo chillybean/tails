@@ -206,12 +206,12 @@ class ExternalProperty(GObject.Object):
     polling is very easy, but it's not hard to run checks asynchronously.
     """
     __gsignals__: ClassVar[dict] = {
-            "changed": (
-                GObject.SIGNAL_RUN_LAST,
-                GObject.TYPE_NONE,
-                (),
-                ),
-            }
+        "changed": (
+            GObject.SIGNAL_RUN_LAST,
+            GObject.TYPE_NONE,
+            (),
+        ),
+    }
 
     def __init__(self):
         GObject.GObject.__init__(self)

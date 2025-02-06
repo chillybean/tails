@@ -88,7 +88,9 @@ def has_wifi() -> bool:
 def main():
     p = argparse.ArgumentParser()
     p.add_argument(
-        "--log-level", choices=["DEBUG", "INFO", "WARNING", "ERROR"], default="WARNING",
+        "--log-level",
+        choices=["DEBUG", "INFO", "WARNING", "ERROR"],
+        default="WARNING",
     )
     args = p.parse_args()
 

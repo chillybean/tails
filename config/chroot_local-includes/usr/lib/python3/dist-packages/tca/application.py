@@ -43,7 +43,6 @@ class WifiAvailable(ExternalPropertyCommandBool):
     COMMAND = ("/usr/local/lib/have-wifi",)
 
 
-
 class TCAApplication(Gtk.Application):
     """main controller for TCA."""
 
