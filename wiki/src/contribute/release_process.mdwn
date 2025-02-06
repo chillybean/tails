@@ -2535,7 +2535,9 @@ Check that you are indeed preparing a RC:
         mv ~/.config/tails/release_management/current.yml \
            ~/.config/tails/release_management/old/${VERSION:?}.yml.disabled
 
-1. Delete your local copy of the IUKs [XXX:automate]
+1. Delete your local copy of the IUKs
+
+        rm -f "${IUKS_DIR:?}/"Tails_amd64_*_to_${VERSION?:}.iuk "${IUKS_HASHES?:}"
 
 1. Delete logs
 
