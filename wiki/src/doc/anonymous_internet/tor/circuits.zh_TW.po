@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-01-16 22:15+0000\n"
+"POT-Creation-Date: 2025-02-05 10:34+0100\n"
 "PO-Revision-Date: 2018-03-13 11:44+0000\n"
 "Last-Translator: emmapeel <emma.peel@riseup.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,8 +36,7 @@ msgid ""
 "To open **Onion Circuits**, click on the\n"
 "Tor status icon ([[!img lib/symbolic/tor-disconnected.png alt=\"Tor status menu\" link=\"no\" class=\"symbolic\"]]\n"
 "or [[!img lib/symbolic/tor-connected.png alt=\"Tor status menu\" link=\"no\"\n"
-"class=\"symbolic\"]]) in the top-right corner and choose **Open Onion\n"
-"Circuits**.\n"
+"class=\"symbolic\"]]) in the top-right corner and choose **View Tor Circuits**.\n"
 msgstr ""
 
 #. type: Plain text
@@ -54,9 +53,9 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid ""
-"<!-- Note for translators: the entry guard in use when you take the screenshot\n"
+"<!-- Note for translators: the entry guards in use when you take the screenshot\n"
 "onion-circuits.png is in a position to identify you. You might prefer to leave it\n"
-"untranslated.-->\n"
+"untranslated. -->\n"
 msgstr ""
 
 #. type: Plain text
@@ -89,25 +88,34 @@ msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid "   If you configured a Tor bridge, your bridge is your entry guard.\n"
+msgid "   If you use a Tor bridge:\n"
+msgstr ""
+
+#. type: Bullet: '   - '
+msgid "Tor uses the bridge as your entry guard."
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid "   If you don't use a Tor bridge:\n"
+msgstr ""
+
+#. type: Bullet: '   - '
+msgid ""
+"Tor uses only 2 different relays as your entry guards, as a way of "
+"[protecting against *end-to-end correlation* attacks](https://support."
+"torproject.org/about/entry-guards/)."
+msgstr ""
+
+#. type: Bullet: '   - '
+msgid "Your entry guards change every time you restart Tails."
 msgstr ""
 
 #. type: Plain text
 #, no-wrap
 msgid ""
-"   The entry guard is the same for all circuits, as a way of [protecting\n"
-"   against *end-to-end correlation*\n"
-"   attacks](https://support.torproject.org/about/entry-guards/).\n"
-msgstr ""
-
-#. type: Plain text
-#, no-wrap
-msgid "   But, your entry guard changes every time you restart Tails.\n"
-msgstr ""
-
-#. type: Plain text
-#, no-wrap
-msgid "   To keep the same entry guard across different Tails sessions, use a bridge.\n"
+"     To keep the same entry guard across different Tails sessions, use a\n"
+"     Tor bridge instead.\n"
 msgstr ""
 
 #. type: Bullet: '2. '
@@ -167,6 +175,18 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "   For example, if you download the same file again, Tor uses a new circuit.\n"
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid "<h1 id=\"restart\">Closing and replacing all Tor circuits</h1>\n"
+msgstr ""
+
+#. type: Plain text
+msgid ""
+"Tails restarts Tor and all circuits are replaced if you disconnect and "
+"reconnect from your local network, for example, by turning the Wi-Fi off and "
+"on again."
 msgstr ""
 
 #~ msgid "[[!toc levels=1]]\n"
