@@ -203,8 +203,10 @@ class ExternalProperty(GObject.Object):
 
     In most cases, you just need to define the `check` method.
 
-    polling is very easy, but it's not hard to run checks asynchronously.
+    Polling is built-in feature; subscribing to events is still possible, you just need to arrange it either
+    in a subclass (see NetworkLink) or externally (see DisableNetwork)
     """
+
     __gsignals__: ClassVar[dict] = {
         "changed": (
             GObject.SIGNAL_RUN_LAST,
@@ -246,6 +248,7 @@ class ExternalPropertyCommand(ExternalProperty):
 
     This class makes it extremely easy to monitor such a process: just subclass and define COMMAND.
     """
+
     def normalize_retval(self, retval: int):
         return retval
 
@@ -264,5 +267,6 @@ class ExternalPropertyCommandBool(ExternalPropertyCommand):
 
     This class makes it extremely easy to monitor such a process: just subclass and define COMMAND.
     """
+
     def normalize_retval(self, retval: int) -> bool:
         return retval == 0
