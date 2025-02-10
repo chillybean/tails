@@ -46,6 +46,17 @@ dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
 class WifiAvailable(ExternalPropertyCommandBool):
     COMMAND = ("/usr/local/lib/have-wifi",)
 
+    def register_dbus(self, sys_dbus):
+        nm_obj = sys_dbus.get_object(
+            "org.freedesktop.NetworkManager",
+            "/org/freedesktop/NetworkManager",
+        )
+        nm = dbus.Interface(nm_obj, "org.freedesktop.NetworkManager")
+
+        # subscribe for changes
+        nm.connect_to_signal("DeviceAdded", lambda *args: self.check())
+        nm.connect_to_signal("DeviceRemoved", lambda *args: self.check())
+
 
 class TorIsWorking(ExternalProperty):
     def check(self):
@@ -241,7 +252,8 @@ class TCAApplication(Gtk.Application):
         GLib.timeout_add(1, self.do_monitor_tor_is_working)
         self.tor_disable_network.check()
         self.tor_is_working.check()
-        self.wifi_is_available.register_polling(1)
+        self.wifi_is_available.register_dbus(self.sys_dbus)
+        self.wifi_is_available.check()
         self.controller.add_event_listener(
             self.tor_disable_network.on_controller_event, EventType.CONF_CHANGED
         )
