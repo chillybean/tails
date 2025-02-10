@@ -10,7 +10,7 @@ Feature: Additional software
   # dependencies (which are documented below).
 
   #18852
-  @not_release_blocker @fragile
+  @not_release_blocker @fragile @doc
   Scenario: I am warned I can not use Additional Software when I start Tails from a DVD and install a package
     Given I have started Tails from DVD and logged in with an administration password and the network is connected
     And I update APT using apt
