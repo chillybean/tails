@@ -9,7 +9,7 @@ from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 from pathlib import Path
 from typing import Any
 
-from stem.control import Controller
+from stem.control import Controller, EventType
 import prctl
 import gi
 import dbus
@@ -76,6 +76,11 @@ class TorConfigurationValue(ExternalProperty):
             self.log.warning("No response from tor (asking %s)", self.INFO)
         else:
             self.on_value_received(self.normalize(resp))
+
+    def on_controller_event(self, event):
+        if self.KEYWORD in event.config:
+            value = self.normalize(event.config[self.KEYWORD])
+            self.on_value_received(value)
 
 
 class TorDisableNetwork(TorConfigurationValue):
@@ -232,8 +237,10 @@ class TCAApplication(Gtk.Application):
         GLib.timeout_add(1, self.do_monitor_tor_is_working)
         self.tor_disable_network.check()
         self.tor_is_working.check()
-        self.tor_disable_network.register_polling(1)
         self.wifi_is_available.register_polling(1)
+        self.controller.add_event_listener(
+            self.tor_disable_network.on_controller_event, EventType.CONF_CHANGED
+        )
 
         try:
             systemd.daemon.notify("READY=1")
