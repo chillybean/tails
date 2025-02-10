@@ -176,6 +176,14 @@ To release Tails you need:
   `config/release_management/examples/local.yml` there and adjust to your
   local environment.
 
+* SSH client (`~/.ssh/config`)
+
+  Ensure your SSH client is configured to connect to the APT server:
+
+        Host apt.lizard
+            HostName lizard.tails.boum.org
+            Port 3003
+
 * Optional: configure _automailer_ by running `./bin/automailer.py --long-help`,
   which will give you tips on how to configure it. This will make sending emails
   a bit easier.
@@ -1125,6 +1133,9 @@ To build the IUKS, run this command:
           echo "ERROR! Not enough free space in ${OUR_TMPDIR:?}"
           exit 2
        fi
+       CPU_CORES=$(grep '^core id' /proc/cpuinfo | sort -u | wc -l)
+       MAX_JOBS=4
+       JOBS=$(( CPU_CORES > MAX_JOBS ? MAX_JOBS : CPU_CORES ))
        time                                                                   \
        sudo                                                                   \
        nice                                                                   \
@@ -1138,7 +1149,7 @@ To build the IUKS, run this command:
            --source-versions "${IUK_SOURCE_VERSIONS?:}"                       \
            --new-version "${VERSION?:}"                                       \
            --verbose                                                          \
-           --jobs "$(grep '^core id' /proc/cpuinfo | sort -u | wc -l)"        \
+           --jobs "${JOBS?:}"                                                 \
            2>&1 | tee "$IUK_CREATION_LOG"
     ) && \
      cd "${IUKS_DIR?:}" && \
@@ -1976,19 +1987,6 @@ Wait for each of these pages to include:
  - at least 6 working mirrors
  - at least one among the fallback mirrors: https://download.tails.net/tails/?mirrorlist
 
-
-To disable mirrors that are lagging behind:
-
-1. Set their weight to 0 in the
-   [mirrors pool](https://gitlab.tails.boum.org/tails/mirror-pool/-/blob/master/mirrors.json).
-
-2. Push to the [[!tails_gitlab tails/mirror-pool]] `master` branch.
-
-3. Verify that the CI pipeline passed on `https://gitlab.tails.boum.org/tails/mirror-pool/-/pipelines`.
-
-4. Notify <sysadmins@tails.net>, so they communicate with the operators of the
-   outdated mirrors.
-
 Sanity checks
 -------------
 
@@ -2532,7 +2530,9 @@ Check that you are indeed preparing a RC:
         mv ~/.config/tails/release_management/current.yml \
            ~/.config/tails/release_management/old/${VERSION:?}.yml.disabled
 
-1. Delete your local copy of the IUKs [XXX:automate]
+1. Delete your local copy of the IUKs
+
+        rm -f "${IUKS_DIR:?}/"Tails_amd64_*_to_${VERSION?:}.iuk "${IUKS_HASHES?:}"
 
 1. Delete logs
 
