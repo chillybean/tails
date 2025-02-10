@@ -90,6 +90,32 @@ class TorDisableNetwork(TorConfigurationValue):
         return value == "1"
 
 
+class NetworkLink(ExternalProperty):
+    def __init__(self, sys_dbus):
+        super().__init__()
+        nm_obj = sys_dbus.get_object(
+            "org.freedesktop.NetworkManager",
+            "/org/freedesktop/NetworkManager",
+        )
+        self.nm = dbus.Interface(nm_obj, "org.freedesktop.NetworkManager")
+
+    @property
+    def ok(self):
+        return self.last_change is not None and self.value >= 60
+
+    def check(self):
+        def on_error(*args, **kwargs):
+            self.log.warning("Error getting information from NetworkManager")
+
+        self.nm.state(
+            reply_handler=self.on_value_received,
+            error_handler=on_error,
+        )
+
+    def register_dbus(self):
+        self.nm.connect_to_signal("StateChanged", self.on_value_received)
+
+
 class TCAApplication(Gtk.Application):
     """main controller for TCA."""
 
@@ -124,7 +150,7 @@ class TCAApplication(Gtk.Application):
         self.debug = args.debug
         self.window = None
         self.sys_dbus = dbus.SystemBus()
-        self.last_nm_state = None
+        self.network_link = NetworkLink(self.sys_dbus)
         self.has_persistence = has_persistence()
         self.has_unlocked_persistence = has_unlocked_persistence()
         self.tor_disable_network = TorDisableNetwork(self.controller)
@@ -171,35 +197,11 @@ class TCAApplication(Gtk.Application):
         bridges = self.configurator.tor_connection_config.bridges
         return bool(bridges)
 
-    @property
-    def is_network_link_ok(self) -> bool:
-        return self.last_nm_state is not None and self.last_nm_state >= 60
-
     def on_portal_response(self, portal, result: dict, errordata):
         self.log.debug("response from portal : %s", result)
 
     def on_portal_error(self, portal, error: str, errordata):
         self.log.error("response-error from portal : %s", error)
-
-    def cb_dbus_nm_state(self, val):
-        self.log.debug("NetworkManager state is now: %d", int(val))
-        changed = False
-        if self.last_nm_state != val:
-            changed = True
-
-        self.last_nm_state = val
-
-        def wait_window():
-            if self.window is None:
-                return True
-            GLib.idle_add(self.window.on_network_changed)
-            return False
-
-        if changed:
-            if self.window is not None:
-                GLib.idle_add(self.window.on_network_changed)
-            else:
-                GLib.timeout_add(100, wait_window)
 
     def finish_startup_if_configuration_has_been_loaded(self):
         """If configuration has been loaded, finish startup of the app."""
@@ -232,8 +234,10 @@ class TCAApplication(Gtk.Application):
         action.connect("activate", self.on_quit)
         self.add_action(action)
 
+        self.network_link.register_dbus()
+        self.network_link.check()
+
         # one time only
-        GLib.timeout_add(1, self.do_fetch_nm_state)
         GLib.timeout_add(1, self.do_monitor_tor_is_working)
         self.tor_disable_network.check()
         self.tor_is_working.check()
@@ -270,23 +274,6 @@ class TCAApplication(Gtk.Application):
         # do_activate (i.e. when we're handling the `activate`
         # signal).
         GLib.timeout_add(100, self.finish_startup_if_configuration_has_been_loaded)
-
-    def do_fetch_nm_state(self):
-        def handle_hello_error(*args, **kwargs):
-            self.log.warn("Error getting information from NetworkManager")
-            self.last_nm_state = None
-
-        nm_obj = self.sys_dbus.get_object(
-            "org.freedesktop.NetworkManager", "/org/freedesktop/NetworkManager"
-        )
-        nm = dbus.Interface(nm_obj, "org.freedesktop.NetworkManager")
-
-        # get immediately
-        nm.state(reply_handler=self.cb_dbus_nm_state, error_handler=handle_hello_error)
-        # subscribe for changes
-        nm.connect_to_signal("StateChanged", self.cb_dbus_nm_state)
-
-        return False
 
     def set_time_from_network(self, callback):
         def on_set_system_time(portal, result, error, errordata):

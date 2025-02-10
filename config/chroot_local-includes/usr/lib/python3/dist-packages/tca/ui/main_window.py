@@ -1017,6 +1017,7 @@ class TCAMainWindow(
         self.show()
         self.change_box(self.state["step"])
 
+        self.app.network_link.connect("changed", self.on_network_changed)
         self.app.tor_is_working.connect("changed", self.on_tor_working_changed)
         self.app.tor_disable_network.connect("changed", self.on_tor_state_changed)
         self.app.wifi_is_available.connect("changed", self.on_wifi_is_available_changed)
@@ -1184,7 +1185,7 @@ class TCAMainWindow(
         Other state transitions happen when reacting to events such as clicking.
         """
         disable_network = self.app.tor_disable_network.value
-        up = self.app.is_network_link_ok
+        up = self.app.network_link.ok
         tor_working = self.app.is_tor_working
         step = self.state["step"]
         log.info(
@@ -1235,8 +1236,8 @@ class TCAMainWindow(
             self.change_box(new_step)
         self.state["progress"]["success"] = tor_working
 
-    def on_network_changed(self):
-        log.info("Local network changed %s", self.app.is_network_link_ok)
+    def on_network_changed(self, prop):
+        log.info("Local network changed %s", self.app.network_link.ok)
         self._move_to_right_step()
         log.debug(self.state["step"])
 

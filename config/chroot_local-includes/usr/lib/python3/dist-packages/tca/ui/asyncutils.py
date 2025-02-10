@@ -217,6 +217,7 @@ class ExternalProperty(GObject.Object):
         GObject.GObject.__init__(self)
         self.value = None
         self.last_change = None
+        self.log = getLogger(self.__class__.__name__)
 
     def register_polling(self, interval_seconds: int):
         GLib.timeout_add_seconds(interval_seconds, self.tick)
