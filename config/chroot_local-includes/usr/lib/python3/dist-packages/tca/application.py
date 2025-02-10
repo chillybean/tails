@@ -62,7 +62,7 @@ class TorIsWorking(ExternalProperty):
         self.on_value_received(value)
 
 
-class TorInfo(ExternalProperty):
+class TorConfigurationValue(ExternalProperty):
     def __init__(self, controller):
         super().__init__()
         self.controller = controller
@@ -71,15 +71,15 @@ class TorInfo(ExternalProperty):
         return value
 
     def check(self):
-        resp = self.controller.get_conf(self.INFO)
+        resp = self.controller.get_conf(self.KEYWORD)
         if resp is None:
             self.log.warning("No response from tor (asking %s)", self.INFO)
         else:
             self.on_value_received(self.normalize(resp))
 
 
-class TorDisableNetwork(TorInfo):
-    INFO = "DisableNetwork"
+class TorDisableNetwork(TorConfigurationValue):
+    KEYWORD = "DisableNetwork"
 
     def normalize(self, value):
         return value == "1"
