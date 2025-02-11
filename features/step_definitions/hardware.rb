@@ -39,11 +39,11 @@ When /^Tails detects disk read failures on the (.+)$/ do |device|
 end
 
 Then /^I see a disk failure message$/ do
-  @screen.wait('GnomeDiskFailureMessage.png', 10)
+  @screen.wait_text('Error Reading Data from Tails USB Stick', 10)
 end
 
 Then /^I see a disk failure message on the splash screen$/ do
-  @screen.wait('PlymouthDiskFailureMessage.png', 60)
+  @screen.wait_text('Error reading data from your Tails USB stick.', 60)
 end
 
 Then /^I can open the hardware failure documentation from the disk failure message$/ do
