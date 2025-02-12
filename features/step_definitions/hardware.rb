@@ -125,7 +125,7 @@ Then /^the Greeter forbids all settings but language$/ do
   )
 end
 
-Then /^I am told that that Persistent Storage cannot be created$/ do
+Then /^I am told that Persistent Storage cannot be created$/ do
   launch_persistent_storage(check_started: false)
   step 'I am recommended to reinstall Tails due to partitioning errors'
 end
