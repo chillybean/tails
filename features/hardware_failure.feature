@@ -58,7 +58,7 @@ Feature: Hardware failures
     # We are gonna verify the dialog again so we need to clean up the
     # first instance.
     And I close the "zenity" window
-    And I am told that that Persistent Storage cannot be created
+    And I am told that Persistent Storage cannot be created
     And Tails detected partitioning error partitioning-corruption
 
   Scenario Outline: Disk partitioning errors without a persistent partition
