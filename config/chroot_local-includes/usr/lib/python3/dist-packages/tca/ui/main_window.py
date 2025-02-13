@@ -1017,11 +1017,16 @@ class TCAMainWindow(
         self.show()
         self.change_box(self.state["step"])
 
-        self.app.network_link.connect("changed", self.on_network_changed)
-        self.app.tor_is_working.connect("changed", self.on_tor_working_changed)
-        self.app.tor_disable_network.connect("changed", self.on_tor_state_changed)
-        self.app.wifi_is_available.connect("changed", self.on_wifi_is_available_changed)
-        self.on_wifi_is_available_changed(self.app.wifi_is_available)
+        for external_property, callback in [
+            [self.app.network_link, self.on_network_changed],
+            [self.app.tor_is_working, self.on_tor_working_changed],
+            [self.app.tor_disable_network, self.on_tor_state_changed],
+            [self.app.wifi_is_available, self.on_wifi_is_available_changed],
+        ]:
+            external_property.connect("changed", callback)
+            # The external_property might have already triggered its first "changed"
+            # before we could connect to it. Let's invoke the callback immediately.
+            callback(external_property)
 
     def on_wifi_is_available_changed(self, prop):
         wifi_available = bool(prop.value)
