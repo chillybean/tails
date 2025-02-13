@@ -57,6 +57,9 @@ class WifiAvailable(ExternalPropertyCommandBool):
         nm.connect_to_signal("DeviceAdded", lambda *args: self.check())
         nm.connect_to_signal("DeviceRemoved", lambda *args: self.check())
 
+    def setup(self, sys_dbus):
+        self.register_dbus(sys_dbus)
+        self.check()
 
 class TorIsWorking(ExternalProperty):
     def check(self):
@@ -247,8 +250,7 @@ class TCAApplication(Gtk.Application):
         # one time only
         self.tor_is_working.setup()
         self.tor_disable_network.check()
-        self.wifi_is_available.register_dbus(self.sys_dbus)
-        self.wifi_is_available.check()
+        self.wifi_is_available.setup(self.sys_dbus)
         self.controller.add_event_listener(
             self.tor_disable_network.on_controller_event, EventType.CONF_CHANGED
         )
