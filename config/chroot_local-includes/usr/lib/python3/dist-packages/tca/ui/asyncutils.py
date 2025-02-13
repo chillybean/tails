@@ -231,6 +231,7 @@ class ExternalProperty(GObject.Object):
 
     def on_value_received(self, new_value):
         if self.last_change is None or new_value != self.value:
+            self.log.info("Changed from %s to %s", self.value, new_value)
             self.value = new_value
             self.last_change = time.time()
             self.emit("changed")

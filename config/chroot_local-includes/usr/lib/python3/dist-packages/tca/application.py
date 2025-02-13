@@ -61,6 +61,7 @@ class WifiAvailable(ExternalPropertyCommandBool):
         self.register_dbus(sys_dbus)
         self.check()
 
+
 class TorIsWorking(ExternalProperty):
     def check(self):
         value = TOR_HAS_BOOTSTRAPPED_PATH.exists()
@@ -257,8 +258,6 @@ class TCAApplication(Gtk.Application):
         self.add_action(action)
 
         self.network_link.setup()
-
-        # one time only
         self.tor_is_working.setup()
         self.wifi_is_available.setup(self.sys_dbus)
         self.tor_disable_network.setup(self.controller)
