@@ -142,6 +142,10 @@ class NetworkLink(ExternalProperty):
     def register_dbus(self):
         self.nm.connect_to_signal("StateChanged", self.on_value_received)
 
+    def setup(self):
+        self.register_dbus()
+        self.check()
+
 
 class TCAApplication(Gtk.Application):
     """main controller for TCA."""
@@ -252,8 +256,7 @@ class TCAApplication(Gtk.Application):
         action.connect("activate", self.on_quit)
         self.add_action(action)
 
-        self.network_link.register_dbus()
-        self.network_link.check()
+        self.network_link.setup()
 
         # one time only
         self.tor_is_working.setup()
