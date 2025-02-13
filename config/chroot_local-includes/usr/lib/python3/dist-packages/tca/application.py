@@ -81,6 +81,7 @@ class TorIsWorking(ExternalProperty):
         self.monitor.connect("changed", self.on_file_event)
         self.check()
 
+
 class TorConfigurationValue(ExternalProperty):
     def __init__(self, controller):
         super().__init__()
@@ -100,6 +101,13 @@ class TorConfigurationValue(ExternalProperty):
         if self.KEYWORD in event.config:
             value = self.normalize(event.config[self.KEYWORD])
             self.on_value_received(value)
+
+    def setup(self, controller):
+        controller.add_event_listener(
+            self.on_controller_event,
+            EventType.CONF_CHANGED,
+        )
+        self.check()
 
 
 class TorDisableNetwork(TorConfigurationValue):
@@ -249,11 +257,8 @@ class TCAApplication(Gtk.Application):
 
         # one time only
         self.tor_is_working.setup()
-        self.tor_disable_network.check()
         self.wifi_is_available.setup(self.sys_dbus)
-        self.controller.add_event_listener(
-            self.tor_disable_network.on_controller_event, EventType.CONF_CHANGED
-        )
+        self.tor_disable_network.setup(self.controller)
 
         try:
             systemd.daemon.notify("READY=1")
