@@ -72,6 +72,11 @@ class TorIsWorking(ExternalProperty):
             return
         self.on_value_received(value)
 
+    def setup(self):
+        f = Gio.File.new_for_path(str(TOR_HAS_BOOTSTRAPPED_PATH))
+        self.monitor = f.monitor(Gio.FileMonitorFlags.NONE, None)
+        self.monitor.connect("changed", self.on_file_event)
+        self.check()
 
 class TorConfigurationValue(ExternalProperty):
     def __init__(self, controller):
@@ -190,15 +195,6 @@ class TCAApplication(Gtk.Application):
     def has_been_started_already(self):
         return self.configurator.read_tca_state() != {}
 
-    def do_monitor_tor_is_working(self):
-        # init tor-ready monitoring
-        f = Gio.File.new_for_path(str(TOR_HAS_BOOTSTRAPPED_PATH))
-        monitor = f.monitor(Gio.FileMonitorFlags.NONE, None)
-        self._tor_is_working_monitor = monitor  # otherwise it will get GC'ed
-        monitor.connect("changed", self.tor_is_working.on_file_event)
-
-        return False
-
     @property
     def is_tor_working(self) -> bool:
         return bool(self.tor_is_working.value)
@@ -249,9 +245,8 @@ class TCAApplication(Gtk.Application):
         self.network_link.check()
 
         # one time only
-        GLib.timeout_add(1, self.do_monitor_tor_is_working)
+        self.tor_is_working.setup()
         self.tor_disable_network.check()
-        self.tor_is_working.check()
         self.wifi_is_available.register_dbus(self.sys_dbus)
         self.wifi_is_available.check()
         self.controller.add_event_listener(
