@@ -212,10 +212,6 @@ class TCAApplication(Gtk.Application):
         return self.configurator.read_tca_state() != {}
 
     @property
-    def is_tor_working(self) -> bool:
-        return bool(self.tor_is_working.value)
-
-    @property
     def is_tor_over_bridges(self) -> bool:
         bridges = self.configurator.tor_connection_config.bridges
         return bool(bridges)

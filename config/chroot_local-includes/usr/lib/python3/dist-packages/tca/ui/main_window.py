@@ -616,7 +616,7 @@ class StepConnectProgressMixin:
                 return False
             d["count"] -= 1
 
-            ok = self.app.is_tor_working
+            ok = self.app.tor_is_working.value
             if ok:
                 self.state["progress"]["success"] = True
                 self.connection_progress.set_fraction(1)
@@ -982,7 +982,7 @@ class TCAMainWindow(
                 self.state["hide"]["bridge"] = True
                 self.state["bridge"]["kind"] = "manual"
                 self.state["bridge"]["bridges"] = config["bridges"]
-            self.state["progress"]["success"] = self.app.is_tor_working
+            self.state["progress"]["success"] = self.app.tor_is_working.value
             if self.state["progress"]["success"]:
                 self.state["step"] = "progress"
 
@@ -1186,7 +1186,7 @@ class TCAMainWindow(
         """
         disable_network = self.app.tor_disable_network.value
         up = self.app.network_link.ok
-        tor_working = self.app.is_tor_working
+        tor_working = self.app.tor_is_working.value
         step = self.state["step"]
         log.info(
             f"Status: up={up} disable_network={disable_network}, working={tor_working}, step={step}"
