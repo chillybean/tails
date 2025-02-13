@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
 "POT-Creation-Date: 2024-10-07 10:47+0200\n"
-"PO-Revision-Date: 2025-02-13 19:56+0000\n"
+"PO-Revision-Date: 2025-02-13 20:01+0000\n"
 "Last-Translator: victor dargallo <victordargallo@disroot.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ca\n"
@@ -715,6 +715,9 @@ msgid ""
 "a partition image using `ddrescue` on the command line|fsck#ddrescue]] "
 "instead."
 msgstr ""
+"Si la creació ha fallat, proveu la segona tècnica que es descriu a "
+"continuació per [[crear una imatge de partició utilitzant `ddrescue` a la "
+"línia d'ordres|fsck#ddrescue]]."
 
 #. type: Plain text
 #, markdown-text, no-wrap
@@ -722,6 +725,8 @@ msgid ""
 "<h2 id=\"ddrescue\">Creating a partition image using <span "
 "class=\"code\">ddrescue</span> on the command line</h2>\n"
 msgstr ""
+"<h2 id=\"ddrescue\">Creació d'una imatge de partició mitjançant <span class="
+"\"code\">ddrescue</span> a la línia d'ordres</h2>\n"
 
 #. type: Plain text
 #, markdown-text
@@ -730,6 +735,9 @@ msgid ""
 "this second technique using `ddrescue`, which can be more resilient to "
 "hardware failures."
 msgstr ""
+"Si la creació d'una imatge de partició amb la utilitat *Discs* falla, podeu "
+"provar aquesta segona tècnica amb `ddrescue`, que pot ser més resistent a "
+"les fallades del maquinari."
 
 #. type: Plain text
 #, markdown-text
@@ -739,6 +747,10 @@ msgid ""
 "failing. After that, you can run `ddrescue` again to try to copy the parts "
 "that failed the first time."
 msgstr ""
+"La utilitat `ddrescue` intenta copiar primer les parts de l'Emmagatzematge "
+"Persistent que no estan fallant i salta les parts que estan fallant. Després "
+"d'això, podeu tornar a executar `ddrescue` per intentar copiar les parts que "
+"han fallat la primera vegada."
 
 #. type: Bullet: '1. '
 #, markdown-text
@@ -746,6 +758,8 @@ msgid ""
 "In the *Files* utility, navigate to the folder of the external hard where "
 "you want to save the partition image of your Persistent Storage."
 msgstr ""
+"A la utilitat *Fitxers*, navegueu a la carpeta del disc dur extern on voleu "
+"desar la imatge de partició del vostre Emmagatzematge Persistent."
 
 #. type: Bullet: '1. '
 #, markdown-text
@@ -753,11 +767,15 @@ msgid ""
 "Right-click in the empty space of the right pane and choose **Open in "
 "Terminal** in the shortcut menu."
 msgstr ""
+"Feu clic amb el botó dret a l'espai buit del panell dret i trieu **Obre al "
+"terminal** al menú de drecera."
 
 #. type: Plain text
 #, markdown-text, no-wrap
 msgid "   Doing so opens a terminal that is configured to operate in this folder.\n"
 msgstr ""
+"   En fer-ho, s'obre un terminal que està configurat per funcionar en "
+"aquesta carpeta.\n"
 
 #. type: Bullet: '1. '
 #, markdown-text
@@ -767,6 +785,10 @@ msgid ""
 "name found when [[identifying your *Persistent Storage* in the *Disks* "
 "utility|fsck#identify]]."
 msgstr ""
+"Al terminal, executeu l'ordre següent. Substituïu <span class=\"command-"
+"placeholder\">/dev/mapper/luks-xyz</span> pel nom del dispositiu trobat quan "
+"[[identifiqueu el vostre *Emmagatzematge Persistent* a la utilitat "
+"*Discs*|fsck#identify]]."
 
 #. type: Plain text
 #, markdown-text, no-wrap
