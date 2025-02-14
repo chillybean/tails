@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
 "POT-Creation-Date: 2024-10-07 10:47+0200\n"
-"PO-Revision-Date: 2025-02-06 18:33+0000\n"
+"PO-Revision-Date: 2025-02-13 23:56+0000\n"
 "Last-Translator: victor dargallo <victordargallo@disroot.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ca\n"
@@ -535,6 +535,8 @@ msgstr ""
 #, markdown-text, no-wrap
 msgid "   Verify that the content of the volume is of type **LUKS Encryption**.\n"
 msgstr ""
+"   Comproveu que el contingut del volum sigui del tipus **Xifratge de LUKS**."
+"\n"
 
 #. type: Plain text
 #, markdown-text, no-wrap
@@ -596,6 +598,11 @@ msgid ""
 "   that decryption is impossible, making all your data completely\n"
 "   unrecoverable.</p>\n"
 msgstr ""
+"   <p>Si el desbloqueig falla en aquest pas, el vostre Emmagatzematge "
+"Persistent està tan malmès\n"
+"   que el desxifrat és impossible, fent que totes les vostres dades siguin "
+"completament\n"
+"   irrecuperables.</p>\n"
 
 #. type: Plain text
 #, markdown-text, no-wrap
@@ -608,11 +615,12 @@ msgid ""
 "In the right pane, click on the new volume that appears below the **LUKS** "
 "volume."
 msgstr ""
+"Al panell dret, feu clic al volum nou que apareix a sota del volum **LUKS**."
 
 #. type: Plain text
 #, markdown-text, no-wrap
 msgid "   Verify that the content of the new volume is of type **Ext4**.\n"
-msgstr ""
+msgstr "   Comproveu que el contingut del nou volum sigui del tipus **Ext4**.\n"
 
 #. type: Plain text
 #, markdown-text, no-wrap
@@ -620,6 +628,8 @@ msgid ""
 "   This volume corresponds to the decrypted version of your Persistent "
 "Storage.\n"
 msgstr ""
+"   Aquest volum correspon a la versió desxifrada del vostre Emmagatzematge "
+"Persistent.\n"
 
 #. type: Bullet: '1. '
 #, markdown-text
@@ -627,11 +637,14 @@ msgid ""
 "Verify that the size of your decrypted Persistent Storage is smaller than "
 "the available free space in the external hard disk."
 msgstr ""
+"Comproveu que la mida de l'Emmagatzematge Persistent desxifrat sigui més "
+"petita que l'espai lliure disponible al disc dur extern."
 
 #. type: Bullet: '1. '
 #, markdown-text
 msgid "Take note of the device name of your Persistent Storage."
 msgstr ""
+"Preneu nota del nom del dispositiu del vostre Emmagatzematge Persistent."
 
 #. type: Plain text
 #, markdown-text, no-wrap
@@ -639,11 +652,13 @@ msgid ""
 "   The device name is composed of `/dev/mapper/luks`, followed by letters "
 "and numbers.\n"
 msgstr ""
+"   El nom del dispositiu es compon de `/dev/mapper/luks`, seguit de lletres "
+"i números.\n"
 
 #. type: Plain text
 #, markdown-text, no-wrap
 msgid "<h3 id=\"create\">Creating the partition image</h3>\n"
-msgstr ""
+msgstr "<h3 id=\"create\">Creació de la imatge de la partició</h3>\n"
 
 #. type: Bullet: '1. '
 #, markdown-text
@@ -677,12 +692,12 @@ msgstr ""
 #. type: Bullet: '1. '
 #, markdown-text
 msgid "After the creation of the partition image finishes:"
-msgstr ""
+msgstr "Un cop finalitzada la creació de la imatge de la partició:"
 
 #. type: Bullet: '   - '
 #, markdown-text
 msgid "If the creation succeeded, shutdown Tails."
-msgstr ""
+msgstr "Si la creació ha tingut èxit, tanqueu Tails."
 
 #. type: Plain text
 #, markdown-text, no-wrap
@@ -690,6 +705,8 @@ msgid ""
 "     You can now safely start [[recovering data from the Persistent\n"
 "     Storage|fsck#welcome]].\n"
 msgstr ""
+"     Ara podeu començar a [[recuperar dades de l'Emmagatzematge\n"
+"     Persistent|fsck#welcome]].\n"
 
 #. type: Bullet: '   - '
 #, markdown-text
@@ -698,6 +715,9 @@ msgid ""
 "a partition image using `ddrescue` on the command line|fsck#ddrescue]] "
 "instead."
 msgstr ""
+"Si la creació ha fallat, proveu la segona tècnica que es descriu a "
+"continuació per [[crear una imatge de partició utilitzant `ddrescue` a la "
+"línia d'ordres|fsck#ddrescue]]."
 
 #. type: Plain text
 #, markdown-text, no-wrap
@@ -705,6 +725,8 @@ msgid ""
 "<h2 id=\"ddrescue\">Creating a partition image using <span "
 "class=\"code\">ddrescue</span> on the command line</h2>\n"
 msgstr ""
+"<h2 id=\"ddrescue\">Creació d'una imatge de partició mitjançant <span class="
+"\"code\">ddrescue</span> a la línia d'ordres</h2>\n"
 
 #. type: Plain text
 #, markdown-text
@@ -713,6 +735,9 @@ msgid ""
 "this second technique using `ddrescue`, which can be more resilient to "
 "hardware failures."
 msgstr ""
+"Si la creació d'una imatge de partició amb la utilitat *Discs* falla, podeu "
+"provar aquesta segona tècnica amb `ddrescue`, que pot ser més resistent a "
+"les fallades del maquinari."
 
 #. type: Plain text
 #, markdown-text
@@ -722,6 +747,10 @@ msgid ""
 "failing. After that, you can run `ddrescue` again to try to copy the parts "
 "that failed the first time."
 msgstr ""
+"La utilitat `ddrescue` intenta copiar primer les parts de l'Emmagatzematge "
+"Persistent que no estan fallant i salta les parts que estan fallant. Després "
+"d'això, podeu tornar a executar `ddrescue` per intentar copiar les parts que "
+"han fallat la primera vegada."
 
 #. type: Bullet: '1. '
 #, markdown-text
@@ -729,6 +758,8 @@ msgid ""
 "In the *Files* utility, navigate to the folder of the external hard where "
 "you want to save the partition image of your Persistent Storage."
 msgstr ""
+"A la utilitat *Fitxers*, navegueu a la carpeta del disc dur extern on voleu "
+"desar la imatge de partició del vostre Emmagatzematge Persistent."
 
 #. type: Bullet: '1. '
 #, markdown-text
@@ -736,11 +767,15 @@ msgid ""
 "Right-click in the empty space of the right pane and choose **Open in "
 "Terminal** in the shortcut menu."
 msgstr ""
+"Feu clic amb el botó dret a l'espai buit del panell dret i trieu **Obre al "
+"terminal** al menú de drecera."
 
 #. type: Plain text
 #, markdown-text, no-wrap
 msgid "   Doing so opens a terminal that is configured to operate in this folder.\n"
 msgstr ""
+"   En fer-ho, s'obre un terminal que està configurat per funcionar en "
+"aquesta carpeta.\n"
 
 #. type: Bullet: '1. '
 #, markdown-text
@@ -750,6 +785,10 @@ msgid ""
 "name found when [[identifying your *Persistent Storage* in the *Disks* "
 "utility|fsck#identify]]."
 msgstr ""
+"Al terminal, executeu l'ordre següent. Substituïu <span class=\"command-"
+"placeholder\">/dev/mapper/luks-xyz</span> pel nom del dispositiu trobat quan "
+"[[identifiqueu el vostre *Emmagatzematge Persistent* a la utilitat "
+"*Discs*|fsck#identify]]."
 
 #. type: Plain text
 #, markdown-text, no-wrap
@@ -764,7 +803,7 @@ msgstr ""
 #. type: Plain text
 #, markdown-text, no-wrap
 msgid "   The output of `ddrescue` looks like this:\n"
-msgstr ""
+msgstr "   La sortida de `ddrescue` té aquest aspecte:\n"
 
 #. type: Plain text
 #, markdown-text, no-wrap
@@ -812,11 +851,14 @@ msgid ""
 "your\n"
 "   Persistent Storage, most likely because of hardware failures.\n"
 msgstr ""
+"   La secció sobre **bad areas** fa referència a errors en llegir les dades "
+"del vostre\n"
+"   Emmagatzematge Persistent, probablement a causa d'errors de maquinari.\n"
 
 #. type: Bullet: '1. '
 #, markdown-text
 msgid "After `ddrescue` finishes:"
-msgstr ""
+msgstr "Després d'acabar `ddrescue`:"
 
 #. type: Bullet: '   - '
 #, markdown-text
@@ -872,6 +914,8 @@ msgid ""
 "We are presenting here 3 recovery techniques that work in different "
 "cases. We recommend that you try the 3 techniques one after the other."
 msgstr ""
+"Us presentem aquí tres tècniques de recuperació que funcionen en diferents "
+"casos. Us recomanem que proveu les tres tècniques una darrere l'altra."
 
 #. type: Bullet: '1. '
 #, markdown-text
@@ -924,11 +968,14 @@ msgid ""
 "If the hardware of your USB stick is not failing, repairing the file system "
 "from the Welcome Screen is likely the easiest technique."
 msgstr ""
+"Si el maquinari del vostre llapis USB no falla, és probable que la tècnica "
+"més senzilla sigui reparar el sistema de fitxers des de la Pantalla de "
+"Benvinguda."
 
 #. type: Bullet: '1. '
 #, markdown-text
 msgid "Start on the Tails USB stick that has file system errors."
-msgstr ""
+msgstr "Inicieu al llapis USB de Tails que té errors del sistema de fitxers."
 
 #. type: Bullet: '1. '
 #, markdown-text
@@ -952,7 +999,7 @@ msgstr ""
 #. type: Bullet: '1. '
 #, markdown-text
 msgid "The repair of the file system starts."
-msgstr ""
+msgstr "S'inicia la reparació del sistema de fitxers."
 
 #. type: Plain text
 #, markdown-text, no-wrap
