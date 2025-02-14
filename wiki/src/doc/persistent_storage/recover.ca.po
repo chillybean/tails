@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2024-10-07 10:47+0200\n"
-"PO-Revision-Date: 2025-02-13 20:45+0000\n"
+"PO-Revision-Date: 2025-02-13 23:56+0000\n"
 "Last-Translator: victor dargallo <victordargallo@disroot.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ca\n"
@@ -99,7 +99,7 @@ msgstr ""
 #. type: Bullet: '1. '
 msgid ""
 "[[Unlocking from another Tails and copying using `rsync`|recover#rsync]]"
-msgstr ""
+msgstr "[[Desbloqueig d'un altre Tails i còpia amb `rsync`|recover#rsync]]"
 
 #. type: Plain text
 #, no-wrap
@@ -108,11 +108,17 @@ msgid ""
 "   Persistent Storage from another Tails USB stick and copy its content using\n"
 "   `rsync` on the command line.\n"
 msgstr ""
+"   Si fer una actualització manual no funciona, és possible que pugueu "
+"desbloquejar el vostre\n"
+"   Emmagatzematge Persistent des d'un altre llapis USB de Tails i copiar-ne "
+"el contingut utilitzant\n"
+"   `rsync` a la línia d'ordres.\n"
 
 #. type: Bullet: '1. '
 msgid ""
 "[[Recovering from a partition image using forensics tools|recover#image]]"
 msgstr ""
+"[[Recuperació d'una imatge de partició amb eines forenses|recover#image]]"
 
 #. type: Plain text
 #, no-wrap
@@ -121,42 +127,55 @@ msgid ""
 "   might be able to recover some or most of your data from a partition image\n"
 "   using advanced forensics tools.\n"
 msgstr ""
+"   Si el desbloqueig del vostre Emmagatzematge Persistent d'un altre llapis "
+"USB de Tails falla,\n"
+"   és possible que pugueu recuperar part o la majoria de les vostres dades "
+"d'una imatge de partició\n"
+"   utilitzant eines forenses avançades.\n"
 
 #. type: Plain text
 #, no-wrap
 msgid "<h1 id=\"upgrade\">Doing a manual upgrade</h1>\n"
-msgstr ""
+msgstr "<h1 id=\"upgrade\">Fer una actualització manual</h1>\n"
 
 #. type: Plain text
 msgid ""
 "Doing a manual upgrade of your broken Tails might allow you to start your "
 "USB stick again and use your Persistent Storage like before."
 msgstr ""
+"Fer una actualització manual del vostre Tails trencat, us pot permetre "
+"tornar a iniciar el vostre llapis USB i utilitzar el vostre Emmagatzematge "
+"Persistent com abans."
 
 #. type: Plain text
 msgid "Refer to our instructions on how to do a manual upgrade, either:"
 msgstr ""
+"Consulteu les nostres instruccions sobre com fer una actualització manual:"
 
 #. type: Plain text
 msgid "- [[Downloading and upgrading from Windows|upgrade/windows]]"
-msgstr ""
+msgstr "- [[Baixada i actualització des de Windows|upgrade/windows]]"
 
 #. type: Plain text
 msgid "- [[Downloading and upgrading from macOS|upgrade/mac]]"
-msgstr ""
+msgstr "- [[Baixada i actualització des de macOS|upgrade/mac]]"
 
 #. type: Plain text
 msgid "- [[Downloading and upgrading from Linux|upgrade/linux]]"
-msgstr ""
+msgstr "- [[Baixada i actualització des de Linux|upgrade/linux]]"
 
 #. type: Plain text
 msgid "- [[Upgrading by cloning from another Tails|doc/upgrade/#clone]]"
 msgstr ""
+"- [[Actualització mitjançant la clonació des d'un altre Tails|doc/upgrade/"
+"#clone]]"
 
 #. type: Plain text
 #, no-wrap
 msgid "<h1 id=\"rsync\">Unlocking from another Tails and copying using <span class=\"code\">rsync</span></h1>\n"
 msgstr ""
+"<h1 id=\"rsync\">Desbloqueig des d'un altre Tails i còpia mitjançant <span "
+"class=\"code\">rsync</span></h1>\n"
 
 #. type: Plain text
 msgid ""
@@ -164,6 +183,9 @@ msgid ""
 "Persistent Storage from another Tails USB stick and copy its content using "
 "`rsync` on the command line."
 msgstr ""
+"Si fer una actualització manual no funciona, és possible que pugueu "
+"desbloquejar el vostre Emmagatzematge Persistent des d'un altre llapis USB "
+"de Tails i copiar-ne el contingut mitjançant `rsync` a la línia d'ordres."
 
 #. type: Bullet: '1. '
 msgid ""
@@ -274,6 +296,9 @@ msgid ""
 "   <p>If no encrypted volume appears, try [[recovering from a partition image\n"
 "   using forensics tools|recover#image]].</p>\n"
 msgstr ""
+"   <p>Si no apareix cap volum encriptat, proveu de [[recuperar una imatge de "
+"partició\n"
+"   utilitzant eines forenses|recover#image]].</p>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -354,6 +379,8 @@ msgstr "   <p class=\"command-root\">nautilus</p>\n"
 #, no-wrap
 msgid "<h1 id=\"image\">Recovering from a partition image using forensics tools</h1>\n"
 msgstr ""
+"<h1 id=\"image\">Recuperació d'una imatge de partició mitjançant eines "
+"forenses</h1>\n"
 
 #. type: Plain text
 msgid ""
@@ -361,6 +388,10 @@ msgid ""
 "might be able to recover some or most of your data from a partition image "
 "using advanced forensics tools."
 msgstr ""
+"Si falla el desbloqueig del vostre Emmagatzematge Persistent d'un altre "
+"llapis USB de Tails, és possible que pugueu recuperar part o la majoria de "
+"les vostres dades d'una imatge de partició mitjançant eines forenses "
+"avançades."
 
 #. type: Plain text
 msgid ""
@@ -368,6 +399,9 @@ msgid ""
 "instructions on [[recovering data from the Persistent Storage when it has "
 "file system errors|fsck]]:"
 msgstr ""
+"No oferim instruccions pas a pas, però podeu adaptar les nostres "
+"instruccions sobre la [[recuperació de dades de l'Emmagatzematge Persistent "
+"quan té errors del sistema de fitxers|fsck]]:"
 
 #. type: Bullet: '1. '
 msgid ""
@@ -383,10 +417,15 @@ msgid ""
 "   Try the technique using the [[*Disks* utility|fsck#disks]] first, then the\n"
 "   technique using [[`ddrescue`|fsck#ddrescue]] if needed.\n"
 msgstr ""
+"   Proveu la tècnica utilitzant primer la [[utilitat *Discs*|fsck#disks]] i "
+"després la\n"
+"   tècnica utilitzant [[`ddrescue`|fsck#ddrescue]] si cal.\n"
 
 #. type: Bullet: '1. '
 msgid "After you create the partition image, try to recover your data."
 msgstr ""
+"Després de crear la imatge de la partició, intenteu recuperar les vostres "
+"dades."
 
 #. type: Plain text
 #, no-wrap
@@ -395,6 +434,9 @@ msgid ""
 "   stick|fsck#copy]] first, then the technique using\n"
 "   [[*Autopsy*|fsck#autopsy]].\n"
 msgstr ""
+"   Proveu la tècnica per [[copiar la imatge de la partició a un nou llapis\n"
+"   USB|fsck#copy]] primer, després la tècnica utilitzant\n"
+"   l'[[*Autopsy*|fsck#autopsia]].\n"
 
 #, no-wrap
 #~ msgid "<!-- XXX: These instructions should be kept in sync with backup.mdwn -->\n"
