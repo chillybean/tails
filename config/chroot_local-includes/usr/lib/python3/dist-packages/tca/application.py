@@ -61,7 +61,7 @@ class WifiAvailable(ExternalPropertyCommandBool):
         nm.connect_to_signal("DeviceAdded", lambda *args: self.check())
         nm.connect_to_signal("DeviceRemoved", lambda *args: self.check())
 
-    def setup(self):
+    def start(self):
         self.register_dbus()
         self.check()
 
@@ -80,7 +80,7 @@ class TorIsWorking(ExternalProperty):
             return
         self.on_value_received(value)
 
-    def setup(self):
+    def start(self):
         f = Gio.File.new_for_path(str(TOR_HAS_BOOTSTRAPPED_PATH))
         self.monitor = f.monitor(Gio.FileMonitorFlags.NONE, None)
         self.monitor.connect("changed", self.on_file_event)
@@ -107,7 +107,7 @@ class TorConfigurationValue(ExternalProperty):
             value = self.normalize(event.config[self.KEYWORD])
             self.on_value_received(value)
 
-    def setup(self, controller):
+    def start(self, controller):
         controller.add_event_listener(
             self.on_controller_event,
             EventType.CONF_CHANGED,
@@ -147,7 +147,7 @@ class NetworkLink(ExternalProperty):
     def register_dbus(self):
         self.nm.connect_to_signal("StateChanged", self.on_value_received)
 
-    def setup(self):
+    def start(self):
         self.register_dbus()
         self.check()
 
@@ -257,10 +257,10 @@ class TCAApplication(Gtk.Application):
         action.connect("activate", self.on_quit)
         self.add_action(action)
 
-        self.network_link.setup()
-        self.tor_is_working.setup()
-        self.wifi_is_available.setup()
-        self.tor_disable_network.setup(self.controller)
+        self.network_link.start()
+        self.tor_is_working.start()
+        self.wifi_is_available.start()
+        self.tor_disable_network.start(self.controller)
 
         try:
             systemd.daemon.notify("READY=1")
