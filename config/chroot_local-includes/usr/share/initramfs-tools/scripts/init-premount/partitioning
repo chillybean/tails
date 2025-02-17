@@ -13,8 +13,6 @@ esac
 
 set -eu
 
-REPARTITIONING_ERROR_FLAG_FILE=/run/repartitioning-failed
-
 . /scripts/functions
 # shellcheck source=../lib/lib.sh
 . /scripts/lib/lib.sh
@@ -54,9 +52,8 @@ done
 log "System partition is available at ${SYSTEM_PARTITION}"
 
 verify_partition_table() {
-    if ! /scripts/lib/verify_partition_table "${PARENT_DEVICE}" "${REPARTITIONING_ERROR_FLAG_FILE}"; then
+    if ! /scripts/lib/verify_partition_table "${PARENT_DEVICE}"; then
         log "The partition table is invalid"
-        touch "${REPARTITIONING_ERROR_FLAG_FILE}"
     fi
 }
 
@@ -97,7 +94,6 @@ if [ "${GUID}" = "17B81DA0-8B1E-4269-9C39-FE5C7B9B58A3" ]; then
     plymouth display-message --text="${PLYMOUTH_MSG}"
     if ! /scripts/lib/first_boot_repartition "${PARENT_DEVICE}" "${SYSTEM_PARTITION}"; then
         log "Repartitioning failed"
-        touch "${REPARTITIONING_ERROR_FLAG_FILE}"
     fi
     verify_partition_table
     # `plymouth hide-message` doesn't work (#20401)
