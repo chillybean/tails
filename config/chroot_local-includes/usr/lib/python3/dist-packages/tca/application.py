@@ -7,7 +7,7 @@ import logging
 import gettext
 from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 from pathlib import Path
-from typing import Any
+from typing import ClassVar
 
 from stem.control import Controller, EventType
 import prctl
@@ -37,7 +37,7 @@ from tailslib.tor import TOR_HAS_BOOTSTRAPPED_PATH
 gi.require_version("Gio", "2.0")
 gi.require_version("GLib", "2.0")
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gio, GLib, Gtk  # noqa: E402
+from gi.repository import Gio, GLib, GObject, Gtk  # noqa: E402
 
 
 dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
@@ -155,6 +155,14 @@ class NetworkLink(ExternalProperty):
 class TCAApplication(Gtk.Application):
     """main controller for TCA."""
 
+    __gsignals__: ClassVar[dict] = {
+        "ready": (
+            GObject.SIGNAL_RUN_LAST,
+            GObject.TYPE_NONE,
+            (),
+        ),
+    }
+
     def __init__(self, args):
         super().__init__(
             application_id="org.boum.tails.tor-connection-assistant",
@@ -266,9 +274,7 @@ class TCAApplication(Gtk.Application):
         except OSError:  # not run as a systemd service
             pass
 
-        # We're now ready to finish initializing our main window
-        # and to display it on screen
-        GLib.idle_add(self.window.finish_init)
+        self.emit("ready")
 
     def do_startup(self):
         """Set up the application when we received the `startup` signal."""

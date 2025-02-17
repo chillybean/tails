@@ -961,8 +961,9 @@ class TCAMainWindow(
             "time": {},
         }
         self.app = app
+        self.app.connect("ready", self.finish_init)
 
-    def finish_init(self) -> None:
+    def finish_init(self, app) -> None:
         if self.app.args.debug_statefile is not None:
             log.debug("loading debug statefile")
             with open(self.app.args.debug_statefile) as buf:
