@@ -616,7 +616,7 @@ class StepConnectProgressMixin:
                 return False
             d["count"] -= 1
 
-            ok = self.app.tor_is_working.value
+            ok = self.app.tor_working_monitor.value
             if ok:
                 self.state["progress"]["success"] = True
                 self.connection_progress.set_fraction(1)
@@ -983,7 +983,7 @@ class TCAMainWindow(
                 self.state["hide"]["bridge"] = True
                 self.state["bridge"]["kind"] = "manual"
                 self.state["bridge"]["bridges"] = config["bridges"]
-            self.state["progress"]["success"] = self.app.tor_is_working.value
+            self.state["progress"]["success"] = self.app.tor_working_monitor.value
             if self.state["progress"]["success"]:
                 self.state["step"] = "progress"
 
@@ -1019,17 +1019,17 @@ class TCAMainWindow(
         self.change_box(self.state["step"])
 
         for external_property, callback in [
-            [self.app.network_link, self.on_network_changed],
-            [self.app.tor_is_working, self.on_tor_working_changed],
-            [self.app.tor_disable_network, self.on_tor_state_changed],
-            [self.app.wifi_is_available, self.on_wifi_is_available_changed],
+            [self.app.network_link_monitor, self.on_network_changed],
+            [self.app.tor_working_monitor, self.on_tor_working_changed],
+            [self.app.tor_disable_network_monitor, self.on_tor_state_changed],
+            [self.app.wifi_available_monitor, self.on_wifi_available_changed],
         ]:
             external_property.connect("changed", callback)
             # The external_property might have already triggered its first "changed"
             # before we could connect to it. Let's invoke the callback immediately.
             callback(external_property)
 
-    def on_wifi_is_available_changed(self, prop):
+    def on_wifi_available_changed(self, prop):
         wifi_available = bool(prop.value)
         self.builder.get_object("step_offline_wifi_not_available").set_visible(
             not wifi_available,
@@ -1190,9 +1190,9 @@ class TCAMainWindow(
         NetworkManager.
         Other state transitions happen when reacting to events such as clicking.
         """
-        disable_network = self.app.tor_disable_network.value
-        up = self.app.network_link.ok
-        tor_working = self.app.tor_is_working.value
+        disable_network = self.app.tor_disable_network_monitor.value
+        up = self.app.network_link_monitor.ok
+        tor_working = self.app.tor_working_monitor.value
         step = self.state["step"]
         log.info(
             f"Status: up={up} disable_network={disable_network}, working={tor_working}, step={step}"
@@ -1243,7 +1243,7 @@ class TCAMainWindow(
         self.state["progress"]["success"] = tor_working
 
     def on_network_changed(self, prop):
-        log.info("Local network changed %s", self.app.network_link.ok)
+        log.info("Local network changed %s", self.app.network_link_monitor.ok)
         self._move_to_right_step()
         log.debug(self.state["step"])
 

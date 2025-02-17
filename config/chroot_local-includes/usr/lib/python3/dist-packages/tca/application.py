@@ -194,16 +194,16 @@ class TCAApplication(Gtk.Application):
         self.debug = args.debug
         self.window = None
         self.sys_dbus = dbus.SystemBus()
-        self.network_link = NetworkLink(self.sys_dbus)
-        self.network_link.start()
+        self.network_link_monitor = NetworkLink(self.sys_dbus)
+        self.network_link_monitor.start()
         self.has_persistence = has_persistence()
         self.has_unlocked_persistence = has_unlocked_persistence()
-        self.tor_disable_network = TorDisableNetwork(self.controller)
-        self.tor_disable_network.start()
-        self.tor_is_working = TorIsWorking()
-        self.tor_is_working.start()
-        self.wifi_is_available = WifiAvailable(self.sys_dbus)
-        self.wifi_is_available.start()
+        self.tor_disable_network_monitor = TorDisableNetwork(self.controller)
+        self.tor_disable_network_monitor.start()
+        self.tor_working_monitor = TorIsWorking()
+        self.tor_working_monitor.start()
+        self.wifi_available_monitor = WifiAvailable(self.sys_dbus)
+        self.wifi_available_monitor.start()
         self.log.debug(
             "Persistence = %s, unlocked = %s",
             self.has_persistence,
