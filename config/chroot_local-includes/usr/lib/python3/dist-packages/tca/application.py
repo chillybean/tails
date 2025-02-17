@@ -46,8 +46,12 @@ dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
 class WifiAvailable(ExternalPropertyCommandBool):
     COMMAND = ("/usr/local/lib/have-wifi",)
 
-    def register_dbus(self, sys_dbus):
-        nm_obj = sys_dbus.get_object(
+    def __init__(self, sys_dbus):
+        super().__init__()
+        self.sys_dbus = sys_dbus
+
+    def register_dbus(self):
+        nm_obj = self.sys_dbus.get_object(
             "org.freedesktop.NetworkManager",
             "/org/freedesktop/NetworkManager",
         )
@@ -57,8 +61,8 @@ class WifiAvailable(ExternalPropertyCommandBool):
         nm.connect_to_signal("DeviceAdded", lambda *args: self.check())
         nm.connect_to_signal("DeviceRemoved", lambda *args: self.check())
 
-    def setup(self, sys_dbus):
-        self.register_dbus(sys_dbus)
+    def setup(self):
+        self.register_dbus()
         self.check()
 
 
@@ -187,7 +191,7 @@ class TCAApplication(Gtk.Application):
         self.has_unlocked_persistence = has_unlocked_persistence()
         self.tor_disable_network = TorDisableNetwork(self.controller)
         self.tor_is_working = TorIsWorking()
-        self.wifi_is_available = WifiAvailable()
+        self.wifi_is_available = WifiAvailable(self.sys_dbus)
         self.log.debug(
             "Persistence = %s, unlocked = %s",
             self.has_persistence,
@@ -255,7 +259,7 @@ class TCAApplication(Gtk.Application):
 
         self.network_link.setup()
         self.tor_is_working.setup()
-        self.wifi_is_available.setup(self.sys_dbus)
+        self.wifi_is_available.setup()
         self.tor_disable_network.setup(self.controller)
 
         try:
