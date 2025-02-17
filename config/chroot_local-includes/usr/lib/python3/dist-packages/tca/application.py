@@ -187,11 +187,15 @@ class TCAApplication(Gtk.Application):
         self.window = None
         self.sys_dbus = dbus.SystemBus()
         self.network_link = NetworkLink(self.sys_dbus)
+        self.network_link.start()
         self.has_persistence = has_persistence()
         self.has_unlocked_persistence = has_unlocked_persistence()
         self.tor_disable_network = TorDisableNetwork(self.controller)
+        self.tor_disable_network.start()
         self.tor_is_working = TorIsWorking()
+        self.tor_is_working.start()
         self.wifi_is_available = WifiAvailable(self.sys_dbus)
+        self.wifi_is_available.start()
         self.log.debug(
             "Persistence = %s, unlocked = %s",
             self.has_persistence,
@@ -256,11 +260,6 @@ class TCAApplication(Gtk.Application):
         action = Gio.SimpleAction.new("quit", None)
         action.connect("activate", self.on_quit)
         self.add_action(action)
-
-        self.network_link.start()
-        self.tor_is_working.start()
-        self.wifi_is_available.start()
-        self.tor_disable_network.start()
 
         try:
             systemd.daemon.notify("READY=1")
