@@ -122,7 +122,7 @@ class TorDisableNetwork(TorConfigurationValue):
         return value == "1"
 
 
-class NetworkLink(ExternalProperty):
+class NetworkConnectionMonitor(ExternalProperty):
     def __init__(self, sys_dbus):
         super().__init__()
         nm_obj = sys_dbus.get_object(
@@ -194,8 +194,8 @@ class TCAApplication(Gtk.Application):
         self.debug = args.debug
         self.window = None
         self.sys_dbus = dbus.SystemBus()
-        self.network_link_monitor = NetworkLink(self.sys_dbus)
-        self.network_link_monitor.start()
+        self.network_connection_monitor = NetworkConnectionMonitor(self.sys_dbus)
+        self.network_connection_monitor.start()
         self.has_persistence = has_persistence()
         self.has_unlocked_persistence = has_unlocked_persistence()
         self.tor_disable_network_monitor = TorDisableNetwork(self.controller)

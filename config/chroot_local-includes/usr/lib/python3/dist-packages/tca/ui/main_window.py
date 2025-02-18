@@ -1019,7 +1019,7 @@ class TCAMainWindow(
         self.change_box(self.state["step"])
 
         for external_property, callback in [
-            [self.app.network_link_monitor, self.on_network_changed],
+            [self.app.network_connection_monitor, self.on_network_changed],
             [self.app.tor_working_monitor, self.on_tor_working_changed],
             [self.app.tor_disable_network_monitor, self.on_tor_state_changed],
             [self.app.wifi_availability_monitor, self.on_wifi_availability_changed],
@@ -1191,7 +1191,7 @@ class TCAMainWindow(
         Other state transitions happen when reacting to events such as clicking.
         """
         disable_network = self.app.tor_disable_network_monitor.value
-        up = self.app.network_link_monitor.ok
+        up = self.app.network_connection_monitor.ok
         tor_working = self.app.tor_working_monitor.value
         step = self.state["step"]
         log.info(
@@ -1243,7 +1243,7 @@ class TCAMainWindow(
         self.state["progress"]["success"] = tor_working
 
     def on_network_changed(self, prop):
-        log.info("Local network changed %s", self.app.network_link_monitor.ok)
+        log.info("Local network changed %s", self.app.network_connection_monitor.ok)
         self._move_to_right_step()
         log.debug(self.state["step"])
 
