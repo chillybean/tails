@@ -16,6 +16,14 @@ esac
 set -eu
 set -x
 
+if [ -e "${REPARTITIONING_ERROR_FLAG_FILE}" ]; then
+    # We don't want to overwrite partition errors detected even
+    # earlier, e.g. during first_boot_repartition.
+    echo "Skipping verify_partition_table because partition errors " \
+         "were already detected"
+    exit 0
+fi
+
 ORIG_DISK_GUID="17B81DA0-8B1E-4269-9C39-FE5C7B9B58A3"
 
 # The minimum size of the system partition in bytes.
