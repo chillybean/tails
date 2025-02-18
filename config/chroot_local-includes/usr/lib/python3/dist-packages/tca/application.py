@@ -43,7 +43,7 @@ from gi.repository import Gio, GLib, GObject, Gtk  # noqa: E402
 dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
 
 
-class WifiAvailable(ExternalPropertyCommandBool):
+class WifiAvailabilityMonitor(ExternalPropertyCommandBool):
     COMMAND = ("/usr/local/lib/have-wifi",)
 
     def __init__(self, sys_dbus):
@@ -202,8 +202,8 @@ class TCAApplication(Gtk.Application):
         self.tor_disable_network_monitor.start()
         self.tor_working_monitor = TorIsWorking()
         self.tor_working_monitor.start()
-        self.wifi_available_monitor = WifiAvailable(self.sys_dbus)
-        self.wifi_available_monitor.start()
+        self.wifi_availability_monitor = WifiAvailabilityMonitor(self.sys_dbus)
+        self.wifi_availability_monitor.start()
         self.log.debug(
             "Persistence = %s, unlocked = %s",
             self.has_persistence,
