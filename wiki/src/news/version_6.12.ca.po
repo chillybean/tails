@@ -3,38 +3,40 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2025-02-06 09:43+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
+"POT-Creation-Date: 2025-02-06 16:06+0000\n"
+"PO-Revision-Date: 2025-02-13 23:56+0000\n"
+"Last-Translator: Ricard Rodríguez <rcard@insicuri.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.3\n"
 
 #. type: Plain text
 #, no-wrap
 msgid "[[!meta title=\"Tails 6.12\"]]\n"
-msgstr ""
+msgstr "[[!meta title=\"Tails 6.12\"]]\n"
 
 #. type: Plain text
 #, no-wrap
 msgid "[[!meta date=\"Thu, 06 Feb 2025 00:00:00 +0000\"]]\n"
-msgstr ""
+msgstr "[[!meta date=\"Thu, 06 Feb 2025 00:00:00 +0000\"]]\n"
 
 #. type: Plain text
 #, no-wrap
 msgid "[[!pagetemplate template=\"news.tmpl\"]]\n"
-msgstr ""
+msgstr "[[!pagetemplate template=\"news.tmpl\"]]\n"
 
 #. type: Plain text
 #, no-wrap
 msgid "[[!tag announce]]\n"
-msgstr ""
+msgstr "[[!tag announce]]\n"
 
 #. type: Plain text
 #, no-wrap
@@ -44,7 +46,7 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "<div class=\"attack\">\n"
-msgstr ""
+msgstr "<div class=\"attack\">\n"
 
 #. type: Plain text
 #, no-wrap
@@ -54,6 +56,13 @@ msgid ""
 "Open Security</a> and disclosed responsibly to our team. We are not aware of\n"
 "these attacks being used against Tails users until now.</p>\n"
 msgstr ""
+"<p>Les vulnerabilitats que es descriuen a continuació es van identificar "
+"durant un procés extern\n"
+"d'auditoria de seguretat de <a href=\"https://www.radicallyopensecurity.com/"
+"\">Radically\n"
+"Open Security</a> i s'ha comunicat de manera responsable al nostre equip. "
+"Fins ara, no som\n"
+"conscients que aquests atacs s'hagin utilitzat contra usuaris de Tails.</p>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -62,11 +71,15 @@ msgid ""
 "already exploited another vulnerability to take control of an application in\n"
 "Tails.</p>\n"
 msgstr ""
+"<p>Aquestes vulnerabilitats només poden ser explotades per un atacant\n"
+"que ja hagi explotat una altra vulnerabilitat per prendre el control d'una "
+"aplicació\n"
+"a Tails.</p>\n"
 
 #. type: Plain text
 #, no-wrap
 msgid "</div>\n"
-msgstr ""
+msgstr "</div>\n"
 
 #. type: Plain text
 msgid ""
@@ -91,37 +104,46 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "<h1 id=\"changes\">Changes and updates</h1>\n"
-msgstr ""
+msgstr "<h1 id=\"changes\">Canvis i actualitzacions</h1>\n"
 
 #. type: Plain text
 msgid "- Add a button to check for upgrades from the **About Tails** utility."
 msgstr ""
+"- S'ha afegit un botó per comprovar si hi ha actualitzacions a la utilitat **"
+"Quant a Tails**."
 
 #. type: Plain text
 #, no-wrap
 msgid "  [[!img news/version_6.12/check_for_upgrades.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
 msgstr ""
+"  [[!img news/version_6.12/check_for_upgrades.png link=\"no\" class="
+"\"screenshot\" alt=\"\"]]\n"
 
 #. type: Plain text
 msgid "- Add the keyboard shortcut **Ctrl+Alt+T** to open a *Terminal*."
 msgstr ""
+"- S'ha afegit la drecera de teclat **Ctrl+Alt+T** per obrir un *Terminal*."
 
 #. type: Plain text
 msgid ""
 "- Update *Tor Browser* to [14.0.5](https://blog.torproject.org/new-release-"
 "tor-browser-1405)."
 msgstr ""
+"- S'ha actualitzat el *Navegador Tor* a la versió [14.0.5](https://blog."
+"torproject.org/new-release-tor-browser-1405)."
 
 #. type: Plain text
 msgid ""
 "- Update *Thunderbird* to [128.6.0esr](https://www.thunderbird.net/en-US/"
 "thunderbird/128.6.0esr/releasenotes/)."
 msgstr ""
+"- S'ha actualitzat el *Thunderbird* a la versió [128.6.0esr](https://www."
+"thunderbird.net/en-US/thunderbird/128.6.0esr/releasenotes/)."
 
 #. type: Plain text
 #, no-wrap
 msgid "<h1 id=\"fixes\">Fixed problems</h1>\n"
-msgstr ""
+msgstr "<h1 id=\"fixes\">Problemes solucionats</h1>\n"
 
 #. type: Plain text
 msgid ""
@@ -158,26 +180,68 @@ msgid ""
 "For more details, read our [[!tails_gitweb debian/changelog "
 "desc=\"changelog\"]]."
 msgstr ""
+"Per a més detalls, llegiu el nostre [[!tails_gitweb debian/changelog desc="
+"\"registre de canvis\"]]."
+
+#. type: Plain text
+#, no-wrap
+msgid "<h1 id=\"issues\">Known issues</h1>\n"
+msgstr "<h1 id=\"issues\">Problemes coneguts</h1>\n"
+
+#. type: Bullet: '- '
+msgid ""
+"When installing additional software from your Persistent Storage fails, the "
+"**Configure** and **Show Log** buttons in the notification don't work."
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid "  [[!img additional_software.png link=\"no\" class=\"screenshot\" alt=\"Notification: The installation of your additional software failed\"]]\n"
+msgstr ""
+
+#. type: Bullet: '  - '
+msgid ""
+"To configure your additional software, choose **Applications&nbsp;▸ "
+"Persistent Storage** and click on the [[!img lib/emblem-system.png "
+"class=\"symbolic\" link=\"no\"]] button of the **Additional Software** "
+"feature."
+msgstr ""
+
+#. type: Bullet: '  - '
+msgid "To show the log, execute the following command in a *Terminal*."
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid "    <p class=\"command\">cat /run/live-additional-software/log</p>\n"
+msgstr "    <p class=\"command\">cat /run/live-additional-software/log</p>\n"
 
 #. type: Plain text
 #, no-wrap
 msgid "<h1 id=\"get\">Get Tails 6.12</h1>\n"
-msgstr ""
+msgstr "<h1 id=\"get\">Obtenir Tails 6.12</h1>\n"
 
 #. type: Title ##
 #, no-wrap
 msgid "To upgrade your Tails USB stick and keep your Persistent Storage"
 msgstr ""
+"Per actualitzar el vostre llapis USB de Tails i mantenir el vostre "
+"Emmagatzematge Persistent"
 
 #. type: Plain text
 msgid "- Automatic upgrades are available from Tails 6.0 or later to 6.12."
 msgstr ""
+"- Les actualitzacions automàtiques estan disponibles des de Tails 6.0 o "
+"posterior fins a la versió 6.12."
 
 #. type: Bullet: '- '
 msgid ""
 "If you cannot do an automatic upgrade or if Tails fails to start after an "
 "automatic upgrade, please try to do a [[manual upgrade|doc/upgrade/#manual]]."
 msgstr ""
+"Si no podeu fer una actualització automàtica o si Tails no s'inicia després "
+"d'una actualització automàtica, proveu de fer una [[actualització manual|doc/"
+"upgrade/#manual]]."
 
 #. type: Title ##
 #, no-wrap
