@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2024-02-26 12:26+0100\n"
+"POT-Creation-Date: 2025-02-19 18:06+0000\n"
 "PO-Revision-Date: 2024-09-30 11:01+0000\n"
 "Last-Translator: Chre <tor@renaudineau.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -68,8 +68,7 @@ msgid ""
 "</div>\n"
 msgstr ""
 "<div class=\"next\">\n"
-"<p>Si le chargeur d'amorçage apparaît, vous pouvez suivre nos [["
-"instructions\n"
+"<p>Si le chargeur d'amorçage apparaît, vous pouvez suivre nos [[instructions\n"
 "sur l'écran de bienvenue|install/windows#tails]].</p>\n"
 "</div>\n"
 
@@ -82,6 +81,50 @@ msgstr "<h1 id=\"boot-menu-key\">Démarrer avec la touche d'accès au Menu de d�
 #, no-wrap
 msgid "[[!inline pages=\"install/inc/steps/pc_boot_menu.inline\" raw=\"yes\" sort=\"age\"]]\n"
 msgstr "[[!inline pages=\"install/inc/steps/pc_boot_menu.inline.fr\" raw=\"yes\" sort=\"age\"]]\n"
+
+#. type: Plain text
+#, fuzzy, no-wrap
+#| msgid "<h1 id=\"not-at-all\">Troubleshooting Tails not starting at all</h1>\n"
+msgid "<h1 id=\"automatically\">Starting on Tails automatically</h1>\n"
+msgstr "<h1 id=\"not-at-all\">Résolution de problèmes : Tails ne démarre pas du tout</h1>\n"
+
+#. type: Plain text
+msgid ""
+"To start on Tails automatically when your Tails USB stick is plugged in:"
+msgstr ""
+
+#. type: Plain text
+#, fuzzy
+#| msgid "   You might need to edit the BIOS settings of the computer.\n"
+msgid "- Open the BIOS or UEFI settings of the computer."
+msgstr ""
+"   Il est possible qu'il soit nécessaire de modifier les réglages du BIOS de "
+"l'ordinateur.\n"
+
+#. type: Plain text
+#, fuzzy, no-wrap
+#| msgid "To learn how to edit the BIOS or UEFI settings, search for the user manual of the computer on the support website of the manufacturer."
+msgid ""
+"  To learn how to edit the BIOS or UEFI settings, search for the user manual of\n"
+"  the computer on the support website of the manufacturer.\n"
+msgstr "Pour savoir comment modifier les paramètres du BIOS ou de l'UEFI, recherchez le manuel d'utilisation de l'ordinateur sur le site web d'assistance du fabricant."
+
+#. type: Bullet: '- '
+msgid ""
+"Edit the **Boot Order**. You might see an entry for **Removable devices** or "
+"**USB media**. Move this entry to the top of the list to force the computer "
+"to start from the USB stick before starting from the internal hard disk."
+msgstr ""
+"Modifiez **l'ordre de démarrage (Boot Order**). Vous pouvez voir une entrée "
+"pour les **périphériques amovibles** ou **média USB**. Déplacez cette entrée "
+"en haut de la liste pour forcer l'ordinateur à démarrer à partir de la clé "
+"USB avant de démarrer à partir du disque dur interne."
+
+#. type: Plain text
+#, fuzzy
+#| msgid "Shut down the computer."
+msgid "- Restart the computer."
+msgstr "Éteindre l'ordinateur."
 
 #. type: Plain text
 #, no-wrap
@@ -102,10 +145,8 @@ msgid ""
 "[[!img install/inc/screenshots/grub.png class=\"screenshot\" alt=\"Black screen ('GNU GRUB') with Tails\n"
 "logo and 3 options: 'Tails' and 'Tails (Troubleshooting Mode)' and 'Tails (External Hard Disk)'.\"]]\n"
 msgstr ""
-"[[!img install/inc/screenshots/grub.png class=\"screenshot\" alt=\"Écran "
-"noir ('GNU GRUB') avec le logo\n"
-"Tails et 3 options : 'Tails' et 'Tails (Troubleshooting Mode)' et 'Tails ("
-"External Hard Disk)'.\"]]\n"
+"[[!img install/inc/screenshots/grub.png class=\"screenshot\" alt=\"Écran noir ('GNU GRUB') avec le logo\n"
+"Tails et 3 options : 'Tails' et 'Tails (Troubleshooting Mode)' et 'Tails (External Hard Disk)'.\"]]\n"
 
 #. type: Plain text
 #, no-wrap
@@ -202,17 +243,6 @@ msgstr ""
 "Assurez-vous qu'elle est bien activée dans les options de votre BIOS ou de "
 "votre UEFI. Cette option peut s'appeler **liste des périphériques de "
 "démarrage (Boot Device List)** ou un nom approchant selon l'ordinateur."
-
-#. type: Bullet: '- '
-msgid ""
-"Edit the **Boot Order**. You might see an entry for **Removable devices** or "
-"**USB media**. Move this entry to the top of the list to force the computer "
-"to start from the USB stick before starting from the internal hard disk."
-msgstr ""
-"Modifiez **l'ordre de démarrage (Boot Order**). Vous pouvez voir une entrée "
-"pour les **périphériques amovibles** ou **média USB**. Déplacez cette entrée "
-"en haut de la liste pour forcer l'ordinateur à démarrer à partir de la clé "
-"USB avant de démarrer à partir du disque dur interne."
 
 #. type: Plain text
 msgid "- Disable **Fast Boot**."
@@ -370,9 +400,6 @@ msgstr "[[!inline pages=\"doc/first_steps/start/not_entirely.inline.fr\" raw=\"y
 
 #~ msgid "Shut down the computer while leaving the USB stick plugged in."
 #~ msgstr "Éteignez l'ordinateur tout en laissant la clé USB branchée."
-
-#~ msgid "Shut down the computer."
-#~ msgstr "Éteindre l'ordinateur."
 
 #, fuzzy
 #~| msgid ""
@@ -691,11 +718,6 @@ msgstr "[[!inline pages=\"doc/first_steps/start/not_entirely.inline.fr\" raw=\"y
 #~ "   Des problèmes similaires ont peut-être déjà été documenté pour votre "
 #~ "modèle d'ordinateur\n"
 #~ "   dans notre [[liste des problèmes connus|support/known_issues]].\n"
-
-#~ msgid "   You might need to edit the BIOS settings of the computer.\n"
-#~ msgstr ""
-#~ "   Il est possible qu'il soit nécessaire de modifier les réglages du BIOS "
-#~ "de l'ordinateur.\n"
 
 #~ msgid ""
 #~ "   <div class=\"tip\">\n"
