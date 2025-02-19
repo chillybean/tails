@@ -1102,7 +1102,7 @@ end
 
 Then(/^I click on the Wi-Fi settings$/) do
   try_for(10) do
-    tor_connection_assistant.child('Open Wi-Fi settings').click
+    tor_connection_assistant.child('Open Wi-Fi Settings', roleName: 'push button').click
     true
   end
 end
