@@ -28,22 +28,22 @@ class GJsonRpcClient(GObject.GObject):
 
     __gsignals__: ClassVar[dict] = {
         "connection-closed": (
-            GObject.SIGNAL_RUN_LAST,
+            GObject.SignalFlags.RUN_LAST,
             GObject.TYPE_NONE,
             (),
         ),
         "response": (
-            GObject.SIGNAL_RUN_LAST | GObject.SIGNAL_DETAILED,
+            GObject.SignalFlags.RUN_LAST | GObject.SignalFlags.DETAILED,
             GObject.TYPE_NONE,
             [GObject.TYPE_PYOBJECT, GObject.TYPE_STRING, GObject.TYPE_PYOBJECT],
         ),
         "response-error": (
-            GObject.SIGNAL_RUN_LAST | GObject.SIGNAL_DETAILED,
+            GObject.SignalFlags.RUN_LAST | GObject.SignalFlags.DETAILED,
             GObject.TYPE_NONE,
             [GObject.TYPE_STRING, GObject.TYPE_PYOBJECT],
         ),
         "response-success": (
-            GObject.SIGNAL_RUN_LAST | GObject.SIGNAL_DETAILED,
+            GObject.SignalFlags.RUN_LAST | GObject.SignalFlags.DETAILED,
             GObject.TYPE_NONE,
             [GObject.TYPE_PYOBJECT, GObject.TYPE_PYOBJECT],
         ),
@@ -115,17 +115,17 @@ class GAsyncSpawn(GObject.GObject):
 
     __gsignals__: ClassVar[dict] = {
         "process-done": (
-            GObject.SIGNAL_RUN_LAST,
+            GObject.SignalFlags.RUN_LAST,
             GObject.TYPE_NONE,
             (GObject.TYPE_INT,),
         ),
         "stdout-data": (
-            GObject.SIGNAL_RUN_LAST,
+            GObject.SignalFlags.RUN_LAST,
             GObject.TYPE_NONE,
             (GObject.TYPE_STRING,),
         ),
         "stderr-data": (
-            GObject.SIGNAL_RUN_LAST,
+            GObject.SignalFlags.RUN_LAST,
             GObject.TYPE_NONE,
             (GObject.TYPE_STRING,),
         ),
@@ -209,7 +209,7 @@ class ExternalProperty(GObject.Object):
 
     __gsignals__: ClassVar[dict] = {
         "changed": (
-            GObject.SIGNAL_RUN_LAST,
+            GObject.SignalFlags.RUN_LAST,
             GObject.TYPE_NONE,
             (),
         ),

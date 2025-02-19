@@ -157,7 +157,7 @@ class TCAApplication(Gtk.Application):
 
     __gsignals__: ClassVar[dict] = {
         "ready": (
-            GObject.SIGNAL_RUN_LAST,
+            GObject.SignalFlags.RUN_LAST,
             GObject.TYPE_NONE,
             (),
         ),
