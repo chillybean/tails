@@ -20,7 +20,7 @@ if [ -e "${REPARTITIONING_ERROR_FLAG_FILE}" ]; then
     # We don't want to overwrite partition errors detected even
     # earlier, e.g. during first_boot_repartition.
     echo "Skipping verify_partition_table because partition errors " \
-         "were already detected"
+        "were already detected"
     exit 0
 fi
 
