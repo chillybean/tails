@@ -1108,5 +1108,13 @@ Then(/^I click on the Wi-Fi settings$/) do
 end
 
 Then(/^The Wi-Fi settings are displayed$/) do
-  Dogtail::Application.new('gnome-control-center').child?('Settings')
+  # Gnome Control Center is buggy vs Dogtail: except the Settings (frame) child all
+  # other children apparently are invisible so our default Dogtail option
+  # showingOnly: true makes us not find them.
+  Dogtail::Application.new('gnome-control-center')
+                      .child('Settings categories', roleName:    'list',
+                                                    showingOnly: false)
+                      .children(roleName: 'list item', showingOnly: false)
+                      .find(&:selected?)
+                      .child('Wi-Fi', roleName: 'label', showingOnly: false)
 end
