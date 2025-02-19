@@ -1092,7 +1092,7 @@ Then /^the Tor Connection Assistant reports that I am not connected to a local n
   tor_connection_assistant.child('No Wi-Fi Hardware detected')
 end
 When(/^I plug a wifi adapter$/) do
-  $vm.execute('modprobe mac80211_hwsim radios=1')
+  $vm.execute_successfully('modprobe mac80211_hwsim radios=1')
 end
 
 Then(/^Tor Connection suggests me to connect to wifi$/) do
