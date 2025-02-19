@@ -11,14 +11,16 @@ Since [[January 2019|report_2019_01]], we had been recommending
 macOS. We loved the simplicity of *balenaEtcher*, which was really easier to
 use and worked on macOS as well.
 
-Shortly after, *balenaEtcher* started displaying ads. We didn't like that, but
-we were not too worried about the privacy implications and didn't have a better
-alternative.
+Shortly after, *balenaEtcher* started displaying ads. Although we didn't like
+that, we initially didn't view it as a significant privacy risk and had no
+better alternative at the time.
 
-In 2024, we realized that the situation was much worse: *balenaEtcher* started
+However, in 2024, the situation changed: *balenaEtcher* started
 sharing the file name of the image and the model of the USB stick with the
-Balena company and maybe with third parties. This was not safe anymore for our
-users, and we started looking again for alternatives.
+Balena company and possibly with third parties. While we have not experienced
+or heard of any attacks against Tails users stemming from this change, we
+believe it introduces potential for abuse. To eliminate that risk altogether,
+we started looking again for alternatives.
 
 After evaluating [[!tails_ticket 20423 desc="7 other tools"]], we finally chose
 [*Rufus*](https://rufus.ie/). We had [[!tails_ticket 7034 desc="tested *Rufus*
