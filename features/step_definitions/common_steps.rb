@@ -455,7 +455,7 @@ Given /^the computer (?:re)?boots Tails$/ do
   @early_boot_hooks&.each(&:call)
   RemoteShell::SignalReady.new($vm)
 
-  unless @scenario.match_tags?('@broken_greeter')
+  unless @scenario.match_tags?('@broken_welcome_screen')
     try_for(60) do
       !greeter.nil?
     end

@@ -4,7 +4,7 @@ Feature: Hardware failures
   As a Tails user
   I want to be warned about hardware failures
 
-  @broken_greeter
+  @broken_welcome_screen
   Scenario Outline: Alerting about disk read failures before reaching the Welcome Screen
     Given a computer
     And <device> is damaged in a way that some read operations fail

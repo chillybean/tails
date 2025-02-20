@@ -4,7 +4,7 @@ Feature: Hardware support
   As someone using a computer that is not supported by Tails
   I want to be informed that my hardware is not supported
 
-  @broken_greeter
+  @broken_welcome_screen
   Scenario: Alerting about unsupported graphics card before reaching the Welcome Screen
     Given a computer
     And the computer has an unsupported graphics card
