@@ -432,7 +432,7 @@ end
 
 # These hooks are executed as soon as the remote shell is up, and will
 # block the boot process; in particular, these hooks are executed
-# before the Greeter is started.
+# before the Welcome Screen is started.
 def add_early_boot_hook(&block)
   @early_boot_hooks ||= []
   @early_boot_hooks << block
