@@ -161,7 +161,7 @@ Style and usage
   Use *Boot Menu* and *Boot Menu key* when referring to the BIOS
   screen that allows choosing from which device to start from.
 
-  [[!img install/inc/screenshots/boot_menu.png link="no" alt=""]]
+  [[!img install/inc/screenshots/boot_menu.png class="screenshot" alt=""]]
 
 <a id="bulleted-lists"></a>
 
@@ -691,9 +691,10 @@ Style and usage
   3. Make sure the blue border (`0x204a87`) on each side of the screenshot is at least 18px.
 
   Use the `screenshot` CSS class to add a gray shadow under the screenshot and
-  help distinguish them from the actual application.
+  help distinguish them from the actual application. Omit `link="no"` to create
+  a link that opens the screenshot in full resolution.
 
-      \[[!img screenshot-good.png link="no" class="screenshot" alt=""]]
+      \[[!img screenshot-good.png class="screenshot" alt=""]]
 
   Most often, screenshots are not necessary to follow instructions and can have
   an empty `alt` tag. Screenshots that describe new features, usually benefit
@@ -717,11 +718,11 @@ Style and usage
 
   Good:
 
-  [[!img screenshot-good.png link="no" class="screenshot" alt=""]]
+  [[!img screenshot-good.png class="screenshot" alt=""]]
 
   Bad:
 
-  [[!img screenshot-bad.png link="no" class="screenshot" alt=""]]
+  [[!img screenshot-bad.png class="screenshot" alt=""]]
 
   If the full size screenshot is too big, in the
   [img directive](https://ikiwiki.info/ikiwiki/directive/img/):
@@ -729,9 +730,6 @@ Style and usage
   - Check if the automatic resizing from local.css to `max-width: 100%` is enough already.
 
   - Use the `size=""` attribute to resize it even more, if needed.
-
-  - Do not specify any `link=""` attribute to add a link to the full size
-    image, if that's useful.
 
 <a id="secure-boot"></a>
 
