@@ -801,11 +801,13 @@ forever.
 ### Remote shell interaction during early boot
 
 When it is needed to interact with the system before a certain service
-has started during the boot process, you can do the following:
+has started during the boot process, you must do the following:
 
-* In `tails-autotest-remote-shell.service.service` you need add a
-  `Before` directive for the other service. For instance, it currently
-  has `Before=gdm.service` so it starts before the Greeter.
+* Make sure that `tails-autotest-remote-shell.service` is started
+  before the other service. It might be enough to add
+  `Before=other.service`, as is currently done for `gdm.service`,
+  but that will for instance not suffice for services with an earlier
+  `WantedBy=` target.
 * You then hook your code to be run before the service by passing it
   as a code block to the `add_early_boot_hook` method. This code will
   execute during the `the computer boots Tails` step, so your scenario
