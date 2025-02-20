@@ -29,7 +29,7 @@ When /^Tails detects disk read failures on the (.+)$/ do |device|
   try_for(60) { $vm.file_exist?(disk_ioerrors) }
 end
 
-Given /^Tails will detect disk read failures on the (.+)$/ do |device|
+Given /^(.+) is damaged in a way that some read operations fail$/ do |device|
   add_early_boot_hook do
     step "Tails detects disk read failures on the #{device}"
   end

@@ -811,8 +811,9 @@ has started during the boot process, you can do the following:
   execute during the `the computer boots Tails` step, so your scenario
   must use that step.
 
-As an example, you can look how the `Tails will detect disk read
-failures` step hooks into the system before `gdm.service` is started.
+As an example, you can look how the `<device> is damaged in a way that
+some read operations fail` step hooks into the system before
+`gdm.service` is started.
 
 All this is achieved by defining the remote shell systemd service as
 notify type, so any services that depends on it are blocked until

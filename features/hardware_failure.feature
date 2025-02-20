@@ -7,7 +7,7 @@ Feature: Hardware failures
   @broken_greeter
   Scenario Outline: Alerting about disk read failures before reaching the Welcome Screen
     Given a computer
-    And Tails will detect disk read failures on the <device>
+    And <device> is damaged in a way that some read operations fail
     When I start the computer
     Then the computer boots Tails
     And I see a disk failure message on the splash screen
