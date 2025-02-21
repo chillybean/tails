@@ -430,30 +430,37 @@ def enter_boot_menu_cmdline
   end
 end
 
-def the_computer_boots
+# These hooks are executed as soon as the remote shell is up, and will
+# block the boot process; in particular, these hooks are executed
+# before the Welcome Screen is started.
+def add_early_boot_hook(&block)
+  @early_boot_hooks ||= []
+  @early_boot_hooks << block
+end
+
+Given /^the computer (?:re)?boots Tails$/ do
   enter_boot_menu_cmdline
   boot_key = @os_loader == 'UEFI' ? 'F10' : 'Return'
   early_patch = config_bool('EARLY_PATCH') ? ' early_patch=umount' : ''
   extra_boot_options = $config['EXTRA_BOOT_OPTIONS'] || ''
-  wait_for_remote_shell = @wait_for_remote_shell ? 'autotest_wait_for_remote_shell' : ''
   @screen.type(' autotest_never_use_this_option ' \
                ' blacklist=psmouse' \
-               " #{wait_for_remote_shell}" \
                " #{early_patch} #{@boot_options} #{extra_boot_options}",
                [boot_key])
   $vm.wait_until_remote_shell_is_up(5 * 60)
-end
-
-Given /^the computer (?:re)?boots Tails$/ do
-  the_computer_boots
-
-  try_for(60) do
-    !greeter.nil?
-  end
-  work_around_issue20054(confirm: true)
 
   post_vm_start_hook
   configure_simulated_Tor_network unless config_bool('DISABLE_CHUTNEY')
+
+  @early_boot_hooks&.each(&:call)
+  RemoteShell::SignalReady.new($vm)
+
+  unless @scenario.match_tags?('@broken_welcome_screen')
+    try_for(60) do
+      !greeter.nil?
+    end
+    work_around_issue20054(confirm: true)
+  end
 end
 
 Given /^I set the language to (.*) \((.*)\)$/ do |lang, lang_code|
