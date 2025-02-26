@@ -1,0 +1,42 @@
+[[commands]]
+user = "amnesia"
+become = "tails-upgrade-frontend"
+executable = "/usr/local/bin/tails-upgrade-frontend"
+[[commands]]
+user = "amnesia"
+become = "tails-upgrade-frontend"
+executable = "/usr/local/bin/tails-upgrade-frontend"
+args = ["--report-no-upgrade"]
+
+[[commands]]
+executable = "/usr/local/bin/tails-iuk-get-target-file"
+user = "tails-upgrade-frontend"
+become = "tails-iuk-get-target-file"
+
+[[commands]]
+executable = "/usr/local/bin/tails-iuk-mktemp-get-target-file"
+user = "tails-upgrade-frontend"
+become = "tails-iuk-get-target-file"
+
+[[commands]]
+user = "tails-upgrade-frontend"
+executable = "/usr/local/bin/tails-shutdown-network"
+
+[[commands]]
+user = "tails-upgrade-frontend"
+become = "tails-install-iuk"        
+executable = "/usr/local/bin/tails-install-iuk"
+
+[[commands]]
+user = "tails-upgrade-frontend"
+executable = "/sbin/reboot"
+
+[[commands]]
+user = "tails-upgrade-frontend"
+executable = "/usr/local/bin/tails-iuk-cancel-download"
+
+[[commands]]
+user = "tails-install-iuk"
+executable = "ALL"
+arbitrary_arguments = true
+reason = "We are installing IUKs, so while we could enumerate specific commands, we are obviously root"

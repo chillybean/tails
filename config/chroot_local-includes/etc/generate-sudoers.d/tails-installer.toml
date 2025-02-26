@@ -1,0 +1,24 @@
+# Same purpose as config/chroot_local-includes/etc/sudoers.d/zzz_tps,
+# see the comment there.
+[[commands]]
+user = "amnesia"
+become = "tails-persistent-storage"
+reason = "XXX"
+env_keep = ["ENVFILE"]
+executable = "/usr/local/bin/tails-installer"
+
+[[commands]]
+user = "amnesia"
+become = "tails-persistent-storage"
+reason = "XXX"
+env_keep = ["ENVFILE"]
+executable = "/usr/local/bin/tails-installer"
+args = ["--backup"]
+
+[[commands]]
+user = "amnesia"
+become = "tails-persistent-storage"
+reason = "XXX"
+env_keep = ["ENVFILE"]
+executable = "/usr/local/bin/tails-installer"
+args = ["--verbose"]
