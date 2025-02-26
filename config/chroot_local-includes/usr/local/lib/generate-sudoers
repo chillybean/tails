@@ -1,0 +1,119 @@
+#!/usr/bin/python3 -I
+"""
+This program generates files in /etc/sudoers.d/ starting from YAML description files.
+
+This is useful because the default sudoers file is counterintuitive in its handling of arguments.
+The new syntax will be more expressive, so we hope to reduce the risk of security incidents.
+"""
+
+from argparse import ArgumentParser
+from pathlib import Path
+import sys
+
+import jinja2
+import toml
+from pydantic import BaseModel, root_validator, ValidationError
+
+TMPL = jinja2.Template(
+    """
+{% if c.env_keep %}
+Cmnd_Alias {{alias}} = {{c.s_cmdline}}
+{%- for env in c.env_keep %}
+Defaults!{{alias}} env_keep+="{{env}}"
+{%- endfor %}
+{% endif %}
+{{c.user}}  ALL ={{c.s_become}} NOPASSWD: {{alias if c.env_keep else c.s_cmdline}}
+""",
+)
+
+
+class SudoCommand(BaseModel):
+    executable: str
+    user: str
+    alias: str = ""
+    become: str = "root"
+    args: list[str] = []
+    env_keep: list[str] = []
+    arbitrary_arguments: bool = False
+    reason: str = ""
+
+    @property
+    def reason_required(self):
+        return self.env_keep or self.arbitrary_arguments
+
+    @root_validator(pre=False)
+    def validate_reason(cls, values):
+        dangerous_options = {'env_keep', 'arbitrary_arguments'}
+        dangerous_options_used = [opt for opt in dangerous_options
+                                  if values[opt]]
+        if dangerous_options_used and not values["reason"]:
+            raise ValueError(f"No reason supplied, but dangerous options used: {dangerous_options_used}")
+        return values
+
+    def serialize(self, alias: str) -> str:
+        return TMPL.render(c=self, alias=alias)
+
+    # methods begininig with s_ are meant as helpers for the template logic
+
+    @property
+    def s_args(self):
+        if self.arbitrary_arguments:
+            return ""
+        if self.args:
+            return " ".join(self.args)
+        return '""'
+
+    @property
+    def s_cmdline(self):
+        return f"{self.executable} {self.s_args}"
+
+    @property
+    def s_become(self):
+        if self.become != "root":
+            return f"({self.become})"
+        return ""
+
+
+class ConfigFile(BaseModel):
+    commands: list[SudoCommand]
+
+
+class GenerateSudo:
+    def __init__(self):
+        self.args = None
+
+    def get_parser(self) -> ArgumentParser:
+        p = ArgumentParser()
+        p.add_argument(
+            "--config-dir", type=Path, default=Path("/etc/generate-sudoers.d/"),
+        )
+        p.add_argument("--output-dir", type=Path, default=Path("/etc/sudoers.d/"))
+        return p
+
+    def main(self):
+        self.args = self.get_parser().parse_args()
+
+        for file in self.args.config_dir.glob("*.toml"):
+            self.generate_sudoers(file)
+
+    def generate_sudoers(self, file: Path):
+        with file.open() as buf:
+            data = toml.load(buf)
+        basename = file.name.split('.')[0]
+        out_filename = 'zzz_' + basename
+        with (self.args.output_dir / out_filename).open("w") as buf:
+            try:
+                config = ConfigFile(**data)
+            except ValidationError as exc:
+                print(f"Error parsing {file.name}", file=sys.stderr)
+                print(exc)
+                sys.exit(1)
+            for i, command in enumerate(config.commands):
+                alias = basename.upper()
+                if i > 0:
+                    alias += str(i)
+                buf.write(command.serialize(alias))
+
+
+if __name__ == "__main__":
+    GenerateSudo().main()
