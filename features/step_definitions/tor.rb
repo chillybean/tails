@@ -1102,7 +1102,6 @@ end
 
 Then(/^I click on the Wi-Fi settings$/) do
   tor_connection_assistant.child('Open Wi-Fi Settings', roleName: 'push button').click
-  true
 end
 
 Then(/^The Wi-Fi settings are displayed$/) do
