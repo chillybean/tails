@@ -616,7 +616,7 @@ class StepConnectProgressMixin:
                 return False
             d["count"] -= 1
 
-            ok = self.app.is_tor_working
+            ok = self.app.tor_working_monitor.value
             if ok:
                 self.state["progress"]["success"] = True
                 self.connection_progress.set_fraction(1)
@@ -950,9 +950,6 @@ class TCAMainWindow(
         Gtk.ApplicationWindow.__init__(
             self, title=tca.config.LOCALIZED_APPLICATION_TITLE, application=app
         )
-        self.app = app
-
-    def finish_init(self) -> None:
         # self.state collects data from user interactions. Its main key is the step name
         self.state: dict[str, Any] = {
             "hide": {},
@@ -963,6 +960,10 @@ class TCAMainWindow(
             "offline": {},
             "time": {},
         }
+        self.app = app
+        self.app.connect("ready", self.finish_init)
+
+    def finish_init(self, app) -> None:
         if self.app.args.debug_statefile is not None:
             log.debug("loading debug statefile")
             with open(self.app.args.debug_statefile) as buf:
@@ -982,7 +983,7 @@ class TCAMainWindow(
                 self.state["hide"]["bridge"] = True
                 self.state["bridge"]["kind"] = "manual"
                 self.state["bridge"]["bridges"] = config["bridges"]
-            self.state["progress"]["success"] = self.app.is_tor_working
+            self.state["progress"]["success"] = self.app.tor_working_monitor.value
             if self.state["progress"]["success"]:
                 self.state["step"] = "progress"
 
@@ -1016,6 +1017,29 @@ class TCAMainWindow(
         self.add(builder.get_object("box_main_container"))
         self.show()
         self.change_box(self.state["step"])
+
+        for external_property, callback in [
+            [self.app.network_connection_monitor, self.on_network_changed],
+            [self.app.tor_working_monitor, self.on_tor_working_changed],
+            [self.app.tor_disable_network_monitor, self.on_tor_state_changed],
+            [self.app.wifi_availability_monitor, self.on_wifi_availability_changed],
+        ]:
+            external_property.connect("changed", callback)
+            # The external_property might have already triggered its first "changed"
+            # before we could connect to it. Let's invoke the callback immediately.
+            callback(external_property)
+
+    def on_wifi_availability_changed(self, prop):
+        wifi_available = bool(prop.value)
+        self.builder.get_object("step_offline_wifi_not_available").set_visible(
+            not wifi_available,
+        )
+        self.builder.get_object("step_offline_wifi_available").set_visible(
+            wifi_available,
+        )
+        self.builder.get_object("step_offline_wificonf").set_visible(
+            wifi_available,
+        )
 
     @property
     def last_scanned_qrcode(self):
@@ -1166,9 +1190,9 @@ class TCAMainWindow(
         NetworkManager.
         Other state transitions happen when reacting to events such as clicking.
         """
-        disable_network = self.app.tor_info["DisableNetwork"] == "1"
-        up = self.app.is_network_link_ok
-        tor_working = self.app.is_tor_working
+        disable_network = self.app.tor_disable_network_monitor.value
+        up = self.app.network_connection_monitor.ok
+        tor_working = self.app.tor_working_monitor.value
         step = self.state["step"]
         log.info(
             f"Status: up={up} disable_network={disable_network}, working={tor_working}, step={step}"
@@ -1218,21 +1242,23 @@ class TCAMainWindow(
             self.change_box(new_step)
         self.state["progress"]["success"] = tor_working
 
-    def on_network_changed(self):
-        log.info("Local network changed %s", self.app.is_network_link_ok)
+    def on_network_changed(self, prop):
+        log.info("Local network changed %s", self.app.network_connection_monitor.ok)
         self._move_to_right_step()
         log.debug(self.state["step"])
 
-    def on_tor_working_changed(self, working: bool):
+    def on_tor_working_changed(self, prop):
+        working: bool = prop.value
         log.info("Tor working changed %s", working)
         if working:
             self.app.portal.call_async("unlock-bootstrap", None)
         self._move_to_right_step()
         log.debug(self.state["step"])
 
-    def on_tor_state_changed(self, tor_info: dict, changed: set):
+    def on_tor_state_changed(self, prop):
         """Reacts to DisableNetwork changes."""
-        log.info("DisableNetwork changed %s", tor_info["DisableNetwork"])
+        value = prop.value
+        log.info("DisableNetwork changed %s", value)
         self._move_to_right_step()
         log.debug(self.state["step"])
 
