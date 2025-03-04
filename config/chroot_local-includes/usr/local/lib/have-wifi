@@ -78,10 +78,10 @@ def has_wifi() -> bool:
             logger.debug("%s has unknown type", dev)
             continue
         if devtype == NmDeviceType.WIFI:
-            logger.info("%s is wifi", dev)
+            logger.info("%s is Wi-Fi", dev)
             return True
         else:
-            logger.debug("%s is not wifi", dev)
+            logger.debug("%s is not Wi-Fi", dev)
     return False
 
 

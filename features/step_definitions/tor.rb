@@ -1091,11 +1091,11 @@ end
 Then /^the Tor Connection Assistant reports that I am not connected to a local network$/ do
   tor_connection_assistant.child('No Wi-Fi Hardware detected')
 end
-When(/^I plug a wifi adapter$/) do
+When(/^I plug a Wi-Fi adapter$/) do
   $vm.execute_successfully('modprobe mac80211_hwsim radios=1')
 end
 
-Then(/^Tor Connection suggests me to connect to wifi$/) do
+Then(/^Tor Connection suggests me to connect to Wi-Fi$/) do
   tor_connection_assistant.child('Connect to a local network',
                                  roleName: 'label')
 end
