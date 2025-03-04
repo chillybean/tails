@@ -117,8 +117,8 @@ class GenerateSudo:
                 print(exc, file=sys.stderr)
                 sys.exit(1)
         basename = file.name.split('.')[0]
-        out_filename = 'zzz_' + basename
-        with (self.args.output_dir / out_filename).open("w") as buf:
+        output = self.args.output_dir / ('zzz_' + basename)
+        with output.open("w") as buf:
             try:
                 config = ConfigFile(**data)
             except ValidationError as exc:
@@ -127,6 +127,7 @@ class GenerateSudo:
                 sys.exit(1)
             alias = basename.upper().replace('-', '_')
             buf.write(config.serialize(alias))
+        output.chmod(0o444)
 
 
 if __name__ == "__main__":
