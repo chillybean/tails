@@ -125,7 +125,7 @@ class GenerateSudo:
                 print(f"Error parsing {file.name}", file=sys.stderr)
                 print(exc, file=sys.stderr)
                 sys.exit(1)
-            alias = basename.upper()
+            alias = basename.upper().replace('-', '_')
             buf.write(config.serialize(alias))
 
 
