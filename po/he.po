@@ -21,8 +21,8 @@ msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-05 10:11+0100\n"
-"PO-Revision-Date: 2025-01-16 14:25+0000\n"
-"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"PO-Revision-Date: 2025-03-02 08:54+0000\n"
+"Last-Translator: עקיבא בקנשטיין <akiva.bekenstein@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/tor/tails-gui/he/"
 ">\n"
 "Language: he\n"
@@ -31,7 +31,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.10.3-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -214,13 +214,13 @@ msgstr "התוכנה הבאה מותקנת באופן אוטומטי מהאחס�
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:197
 msgid ""
-"To add more, install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
-"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
+"To add more, install some software using <a href=\"synaptic."
+"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
+"desktop\">APT on the command line</a>."
 msgstr ""
-"כדי להוסיף עוד, התקן תוכנות כלשהן ע״י שימוש ב<a "
-"href=\"synaptic.desktop\">מנהל חבילות סינפטיות</a> או ב-<a "
-"href=\"org.gnome.Terminal.desktop\">APT על שורת הפקודה</a>."
+"כדי להוסיף עוד, התקן תוכנות כלשהן ע״י שימוש ב<a href=\"synaptic."
+"desktop\">מנהל חבילות סינפטיות</a> או ב-<a href=\"org.gnome.Terminal."
+"desktop\">APT על שורת הפקודה</a>."
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:154
 msgid "_Create persistent storage"
@@ -244,11 +244,11 @@ msgstr ""
 
 #: config/chroot_local-includes/usr/local/bin/electrum:156
 msgid "Donate Now"
-msgstr ""
+msgstr "תרום עכשיו"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:158
 msgid "Later"
-msgstr ""
+msgstr "אח\"כ"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:173
 msgid "Opening Electrum with our donation address..."
@@ -547,6 +547,13 @@ msgid ""
 "\n"
 "To learn how to do a manual upgrade, go to {manual_upgrade_url}"
 msgstr ""
+"<b>כדאי לבצע שדרוג ידני לגרסה האחרונה של {name}</b>\n"
+"\n"
+"לפרטים נוספים על הגרסה החדשה,ניתן ללכת אל {details_url}\n"
+"\n"
+"בלתי אפשרי לעשות שדרוג אוטומטי של Tails לגרסה החדשה הזו: {explanation}.\n"
+"\n"
+"כדי ללמוד איך לבצע שדרוג ידני, ניתן ללכת אל {manual_upgrade_url}"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:538
 msgid "New version available"
@@ -749,9 +756,8 @@ msgid "Enabled (default)"
 msgstr "מושבת (ברירת מחדל)"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/additional_settings.py:373
-#, fuzzy
 msgid "Disabled"
-msgstr "השבת"
+msgstr "מושבת"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/additional_settings.py:442
 msgid "On (default)"
@@ -789,7 +795,7 @@ msgstr "צור אחסון מתמיד"
 msgid ""
 "Impossible to unlock the Persistent Storage because the USB stick is read-"
 "only."
-msgstr ""
+msgstr "בלתי אפשרי לפתוח את הזיכרון המתמיד בגלל שהדיסק און קי הוא לקריאה בלב׳."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:408
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:440
@@ -832,7 +838,7 @@ msgstr ""
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:522
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:32
 msgid "Close"
-msgstr ""
+msgstr "סגירה"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:537
 msgid ""
@@ -1446,7 +1452,7 @@ msgstr "כדי לעשות זאת, התקן את Tails על החסן USB וצור
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:10
 msgid "Dismiss"
-msgstr ""
+msgstr "התעלמות"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:11
 #: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:40
@@ -1588,7 +1594,6 @@ msgstr ""
 "הפקודה</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:219
-#, fuzzy
 msgid ""
 "To do so, unlock your Persistent Storage when starting Tails and install "
 "some software using <a href=\"synaptic.desktop\">Synaptic Package Manager</"
@@ -1602,12 +1607,12 @@ msgstr ""
 #, fuzzy
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
-"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
+"gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "כדי לעשות זאת, צור אחסון מתמיד והתקן תוכנה כלשהי ע״י שימוש ב<a "
-"href=\"synaptic.desktop\">מנהל חבילות סינפטיות</a> או ב-<a "
-"href=\"org.gnome.Terminal.desktop\">APT על שורת הפקודה</a>."
+"href=\"synaptic.desktop\">מנהל חבילות סינפטיות</a> או ב-<a href=\"org.gnome."
+"Terminal.desktop\">APT על שורת הפקודה</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:250
 #, fuzzy
@@ -2093,9 +2098,8 @@ msgstr "צור אחסון מתמיד"
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/change_passphrase_dialog.py:115
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:270
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:298
-#, fuzzy
 msgid "Details"
-msgstr "Tails"
+msgstr "פרטים"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:338
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:345
@@ -2238,7 +2242,7 @@ msgstr ""
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:121
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:219
 msgid "_Cancel"
-msgstr ""
+msgstr "_ביטול"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:192
 #, fuzzy
@@ -2252,7 +2256,7 @@ msgstr "צור אחסון מתמיד"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:221
 msgid "_OK"
-msgstr ""
+msgstr "_אישור"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:230
 msgid ""
@@ -2261,7 +2265,7 @@ msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:233
 msgid "Please wait"
-msgstr ""
+msgstr "המתן בבקשה"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:261
 #, fuzzy
@@ -2450,7 +2454,7 @@ msgid "Failed to add container"
 msgstr "נכשל בהוספת מֵכַל"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/unlock_veracrypt_volumes/volume_manager.py:185
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Could not add file container %s: Timeout while waiting for loop setup.\n"
 "Please try using the <i>Disks</i> application instead."
@@ -2601,7 +2605,6 @@ msgid "An error occurred during encryption."
 msgstr "שגיאה התרחשה במהלך ההצפנה."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:317
-#, fuzzy
 msgid "This doesn't seem to be a valid URL or OpenPGP key."
 msgstr "נראה כי מפתח ה-OpenPGP או הכתובת אינם תקפים"
 
@@ -2961,9 +2964,8 @@ msgstr "הראה ביטוי סיסמה"
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:253
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:301
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:161
-#, fuzzy
 msgid "The passphrases do not match"
-msgstr "ביטויי הסיסמה אינם תואמים"
+msgstr "מילות הצופן לא תואמות"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:317
 msgid "Ch_ange"
@@ -2976,7 +2978,7 @@ msgstr "מחק אחסון מתמיד והתקן מחדש"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/deleted_view.ui.in:32
 msgid "_Close"
-msgstr ""
+msgstr "_סגירה"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/fail_view.ui.in:30
 msgid "Oh no! Something has gone wrong."
@@ -3084,7 +3086,7 @@ msgstr "גשר Tor"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:401
 msgid "Applications"
-msgstr ""
+msgstr "יישומים"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:429
 #, fuzzy
@@ -3167,7 +3169,6 @@ msgid "Activate Additional Software"
 msgstr "תכנה נוספת"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:698
-#, fuzzy
 msgid "Dotfiles"
 msgstr "Dotfiles"
 
@@ -3409,9 +3410,8 @@ msgid ""
 msgstr "היו ערים לכך שאין באפשרותנו לענות לכל דווח של באגים."
 
 #: ../config/chroot_local-includes/usr/share/whisperback/whisperback.ui.in:520
-#, fuzzy
 msgid "Description"
-msgstr "תיאור תקל"
+msgstr "תיאור"
 
 #: ../config/chroot_local-includes/usr/share/whisperback/whisperback.ui.in:537
 #, fuzzy
@@ -3437,9 +3437,8 @@ msgid "Technical details to include"
 msgstr "פרטים טכניים להכללה"
 
 #: ../config/chroot_local-includes/usr/share/whisperback/whisperback.ui.in:730
-#, fuzzy
 msgid "_Send"
-msgstr "שלח"
+msgstr "_שליחה"
 
 #: ../config/chroot_local-includes/usr/local/share/mime/packages/unlock-veracrypt-volumes.xml.in.h:1
 msgid "TrueCrypt/VeraCrypt container"
@@ -3562,14 +3561,12 @@ msgid "• Local proxy"
 msgstr "• מתווך מקומי"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:899
-#, fuzzy
 msgid ""
 "If you are on a corporate or university network, you might need to configure "
 "a local proxy."
 msgstr "אם אתם ברשת חברה או אוניברסיטה, יתכן שיהיה צורך לקנפג פרוקסי מקומי."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:912
-#, fuzzy
 msgid "Configure a Local _Proxy"
 msgstr "קינפוג _פרוקסי מקומי"
 
@@ -3739,7 +3736,6 @@ msgid "Testing Internet access…"
 msgstr "בוחן גישת אינטרנט…"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1747
-#, fuzzy
 msgid "You have access to the Internet"
 msgstr "יש לך גישה אל האינטרנט."
 
