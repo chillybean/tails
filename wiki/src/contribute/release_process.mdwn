@@ -1161,9 +1161,7 @@ you can follow the next steps:
 
 1. ISO history
 
-2. Build the Incremental Upgrade Kits on Jenkins (you can start the
-   build, but stop at the `rm-config --stage built-iuks` step which
-   has to wait for your local IUK build to finish)
+2. Build the Incremental Upgrade Kits on Jenkins
 
 3. If you expect you will have to do some manual testing yourself and you have a spare computer, you can prepare a USB
    stick and start testing.
@@ -1248,18 +1246,23 @@ Build the Incremental Upgrade Kits on Jenkins
 
 4. Record the ID of the Jenkins `build_IUKs` build:
 
+   1. Take note of this ID wherever it works for you
+
+   1. If you are still building IUKs, you need to stop here and wait until they
+      are successfully built
+
    1. To update the `~/.config/tails/release_management/current.yml` template
       with newly required variables, run:
 
           ./bin/rm-config generate-boilerplate --stage built-iuks
 
-   2. Edit `~/.config/tails/release_management/current.yml`
+   1. Edit `~/.config/tails/release_management/current.yml`
       and set the `candidate_jenkins_iuks_build_id` value
       to the ID of that `build_IUKs` build (an integer):
 
           "${EDITOR:?}" ~/.config/tails/release_management/current.yml
 
-   3. Generate the resulting environment variables and export them
+   1. Generate the resulting environment variables and export them
       into your environment:
 
           . $(./bin/rm-config generate-environment --stage built-iuks)
