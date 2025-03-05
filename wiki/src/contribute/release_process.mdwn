@@ -1130,7 +1130,7 @@ To build the IUKS, run this command:
        FREE_DISK_SPACE=$(/bin/df --block-size=M --output=avail "${OUR_TMPDIR:?}" \
           | tail -n1 | sed --regexp-extended 's,M$,,')
        if [ "$FREE_DISK_SPACE" -lt "$MIN_DISK_SPACE" ]; then
-          echo "ERROR! Not enough free space in ${OUR_TMPDIR:?}"
+          echo "ERROR! Not enough free space in ${OUR_TMPDIR:?} (${MIN_DISK_SPACE}M needed)"
           exit 2
        fi
        CPU_CORES=$(grep '^core id' /proc/cpuinfo | sort -u | wc -l)
