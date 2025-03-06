@@ -2050,31 +2050,6 @@ website:
       git push origin master:master \
     )
 
-Wait for the release to be fully published, that is for the website to have been
-fully refreshed. To do so, first wait for the
-[!tails_gitlab tails/tails/-/pipelines/?ref=master desc="GitLab CI pipeline" ]]
-triggered by your last push to build and deploy the website. And then:
-
-### If you're publishing a final release
-
-Check:
-
-    [ "${DIST:?}" = stable ]
-
-wait until all these conditions are met:
- - <https://tails.net/news/> includes the release notes
- - <https://tails.net/news/index.de.html> includes the release notes
- - <https://tails.net/torrents/files/> includes the files
-   for the new release
-
-### If you're publishing a RC
-
-Check:
-
-    [ "${DIST:?}" = alpha ]
-
-wait until `https://tails.net/news/test_$TAG/` is live.
-
 Bug tracker [if preparing a final release]
 --------------------------------------------
 
@@ -2132,6 +2107,34 @@ MR](https://gitlab.tails.boum.org/tails/gitlab-config/-/edit/master/main.yml)
 
    Title: *Issues linked from the website for Tails $VERSION*
    Labels: *Core Work:Technical writing* and *To Do*
+
+Wait for the website update
+---------------------------
+
+Wait for the release to be fully published, that is for the website to have been
+fully refreshed. To do so, first wait for the
+[!tails_gitlab tails/tails/-/pipelines/?ref=master desc="GitLab CI pipeline" ]]
+triggered by your last push to build and deploy the website. And then:
+
+### If you're publishing a final release
+
+Check:
+
+    [ "${DIST:?}" = stable ]
+
+wait until all these conditions are met:
+ - <https://tails.net/news/> includes the release notes
+ - <https://tails.net/news/index.de.html> includes the release notes
+ - <https://tails.net/torrents/files/> includes the files
+   for the new release
+
+### If you're publishing a RC
+
+Check:
+
+    [ "${DIST:?}" = alpha ]
+
+wait until `https://tails.net/news/test_$TAG/` is live.
 
 Twitter
 -------
