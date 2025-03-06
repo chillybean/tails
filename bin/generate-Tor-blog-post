@@ -58,4 +58,4 @@ BODY=$(html_body | html2markdown | perl -pE 's{^[#]}{##}') j2 --import-env '' \
     config/release_management/templates/Tor_blog_post.md.jinja \
     >"$MARKDOWN_TMPFILE"
 
-echo "Done! The draft Tor blog post was written to $MARKDOWN_TMPFILE"
+echo "$MARKDOWN_TMPFILE"

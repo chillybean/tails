@@ -1949,18 +1949,28 @@ Skip this if you are not preparing a stable release.
 
 - Generate the draft blog post:
 
-        ./bin/generate-Tor-blog-post "${VERSION:?}" "${TAG:?}" "${DIST:?}" "${RELEASE_DATE:?}"
+        torBlogFile=$(./bin/generate-Tor-blog-post "${VERSION:?}" "${TAG:?}" "${DIST:?}" "${RELEASE_DATE:?}")
 
-- Copy the introduction sentences of the body into the `summary` section of the
-  draft blog post. If there is no such sentence, this can be enough:
+- Copy the introduction sentences of the body into the `summary` section of 
+  `${torBlogFile}`. If there is no such sentence, this can be enough:
   `Tails ${VERSION:?} is out.`
 
-- Proof-read the draft blog post
+- Proof-read `${torBlogFile}`.
 
 - Prepare a *draft* merge request against the [Tor blog](https://gitlab.torproject.org/tpo/web/blog)
 
         torBlogDir="content/blog/new-release-tails-${VERSION//./_}"
-        echo "${torBlogDir}"
+        mv "${torBlogFile}" contents.lr
+        mkdir -p "$torBlogDir"
+        cd "$torBlogDir"
+        ln -s ../../../assets/static/images/blog/tails.jpeg lead.jpg && \
+            git add lead.jpg
+        git add contents.lr
+        git commit -m "Announce Tails ${VERSION}"
+        git push \
+            -o merge_request.create -o merge_requests.draft \
+            -o merge_requests.title="Announce Tails ${VERSION}" \
+            --set-upstream origin HEAD
 
   - Use your personal account on their GitLab
   - Follow the
@@ -1972,10 +1982,6 @@ Skip this if you are not preparing a stable release.
 
   - Reuse our existing lead image:
 
-        mkdir -p "$torBlogDir"
-        cd "$torBlogDir"
-        ln -s ../../../assets/static/images/blog/tails.jpeg lead.jpg && \
-            git add lead.jpg
 
 Go wild!
 ========
