@@ -91,6 +91,14 @@ in your opinion:
     - On the corresponding issue: replace the *Needs Validation* label with *Doing*.
     - Consider turning the MR into a draft.
 
+3. If the MR includes security-sensitive changes e.g. creating/modifying `sudo`
+   configuration or code that elevates privileges: create a new thread asking
+   another team-mate who's not the author of the MR for an extra,
+   *security-focused* pair of eyes. Make it clear that their review must be
+   focused specifically on security, so they don't waste their own time
+   duplicating work, and to minimize the risk that the whole team ends
+   up bikeshedding.
+
 <a id="merge"></a>
 
 ## Merge
