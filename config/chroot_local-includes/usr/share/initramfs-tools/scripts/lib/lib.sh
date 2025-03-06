@@ -11,6 +11,12 @@ prereqs)
     ;;
 esac
 
+REPARTITIONING_ERROR_FLAG_FILE=/run/repartitioning-failed
+
 log() {
     echo "$(date "+%H:%M:%S.%3N") $*"
+}
+
+set_partition_error_reason() {
+    echo "$1" >"${REPARTITIONING_ERROR_FLAG_FILE}"
 }

@@ -239,24 +239,6 @@ Then /^there are no unexpected messages of priority "err" or higher in the journ
          "#{JSON.pretty_generate(unexpected_errors)}")
 end
 
-Then /^the support documentation page opens in Tor Browser$/ do
-  if $language == 'German'
-    expected_title = 'Tails - Hilfe & Support'
-    expected_heading = 'Die Dokumentation durchsuchen'
-  else
-    expected_title = 'Tails - Support'
-    expected_heading = 'Search the documentation'
-  end
-  step "\"#{expected_title}\" has loaded in the Tor Browser"
-  try_for(60, delay: 3) do
-    page_has_heading(
-      @torbrowser,
-      expected_title,
-      expected_heading
-    )
-  end
-end
-
 Given /^I plug and mount a USB drive containing a sample PNG$/ do
   @png_dir = share_host_files(Dir.glob("#{MISC_FILES_DIR}/*.png"))
 end

@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-05 10:11+0100\n"
-"PO-Revision-Date: 2024-10-23 15:16+0000\n"
+"POT-Creation-Date: 2025-03-05 08:57+0100\n"
+"PO-Revision-Date: 2025-02-19 22:02+0000\n"
 "Last-Translator: Alan <georgianization@outlook.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/tor/tails-gui/"
 "ka/>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8.2-dev\n"
+"X-Generator: Weblate 5.10.1-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -76,12 +76,11 @@ msgid "The configuration of your additional software failed."
 msgstr "დამატებითი პროგრამის გამართვა ვერ მოხერხდა."
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:78
-#, fuzzy
 msgid ""
 "To install it automatically when starting Tails, you can create a Persistent "
 "Storage and activate the <b>Additional Software</b> feature."
 msgstr ""
-"ავტომატურად დასაყენებლად Tails-ის გაშვებისას, შეგიძლიათ შექმნათ მუდმივი "
+"ავტომატურად რომ დაყენდეს, როცა Tails ეშვება, შეგიძლიათ შექმნათ მუდმივი "
 "საცავი და აამოქმედოთ <b>დამატებითი პროგრამის</b> შესაძლებლობა."
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:81
@@ -91,7 +90,6 @@ msgid "Create Persistent Storage"
 msgstr "მუდმივი საცავის შექმნა"
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:90
-#, fuzzy
 msgid "Creating your Persistent Storage failed."
 msgstr "მუდმივი საცავის შექმნა ვერ მოხერხდა."
 
@@ -205,13 +203,13 @@ msgstr ""
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:197
 msgid ""
-"To add more, install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
-"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
+"To add more, install some software using <a href=\"synaptic."
+"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
+"desktop\">APT on the command line</a>."
 msgstr ""
-"დასამატებლად, დააყენეთ რამდენიმე პროგრამა <a "
-"href=\"synaptic.desktop\">Synaptic-ის პაკეტების მმართველის</a> საშუალებით ან "
-"<a href=\"org.gnome.Terminal.desktop\">APT-ბრძანებებით</a>."
+"დასამატებლად, დააყენეთ რამდენიმე პროგრამა <a href=\"synaptic."
+"desktop\">Synaptic-ის პაკეტების მმართველის</a> საშუალებით ან <a href=\"org."
+"gnome.Terminal.desktop\">APT-ბრძანებებით</a>."
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:154
 msgid "_Create persistent storage"
@@ -235,11 +233,11 @@ msgstr ""
 
 #: config/chroot_local-includes/usr/local/bin/electrum:156
 msgid "Donate Now"
-msgstr ""
+msgstr "გაიღეთ თანხა"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:158
 msgid "Later"
-msgstr ""
+msgstr "გვიან"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:173
 msgid "Opening Electrum with our donation address..."
@@ -403,10 +401,10 @@ msgid "no automatic upgrade is available from our website for this version"
 msgstr "ამ ვერსიისთვის ჩვენი საიტიდან თვითგანახლება არაა ხელმისაწვდომი"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:366
-#, fuzzy
 msgid "your device was not created using a USB image or Tails Cloner"
 msgstr ""
-"მოწყობილობა არაა შექმნილი USB-ასლით ან Tails-ის დასაყენებელი პროგრამით."
+"მოწყობილობა არაა შექმნილი USB-ს მოსამზადებელი ასლით ან Tails-ის ასლის "
+"დამამზადებლით"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:371
 msgid "Tails was started from a DVD or a read-only device"
@@ -526,7 +524,7 @@ msgid "Upgrade later"
 msgstr "განახლება მოგვიანებით"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:528
-#, fuzzy, perl-brace-format
+#, perl-brace-format
 msgid ""
 "<b>You should do a manual upgrade to the latest version of {name}.</b>\n"
 "\n"
@@ -537,11 +535,12 @@ msgid ""
 "\n"
 "To learn how to do a manual upgrade, go to {manual_upgrade_url}"
 msgstr ""
-"<b>ხელით უნდა განაახლოთ ვერსიაზე {name}.</b>\n"
+"<b>ხელით უნდა განაახლოთ ბოლო ვერსიაზე {name}.</b>\n"
 "\n"
 "ვრცლად ამ ახალი ვერსიის შესახებ იხილეთ {details_url}\n"
 "\n"
-"შეუძლებელია თქვენი Tails ავტომატურად განახლდეს ამ ახალ ვერსიაზე.\n"
+"შეუძლებელია თქვენი Tails ავტომატურად განახლდეს ამ ახალ ვერსიაზე: "
+"{explanation}.\n"
 "\n"
 "თუ როგორ უნდა განაახლოთ ხელით, იხილეთ {manual_upgrade_url}"
 
@@ -748,9 +747,8 @@ msgid "Enabled (default)"
 msgstr "გამორთული (ნაგულისხმევი)"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/additional_settings.py:373
-#, fuzzy
 msgid "Disabled"
-msgstr "გამორთვა"
+msgstr "გამორთული"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/additional_settings.py:442
 msgid "On (default)"
@@ -774,12 +772,9 @@ msgid "Persistent Storage Still Locked"
 msgstr "მუდმივი საცავის შექმნა"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:176
-#, fuzzy
 msgid ""
 "Do you really want to start Tails without unlocking your Persistent Storage?"
-msgstr ""
-"ნამდვილად გსურთ, კვლავ გაუშვათ Tails ახლავე?\\n\\nმიმდინარე ნამუშევარი "
-"დაიკარგება."
+msgstr "ნამდვილად გსურთ, გაუშვათ Tails თქვენი მუდმივი მეხსიერების გაუხსნელად?"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:179
 #, fuzzy
@@ -794,19 +789,16 @@ msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:408
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:440
-#, fuzzy
 msgid "Unlocking…"
-msgstr "იხსნება..."
+msgstr "იხსნება…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:448
-#, fuzzy
 msgid "Checking the file system…"
-msgstr "ფაილური სისტემის გადამოწმება..."
+msgstr "მოწმდება საფაილო სისტემა…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:481
-#, fuzzy
 msgid "Repairing the File System"
-msgstr "ფაილური სისტემის გადამოწმება..."
+msgstr "შეკეთდება საფაილო სისტემა"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:482
 #, fuzzy
@@ -814,9 +806,8 @@ msgid "This might take a long time..."
 msgstr "შესაძლოა გარკვეულ ხანს გასტანოს..."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:500
-#, fuzzy
 msgid "Failed to repair the file system of your Persistent Storage."
-msgstr "მუდმივი მეხსიერების გამართვა ვერ მოხერხდა"
+msgstr "მუდმივი მეხსიერების საფაილო სისტემა ვერ გასწორდა."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:502
 msgid "Start Tails to send an error report and learn how to recover your data."
@@ -835,7 +826,7 @@ msgstr ""
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:522
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:32
 msgid "Close"
-msgstr ""
+msgstr "დახურვა"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:537
 msgid ""
@@ -898,16 +889,16 @@ msgid "Create Partition Image"
 msgstr "მუდმივი საცავის შექმნა"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:853
-#, fuzzy
 msgid ""
 "Start Tails to learn how to create a partition image of your Persistent "
 "Storage."
-msgstr "მუდმივი მეხსიერების გამართვა ვერ მოხერხდა"
+msgstr ""
+"გაუშვით Tails რომ იხილოთ, როგორ შექმნათ თქვენი მუდმივი მეხსიერების დანაყოფის "
+"ასლი."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:862
-#, fuzzy
 msgid "Failed to unlock the Persistent Storage due to file system errors."
-msgstr "მუდმივი მეხსიერების გამართვა ვერ მოხერხდა"
+msgstr "მუდმივი მეხსიერება ვერ გაიხსნა საფაილო სისტემის შეცდომების გამო."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:871
 msgid ""
@@ -928,34 +919,31 @@ msgid ""
 msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:897
-#, fuzzy
 msgid "Upgrading the Persistent Storage. This might take a while…"
-msgstr "მუდმივი საცავის შექმნა ვერ მოხერხდა."
+msgstr "ახლდება მუდმივი საცავი. გარკვეულ დროს გასტანს…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/settings/persistence.py:125
-#, fuzzy
 msgid "Error unlocking Persistent Storage: {}"
-msgstr "დაშიფრული _მუდმივი მეხსიერება"
+msgstr "შეცდომა მუდმივი საცავის გახსნისას: {}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/settings/persistence.py:150
-#, fuzzy
 msgid "Error upgrading Persistent Storage: {}"
-msgstr "დაშიფრული _მუდმივი მეხსიერება"
+msgstr "შეცდომა მუდმივი საცავის განახლებისას: {}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/settings/persistence.py:176
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "Failed to activate some features of the Persistent Storage: {features}."
-msgstr "მუდმივი მეხსიერების გამართვა ვერ მოხერხდა"
+msgstr ""
+"ვერ მოხერხდა მუდმივი საცავის გარკვეული შესაძლებლობების ამოქმედება: "
+"{features}."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/settings/persistence.py:181
-#, fuzzy
 msgid "Error activating Persistent Storage: {}"
-msgstr "მუდმივი საცავის შექმნა"
+msgstr "შეცდომა მუდმივი საცავის ამოქმედებისას: {}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/settings/persistence.py:202
-#, fuzzy
 msgid "Failed to abort when repairing Persistent Storage filesystem: {}"
-msgstr "მუდმივი მეხსიერების გამართვა ვერ მოხერხდა"
+msgstr "ვერ მოხერხდა მუდმივი მეხსიერების საფაილო სისტემის გასწორება: {}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/region_settings.py:191
 msgid "_Language"
@@ -1066,9 +1054,8 @@ msgid "No mount points found"
 msgstr "მიერთების წერტილები ვერ მოიძებნა"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:805
-#, fuzzy
 msgid "Target device has opened files"
-msgstr "მოწყობილობაზე ჩაწერა %(speed)d მბაიტ/წმ სიჩქარით"
+msgstr "სამიზნე მოწყობილობამ გახსნა ფაილები"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:833
 #, python-format
@@ -1109,9 +1096,8 @@ msgid "Removing %(file)s"
 msgstr "%(file)s იშლება"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1086
-#, fuzzy
 msgid "Cloning Persistent Storage..."
-msgstr "მუდმივი საცავის შექმნა"
+msgstr "მუდმივი საცავის ასლი იქმნება..."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1169
 #, python-format
@@ -1262,13 +1248,13 @@ msgstr ""
 "გაშვებას. გთხოვთ, სცადოთ სხვა მოდელზე დაყენება."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:592
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "The device \"%(pretty_name)s\" is too small to install Tails (at least "
 "%(size)s GB is required)."
 msgstr ""
-"მოწყობილობა „%(pretty_name)s“ მეტად მცირე მოცულობისაა Tails-ის დასაყენებლად "
-"(საჭიროა, სულ მცირე %(size)s გბაიტი)"
+"მოწყობილობა „%(pretty_name)s“ მეტად მცირე მოცულობისაა, რომ Tails დაყენდეს "
+"(საჭიროა სულ მცირე %(size)s გბაიტი)."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:607
 #, python-format
@@ -1304,7 +1290,6 @@ msgid "%(parent_size)s %(vendor)s %(model)s device (%(device)s)"
 msgstr "%(parent_size)s %(vendor)s %(model)s მოწყობილობა (%(device)s)"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:770
-#, fuzzy
 msgid ""
 "\n"
 "\n"
@@ -1462,17 +1447,16 @@ msgid "We recommend that you reinstall Tails on a different USB stick."
 msgstr ""
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:7
-#, fuzzy
 msgid ""
 "We recommend that you reinstall Tails on a different USB stick\n"
 "and recover the data from your Persistent Storage as soon as possible."
 msgstr ""
-"ამისთვის, Tails დააყენეთ USB-მოწყობილობიდან და შექმენით მუდმივი მეხსიერების "
-"არე."
+"გირჩევთ, რომ ახლიდან დააყენოთ Tails სხვა USB-მოწყობილობაზე\n"
+"და სასწრაფოდ აღადგინოთ მონაცემები თქვენი მუდმივი მეხსიერებიდან."
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:10
 msgid "Dismiss"
-msgstr ""
+msgstr "აცილება"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:11
 #: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:40
@@ -1617,11 +1601,10 @@ msgid ""
 "command line</a>."
 msgstr ""
 "ამისთვის, დააყენეთ რამდენიმე პროგრამა <a href=\"synaptic.desktop\">Synaptic-"
-"ის პაკეტების მმართველის</a> საშუალებით ან <a "
-"href=\"org.gnome.Terminal.desktop\">APT-ბრძანებებით</a>."
+"ის პაკეტების მმართველის</a> საშუალებით ან <a href=\"org.gnome.Terminal."
+"desktop\">APT-ბრძანებებით</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:219
-#, fuzzy
 msgid ""
 "To do so, unlock your Persistent Storage when starting Tails and install "
 "some software using <a href=\"synaptic.desktop\">Synaptic Package Manager</"
@@ -1629,31 +1612,28 @@ msgid ""
 msgstr ""
 "ამისთვის, გახსენით თქვენი მუდმივი მეხსიერების საცავი Tails-ის გაშვებისას და "
 "დააყენეთ რამდენიმე პროგრამა <a href=\"synaptic.desktop\">Synaptic-ის "
-"პაკეტების მმართველის</a> საშუალებით ან <a "
-"href=\"org.gnome.Terminal.desktop\">APT-ბრძანებებით</a>."
+"პაკეტების მმართველის</a> საშუალებით ან <a href=\"org.gnome.Terminal."
+"desktop\">APT-ბრძანებებით</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:232
-#, fuzzy
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
-"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
+"gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
-"ამისთვის, შექმენით მუდმივი მეხსიერების საცავი და დააყენეთ რამდენიმე პროგრამა "
-"<a href=\"synaptic.desktop\">Synaptic-ის პაკეტების მმართველის</a> საშუალებით "
-"ან <a href=\"org.gnome.Terminal.desktop\">APT-ბრძანებებით</a>."
+"ამისთვის შექმენით მუდმივი მეხსიერების საცავი და დააყენეთ რამდენიმე პროგრამა "
+"<a href=\"synaptic.desktop\">კრებულების Synaptic-მმართველით</a> ან <a "
+"href=\"org.gnome.Terminal.desktop\">APT ბრძანებათა ველიდან</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:250
-#, fuzzy
 msgid "To do so, install Tails on a USB stick and create a Persistent Storage."
 msgstr ""
-"ამისთვის, Tails დააყენეთ USB-მოწყობილობიდან და შექმენით მუდმივი მეხსიერების "
-"არე."
+"ამისთვის Tails დააყენეთ USB-მოწყობილობიდან და შეუქმენით მუდმივი მეხსიერების "
+"სივრცე."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:296
-#, fuzzy
 msgid "[package not available]"
-msgstr "[package not available]"
+msgstr "[კრებული არაა ხელმისაწვდომი]"
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:303
 #, fuzzy
@@ -1669,12 +1649,11 @@ msgid "Screen Locker"
 msgstr "ეკრანის ჩამკეტი"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:131
-#, fuzzy
 msgid "Set up a password to unlock the screen."
-msgstr "დააყენეთ პაროლი ეკრანის გასახსნელად"
+msgstr "დააყენეთ პაროლი ეკრანის გასახსნელად."
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:149
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2227
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2304
 msgid "Password"
 msgstr "პაროლი"
 
@@ -1740,9 +1719,9 @@ msgid ""
 msgstr ""
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:74
-#, fuzzy, sh-format
+#, sh-format
 msgid "Network Interface Disabled"
-msgstr "ქსელის დაფა ${nic} გათიშულია"
+msgstr "ქსელის დაფა გათიშულია"
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:75
 #, sh-format
@@ -1752,31 +1731,26 @@ msgid ""
 msgstr ""
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:87
-#, fuzzy
 msgid "All Networking Disabled"
 msgstr "ყველა ქსელი გათიშულია"
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:89
-#, fuzzy, sh-format
+#, sh-format
 msgid ""
 "MAC address anonymization failed for one of your network interfaces. The "
 "error recovery also failed, so all networking is disabled."
 msgstr ""
-"MAC-მისამართის გაუმხელობა ვერ მოხერხდა ქსელის დაფაზე ${nic_name} (${nic}). "
-"ვერც აღდგენა მოხერხდა შეცდომის შემდეგ, ასე ქსელი სრულად გათიშულია.\n"
-"ალბათ უმჯობესია, ახლიდან გაუშვათ Tails-ის და გათიშოთ MAC-მისამართის "
-"გაუმხელობა."
+"MAC-მისამართის გაუმჟღავნებლობა ვერ მოხერხდა თქვენი რომელიღაც ქსელის დაფით. "
+"ვერც შეცდომის გამოსწორება ვერ მოხერხდა, ასე რომ ქსელი სრულად გაითიშა."
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:92
-#, fuzzy, sh-format
+#, sh-format
 msgid ""
 "MAC address anonymization failed for your network interface. The error "
 "recovery also failed, so all networking is disabled."
 msgstr ""
-"MAC-მისამართის გაუმხელობა ვერ მოხერხდა ქსელის დაფაზე ${nic_name} (${nic}). "
-"ვერც აღდგენა მოხერხდა შეცდომის შემდეგ, ასე ქსელი სრულად გათიშულია.\n"
-"ალბათ უმჯობესია, ახლიდან გაუშვათ Tails-ის და გათიშოთ MAC-მისამართის "
-"გაუმხელობა."
+"MAC-მისამართის გაუმხელობა ვერ მოხერხდა თქვენი ქსელის დაფით. ვერც შეცდომის "
+"გამოსწორება ვერ მოხერხდა, ასე რომ ქსელი სრულად გაითიშა."
 
 #: config/chroot_local-includes/usr/local/bin/tails-upgrade-frontend-wrapper:36
 #, python-brace-format
@@ -1907,12 +1881,12 @@ msgid "Connected to Tor successfully with bridges"
 msgstr "წარმატებით დაუკავშირდა Tor-ს გადამცემი ხიდებით"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:644
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1960
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2037
 msgid "Connected to Tor successfully"
 msgstr "დაუკავშირდა Tor-ს წარმატებით"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:648
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1985
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2062
 msgid "You can now browse the Internet anonymously and uncensored."
 msgstr ""
 "ახლა უკვე შეგიძლიათ ინტერნეტის მონახულება ვინაობის გაუმხელად და შეზღუდვების "
@@ -1928,21 +1902,20 @@ msgid "Bridge address malformed"
 msgstr "ხიდის მისამართი გაუმართავია"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:819
-#, fuzzy
 msgid "Setting a bridge is needed if you want to hide that you are using Tor"
 msgstr ""
-"ხიდის მითითება მაშინაა საჭირო, თუ გსურთ დამალოთ, რომ Tor-ით სარგებლობთ."
+"ხიდის გამართვა მაშინაა საჭირო, როცა გსურთ დამალოთ, რომ Tor-ით სარგებლობთ"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1034
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1058
 #, python-brace-format
 msgid "Scanned {bridge_type} bridge: <b>{bridge_info}</b>."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1123
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1147
 msgid "Are you sure you want to lose progress?"
 msgstr "ნამდვილად გსურთ, წინსვლის გაუქმება?"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1127
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1151
 msgid ""
 "Tails will continue connecting to Tor after you close the Tor Connection "
 "assistant.\n"
@@ -1956,11 +1929,11 @@ msgstr ""
 "თუ Tor-თან კავშირი ვერ შედგება, მოგიწევთ მოითმინოთ წინსვლის ზოლის "
 "შევსებამდე, სანამ კავშირის ხარვეზების დადგენა შეგეძლებათ."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1133
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1157
 msgid "Close and Lose Progress"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1135
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1159
 msgid "Wait"
 msgstr ""
 
@@ -2013,7 +1986,7 @@ msgid "Open Tor Connection Assistant"
 msgstr "Tor-კავშირის გახსნა"
 
 #: config/chroot_local-includes/usr/share/gnome-shell/extensions/torstatus@tails.boum.org/extension.js:50
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2039
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2116
 msgid "View Tor Circuits"
 msgstr "Tor-წრედების ნახვა"
 
@@ -2047,14 +2020,12 @@ msgid "Formatting the file system..."
 msgstr "ფაილური სისტემის გადამოწმება..."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:439
-#, fuzzy
 msgid "Activating the Persistent Storage..."
-msgstr "მუდმივი საცავის შექმნა"
+msgstr "მუდმივი საცავის ამოქმედება..."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:444
-#, fuzzy
 msgid "Finishing setting up the Persistent Storage..."
-msgstr "მუდმივი საცავის შექმნა"
+msgstr "სრულდება მუდმივი საცავის გამართვა..."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:697
 msgid ""
@@ -2094,9 +2065,8 @@ msgid "Could not find the WhisperBack application"
 msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:94
-#, fuzzy
 msgid "Delete Data…"
-msgstr "წაშლა"
+msgstr "მონაცემების წაშლა…"
 
 #. Translators: Don't translate {feature}, it's a placeholder
 #. and will be replaced.
@@ -2124,14 +2094,12 @@ msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:289
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:296
-#, fuzzy
 msgid "Error activating feature {}"
-msgstr "მუდმივი საცავის შექმნა"
+msgstr "შეცდომა შესაძლებლობის ამოქმედებისას {}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:297
-#, fuzzy
 msgid "An error occurred while activating the feature."
-msgstr "მუდმივი საცავის შექმნა"
+msgstr "შეცდომა წარმოიშვა ამ შესაძლებლობის ამოქმედებისას."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:298
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:347
@@ -2139,20 +2107,17 @@ msgstr "მუდმივი საცავის შექმნა"
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/change_passphrase_dialog.py:115
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:270
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:298
-#, fuzzy
 msgid "Details"
-msgstr "Tails"
+msgstr "დეტალები"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:338
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:345
-#, fuzzy
 msgid "Error deactivating feature {}"
-msgstr "მუდმივი საცავის შექმნა"
+msgstr "შეცდომა შესაძლებლობის გაუქმებისას {}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:346
-#, fuzzy
 msgid "An error occurred while deactivating the feature."
-msgstr "მუდმივი საცავის შექმნა"
+msgstr "შეცდომა წარმოიშვა ამ შესაძლებლობის გაუქმებისას."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:366
 msgid ""
@@ -2163,9 +2128,8 @@ msgid ""
 msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:377
-#, fuzzy
 msgid "_Delete Data"
-msgstr "წაშლა"
+msgstr "მონაცემების _წაშლა"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:407
 msgid "Error deleting data of feature {}"
@@ -2231,20 +2195,19 @@ msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/passphrase_strength_hint.py:50
 msgid "Good"
-msgstr ""
+msgstr "კარგი"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/passphrase_strength_hint.py:53
 msgid "Strong"
-msgstr ""
+msgstr "ძლიერი"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/error_dialog.py:54
 msgid "You can send an error report to help solve the issue."
 msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/error_dialog.py:61
-#, fuzzy
 msgid "_Send Error Report"
-msgstr "WhisperBack – შეცდომების მოხსენება"
+msgstr "_შეცდომის მოხსენება"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:153
 msgid ""
@@ -2291,18 +2254,16 @@ msgid "_Cancel"
 msgstr "_გაუქმება"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:192
-#, fuzzy
 msgid "_Delete Persistent Storage"
-msgstr "მუდმივი საცავის შექმნა"
+msgstr "მუდმივი საცავის _წაშლა"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:202
-#, fuzzy
 msgid "Deleting your Persistent Storage..."
-msgstr "მუდმივი საცავის შექმნა"
+msgstr "იშლება თქვენი მუდმივი საცავი..."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:221
 msgid "_OK"
-msgstr ""
+msgstr "_დიახ"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:230
 msgid ""
@@ -2311,7 +2272,7 @@ msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:233
 msgid "Please wait"
-msgstr ""
+msgstr "გთხოვთ მოითმინოთ"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:261
 #, fuzzy
@@ -2324,20 +2285,17 @@ msgid "Failed to create Persistent Storage"
 msgstr "მუდმივი მეხსიერების გამართვა ვერ მოხერხდა"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:269
-#, fuzzy
 msgid "An error occurred while creating the Persistent Storage."
-msgstr "დაშიფრული _მუდმივი მეხსიერება"
+msgstr "შეცდომა წარმოიქმნა მუდმივი მეხსიერების შექმნისას."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:289
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:296
-#, fuzzy
 msgid "Error deleting Persistent Storage"
-msgstr "დაშიფრული _მუდმივი მეხსიერება"
+msgstr "შეცდომა მუდმივი მეხსიერების წაშლისას"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:297
-#, fuzzy
 msgid "An error occurred while deleting the Persistent Storage."
-msgstr "დაშიფრული _მუდმივი მეხსიერება"
+msgstr "შეცდომა წარმოიქმნა მუდმივი მეხსიერების წაშლისას."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:334
 msgid "Details (command output)"
@@ -2463,9 +2421,9 @@ msgid "Container already added"
 msgstr "სათავსი უკვე დამატებულია"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/unlock_veracrypt_volumes/volume_manager.py:121
-#, fuzzy, python-format
+#, python-format
 msgid "The file container %s should already be listed."
-msgstr "ფაილის სათავსი %s უკვე აღრიცხული უნდა იყოს"
+msgstr "ფაილის სათავსი %s უკვე აღრიცხული უნდა იყოს."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/unlock_veracrypt_volumes/volume_manager.py:142
 msgid "Container opened read-only"
@@ -2524,9 +2482,8 @@ msgid ""
 msgstr ""
 
 #: config/chroot_local-includes/usr/local/sbin/unsafe-browser:53
-#, fuzzy
 msgid "To use the Unsafe Browser, restart Tails."
-msgstr "გამორთვა დაუცველი ბრაუზერის (ნაგულისხმევი)"
+msgstr "დაუცველი ბრაუზერის გამოსაყენებლად ხელახლა გაუშვით Tails."
 
 #: config/chroot_local-includes/usr/local/sbin/unsafe-browser:56
 msgid "_Restart"
@@ -2604,9 +2561,8 @@ msgid ""
 msgstr "%s ცვლადი არ მოიძებნა ამ გასამართ ფაილში: /etc/whisperback/config.py"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:136
-#, fuzzy
 msgid "Unable to load a valid configuration."
-msgstr "სწორად გამართული პარამეტრების ჩატვირთვა ვერ ხერხდება"
+msgstr "გამართული პარამეტრები ვერ ჩაიტვირთა."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:162
 msgid "Sending mail..."
@@ -2683,13 +2639,12 @@ msgid ""
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:2
-#, fuzzy
 msgid ""
 "Configure which files and application configuration are saved between "
 "working sessions"
 msgstr ""
-"გამართეთ, რომელი ფაილები და პროგრამის მონაცემები იყოს შენახული, სამუშაო "
-"სეანსებს შორის."
+"გამართეთ, რომელი ფაილები და პროგრამის მონაცემები დარჩეს შენახული სამუშაო "
+"სეანსებს შორის"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-terminal.desktop.in.h:1
 msgid "Root Terminal"
@@ -2701,9 +2656,8 @@ msgstr ""
 "გახსნის ტერმინალს ძირეული მომხმარებლით, პაროლის მოთხოვნით gksu-ს მეშვეობით"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:1
-#, fuzzy
 msgid "Tails Documentation"
-msgstr "Tails-ის დამხმარე მასალები"
+msgstr "Tails-ის ცნობარი"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:2
 msgid "Learn how to use Tails"
@@ -2752,13 +2706,12 @@ msgid "Mount VeraCrypt encrypted file containers and devices"
 msgstr "VeraCrypt-ის ფაილების დაშიფრული სათავსებისა და მოწყობილობების მიერთება"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop.in.h:2
-#, fuzzy
 msgid ""
 "Configure the additional software installed from your Persistent Storage "
 "when starting Tails"
 msgstr ""
-"გამართეთ თქვენი მუდმივი მეხსიერების საცავიდან დაყენებული დამატებითი პროგრამა "
-"Tails-ის გაშვებისას"
+"გამართეთ თქვენი მუდმივი მეხსიერებიდან დაყენებული დამატებითი პროგრამა, როცა "
+"Tails გაეშვება"
 
 #: ../config/chroot_local-includes/usr/share/applications/whisperback.desktop.in.h:1
 msgid "WhisperBack Error Reporting"
@@ -2884,7 +2837,6 @@ msgstr ""
 "წვდომა, უსაფრთხოების ასამაღლებლად."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:560
-#, fuzzy
 msgid ""
 "The Unsafe Browser allows you to sign in to a network using a captive "
 "portal.\n"
@@ -2900,14 +2852,19 @@ msgid ""
 "2022), after we fixed the security vulnerabilities that made us disable it "
 "by default in Tails 4.8 (June 2020)."
 msgstr ""
-"დაუცველი ბრაუზერით შესაძლებელია ქსელში შესვლა დაშვების გვერდის გავლით.\n"
+"დაუცველი ბრაუზერით შესაძლებელია ქსელში შესვლა შემშვები გვერდის გავლით.\n"
 "\n"
-"დაშვების გვერდი არის ვებგვერდი, რომელიც იხსნება ინტერნეტთან წვდომის "
-"მიღებამდე. დაშვების გვერდზე ჩვეულებრივ, ითხოვენ ანგარიშზე შესვლას ან რამე "
-"მონაცემის, მაგალითად ელფოსტის შეყვანას.\n"
+"შემშვები გვერდი არის ვებგვერდი, რომელიც იხსნება ინტერნეტთან წვდომის "
+"მიღებამდე. შემშვებ გვერდზე, როგორც წესი, მოითხოვება ხოლმე ქსელში შესვლა ან "
+"რამე მონაცემის შეყვანა, მაგალითად ელფოსტის.\n"
 "\n"
-"დაუცველ ბრაუზერს არ შეუძლია ვინაობის დაფარვა და შეიძლება თქვენი მონაცემები "
-"გაამჟღავნოს. გამოიყენეთ მხოლოდ ქსელში შესვლისთვის."
+"დაუცველი ბრაუზერი ვერ უზრუნველყოფს თქვენი ვინაობის გაუმხელობას. გამოიყენეთ "
+"მხოლოდ ქსელში ამგვარად შესვლისას.\n"
+"\n"
+"დაუცველი ბრაუზერი კვლავ ამოქმედებულია ნაგულისხმევად Tails 5.8 ვერსიიდან "
+"(2022 წლის დეკემბრიდან), მას შემდეგ, რაც გამოვასწორეთ უსაფრთხოების "
+"სისუსტეები, რომელთა გამოც ნაგულისხმევად გაუქმებული იყო Tails 4.8 ვერსიიდან "
+"(2020 წლის ივნისიდან)."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:608
 #, fuzzy
@@ -2920,7 +2877,6 @@ msgid "Disable the Unsafe Browser"
 msgstr "ჩართვა დაუცველი ბრაუზერის"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:46
-#, fuzzy
 msgid "Settings were loaded from the Persistent Storage."
 msgstr "პარამეტრები ჩაიტვირთა მუდმივი მეხსიერებიდან."
 
@@ -2938,9 +2894,8 @@ msgstr "ნაგულისხმევი პარამეტრები"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:225
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:337
-#, fuzzy
 msgid "_Persistent Storage"
-msgstr "მუდმივი საცავის შექმნა"
+msgstr "_მუდმივი საცავის შექმნა"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:245
 msgid ""
@@ -2950,27 +2905,24 @@ msgid ""
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:272
-#, fuzzy
 msgid "Create and configure a Persistent Storage after starting Tails"
-msgstr "მისი ავტომატურად დაყენება მუდმივი მეხსიერებიდან Tails-ის გაშვებისას."
+msgstr "მუდმივი მეხსიერების შექმნა და გამართვა, როცა Tails გაეშვება"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:364
 msgid "Show Passphrase"
 msgstr "პაროლის ჩვენება"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:421
-#, fuzzy
 msgid "Enter your passphrase"
-msgstr "პაროლის დადასტურება:"
+msgstr "შეიყვანეთ პაროლი"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:436
 msgid "Unlock Encryption"
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:503
-#, fuzzy
 msgid "Impossible to unlock the Persistent Storage."
-msgstr "მუდმივი მეხსიერების გამართვა ვერ მოხერხდა"
+msgstr "მუდმივი მეხსიერების გახსნა შეუძლებელია."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:563
 #, fuzzy
@@ -3009,24 +2961,20 @@ msgstr ""
 "დასამატებლად, დააჭირეთ „+“ ღილაკს ქვემოთ."
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:95
-#, fuzzy
 msgid "Current _Passphrase"
-msgstr "პაროლი:"
+msgstr "მიმდინარე _პაროლი"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:131
-#, fuzzy
 msgid "_New Passphrase"
-msgstr "პაროლის ჩვენება"
+msgstr "_ახალი პაროლი"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:179
-#, fuzzy
 msgid "_Confirm New Passphrase"
-msgstr "პაროლის ჩვენება"
+msgstr "ახალი პაროლის _დადასტურება"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:215
-#, fuzzy
 msgid "_Show Passphrases"
-msgstr "პაროლის ჩვენება"
+msgstr "პაროლების _გამოჩენა"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:253
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:301
@@ -3040,13 +2988,12 @@ msgid "Ch_ange"
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/deleted_view.ui.in:21
-#, fuzzy
 msgid "The Persistent Storage was successfully deleted."
-msgstr "მუდმივი მეხსიერების წაშლა და ახლიდან დაყენება"
+msgstr "მუდმივი მეხსიერება წარმატებით წაიშალა."
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/deleted_view.ui.in:32
 msgid "_Close"
-msgstr ""
+msgstr "_დახურვა"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/fail_view.ui.in:30
 msgid "Oh no! Something has gone wrong."
@@ -3111,7 +3058,6 @@ msgid "System Settings"
 msgstr "ნაგულისხმევი პარამეტრები"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:228
-#, fuzzy
 msgid "Welcome Screen"
 msgstr "მისალმების ეკრანი"
 
@@ -3121,7 +3067,6 @@ msgid "Activate Welcome Screen"
 msgstr "მისალმების ეკრანი"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:257
-#, fuzzy
 msgid "Printers"
 msgstr "პრინტერები"
 
@@ -3132,7 +3077,7 @@ msgstr "პრინტერები"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:300
 msgid "Network"
-msgstr ""
+msgstr "ქსელი"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:328
 msgid "Network Connections"
@@ -3158,7 +3103,7 @@ msgstr "Tor-ხიდი"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:401
 msgid "Applications"
-msgstr ""
+msgstr "აპლიკაციები"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:429
 #, fuzzy
@@ -3194,9 +3139,8 @@ msgid "GnuPG"
 msgstr "GnuPG"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:517
-#, fuzzy
 msgid "OpenPGP keys outside of Thunderbird, including in Kleopatra."
-msgstr "OpenPGP-გასაღებები GnuPG-სა და Kleopatra-ში"
+msgstr "OpenPGP-გასაღებები Thunderbird-ის გარეთ, მათ შორის Kleopatra-ში."
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:533
 msgid "Activate GnuPG"
@@ -3220,7 +3164,6 @@ msgid "Activate SSH Client"
 msgstr "SSH-კლიენტი"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:618
-#, fuzzy
 msgid "Advanced Settings"
 msgstr "დამატებითი პარამეტრები"
 
@@ -3242,15 +3185,13 @@ msgid "Activate Additional Software"
 msgstr "დამატებითი პროგრამა"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:698
-#, fuzzy
 msgid "Dotfiles"
 msgstr "Dotfiles"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:699
-#, fuzzy
 msgid "Symlink every file in the Dotfiles folder into the Home folder."
 msgstr ""
-"Dotfiles-საქაღალდის თითოეული ფაილის სიმბოლური მიბმა, საწყის საქაღალდესთან."
+"სიმბოლური ბმა თითოეული ფაილისა Dotfiles-საქაღალდიდან მთავარ საქაღალდეში."
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:732
 #, fuzzy
@@ -3268,13 +3209,12 @@ msgid ""
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:825
-#, fuzzy
 msgid ""
 "<a href=\"doc/persistent_storage\">Learn more about the Persistent Storage.</"
 "a>"
 msgstr ""
-"ხიდის შესანახად, <a href=\"doc/first_steps/persistence\">გახსენით მუდმივი "
-"მეხსიერება</a>."
+"<a href=\"doc/persistent_storage\">იხილეთ ვრცლად მუდმივი მეხსიერების შესახებ."
+"</a>"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/locked_view.ui.in:52
 msgid ""
@@ -3299,7 +3239,7 @@ msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:94
 msgid " For example:"
-msgstr ""
+msgstr " მაგალითად:"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:186
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:46
@@ -3308,25 +3248,21 @@ msgstr "პაროლი:"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:205
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:65
-#, fuzzy
 msgid "Confirm:"
-msgstr "დაადასტურეთ"
+msgstr "დადასტურება:"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:325
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:185
-#, fuzzy
 msgid "_Show Passphrase"
-msgstr "პაროლის ჩვენება"
+msgstr "_პაროლის გამოჩენა"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:375
-#, fuzzy
 msgid "_Back"
-msgstr "უკან"
+msgstr "_უკან"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:391
-#, fuzzy
 msgid "_Create Persistent Storage"
-msgstr "მუდმივი საცავის შექმნა"
+msgstr "_მუდმივი საცავის შექმნა"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:56
 msgid ""
@@ -3358,19 +3294,16 @@ msgid "Co_ntinue"
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:29
-#, fuzzy
 msgid "_Delete…"
-msgstr "წაშლა"
+msgstr "_წაშლა…"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:49
-#, fuzzy
 msgid "_Change Passphrase…"
-msgstr "პაროლის ჩვენება"
+msgstr "პაროლის _შეცვლა…"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:66
-#, fuzzy
 msgid "_Restart Tails"
-msgstr "ხელახლა გაეშვას Tails"
+msgstr "_კვლავ გაეშვას Tails"
 
 #: ../config/chroot_local-includes/usr/share/tails/unlock-veracrypt-volumes/main.ui.in:61
 msgid "File Containers"
@@ -3418,9 +3351,8 @@ msgid "Choose Passphrase"
 msgstr "პაროლის ჩვენება"
 
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:30
-#, fuzzy
 msgid "Choose the passphrase for the cloned Persistent Storage."
-msgstr "პაროლის შერჩევა მუდმივი საცავისთვის"
+msgstr "პაროლის შერჩევა მუდმივი საცავის ასლისთვის."
 
 #: ../config/chroot_local-includes/usr/share/tails-installer/tails-installer.ui.in:281
 msgid "Target USB stick:"
@@ -3465,9 +3397,8 @@ msgid ""
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/whisperback/whisperback.ui.in:427
-#, fuzzy
 msgid "Error reporting guidelines"
-msgstr "გაეცანით ჩვენს სახელმძღვანელოებს ხარვეზების მოხსენებაზე."
+msgstr "მითითებები ხარვეზის მოხსენების შესახებ"
 
 #: ../config/chroot_local-includes/usr/share/whisperback/whisperback.ui.in:445
 msgid ""
@@ -3476,9 +3407,8 @@ msgid ""
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/whisperback/whisperback.ui.in:480
-#, fuzzy
 msgid "Optional PGP Key…"
-msgstr "დამატებითი PGP-გასაღები"
+msgstr "დამატებითი PGP-გასაღები…"
 
 #: ../config/chroot_local-includes/usr/share/whisperback/whisperback.ui.in:505
 #, fuzzy
@@ -3489,9 +3419,8 @@ msgstr ""
 "გთხოვთ გაითვალისწინოთ, რომ თითოეულ მოხსენებაზე პასუხს, ვერ მოვახერხებთ."
 
 #: ../config/chroot_local-includes/usr/share/whisperback/whisperback.ui.in:520
-#, fuzzy
 msgid "Description"
-msgstr "ხარვეზის აღწერა"
+msgstr "აღწერა"
 
 #: ../config/chroot_local-includes/usr/share/whisperback/whisperback.ui.in:537
 #, fuzzy
@@ -3517,9 +3446,8 @@ msgid "Technical details to include"
 msgstr "ტექნიკური მონაცემების დასართავად"
 
 #: ../config/chroot_local-includes/usr/share/whisperback/whisperback.ui.in:730
-#, fuzzy
 msgid "_Send"
-msgstr "გაგზავნა"
+msgstr "_გაგზავნა"
 
 #: ../config/chroot_local-includes/usr/local/share/mime/packages/unlock-veracrypt-volumes.xml.in.h:1
 msgid "TrueCrypt/VeraCrypt container"
@@ -3560,23 +3488,18 @@ msgid "None"
 msgstr "არა"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:240
-#, fuzzy
 msgid "_Ask for a Tor bridge by email"
-msgstr "• ხიდი ელფოსტით"
+msgstr "Tor-ხიდის _მოთხოვნა ელფოსტით"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:259
-#, fuzzy
 msgid ""
 "Send an empty email to <tt>bridges@torproject.org</tt> from a Gmail or "
 "Riseup email address with your phone and scan the QR code that is attached "
 "to the automatic reply."
 msgstr ""
-"ახალი ხიდის მოთხოვნისთვის, შეგიძლიათ\n"
-"გაგზავნოთ ცარიელი წერილი ელფოსტაზე <tt>bridges@torproject.org</tt> Gmail ან "
-"Riseup მისამართიდან.\n"
-"\n"
-"მაგალითად, ტელეფონიდან შეგიძლიათ ელფოსტის გაგზავნა და ხიდის მითითება Tail-"
-"ში.\n"
+"გაგზავნეთ ცარიელი წერილი ელფოსტაზე <tt>bridges@torproject.org</tt> Gmail- ან "
+"Riseup-მისამართიდან ტელეფონის გამოყენებით და შემდეგ წააკითხეთ ავტომატურ "
+"პასუხს თანდართული QR-კოდი."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:272
 msgid "Scan _QR code"
@@ -3588,9 +3511,8 @@ msgstr "_ნაცნობი ხიდის შეყვანა"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:399
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1040
-#, fuzzy
 msgid "Bridge"
-msgstr "Tor-ხიდი"
+msgstr "ხიდი"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:412
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1053
@@ -3665,32 +3587,24 @@ msgid "• Tor bridge by email"
 msgstr "• ხიდი ელფოსტით"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:971
-#, fuzzy
 msgid ""
 "Tor bridges are secret Tor relays. Use a bridge as your first Tor relay if "
 "connections to Tor are blocked, for example in some countries, by some "
 "public networks, or by some parental controls."
 msgstr ""
-"Tor-ის ხიდები, ფარული Tor-გადამცემებია. გამოიყენეთ ხიდი თქვენს პირველ "
-"გადამცემად, თუ Tor-თან კავშირი აკრძალულია, მაგალითად, ზოგ ქვეყანაში, საჯარო "
-"ქსელებში, ან მშობლის ზედამხედველობის საშუალებებით.\n"
-"\n"
-"აირჩიეთ ეს პარამეტრი, თუ უკვე იცით, რომ გესაჭიროებათ ხიდი. თუ არადა, Tails "
-"თავადვე დაადგენს ხიდის საჭიროებას Tor-თან კავშირისთვის ადგილობრივი ქსელიდან."
+"Tor-ის ხიდები ფარული Tor-გადამცემებია. გამოიყენეთ ხიდი თქვენს პირველ, "
+"შემსვლელ Tor-გადამცემად, როცა Tor-თან კავშირი აკრძალულია, მაგალითად ზოგ "
+"ქვეყანაში, ღია და საჯარო ქსელებში ან ზედამხედველობის გარკვეული საშუალებებით."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:991
-#, fuzzy
 msgid ""
 "To get a bridge, send an empty email to <tt>bridges@torproject.org</tt> from "
 "a Gmail or Riseup email address with your phone and scan the QR code that is "
 "attached to the automatic reply."
 msgstr ""
-"ახალი ხიდის მოთხოვნისთვის, შეგიძლიათ\n"
-"გაგზავნოთ ცარიელი წერილი ელფოსტაზე <tt>bridges@torproject.org</tt> Gmail ან "
-"Riseup მისამართიდან.\n"
-"\n"
-"მაგალითად, ტელეფონიდან შეგიძლიათ ელფოსტის გაგზავნა და ხიდის მითითება Tail-"
-"ში.\n"
+"ახალი ხიდის მოთხოვნისთვის გაგზავნოთ ცარიელი წერილი ელფოსტაზე "
+"<tt>bridges@torproject.org</tt> Gmail- ან Riseup-მისამართიდან ტელეფონის "
+"გამოყენებით და წააკითხეთ ავტომატურ პასუხს თანდართული QR-კოდი."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1014
 msgid "Scan QR Code"
@@ -3809,11 +3723,42 @@ msgstr ""
 "<a href=\"doc/anonymous_internet/tor\">იხილეთ ვრცლად, Tails როგორ "
 "უკავშირდება Tor-ს</a>"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1629
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1634
+msgid "No Wi-Fi Hardware detected"
+msgstr ""
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1652
+msgid ""
+"Tails couldn't find any Wi-Fi interface on your computer. If your computer "
+"has a Wi-Fi interface, it might not work on Tails.\n"
+"\n"
+"To connect to the Internet you can try to:\n"
+"\n"
+" • Use an Ethernet cable instead of Wi-Fi. Wired interfaces work much more "
+"reliably than Wi-Fi in Tails.\n"
+" • Use USB tethering to share the Wi-Fi or mobile data connection of your "
+"phone using a cable.\n"
+" • Buy a USB Wi-Fi adapter that works in Tails.\n"
+"                "
+msgstr ""
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1676
+#, fuzzy
+msgid ""
+"\n"
+"<a href=\"doc/anonymous_internet/no-wifi\">\n"
+"Learn more about troubleshooting Wi-Fi not working.\n"
+"</a>\n"
+"                "
+msgstr ""
+"<a href=\"doc/anonymous_internet/tor\">იხილეთ ვრცლად, Tails როგორ "
+"უკავშირდება Tor-ს</a>"
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1704
 msgid "Connect to a local network"
 msgstr "ადგილობრივ ქსელთან დაკავშირება"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1646
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1721
 msgid ""
 "You are not connected to a local network yet. To be able to connect to the "
 "Tor network, you first need to connect to a Wi-Fi, wire, or mobile network."
@@ -3822,92 +3767,93 @@ msgstr ""
 "ქსელთან მიერთება, პირველ რიგში საჭიროა WiFi, სადენიანი ან მობილური "
 "ინტერნეტკავშირი."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1658
-msgid "Open Wi-Fi settings"
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1735
+#, fuzzy
+msgid "Open Wi-Fi Settings"
 msgstr "გახსენით WiFi-პარამეტრები"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1707
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1784
 msgid "Testing Internet access…"
 msgstr "მოწმდება ინტერნეტთან წვდომა…"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1747
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1824
 msgid "You have access to the Internet"
 msgstr "გაქვთ წვდომა ინტერნეტთან"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1781
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1858
 msgid "Testing access to Tor…"
 msgstr "მოწმდება Tor-თან წვდომა…"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1824
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1901
 msgid "You can connect to Tor"
 msgstr "გაქვთ წვდომა Tor-თან"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1854
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1931
 msgid "Failed to connect to Tor without bridges."
 msgstr "ვერ მოხერხდა Tor-თან დაკავშირება ხიდების გარეშე."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1870
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1947
 #, fuzzy
 msgid "This local network is blocking access to Tor."
 msgstr "თქვენი ადგილობრივი ქსელი ზღუდავს Tor-თან კავშირს."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1902
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1979
 msgid "Connecting to Tor…"
 msgstr "უკავშირდება Tor-ს…"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2007
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2084
 msgid "Start Tor Browser"
 msgstr "Tor-ბრაუზერის გაშვება"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2026
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2103
 msgid "Open Network Monitor"
 msgstr "ქსელის შემმოწმებლის გახსნა"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2053
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2130
 msgid "Reset Tor Connection"
 msgstr "Tor-კავშირების ჩამოყრა"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2093
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2170
 msgid "Configure a Local Proxy"
 msgstr "ადგილობრივი პროქსის გამართვა"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2119
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2196
 msgid "Proxy Type"
 msgstr "პროქსის სახეობა"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2136
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2213
 msgid "No proxy"
 msgstr "პროქსის გარეშე"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2137
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2214
 msgid "SOCKS 4"
 msgstr "SOCKS 4"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2138
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2215
 msgid "SOCKS 5"
 msgstr "SOCKS 5"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2139
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2216
 msgid "HTTP / HTTPS"
 msgstr "HTTP / HTTPS"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2158
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2235
 msgid "Address"
 msgstr "მისამართი"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2175
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2252
 msgid "Username"
 msgstr "მეტსახელი"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2192
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2269
 msgid "IP address or hostname"
 msgstr "IP-მისამართი ან დასახელება"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2210
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2287
 msgid "Port"
 msgstr "პორტი"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2334
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2411
 msgid "_Save Proxy Settings"
 msgstr "_შენახვა პროქსის პარამეტრების"
 
@@ -4180,8 +4126,8 @@ msgstr "საათი"
 #~ "along with this program.  If not, see <http://www.gnu.org/licenses/>.\n"
 #~ msgstr ""
 #~ "WhisperBack - გამოხმაურების გაგზავნა დაშიფრული ფოსტით\n"
-#~ "ყველა უფლება დაცულია (C) 2009-2018 Tails-ის შემმუშავებლები "
-#~ "<tails@boum.org>\n"
+#~ "ყველა უფლება დაცულია (C) 2009-2018 Tails-ის შემმუშავებლები <tails@boum."
+#~ "org>\n"
 #~ "\n"
 #~ "ეს თავისუფალი პროგრამული უზრუნველყოფაა; შეგიძლიათ მისი გავრცელება და/ან "
 #~ "გარდაქმნა\n"
@@ -4555,7 +4501,7 @@ msgstr "საათი"
 #~ msgstr ""
 #~ "ახალი Tor-ხიდების მოთხოვნისთვის, ასევე შეგიძლიათ:\n"
 #~ "\n"
-#~ "            1. გაგზავნოთ ცარიელი წერილი ელფოსტაზე "
-#~ "<tt>bridges@torproject.org</tt> Gmail ან Riseup მისამართიდან.\n"
+#~ "            1. გაგზავნოთ ცარიელი წერილი ელფოსტაზე <tt>bridges@torproject."
+#~ "org</tt> Gmail ან Riseup მისამართიდან.\n"
 #~ "\n"
 #~ "              2. აკრიფოთ, ელფოსტით მიღებული რომელიმე ხიდის მონაცემები."

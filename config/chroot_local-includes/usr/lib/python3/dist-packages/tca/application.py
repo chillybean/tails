@@ -7,9 +7,9 @@ import logging
 import gettext
 from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 from pathlib import Path
-from typing import Any
+from typing import ClassVar
 
-from stem.control import Controller
+from stem.control import Controller, EventType
 import prctl
 import gi
 import dbus
@@ -25,21 +25,143 @@ from tca.torutils import (
     TorLauncherNetworkUtils,
 )
 from tca.timeutils import GET_NETWORK_TIME_RETURN_CODE
-from tca.ui.asyncutils import GJsonRpcClient
+from tca.ui.asyncutils import (
+    ExternalProperty,
+    ExternalPropertyCommandBool,
+    GJsonRpcClient,
+)
 from tailslib.logutils import configure_logging
 from tailslib.tor import TOR_HAS_BOOTSTRAPPED_PATH
 
 
+gi.require_version("Gio", "2.0")
 gi.require_version("GLib", "2.0")
 gi.require_version("Gtk", "3.0")
-from gi.repository import GLib, Gtk, Gio  # noqa: E402
+from gi.repository import Gio, GLib, GObject, Gtk  # noqa: E402
 
 
 dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
 
 
+class WifiAvailabilityMonitor(ExternalPropertyCommandBool):
+    COMMAND = ("/usr/local/lib/have-wifi",)
+
+    def __init__(self, sys_dbus):
+        super().__init__()
+        self.sys_dbus = sys_dbus
+
+    def register_dbus(self):
+        nm_obj = self.sys_dbus.get_object(
+            "org.freedesktop.NetworkManager",
+            "/org/freedesktop/NetworkManager",
+        )
+        nm = dbus.Interface(nm_obj, "org.freedesktop.NetworkManager")
+
+        # subscribe for changes
+        nm.connect_to_signal("DeviceAdded", lambda *args: self.check())
+        nm.connect_to_signal("DeviceRemoved", lambda *args: self.check())
+
+    def start(self):
+        self.register_dbus()
+        self.check()
+
+
+class TorIsWorking(ExternalProperty):
+    def check(self):
+        value = TOR_HAS_BOOTSTRAPPED_PATH.exists()
+        self.on_value_received(value)
+
+    def on_file_event(self, monitor, _file, otherfile, event):
+        if event == Gio.FileMonitorEvent.CREATED:
+            value = True
+        elif event == Gio.FileMonitorEvent.DELETED:
+            value = False
+        else:
+            return
+        self.on_value_received(value)
+
+    def start(self):
+        f = Gio.File.new_for_path(str(TOR_HAS_BOOTSTRAPPED_PATH))
+        self.monitor = f.monitor(Gio.FileMonitorFlags.NONE, None)
+        self.monitor.connect("changed", self.on_file_event)
+        self.check()
+
+
+class TorConfigurationValue(ExternalProperty):
+    def __init__(self, controller):
+        super().__init__()
+        self.controller = controller
+
+    def normalize(self, value):
+        return value
+
+    def check(self):
+        resp = self.controller.get_conf(self.KEYWORD)
+        if resp is None:
+            self.log.warning("No response from tor (asking %s)", self.INFO)
+        else:
+            self.on_value_received(self.normalize(resp))
+
+    def on_controller_event(self, event):
+        if self.KEYWORD in event.config:
+            value = self.normalize(event.config[self.KEYWORD])
+            self.on_value_received(value)
+
+    def start(self):
+        self.controller.add_event_listener(
+            self.on_controller_event,
+            EventType.CONF_CHANGED,
+        )
+        self.check()
+
+
+class TorDisableNetwork(TorConfigurationValue):
+    KEYWORD = "DisableNetwork"
+
+    def normalize(self, value):
+        return value == "1"
+
+
+class NetworkConnectionMonitor(ExternalProperty):
+    def __init__(self, sys_dbus):
+        super().__init__()
+        nm_obj = sys_dbus.get_object(
+            "org.freedesktop.NetworkManager",
+            "/org/freedesktop/NetworkManager",
+        )
+        self.nm = dbus.Interface(nm_obj, "org.freedesktop.NetworkManager")
+
+    @property
+    def ok(self):
+        return self.last_change is not None and self.value >= 60
+
+    def check(self):
+        def on_error(*args, **kwargs):
+            self.log.warning("Error getting information from NetworkManager")
+
+        self.nm.state(
+            reply_handler=self.on_value_received,
+            error_handler=on_error,
+        )
+
+    def register_dbus(self):
+        self.nm.connect_to_signal("StateChanged", self.on_value_received)
+
+    def start(self):
+        self.register_dbus()
+        self.check()
+
+
 class TCAApplication(Gtk.Application):
     """main controller for TCA."""
+
+    __gsignals__: ClassVar[dict] = {
+        "ready": (
+            GObject.SignalFlags.RUN_LAST,
+            GObject.TYPE_NONE,
+            (),
+        ),
+    }
 
     def __init__(self, args):
         super().__init__(
@@ -72,11 +194,16 @@ class TCAApplication(Gtk.Application):
         self.debug = args.debug
         self.window = None
         self.sys_dbus = dbus.SystemBus()
-        self.last_nm_state = None
-        self._tor_is_working: bool = TOR_HAS_BOOTSTRAPPED_PATH.exists()
-        self.tor_info: dict[str, Any] = {"DisableNetwork": None}
+        self.network_connection_monitor = NetworkConnectionMonitor(self.sys_dbus)
+        self.network_connection_monitor.start()
         self.has_persistence = has_persistence()
         self.has_unlocked_persistence = has_unlocked_persistence()
+        self.tor_disable_network_monitor = TorDisableNetwork(self.controller)
+        self.tor_disable_network_monitor.start()
+        self.tor_working_monitor = TorIsWorking()
+        self.tor_working_monitor.start()
+        self.wifi_availability_monitor = WifiAvailabilityMonitor(self.sys_dbus)
+        self.wifi_availability_monitor.start()
         self.log.debug(
             "Persistence = %s, unlocked = %s",
             self.has_persistence,
@@ -100,82 +227,16 @@ class TCAApplication(Gtk.Application):
     def has_been_started_already(self):
         return self.configurator.read_tca_state() != {}
 
-    def do_monitor_tor_is_working(self):
-        # init tor-ready monitoring
-        f = Gio.File.new_for_path(str(TOR_HAS_BOOTSTRAPPED_PATH))
-        monitor = f.monitor(Gio.FileMonitorFlags.NONE, None)
-        self._tor_is_working_monitor = monitor  # otherwise it will get GC'ed
-        monitor.connect("changed", self.check_tor_is_working)
-
-        return False
-
-    def check_tor_is_working(self, monitor, _file, otherfile, event):
-        if event == Gio.FileMonitorEvent.CREATED:
-            self._tor_is_working = True
-        elif event == Gio.FileMonitorEvent.DELETED:
-            self._tor_is_working = False
-        else:
-            return
-        self.log.info("tor_is_working = %s", self._tor_is_working)
-        GLib.idle_add(self.window.on_tor_working_changed, self.is_tor_working)
-
-    def check_tor_state(self, repeat: bool):
-        # this is called periodically
-        changed = set()
-        for infokey in ["DisableNetwork"]:
-            resp = self.controller.get_conf(infokey)
-            if resp is None:
-                self.log.warn("No response from tor (asking %s)", infokey)
-            else:
-                if self.tor_info[infokey] != resp:
-                    changed.add(infokey)
-                self.tor_info[infokey] = resp
-
-        if changed:
-            self.log.info("tor state changed: %s", ",".join(changed))
-            if hasattr(self.window, "on_tor_state_changed"):
-                GLib.idle_add(self.window.on_tor_state_changed, self.tor_info, changed)
-
-        return repeat
-
-    @property
-    def is_tor_working(self) -> bool:
-        return bool(self._tor_is_working)
-
     @property
     def is_tor_over_bridges(self) -> bool:
         bridges = self.configurator.tor_connection_config.bridges
         return bool(bridges)
-
-    @property
-    def is_network_link_ok(self) -> bool:
-        return self.last_nm_state is not None and self.last_nm_state >= 60
 
     def on_portal_response(self, portal, result: dict, errordata):
         self.log.debug("response from portal : %s", result)
 
     def on_portal_error(self, portal, error: str, errordata):
         self.log.error("response-error from portal : %s", error)
-
-    def cb_dbus_nm_state(self, val):
-        self.log.debug("NetworkManager state is now: %d", int(val))
-        changed = False
-        if self.last_nm_state != val:
-            changed = True
-
-        self.last_nm_state = val
-
-        def wait_window():
-            if self.window is None:
-                return True
-            GLib.idle_add(self.window.on_network_changed)
-            return False
-
-        if changed:
-            if self.window is not None:
-                GLib.idle_add(self.window.on_network_changed)
-            else:
-                GLib.timeout_add(100, wait_window)
 
     def finish_startup_if_configuration_has_been_loaded(self):
         """If configuration has been loaded, finish startup of the app."""
@@ -208,22 +269,12 @@ class TCAApplication(Gtk.Application):
         action.connect("activate", self.on_quit)
         self.add_action(action)
 
-        # one time only
-        GLib.timeout_add(1, self.do_fetch_nm_state)
-        GLib.timeout_add(1, self.do_monitor_tor_is_working)
-        GLib.timeout_add(1, self.check_tor_state, False)
-
-        # timers
-        GLib.timeout_add(1000, self.check_tor_state, True)
-
         try:
             systemd.daemon.notify("READY=1")
         except OSError:  # not run as a systemd service
             pass
 
-        # We're now ready to finish initializing our main window
-        # and to display it on screen
-        GLib.idle_add(self.window.finish_init)
+        self.emit("ready")
 
     def do_startup(self):
         """Set up the application when we received the `startup` signal."""
@@ -244,23 +295,6 @@ class TCAApplication(Gtk.Application):
         # do_activate (i.e. when we're handling the `activate`
         # signal).
         GLib.timeout_add(100, self.finish_startup_if_configuration_has_been_loaded)
-
-    def do_fetch_nm_state(self):
-        def handle_hello_error(*args, **kwargs):
-            self.log.warn("Error getting information from NetworkManager")
-            self.last_nm_state = None
-
-        nm_obj = self.sys_dbus.get_object(
-            "org.freedesktop.NetworkManager", "/org/freedesktop/NetworkManager"
-        )
-        nm = dbus.Interface(nm_obj, "org.freedesktop.NetworkManager")
-
-        # get immediately
-        nm.state(reply_handler=self.cb_dbus_nm_state, error_handler=handle_hello_error)
-        # subscribe for changes
-        nm.connect_to_signal("StateChanged", self.cb_dbus_nm_state)
-
-        return False
 
     def set_time_from_network(self, callback):
         def on_set_system_time(portal, result, error, errordata):
