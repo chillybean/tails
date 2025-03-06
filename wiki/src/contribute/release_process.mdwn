@@ -1947,6 +1947,15 @@ Draft the Tor blog post
 
 Skip this if you are not preparing a stable release.
 
+In order to announce the new Tails release on Tor blog post, you need to:
+ - have a personal account on https://gitlab.torproject.org/tpo/web/blog
+ - Have a checkout of https://gitlab.torproject.org/tpo/web/blog in
+   `${BLOG_CHECKOUT}`
+ - Check the
+   [Tor
+documentation](https://gitlab.torproject.org/tpo/tpa/team/-/wikis/service/blog#how-to-write-a-new-blog-post-in-gitlab)
+   to see if anything changed recently
+
 - Generate the draft blog post:
 
         torBlogFile=$(./bin/generate-Tor-blog-post "${VERSION:?}" "${TAG:?}" "${DIST:?}" "${RELEASE_DATE:?}")
@@ -1959,6 +1968,10 @@ Skip this if you are not preparing a stable release.
 
 - Prepare a *draft* merge request against the [Tor blog](https://gitlab.torproject.org/tpo/web/blog)
 
+        cd "${BLOG_CHECKOUT}"
+        git checkout main
+        git pull
+        git checkout -b "Tails-${VERSION}"
         torBlogDir="content/blog/new-release-tails-${VERSION//./_}"
         mv "${torBlogFile}" contents.lr
         mkdir -p "$torBlogDir"
@@ -1971,16 +1984,6 @@ Skip this if you are not preparing a stable release.
             -o merge_request.create -o merge_requests.draft \
             -o merge_requests.title="Announce Tails ${VERSION}" \
             --set-upstream origin HEAD
-
-  - Use your personal account on their GitLab
-  - Follow the
-    [Tor documentation](https://gitlab.torproject.org/tpo/tpa/team/-/wikis/service/blog#how-to-write-a-new-blog-post-in-gitlab).
-    It's OK to create the MR on the command line instead of in the GitLab Web IDE.
-  - Take inspiration from [previous MR](https://gitlab.torproject.org/tpo/web/blog/-/merge_requests/365)
-
-        git show 599ed1170a1559a7d5770a1d22e834b315cf823e
-
-  - Reuse our existing lead image:
 
 
 Go wild!
