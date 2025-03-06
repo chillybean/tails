@@ -47,7 +47,9 @@
 </TMPL_IF>
 
 <header id="banner" role="banner">
+<div id="banner-container">
 <TMPL_VAR BANNER>
+</div>
 </header>
 
 <TMPL_IF YEAR-END>
@@ -142,6 +144,11 @@
 
 <TMPL_IF HTML5></article><TMPL_ELSE></div></TMPL_IF>
 
+<TMPL_IF HTML5><footer<TMPL_ELSE><div</TMPL_IF> id="footer" class="pagefooter" role="contentinfo">
+
+<div id="footer">
+<div id="footer-container">
+
 <div id="language-switcher-bottom">
 <TMPL_IF OTHERLANGUAGES>
 <nav class="language-switcher">
@@ -162,9 +169,12 @@
 </TMPL_IF>
 </div>
 
-<TMPL_IF HTML5><footer<TMPL_ELSE><div</TMPL_IF> id="footer" class="pagefooter" role="contentinfo">
-
+<div id="footer-columns">
 <TMPL_VAR FOOTER>
+</div>
+
+</div>
+</div>
 
 <TMPL_IF HTML5></footer><TMPL_ELSE></div></TMPL_IF>
 
