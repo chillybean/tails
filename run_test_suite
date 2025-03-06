@@ -41,6 +41,8 @@ ruby-test-unit
 seabios
 tcpdump
 tcplay
+tesseract-ocr
+tesseract-ocr-eng
 tor
 unclutter
 virt-viewer
@@ -155,7 +157,7 @@ package_installed() {
 
 check_dependencies() {
     while [ -n "${1:-}" ]; do
-        if ! command -v "${1}" >/dev/null && ! package_installed "${1}" ; then
+        if ! command -v "${1}" >/dev/null && ! package_installed "${1}"; then
             error "'${1}' is missing, please install it and run again."
         fi
         shift
@@ -167,7 +169,7 @@ check_tor_version() {
     tor_version=$(tor --version | grep -Po '^Tor version \K.*' | sed --regexp-extended 's,[.]$,,')
     echo "tor version: $tor_version"
     if dpkg --compare-versions "$tor_version" lt "$MINIMUM_TOR_VERSION"; then
-	error "Please upgrade to tor ${MINIMUM_TOR_VERSION} or newer."
+        error "Please upgrade to tor ${MINIMUM_TOR_VERSION} or newer."
     fi
 }
 
@@ -177,8 +179,8 @@ check_virt_viewer_version() {
     if dpkg --compare-versions "${version}" ge 10.0; then
         if ! echo "${version}" | grep -q 'tails$'; then
             error 'Please install virt-viewer from the isotester-bookworm APT suite' \
-                  '(instructions: https://tails.net/contribute/release_process/test/setup/' \
-                  'details: https://gitlab.tails.boum.org/tails/tails/-/issues/19064)'
+                '(instructions: https://tails.net/contribute/release_process/test/setup/' \
+                'details: https://gitlab.tails.boum.org/tails/tails/-/issues/19064)'
         fi
     fi
 }
@@ -190,7 +192,7 @@ display_in_use() {
 next_free_display() {
     display_nr=0
     while display_in_use ":${display_nr}"; do
-	display_nr=$((display_nr+1))
+        display_nr=$((display_nr + 1))
     done
     echo ":${display_nr}"
 }
@@ -207,7 +209,7 @@ start_xvfb() {
     XVFB_PID=$!
     # Wait for Xvfb to run on TARGET_DISPLAY
     until display_in_use "$TARGET_DISPLAY"; do
-	sleep 1
+        sleep 1
     done
     echo "Virtual X framebuffer started on display ${TARGET_DISPLAY}"
     # Hide the mouse cursor so it won't be in the way when we are
@@ -219,9 +221,9 @@ start_vnc_server() {
     check_dependencies x11vnc
     # shellcheck disable=SC2086
     VNC_SERVER_PORT="$(env -u WAYLAND_DISPLAY x11vnc \
-                              -listen localhost -display "${TARGET_DISPLAY}" \
-                              -bg -nopw -forever ${TAILS_X11VNC_OPTS:-} 2>&1 | \
-                                  grep -m 1 "^PORT=[0-9]\+" | sed 's/^PORT=//')"
+        -listen localhost -display "${TARGET_DISPLAY}" \
+        -bg -nopw -forever ${TAILS_X11VNC_OPTS:-} 2>&1 |
+        grep -m 1 "^PORT=[0-9]\+" | sed 's/^PORT=//')"
     echo "VNC server running on: localhost:${VNC_SERVER_PORT}"
 }
 
@@ -268,100 +270,100 @@ OPTS=$(getopt -o "" --longoptions $LONGOPTS -n "${NAME}" -- "$@")
 eval set -- "$OPTS"
 while [ $# -gt 0 ]; do
     case $1 in
-        --allow-non-root)
-            if ! /sbin/getcap /usr/bin/tcpdump | grep -q 'cap_net_raw=eip'; then
-                error "/usr/bin/tcpdump lacks cap_net_raw=eip"
+    --allow-non-root)
+        if ! /sbin/getcap /usr/bin/tcpdump | grep -q 'cap_net_raw=eip'; then
+            error "/usr/bin/tcpdump lacks cap_net_raw=eip"
+        fi
+        ALLOW_NON_ROOT="yes"
+        ;;
+    --artifacts-base-uri)
+        shift
+        export ARTIFACTS_BASE_URI="${1}"
+        ;;
+    --view)
+        VNC_VIEWER=yes
+        VNC_VIEWER_VIEWONLY=yes
+        VNC_SERVER=yes
+        ;;
+    --view-interact)
+        VNC_VIEWER=yes
+        VNC_VIEWER_VIEWONLY=
+        VNC_SERVER=yes
+        ;;
+    --vnc-server-only)
+        VNC_VIEWER=
+        VNC_SERVER=yes
+        ;;
+    --capture)
+        check_dependencies x264
+        export CAPTURE="yes"
+        ;;
+    --capture-all)
+        check_dependencies x264
+        export CAPTURE="yes"
+        export CAPTURE_ALL="yes"
+        ;;
+    --interactive-debugging)
+        export INTERACTIVE_DEBUGGING="yes"
+        ;;
+    --image-bumping-mode)
+        export IMAGE_BUMPING_MODE="yes"
+        ;;
+    --keep-chutney)
+        export KEEP_CHUTNEY="yes"
+        ;;
+    --keep-snapshots)
+        export KEEP_CHUTNEY="yes"
+        export KEEP_SNAPSHOTS="yes"
+        ;;
+    --disable-chutney)
+        export DISABLE_CHUTNEY="yes"
+        ;;
+    --late-patch)
+        shift
+        if [ -n "${1:-}" ]; then
+            LATE_PATCH="$(realpath -s "$1")"
+            if [ ! -e "$LATE_PATCH" ]; then
+                error "--late-patch: FILE doesn't exist"
             fi
-            ALLOW_NON_ROOT="yes"
-            ;;
-        --artifacts-base-uri)
-            shift
-            export ARTIFACTS_BASE_URI="${1}"
-            ;;
-        --view)
-            VNC_VIEWER=yes
-            VNC_VIEWER_VIEWONLY=yes
-            VNC_SERVER=yes
-            ;;
-        --view-interact)
-            VNC_VIEWER=yes
-            VNC_VIEWER_VIEWONLY=
-            VNC_SERVER=yes
-            ;;
-        --vnc-server-only)
-            VNC_VIEWER=
-            VNC_SERVER=yes
-            ;;
-        --capture)
-            check_dependencies x264
-            export CAPTURE="yes"
-            ;;
-        --capture-all)
-            check_dependencies x264
-            export CAPTURE="yes"
-            export CAPTURE_ALL="yes"
-            ;;
-        --interactive-debugging)
-            export INTERACTIVE_DEBUGGING="yes"
-            ;;
-        --image-bumping-mode)
-            export IMAGE_BUMPING_MODE="yes"
-            ;;
-        --keep-chutney)
-            export KEEP_CHUTNEY="yes"
-            ;;
-        --keep-snapshots)
-            export KEEP_CHUTNEY="yes"
-            export KEEP_SNAPSHOTS="yes"
-            ;;
-        --disable-chutney)
-            export DISABLE_CHUTNEY="yes"
-            ;;
-        --late-patch)
-            shift
-            if [ -n "${1:-}" ]; then
-                LATE_PATCH="$(realpath -s "$1")"
-                if [ ! -e "$LATE_PATCH" ]; then
-                    error "--late-patch: FILE doesn't exist"
-                fi
-            else
-                LATE_PATCH=''
-            fi
-            export LATE_PATCH
-            ;;
-        --early-patch)
-            export EARLY_PATCH="yes"
-            ;;
-        --extra-boot-options)
-            shift
-            export EXTRA_BOOT_OPTIONS="$1"
-            ;;
-        --all-tests)
-            ALL_TESTS="yes"
-            ;;
-        --tmpdir)
-            shift
-            TMPDIR="$(readlink -f "$1")"
-            export TMPDIR
-            ;;
-        --iso)
-            shift
-            TAILS_ISO="$(realpath -s "$1")"
-            export TAILS_ISO
-            ;;
-        --old-iso)
-            shift
-            OLD_TAILS_ISO="$(realpath -s "$1")"
-            export OLD_TAILS_ISO
-            ;;
-        --help)
-	    usage
-            exit 0
-            ;;
-        --)
-            shift
-            break
-            ;;
+        else
+            LATE_PATCH=''
+        fi
+        export LATE_PATCH
+        ;;
+    --early-patch)
+        export EARLY_PATCH="yes"
+        ;;
+    --extra-boot-options)
+        shift
+        export EXTRA_BOOT_OPTIONS="$1"
+        ;;
+    --all-tests)
+        ALL_TESTS="yes"
+        ;;
+    --tmpdir)
+        shift
+        TMPDIR="$(readlink -f "$1")"
+        export TMPDIR
+        ;;
+    --iso)
+        shift
+        TAILS_ISO="$(realpath -s "$1")"
+        export TAILS_ISO
+        ;;
+    --old-iso)
+        shift
+        OLD_TAILS_ISO="$(realpath -s "$1")"
+        export OLD_TAILS_ISO
+        ;;
+    --help)
+        usage
+        exit 0
+        ;;
+    --)
+        shift
+        break
+        ;;
     esac
     shift
 done
@@ -370,7 +372,7 @@ trap "test_suite_cleanup" EXIT HUP INT QUIT TERM
 
 if [ "${EUID}" -ne 0 ] && [ -z "${ALLOW_NON_ROOT}" ]; then
     error "you are not running as root; if you really know what you are" \
-          "doing, see the --allow-non-root option"
+        "doing, see the --allow-non-root option"
 fi
 
 # shellcheck disable=SC2086
@@ -400,18 +402,18 @@ if [ -n "${JENKINS_URL:-}" ]; then
     # upstream job was started (e.g. since then we git fetch + git
     # reset --hard) so we trust the Git state described in Jenkins'
     # environment variables instead.
-    elif echo "${GIT_BRANCH}" | grep -q -E '[+-]force-all-tests$' \
-       || git_on_a_tag \
-       || [ "${GIT_BRANCH#origin/}" = feature/bookworm ] \
-       || [ "${GIT_BRANCH#origin/}" = testing ] \
-       || [ "${GIT_BRANCH#origin/}" = devel ] \
-       || [ -n "${ALL_TESTS:-}" ]; then
+    elif echo "${GIT_BRANCH}" | grep -q -E '[+-]force-all-tests$' ||
+        git_on_a_tag ||
+        [ "${GIT_BRANCH#origin/}" = feature/bookworm ] ||
+        [ "${GIT_BRANCH#origin/}" = testing ] ||
+        [ "${GIT_BRANCH#origin/}" = devel ] ||
+        [ -n "${ALL_TESTS:-}" ]; then
         TAGS_ARGS=""
     else
         TAGS_ARGS="${TAGS_ARGS} --tag ~@fragile --tag ~@skip_by_default"
     fi
-    if [ "${UPSTREAMJOB_GIT_COMMIT}" != "${UPSTREAMJOB_GIT_BASE_BRANCH_HEAD}" ] && \
-           git_only_doc_changes_since "${UPSTREAMJOB_GIT_BASE_BRANCH_HEAD}"; then
+    if [ "${UPSTREAMJOB_GIT_COMMIT}" != "${UPSTREAMJOB_GIT_BASE_BRANCH_HEAD}" ] &&
+        git_only_doc_changes_since "${UPSTREAMJOB_GIT_BASE_BRANCH_HEAD}"; then
         TAGS_ARGS="${TAGS_ARGS} --tag @doc"
     fi
 fi

@@ -4,11 +4,13 @@ Feature: Hardware failures
   As a Tails user
   I want to be warned about hardware failures
 
+  @broken_welcome_screen
   Scenario Outline: Alerting about disk read failures before reaching the Welcome Screen
     Given a computer
-    And I start the computer from DVD with network unplugged
-    When Tails detects disk read failures on the <device>
-    Then I see a disk failure message on the splash screen
+    And <device> is damaged in a way that some read operations fail
+    When I start the computer
+    Then the computer boots Tails
+    And I see a disk failure message on the splash screen
     Examples:
       | device |
       | SquashFS |
@@ -58,7 +60,7 @@ Feature: Hardware failures
     # We are gonna verify the dialog again so we need to clean up the
     # first instance.
     And I close the "zenity" window
-    And I am told that that Persistent Storage cannot be created
+    And I am told that Persistent Storage cannot be created
     And Tails detected partitioning error partitioning-corruption
 
   Scenario Outline: Disk partitioning errors without a persistent partition

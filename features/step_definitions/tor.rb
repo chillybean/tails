@@ -1087,3 +1087,31 @@ def allow_connecting_to_possibly_rfc1918_host(host)
     add_extra_allowed_host(ip.to_s, 443)
   end
 end
+
+Then /^the Tor Connection Assistant reports that I am not connected to a local network$/ do
+  tor_connection_assistant.child('No Wi-Fi Hardware detected')
+end
+When(/^I plug a Wi-Fi adapter$/) do
+  $vm.execute_successfully('modprobe mac80211_hwsim radios=1')
+end
+
+Then(/^Tor Connection suggests me to connect to Wi-Fi$/) do
+  tor_connection_assistant.child('Connect to a local network',
+                                 roleName: 'label')
+end
+
+Then(/^I click on the Wi-Fi settings$/) do
+  tor_connection_assistant.child('Open Wi-Fi Settings', roleName: 'push button').click
+end
+
+Then(/^The Wi-Fi settings are displayed$/) do
+  # Gnome Control Center is buggy vs Dogtail: except the Settings (frame) child all
+  # other children apparently are invisible so our default Dogtail option
+  # showingOnly: true makes us not find them.
+  Dogtail::Application.new('gnome-control-center')
+                      .child('Settings categories', roleName:    'list',
+                                                    showingOnly: false)
+                      .children(roleName: 'list item', showingOnly: false)
+                      .find(&:selected?)
+                      .child('Wi-Fi', roleName: 'label', showingOnly: false)
+end

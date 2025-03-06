@@ -1,3 +1,193 @@
+tails (6.13) unstable; urgency=medium
+
+  * Upgrade Tor Browser to 14.0.7 (tails/tails!1994)
+
+    Closes issues:
+      - Upgrade to Tor Browser 14.0.7 based on Firefox 128.8 ESR (tails/tails#20791)
+
+    Commits:
+      - Upgrade Tor Browser to 14.0.7-build2 (refs: tails#20791)
+
+  * Upgrade tor to 0.4.8.14 (tails/tails!1986)
+
+    Closes issues:
+      - Upgrade tor to 0.4.8.14 (tails/tails#20803)
+
+    Commits:
+      - Upgrade tor to 0.4.8.14
+
+  * Refresh Ublock Origin patch vs 1.62.0+dfsg-1 (tails/tails!1944)
+
+    Commits:
+      - Refresh webext-ublock-origin-firefox patch vs 1.62.0+dfsg-1
+
+  * Rename GitLab label: Foundations Team → Tails Team (tails/tails!1992)
+
+    Commits:
+      - Rename GitLab label: Foundations Team → Tails Team
+
+  * Ignore firmware-sof 2025.01-1 (tails/tails!1985)
+
+    Commits:
+      - Ignore firmware-sof 2025.01-1
+
+  * Change Bitcoin address used for donation incentive via Electrum
+    (tails/tails!1969)
+
+    Commits:
+      - Change Bitcoin address used for donation incentive via Electrum
+
+  * Check for corruption during first-boot repartitioning (tails/tails!1967)
+
+    Closes issues:
+      - Partition corruption detection does not work during first boot
+        (tails/tails#20797)
+
+    Commits:
+      - Add comment
+      - Fix indent
+      - Abort verify_partition_table if partition errors were already detected
+      - Consider the device corrupt if sgdisk detects corruption during first boot
+        (refs: tails#20797)
+      - Move procedure to library
+
+  * Update snapshot of the debian archive to 2025021702 (tails/tails!1966)
+
+    Closes issues:
+      - Bump snapshot of "debian" APT archive to update ublock-origin to 1.62.0+dfsg-1
+        (tails/tails#20802)
+
+    Commits:
+      - Refresh webext-ublock-origin-firefox patch vs 1.62.0+dfsg-1
+      - Update snapshot of the debian archive to 2025021702 (refs: tails#20802)
+
+  * CI: ignore onionshare 2.6.2-5 (tails/tails!1963)
+
+    Commits:
+      - CI: ignore onionshare 2.6.2-5
+
+  * whisperback-search: lower the risk of confusion with --output=
+    (tails/tails!1951)
+
+    Commits:
+      - whisperback-search: lower the risk of confusion with --output=
+
+  * Merge upstream torbrowser-launcher into our copy (tails/tails!1950)
+
+    Closes issues:
+      - Merge upstream torbrowser-launcher into our copy, 2024Q4 edition
+        (tails/tails#20614)
+
+    Commits:
+      - Update to merge commit
+      - Merge upstream torbrowser-launcher into our copy
+
+  * don't call Python3 explicitly: shebangs are good (tails/tails!1947)
+
+    Commits:
+      - Apply 1 suggestion(s) to 1 file(s)
+      - don't call Python3 explicitly: shebangs are good
+
+  * Resolve "Check that all relevant scenarios have the @doc tag (2025 edition)"
+    (tails/tails!1946)
+
+    Closes issues:
+      - Check that all relevant scenarios have the @doc tag (2025 edition)
+        (tails/tails#20211)
+
+    Commits:
+      - Test suite: drop unused step
+      - Test suite: drop stray newline
+      - Test suite: add missing @doc tags
+      - Test suite: fix typo
+
+  * Improve UX when Wi-Fi is not working (tails/tails!1937)
+
+    Commits:
+      - fix spelling of Wi-Fi
+      - Avoid useless try_for
+      - remove useless try_for
+      - Actually verify the Wi-Fi settings are displayed
+      - GObject.SIGNAL_* deprecated: → GObject.SignalFlags
+      - Fix Test Suite after 97ccf1
+      - small improvements in Wi-Fi tests
+      - Shorten to prevent wrapping
+      - Apply style guide
+      - NetworkLink → NetworkConnectionMonitor
+      - WifiAvailable → WifiAvailabilityMonitor
+      - Rename attributes to better describe what they are
+      - more event-subscribe logic replacing method invocation
+      - start ExternalProperty-es earlier
+      - remove useless argument
+      - better naming
+      - WifiAvailable consistent with TorConfigurationValue
+      - Call handlers for properties which have already changed
+      - Remove is_tor_working wrapper
+      - cleanup: formatting, logging, remove dead comments
+      - encapsulate more in NetworkLink.setup()
+      - encapsulate more in TorConfigurationValue.setup()
+      - encapsulate more in WifiAvailable.setup()
+      - encapsulate more in TorIsWorking.setup()
+      - fixup! implement Gherkin for the no-wifi scenario
+      - doc: how to learn more about connecting ExternalProperty to signals
+      - WifiAvailable is now event-based
+      - refactor is_network_link_ok to ExternalProperty
+      - TCA: monitor DisableNetwork by subscribing to CONF_CHANGED events instead of
+        GET_CONF polling
+      - fixup! refactor DisableNetwork check
+      - implement Gherkin for the no-wifi scenario
+      - make UI responsive to wifi availability
+      - ruff format
+      - signals are connected later in the process
+      - refactor DisableNetwork check
+      - refactor tor_is_working w/ ExternalProperty
+      - ruff format
+      - Detect if wifi is available
+      - Add ExternalProperty "framework"
+      - Gherkin for the feature we will implement
+      - Standalone command that checks for wifi devices
+
+  * gtk-abspath-launch: fix race condition (tails/tails!1936)
+
+    Closes issues:
+      - gtk-abspath-launch fails to start some .desktop files (tails/tails#20781)
+
+    Commits:
+      - explicitly set a timeout for the D-Bus call
+      - log messages instead of printing them
+      - fix race: wait for applications to actually open
+
+  * Test suite: add OCR feature and start using it instead of a few images
+    (tails/tails!1853)
+
+    Closes issues:
+      - Replace (some) images with OCR in our automated test suite (tails/tails#20522)
+
+    Commits:
+      - Don't run OCR once more after failure
+      - Test suite setup doc: fix name of new dependency
+      - fix typo
+      - rubocop style
+      - shfmt
+      - improve OCR via image preprocessing
+      - PlymouthDiskFailureMessage.png → OCR
+      - GnomeDiskFailureMessage → OCR
+      - document OCR support in Screen class
+      - @screen.ocr
+
+  * Test suite: add early boot hooks (tails/tails!1845)
+
+    Commits:
+      - Test suite: don't introduce more instances of obsolete terminology
+      - Clarify doc: Before= is sufficient only if both units are being started
+      - Test suite: rename tag @broken_greeter → @broken_welcome_screen
+      - Test suite: improve step name
+      - Improve docs
+      - Test suite: replace @wait_for_remote_shell=true hack with facility to hook code
+        to run during early boot
+
+ -- Tails developers <tails@boum.org>  Wed, 05 Mar 2025 10:33:40 +0100
+
 tails (6.12) unstable; urgency=medium
 
   * Upgrade to Thunderbird 1:128.6.0esr-1~deb12u1
