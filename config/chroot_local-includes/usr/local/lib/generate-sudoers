@@ -65,7 +65,9 @@ class SudoCommand(BaseModel):
 
     @property
     def s_cmdline(self):
-        return f"{self.executable} {self.s_args}"
+        if self.s_args:
+            return f"{self.executable} {self.s_args}"
+        return self.executable
 
     @property
     def s_become(self):
