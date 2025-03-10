@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -eu
+set -x
+
+mkdir -p "${ISOS:?}/tails-amd64-${VERSION:?}"
+for type in iso img
+do
+	dirname="tails-amd64-${VERSION:?}"
+    basename="${dirname}.${type:?}"
+    cd "${ISOS:?}/${dirname}"
+    mv "${ARTIFACTS:?}/${basename}" .
+    if [ ! -f "${basename}.sig" ]; then
+        echo "Please sign ${type}"
+        gpg --armor --default-key "${TAILS_SIGNATURE_KEY:?}" \
+            --detach-sign -- *".${type:?}"
+        mv "${basename}.asc" "${basename}.sig"
+    fi
+done
+mv "${ARTIFACTS:?}/tails-amd64-${VERSION:?}".{apt-sources,build-manifest,buildlog,packages} \
+    "${ISOS:?}/tails-amd64-${VERSION:?}"
+cd "${RELEASE_CHECKOUT?:}"

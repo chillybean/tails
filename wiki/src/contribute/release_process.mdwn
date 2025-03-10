@@ -1045,11 +1045,14 @@ Run the following command
 to create a directory with a suitable name, go there, move the built
 images to this brand new directory, generate detached OpenPGP
 signatures for the images to be published (in the same directory as the
-images and with a `.sig` extension), then go up to the parent
-directory, create a `.torrent` file and check the generated `.torrent`
+images and with a `.sig` extension):
+
+    ./bin/generate-images-signatures
+
+Then, create a `.torrent` file and check the generated `.torrent`
 files metadata:
 
-    ./bin/generate-images-signatures-and-torrents
+    ./bin/generate-torrents
 
 Get the internal manual testing started
 =======================================
