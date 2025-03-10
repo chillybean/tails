@@ -49,12 +49,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
   function toggleJavaScriptBitTorrent(method) {
     if (method === "javascript") {
-      hide(document.getElementById("bittorrent-verification-tip"));
       show(document.getElementById("javascript-verification-tip"));
     }
     else if (method === "bittorrent") {
       hide(document.getElementById("javascript-verification-tip"));
-      show(document.getElementById("bittorrent-verification-tip"));
     }
   }
 
