@@ -32,12 +32,6 @@ fetched from our website through HTTPS.
    The main verification mechanism relies on JavaScript code on the
    download page. See below for more details.
 
-1. BitTorrent download
-
-   The Torrent file downloaded through HTTPS from our website includes a
-   checksum of the image. BitTorrent clients automatically verify this
-   checksum when the download finishes.
-
 1. OpenPGP signature
 
    We provide an OpenPGP signature of our downloads.
@@ -79,7 +73,7 @@ Goals
   - Provide a simple, automated, and cross-platform technique to verify
     USB and ISO images of the current version of Tails.
 
-  - Allow verifying any current Tails image: downloaded over BitTorrent,
+  - Allow verifying any current Tails image:
     copied from a friend, downloaded from one of our mirrors.
 
 Non goals

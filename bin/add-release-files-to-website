@@ -4,7 +4,7 @@ set -eu
 set -x
 
 git rm \
-    "${RELEASE_CHECKOUT:?}/wiki/src/torrents/files/tails-amd64-"*.{build-manifest,iso.sig,img.sig,packages,iso.torrent,img.torrent}
+    "${RELEASE_CHECKOUT:?}/wiki/src/torrents/files/tails-amd64-"*.{build-manifest,iso.sig,img.sig,packages}
 
 mkdir -p "${RELEASE_CHECKOUT:?}/wiki/src/torrents/files"
 
@@ -12,7 +12,6 @@ cp "${ISO_PATH:?}.sig" \
    "${IMG_PATH:?}.sig" \
    "${ISOS:?}/tails-amd64-${VERSION:?}/tails-amd64-${VERSION:?}.build-manifest" \
    "${ISOS:?}/tails-amd64-${VERSION:?}/tails-amd64-${VERSION:?}.packages" \
-   "${ISOS:?}/tails-amd64-${VERSION:?}".{iso,img}.torrent \
    "${RELEASE_CHECKOUT:?}/wiki/src/torrents/files/"
 
 # shellcheck disable=SC2012
