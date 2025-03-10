@@ -10,8 +10,10 @@ args = ["--report-no-upgrade"]
 
 [[commands]]
 executable = "/usr/local/bin/tails-iuk-get-target-file"
+reason = "XXX"
 user = "tails-upgrade-frontend"
 become = "tails-iuk-get-target-file"
+arbitrary_arguments = true
 
 [[commands]]
 executable = "/usr/local/bin/tails-iuk-mktemp-get-target-file"
