@@ -1089,7 +1089,7 @@ def allow_connecting_to_possibly_rfc1918_host(host)
 end
 
 Then /^the Tor Connection Assistant reports that I am not connected to a local network$/ do
-  tor_connection_assistant.child('No Wi-Fi Hardware detected')
+  tor_connection_assistant.child('No Wi-Fi hardware detected')
 end
 When(/^I plug a Wi-Fi adapter$/) do
   $vm.execute_successfully('modprobe mac80211_hwsim radios=1')
