@@ -48,6 +48,13 @@ are tagged `@fragile`, if the images under test were built:
 Therefore, to ask Jenkins to run the full test suite on your topic
 branch, give it a name that ends `-force-all-tests`.
 
+### Run without Chutney
+
+Chutney, which creates a "virtual" Tor network, is used by default.
+
+You can disable this by adding `-real-Tor` to your branch name. This will only run scenarios which are tagged
+`@supports_real_tor` (not many!)
+
 ### Trigger a test suite run without rebuilding images
 
 Every `build_Tails_ISO_*` job run triggers a test suite run
