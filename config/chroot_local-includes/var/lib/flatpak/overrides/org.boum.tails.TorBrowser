@@ -18,5 +18,11 @@ filesystems=!host:reset;!host;xdg-documents;xdg-download;xdg-music;xdg-pictures;
 # Explanations:
 # * !x11;!fallback-x11: Disallow access to the X11 server, overriding
 #   the permissions inherited from the app's metadata file.
-# * Allow access to the session bus
-sockets=!x11;!fallback-x11;session-bus;
+sockets=!x11;!fallback-x11;
+
+# Explanations:
+# * Drop useless access added by upstream
+[Session Bus Policy]
+com.canonical.AppMenu.Registrar=none
+org.kde.kconfig.notify=none
+org.kde.KGlobalSettings=none
