@@ -2,7 +2,7 @@
 """
 This program generates files in /etc/sudoers.d/ starting from TOML description files.
 
-This is useful because the default sudoers file is counterintuitive in its handling of arguments.
+This is useful because the default sudoers file counterintuitively fails open in its handling of arguments: if no argument list is specified, arbitrary arguments are allowed.
 The new syntax is more expressive, so we hope to reduce the risk of security incidents.
 """
 
