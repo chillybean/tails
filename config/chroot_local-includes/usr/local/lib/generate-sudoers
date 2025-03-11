@@ -9,16 +9,17 @@ The new syntax is more expressive, so we hope to reduce the risk of security inc
 from argparse import ArgumentParser
 from pathlib import Path
 import sys
+from typing import Any
 
 import jinja2
 import toml
-from pydantic import BaseModel, root_validator, ValidationError
+from pydantic import BaseModel, ValidationError
 
 TMPL = jinja2.Template(
     """
 {% if c.env_keep %}
 Cmnd_Alias {{alias}} = {{c.s_cmdline}}
-{%- for env in c.env_keep %}
+{%- for env in c.env_keep.value %}
 Defaults!{{alias}} env_keep+="{{env}}"
 {%- endfor %}
 {% endif %}
@@ -27,29 +28,30 @@ Defaults!{{alias}} env_keep+="{{env}}"
 )
 
 
+class DangerousOption(BaseModel):
+    value: Any
+    reason: str
+
+    def __bool__(self):
+        return bool(self.value)
+
+
+class EnvKeep(DangerousOption):
+    value: list[str]
+
+
+class ArbitraryArguments(DangerousOption):
+    value: bool
+
+
 class SudoCommand(BaseModel):
     executable: str
     user: str
     alias: str = ""
     become: str = "root"
     args: list[str] = []
-    env_keep: list[str] = []
-    arbitrary_arguments: bool = False
-    reason: str = ""
-
-    @property
-    def reason_required(self):
-        return self.env_keep or self.arbitrary_arguments
-
-    @root_validator(pre=False)
-    def validate_reason(cls, values):
-        dangerous_options = {"env_keep", "arbitrary_arguments"}
-        dangerous_options_used = [opt for opt in dangerous_options if values.get(opt)]
-        if dangerous_options_used and not values["reason"]:
-            raise ValueError(
-                f"No reason supplied, but dangerous options used: {dangerous_options_used}"
-            )
-        return values
+    env_keep: EnvKeep = EnvKeep(value=[], reason="")
+    arbitrary_arguments: ArbitraryArguments = ArbitraryArguments(value=False, reason="")
 
     def serialize(self, alias: str) -> str:
         return TMPL.render(c=self, alias=alias)

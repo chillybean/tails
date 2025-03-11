@@ -3,22 +3,25 @@
 [[commands]]
 user = "amnesia"
 become = "tails-persistent-storage"
-reason = "XXX"
-env_keep = ["ENVFILE"]
 executable = "/usr/local/bin/tails-installer"
+[commands.env_keep]
+reason = "XXX"
+value = ["ENVFILE"]
 
 [[commands]]
 user = "amnesia"
 become = "tails-persistent-storage"
-reason = "XXX"
-env_keep = ["ENVFILE"]
 executable = "/usr/local/bin/tails-installer"
 args = ["--backup"]
+[commands.env_keep]
+reason = "XXX"
+value = ["ENVFILE"]
 
 [[commands]]
 user = "amnesia"
 become = "tails-persistent-storage"
-reason = "XXX"
-env_keep = ["ENVFILE"]
 executable = "/usr/local/bin/tails-installer"
 args = ["--verbose"]
+[commands.env_keep]
+reason = "XXX"
+value = ["ENVFILE"]

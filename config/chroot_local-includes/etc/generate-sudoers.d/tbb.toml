@@ -1,6 +1,9 @@
 [[commands]]
-env_keep = ["ENVFILE"]
-reason = "run-tor-browser will validate arguments to reject options (see tails/tails#19595)"
 executable = "/usr/local/lib/run-tor-browser"
-arbitrary_arguments = true
 user = "amnesia"
+[commands.env_keep]
+value = ["ENVFILE"]
+reason = "XXX"
+[commands.arbitrary_arguments]
+value = true
+reason = "run-tor-browser will validate arguments to reject options (see tails/tails#19595)"

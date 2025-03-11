@@ -2,6 +2,7 @@
 user = "amnesia"
 become = "tails-upgrade-frontend"
 executable = "/usr/local/bin/tails-upgrade-frontend"
+
 [[commands]]
 user = "amnesia"
 become = "tails-upgrade-frontend"
@@ -16,15 +17,17 @@ executable = "/usr/local/bin/tails-shutdown-network"
 user = "tails-upgrade-frontend"
 become = "tails-install-iuk"
 executable = "/usr/local/bin/tails-install-iuk"
-arbitrary_arguments = true
+[commands.arbitrary_arguments]
+value = true
 reason = "XXX: No reason provided when migrating to generate-sudoers.d"
 
 [[commands]]
 executable = "/usr/local/bin/tails-iuk-get-target-file"
-reason = "XXX"
 user = "tails-upgrade-frontend"
 become = "tails-iuk-get-target-file"
-arbitrary_arguments = true
+[commands.arbitrary_arguments]
+value = true
+reason = "XXX"
 
 [[commands]]
 executable = "/usr/local/bin/tails-iuk-mktemp-get-target-file"
@@ -42,5 +45,6 @@ executable = "/usr/local/bin/tails-iuk-cancel-download"
 [[commands]]
 user = "tails-install-iuk"
 executable = "ALL"
-arbitrary_arguments = true
+[commands.arbitrary_arguments]
+value = true
 reason = "We are installing IUKs, so while we could enumerate specific commands, we are obviously root"
