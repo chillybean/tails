@@ -424,3 +424,25 @@ done once per release cycle, so we just do it at the same time.
    file accordingly, and commit the changes.
 
 4. Push the updated branch.
+
+It is at least as important to check for changes in the
+`org.mozilla.firefox` flatpak, given that upstream Firefox
+improvements land there first and might not trickle down to the Tor
+Browser flatpak. Since Tor Browser is based on the ESR releases some
+changes might need to wait until Tor Browser is rebased on a more
+recent version of Firefox.
+
+To see what has changed, either install the flatpak and have a look
+in:
+
+    /var/lib/flatpak/app/org.mozilla.firefox/current/active/metadata
+
+or look at the [revision
+history](https://hg.mozilla.org/mozilla-central/log/tip/taskcluster/docker/firefox-flatpak/runme.sh)
+(see the arguments passed to `flatpak build-finish build`).
+
+For changes that also makes sense for the
+[org.torproject.torbrowser-launcher flathub
+upstream](https://github.com/flathub/org.torproject.torbrowser-launcher/)
+we should submit a PR, but to get the changes into Tails quickly we
+can use the override as described above.
