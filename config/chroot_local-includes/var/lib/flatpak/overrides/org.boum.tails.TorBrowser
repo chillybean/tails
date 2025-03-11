@@ -23,7 +23,9 @@ sockets=!x11;!fallback-x11;cups;
 
 # Explanations:
 # * Drop useless access added by upstream
+# * Allow accessibility support (a11y)
 [Session Bus Policy]
 com.canonical.AppMenu.Registrar=none
 org.kde.kconfig.notify=none
 org.kde.KGlobalSettings=none
+org.a11y.Bus=talk
