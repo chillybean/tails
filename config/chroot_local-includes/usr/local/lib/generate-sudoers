@@ -1,9 +1,9 @@
 #!/usr/bin/python3 -I
 """
-This program generates files in /etc/sudoers.d/ starting from YAML description files.
+This program generates files in /etc/sudoers.d/ starting from TOML description files.
 
 This is useful because the default sudoers file is counterintuitive in its handling of arguments.
-The new syntax will be more expressive, so we hope to reduce the risk of security incidents.
+The new syntax is more expressive, so we hope to reduce the risk of security incidents.
 """
 
 from argparse import ArgumentParser
