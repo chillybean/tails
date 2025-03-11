@@ -18,7 +18,8 @@ filesystems=!host:reset;!host;xdg-documents;xdg-download;xdg-music;xdg-pictures;
 # Explanations:
 # * !x11;!fallback-x11: Disallow access to the X11 server, overriding
 #   the permissions inherited from the app's metadata file.
-sockets=!x11;!fallback-x11;
+# * cups: printing support.
+sockets=!x11;!fallback-x11;cups;
 
 # Explanations:
 # * Drop useless access added by upstream
