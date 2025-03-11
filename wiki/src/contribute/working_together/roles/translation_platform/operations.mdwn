@@ -33,6 +33,14 @@ Else, propose this on the [[tails-l10n mailing list|about/contact#tails-l10n]].
    [[!tails_gitweb_puppet_tails files/weblate/scripts/cron.sh desc="`cron.sh`"]].
    Hence, they both use a shared lock file.
 
+   The changes made by the above script must be manually pushed to the
+   canonical repo, as we don't allow Weblate to create new files:
+
+       sudo -u weblate /var/lib/weblate/scripts/shell_in_container.sh
+       cd /integration
+       git pull weblate master
+       git push weblate-gatekeeper master
+
 4. Finally, to update the Weblate components, run this command as the
    `weblate` user:
 
