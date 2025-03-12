@@ -1973,9 +1973,9 @@ documentation](https://gitlab.torproject.org/tpo/tpa/team/-/wikis/service/blog#h
         git pull
         git checkout -b "Tails-${VERSION}"
         torBlogDir="content/blog/new-release-tails-${VERSION//./_}"
-        mv "${torBlogFile}" contents.lr
         mkdir -p "$torBlogDir"
         cd "$torBlogDir"
+        mv "${torBlogFile}" contents.lr
         ln -s ../../../assets/static/images/blog/tails.jpeg lead.jpg && \
             git add lead.jpg
         git add contents.lr
