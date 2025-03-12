@@ -61,7 +61,7 @@ program used to install an intermediary Tails on Windows and Linux we
 wrote:
 
 <pre>
-&lt;span class="windows"&gt;a program called Etcher.&lt;/span&gt;
+&lt;span class="windows"&gt;a program called Rufus.&lt;/span&gt;
 &lt;span class="linux"&gt;a program called GNOME Disks.&lt;/span&gt;
 </pre>
 
@@ -150,33 +150,40 @@ and download.
   themselves (for example `install/debian/usb.mdwn`) and adapted to each
   scenario using CSS classes.
 
-<a id="etcher"></a>
+<a id="rufus"></a>
 
-*balenaEtcher*
-==============
+*Rufus*
+=======
 
-For Windows and macOS, we instruct people to use
-[*balenaEtcher*](https://www.balena.io/etcher/) to copy the USB image onto
-their USB stick. On top of this, we self-host the downloads of *balenaEtcher*
+For Windows, we instruct people to use
+[*Rufus*](https://rufus.io/) to copy the USB image onto
+their USB stick. On top of this, we self-host the downloads of *Rufus*
 on our own infrastructure. The
 <https://gitlab.tails.boum.org/tails/etcher-binary> repository is added as an
 [ikiwiki underlay](https://ikiwiki.info/plugins/underlay/) on our website.
 
-We self-host a copy of *balenaEtcher* because:
+We self-host a copy of *Rufus* because:
 
 - It gives us more predictability on what users end up doing. This is useful in
   terms of Help Desk.
 
 - It prevents 3rd parties from learning a bit more about who uses Tails.
-  Pointing to GitHub from our website would provide direct referrers to GitHub
-  (and maybe Balena too) about who is using *balenaEtcher* to install Tails.
+  Pointing to the upstream website would provide upstream direct referrers
+  about who is using *Rufus* to install Tails.
 
-- It prevents GitHub from serving rogue downloads (targeted or not). We might
+- It prevents the upstream website from serving rogue downloads (targeted or not). We might
   still get a rogue download ourselves but:
 
-  * We download *balenaEtcher* several times from different locations to
+  * We download *Rufus* twice from different locations to
     prevent targeted attacks.
 
-  * We download *balenaEtcher* in a limited time window, which might save our users some supply
-    chain issues. If our users were to download *balenaEtcher* every time, a
+  * We download *Rufus* in a limited time window, which might save our users some supply
+    chain issues. If our users were to download *Rufus* every time, a
     short-time supply chain attack would definitely affect some of them.
+
+<div class="note">
+
+<p>The same logic applies to <i>balenaEtcher</i>, which we still instruct for
+macOS. ([[!tails_ticket 20855]])</p>
+
+</div>
