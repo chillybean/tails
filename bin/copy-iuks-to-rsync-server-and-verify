@@ -208,8 +208,10 @@ class CopyAndVerify:
                 else:
                     iuk_url = iuk_urls[0]
                 if version in urls:
-                    print(
-                        f"more than one IUK for {version}, discarding {urls[version]}"
+                    log.warning(
+                        "more than one IUK for %s, discarding %s",
+                        version,
+                        urls[version],
                     )
                 urls[version] = iuk_url
 
@@ -273,7 +275,7 @@ class CopyAndVerify:
                 check=True,
             )
         except subprocess.CalledProcessError:
-            print("\nERROR: IUKs built on Jenkins don't match yours\n", file=sys.stderr)
+            log.error("ERROR: IUKs built on Jenkins don't match yours")  # noqa: TRY400
             return False
         return True
 
