@@ -9,10 +9,10 @@ The new syntax is more expressive, so we hope to reduce the risk of security inc
 from argparse import ArgumentParser
 from pathlib import Path
 import sys
+import tomllib
 from typing import Any
 
 import jinja2
-import toml
 from pydantic import BaseModel, ValidationError
 
 TMPL = jinja2.Template(
@@ -116,10 +116,10 @@ class GenerateSudo:
             self.generate_sudoers(file)
 
     def generate_sudoers(self, file: Path):
-        with file.open() as buf:
+        with file.open("rb") as buf:
             try:
-                data = toml.load(buf)
-            except toml.decoder.TomlDecodeError as exc:
+                data = tomllib.load(buf)
+            except tomllib.TOMLDecodeError as exc:
                 print(f"Error parsing {file.name}", file=sys.stderr)
                 print(exc, file=sys.stderr)
                 sys.exit(1)
