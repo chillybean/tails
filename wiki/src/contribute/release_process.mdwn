@@ -1948,9 +1948,13 @@ Skip this if you are not preparing a stable release.
 
         ./bin/generate-Tor-blog-post "${VERSION:?}" "${TAG:?}" "${DIST:?}" "${RELEASE_DATE:?}"
 
-- Copy the introduction sentences of the body into the `summary` section of the
-  draft blog post. If there is no such sentence, this can be enough:
-  `Tails ${VERSION:?} is out.`
+- Ensure the `summary` section of the draft blog post has adequate contents:
+
+  - If the body of the release notes has introduction sentences: copy these sentences.
+
+  - Else, write `Tails ${VERSION:?} is out.`
+
+  - In any case, do *not* leave the `FIXME` placeholder as-is.
 
 - Proof-read the draft blog post
 
