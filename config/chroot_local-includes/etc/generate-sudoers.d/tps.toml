@@ -17,7 +17,7 @@ tails-persistent-storage   ALL = (amnesia)    NOPASSWD: ALL
 # config/chroot_local-includes/usr/local/bin/tails-persistent-storage
 # for details.
 executable = "/usr/local/bin/tails-persistent-storage"
-user = "amnesia"
+allowed_user = "amnesia"
 run_as_user = "tails-persistent-storage"
 [commands.env_keep]
 value = ["ENVFILE"]

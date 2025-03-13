@@ -23,7 +23,7 @@ Cmnd_Alias {{alias}} = {{c.s_cmdline}}
 Defaults!{{alias}} env_keep+="{{env}}"
 {%- endfor %}
 {% endif %}
-{{c.user}}  ALL ={{c.s_run_as_user}} NOPASSWD: {{alias if c.env_keep else c.s_cmdline}}
+{{c.allowed_user}}  ALL ={{c.s_run_as_user}} NOPASSWD: {{alias if c.env_keep else c.s_cmdline}}
 """,
 )
 
@@ -46,7 +46,7 @@ class ArbitraryArguments(DangerousOption):
 
 class SudoCommand(BaseModel):
     executable: str
-    user: str
+    allowed_user: str
     alias: str = ""
     run_as_user: str = "root"
     args: list[str] = []

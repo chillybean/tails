@@ -1,7 +1,7 @@
 # Same purpose as config/chroot_local-includes/etc/sudoers.d/zzz_tps,
 # see the comment there.
 [[commands]]
-user = "amnesia"
+allowed_user = "amnesia"
 run_as_user = "tails-persistent-storage"
 executable = "/usr/local/bin/tails-installer"
 [commands.env_keep]
@@ -9,7 +9,7 @@ reason = "XXX"
 value = ["ENVFILE"]
 
 [[commands]]
-user = "amnesia"
+allowed_user = "amnesia"
 run_as_user = "tails-persistent-storage"
 executable = "/usr/local/bin/tails-installer"
 args = ["--backup"]
@@ -18,7 +18,7 @@ reason = "XXX"
 value = ["ENVFILE"]
 
 [[commands]]
-user = "amnesia"
+allowed_user = "amnesia"
 run_as_user = "tails-persistent-storage"
 executable = "/usr/local/bin/tails-installer"
 args = ["--verbose"]
