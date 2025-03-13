@@ -4,9 +4,8 @@ set -eu
 set -x
 
 mkdir -p "${ISOS:?}/tails-amd64-${VERSION:?}"
-for type in iso img
-do
-	dirname="tails-amd64-${VERSION:?}"
+for type in iso img; do
+    dirname="tails-amd64-${VERSION:?}"
     basename="${dirname}.${type:?}"
     cd "${ISOS:?}/${dirname}"
     if [ ! -f "${basename}.sig" ]; then

@@ -6,14 +6,12 @@ set -x
 tmp="$(mktemp -d)"
 trap 'rm -rf "$tmp"' EXIT
 
-for type in iso img
-do
-	dirname="tails-amd64-${VERSION:?}"
+for type in iso img; do
+    dirname="tails-amd64-${VERSION:?}"
     basename="${dirname}.${type:?}"
     mkdir -p "${tmp:?}/tails-amd64-${VERSION:?}-${type:?}"
     cd "${tmp:?}/tails-amd64-${VERSION:?}-${type:?}"
-    for ext in '' '.sig'
-    do
+    for ext in '' '.sig'; do
         ln -s "${ISOS:?}/${dirname}/${basename}${ext}" .
     done
     mktorrent \
