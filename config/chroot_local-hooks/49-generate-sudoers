@@ -5,4 +5,6 @@
 
 ensure_hook_dependency_is_installed python3-jinja2 python3-pydantic
 
-exec /usr/local/lib/generate-sudoers
+/usr/local/lib/generate-sudoers
+
+rm -r /etc/generate-sudoers.d/
