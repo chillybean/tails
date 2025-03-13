@@ -23,7 +23,7 @@ Cmnd_Alias {{alias}} = {{c.s_cmdline}}
 Defaults!{{alias}} env_keep+="{{env}}"
 {%- endfor %}
 {% endif %}
-{{c.user}}  ALL ={{c.s_become}} NOPASSWD: {{alias if c.env_keep else c.s_cmdline}}
+{{c.user}}  ALL ={{c.s_run_as_user}} NOPASSWD: {{alias if c.env_keep else c.s_cmdline}}
 """,
 )
 
@@ -48,7 +48,7 @@ class SudoCommand(BaseModel):
     executable: str
     user: str
     alias: str = ""
-    become: str = "root"
+    run_as_user: str = "root"
     args: list[str] = []
     env_keep: EnvKeep = EnvKeep(value=[], reason="")
     arbitrary_arguments: ArbitraryArguments = ArbitraryArguments(value=False, reason="")
@@ -73,9 +73,9 @@ class SudoCommand(BaseModel):
         return self.executable
 
     @property
-    def s_become(self):
-        if self.become != "root":
-            return f"({self.become})"
+    def s_run_as_user(self):
+        if self.run_as_user != "root":
+            return f"({self.run_as_user})"
         return ""
 
 

@@ -2,7 +2,7 @@
 # see the comment there.
 [[commands]]
 user = "amnesia"
-become = "tails-persistent-storage"
+run_as_user = "tails-persistent-storage"
 executable = "/usr/local/bin/tails-installer"
 [commands.env_keep]
 reason = "XXX"
@@ -10,7 +10,7 @@ value = ["ENVFILE"]
 
 [[commands]]
 user = "amnesia"
-become = "tails-persistent-storage"
+run_as_user = "tails-persistent-storage"
 executable = "/usr/local/bin/tails-installer"
 args = ["--backup"]
 [commands.env_keep]
@@ -19,7 +19,7 @@ value = ["ENVFILE"]
 
 [[commands]]
 user = "amnesia"
-become = "tails-persistent-storage"
+run_as_user = "tails-persistent-storage"
 executable = "/usr/local/bin/tails-installer"
 args = ["--verbose"]
 [commands.env_keep]

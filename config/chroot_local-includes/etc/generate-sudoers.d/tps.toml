@@ -18,7 +18,7 @@ tails-persistent-storage   ALL = (amnesia)    NOPASSWD: ALL
 # for details.
 executable = "/usr/local/bin/tails-persistent-storage"
 user = "amnesia"
-become = "tails-persistent-storage"
+run_as_user = "tails-persistent-storage"
 [commands.env_keep]
 value = ["ENVFILE"]
 reason = "XXX"
