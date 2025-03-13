@@ -3,7 +3,6 @@
 [[!meta stylesheet="donate" rel="stylesheet" title=""]]
 [[!meta stylesheet="donate/testimonials.inline" rel="stylesheet" title=""]]
 [[!meta stylesheet="hide-donate-banner" rel="stylesheet" title=""]]
-[[!meta script="donate"]]
 
 <!-- See upstream patch: https://ikiwiki.info/todo/support_Twitter_cards/ -->
 
@@ -21,11 +20,11 @@
   [[!img godzilla.png link="no" class="svg" alt=""]]
 
   <div class="tip" style="background-image: initial;">
-      <p> <strong>Tails is merging with the Tor Project</strong> </p>
-      <p>
-      We have <a href="/news/tails_tor">merged with the Tor Project</a>.
-      However, until further notice, all donations made to Tails will be
-      earmarked for <a href="https://donate.torproject.org/faq/#faqTails">activities involving Tails</a>.</p>
+      <p><b>[[Tails has merged with the Tor Project|news/tails_tor]]</b></p>
+
+      <p>From now on, all new donations to the Tor Project will support the whole
+      suite of tools developed by the Tor Project, including Tails, the Tor
+      network, and Tor Browser.</p>
 
       <p>You may hear from fundraising staff from Tails or the Tor Project as we
       make the transition. We are excited about this merger and the
@@ -78,198 +77,21 @@
 
   <div id="widgets">
 
-<div id="paypal-with-js">
+<div id="paypal">
 
-<form method="post" action="https://www.paypal.com/cgi-bin/webscr">
-
-  <!-- HTML Variables for PayPal Payments Standard:
-       https://developer.paypal.com/docs/classic/paypal-payments-standard/integration-guide/Appx_websitestandard_htmlvariables/ -->
-  <input type="hidden" name="cmd" value="_xclick-subscriptions" id="cmd"/>
-  <input type="hidden" name="business" value="tailsriseuplabs@riseup.net" id="business"/>
-  <input type="hidden" name="currency_code" value="USD" id="currency_code"/>
-  <input type="hidden" name="item_name" value="Donation to Tails"/>
-  <input type="hidden" name="custom" id="custom"/>
-
-  <input type="hidden" name="no_note" value="1"/>
-
-  <!-- Note for translators: adapt the URLs to return to the page in your language. -->
-  <input type="hidden" name="return" value="https://tails.net/donate/thanks/" class="return-url"/>
-  <input type="hidden" name="cancel_return" value="https://tails.net/donate/canceled/" class="return-url"/>
-
-  <!-- Note for translators: adapt the value of 'lc' to your language. -->
-  <input type="hidden" name="lc" value="US"/>
-
-  <!-- For recurring donations only. -->
-  <input type="hidden" name="a3" value="5" id="a3"/>
-  <input type="hidden" name="t3" value="M" id="t3"/>
-  <input type="hidden" name="p3" value="1"/>
-  <input type="hidden" name="src" value="1"/>
-
-  <!-- For one-time donation only. -->
-  <input type="hidden" name="amount" value="5" id="amount"/>
-
-  <div id="amounts">
-    <label class="button js-amount active">
-      <input type="radio" autocomplete="off" value="5"/>$5
-    </label>
-    <label class="button js-amount">
-      <input type="radio" autocomplete="off" value="10"/>$10
-    </label>
-    <label class="button js-amount">
-      <input type="radio" autocomplete="off" value="25"/>$25
-    </label>
-    <label class="button js-amount">
-      <input type="radio" autocomplete="off" value="50"/>$50
-    </label>
-    <label class="button js-amount">
-      <input type="radio" autocomplete="off" value="100"/>$100
-    </label>
-    <label class="button js-amount">
-      <input type="radio" autocomplete="off" value="150"/>$150
-    </label>
-    <label class="button js-amount">
-      <input type="radio" autocomplete="off" value="200"/>$200
-    </label>
-    <label class="button js-amount other">
-      <span>$</span>
-      <input type="text" pattern="\d+" id="other-amount" placeholder="Other"/>
-    </label>
+  <div class="cta paypal">
+    <a href="https://donate.torproject.org/" target="_blank">Donate by credit card or PayPal</a>
   </div>
 
-  <div id="frequency-buttons">
-    <label><input type="radio" name="frequency" id="one-time"/>One‑time</label>
-    <label><input type="radio" name="frequency" id="monthly"/>Monthly</label>
-    <label><input type="radio" name="frequency" id="yearly"/>Yearly</label>
-  </div>
+  <p>All donations to the Tor Project will support the whole suite of tools developed by the Tor Project, including Tails, the Tor network, and Tor Browser.</p>
 
-  <div id="frequency-explanation">
-    Monthly and yearly donations, even the smallest, are the most valuable for
-    the sustainability of Tails. They require a [[!img paypal-inline.png
-    link="no" class="paypal-inline" alt="PayPal"]] account.
-  </div>
-
-  <div id="newsletter">
-    <label>
-      <input type="checkbox" id="opt-in"/>Receive a newsletter 2&ndash;3 times a year.
-    </label>
-    <p id="email">We will use the email address provided in the PayPal form.</p>
-  </div>
-
-  <div id="donate-paypal-button">
-    <button>Donate</button>
-  </div>
-
-<p id="tax" class="tax-deductible">Your donation goes entirely to Tails
-and will be handled by Riseup Labs which is a 501(c)(3) nonprofit organization
-in the USA.<br/><strong>Donations are [[!toggle id="tax-deductible" text="tax-deductible"]] to the extent
-permitted by law.</strong></p>
-
-</form>
-
-[[!toggleable id="tax-deductible" text="""
-<p>If you need a donation receipt, contact us at<br/>
-<a href="mailto:fundraising@tails.net">fundraising@tails.net</a>.</p>
-"""]]
-
-</div>
-
-<div id="paypal-without-js">
-
-<h2>Recurring donation</h2>
-
-<p>Monthly and yearly donations, even the smallest, are the most valuable for
-the sustainability of Tails. They require a [[!img paypal-inline.png
-link="no" class="paypal-inline" alt="PayPal"]] account.</p>
-
-<form method="post" action="https://www.paypal.com/cgi-bin/webscr">
-
-  <input type="hidden" name="cmd" value="_xclick-subscriptions"/>
-  <input type="hidden" name="business" value="tailsriseuplabs@riseup.net"/>
-  <input type="hidden" name="currency_code" value="USD" id="currency_code"/>
-  <input type="hidden" name="item_name" value="Donation to Tails"/>
-  <input type="hidden" name="no_note" value="1"/>
-
-  <!-- Note for translators: adapt the URLs to return to the page in your language. -->
-  <input type="hidden" name="return" value="https://tails.net/donate/thanks/" class="return-url"/>
-  <input type="hidden" name="cancel_return" value="https://tails.net/donate/canceled/" class="return-url"/>
-
-  <!-- Note for translators: adapt the value of 'lc' to your language. -->
-  <input type="hidden" name="lc" value="US"/>
-
-  <input type="hidden" name="src" value="1"/>
-  <input type="hidden" name="p3" value="1"/>
-
-  <label for="sub5"><input type="radio" name="a3" value="5" id="sub5" checked="checked"/>$5</label>
-  <label for="sub10"><input type="radio" name="a3" value="10" id="sub10"/>$10</label>
-  <label for="sub25"><input type="radio" name="a3" value="25" id="sub25"/>$25</label>
-  <label for="sub50"><input type="radio" name="a3" value="50" id="sub50"/>$50</label>
-  <label for="sub100"><input type="radio" name="a3" value="100" id="sub100"/>$100</label>
-  <label for="sub150"><input type="radio" name="a3" value="150" id="sub150"/>$150</label>
-  <label for="sub500"><input type="radio" name="a3" value="500" id="sub500"/>$200</label>
-  <br/>
-  <label for="sub_m"><input type="radio" name="t3" value="M" id="sub_m" checked="checked"/>Monthly</label>
-  <label for="sub_y"><input type="radio" name="t3" value="Y" id="sub_y"/>Yearly</label>
-  <br/>
-  <label><input type="checkbox" name="custom"/><b>Receive a newsletter 2&ndash;3 times a year.</b></label>
-  <p class="email">We will use the email address provided in the PayPal form.</p>
-  <div id="donate-paypal-button">
-    <input type="submit" value="Donate (recurring)"/>
-  </div>
-
-</form>
-
-<h2>One-time donation</h2>
-
-<p>Does not require a [[!img paypal-inline.png link="no" class="paypal-inline" alt="PayPal"]] account.</p>
-
-<form method="post" action="https://www.paypal.com/cgi-bin/webscr">
-
-  <input type="hidden" name="cmd" value="_donations"/>
-  <input type="hidden" name='business' value="tailsriseuplabs@riseup.net"/>
-  <input type="hidden" name="currency_code" value="USD" id="currency_code"/>
-  <input type="hidden" name="item_name" value="Donation to Tails"/>
-  <input type="hidden" name="no_note" value="1"/>
-
-  <!-- Note for translators: adapt the URLs to return to the page in your language. -->
-  <input type="hidden" name="return" value="https://tails.net/donate/thanks/" class="return-url"/>
-  <input type="hidden" name="cancel_return" value="https://tails.net/donate/canceled/" class="return-url"/>
-
-  <!-- Note for translators: adapt the value of 'lc' to your language. -->
-  <input type="hidden" name="lc" value="US"/>
-
-  <label for="pp_5"><input type="radio" name="amount" value="5" id="pp_5" checked="checked"/>$5</label>
-  <label for="pp_10"><input type="radio" name="amount" value="10" id="pp_10"/>$10</label>
-  <label for="pp_25"><input type="radio" name="amount" value="25" id="pp_25"/>$25</label>
-  <label for="pp_50"><input type="radio" name="amount" value="50" id="pp_50"/>$50</label>
-  <label for="pp_100"><input type="radio" name="amount" value="100" id="pp_100"/>$100</label>
-  <label for="pp_150"><input type="radio" name="amount" value="150" id="pp_150"/>$150</label>
-  <label for="pp_200"><input type="radio" name="amount" value="200" id="pp_200"/>$200</label>
-  <label for="pp_cust"><input type="radio" name="amount" value="" id="pp_cust"/>Custom amount</label>
-  <br/>
-  <label><input type="checkbox" name="custom"/><b>Receive a newsletter 2&ndash;3 times a year.</b></label>
-  <p class="email">We will use the email address provided in the PayPal form.</p>
-  <div id="donate-paypal-button">
-    <input type="submit" value="Donate (one-time)"/>
-  </div>
-
-</form>
-
-<p id="tax" class="tax-deductible">Your donation goes entirely to Tails
-and will be handled by Riseup Labs which is a 501(c)(3) nonprofit organization
-in the USA.<br/><strong>Donations are tax-deductible to the extent
-permitted by law.</strong></p>
-
-<p class="tax-deductible">If you need a donation receipt, contact us at
-<a href="mailto:fundraising@tails.net">fundraising@tails.net</a>.</p>
-
-</div> <!-- #paypal-without-js -->
+</div> <!-- #paypal -->
 
 <h3>Become a sponsor</h3>
 
-<p>From 2025, all donations of more than $5&#8239;000
-   will be listed on [[our sponsorship page|sponsors]].</p>
-
-<p>Get in touch with us [[to be featured as a Tails sponsor|sponsors/become]].</p>
+<p>To be featured as a <a href="https://www.torproject.org/about/supporters/"
+target="_blank">Tor supporter</a>, please contact <a
+href="mailto:giving@torproject.org">giving@torproject.org</a>.</p>
 
 </div> <!-- widgets -->
 
@@ -280,55 +102,28 @@ permitted by law.</strong></p>
   <div id="cryptos">
 
     <h3>Bitcoin</h3>
-    <!--
-     The bitcoin addresses below ('bitcoin-address' class) are displayed
-     randomly according to their weight ('data-weight' attribute):
-       - Addresses with 'data-weight="0"' are never displayed.
-       - There is no maximum weight.
-    -->
-    <div id="tails" class="bitcoin-address" data-weight="0">
-      <p><a href="bitcoin:1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2">[[!img bitcoin-1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2.png link="no" alt="bitcoin:1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2"]]</a></p>
-      <p class="crypto-address"><strong>1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2</strong></p>
-    </div>
-    <div id="riseuplab" class="bitcoin-address" data-weight="1">
-      <p><a href="bitcoin:bc1qjg53lww9jrm506dj0g0szmk4pxt6f55x8dncuv">[[!img bitcoin-bc1qjg53lww9jrm506dj0g0szmk4pxt6f55x8dncuv.png link="no" alt="bitcoin:bc1qjg53lww9jrm506dj0g0szmk4pxt6f55x8dncuv"]]</a></p>
-      <p class="crypto-address"><strong>bc1qjg53lww9jrm506dj0g0szmk4pxt6f55x8dncuv</strong></p>
+    <div id="tor" class="bitcoin-address">
+      <p><a href="bitcoin:bc1qtt04zfgjxg7lpqhk9vk8hnmnwf88ucwww5arsd">[[!img bitcoin-bc1qtt04zfgjxg7lpqhk9vk8hnmnwf88ucwww5arsd.png link="no" alt="bitcoin:bc1qtt04zfgjxg7lpqhk9vk8hnmnwf88ucwww5arsd"]]</a></p>
+      <p class="crypto-address"><strong>bc1qtt04zfgjxg7lpqhk9vk8hnmnwf88ucwww5arsd</strong></p>
     </div>
 
     <h3 id="monero">Monero</h3>
-    <p class="crypto-address"><strong>4B93hjotwmMQeaZ799D84XTxhqUGqqjfveUTB1GeduAKNeH47WDyn5eb8P2mtScErGbsbL5X3J6vUPAVPrw8j5pMFh6dAwY</strong></p>
+    <p class="crypto-address"><strong>4AcQxuMBUfJM7uAWpZP1Vs1BzQLC1QR6zZL3sMYdBuayWmpZHmaVYo7EQ3cSneyHYf2LRKJnRtrGz5ogZzjmmGygAyusEcJ</strong></p>
 
-    <a id="other-cryptos"></a>
+    <h3 id="other-cryptos">Other cryptocurrencies</h3>
 
-    [[!toggle id="other-cryptos" text="Other cryptocurrencies"]]
+    <p>You can <a href="https://donate.torproject.org/cryptocurrency/" target="_blank">donate
+    other cryptocurrencies</a> from the Tor website.</p>
 
-    [[!toggleable id="other-cryptos" text="""
+    <h3 id="post">Cash, US checks, and money orders</h3>
 
-    <p>Supporting more cryptocurrencies implies more work for us:
-    learning how they work, installing the software in a secure place,
-    monitoring their value and trading them, etc.</p>
-
-    <p>To make a good use of
-    our time, we focus on the cryptocurrencies that are the easiest for us to
-    accept and the most popular.</p>
-
-    <p>Until now, cryptocurrencies other than Bitcoin, Ethereum, and Monero represent less than
-    1% of our donations in cryptocurrencies. Unfortunately, we had to stop
-    accepting Ethereum. We want to see other
-    cryptocurrencies gain real popularity before spending
-    more time on them.</p>
-
-    """]]
-
-    <h3 id="post">Cash and US checks</h3>
-
-    <p>You can send us cash in any currency and US checks by post:</p>
-    <p class="indent">Riseup Labs<br/>
-       PO Box 3027<br/>
-       Lacey, WA 98509
+    <p>You can send us cash, US checks, or money orders to:</p>
+    <p class="indent">Tor Project, Inc.<br/>
+       PO Box 5<br/>
+       Winchester NH 03470<br/>
+       USA
     </p>
-    <p>Please add a note that your donation is for Tails.</p>
-    <p>Checks should be made payable to Riseup Labs.</p>
+    <p>Please make checks and money orders payable to The Tor Project, Inc.</p>
 
   </div>
 
@@ -340,26 +135,17 @@ permitted by law.</strong></p>
 
     <h3 id="transfer">Bank transfer</h3>
 
-    <p>These instructions also work with <a href="https://wise.com/">Wise</a>.</p>
-
-    <div id="transfer-eur" class="indent">
-      <p>
-        <em>Account holder</em>: Center for Cultivation of Technology gGmbH<br/>
-        <em>IBAN</em>: DE65 4306 0967 4111 9411 01<br/>
-        <em>BIC</em>: GENODEM1GLS<br/>
-        <em>Bank</em>: GLS Gemeinschaftsbank eG<br/>
-        <em>Bank address</em>: Christstrasse 9, 44789, Bochum, Germany<br/>
-        <br/>
-        Please make sure to mention this purpose of transfer.<br/>
-	<br/>
-        <em>Purpose of transfer</em>: TAILS-R43NGFR9<br/>
-      </p>
-    </div>
-
-    <p>Your donation goes entirely to Tails and will be handled by the
-    Center for the Cultivation of Technology (CCT) which is a nonprofit
-    organization in Germany.<br/>
-    <a href="https://techcultivation.org/donate.html">Donations are tax-deductible to the extent permitted by law.</a></p>
+    <ul>
+        <li><p><b>USA</b>: We can only accept donations via bank transfer for
+        gifts more than $1&#8239;000 USD. Before making a bank transfer of
+        more than $1&#8239;000, please contact <a href="mailto:giving@torproject.org">giving@torproject.org</a> with your name
+        and phone number. The Tor Project will reach out to you to coordinate
+        your donation.</p></li>
+        <li><p><b>European Union</b>: You can donate to the Tor Project in euro via
+        <a href="https://opencollective.com/thetorproject-europe" target="_blank">Open
+        Collective</a>, who will issue a receipt for tax purposes for donations
+        of 10&#8239;000&nbsp;€ or more.</p></li>
+    </ul>
 
   </div>
 
@@ -367,14 +153,13 @@ permitted by law.</strong></p>
 
     <h3 id="corporate">Corporate matching donation programs</h3>
 
-    <p>Search for <strong>Riseup Labs</strong> and donate to
-    <strong>Tails via Riseup Labs</strong>.</p>
+    <p>Many companies — such as Google, Microsoft, eBay, PayPal, Apple, Verizon,
+    Red Hat, many universities, and others — will match donations made by their
+    employees. The fastest way to find out if your company matches donations is
+    by checking with your HR department.</p>
 
-    <p>If you cannot specify that your donation to Riseup Labs is for
-    Tails, please let us know
-    so we can attribute your donation to Tails specifically.
-    Liberate (aka Riseup Labs) is a 501(c)(3) nonprofit in the
-    USA.</p>
+    <p>In these donation matching programs, search for <i>Tor
+    Project</i>.</p>
 
     <h3 id="contact">Contact</h3>
 
