@@ -1611,14 +1611,11 @@ As tracked on [[!tails_ticket 19396]], it might well be
 that Mirrorbits will miss this update.
 Let's be sure that this happens via
 
-    ssh rsync.lizard "sudo cat /etc/mirrorbits-rpc-password && echo" \
-      | ssh rsync.lizard mirrorbits -a refresh -rehash
+    ssh rsync.lizard sudo systemctl restart mirrorbits.service
 
 If, at a later stage of the process, you realize Mirrorbits is still not
-"noticing" that mirrors are up-to-date, don't be afraid of refreshing/rehashing
-again, or even restart the whole service (which also triggers a rehash):
-
-    ssh rsync.lizard sudo systemctl restart mirrorbits.service
+"noticing" that mirrors are up-to-date, don't be afraid of restarting
+the Mirrorbits service again.
 
 ## Announce, seed and test the Torrents
 
@@ -1948,9 +1945,13 @@ Skip this if you are not preparing a stable release.
 
         ./bin/generate-Tor-blog-post "${VERSION:?}" "${TAG:?}" "${DIST:?}" "${RELEASE_DATE:?}"
 
-- Copy the introduction sentences of the body into the `summary` section of the
-  draft blog post. If there is no such sentence, this can be enough:
-  `Tails ${VERSION:?} is out.`
+- Ensure the `summary` section of the draft blog post has adequate contents:
+
+  - If the body of the release notes has introduction sentences: copy these sentences.
+
+  - Else, write `Tails ${VERSION:?} is out.`
+
+  - In any case, do *not* leave the `FIXME` placeholder as-is.
 
 - Proof-read the draft blog post
 
