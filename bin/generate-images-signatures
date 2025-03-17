@@ -2,12 +2,11 @@
 
 set -eu
 set -x
-
-mkdir -p "${ISOS:?}/tails-amd64-${VERSION:?}"
+DIRNAME="tails-amd64-${VERSION:?}"
+mkdir -p "${ISOS:?}/${DIRNAME:?}"
 for type in iso img; do
-    dirname="tails-amd64-${VERSION:?}"
-    basename="${dirname}.${type:?}"
-    cd "${ISOS:?}/${dirname}"
+    basename="${DIRNAME}.${type:?}"
+    cd "${ISOS:?}/${DIRNAME}"
     if [ ! -f "${basename}.sig" ]; then
         mv "${ARTIFACTS:?}/${basename}" .
         echo "Please sign ${type}"
