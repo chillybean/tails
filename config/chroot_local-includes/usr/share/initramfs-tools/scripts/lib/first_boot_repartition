@@ -12,6 +12,7 @@ prereqs)
 esac
 
 . /scripts/functions
+. /scripts/lib/lib.sh
 
 set -eu
 set -x
@@ -41,6 +42,14 @@ settle() {
 }
 
 DEVICE_NAME=$(basename "${PARENT_DEVICE}")
+
+# If we already see evidence of corruption on first boot even before
+# partitioning, then we consider the device corrupt (tails#20797).
+if sgdisk --verify "${PARENT_DEVICE}" 2>&1 | grep -q -e corrupt -e ERROR; then
+    echo "Detected partitioning corruption"
+    set_partition_error_reason 'partitioning-corruption'
+    exit 1
+fi
 
 # Compute the new system partition size
 # in 512 bytes sectors

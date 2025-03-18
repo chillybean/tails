@@ -1,13 +1,5 @@
-Given /^I start the computer from DVD with network unplugged( and an unsupported graphics card)?$/ do |graphics_card|
-  if graphics_card
-    @boot_options = 'autotest_broken_gnome_shell'
-  else
-    @wait_for_remote_shell = true
-  end
-  step 'the computer is set to boot from the Tails DVD'
-  step 'the network is unplugged'
-  step 'I start the computer'
-  the_computer_boots
+Given /^the computer has an unsupported graphics card$/ do
+  @boot_options = 'autotest_broken_gnome_shell'
 end
 
 When /^Tails detects disk read failures on the (.+)$/ do |device|
@@ -35,15 +27,20 @@ When /^Tails detects disk read failures on the (.+)$/ do |device|
   )
   $vm.execute_successfully("python3 #{fake_ioerror_script_path}")
   try_for(60) { $vm.file_exist?(disk_ioerrors) }
-  RemoteShell::SignalReady.new($vm)
+end
+
+Given /^(.+) is damaged in a way that some read operations fail$/ do |device|
+  add_early_boot_hook do
+    step "Tails detects disk read failures on the #{device}"
+  end
 end
 
 Then /^I see a disk failure message$/ do
-  @screen.wait('GnomeDiskFailureMessage.png', 10)
+  @screen.wait_text('Error Reading Data from Tails USB Stick', 10)
 end
 
 Then /^I see a disk failure message on the splash screen$/ do
-  @screen.wait('PlymouthDiskFailureMessage.png', 60)
+  @screen.wait_text('Error reading data from your Tails USB stick.', 60)
 end
 
 Then /^I can open the hardware failure documentation from the disk failure message$/ do
@@ -125,7 +122,7 @@ Then /^the Greeter forbids all settings but language$/ do
   )
 end
 
-Then /^I am told that that Persistent Storage cannot be created$/ do
+Then /^I am told that Persistent Storage cannot be created$/ do
   launch_persistent_storage(check_started: false)
   step 'I am recommended to reinstall Tails due to partitioning errors'
 end

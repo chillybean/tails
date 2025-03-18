@@ -1045,11 +1045,14 @@ Run the following command
 to create a directory with a suitable name, go there, move the built
 images to this brand new directory, generate detached OpenPGP
 signatures for the images to be published (in the same directory as the
-images and with a `.sig` extension), then go up to the parent
-directory, create a `.torrent` file and check the generated `.torrent`
+images and with a `.sig` extension):
+
+    ./bin/generate-images-signatures
+
+Then, create a `.torrent` file and check the generated `.torrent`
 files metadata:
 
-    ./bin/generate-images-signatures-and-torrents
+    ./bin/generate-torrents
 
 Get the internal manual testing started
 =======================================
@@ -1614,14 +1617,11 @@ As tracked on [[!tails_ticket 19396]], it might well be
 that Mirrorbits will miss this update.
 Let's be sure that this happens via
 
-    ssh rsync.lizard "sudo cat /etc/mirrorbits-rpc-password && echo" \
-      | ssh rsync.lizard mirrorbits -a refresh -rehash
+    ssh rsync.lizard sudo systemctl restart mirrorbits.service
 
 If, at a later stage of the process, you realize Mirrorbits is still not
-"noticing" that mirrors are up-to-date, don't be afraid of refreshing/rehashing
-again, or even restart the whole service (which also triggers a rehash):
-
-    ssh rsync.lizard sudo systemctl restart mirrorbits.service
+"noticing" that mirrors are up-to-date, don't be afraid of restarting
+the Mirrorbits service again.
 
 ## Announce, seed and test the Torrents
 
@@ -1960,9 +1960,13 @@ documentation](https://gitlab.torproject.org/tpo/tpa/team/-/wikis/service/blog#h
 
         torBlogFile=$(./bin/generate-Tor-blog-post "${VERSION:?}" "${TAG:?}" "${DIST:?}" "${RELEASE_DATE:?}")
 
-- Copy the introduction sentences of the body into the `summary` section of 
-  `${torBlogFile}`. If there is no such sentence, this can be enough:
-  `Tails ${VERSION:?} is out.`
+- Ensure the `summary` section of the draft blog post in `${torBlogFile}` has adequate contents:
+
+  - If the body of the release notes has introduction sentences: copy these sentences.
+
+  - Else, write `Tails ${VERSION:?} is out.`
+
+  - In any case, do *not* leave the `FIXME` placeholder as-is.
 
 - Proof-read `${torBlogFile}`.
 

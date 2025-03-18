@@ -263,6 +263,10 @@ AfterFeature('@product') do
     .each   { |vol_name| $vmstorage.delete_volume(vol_name) }
 end
 
+Before do |scenario|
+  @scenario = scenario
+end
+
 # Cucumber Before hooks are executed in the order they are listed, and
 # we want this hook to always run first, so it must always be the
 # *first* Before hook matching @product listed in this file.
