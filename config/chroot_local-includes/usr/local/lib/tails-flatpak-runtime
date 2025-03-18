@@ -5,9 +5,8 @@ set -eu
 # This script is used to create a pseudo flatpak runtime from the Tails
 # root filesystem.
 
-MERGEBASE=/var/lib/flatpak/runtime/org.boum.tails.Platform/x86_64/stable/active/files
+TARGETDIR=/var/lib/flatpak/runtime/org.boum.tails.Platform/x86_64/stable/active/files
 RUNDIR=/run/tails-flatpak-runtime-overlay
-DIRS="/usr/bin /usr/lib /usr/lib64 /usr/sbin /usr/include /usr/libexec /usr/local /usr/share"
 
 usage() {
     cat <<EOF
@@ -20,47 +19,34 @@ EOF
 }
 
 create() {
-    # Create an overlay filesystem for each directory in DIRS and mount
-    # it into the flatpak runtime directory.
-    local lowerdirs upperdir workdir mergeddir
+    # Create an overlay filesystem from /usr and mount it into the
+    # org.boum.tails.Platform flatpak runtime directory. While it
+    # would be sufficient to bind-mount /usr to the runtime directory,
+    # this way we any changes made to /usr by a compromised flatpak
+    # using this runtime are isolated to just the runtime and not
+    # affecting the host system.
 
-    for dir in ${DIRS}; do
-        upperdir="${RUNDIR}/upper${dir}"
-        workdir="${RUNDIR}/work${dir}"
-        lowerdirs=
+    local lowerdir upperdir workdir
 
-        # Add the directory to the lowerdirs if it exists
-        if [ -d "${dir}" ]; then
-            lowerdirs="${dir}"
-        fi
+    upperdir="${RUNDIR}/upper/usr"
+    workdir="${RUNDIR}/work/usr"
+    lowerdir="/usr"
 
-        if [ -z "${lowerdirs:-}" ]; then
-            # Nothing to do for this dir
-            continue
-        fi
+    install -d "${upperdir}" "${workdir}"
 
-        # The files/ directory of the flatpak runtime is mounted to /usr in
-        # the flatpak sandbox, so we need to remove the leading "/usr" from
-        # the directory name to avoid it being mounted below "/usr/usr".
-        mergeddir="${MERGEBASE}${dir#/usr}"
-        install -d "${upperdir}" "${workdir}" "${mergeddir}"
-        mount -t overlay overlay \
-            -o lowerdir="${lowerdirs}",upperdir="${upperdir}",workdir="${workdir}" \
-            "${mergeddir}"
-    done
+    mount -t overlay overlay \
+        -o lowerdir="${lowerdir}",upperdir="${upperdir}",workdir="${workdir}" \
+        "${TARGETDIR}"
 
     # Flatpak expects the .ref file to exist
-    install /dev/null "${MERGEBASE}/.ref"
+    install /dev/null "${TARGETDIR}/.ref"
 }
 
 destroy() {
-    # Unmount the overlay filesystems
-    for dir in ${DIRS}; do
-        mergeddir="${MERGEBASE}${dir#/usr}"
-        if mountpoint -q "${mergeddir}"; then
-            umount --recursive "${mergeddir}"
-        fi
-    done
+    # Unmount the overlay filesystem
+    if mountpoint -q "${TARGETDIR}"; then
+        umount --recursive "${TARGETDIR}"
+    fi
 
     # Unmount all mountpoints below the run directory
     mountpoints=$(find "${RUNDIR}" -exec mountpoint -q {} \; -print)
