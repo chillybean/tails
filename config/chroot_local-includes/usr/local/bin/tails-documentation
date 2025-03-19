@@ -5,7 +5,7 @@ import re
 import sys
 from argparse import ArgumentParser
 
-from tailslib.website import WEBSITE_URL, DocumentationPageNotFound, resolve
+from tailslib.website import WEBSITE_URL
 
 ALREADY_LOCALIZED = re.compile(r"/index.[a-z][a-z].html$")
 
@@ -34,7 +34,6 @@ def sanitize_page_uri(page: str) -> str:
 
 def get_parser():
     p = ArgumentParser()
-    p.add_argument("--force-local", default=False, action="store_true")
     p.add_argument("--doctest", default=False, action="store_true")
     p.add_argument("--dry-run", default=False, action="store_true")
     p.add_argument("page", default="doc", nargs="?")
@@ -59,11 +58,6 @@ def parse_args(_args=None):
     'foo'
     >>> parse_args(['foo', 'bar']).anchor
     'bar'
-
-    >>> parse_args(['--force-local', 'foo', 'bar']).page
-    'foo'
-    >>> parse_args(['--force-local', 'foo', 'bar']).anchor
-    'bar'
     """
     return get_parser().parse_args(_args)
 
@@ -84,10 +78,11 @@ def main():
             sys.exit(0)
         return
 
-    try:
-        uri = resolve(page, anchor, args.force_local)
-    except DocumentationPageNotFound as exc:
-        sys.exit(exc.message)
+    # We rely on the logic in the tor-browser script to resolve this
+    # to a local page if necessary.
+    uri = f"https://tails.net/{page}"
+    if anchor:
+        uri = f"{uri}#{anchor}"
 
     if args.dry_run:
         print(uri)
@@ -103,25 +98,12 @@ def main():
     #
     # By using systemd-cat, we avoid passing our stderr to Tor Browser,
     # and is therefore closed immediately when tails-documentation exits.
-    #
-    # Here we explicitly avoid starting Tor Browser with the
-    # org.boum.tails.TorBrowser desktop file because it adds the "@@u
-    # ... @@" magic that makes `flatpak run` use the doc portal. But
-    # the doc portal is not at all suitable for our documentation
-    # since it only share single files, and our documentation relies
-    # heavily on links to other documents, images, css, etc. However,
-    # even with that magic present, `flatpak run` normally allows
-    # accessing files passed as arguments directly without using the
-    # doc portal as long as the are shared into the flatpak, which the
-    # documentation is in the Tor Browser flatpak context, but flatpak
-    # makes an exception for /usr, where our documentation is located,
-    # forcing the doc portal to share the single HTML file instead of
-    # direct access.
     os.execv(
         "/usr/bin/systemd-cat",
         [
             "/usr/bin/systemd-cat",
-            "/usr/local/bin/tor-browser",
+            "/usr/local/bin/gtk-abspath-launch",
+            "/usr/share/applications/org.boum.tails.TorBrowser.desktop",
             uri,
         ],
     )

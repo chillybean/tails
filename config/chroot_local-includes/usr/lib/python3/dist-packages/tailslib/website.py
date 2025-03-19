@@ -14,6 +14,7 @@ class DocumentationPageNotFound(ValueError):
 
 
 def resolve(page: str, anchor: str = "", force_local: bool = False) -> str:
+    page = page.removesuffix("/")
     # If possible, let's hand-off to our website, which should be the most
     # up-to-date option.
     if not force_local and tor_has_bootstrapped():
