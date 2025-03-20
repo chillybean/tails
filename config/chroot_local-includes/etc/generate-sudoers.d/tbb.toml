@@ -1,0 +1,9 @@
+[[commands]]
+executable = "/usr/local/lib/run-tor-browser"
+allowed_user = "amnesia"
+[commands.env_keep]
+value = ["ENVFILE"]
+reason = "FIXME: see tails/tails#20863"
+[commands.arbitrary_arguments]
+value = true
+reason = "run-tor-browser will validate arguments to reject options (see tails/tails#19595)"
