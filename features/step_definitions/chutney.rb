@@ -25,6 +25,7 @@ def chutney_env
     # The default value (60s) is too short for "chutney wait_for_bootstrap"
     # to succeed reliably.
     'CHUTNEY_START_TIME'     => ENV['CHUTNEY_START_TIME'] || '600',
+    'CHUTNEY_TOR_SANDBOX'    => '0',
   }
 end
 
@@ -125,11 +126,14 @@ def wait_until_chutney_is_working
   # After bootstrapping it still takes time for bridges (especially
   # those with pluggable transports) to become usable.
   try_for(120) do
-    Dir.glob("#{$config['TMPDIR']}/chutney-data/nodes/*") do |node_dir|
-      torrc = File.read("#{node_dir}/torrc")
+    Dir.glob("#{$config['TMPDIR']}/chutney-data/nodes/*") do |node_path|
+      torrc_path = "#{node_path}/torrc"
+      next unless File.directory?(node_path) && File.exist?(torrc_path)
+
+      torrc = File.read(torrc_path)
       next unless torrc[/BridgeRelay 1/]
 
-      log = File.read("#{node_dir}/notice.log")
+      log = File.read("#{node_path}/notice.log")
       unless log[/Self-testing indicates your ORPort .* is reachable from the outside/]
         raise
       end

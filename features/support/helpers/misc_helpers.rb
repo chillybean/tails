@@ -317,7 +317,8 @@ def all_tor_hosts
   chutney_torrcs.each do |torrc|
     File.open(torrc) do |f|
       nodes += f.grep(/^(Or|Dir)Port\b/).map do |line|
-        { address: $vmnet.bridge_ip_address.to_s, port: line.split.last.to_i }
+        { address: $vmnet.bridge_ip_address.to_s,
+          port:    line.split.last.split(':').last.to_i, }
       end
     end
   end
