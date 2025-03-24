@@ -39,7 +39,7 @@ create() {
         "${TARGETDIR}"
 
     # Flatpak expects the .ref file to exist
-    install /dev/null "${TARGETDIR}/.ref"
+    install --mode=0644 /dev/null "${TARGETDIR}/.ref"
 }
 
 destroy() {
