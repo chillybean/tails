@@ -277,7 +277,7 @@ method dialog (Str $question, Str :$type = 'question', Str :$title,
     push @cmd, '--default-cancel' if $default_cancel;
     $self->info($info);
     return 1 if $self->batch;
-    system(@cmd);
+    system([0,1],@cmd);
     ${^CHILD_ERROR_NATIVE} == 0;
 }
 
