@@ -64,8 +64,6 @@ def parse_args(_args=None):
 
 def main():
     args = parse_args()
-    page = sanitize_page_uri(args.page)
-    anchor = args.anchor
 
     if args.doctest:
         import doctest
@@ -80,9 +78,14 @@ def main():
 
     # We rely on the logic in the tor-browser script to resolve this
     # to a local page if necessary.
-    uri = f"https://tails.net/{page}"
-    if anchor:
-        uri = f"{uri}#{anchor}"
+    if args.page.startswith(WEBSITE_URL):
+        uri = args.page
+    else:
+        page = sanitize_page_uri(args.page)
+        uri = f"https://tails.net/{page}"
+
+    if args.anchor:
+        uri = f"{uri}#{args.anchor}"
 
     if args.dry_run:
         print(uri)
