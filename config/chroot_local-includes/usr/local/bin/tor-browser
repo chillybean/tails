@@ -42,6 +42,9 @@ def main():
                 # paths under /usr since it mostly causes trouble.
                 args = [resolved]
             else:
+                # Even if resolved is not a local path, it might still have changed.
+                # As an example, if the target is https://tails.net/about, then resolved
+                # will point to a localized version of that link
                 args[target_index] = resolved
 
     if skip_offline:
