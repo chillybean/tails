@@ -27,3 +27,31 @@ org.kde.kconfig.notify=none
 org.kde.KGlobalSettings=none
 org.mozilla.firefox.*=own
 org.a11y.Bus=talk
+
+# Here we explain why we are skipping some settings used in the
+# org.mozilla.firefox flatpak:
+#
+#   [Session Bus Policy]
+#
+#   org.gtk.vfs.*=talk
+#
+# Doesn't seem to be used any more from grepping the Tor Browser
+# source.
+#
+#   org.mpris.MediaPlayer2.firefox.*=own
+#
+# Used for Desktop integration (e.g. status indicator that controls
+# playback) but it is not used by GNOME.
+#
+#   org.freedesktop.FileManager1=talk
+#
+# This seems to be some DBus alternative to the Desktop Portal
+# FileChooser, which is unused if Portals are enabled, which they are
+# both in Tails and the org.torproject.TorBrowser flatpak.
+#
+#   [System Bus Policy]
+#
+#   org.freedesktop.NetworkManager=talk
+#
+# Apparently Firefox has support for Wifi scanning, which we don't
+# care about.
