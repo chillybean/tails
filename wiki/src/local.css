@@ -1322,3 +1322,59 @@ html[dir="rtl"] #pagebody div.toggleable span.hide a.toggle {
   right: auto;
   left: 0;
 }
+
+/* Documentation index */
+
+#doc-index {
+  position: relative;
+  left: -280px;
+  top: 80px;
+  height: 0;
+}
+
+#doc-index a {
+  color: black;
+}
+
+#doc-index {
+  width: 250px;
+}
+
+#doc-index input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+#doc-index .topic,
+#doc-index .subtopic {
+  display: none;
+  margin-left: 20px;
+}
+
+#doc-index label {
+  padding: 5px 0 5px 13px;
+}
+
+#doc-index label:has(.selflink) {
+  padding-left: 10px;
+  border-left: 3px solid var(--medium-purple) !important;
+  font-weight: bold;
+}
+
+#doc-index .section input:checked ~ .topic,
+#doc-index .topic input:checked ~ .subtopic,
+#doc-index .section:has(.selflink) > .topic,
+#doc-index .topic:has(.selflink) > .subtopic {
+  display: block;
+}
+
+#doc-index .section:has(.selflink) > label,
+#doc-index .topic:has(.selflink) > label,
+#doc-index .selflink {
+  color: var(--medium-purple) !important;
+}
+
+#doc-index a:hover {
+  text-decoration: underline;
+}

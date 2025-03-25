@@ -20,7 +20,7 @@
 <TMPL_IF LOCAL_CSS>
 <link rel="stylesheet" href="<TMPL_VAR BASEURL><TMPL_VAR LOCAL_CSS>" type="text/css" />
 <TMPL_ELSE>
-<link rel="stylesheet" href="<TMPL_VAR BASEURL>local.css?reload-2022-10-17" type="text/css" />
+<link rel="stylesheet" href="<TMPL_VAR BASEURL>local.css?reload-2025-05-01" type="text/css" />
 <link rel="stylesheet" href="<TMPL_VAR BASEURL>lib/fontawesome/css/all.min.css" type="text/css" />
 </TMPL_IF>
 <TMPL_IF YEAR-END>
@@ -67,6 +67,12 @@
 </TMPL_UNLESS>
 
 <TMPL_IF HTML5><article class="page"><TMPL_ELSE><div class="page"></TMPL_IF>
+
+<TMPL_IF DOC>
+<nav id="doc-index">
+<TMPL_VAR DOC>
+</nav>
+</TMPL_IF>
 
 <section id="pageheader">
 
