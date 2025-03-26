@@ -14,6 +14,9 @@ ignore:
     flask:
       version: 3.1.0-2
       reason: "New upstream release, no compelling reason to upgrade"
+    flatpak:
+      version: 1.16.0-2
+      reason: "We are patching the version from Debian Stable and have no compelling reason to backport from Debian Testing"
     gdisk:
       version: 1.0.10-2
       reason: "No relevant change compared to 1.0.10-1~bpo12+1~tails1 + incompatible with Bookworm"
