@@ -2,6 +2,14 @@ def browser
   Dogtail::Application.new('Firefox')
 end
 
+def desktop_portal
+  Dogtail::Application.new('xdg-desktop-portal-gtk')
+end
+
+def desktop_portal_save_as_dialog
+  desktop_portal.child(roleName: 'file chooser')
+end
+
 def save_page_as
   browser.child(
     description: 'Open application menu',
@@ -11,7 +19,7 @@ def save_page_as
     name:     'Save page as\u2026',
     roleName: 'push button'
   ).press
-  browser.child('Save As', roleName: 'file chooser')
+  desktop_portal_save_as_dialog
 end
 
 def browser_url_entry
@@ -287,10 +295,9 @@ When /^I download some file in the Tor Browser$/ do
            .button('Save File')
   try_for(10) { button.sensitive? }
   button.press
-  @torbrowser
-    .child(roleName: 'file chooser')
-    .button('Save')
-    .click
+  file_dialog = desktop_portal_save_as_dialog
+  file_dialog.child('Save', roleName: 'push button').click
+
   @torbrowser
     .button('Downloads')
     .press
@@ -520,7 +527,7 @@ When /^I can print the current page as "([^"]+[.]pdf)" to the (default downloads
                end
   @screen.press('ctrl', 'p')
   @torbrowser.child('Save', roleName: 'push button').press
-  file_dialog = @torbrowser.child('Save As', roleName: 'file chooser')
+  file_dialog = desktop_portal_save_as_dialog
   # Enter the output filename in the text entry
   text_entry = file_dialog.child('Name', roleName: 'label').labelee
   filename = "#{output_dir}/#{output_file}"
@@ -530,6 +537,33 @@ When /^I can print the current page as "([^"]+[.]pdf)" to the (default downloads
   try_for(30,
           msg: "The page was not printed to #{output_dir}/#{output_file}") do
     $vm.file_exist?("#{output_dir}/#{output_file}")
+  end
+end
+
+def activate_places_sidebar_item(parent, path)
+  list_item = parent.child(description: path, roleName: 'list item')
+  # We have had problems with the Space press not causing the
+  # bookmark to be selected despite it being focused (tails#20356,
+  # tails#20159)
+  try_for(20) do
+    # Unlike the native file picker, the XDG Desktop Portal file
+    # picker use here has this issue: grabbing focus of the list item
+    # and then pressing Space to activate it does nothing, which for
+    # the native file picker selects the list item in its list box and
+    # changes the directory. So we also manually making the list item
+    # selected and then it works as expected.
+    # Furthermore, our Dogtail::Node#select is implemented with
+    # .doActionNamed('select'), but for some reason that action is not
+    # available for this list item like it usually is. So we instead
+    # call .select() which Dogtail implements differently and is
+    # available for this list item node.
+    list_item.call_tree_api_method('select')
+    list_item.grabFocus
+    @screen.press('Space')
+    # If we successfully selected the bookmark then the path will be
+    # updated accordingly, and each path component is a 'toggle
+    # button' labelled with the name of the folder.
+    parent.child?(path.split('/').last, roleName: 'toggle button', retry: false)
   end
 end
 
@@ -549,19 +583,7 @@ When /^I (can|cannot) save the current page as "([^"]+[.]html)" to the (.*) (dir
                end
 
   if is_gnome_bookmark
-    output_dir_bookmark = file_dialog.child(description: output_dir,
-                                            roleName:    'list item')
-    # We have had problems with the Space press not causing the
-    # bookmark to be selected despite it being focused (tails#20356,
-    # tails#20159)
-    try_for(20) do
-      output_dir_bookmark.grabFocus
-      # We have had problems with Tor Browser crashing if Space is
-      # pressed to quickly after .grabFocus (tails#20692)
-      sleep 3
-      @screen.press('Space')
-      output_dir_bookmark.selected?
-    end
+    activate_places_sidebar_item(file_dialog, output_dir)
   else
     # Enter the output directory in the text entry
     text_entry = file_dialog.child('Name', roleName: 'label').labelee
