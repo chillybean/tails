@@ -304,24 +304,6 @@ input, textarea {
   border: 1px solid var(--medium-light-gray);
 }
 
-/* Layout */
-
-.page {
-  margin: 0 auto;
-  padding: 0 30px 30px 30px;
-  max-width: 986px;
-  position: relative;
-  border: 0px solid black;
-  background: white;
-}
-
-header.title { /* Override style.css */
-  font-size: 1em;
-  font-weight: normal;
-  margin: 30px 0;
-  display: block;
-}
-
 /* Banner */
 
 #banner {
@@ -473,15 +455,17 @@ label[for="searchbox"]{
 
 /* Top bar */
 
-.topbar {
-  background: white;
-  max-width: 986px;
+#content-container {
   margin: 0 auto;
-  padding-left: 30px;
+  padding: 0 30px;
+  max-width: 986px;
+}
+
+#main-navigation {
   border-bottom: 1px solid var(--background-gray);
 }
 
-.topbar ul {
+#main-navigation ul {
   margin: 0;
   max-width: 100%;
   display: flex;
@@ -489,11 +473,11 @@ label[for="searchbox"]{
   gap: 0 20px;
 }
 
-.topbar ul li {
+#main-navigation ul li {
   display: inline-block;
 }
 
-.topbar a, .topbar .selflink {
+#main-navigation a, #main-navigation .selflink {
   display: block;
   padding: 8px 0;
   font-family: "Source Sans Pro Regular", "DejaVu Sans", "Verdana", sans-serif;
@@ -502,36 +486,33 @@ label[for="searchbox"]{
   border-bottom: 5px solid white;
 }
 
-.topbar a {
+#main-navigation a {
   color: black;
 }
 
-.topbar a:hover {
+#main-navigation a:hover {
   color: black;
   text-decoration: none;
   border-bottom: 5px solid var(--medium-dark-green) !important;
 }
 
-.topbar .selflink {
+#main-navigation .selflink {
   border-bottom: 5px solid var(--dark-green);
 }
 
 @media (min-width: 810px) {
-  .topbar ul {
+  #main-navigation ul {
     gap: 30px;
   }
 }
 
-/* Page header */
+/* Breadcrumbs */
 
-#pageheader {
+#crumbs-and-languages {
   display: flex;
-  flex-wrap: wrap-reverse;
-  flex-direction: row-reverse;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
-
-/* Breadcrumbs */
 
 #crumbs {
   flex-grow: 1;
@@ -699,31 +680,31 @@ a {
   text-decoration: none;
 }
 
-#pagebody a {
+#page-body a {
   color: var(--dark-green);
   text-decoration: underline;
 }
 
-#pagebody a:visited {
+#page-body a:visited {
   color: var(--darker-green);
 }
 
 /* Test inside and outside links */
 
-#pagebody a[href^="http"] {
+#page-body a[href^="http"] {
   padding-right: 13px;
   background: url(lib/link_out.gif) no-repeat right bottom;
 }
 
-#pagebody a[href^="http://localhost"],
-#pagebody a[href^="http://tails.net"],
-#pagebody a[href^="https://tails.net"],
-#pagebody a[href^="http://tails.boum.org"],
-#pagebody a[href^="https://tails.boum.org"],
-#pagebody a[href^="http://dl.amnesia.boum.org"],
-#pagebody a[href^="https://dl.amnesia.boum.org"],
-#pagebody a[href^="https://download.tails.net"],
-#pagebody a.noicon {
+#page-body a[href^="http://localhost"],
+#page-body a[href^="http://tails.net"],
+#page-body a[href^="https://tails.net"],
+#page-body a[href^="http://tails.boum.org"],
+#page-body a[href^="https://tails.boum.org"],
+#page-body a[href^="http://dl.amnesia.boum.org"],
+#page-body a[href^="https://dl.amnesia.boum.org"],
+#page-body a[href^="https://download.tails.net"],
+#page-body a.noicon {
   background-image: none;
   padding-right: 0;
 }
@@ -898,7 +879,7 @@ button:hover, .button > a:hover, label.button:hover, input[type="submit"]:hover 
 
 /* Toggleable */
 
-#pagebody div.toggleable {
+#page-body div.toggleable {
   position: relative;
   background: var(--background-gray);
   padding: 15px 30px;
@@ -907,7 +888,7 @@ button:hover, .button > a:hover, label.button:hover, input[type="submit"]:hover 
   border: 1px solid var(--light-gray);
 }
 
-#pagebody div.toggleable span.hide a.toggle, span.hide-button {
+#page-body div.toggleable span.hide a.toggle, span.hide-button {
   display: block;
   height: 30px;
   width: 30px;
@@ -917,7 +898,7 @@ button:hover, .button > a:hover, label.button:hover, input[type="submit"]:hover 
   cursor: pointer;
 }
 
-#pagebody .floating-toggleable div.toggleable {
+#page-body .floating-toggleable div.toggleable {
   display: none;
   background: white;
   border: 5px solid var(--medium-dark-green);
@@ -930,7 +911,7 @@ button:hover, .button > a:hover, label.button:hover, input[type="submit"]:hover 
   width: 37em;
 }
 
-#pagebody .floating-toggleable a.toggle {
+#page-body .floating-toggleable a.toggle {
   border: none !important;
   cursor: pointer;
   position: absolute;
@@ -1096,6 +1077,7 @@ div#highlight {
   padding: 0.5em 1em;
   border-radius: 5px;
 }
+
 div#highlight p {
   margin: 0.5em 0;
 }
@@ -1189,8 +1171,6 @@ div#highlight p {
 .brown  .key-label:before { background-color: var(--brown); }
 .purple .key-label:before { background-color: var(--purple); }
 .yellow .key-label:before { background-color: var(--yellow); }
-
-
 .purple-1 .key-label:before { background-color: var(--purple-1); }
 .purple-2 .key-label:before { background-color: var(--purple-2); }
 .purple-3 .key-label:before { background-color: var(--purple-3); }
@@ -1318,7 +1298,7 @@ html[dir="rtl"] .pageheader #otherlanguages {
   width: 100%;
 }
 
-html[dir="rtl"] #pagebody div.toggleable span.hide a.toggle {
+html[dir="rtl"] #page-body div.toggleable span.hide a.toggle {
   right: auto;
   left: 0;
 }

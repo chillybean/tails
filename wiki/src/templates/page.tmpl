@@ -43,33 +43,33 @@
   </div>
 </header>
 
-<TMPL_IF YEAR-END>
-<nav id="year-end">
-  <TMPL_VAR YEAR-END>
-</nav>
-</TMPL_IF>
+<div id="content-container">
 
-<TMPL_IF MAIN>
-<nav class="topbar" role="navigation">
-  <TMPL_VAR MAIN>
-</nav>
-</TMPL_IF>
-
-<article class="page">
-
-  <TMPL_IF DOC>
-  <nav id="doc-index">
-    <TMPL_VAR DOC>
+  <TMPL_IF YEAR-END>
+  <nav id="year-end">
+    <TMPL_VAR YEAR-END>
   </nav>
   </TMPL_IF>
 
-  <section id="pageheader">
+  <TMPL_IF MAIN>
+  <nav id="main-navigation" role="navigation">
+    <TMPL_VAR MAIN>
+  </nav>
+  </TMPL_IF>
 
-    <TMPL_IF DOC>
-    <nav id="doc-index">
-      <TMPL_VAR DOC>
+  <div id="crumbs-and-languages">
+
+    <nav id="crumbs">
+      <ul>
+        <TMPL_LOOP PARENTLINKS>
+        <TMPL_IF DEPTH_0>
+        <TMPL_ELSE>
+        <li><a href="<TMPL_VAR URL>"><TMPL_VAR PAGE></a></li>
+        </TMPL_IF>
+        </TMPL_LOOP>
+        <li><TMPL_VAR TITLE></li>
+      </ul>
     </nav>
-    </TMPL_IF>
 
     <div id="language-switcher-top">
       <TMPL_IF OTHERLANGUAGES>
@@ -91,36 +91,30 @@
       </TMPL_IF>
     </div>
 
-    <ul id="crumbs">
-
-      <TMPL_LOOP PARENTLINKS>
-      <TMPL_IF DEPTH_0>
-      <TMPL_ELSE>
-
-      <li><a href="<TMPL_VAR URL>"><TMPL_VAR PAGE></a></li>
-
-      </TMPL_IF>
-      </TMPL_LOOP>
-
-      <li><TMPL_VAR TITLE></li>
-
-    </ul>
-
-  </section>
-
-  <header class="title">
-    <span class="title">
-      <TMPL_VAR TITLE>
-    </span>
-  </header>
-
-  <div id="pagebody">
-    <section id="content" role="main">
-      <TMPL_VAR CONTENT>
-    </section>
   </div>
 
-</article>
+  <div id="page-container">
+
+    <TMPL_IF DOC>
+    <nav id="doc-index">
+      <TMPL_VAR DOC>
+    </nav>
+    </TMPL_IF>
+
+    <article id="page-body">
+      <header class="title">
+        <span class="title">
+          <TMPL_VAR TITLE>
+        </span>
+      </header>
+      <section id="content" role="main">
+        <TMPL_VAR CONTENT>
+      </section>
+    </article>
+
+  </div>
+
+</div>
 
 <footer id="footer" class="pagefooter" role="contentinfo">
   <div id="footer-container">
