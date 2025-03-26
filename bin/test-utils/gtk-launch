@@ -1,0 +1,21 @@
+#!/bin/bash
+
+if which git &>/dev/null; then
+    # This will run on developer's setup
+    grepCmd=(git grep)
+else
+    # This will run in CI. Well, there's no other file, so git grep is just the same as grep, here.
+    grepCmd=(grep -r)
+fi
+
+mapfile -t offendingFiles < <("${grepCmd[@]}" -l --word-regexp gtk-launch config/)
+if [ "${#offendingFiles}" -eq 0 ]; then
+    exit 0
+fi
+
+echo "Some files use gtk-launch, which is discouraged (see https://gitlab.tails.boum.org/tails/tails/-/issues/20745)" >&2
+for file in "${offendingFiles[@]}"; do
+    echo "$file" >&2
+done
+
+exit 1
