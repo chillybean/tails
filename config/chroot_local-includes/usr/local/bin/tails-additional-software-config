@@ -96,6 +96,7 @@ class ASPConfigApplicationWindow(Gtk.ApplicationWindow):
             desktop = uri.split("/")[-1]
             # Building an absolute path is needed to avoid #20745
             # in this case this is actually irrelevant, as this program has no privileges.
+            # qa-tails-20745-ok
             appinfo = Gio.DesktopAppInfo.new_from_filename(
                 f"/usr/share/applications/{desktop}"
             )
