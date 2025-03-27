@@ -82,20 +82,12 @@ We do two reproducibility checks:
   - [[IUKs|contribute/release_process#reproducibility-sanity-check-iuk]]
     (not very useful at the moment since Jenkins doesn't build IUKs)
 
-* For Goals 2 and 3, we do
-  [[a second reproducibility check|contribute/release_process#reproducibility-final-check]]
-  by a trusted third-party (the Trusted Reproducer) after the RM
-  has unplugged their OpenPGP smart card; this implies that the
-  attacker must have had the compromised RM system sign compromised
-  data earlier, and then either publish the compromised product during
-  the confused release process time (when there's less chance for it
-  to be noticed) or later (and then they have a good chance to be
-  caught). This raises the bar for a successful attack a bit, although
-  it leaves a window during which users can download a compromised
-  Tails.
+* For Goal 2, we consistently monitor that IDFs and UDFs are legitimate:
+
+  - via automatic montitoring ([[!tails_ticket 20825]])
+  - manually checking [[on a monthly basis|contribute/release_process/test]]
+
 
 The rest of the time we're all careful about what's going on in the
 UDFs, IDFs, detached signatures and Git tags (this is not true
 anymore; [[!tails_ticket 20617]] will update these expectations).
-Of course, we should have monitoring of these things and alerts whenever they change
-([[!tails_ticket 20825]]).

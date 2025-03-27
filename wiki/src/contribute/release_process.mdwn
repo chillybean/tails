@@ -1506,8 +1506,6 @@ so it has to be started from the beginning:
 
 * the original text is restored on the pad, and
 * some tester follows it from scratch, and
-* the Trusted Reproducer follows awaits the new input from said tester
-  and then starts from scratch.
 
 So please try to avoid this!
 
@@ -1793,22 +1791,6 @@ Lead the internal manual testing to conclusion
    expected outcome)?
 
 <a id="reproducibility-final-check"></a>
-
-Notify the Trusted Reproducer
-=============================
-
-Send an email to the TR telling them they can now start the
-Reproducibility test.
-
-Note that the Trusted Reproducer has 72 hours to complete this check,
-you do not have to wait for this to be completed, just make sure they
-are informed that the Reproducibility check can be started.
-
-    ./bin/automailer.py <<EOF
-    Subject: Trusted Reproducer for ${VERSION:?}
-    
-    You can now start the reproducibility test.
-    EOF
 
 Prepare announcements and blog posts
 ====================================
@@ -2436,23 +2418,12 @@ Check that you are indeed preparing a final release:
 
      - exist
      - say who is the release manager
-     - say who is the trusted reproducer
 
    If any of this information is missing, open an issue for each release that
-   lacks a RM or TR:
+   lacks a RM:
 
        /label ~"C:Release management" ~"Tails Team" ~"To Do" ~"P:Elevated"
        /milestone %"Tails_${NEXT_PLANNED_VERSION:?}"
-
-   Include this information:
-
-   - For the Trusted Reproducer
-     - Your job will be to reproduce the ISO and USB images for the RC (if
-       applicable) and final release within 72 hours after the RM has
-       unplugged their smartcard.
-     - If you volunteer, you must immediately read the "Preparation" section of
-       the instructions:
-       https://tails.net/contribute/release_process/reproducibility/#preparation
 
 1. If you are the release manager for the next release too, look at the
    tasks that must be done at the beginning of your shift in the
