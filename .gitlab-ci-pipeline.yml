@@ -123,7 +123,9 @@ avoid-gtk-launch:
   image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:sid
 
   script:
+    - apt-get -qy install --no-install-recommends python3 git
     - ./bin/test-utils/gtk-launch
+    - ./bin/test-utils/gtk-launch-more
 
 ruff-lint-changed-files:
   only:
