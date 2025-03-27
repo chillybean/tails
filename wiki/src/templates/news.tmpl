@@ -61,6 +61,12 @@
 
     <nav id="crumbs">
       <ul>
+        <TMPL_IF DOC>
+        <li id="doc-index-button-wrapper">
+          <label for="doc-index-button" id="doc-index-menu"></label>
+          <input type="checkbox" id="doc-index-button">
+        </li>
+        </TMPL_IF>
         <TMPL_LOOP PARENTLINKS>
         <TMPL_IF DEPTH_0>
         <TMPL_ELSE>
@@ -97,6 +103,7 @@
 
     <TMPL_IF DOC>
     <nav id="doc-index">
+      <label for="doc-index-button" id="doc-index-close"></label>
       <TMPL_VAR DOC>
     </nav>
     </TMPL_IF>

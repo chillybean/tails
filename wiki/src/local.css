@@ -445,6 +445,7 @@ label[for="searchbox"]{
 /* Top bar */
 
 #content-container {
+  position: relative;
   margin: 0 auto;
   padding: 0 30px;
   max-width: 986px;
@@ -499,14 +500,18 @@ label[for="searchbox"]{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  padding-top: 15px;
 }
 
 #crumbs {
   flex-grow: 1;
-  margin: 15px 0 0 0;
   font-size: 16px;
   display: flex;
   flex-wrap: wrap;
+}
+
+#crumbs ul {
+  margin: 0;
 }
 
 #crumbs li:only-child {
@@ -537,7 +542,6 @@ label[for="searchbox"]{
 
 #language-switcher-top {
   position: relative;
-  margin-top: 7px;
   width: 120px; /* Force size to prevent overflowing breadcrumbs */
   height: 35px;
   z-index: 5;
@@ -1280,20 +1284,32 @@ html[dir="rtl"] #page-body div.toggleable span.hide a.toggle {
 
 /* Documentation index */
 
+#page-container {
+  padding-top: 15px;
+  display: flex;
+  gap: 0 30px;
+  margin-left: -250px;
+}
+
+@media (max-width: 1450px) {
+  #page-container {
+    margin-left: -150px;
+  }
+}
+
+@media (max-width: 1250px) {
+  #page-container {
+    margin-left: 0;
+  }
+}
+
 #doc-index {
-  position: relative;
-  left: -280px;
-  top: 80px;
-  height: 0;
+  width: 250px;
   font-size: 16px;
 }
 
 #doc-index a {
   color: black;
-}
-
-#doc-index {
-  width: 250px;
 }
 
 #doc-index input {
@@ -1333,4 +1349,69 @@ html[dir="rtl"] #page-body div.toggleable span.hide a.toggle {
 
 #doc-index a:hover {
   text-decoration: underline;
+}
+
+#crumbs #doc-index-button-wrapper {
+  display: none;
+}
+
+#doc-index-close {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  #crumbs #doc-index-button-wrapper {
+    display: inline-block;
+    background: none !important;
+    padding-right: 0;
+  }
+
+  #doc-index-button-wrapper input {
+    display: none;
+  }
+
+  #doc-index-menu {
+    display: block;
+    width: 24px;
+    height: 24px;
+    position: relative;
+    top: 6px;
+    background: url('lib/open-menu.png') no-repeat 0 4px;
+    cursor: pointer;
+  }
+
+  #doc-index {
+    display: none;
+    position: relative;
+    padding: 20px 30px 30px 18px;
+    z-index: 5;
+    background: var(--background-purple);
+    width: calc(100% + 60px);
+    margin-left: -30px;
+    margin-right: -30px;
+    font-size: 18px;
+  }
+
+  #content-container:has(#doc-index-button:checked) #doc-index {
+    display: block;
+  }
+
+  #content-container:has(#doc-index-button:checked) #page-body {
+    display: none;
+  }
+
+  #doc-index-close {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background: url('lib/close.png') no-repeat;
+    cursor: pointer;
+  }
+
+  #language-switcher-top {
+    display: none;
+  }
 }
