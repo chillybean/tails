@@ -745,53 +745,47 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
     def cb_tps_unlocked(self):
         logging.debug("Storage unlocked")
 
-        def on_tps_activation_success():
-            self.box_storage_unlock.set_visible(False)
-            self.spinner_storage_unlock.set_visible(False)
-            self.image_storage_state.set_from_icon_name(
-                "tails-unlocked", Gtk.IconSize.BUTTON
-            )
-
-            self.image_storage_state.set_visible(True)
-            self.image_storage_unlock_failed.set_visible(False)
-            self.label_storage_unlock_status.set_label(
-                _(
-                    "Your Persistent Storage is unlocked. Its content will be available until you shut down Tails."
-                ),
-            )
-            self.button_start.set_sensitive(True)
-
-        def do_activate_tps():
-            try:
-                self.persistence_setting.activate_persistent_storage()
-            except FeatureActivationFailedError as e:
-                label = (
-                    str(e)
-                    + "\n"
-                    + _(
-                        "Start Tails and open the Persistent Storage settings to find out more."
-                    )
+        # Activate the Persistent Storage
+        try:
+            self.persistence_setting.activate_persistent_storage()
+        except FeatureActivationFailedError as e:
+            label = (
+                str(e)
+                + "\n"
+                + _(
+                    "Start Tails and open the Persistent Storage settings to find out more."
                 )
-                glib_idle_add_once(self.on_tps_activation_failed, label)
-                return
-            except PersistentStorageError as e:
-                logging.error(e)
-                glib_idle_add_once(self.on_tps_activation_failed)
-                return
+            )
+            self.on_tps_activation_failed(label)
+            return
+        except PersistentStorageError as e:
+            logging.error(e)
+            self.on_tps_activation_failed()
+            return
+        if self.tps_upgrade_failed:
+            self.on_tps_upgrade_failed()
+            return
 
-            if not os.listdir(persistent_settings_dir):
-                self.apply_settings()
-            else:
-                self.load_settings()
+        self.box_storage_unlock.set_visible(False)
+        self.spinner_storage_unlock.set_visible(False)
+        self.image_storage_state.set_from_icon_name(
+            "tails-unlocked", Gtk.IconSize.BUTTON
+        )
 
-            if self.tps_upgrade_failed:
-                glib_idle_add_once(self.on_tps_upgrade_failed)
-                return
+        if not os.listdir(persistent_settings_dir):
+            self.apply_settings()
+        else:
+            self.load_settings()
 
-            glib_idle_add_once(on_tps_activation_success)
-
-        activation_thread = threading.Thread(target=do_activate_tps)
-        activation_thread.start()
+        # We're done unlocking and activating the Persistent Storage
+        self.image_storage_state.set_visible(True)
+        self.image_storage_unlock_failed.set_visible(False)
+        self.label_storage_unlock_status.set_label(
+            _(
+                "Your Persistent Storage is unlocked. Its content will be available until you shut down Tails."
+            ),
+        )
+        self.button_start.set_sensitive(True)
 
     def cb_checkbutton_storage_show_passphrase_toggled(self, widget):
         self.entry_storage_passphrase.set_visibility(widget.get_active())
