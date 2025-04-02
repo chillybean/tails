@@ -1,8 +1,157 @@
 tails (6.14) UNRELEASED; urgency=medium
 
-  * Dummy entry for next release.
+  * Upgrade Tor Browser to 14.0.9 (tails/tails!2049)
 
- -- boyska <boyska@riseup.net>  Thu, 06 Mar 2025 13:16:47 +0100
+    Closes issues:
+      - Upgrade to Tor Browser 14.0.9 based on Firefox 128.9 ESR (tails/tails#20844)
+
+    Commits:
+      - Fetch Tor Browser from our own archive
+
+  * CI: ignore onionshare 2.6.3-1 (tails/tails!2015)
+
+    Closes issues:
+      - needed-package-updates fails: onionshare 2.6.3-1 (tails/tails#20846)
+
+    Commits:
+      - CI: ignore onionshare 2.6.3-1
+
+  * Update snapshot of the 'debian' archive to 2025031701 (tails/tails!2028)
+
+    Closes issues:
+      - Upgrade to Bookworm 12.10 (tails/tails#20804)
+
+    Commits:
+      - Update snapshot of the 'debian' archive to 2025031701
+
+  * Partially revert tails!1774: Welcome Screen: fix threading issues that
+    freezes... (tails/tails!2051)
+
+    Closes issues:
+      - Welcome screen disappears after unlocking persistent storage in 6.12+ when
+        persistent Welcome Screen settings are enabled (tails/tails#20783)
+
+    Commits:
+      - Partially revert tails!1774: Welcome Screen: fix threading issues that freezes
+        GUI when activating persistence
+
+  * Upgrade tor to 0.4.8.16 (tails/tails!2048)
+
+    Closes issues:
+      - Upgrade to Tor 0.4.8.16 (tails/tails#20876)
+
+    Commits:
+      - Upgrade tor to 0.4.8.16
+
+  * Don't throw an exception when closing Zenity (tails/tails!2034)
+
+    Closes issues:
+      - About Tails > Check for Upgrades says an error occurred if you exit without
+        clicking "ok" (tails/tails#20861)
+
+    Commits:
+      - Linting
+      - Upgrader: don't throw an exception when closing Zenity
+
+  * Make Qt applications have a window border and look more like GTK ones
+    (tails/tails!2031)
+
+    Closes issues:
+      - No border nor shadow around windows of Qt applications (Kleopatra, KeePassXC,
+        OnionShare) (tails/tails#20834)
+
+    Commits:
+      - Make Qt applications look more like GTK ones
+
+  * Split generate-images-signatures and generate-torrents (tails/tails!2013)
+
+    Closes issues:
+      - near future: improve `bin/generate-images-signatures-and-torrents` to avoid
+        this sort of problems → tails/tails!2011 (tails/tails#20850)
+
+    Commits:
+      - Use variable 1 more time to avoid hard-coding the directory name value twice
+        (DRY)
+      - shfmt
+      - avoid useless steps
+      - Split generate-images-signatures and generate-torrents
+
+  * Fix capitalization (tails/tails!2007)
+
+    Commits:
+      - Sync' test suite to updated UI
+      - Fix capitalization
+
+  * Post-Release doc improvements (6.13) (tails/tails!2004)
+
+    Commits:
+      - Tor blog post: fix commands ordering
+      - replace print with logging
+      - make links to GitLab easier to maintain
+      - clarify which IUK build we're talking about
+      - shfmt
+      - better document branch names suffixes and prefixes
+      - ruff improvements
+      - ruff format
+      - link to blog pipeline
+      - command to get password
+      - postpone waiting for the website update
+      - FIX link to GitLab pipelines
+      - Tor blog post: separate preparation from code
+      - Tor blog post: automate more
+      - tor blog post: point to commit directly
+      - tor blog post: suggest directory name
+      - handles cases where some build_IUKs subjob failed
+      - Put the "wait" instruction where the RM needs it to be
+      - clarify error message
+
+  * onion-grater: drop incorrectly allowed events (tails/tails!1995)
+
+    Closes issues:
+      - See if we can suppress STATUS_SERVER in all onion-grater profiles
+        (tails/tails#20815)
+
+    Commits:
+      - onion-grater: tighten stem-based profiles (refs: tails#20815)
+      - onion-grater: drop incorrectly allowed events
+
+  * Generate sudoers.d files (tails/tails!1979)
+
+    Closes issues:
+      - Automatically ensure we don't accept passing arbitrary arguments when elevating
+        privileges via sudo (tails/tails#20711)
+
+    Commits:
+      - Clarify those XXXs and make them easier to find
+      - whitespace around `=` in sudoers
+      - user → allowed_user
+      - become → run_as_user
+      - don't ship useless configuration for generate-sudoers.d/
+      - don't keep generate-sudoers deps in Tails
+      - drop python3-toml dependency
+      - each dangerous option requires a reason
+      - ruff format
+      - Clarify how sudoers is counterintuitive
+      - small comments improvements
+      - tails-install-iuk needs arguments
+      - reorder to make it more similar to old sudoers.d
+      - cleanup whitespace for easier comparison
+      - generate-sudoers: more commands get arbitrary arguments
+      - allow arbitrary arguments for tor browser
+      - generate-sudoers: fix permissions
+      - fix alias derivation
+      - convert more sudoers file into generate-sudoers.d
+      - Generate /etc/sudoers.d/ from TOML files
+
+  * Arti: upgrade to 1.4.0 (tails/tails!1971)
+
+    Commits:
+      - Update test suite log message
+      - update instructions to update arti
+      - update arti to 1.4.0
+      - Set UID and GID for arti
+
+ -- Tails developers <tails@boum.org>  Wed, 02 Apr 2025 08:06:58 +0000
 
 tails (6.13) unstable; urgency=medium
 
