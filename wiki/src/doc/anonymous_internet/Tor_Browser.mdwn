@@ -36,57 +36,47 @@ Make sure that you are:
 
 1. [[Connected to the Tor network|anonymous_internet/tor]]
 
-<h1 id="confinement">AppArmor confinement, downloading, and uploading files</h1>
+<h1 id="confinement">Security confinement</h1>
 
-*Tor Browser* can only read and write to the following folders:
-
-- *Documents*
-
-- *Downloads*
-
-- *Music*
-
-- *Pictures*
-
-- *Videos*
-
-- *Tor Browser*
-
-- *Persistent/Tor Browser*, if you have a Persistent Storage
-
-This is because, in Tails, *Tor Browser* is confined using
-*[[!debwiki AppArmor]]* to protect your files from some
-types of attacks against *Tor Browser*.
+*Tor Browser* is only allowed to save the downloads and read the files that you
+specify in the file chooser of GNOME.
 
 For example, thanks to this confinement, even if an attacker manages to exploit
 a security vulnerability in *Tor Browser*, they wouldn't be able to access all
 the content of your Persistent Storage.
 
-<div class="note">
-
-<p>This is why you get the following error if you try to download files to
-another folder:</p>
-
-<p class="code">Could not read the contents of <span class="command-placeholder">folder</span>.</p>
-
-<p class="code">Error opening directory <span class="command-placeholder">folder</span>: Permission denied</p>
-
-</div>
-
-- If you want to download a file from *Tor Browser*, save it to one of these
-  folders.
-
-- If you want to upload a file from *Tor Browser*, copy it first to one of
-  these folders.
-
 <div class="tip">
 
 <p>To prevent Tails from running out of memory and crashing, download
-very big files to the <em>Persistent/Tor Browser</em> folder.
-All the files that you download outside of the Persistent Storage are
+very big files to the <i>Persistent/Tor Browser</i> folder.
+The files that you download outside of the Persistent Storage are
 stored in memory (RAM), which is more limited.</p>
 
 </div>
+
+<div class="note">
+
+<p>In [[Tails 6.14.1|news/version_6.14.1]] (April 2025), we improved the
+previous confinement and you can now safely download to and read from any
+folder in your <i>Home</i> folder or Persistent Storage.</p>
+
+</div>
+
+Still, some file operations are not allowed in *Tor Browser*:
+
+- When opening HTML files from the *Files* browser, *Tor Browser* displays the
+  following error:
+
+      File not found
+
+- When opening files in the `/usr` folder from *Tor Browser*, *Tor Browser*
+  displays the following error:
+
+      Access to the file was denied
+
+This confinement relies on 2 security technologies: *[[!debwiki AppArmor]]* and
+the [XDG Desktop Portals](https://flatpak.github.io/xdg-desktop-portal/) of
+*Flatpak*.
 
 <h1 id="fingerprint">Hiding that you are using <i>Tor Browser</i></h1>
 
