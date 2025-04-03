@@ -20,8 +20,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-05 08:57+0100\n"
-"PO-Revision-Date: 2025-02-18 23:02+0000\n"
+"POT-Creation-Date: 2025-04-02 09:44+0200\n"
+"PO-Revision-Date: 2025-03-31 20:58+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/tor/tails-gui/ko/"
@@ -31,7 +31,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.10.1-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -138,7 +138,7 @@ msgstr "제거"
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/add_settings_dialog.py:40
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:178
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:483
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:840
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:834
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:728
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:119
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:376
@@ -212,9 +212,9 @@ msgstr "Tails가 시작될 때 영구 저장소에서 다음 소프트웨어가 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:197
 msgid ""
-"To add more, install some software using <a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
-"desktop\">APT on the command line</a>."
+"To add more, install some software using <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "소프트웨어를 더 추가하려면 <a href=\"synaptic.desktop\">시냅틱 패키지 관리자"
 "</a> 또는 <a href=\"org.gnome.Terminal.desktop\">터미널에서 APT</a>를 사용하"
@@ -836,7 +836,11 @@ msgid ""
 "system again."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:759
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:756
+msgid "Start Tails and open the Persistent Storage settings to find out more."
+msgstr "자세히 알아보려면 Tails를 시작하고 영구 저장소 설정을 실행하세요."
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:785
 msgid ""
 "Your Persistent Storage is unlocked. Its content will be available until you "
 "shut down Tails."
@@ -844,30 +848,26 @@ msgstr ""
 "영구 저장소가 잠금 해제되었어요. Tails를 종료할 때까지 내용물에 접근할 수 있"
 "어요."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:772
-msgid "Start Tails and open the Persistent Storage settings to find out more."
-msgstr "자세히 알아보려면 Tails를 시작하고 영구 저장소 설정을 실행하세요."
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:806
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:800
 msgid "Incorrect passphrase. Please try again."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:817
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:811
 #, fuzzy
 msgid ""
 "Error reading data from your Persistent Storage. The hardware of your USB "
 "stick is probably failing."
 msgstr "USB 스틱의 하드웨어에 문제가 있는 것 같아요."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:819
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:813
 msgid "Start Tails to learn how to recover your data."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:830
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:824
 msgid "File System Errors"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:832
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:826
 msgid ""
 "Errors were detected in the file system of your Persistent Storage.\n"
 "                \n"
@@ -881,50 +881,50 @@ msgid ""
 "of your Persistent Storage first."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:841
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:835
 msgid "Repair File System"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:842
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:836
 #, fuzzy
 msgid "Create Partition Image"
 msgstr "영구 저장소 생성"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:853
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:847
 #, fuzzy
 msgid ""
 "Start Tails to learn how to create a partition image of your Persistent "
 "Storage."
 msgstr "영구 저장소 생성 실패"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:862
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:856
 #, fuzzy
 msgid "Failed to unlock the Persistent Storage due to file system errors."
 msgstr ""
 "영구 저장소의 잠금을 풀지 못했어요. Tails를 시작한 뒤 오류를 보고해주세요."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:871
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:865
 msgid ""
 "Failed to upgrade the Persistent Storage. Please start Tails and send an "
 "error report."
 msgstr ""
 "영구 저장소를 업그레이드하지 못했어요. Tails를 시작한 뒤 오류를 보고해주세요."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:878
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:872
 msgid ""
 "Failed to unlock the Persistent Storage. Please start Tails and send an "
 "error report."
 msgstr ""
 "영구 저장소의 잠금을 풀지 못했어요. Tails를 시작한 뒤 오류를 보고해주세요."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:886
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:880
 msgid ""
 "Failed to activate the Persistent Storage. Please start Tails and send an "
 "error report."
 msgstr ""
 "영구 저장소를 활성화하지 못했어요. Tails를 시작한 뒤 오류를 보고해주세요."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:897
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:891
 #, fuzzy
 msgid "Upgrading the Persistent Storage. This might take a while…"
 msgstr "영구 저장소를 업그레이드하고 있어요. 잠시만 기다려주세요…"
@@ -1594,9 +1594,9 @@ msgid ""
 "Package Manager</a> or <a href=\"org.gnome.Terminal.desktop\">APT on the "
 "command line</a>."
 msgstr ""
-"<a href=\"synaptic.desktop\">Synaptic 패키지 관리자</a> 또는 <a href=\"org."
-"gnome.Terminal.desktop\">터미널에서 APT</a>를 사용하여 소프트웨어를 설치해보"
-"세요."
+"<a href=\"synaptic.desktop\">Synaptic 패키지 관리자</a> 또는 <a "
+"href=\"org.gnome.Terminal.desktop\">터미널에서 APT</a>를 사용하여 소프트웨어"
+"를 설치해보세요."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:219
 msgid ""
@@ -1604,15 +1604,16 @@ msgid ""
 "some software using <a href=\"synaptic.desktop\">Synaptic Package Manager</"
 "a> or <a href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
-"Tails 시작 시 영구 저장소의 잠금을 해제하고 <a href=\"synaptic."
-"desktop\">Synaptic 패키지 관리자</a> 또는 <a href=\"org.gnome.Terminal."
-"desktop\">터미널에서 APT</a>를 사용하여 소프트웨어를 설치해보세요."
+"Tails 시작 시 영구 저장소의 잠금을 해제하고 <a "
+"href=\"synaptic.desktop\">Synaptic 패키지 관리자</a> 또는 <a "
+"href=\"org.gnome.Terminal.desktop\">터미널에서 APT</a>를 사용하여 소프트웨어"
+"를 설치해보세요."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:232
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
-"gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "영구 저장소를 생성하고 <a href=\"synaptic.desktop\">Synaptic 패키지 관리자</"
 "a> 또는 <a href=\"org.gnome.Terminal.desktop\">터미널에서 APT</a>를 사용하여 "
@@ -1956,19 +1957,19 @@ msgstr "_마이그레이션 지침 열기"
 msgid "_Migrate Later"
 msgstr "_나중에 마이그레이션하기"
 
-#: config/chroot_local-includes/usr/bin/tor-browser:49
+#: config/chroot_local-includes/usr/local/lib/launch-tor-browser:38
 msgid "Tor is not ready"
 msgstr "Tor 준비 안 됨"
 
-#: config/chroot_local-includes/usr/bin/tor-browser:50
+#: config/chroot_local-includes/usr/local/lib/launch-tor-browser:39
 msgid "Tor is not ready. Start Tor Browser anyway?"
 msgstr "Tor 준비가 되지 않았어요. 그래도 Tor 브라우저를 실행할까요?"
 
-#: config/chroot_local-includes/usr/bin/tor-browser:51
+#: config/chroot_local-includes/usr/local/lib/launch-tor-browser:40
 msgid "Start Tor Browser Offline"
 msgstr "오프라인에서 Tor 브라우저 시작하기"
 
-#: config/chroot_local-includes/usr/bin/tor-browser:52
+#: config/chroot_local-includes/usr/local/lib/launch-tor-browser:41
 msgid "Open Tor Connection"
 msgstr "Tor 연결 열기"
 
@@ -2692,11 +2693,11 @@ msgstr "Tails 설치, 복제, 업그레이드"
 msgid "Connect Tails to the Tor network"
 msgstr "Tor 네트워크에 Tails 연결"
 
-#: ../config/chroot_local-includes/usr/share/applications/tor-browser.desktop.in.h:1
+#: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:1
 msgid "Tor Browser"
 msgstr "Tor 브라우저"
 
-#: ../config/chroot_local-includes/usr/share/applications/tor-browser.desktop.in.h:2
+#: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:2
 msgid "Anonymous Web Browser"
 msgstr "익명 웹 브라우저"
 
@@ -3731,7 +3732,7 @@ msgstr ""
 "보기</a>"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1634
-msgid "No Wi-Fi Hardware detected"
+msgid "No Wi-Fi hardware detected"
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1652
@@ -3984,8 +3985,8 @@ msgstr "시계"
 #~ "\n"
 #~ "Help us keep your bitcoins safe!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~ "html#expenses\">How we spend our money.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/"
+#~ "donate.en.html#expenses\">How we spend our money.</a>"
 #~ msgstr ""
 #~ "Tails가 지갑을 보호해드릴게요.\n"
 #~ "\n"
@@ -4131,8 +4132,8 @@ msgstr "시계"
 #~| "\n"
 #~| "Every bit helps in our fight against surveillance and censorship!\n"
 #~| "\n"
-#~| "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~| "html#expenses\">How we spend our money.</a>"
+#~| "<a href=\"file:///usr/share/doc/tails/website/"
+#~| "donate.en.html#expenses\">How we spend our money.</a>"
 #~ msgid ""
 #~ "Our annual fundraiser is live!\n"
 #~ "\n"

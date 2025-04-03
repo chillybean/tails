@@ -397,3 +397,52 @@ Clean up
     cd "${TAILS_GIT_REPO:?}" && \
     rm -f sha256sums-unsigned-build.txt{,.asc${TBB_SIGNER_SUFFIX}}
     )
+
+Update the Tor Browser Flatpak metadata
+---------------------------------------
+
+We should regularly update the Tor Browser Flatpak metadata to check if
+the upstream version from the Tor Browser Launcher Flatpak app added any
+new permissions that we should allow or deny.
+
+The Tor Browser Launcher Flatpak app is updated independently from the
+Tor Browser, so it doesn't necessarily have to be done at the same time
+as the Tor Browser update, but like the Tor Browser update, it should be
+done once per release cycle, so we just do it at the same time.
+
+1. Update the Tor Browser Launcher Flatpak app:
+
+        cd "${TAILS_GIT_REPO:?}" && \
+        ./config/chroot_local-includes/usr/share/tails/build/flatpak/org.boum.tails.TorBrowser/update-manifest
+
+2. Check if the commit that was created by the previous step added any
+   new permissions that we should allow or deny in the override config
+   file at
+   `config/chroot_local-includes/var/lib/flatpak/overrides/org.boum.tails.TorBrowser`.
+
+3. If the commit added any new permissions, update the override config
+   file accordingly, and commit the changes.
+
+4. Push the updated branch.
+
+It is at least as important to check for changes in the
+`org.mozilla.firefox` flatpak, given that upstream Firefox
+improvements land there first and might not trickle down to the Tor
+Browser flatpak. Since Tor Browser is based on the ESR releases some
+changes might need to wait until Tor Browser is rebased on a more
+recent version of Firefox.
+
+To see what has changed, either install the flatpak and have a look
+in:
+
+    /var/lib/flatpak/app/org.mozilla.firefox/current/active/metadata
+
+or look at the [revision
+history](https://hg.mozilla.org/mozilla-central/log/tip/taskcluster/docker/firefox-flatpak/runme.sh)
+(see the arguments passed to `flatpak build-finish build`).
+
+For changes that also makes sense for the
+[org.torproject.torbrowser-launcher flathub
+upstream](https://github.com/flathub/org.torproject.torbrowser-launcher/)
+we should submit a PR, but to get the changes into Tails quickly we
+can use the override as described above.

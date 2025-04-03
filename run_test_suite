@@ -395,6 +395,11 @@ TAGS_ARGS=""
 if [ -n "${JENKINS_URL:-}" ]; then
     . auto/scripts/utils.sh
 
+    ## Branch names suffixes, which trigger different test suite behaviors, are documented in
+    ## wiki/src/contribute/release_process/test/automated_tests.mdwn
+    ## Prefixes, which are about both build & tests, are documented in
+    ## wiki/src/contribute/git.mdwn
+
     if echo "${GIT_BRANCH}" | grep -q -E '[+-]real-Tor$'; then
         export DISABLE_CHUTNEY="yes"
         TAGS_ARGS="--tag @supports_real_tor"
