@@ -151,6 +151,74 @@ tails (6.14.1) unstable; urgency=medium
       - update arti to 1.4.0
       - Set UID and GID for arti
 
+  * Run Tor Browser in pseudo flatpak (tails/tails!1025)
+
+    Closes issues:
+      - "Large text" accessibility feature does not apply to Tor Browser since
+        5.8~beta1 (tails/tails#19266)
+      - Improve UX of saving downloaded files and pages to PDF from Tor Browser
+        (tails/tails#15678)
+      - Use desktop portals in Tor Browser (tails/tails#19408)
+      - Tor Browser ignores cursor size (accessibility issue) (tails/tails#19572)
+      - Tor Browser has no minimize & maximize buttons in the window titlebar
+        (tails/tails#19328)
+      - Remove the `tor-browser` shortcut from the sidebar in Tor Browser
+        (tails/tails#19254)
+
+    Commits:
+      - torbrowser-launcher!10 has been merged
+      - CI: ignore flatpak 1.16.0-2
+      - Add comment
+      - Add comment
+      - Document why we skip some org.mozilla.firefox flatpak settings
+      - Refactor tails-documentation: avoid converting URLs twice
+      - Flatpak runtime: be specific about /usr/.ref permissions
+      - Tor Browser: fix the local page detection vs "@@u ... @@"
+      - Adjust APT pinnings so we install our patched flatpak packages
+      - shfmt
+      - Tor Browser flatpak: drop override for devices=
+      - Flatpak runtime: further simplify after merged /usr
+      - Flatpak runtime: don't do anything special during early patching
+      - Remove /usr/src since it is only used during build time
+      - Document that we run Tor Browser in Flatpak
+      - Document how to keep track of org.mozilla.firefox flatpak metadata changes
+      - Tor Browser flatpak: make aware of already running instance
+      - Tor Browser flatpak: allow access to the speech dispatcher
+      - Tor Browser flatpak: allow access to a11y
+      - Tor Browser flatpak: allow access to CUPS for printing support
+      - Tor Browser flatpak: tighten session bus restrictions
+      - tails-documentation: don't start Tor Browser via .desktop file
+      - Remove xdg-desktop-portal-gnome
+      - Tor Browser: set X-Flatpak in .desktop file
+      - Tor Browser: re-enable namespace isolation for the sandbox
+      - Enable the 10422-tor-browser-in-flatpak APT overlay.
+      - Tor Browser: enable flatpak file forwarding through the document portal
+      - Flatpak runtime: Use modern early_patch mountpoint path
+      - shfmt
+      - shfmt
+      - shfmt
+      - Test suite: adjust file picker code vs XDG Desktop Portal shenanigans
+      - Adjust torbrowser-launcher AppArmor profile for Flatpak and XDG Desktop Portal
+        support
+      - Execute Tor Browser wrapper code outside of the Flatpak
+      - Tor Browser: avoid Flatpak warning
+      - Flatpak runtime: Improve comments and minor refactoring
+      - Flatpak runtime: Don't bind-mount /var into flatpak runtime
+      - Flatpak runtime: Adapt to merged /usr
+      - Flatpak runtime: Mount / into flatpak runtime instead of the SquashFS
+      - Run Ruff formatter
+      - Fix Ruff RUF012
+      - Link to design doc
+      - Tor Browser flatpak: allow Tor Browser access to XDG user dirs
+      - Tor Browser flatpak: tighten restrictions compared to upstream flatpak
+      - Flatpak runtime: Also overlay /mnt/config/chroot_local-includes
+      - Test suite: Don't expect AppArmor logs for Tor Browser
+      - Ensure Tor Browser is only started inside a flatpak
+      - Tor Browser: run as a pseudo flatpak
+      - Adjust UIDs/GIDs mangling for the addition of the _flatpak user & group
+      - Add flatpak package and dependencies
+      - Add shellcheck source comments
+
  -- Tails developers <tails@boum.org>  Wed, 02 Apr 2025 19:05:19 +0200
 
 tails (6.13) unstable; urgency=medium
