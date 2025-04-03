@@ -23,9 +23,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-05 08:57+0100\n"
-"PO-Revision-Date: 2025-01-21 09:00+0000\n"
-"Last-Translator: reimu105 <peter112548@gmail.com>\n"
+"POT-Creation-Date: 2025-04-02 09:44+0200\n"
+"PO-Revision-Date: 2025-03-31 20:58+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/tor/tails-gui/zh_Hant/>\n"
 "Language: zh_TW\n"
@@ -33,7 +33,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -136,7 +136,7 @@ msgstr "移除"
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/add_settings_dialog.py:40
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:178
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:483
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:840
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:834
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:728
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:119
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:376
@@ -207,9 +207,9 @@ msgstr "在 Tails 啟動時會從永久性儲存裝置中安裝下列其他軟�
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:197
 msgid ""
-"To add more, install some software using <a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
-"desktop\">APT on the command line</a>."
+"To add more, install some software using <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "要加入更多其他軟體，可以使用<a href=\"synaptic.desktop\">Synaptic 套件管理程"
 "式</a>或<a href=\"org.gnome.Terminal.desktop\">透過終端機使用 APT</a>。"
@@ -367,8 +367,8 @@ msgid ""
 "persists, try doing a manual upgrade."
 msgstr ""
 "<b>更新簽署密鑰時發生錯誤。</b>\\n\\n<b>這樣會無法判斷我們的網站是否提供升級"
-"項目。</b>\\n\\n請檢查您的網路連線，然後將 Tails 重新啟動後再次嘗試升"
-"級。\\n\\n如果問題仍然存在，請前往 file:///usr/share/doc/tails/website/doc/"
+"項目。</b>\\n\\n請檢查您的網路連線，然後將 Tails 重新啟動後再次嘗試升級。"
+"\\n\\n如果問題仍然存在，請前往 file:///usr/share/doc/tails/website/doc/"
 "upgrade/error/check.en.html"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:310
@@ -826,35 +826,35 @@ msgstr ""
 "您已中止檔案系統修復。您可以啟動沒有持久性儲存的 Tails，也可以重新啟動電腦以"
 "嘗試再次修復檔案系統。"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:759
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:756
+msgid "Start Tails and open the Persistent Storage settings to find out more."
+msgstr "無法解鎖永久性儲存，請重開 Tails 與回報錯誤。"
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:785
 msgid ""
 "Your Persistent Storage is unlocked. Its content will be available until you "
 "shut down Tails."
 msgstr "您的永久性儲存裝置已被解鎖，請重新啟動 Tails 系統以便將它再次鎖定。"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:772
-msgid "Start Tails and open the Persistent Storage settings to find out more."
-msgstr "無法解鎖永久性儲存，請重開 Tails 與回報錯誤。"
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:806
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:800
 msgid "Incorrect passphrase. Please try again."
 msgstr "密碼短語不正確。請重試。"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:817
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:811
 msgid ""
 "Error reading data from your Persistent Storage. The hardware of your USB "
 "stick is probably failing."
 msgstr "從持久性儲存讀取資料時出錯。 隨身碟的硬體可能故障。"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:819
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:813
 msgid "Start Tails to learn how to recover your data."
 msgstr "啟動 Tails 了解如何恢復資料。"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:830
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:824
 msgid "File System Errors"
 msgstr "檔案系統錯誤"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:832
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:826
 msgid ""
 "Errors were detected in the file system of your Persistent Storage.\n"
 "                \n"
@@ -875,43 +875,43 @@ msgstr ""
 "\n"
 "如果您沒有備份，我們建議您先建立持久性儲存的分割區映像。"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:841
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:835
 msgid "Repair File System"
 msgstr "修復檔案系統"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:842
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:836
 msgid "Create Partition Image"
 msgstr "建立分區映像"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:853
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:847
 msgid ""
 "Start Tails to learn how to create a partition image of your Persistent "
 "Storage."
 msgstr "啟動 Tails 了解如何建立持久性儲存的分割區映像。"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:862
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:856
 msgid "Failed to unlock the Persistent Storage due to file system errors."
 msgstr "由於檔案系統錯誤，無法解鎖持久性儲存。"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:871
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:865
 msgid ""
 "Failed to upgrade the Persistent Storage. Please start Tails and send an "
 "error report."
 msgstr "無法激活永久性儲存，請重開 Tails 與回報錯誤。"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:878
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:872
 msgid ""
 "Failed to unlock the Persistent Storage. Please start Tails and send an "
 "error report."
 msgstr "無法解鎖永久性儲存，請重開 Tails 與回報錯誤。"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:886
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:880
 msgid ""
 "Failed to activate the Persistent Storage. Please start Tails and send an "
 "error report."
 msgstr "無法激活永久性儲存，請重開 Tails 與回報錯誤。"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:897
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:891
 msgid "Upgrading the Persistent Storage. This might take a while…"
 msgstr "正在升級持久性存儲。這可能需要一段時間…"
 
@@ -1581,19 +1581,19 @@ msgid ""
 "some software using <a href=\"synaptic.desktop\">Synaptic Package Manager</"
 "a> or <a href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
-"要這樣做，請在啟動 Tails 時解鎖您的永久性儲存空間，並使用 <a href=\"synaptic."
-"desktop\">Synaptic 套件管理器</a> 或 <a href=\"org.gnome.Terminal.desktop\">"
-"透過終端機使用 APT</a> 安裝一些軟體。"
+"要這樣做，請在啟動 Tails 時解鎖您的永久性儲存空間，並使用 <a "
+"href=\"synaptic.desktop\">Synaptic 套件管理器</a> 或 <a "
+"href=\"org.gnome.Terminal.desktop\">透過終端機使用 APT</a> 安裝一些軟體。"
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:232
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
-"gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
-"要做到這一點，請創建一個永久性儲存，並使用<a href=\"synaptic."
-"desktop\">Synaptic 套件管理器</a>或<a href=\"org.gnome.Terminal.desktop\">透"
-"過終端機使用 APT</a>安裝一些軟件。"
+"要做到這一點，請創建一個永久性儲存，並使用<a "
+"href=\"synaptic.desktop\">Synaptic 套件管理器</a>或<a "
+"href=\"org.gnome.Terminal.desktop\">透過終端機使用 APT</a>安裝一些軟件。"
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:250
 msgid "To do so, install Tails on a USB stick and create a Persistent Storage."
@@ -1911,19 +1911,19 @@ msgstr "_開啟搬移指導"
 msgid "_Migrate Later"
 msgstr "_稍後搬移"
 
-#: config/chroot_local-includes/usr/bin/tor-browser:49
+#: config/chroot_local-includes/usr/local/lib/launch-tor-browser:38
 msgid "Tor is not ready"
 msgstr "Tor 尚未就緒"
 
-#: config/chroot_local-includes/usr/bin/tor-browser:50
+#: config/chroot_local-includes/usr/local/lib/launch-tor-browser:39
 msgid "Tor is not ready. Start Tor Browser anyway?"
 msgstr "Tor 尚未就緒，您確定仍要啟動 Tor 瀏覽器嗎？"
 
-#: config/chroot_local-includes/usr/bin/tor-browser:51
+#: config/chroot_local-includes/usr/local/lib/launch-tor-browser:40
 msgid "Start Tor Browser Offline"
 msgstr "離線啟動 Tor 瀏覽器"
 
-#: config/chroot_local-includes/usr/bin/tor-browser:52
+#: config/chroot_local-includes/usr/local/lib/launch-tor-browser:41
 msgid "Open Tor Connection"
 msgstr "開啟 Tor 連線"
 
@@ -2639,11 +2639,11 @@ msgstr "安裝、複製、升級 Tails"
 msgid "Connect Tails to the Tor network"
 msgstr "連線 Tails 到 Tor 網絡"
 
-#: ../config/chroot_local-includes/usr/share/applications/tor-browser.desktop.in.h:1
+#: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:1
 msgid "Tor Browser"
 msgstr "Tor 瀏覽器"
 
-#: ../config/chroot_local-includes/usr/share/applications/tor-browser.desktop.in.h:2
+#: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:2
 msgid "Anonymous Web Browser"
 msgstr "匿名網路瀏覽器"
 
@@ -3133,8 +3133,8 @@ msgid ""
 "To add or remove custom features, modify /live/persistence/"
 "TailsData_unlocked/persistence.conf."
 msgstr ""
-"增添或移除自定功能，請修改 /live/persistence/TailsData_unlocked/persistence."
-"conf."
+"增添或移除自定功能，請修改 /live/persistence/TailsData_unlocked/"
+"persistence.conf."
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:825
 msgid ""
@@ -3649,7 +3649,7 @@ msgid ""
 msgstr "<a href=\"doc/anonymous_internet/tor\">了解 Tails 如何連線 Tor </a>"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1634
-msgid "No Wi-Fi Hardware detected"
+msgid "No Wi-Fi hardware detected"
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1652
@@ -3915,8 +3915,8 @@ msgstr "時鐘"
 #~ "\n"
 #~ "Help us keep your bitcoins safe!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~ "html#expenses\">How we spend our money.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/"
+#~ "donate.en.html#expenses\">How we spend our money.</a>"
 #~ msgstr ""
 #~ "Tails 保護你的錢包。\n"
 #~ "\n"

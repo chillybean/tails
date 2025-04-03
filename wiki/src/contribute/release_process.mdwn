@@ -1045,11 +1045,14 @@ Run the following command
 to create a directory with a suitable name, go there, move the built
 images to this brand new directory, generate detached OpenPGP
 signatures for the images to be published (in the same directory as the
-images and with a `.sig` extension), then go up to the parent
-directory, create a `.torrent` file and check the generated `.torrent`
+images and with a `.sig` extension):
+
+    ./bin/generate-images-signatures
+
+Then, create a `.torrent` file and check the generated `.torrent`
 files metadata:
 
-    ./bin/generate-images-signatures-and-torrents
+    ./bin/generate-torrents
 
 Get the internal manual testing started
 =======================================
@@ -1130,7 +1133,7 @@ To build the IUKS, run this command:
        FREE_DISK_SPACE=$(/bin/df --block-size=M --output=avail "${OUR_TMPDIR:?}" \
           | tail -n1 | sed --regexp-extended 's,M$,,')
        if [ "$FREE_DISK_SPACE" -lt "$MIN_DISK_SPACE" ]; then
-          echo "ERROR! Not enough free space in ${OUR_TMPDIR:?}"
+          echo "ERROR! Not enough free space in ${OUR_TMPDIR:?} (${MIN_DISK_SPACE}M needed)"
           exit 2
        fi
        CPU_CORES=$(grep '^core id' /proc/cpuinfo | sort -u | wc -l)
@@ -1161,9 +1164,7 @@ you can follow the next steps:
 
 1. ISO history
 
-2. Build the Incremental Upgrade Kits on Jenkins (you can start the
-   build, but stop at the `rm-config --stage built-iuks` step which
-   has to wait for your local IUK build to finish)
+2. Build the Incremental Upgrade Kits on Jenkins
 
 3. If you expect you will have to do some manual testing yourself and you have a spare computer, you can prepare a USB
    stick and start testing.
@@ -1248,18 +1249,23 @@ Build the Incremental Upgrade Kits on Jenkins
 
 4. Record the ID of the Jenkins `build_IUKs` build:
 
+   1. Take note of this ID wherever it works for you
+
+   1. If you are still building IUKs locally, you need to stop here and wait until they
+      are successfully built
+
    1. To update the `~/.config/tails/release_management/current.yml` template
       with newly required variables, run:
 
           ./bin/rm-config generate-boilerplate --stage built-iuks
 
-   2. Edit `~/.config/tails/release_management/current.yml`
+   1. Edit `~/.config/tails/release_management/current.yml`
       and set the `candidate_jenkins_iuks_build_id` value
       to the ID of that `build_IUKs` build (an integer):
 
           "${EDITOR:?}" ~/.config/tails/release_management/current.yml
 
-   3. Generate the resulting environment variables and export them
+   1. Generate the resulting environment variables and export them
       into your environment:
 
           . $(./bin/rm-config generate-environment --stage built-iuks)
@@ -1941,11 +1947,20 @@ Draft the Tor blog post
 
 Skip this if you are not preparing a stable release.
 
+In order to announce the new Tails release on Tor blog post, you need to:
+ - have a personal account on https://gitlab.torproject.org/tpo/web/blog
+ - Have a checkout of https://gitlab.torproject.org/tpo/web/blog in
+   `${BLOG_CHECKOUT}`
+ - Check the
+   [Tor
+documentation](https://gitlab.torproject.org/tpo/tpa/team/-/wikis/service/blog#how-to-write-a-new-blog-post-in-gitlab)
+   to see if anything changed recently
+
 - Generate the draft blog post:
 
-        ./bin/generate-Tor-blog-post "${VERSION:?}" "${TAG:?}" "${DIST:?}" "${RELEASE_DATE:?}"
+        torBlogFile=$(./bin/generate-Tor-blog-post "${VERSION:?}" "${TAG:?}" "${DIST:?}" "${RELEASE_DATE:?}")
 
-- Ensure the `summary` section of the draft blog post has adequate contents:
+- Ensure the `summary` section of the draft blog post in `${torBlogFile}` has adequate contents:
 
   - If the body of the release notes has introduction sentences: copy these sentences.
 
@@ -1953,20 +1968,27 @@ Skip this if you are not preparing a stable release.
 
   - In any case, do *not* leave the `FIXME` placeholder as-is.
 
-- Proof-read the draft blog post
+- Proof-read `${torBlogFile}`.
 
 - Prepare a *draft* merge request against the [Tor blog](https://gitlab.torproject.org/tpo/web/blog)
-  - Use your personal account on their GitLab
-  - Follow the
-    [Tor documentation](https://gitlab.torproject.org/tpo/tpa/team/-/wikis/service/blog#how-to-write-a-new-blog-post-in-gitlab).
-    It's OK to create the MR on the command line instead of in the GitLab Web IDE.
-  - Take inspiration from [previous MR](https://gitlab.torproject.org/tpo/web/blog/-/merge_requests/365)
-  - Reuse our existing lead image:
-    - `cd` into the directory you created for the new blog post
-    - Create a symlink to the existing lead image:
 
-          ln -s ../../../assets/static/images/blog/tails.jpeg lead.jpg && \
-          git add lead.jpg
+        cd "${BLOG_CHECKOUT}"
+        git checkout main
+        git pull
+        git checkout -b "Tails-${VERSION}"
+        torBlogDir="content/blog/new-release-tails-${VERSION//./_}"
+        mkdir -p "$torBlogDir"
+        cd "$torBlogDir"
+        mv "${torBlogFile}" contents.lr
+        ln -s ../../../assets/static/images/blog/tails.jpeg lead.jpg && \
+            git add lead.jpg
+        git add contents.lr
+        git commit -m "Announce Tails ${VERSION}"
+        git push \
+            -o merge_request.create -o merge_requests.draft \
+            -o merge_requests.title="Announce Tails ${VERSION}" \
+            --set-upstream origin HEAD
+
 
 Go wild!
 ========
@@ -2032,31 +2054,6 @@ website:
       git push origin master:master \
     )
 
-Wait for the release to be fully published, that is for the website to have been
-fully refreshed. To do so, first wait for the
-[!tails_gitlab desc="GitLab CI pipeline" tails/tails/-/pipelines/]]
-triggered by your last push to build and deploy the website. And then:
-
-### If you're publishing a final release
-
-Check:
-
-    [ "${DIST:?}" = stable ]
-
-wait until all these conditions are met:
- - <https://tails.net/news/> includes the release notes
- - <https://tails.net/news/index.de.html> includes the release notes
- - <https://tails.net/torrents/files/> includes the files
-   for the new release
-
-### If you're publishing a RC
-
-Check:
-
-    [ "${DIST:?}" = alpha ]
-
-wait until `https://tails.net/news/test_$TAG/` is live.
-
 Bug tracker [if preparing a final release]
 --------------------------------------------
 
@@ -2115,6 +2112,34 @@ MR](https://gitlab.tails.boum.org/tails/gitlab-config/-/edit/master/main.yml)
    Title: *Issues linked from the website for Tails $VERSION*
    Labels: *Core Work:Technical writing* and *To Do*
 
+Wait for the website update
+---------------------------
+
+Wait for the release to be fully published, that is for the website to have been
+fully refreshed. To do so, first wait for the
+[!tails_gitlab tails/tails/-/pipelines/?ref=master desc="GitLab CI pipeline" ]]
+triggered by your last push to build and deploy the website. And then:
+
+### If you're publishing a final release
+
+Check:
+
+    [ "${DIST:?}" = stable ]
+
+wait until all these conditions are met:
+ - <https://tails.net/news/> includes the release notes
+ - <https://tails.net/news/index.de.html> includes the release notes
+ - <https://tails.net/torrents/files/> includes the files
+   for the new release
+
+### If you're publishing a RC
+
+Check:
+
+    [ "${DIST:?}" = alpha ]
+
+wait until `https://tails.net/news/test_$TAG/` is live.
+
 Twitter
 -------
 
@@ -2155,10 +2180,11 @@ deployment". Check if everything looks good.
 
   - Merge!
 
-  - Once merged a new pipeline is started
-    whose last stage (Deploy) will require manual action: click on it to
-    open a menu where you will see "deploy-prod ▶️", then click on the ▶️
-    to deploy.
+  - Once merged [a new
+    pipeline](https://gitlab.torproject.org/tpo/web/blog/-/pipelines?page=1&scope=all&ref=main&source=push)
+    is started whose last stage (Deploy) will require manual action: click on it
+    to open a menu where you will see "deploy-prod ▶️", then click on the ▶️ to
+    deploy.
 
 ### Else
 
@@ -2173,7 +2199,8 @@ and accept the release announcement (it's been automatically sent
 to `amnesia-news@` every half hour and is stuck in the
 moderation queue).
 
-The password is in keyringer in `rm.git`.
+    keyringer tails-rm decrypt credentials.asc | grep amnesia-news
+
 
 Prepare for the next development cycle
 ======================================

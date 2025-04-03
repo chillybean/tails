@@ -33,10 +33,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-05 08:57+0100\n"
-"PO-Revision-Date: 2025-02-18 23:02+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"POT-Creation-Date: 2025-04-02 09:44+0200\n"
+"PO-Revision-Date: 2025-03-31 20:56+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/tor/tails-gui/el/"
 ">\n"
 "Language: el\n"
@@ -44,7 +43,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.1-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -154,7 +153,7 @@ msgstr "Απομάκρυνση"
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/add_settings_dialog.py:40
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:178
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:483
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:840
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:834
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:728
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:119
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:376
@@ -231,13 +230,13 @@ msgstr ""
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:197
 msgid ""
-"To add more, install some software using <a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
-"desktop\">APT on the command line</a>."
+"To add more, install some software using <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "Για να προσθέσετε περισσότερα, εγκαταστήστε λογισμικό χρησιμοποιώντας το <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a>ή το <a href=\"org."
-"gnome.Terminal.desktop\">ΑΡΤ στην γραμμή εντολών</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a>ή το <a "
+"href=\"org.gnome.Terminal.desktop\">ΑΡΤ στην γραμμή εντολών</a>."
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:154
 msgid "_Create persistent storage"
@@ -888,7 +887,13 @@ msgstr ""
 "εκκινήσετε το Tails χωρίς Μόνιμη Αποθήκευση ή να επανεκκινήσετε τον "
 "υπολογιστή ώστε γίνει εκ νέου απόπειρα επισκευής του συστήματος αρχείων."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:759
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:756
+msgid "Start Tails and open the Persistent Storage settings to find out more."
+msgstr ""
+"Ξεκινήστε το Tails και ανοίξτε τις ρυθμίσεις του μόνιμου αποθηκευτικού χώρου "
+"για να μάθετε περισσότερα."
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:785
 msgid ""
 "Your Persistent Storage is unlocked. Its content will be available until you "
 "shut down Tails."
@@ -896,17 +901,11 @@ msgstr ""
 "Ο μόνιμος αποθηκευτικός χώρος σας είναι ξεκλειδωμένος. Το περιεχόμενό του θα "
 "είναι διαθέσιμο μέχρι να κλείσετε το Tails."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:772
-msgid "Start Tails and open the Persistent Storage settings to find out more."
-msgstr ""
-"Ξεκινήστε το Tails και ανοίξτε τις ρυθμίσεις του μόνιμου αποθηκευτικού χώρου "
-"για να μάθετε περισσότερα."
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:806
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:800
 msgid "Incorrect passphrase. Please try again."
 msgstr "Λανθασμένη κωδική φράση. Παρακαλώ προσπαθήστε πάλι."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:817
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:811
 msgid ""
 "Error reading data from your Persistent Storage. The hardware of your USB "
 "stick is probably failing."
@@ -914,15 +913,15 @@ msgstr ""
 "Σφάλμα κατά την ανάγνωση δεδομένων από την Μόνιμη Αποθήκευση. Πιθανή αστοχία "
 "του υλικού συσκευής USB."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:819
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:813
 msgid "Start Tails to learn how to recover your data."
 msgstr "Ξεκινήστε το Tails για να μάθετε πώς θα ανακτήσετε τα δεδομένα σας."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:830
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:824
 msgid "File System Errors"
 msgstr "Σφάλματα Συστήματος Αρχείων"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:832
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:826
 msgid ""
 "Errors were detected in the file system of your Persistent Storage.\n"
 "                \n"
@@ -947,15 +946,15 @@ msgstr ""
 "Αν δε διαθέτετε κάποιο αντίγραφο ασφαλείας, συνιστούμε πρώτα να "
 "δημιουργήσετε ένα αντίγραφο του αποθηκευτικού χώρου σας."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:841
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:835
 msgid "Repair File System"
 msgstr "Επισκευή Συστήματος Αρχείων"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:842
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:836
 msgid "Create Partition Image"
 msgstr "Δημιουργία αντιγράφου τμήματος δίσκου"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:853
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:847
 msgid ""
 "Start Tails to learn how to create a partition image of your Persistent "
 "Storage."
@@ -963,13 +962,13 @@ msgstr ""
 "Εκκινήστε το Tails για να μάθετε πώς να δημιουργήσετε αντίγραφο ασφαλείας "
 "του μόνιμου αποθηκευτικού χώρου."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:862
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:856
 msgid "Failed to unlock the Persistent Storage due to file system errors."
 msgstr ""
 "Σφάλμα κατά το ξεκλείδωμα του μόνιμου αποθηκευτικού χώρου λόγω σφαλμάτων του "
 "συστήματος αρχείων."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:871
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:865
 msgid ""
 "Failed to upgrade the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -977,7 +976,7 @@ msgstr ""
 "Σφάλμα αναβάθμισης μόνιμου αποθηκευτικού χώρου. Παρακαλούμε εκκινήστε το "
 "Tails και υποβάλλετε αναφορά σφάλματος."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:878
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:872
 msgid ""
 "Failed to unlock the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -985,7 +984,7 @@ msgstr ""
 "Σφάλμα κατά το ξεκλείδωμα του μόνιμου αποθηκευτικού χώρου. Παρακαλούμε "
 "εκκινήστε το Tails και υποβάλλετε αναφορά σφάλματος."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:886
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:880
 msgid ""
 "Failed to activate the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -993,7 +992,7 @@ msgstr ""
 "Σφάλμα κατά ενεργοποίησης του μόνιμου αποθηκευτικού χώρου. Παρακαλούμε "
 "εκκινήστε το Tails και υποβάλλετε αναφορά σφάλματος."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:897
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:891
 msgid "Upgrading the Persistent Storage. This might take a while…"
 msgstr "Αναβάθμιση μόνιμου αποθηκευτικού χώρου. Ίσως χρειαστεί λίγο χρόνο…"
 
@@ -1689,8 +1688,8 @@ msgid ""
 "command line</a>."
 msgstr ""
 "Για να το κάνετε αυτό, εγκαταστήστε λογισμικό χρησιμοποιώντας το <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a>ή το <a href=\"org."
-"gnome.Terminal.desktop\">ΑΡΤ στην γραμμή εντολών</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a>ή το <a "
+"href=\"org.gnome.Terminal.desktop\">ΑΡΤ στην γραμμή εντολών</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:219
 msgid ""
@@ -1700,20 +1699,20 @@ msgid ""
 msgstr ""
 "Για να το κάνετε αυτό, ξεκλειδώστε το μόνιμο αποθηκευτικό σας χώρο κατά την "
 "εκκίνηση του Tails και εγκαταστήστε λογισμικό χρησιμοποιώντας το <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a>ή το <a href=\"org."
-"gnome.Terminal.desktop\">ΑΡΤ στην γραμμή εντολών</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a>ή το <a "
+"href=\"org.gnome.Terminal.desktop\">ΑΡΤ στην γραμμή εντολών</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:232
 #, fuzzy
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
-"gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "Για να το κάνετε αυτό, δημιουργήστε μόνιμο αποθηκευτικό χώρο και "
-"εγκαταστήστε λογισμικό χρησιμοποιώντας το <a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a>ή το <a href=\"org.gnome.Terminal."
-"desktop\">ΑΡΤ στην γραμμή εντολών</a>."
+"εγκαταστήστε λογισμικό χρησιμοποιώντας το <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a>ή το <a "
+"href=\"org.gnome.Terminal.desktop\">ΑΡΤ στην γραμμή εντολών</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:250
 #, fuzzy
@@ -2060,19 +2059,19 @@ msgstr "_Άνοιγμα οδηγιών μεταφοράς"
 msgid "_Migrate Later"
 msgstr "_Μεταφορά αργότερα"
 
-#: config/chroot_local-includes/usr/bin/tor-browser:49
+#: config/chroot_local-includes/usr/local/lib/launch-tor-browser:38
 msgid "Tor is not ready"
 msgstr "Το Tor δεν είναι έτοιμο"
 
-#: config/chroot_local-includes/usr/bin/tor-browser:50
+#: config/chroot_local-includes/usr/local/lib/launch-tor-browser:39
 msgid "Tor is not ready. Start Tor Browser anyway?"
 msgstr "Το Tor δεν είναι έτοιμο. Εκκίνηση του Tor Browser όπως και να 'χει;"
 
-#: config/chroot_local-includes/usr/bin/tor-browser:51
+#: config/chroot_local-includes/usr/local/lib/launch-tor-browser:40
 msgid "Start Tor Browser Offline"
 msgstr "Εκκίνηση του Tor Browser εκτός σύνδεσης"
 
-#: config/chroot_local-includes/usr/bin/tor-browser:52
+#: config/chroot_local-includes/usr/local/lib/launch-tor-browser:41
 msgid "Open Tor Connection"
 msgstr "Άνοιγμα σύνδεσης του Tor"
 
@@ -2823,11 +2822,11 @@ msgstr "Εγκατάσταση, κλωνοποίηση, αναβάθμιση τ�
 msgid "Connect Tails to the Tor network"
 msgstr "Σύνδεση του Tails στο δίκτυο Tor"
 
-#: ../config/chroot_local-includes/usr/share/applications/tor-browser.desktop.in.h:1
+#: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:1
 msgid "Tor Browser"
 msgstr "Tor Browser"
 
-#: ../config/chroot_local-includes/usr/share/applications/tor-browser.desktop.in.h:2
+#: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:2
 msgid "Anonymous Web Browser"
 msgstr "Ανώνυμος φυλλομετρητής ιστού"
 
@@ -3908,7 +3907,7 @@ msgstr ""
 "σύνδεσης του Tails με το Tor</a>"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1634
-msgid "No Wi-Fi Hardware detected"
+msgid "No Wi-Fi hardware detected"
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1652
@@ -4167,15 +4166,15 @@ msgstr "Ρολόι"
 #~ "\n"
 #~ "Help us keep your bitcoins safe!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~ "html#expenses\">How we spend our money.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/"
+#~ "donate.en.html#expenses\">How we spend our money.</a>"
 #~ msgstr ""
 #~ "Το Tails προστατεύει το πορτοφόλι σας.\n"
 #~ "\n"
 #~ "Βοηθήσετε μας να διατηρούμε ασφαλή τα bitcoins σας!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~ "html#expenses\">Πώς ξοδεύουμε τα χρήματά μας.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/"
+#~ "donate.en.html#expenses\">Πώς ξοδεύουμε τα χρήματά μας.</a>"
 
 #~ msgid "Create Backup"
 #~ msgstr "Δημιουργία αντιγράφου ασφαλείας"
@@ -4745,8 +4744,8 @@ msgstr "Ρολόι"
 #~ msgstr ""
 #~ "Για να αιτηθείτε νέες γέφυρες Tor, μπορείτε επίσης:\n"
 #~ "\n"
-#~ "            1. Να στείλετε ένα κενό μήνυμα στο <tt>bridges@torproject."
-#~ "org</tt> από μια διεύθυνση Gmail ή Riseup.\n"
+#~ "            1. Να στείλετε ένα κενό μήνυμα στο "
+#~ "<tt>bridges@torproject.org</tt> από μια διεύθυνση Gmail ή Riseup.\n"
 #~ "\n"
 #~ "              2. Να πληκτρολογήσετε παρακάτω μία από τις γέφυρες που "
 #~ "λάβατε στο email σας."
