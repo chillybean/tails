@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tails\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2024-06-17 14:44+0200\n"
+"POT-Creation-Date: 2025-04-03 11:54+0200\n"
 "PO-Revision-Date: 2024-10-17 22:09+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: Tails Translation <tails-l10n@boum.org>\n"
@@ -102,47 +102,14 @@ msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid "<h1 id=\"confinement\">AppArmor confinement, downloading, and uploading files</h1>\n"
+msgid "<h1 id=\"confinement\">Security confinement</h1>\n"
 msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid "*Tor Browser* can only read and write to the following folders:\n"
-msgstr ""
-
-#. type: Plain text
-msgid "- *Documents*"
-msgstr ""
-
-#. type: Plain text
-msgid "- *Downloads*"
-msgstr ""
-
-#. type: Plain text
-msgid "- *Music*"
-msgstr ""
-
-#. type: Plain text
-msgid "- *Pictures*"
-msgstr ""
-
-#. type: Plain text
-msgid "- *Videos*"
-msgstr ""
-
-#. type: Plain text
-msgid "- *Tor Browser*"
-msgstr ""
-
-#. type: Plain text
-msgid "- *Persistent/Tor Browser*, if you have a Persistent Storage"
-msgstr ""
-
-#. type: Plain text
 msgid ""
-"This is because, in Tails, *Tor Browser* is confined using *[[!debwiki "
-"AppArmor]]* to protect your files from some types of attacks against *Tor "
-"Browser*."
+"*Tor Browser* is only allowed to save the downloads and read the files that you\n"
+"specify in the file chooser of GNOME.\n"
 msgstr ""
 
 #. type: Plain text
@@ -154,45 +121,6 @@ msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid "<div class=\"note\">\n"
-msgstr ""
-
-#. type: Plain text
-#, no-wrap
-msgid ""
-"<p>This is why you get the following error if you try to download files to\n"
-"another folder:</p>\n"
-msgstr ""
-
-#. type: Plain text
-#, no-wrap
-msgid "<p class=\"code\">Could not read the contents of <span class=\"command-placeholder\">folder</span>.</p>\n"
-msgstr ""
-
-#. type: Plain text
-#, no-wrap
-msgid "<p class=\"code\">Error opening directory <span class=\"command-placeholder\">folder</span>: Permission denied</p>\n"
-msgstr ""
-
-#. type: Plain text
-#, no-wrap
-msgid "</div>\n"
-msgstr ""
-
-#. type: Bullet: '- '
-msgid ""
-"If you want to download a file from *Tor Browser*, save it to one of these "
-"folders."
-msgstr ""
-
-#. type: Bullet: '- '
-msgid ""
-"If you want to upload a file from *Tor Browser*, copy it first to one of "
-"these folders."
-msgstr ""
-
-#. type: Plain text
-#, no-wrap
 msgid "<div class=\"tip\">\n"
 msgstr ""
 
@@ -200,9 +128,60 @@ msgstr ""
 #, no-wrap
 msgid ""
 "<p>To prevent Tails from running out of memory and crashing, download\n"
-"very big files to the <em>Persistent/Tor Browser</em> folder.\n"
-"All the files that you download outside of the Persistent Storage are\n"
+"very big files to the <i>Persistent/Tor Browser</i> folder.\n"
+"The files that you download outside of the Persistent Storage are\n"
 "stored in memory (RAM), which is more limited.</p>\n"
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid "</div>\n"
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid "<div class=\"note\">\n"
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid ""
+"<p>In [[Tails 6.14.1|news/version_6.14.1]] (April 2025), we improved the\n"
+"previous confinement and you can now safely download to and read from any\n"
+"folder in your <i>Home</i> folder or Persistent Storage.</p>\n"
+msgstr ""
+
+#. type: Plain text
+msgid "Still, some file operations are not allowed in *Tor Browser*:"
+msgstr ""
+
+#. type: Bullet: '- '
+msgid ""
+"When opening HTML files from the *Files* browser, *Tor Browser* displays the "
+"following error:"
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid "      File not found\n"
+msgstr ""
+
+#. type: Bullet: '- '
+msgid ""
+"When opening files in the `/usr` folder from *Tor Browser*, *Tor Browser* "
+"displays the following error:"
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid "      Access to the file was denied\n"
+msgstr ""
+
+#. type: Plain text
+msgid ""
+"This confinement relies on 2 security technologies: *[[!debwiki AppArmor]]* "
+"and the [XDG Desktop Portals](https://flatpak.github.io/xdg-desktop-portal/) "
+"of *Flatpak*."
 msgstr ""
 
 #. type: Plain text
