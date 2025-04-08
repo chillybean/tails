@@ -676,6 +676,11 @@ body:has(#doc-index) #page-body {
   color: black;
 }
 
+#doc-index a,
+#doc-index .selflink {
+  display: block;
+}
+
 #doc-index input {
   position: absolute;
   opacity: 0;
@@ -713,6 +718,19 @@ body:has(#doc-index) #page-body {
 
 #doc-index a:hover {
   text-decoration: underline;
+}
+
+#doc-index .section:has(.topic) > label a,
+#doc-index .topic:has(.subtopic) > label a {
+  background-image: url(lib/go-down.png) !important;
+  background-repeat: no-repeat !important;
+  background-position: right 8px center !important;
+  padding-right: 30px;
+}
+
+#doc-index .section:has(.topic .selflink) > label a,
+#doc-index .topic:has(.subtopic .selflink) > label a {
+  background-image: none !important;
 }
 
 #crumbs #doc-index-button-wrapper {
