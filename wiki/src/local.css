@@ -1,3 +1,14 @@
+/*
+
+   Most common display resolutions
+
+   https://data.firefox.com/dashboard/hardware
+
+   1920 × 1080px
+   1366 × 768px
+
+*/
+
 /* Color palette */
 
 :root {
@@ -444,7 +455,7 @@ label[for="searchbox"]{
 
 /* Top bar */
 
-#content-container {
+#navigation-container, #page-container {
   position: relative;
   margin: 0 auto;
   padding: 0 30px;
@@ -630,35 +641,36 @@ label[for="searchbox"]{
 
 /* Documentation index */
 
-#page-container {
-  padding-top: 15px;
-}
-
-#page-container:has(#doc-index) {
-  display: flex;
-  gap: 0 30px;
-  margin-left: -266px;
-}
-
-@media (max-width: 1450px) {
-  #page-container:has(#doc-index) {
-    margin-left: -150px;
-  }
-}
-
-@media (max-width: 1250px) {
-  #page-container:has(#doc-index) {
-    margin-left: 0;
-  }
-}
-
 #doc-index {
+  float: left;
+  position: relative;
   width: 250px !important;
+  margin-right: 30px;
   font-size: 16px;
 }
 
-#page-body {
-  width: 986px;
+body:has(#doc-index) #page-container {
+  max-width: calc(986px + 280px + 280px);
+}
+
+body:has(#doc-index) #page-body {
+  float: left;
+  width: calc(100% - 280px - 280px);
+}
+
+@media (max-width: 1200px) {
+  #doc-index {
+    width: 150px !important;
+  }
+  body:has(#doc-index) #page-body {
+    width: calc(100% - 180px);
+  }
+}
+
+@media (max-width: 600px) {
+  body:has(#doc-index) #page-body {
+    width: 100%;
+  }
 }
 
 #doc-index a {
@@ -745,11 +757,11 @@ label[for="searchbox"]{
     font-size: 18px;
   }
 
-  #content-container:has(#doc-index-button:checked) #doc-index {
+  body:has(#doc-index-button:checked) #doc-index {
     display: block;
   }
 
-  #content-container:has(#doc-index-button:checked) #page-body {
+  body:has(#doc-index-button:checked) #page-body {
     display: none;
   }
 

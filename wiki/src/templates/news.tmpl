@@ -43,7 +43,7 @@
   </div>
 </header>
 
-<div id="content-container">
+<div id="navigation-container">
 
   <TMPL_IF YEAR-END>
   <nav id="year-end">
@@ -99,35 +99,35 @@
 
   </div>
 
-  <div id="page-container">
+</div>
 
-    <TMPL_IF DOC>
-    <nav id="doc-index">
-      <label for="doc-index-button" id="doc-index-close"></label>
-      <TMPL_VAR DOC>
-    </nav>
-    </TMPL_IF>
+<div id="page-container">
 
-    <article id="page-body">
-      <header class="title">
-        <span class="title">
-          <TMPL_VAR TITLE>
-        </span>
-        <TMPL_VAR CTIME>
-        <TMPL_IF TAGS>
-        <ul class="tags">
-          <TMPL_LOOP TAGS>
-          <li><TMPL_VAR LINK></li>
-          </TMPL_LOOP>
-        </ul>
-        </TMPL_IF>
-      </header>
-      <section id="content" role="main">
-        <TMPL_VAR CONTENT>
-      </section>
-    </article>
+  <TMPL_IF DOC>
+  <nav id="doc-index">
+    <label for="doc-index-button" id="doc-index-close"></label>
+    <TMPL_VAR DOC>
+  </nav>
+  </TMPL_IF>
 
-  </div>
+  <article id="page-body">
+    <header class="title">
+      <span class="title">
+        <TMPL_VAR TITLE>
+      </span>
+      <TMPL_VAR CTIME>
+      <TMPL_IF TAGS>
+      <ul class="tags">
+        <TMPL_LOOP TAGS>
+        <li><TMPL_VAR LINK></li>
+        </TMPL_LOOP>
+      </ul>
+      </TMPL_IF>
+    </header>
+    <section id="content" role="main">
+      <TMPL_VAR CONTENT>
+    </section>
+  </article>
 
 </div>
 
