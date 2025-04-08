@@ -632,26 +632,33 @@ label[for="searchbox"]{
 
 #page-container {
   padding-top: 15px;
+}
+
+#page-container:has(#doc-index) {
   display: flex;
   gap: 0 30px;
-  margin-left: -250px;
+  margin-left: -266px;
 }
 
 @media (max-width: 1450px) {
-  #page-container {
+  #page-container:has(#doc-index) {
     margin-left: -150px;
   }
 }
 
 @media (max-width: 1250px) {
-  #page-container {
+  #page-container:has(#doc-index) {
     margin-left: 0;
   }
 }
 
 #doc-index {
-  width: 250px;
+  width: 250px !important;
   font-size: 16px;
+}
+
+#page-body {
+  width: 986px;
 }
 
 #doc-index a {
