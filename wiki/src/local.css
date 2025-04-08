@@ -510,7 +510,6 @@ label[for="searchbox"]{
 #crumbs-and-languages {
   display: flex;
   justify-content: space-between;
-  padding-top: 15px;
 }
 
 #crumbs {
@@ -518,10 +517,11 @@ label[for="searchbox"]{
   font-size: 16px;
   display: flex;
   flex-wrap: wrap;
+  min-height: 41px;
 }
 
 #crumbs ul {
-  margin: 0;
+  margin: 7px 0 0 0;
 }
 
 #crumbs li:only-child {
@@ -553,7 +553,7 @@ label[for="searchbox"]{
 #language-switcher-top {
   position: relative;
   width: 120px; /* Force size to prevent overflowing breadcrumbs */
-  height: 35px;
+  height: 41px;
   z-index: 5;
 }
 
