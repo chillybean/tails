@@ -663,6 +663,7 @@ label[for="searchbox"]{
   width: 250px !important;
   margin-right: 30px;
   font-size: 16px;
+  font-weight: 300;
 }
 
 body:has(#doc-index) #page-container {
@@ -704,6 +705,10 @@ body:has(#doc-index) #page-body {
   z-index: -1;
 }
 
+#doc-index .section > label {
+  font-weight: 500;
+}
+
 #doc-index .topic,
 #doc-index .subtopic {
   display: none;
@@ -717,7 +722,7 @@ body:has(#doc-index) #page-body {
 #doc-index label:has(.selflink) {
   padding-left: 10px;
   border-left: 3px solid var(--medium-purple) !important;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 #doc-index .section input:checked ~ .topic,
