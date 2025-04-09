@@ -321,6 +321,35 @@ input, textarea {
   border: 1px solid var(--medium-light-gray);
 }
 
+/* Skip link */
+
+#skip-link {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+#skip-link a {
+  color: var(--medium-purple);
+  display: block;
+  font-size: 24px;
+  font-weight: 600;
+  padding: 30px;
+  background: white;
+  text-decoration: underline;
+}
+
+#skip-link:has(a:focus) {
+  left: 0;
+  width: auto;
+  height: auto;
+  z-index: 1;
+  border: 5px solid var(--yellow) !important;
+}
+
 /* Banner */
 
 #banner {
