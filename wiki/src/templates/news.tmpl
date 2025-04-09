@@ -37,29 +37,29 @@
 <body>
 </TMPL_IF>
 
-<header id="banner" role="banner">
+<header id="banner">
   <div id="banner-container">
     <TMPL_VAR BANNER>
   </div>
 </header>
 
-<div id="navigation-container">
+<header id="navigation-container">
 
   <TMPL_IF YEAR-END>
-  <nav id="year-end">
+  <nav id="year-end" aria-label="Donation campaign">
     <TMPL_VAR YEAR-END>
   </nav>
   </TMPL_IF>
 
   <TMPL_IF MAIN>
-  <nav id="main-navigation" role="navigation">
+  <nav id="main-navigation" aria-label="Primary">
     <TMPL_VAR MAIN>
   </nav>
   </TMPL_IF>
 
   <div id="crumbs-and-languages">
 
-    <nav id="crumbs">
+    <nav id="crumbs" aria-label="Breadcrumbs">
       <ul>
         <TMPL_IF DOC>
         <li id="doc-index-button-wrapper">
@@ -79,7 +79,7 @@
 
     <div id="language-switcher-top">
       <TMPL_IF OTHERLANGUAGES>
-      <nav class="language-switcher">
+      <nav class="language-switcher" aria-label="Languages">
         <div class="current-language"><TMPL_VAR LANG_NAME></div>
         <ul class="other-languages">
           <TMPL_LOOP OTHERLANGUAGES>
@@ -95,16 +95,16 @@
         </ul>
       </nav>
       </TMPL_IF>
-    </div>
+    </nav>
 
   </div>
 
-</div>
+</header>
 
-<div id="page-container">
+<main id="page-container">
 
   <TMPL_IF DOC>
-  <nav id="doc-index">
+  <nav id="doc-index" aria-label="Documentation">
     <label for="doc-index-button" id="doc-index-close"></label>
     <TMPL_VAR DOC>
   </nav>
@@ -124,19 +124,19 @@
       </ul>
       </TMPL_IF>
     </header>
-    <section id="content" role="main">
+    <section id="content">
       <TMPL_VAR CONTENT>
     </section>
   </article>
 
-</div>
+</main>
 
-<footer id="footer" class="pagefooter" role="contentinfo">
+<footer id="footer" class="pagefooter">
   <div id="footer-container">
 
     <div id="language-switcher-bottom">
       <TMPL_IF OTHERLANGUAGES>
-      <nav class="language-switcher">
+      <nav class="language-switcher" aria-label="Languages">
         <div class="current-language"><TMPL_VAR LANG_NAME></div>
         <ul class="other-languages">
           <TMPL_LOOP OTHERLANGUAGES>
