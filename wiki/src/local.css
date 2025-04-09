@@ -859,29 +859,29 @@ body:has(#doc-index) #page-body {
   padding-top: 30px;
 }
 
-header.title span.title {
+#page-title h1 {
   font-size: 2.8em;
   line-height: 1em;
-  display: block;
+  margin: 0;
   color: var(--medium-purple);
 }
 
-header.title time {
+#page-title time {
   display: block;
   margin-top: 6px;
   font-style: italic;
 }
 
-header.title ul.tags {
+#page-title ul.tags {
   margin: 0;
   list-style-type: none;
 }
 
-header.title ul.tags li a {
+#page-title ul.tags li a {
   display: none;
 }
 
-header.title ul.tags li a[href*="tags/security/fixed"] {
+#page-title ul.tags li a[href*="tags/security/fixed"] {
   display: inline-block;
   padding: 3px 6px;
   margin: 6px 0;
@@ -889,6 +889,7 @@ header.title ul.tags li a[href*="tags/security/fixed"] {
   border-radius: 5px;
   color: white;
   text-transform: capitalize;
+  text-decoration: none;
 }
 
 /* Page content */
