@@ -46,8 +46,25 @@
 
 /* Fonts */
 
-@font-face { font-family: "Source Sans Pro Regular"; src: url("lib/SourceSansPro-Regular.ttf"); }
-@font-face { font-family: "Source Code Pro Regular"; src: url("lib/SourceCodePro-Regular.ttf"); }
+@font-face {
+  font-family: 'Source Sans 3';
+  src: url('lib/SourceSans3-VariableFont_wght.ttf');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Source Sans 3';
+  src: url('lib/SourceSans3-Italic-VariableFont_wght.ttf');
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Source Code Pro Regular";
+  src: url("lib/SourceCodePro-Regular.ttf");
+  font-style: monospace;
+}
 
 /* Base */
 
@@ -58,7 +75,7 @@
 }
 
 body {
-  font-family: "Source Sans Pro Regular", "DejaVu Sans", "Verdana", sans-serif;
+  font-family: "Source Sans 3", "DejaVu Sans", "Verdana", sans-serif;
   color: black;
   margin: 0;
   padding: 0;
@@ -296,7 +313,7 @@ input[type="checkbox"], input[type="radio"] {
 button, input, textarea {
   padding: 5px;
   border-radius: 5px;
-  font-family: "Source Sans Pro Regular", "DejaVu Sans", "Verdana", sans-serif;
+  font-family: "Source Sans 3", "DejaVu Sans", "Verdana", sans-serif;
   font-size: 18px;
 }
 
@@ -391,7 +408,7 @@ label[for="searchbox"]{
   background: var(--medium-light-green);
   color: black !important;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 600;
   border-radius: 5px;
   padding: 0 0.2em 0.2em 0.2em;
   display: flex;
@@ -481,7 +498,7 @@ label[for="searchbox"]{
 #main-navigation a, #main-navigation .selflink {
   display: block;
   padding: 8px 0;
-  font-weight: bold;
+  font-weight: 600;
   border-bottom: 5px solid white;
 }
 
@@ -700,7 +717,7 @@ body:has(#doc-index) #page-body {
 #doc-index label:has(.selflink) {
   padding-left: 10px;
   border-left: 3px solid var(--medium-purple) !important;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 #doc-index .section input:checked ~ .topic,
@@ -1027,7 +1044,7 @@ button:hover, .button > a:hover, label.button:hover, input[type="submit"]:hover 
   color: black !important;
   text-decoration: none !important;
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 600;
   border-radius: 5px;
   padding: 1em 0.5em;
   display: block;
@@ -1102,23 +1119,21 @@ div.icon div.text h2 {
 
 span.application { font-style: italic; }
 
-span.bold { font-weight: bold; }
-
 span.emphasis { font-style: italic; }
 
 span.filename { font-style: italic; display: inline-block; }
 
-span.guilabel { font-weight: bold; }
-
-span.guimenu { font-weight: bold; }
-
-span.guisubmenu { font-weight: bold; }
-
-span.guimenuitem { font-weight: bold; }
-
-span.keycap { font-weight: bold; }
-
-span.menuchoice { font-weight: bold; }
+b,
+strong,
+span.bold,
+span.guilabel,
+span.guimenu,
+span.guisubmenu,
+span.guimenuitem,
+span.keycap,
+span.menuchoice {
+  font-weight: 600;
+}
 
 div.bug, div.caution, div.next, div.note, div.tip, div.attack {
   background-color: var(--background-yellow);
@@ -1306,7 +1321,7 @@ div#highlight p {
 }
 
 .key-label, .key-percent {
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .chart {
@@ -1368,7 +1383,7 @@ div#highlight p {
 #footer-columns h5 {
   font-size: 18px;
   color: white;
-  font-weight: bold;
+  font-weight: 600;
   margin: 0 0 0.75em 0;
 }
 
