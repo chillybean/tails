@@ -15,7 +15,7 @@ Have vim installed in the Tails VM:
 
 ```bash
 mkdir -p 6; cd 6
-apt download vim/bookworm vim-runtime/bookworm
+apt download vim/trixie vim-runtime/trixie
 ```
 
 Have d-feet installed in the Tails VM to easily inspect and use D-Bus
@@ -23,12 +23,12 @@ services:
 
 ```bash
 mkdir -p 6; cd 6
-apt download d-feet/bookworm
+apt download d-feet/trixie
 ```
 
 Have htop installed in the Tails VM:
 
 ```bash
 mkdir -p 6; cd 6
-apt download htop/bookworm
+apt download htop/trixie
 ```
