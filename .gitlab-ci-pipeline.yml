@@ -8,7 +8,7 @@ workflow:
 # Please, make sure to only use images from `registry.gitlab.tails.boum.org`,
 # as we give significant privileges to our Runners wrt. what they can do in our
 # repositories.
-image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:bookworm
+image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:trixie
 
 variables:
     GET_SOURCES_ATTEMPTS: 10
@@ -206,7 +206,7 @@ check-locale-descriptions:
     - ./bin/locale-descriptions suggest
 
 rubocop:
-  image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:bookworm
+  image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:trixie
   script:
   - apt-get -qy install rubocop
   - rubocop --version
