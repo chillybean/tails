@@ -181,11 +181,21 @@ We cannot use such a server directly, so we need to (at least temporarily) self-
 
 #### If you can access torbrowser-archive.git
 
-    echo "${TBB_DIST_URL:?}" > \
+    (
+      set -e
+      echo "${TBB_DIST_URL:?}" > \
          config/chroot_local-includes/usr/share/tails/tbb-dist-url.txt
-    git commit config/chroot_local-includes/usr/share/tails/tbb-*.txt \
+      files=(config/chroot_local-includes/usr/share/tails/tbb-dist-url.txt config/chroot_local-includes/usr/share/tails/tbb-sha256sums.txt)
+      for file in "${files[@]}"; do
+          if git diff --quiet $file; then
+             echo "Error: file $file not changed" >&2
+             exit 2
+          fi
+      done
+      git commit "${files[@]}" \
         -m "Upgrade Tor Browser to ${TBB_VERSION:?} (refs: tails#${TBB_TAILS_TICKET})" && \
-    git show
+      git show
+    )
 
 Please refer to [[Self-hosted Tor Browser tarballs archive|tor-browser#self-host]] section.
 
