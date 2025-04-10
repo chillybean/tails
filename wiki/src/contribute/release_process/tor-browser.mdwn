@@ -130,8 +130,10 @@ If that's the case, just set it to an empty string:
 
     TBB_SIGNER_SUFFIX=''
 
-Fetch the version's hash file and its detached signature, and verify
-with GnuPG:
+Fetch the version's hash file and its detached signature, verify
+with GnuPG, build the list of tarballs we want and their hashes,
+(so this information is available at build time,
+when the tarballs are fetched):
 
     (
         set -e
@@ -140,18 +142,13 @@ with GnuPG:
             wget "${TBB_DIST_URL:?}/$f" -O "$f"
         done
         gpg --verify sha256sums-unsigned-build.txt{.asc${TBB_SIGNER_SUFFIX?},}
+        grep --color=never -E \
+            "\stor-browser-linux-x86_64-${TBB_VERSION%-build*}\.tar\.xz$" \
+            sha256sums-unsigned-build.txt \
+            > config/chroot_local-includes/usr/share/tails/tbb-sha256sums.txt
     )
 
 
-Build the list of tarballs we want and their hashes,
-so this information is available at build time,
-when the tarballs are fetched:
-
-    (
-        grep --color=never -E \
-            "\stor-browser-linux-x86_64-${TBB_VERSION%-build*}\.tar\.xz$" \
-            sha256sums-unsigned-build.txt
-    ) > config/chroot_local-includes/usr/share/tails/tbb-sha256sums.txt
 
 Set download url
 ----------------
