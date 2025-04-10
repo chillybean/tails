@@ -310,6 +310,7 @@ Import a new set of Tor Browser tarballs
 
 1. Download, verify and import all the tarballs we need:
 
+    export DL_DIR=$(mktemp --tmpdir -d "tor-browser-${TBB_VERSION}.XXXXXXXXXX")
     ./bin/import-tbb-tarball
 
 
@@ -371,6 +372,7 @@ Clean up
 	cd "${TBB_ARCHIVE:?}" && \
 	git annex drop -- "${TBB_VERSION:?}" && \
     git annex sync --no-content && \
+    rm -rf "$DL_DIR" && \
     cd "${TAILS_GIT_REPO:?}" && \
     rm -f sha256sums-unsigned-build.txt{,.asc${TBB_SIGNER_SUFFIX}}
     )
