@@ -330,12 +330,7 @@ end
 def boot_menu_cmdline_images
   case @os_loader
   when 'UEFI'
-    # XXX: Once we require Bookworm or newer to run the test suite,
-    # drop TailsBootMenuKernelCmdlineUEFI_Bullseye.png.
-    [
-      'TailsBootMenuKernelCmdlineUEFI_Bullseye.png',
-      'TailsBootMenuKernelCmdlineUEFI_Bookworm.png',
-    ]
+    ['TailsBootMenuKernelCmdlineUEFI_Bookworm.png']
   else
     ['TailsBootMenuKernelCmdline.png', 'TailsBootMenuKernelCmdline_alt.png']
   end
@@ -344,9 +339,7 @@ end
 def boot_menu_images
   case @os_loader
   when 'UEFI'
-    # XXX: Once we require Bookworm or newer to run the test suite,
-    # drop TailsBootMenuGRUB_Bullseye.png.
-    ['TailsBootMenuGRUB_Bullseye.png', 'TailsBootMenuGRUB_Bookworm.png']
+    ['TailsBootMenuGRUB_Bookworm.png']
   else
     ['TailsBootMenuSyslinux.png', 'TailsBootMenuSyslinux_alt.png']
   end
