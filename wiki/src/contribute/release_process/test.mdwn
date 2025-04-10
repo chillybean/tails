@@ -23,7 +23,7 @@ Boot the candidate image and find the commit it was build from with the
 
 Then, from the source tree, see the diff:
 
-	git diff --find-renames <old image commit>..<candidate image commit>
+	git diff --find-renames <old image commit>..<candidate image commit> -- '*' ':!config/binary_rootfs/squashfs.sort' ':!po' ':!wiki'
 
 e.g. `git diff --find-renames 334e1c485a3a79be9fff899d4dc9d2db89cdc9e1..cfbde80925fdd0af008f10bc90c8a91a578c58e3`
 
