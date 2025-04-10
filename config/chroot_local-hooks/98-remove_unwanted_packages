@@ -87,11 +87,5 @@ if dpkg --get-selections | grep -qs -E '^exim4'; then
     apt-get --yes purge '^exim4*'
 fi
 
-### In Bookworm we prefer xdg-desktop-portal-gtk over
-### xdg-desktop-portal-gnome since the latter has issues when
-### interacted with through Dogtail which would make test suite work
-### much more difficult.
-apt-get --yes purge xdg-desktop-portal-gnome
-
 ### Deinstall dependencies of the just removed packages.
 apt-get --yes --purge autoremove
