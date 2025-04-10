@@ -247,6 +247,8 @@ task :parse_build_options do
       ENV['TAILS_BUILD_MACHINE_TYPE'] = Regexp.last_match(1)
     when /cpus=(\d+)/
       ENV['TAILS_BUILD_CPUS'] = Regexp.last_match(1)
+    when /memory=(\d+)/
+      ENV['TAILS_BUILD_MEMORY'] = Regexp.last_match(1)
     when /cpumodel=([a-zA-Z0-9_-]+)/
       ENV['TAILS_BUILD_CPU_MODEL'] = Regexp.last_match(1)
     # Git settings
