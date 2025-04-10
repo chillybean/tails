@@ -27,6 +27,16 @@ Then, from the source tree, see the diff:
 
 e.g. `git diff --find-renames 334e1c485a3a79be9fff899d4dc9d2db89cdc9e1..cfbde80925fdd0af008f10bc90c8a91a578c58e3`
 
+
+Changes to IDF and UDF
+------------------------
+
+The purpose of this check is to monitor if, during the _last_ release cycle, an attacker modified IDFs and
+UDFs in order to serve malicious images.
+
+    git log <old image commit>..<candidate image commit> -- wiki/src/install/v2/Tails/amd64/stable/latest.json wiki/src/upgrade/v2/
+
+
 Packages
 --------
 
