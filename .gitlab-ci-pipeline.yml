@@ -112,6 +112,19 @@ lint-po:
     - *prepare-lint-po
     - /tmp/jenkins-tools/slaves/lint_po
 
+avoid-gtk-launch:
+  only:
+    - merge_requests
+
+  variables:
+    GIT_STRATEGY: clone
+    GIT_DEPTH: 0
+
+  image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:sid
+
+  script:
+    - ./bin/test-utils/gtk-launch
+
 ruff-lint-changed-files:
   only:
     - merge_requests
