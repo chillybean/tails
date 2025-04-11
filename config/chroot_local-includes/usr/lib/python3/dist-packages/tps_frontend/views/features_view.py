@@ -186,6 +186,7 @@ class FeaturesView(View):
         launch_context = display.get_app_launch_context()  # type: Gdk.AppLaunchContext
         launch_context.set_timestamp(Gtk.get_current_event_time())
         # noinspection PyArgumentList
+        # We use an absolute path, so qa-tails-20745-ok
         app = Gio.DesktopAppInfo.new_from_filename(
             "/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop"
         )
