@@ -91,7 +91,15 @@ class ASPConfigApplicationWindow(Gtk.ApplicationWindow):
 
     def cb_activate_link(self, label, uri):
         if uri.endswith(".desktop"):
-            appinfo = Gio.DesktopAppInfo.new(uri)
+            # We expect uri to be a filename, not a path, so this should be a no-op...
+            # but let's be more explicit.
+            desktop = uri.split("/")[-1]
+            # Building an absolute path is needed to avoid #20745
+            # in this case this is actually irrelevant, as this program has no privileges.
+            # qa-tails-20745-ok
+            appinfo = Gio.DesktopAppInfo.new_from_filename(
+                f"/usr/share/applications/{desktop}"
+            )
             appinfo.launch()
             return True
 
