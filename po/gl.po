@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-02 09:44+0200\n"
-"PO-Revision-Date: 2025-03-31 20:55+0000\n"
+"POT-Creation-Date: 2025-04-14 15:41+0200\n"
+"PO-Revision-Date: 2025-04-03 14:13+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/tor/tails-gui/"
 "gl/>\n"
@@ -122,7 +122,7 @@ msgid "This will stop installing {packages} automatically."
 msgstr "Isto deterá inmediatamente a instalación de {packages} ."
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:165
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:180
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:188
 msgid "Remove"
 msgstr "Eliminar"
 
@@ -204,15 +204,15 @@ msgstr ""
 "persistente ao arrancar Tails."
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:197
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
-"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
+"To add more, install some software using <a href=\"synaptic."
+"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
+"desktop\">APT on the command line</a>."
 msgstr ""
-"Para engadir máis, instalae algún software utilizando <a "
-"href=\"synaptic.desktop\">Xestor de paquetes Synaptic</a> e <a "
-"href=\"org.gnome.Terminal.desktop\">APT na liña de ordes</a>."
+"Para engadir máis, instalae algún software utilizando <a href=\"synaptic."
+"desktop\">Xestor de paquetes Synaptic</a> e <a href=\"org.gnome.Terminal."
+"desktop\">APT na liña de ordes</a>."
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:154
 msgid "_Create persistent storage"
@@ -973,7 +973,7 @@ msgid "Extracting live image to the target device..."
 msgstr "Extraendo imaxen en vivo ao dispositivo destino..."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:477
-#, python-format
+#, fuzzy, python-format
 msgid ""
 "There was a problem executing the following command: `%(command)s`.\n"
 "A more detailed error log has been written to \"%(filename)s\"."
@@ -1218,6 +1218,7 @@ msgid "No ISO image selected"
 msgstr "Non se seleccionou ningunha imaxe ISO"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:486
+#, fuzzy
 msgid "Please select a Tails ISO image."
 msgstr "Seleccione unha imaxe ISO do Tails"
 
@@ -1557,7 +1558,7 @@ msgstr ""
 msgid "Documentation"
 msgstr "Documentación"
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:106
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:114
 #, python-brace-format
 msgid ""
 "Remove {package} from your additional software? This will stop installing "
@@ -1567,32 +1568,32 @@ msgstr ""
 "paquete inmediatamente."
 
 #. Translators: Don't translate {pkg}, it's a placeholder and will be replaced.
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:119
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:127
 #, python-brace-format
 msgid "Failed to remove {pkg}"
 msgstr "Produciuse un fallo ao retirar {pkg}"
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:147
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:155
 msgid "Failed to read additional software configuration"
 msgstr "Fallou a lectura da configuración do software adicional"
 
 #. Translators: Don't translate {package}, it's a placeholder and will be replaced.
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:176
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:184
 #, python-brace-format
 msgid "Stop installing {package} automatically"
 msgstr "Deter a instalación de {package} automaticamente"
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:207
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:215
 msgid ""
 "To do so, install some software using <a href=\"synaptic.desktop\">Synaptic "
 "Package Manager</a> or <a href=\"org.gnome.Terminal.desktop\">APT on the "
 "command line</a>."
 msgstr ""
-"Para facelo, instale algún software utilizando o <a "
-"href=\"synaptic.desktop\">Xestor de paquetes Synaptic</a> ou <a "
-"href=\"org.gnome.Terminal.desktop\">APT en liña de ordes</a>."
+"Para facelo, instale algún software utilizando o <a href=\"synaptic."
+"desktop\">Xestor de paquetes Synaptic</a> ou <a href=\"org.gnome.Terminal."
+"desktop\">APT en liña de ordes</a>."
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:219
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:227
 msgid ""
 "To do so, unlock your Persistent Storage when starting Tails and install "
 "some software using <a href=\"synaptic.desktop\">Synaptic Package Manager</"
@@ -1603,28 +1604,29 @@ msgstr ""
 "paquetes Synaptic</a> ou <a href=\"org.gnome.Terminal.desktop\">APT en liña "
 "de ordes</a>."
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:232
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:240
 #, fuzzy
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
-"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
+"gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "Para facelo, cree un almacén persistente e instale algún software utilizando "
 "o <a href=\"synaptic.desktop\">Xestor de paquetes Synaptic</a>ou <a "
 "href=\"org.gnome.Terminal.desktop\">APT en liña de ordes</a>."
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:250
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:258
 #, fuzzy
 msgid "To do so, install Tails on a USB stick and create a Persistent Storage."
 msgstr ""
 "Para facelo, instale o Tails nunha unidade USB e cree un almacén persistente."
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:296
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:304
+#, fuzzy
 msgid "[package not available]"
 msgstr "[package not available]"
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:303
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:311
 #, fuzzy
 msgid "[description not available]"
 msgstr "[package not available]"
@@ -1657,6 +1659,7 @@ msgstr ""
 "Esta versión de Tails ten os seguintes problemas de seguridade coñecidos:"
 
 #: config/chroot_local-includes/usr/local/bin/tails-security-check:132
+#, fuzzy
 msgid "Known security issues"
 msgstr "Problemas de seguridade coñecidos:"
 
@@ -1768,6 +1771,7 @@ msgid "error:"
 msgstr "erro:"
 
 #: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:21
+#, fuzzy
 msgid "Warning: virtual machine detected!"
 msgstr "Aviso: detectouse unha máquina virtual"
 
@@ -2319,7 +2323,7 @@ msgstr "{volume_size} Volume"
 #. Translators: Don't translate {volume_name}, it's a placeholder and
 #. will be replaced. It needs to be present in the translated string.
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/unlock_veracrypt_volumes/volume.py:140
-#, python-brace-format
+#, fuzzy, python-brace-format
 msgid "{volume_name} (Read-Only)"
 msgstr "{volume_name} (Read-Only)"
 
@@ -2501,6 +2505,7 @@ msgid "This may take a while, so please be patient."
 msgstr "Isto pode levar un pouco de tempo. Por favor, sé paciente."
 
 #: config/chroot_local-includes/usr/local/sbin/unsafe-browser:81
+#, fuzzy
 msgid "Shutting down the Unsafe Browser..."
 msgstr "Pechar o navegador inseguro"
 
@@ -2545,6 +2550,7 @@ msgid ""
 msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:136
+#, fuzzy
 msgid "Unable to load a valid configuration."
 msgstr "Non é posíbel cargar unha configuración válida"
 
@@ -2565,6 +2571,7 @@ msgid "The contact email address doesn't seem valid."
 msgstr "O enderezo de contacto por correo non parece ser correcto."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:218
+#, fuzzy
 msgid "Unable to send the mail: SMTP error."
 msgstr "Non é posíbel enviar a mensaxe de correo electrónico: erro SMTP"
 
@@ -2729,8 +2736,8 @@ msgid ""
 "Authentication is required to remove a package from your additional software "
 "($(command_line))"
 msgstr ""
-"Requírese autenticación para retirar un paquete do seu software adicional ($"
-"(command_line))"
+"Requírese autenticación para retirar un paquete do seu software adicional "
+"($(command_line))"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:18
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:56
@@ -2911,6 +2918,7 @@ msgid "Add an additional setting"
 msgstr "Engadir un axuste adicional"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:761
+#, fuzzy
 msgid "Shutdown"
 msgstr "Shutdown"
 
@@ -3527,6 +3535,7 @@ msgid "• Public network"
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:827
+#, fuzzy
 msgid ""
 "If you are in a shop, hotel, or airport, you might need to sign in to the "
 "local network using the Unsafe Browser."
@@ -3595,6 +3604,7 @@ msgid ""
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1241
+#, fuzzy
 msgid "<b>Connect to Tor _automatically</b>"
 msgstr "<b>Connect to Tor _automatically</b>"
 
@@ -3628,6 +3638,7 @@ msgid ""
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1431
+#, fuzzy
 msgid "<b>_Hide to my local network that I'm connecting to Tor</b>"
 msgstr "<b>_Hide to my local network that I'm connecting to Tor</b>"
 
@@ -4025,8 +4036,8 @@ msgstr "Reloxo"
 #~ "along with this program.  If not, see <http://www.gnu.org/licenses/>.\n"
 #~ msgstr ""
 #~ "WhisperBack - Enviar comentarios nun correco cifrado\n"
-#~ "Dereitos de autor (C) 2009-2018 Desenvolvedores de Tails  "
-#~ "<tails@boum.org>\n"
+#~ "Dereitos de autor (C) 2009-2018 Desenvolvedores de Tails  <tails@boum."
+#~ "org>\n"
 #~ "\n"
 #~ "Este programa é software libre; pode redistribuílo e/ou modificalo\n"
 #~ "baixo os termos da licenza pública xeral de GNU tal como a publica a Free "

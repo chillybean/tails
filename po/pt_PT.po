@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-02 09:44+0200\n"
-"PO-Revision-Date: 2025-03-31 20:58+0000\n"
+"POT-Creation-Date: 2025-04-14 15:41+0200\n"
+"PO-Revision-Date: 2025-04-03 14:14+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Portuguese (Portugal) <https://hosted.weblate.org/projects/"
 "tor/tails-gui/pt_PT/>\n"
@@ -128,7 +128,7 @@ msgid "This will stop installing {packages} automatically."
 msgstr "Isto interromperá a instalação automática de {packages}."
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:165
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:180
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:188
 msgid "Remove"
 msgstr "Remover"
 
@@ -211,15 +211,15 @@ msgstr ""
 "permanente quando o Tails é iniciado."
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:197
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
-"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
+"To add more, install some software using <a href=\"synaptic."
+"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
+"desktop\">APT on the command line</a>."
 msgstr ""
-"Para adicionar outros, instale programas utilizando o <a "
-"href=\"synaptic.desktop\">Gestor de Pacotes Synaptic</a> ou o <a "
-"href=\"org.gnome.Terminal.desktop\">APT na linha de comandos</a>."
+"Para adicionar outros, instale programas utilizando o <a href=\"synaptic."
+"desktop\">Gestor de Pacotes Synaptic</a> ou o <a href=\"org.gnome.Terminal."
+"desktop\">APT na linha de comandos</a>."
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:154
 msgid "_Create persistent storage"
@@ -1013,7 +1013,7 @@ msgstr ""
 "livre"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:509
-#, python-format
+#, fuzzy, python-format
 msgid "Creating %sMB persistent overlay"
 msgstr "A criar %sMB da área permanente..."
 
@@ -1238,6 +1238,7 @@ msgid "No ISO image selected"
 msgstr "Nenhuma imagem ISO selecionada"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:486
+#, fuzzy
 msgid "Please select a Tails ISO image."
 msgstr "Por favor, selecione uma imagem ISO Tails"
 
@@ -1360,6 +1361,7 @@ msgstr ""
 "selecione outro ficheiro."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:850
+#, fuzzy
 msgid ""
 "Unable to use the selected file.  You may have better luck if you move your "
 "ISO to the root of your drive (ie: C:\\)"
@@ -1581,7 +1583,7 @@ msgstr ""
 msgid "Documentation"
 msgstr "Documentação"
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:106
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:114
 #, python-brace-format
 msgid ""
 "Remove {package} from your additional software? This will stop installing "
@@ -1591,32 +1593,33 @@ msgstr ""
 "automaticamente a instalação do pacote."
 
 #. Translators: Don't translate {pkg}, it's a placeholder and will be replaced.
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:119
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:127
 #, python-brace-format
 msgid "Failed to remove {pkg}"
 msgstr "Não foi possível remover {pkg}"
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:147
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:155
+#, fuzzy
 msgid "Failed to read additional software configuration"
 msgstr "Falha na leitura da configuração do programa adicional."
 
 #. Translators: Don't translate {package}, it's a placeholder and will be replaced.
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:176
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:184
 #, python-brace-format
 msgid "Stop installing {package} automatically"
 msgstr "Parar de instalar {package} automaticamente"
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:207
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:215
 msgid ""
 "To do so, install some software using <a href=\"synaptic.desktop\">Synaptic "
 "Package Manager</a> or <a href=\"org.gnome.Terminal.desktop\">APT on the "
 "command line</a>."
 msgstr ""
-"Para fazê-lo, instale programas utilizando o <a "
-"href=\"synaptic.desktop\">Gestor de Pacotes Synaptic</a> ou o <a "
-"href=\"org.gnome.Terminal.desktop\">APT na linha de comandos</a>."
+"Para fazê-lo, instale programas utilizando o <a href=\"synaptic."
+"desktop\">Gestor de Pacotes Synaptic</a> ou o <a href=\"org.gnome.Terminal."
+"desktop\">APT na linha de comandos</a>."
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:219
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:227
 msgid ""
 "To do so, unlock your Persistent Storage when starting Tails and install "
 "some software using <a href=\"synaptic.desktop\">Synaptic Package Manager</"
@@ -1627,29 +1630,29 @@ msgstr ""
 "Pacotes Synaptic</a> ou o <a href=\"org.gnome.Terminal.desktop\">APT na "
 "linha de comandos</a>."
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:232
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:240
 #, fuzzy
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
-"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
+"gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "Para fazê-lo, crie um armazenamento permanente e instale programas "
 "utilizando o <a href=\"synaptic.desktop\">Gestor de Pacotes Synaptic</a> ou "
 "o <a href=\"org.gnome.Terminal.desktop\">APT na linha de comandos</a>."
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:250
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:258
 #, fuzzy
 msgid "To do so, install Tails on a USB stick and create a Persistent Storage."
 msgstr ""
 "Para fazer isso, instale o Tails numa \"pen\" e crie um armazenamento "
 "persistente."
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:296
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:304
 msgid "[package not available]"
 msgstr "[pacote não disponível]"
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:303
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:311
 #, fuzzy
 msgid "[description not available]"
 msgstr "[pacote não disponível]"
@@ -1779,8 +1782,8 @@ msgstr ""
 "<b>Não há memória suficiente para procurar por atualizações.</b>\n"
 "\n"
 "Verifique se o sistema cumpre os requerimentos para executar o Tails\n"
-"Consulte o file:///usr/share/doc/tails/website/doc/about/"
-"requirements.en.html\n"
+"Consulte o file:///usr/share/doc/tails/website/doc/about/requirements.en."
+"html\n"
 "\n"
 "Tente reiniciar o Tails para procurar por atualizações novamente\n"
 "\n"
@@ -1812,6 +1815,7 @@ msgstr ""
 "considerado como de confiança, para ambos."
 
 #: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:38
+#, fuzzy
 msgid "Don't Show Again"
 msgstr "Não voltar a mostrar."
 
@@ -3905,15 +3909,15 @@ msgstr "Relógio"
 #~ "\n"
 #~ "Help us keep your bitcoins safe!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/"
-#~ "donate.en.html#expenses\">How we spend our money.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
+#~ "html#expenses\">How we spend our money.</a>"
 #~ msgstr ""
 #~ "O Tails protege a sua carteira.\n"
 #~ "\n"
 #~ "Ajudenos a manter as suas bitcoins seguras!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/"
-#~ "donate.en.html#expenses\">Como gastamos o nosso dinheiro.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
+#~ "html#expenses\">Como gastamos o nosso dinheiro.</a>"
 
 #, fuzzy
 #~| msgid "Create"
