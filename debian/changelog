@@ -1,8 +1,39 @@
-tails (6.15) UNRELEASED; urgency=medium
+tails (6.14.2) UNRELEASED; urgency=medium
 
-  * Dummy entry for next release.
+  * Merge upstream torbrowser-launcher into our copy (tails/tails!2061)
 
- -- boyska <boyska@riseup.net>  Thu, 03 Apr 2025 17:01:03 +0200
+    Closes issues:
+      - Merge upstream changes into our Tor Browser AppArmor policy, 2025 Q2 edition
+        (tails/tails#20877)
+
+    Commits:
+      - Merge upstream torbrowser-launcher into our copy
+
+  * Address more occurrences of #20745 (tails/tails!2043)
+
+    Commits:
+      - Merge the two scripts into one
+      - Tag DesktopAppInfo instances which are actually ok
+      - CI to look for more issues related to #20745
+      - Fix one more occurrence of #20745
+
+  * automatically check against the use of gtk-launch (tails/tails!2040)
+
+    Closes issues:
+      - Set up a CI job to check for usage of `gtk-launch` in our own code
+        (tails/tails#20871)
+
+    Commits:
+      - rewrite test in POSIX shell
+      - remove last mention of gtk-launch
+      - automatically check against the use of gtk-launch
+
+  * Allow user to force specific build memory requirements (tails/tails!2016)
+
+    Commits:
+      - add memory= parameter to TAILS_BUILD_OPTIONS
+
+ -- Tails developers <tails@boum.org>  Mon, 14 Apr 2025 14:04:12 +0000
 
 tails (6.14.1) unstable; urgency=medium
 
