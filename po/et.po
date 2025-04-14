@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-02 09:44+0200\n"
-"PO-Revision-Date: 2025-03-31 20:56+0000\n"
+"POT-Creation-Date: 2025-04-14 15:41+0200\n"
+"PO-Revision-Date: 2025-04-03 14:14+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/tor/tails-gui/"
 "et/>\n"
@@ -115,7 +115,7 @@ msgid "This will stop installing {packages} automatically."
 msgstr ""
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:165
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:180
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:188
 msgid "Remove"
 msgstr "Eemalda"
 
@@ -196,15 +196,15 @@ msgstr ""
 "Tails'i käivitamisel."
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:197
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
-"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
+"To add more, install some software using <a href=\"synaptic."
+"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
+"desktop\">APT on the command line</a>."
 msgstr ""
-"Juurde lisamiseks paigalda tarkvara kasutades <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager'i</a> või <a "
-"href=\"org.gnome.Terminal.desktop\">Käsureal APT-i</a>."
+"Juurde lisamiseks paigalda tarkvara kasutades <a href=\"synaptic."
+"desktop\">Synaptic Package Manager'i</a> või <a href=\"org.gnome.Terminal."
+"desktop\">Käsureal APT-i</a>."
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:154
 msgid "_Create persistent storage"
@@ -418,6 +418,7 @@ msgid "No explanation available for reason '{reason}'."
 msgstr "Pole selgitust saadaval põhjuse '{reason}' jaoks."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:409
+#, fuzzy
 msgid "The system is up-to-date"
 msgstr "Süsteem on kõige uuemal versioonil."
 
@@ -962,7 +963,7 @@ msgstr ""
 "Detailsem tõrkelogi on kirjutatud faili \"%(filename)s\"."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:496
-#, python-format
+#, fuzzy, python-format
 msgid ""
 "Not enough free space on device.\n"
 "%(iso_size)dMB ISO + %(overlay_size)dMB overlay > %(free_space)dMB free space"
@@ -1194,6 +1195,7 @@ msgid "No ISO image selected"
 msgstr "Ühtegi ISO't pole valitud"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:486
+#, fuzzy
 msgid "Please select a Tails ISO image."
 msgstr "Palun valige Tails'i ISO"
 
@@ -1527,7 +1529,7 @@ msgstr ""
 msgid "Documentation"
 msgstr "Dokumentatsioon"
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:106
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:114
 #, python-brace-format
 msgid ""
 "Remove {package} from your additional software? This will stop installing "
@@ -1537,64 +1539,65 @@ msgstr ""
 "automaatselt paigaldamise."
 
 #. Translators: Don't translate {pkg}, it's a placeholder and will be replaced.
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:119
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:127
 #, python-brace-format
 msgid "Failed to remove {pkg}"
 msgstr "{pkg} eemaldamine ebaõnnestus"
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:147
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:155
 msgid "Failed to read additional software configuration"
 msgstr "Lisatarkvarade konfiguratsiooni lugemine ebaõnnestus"
 
 #. Translators: Don't translate {package}, it's a placeholder and will be replaced.
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:176
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:184
 #, python-brace-format
 msgid "Stop installing {package} automatically"
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:207
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:215
 msgid ""
 "To do so, install some software using <a href=\"synaptic.desktop\">Synaptic "
 "Package Manager</a> or <a href=\"org.gnome.Terminal.desktop\">APT on the "
 "command line</a>."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:219
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:227
 #, fuzzy
 msgid ""
 "To do so, unlock your Persistent Storage when starting Tails and install "
 "some software using <a href=\"synaptic.desktop\">Synaptic Package Manager</"
 "a> or <a href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
-"Juurde lisamiseks paigalda tarkvara kasutades <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager'i</a> või <a "
-"href=\"org.gnome.Terminal.desktop\">Käsureal APT-i</a>."
+"Juurde lisamiseks paigalda tarkvara kasutades <a href=\"synaptic."
+"desktop\">Synaptic Package Manager'i</a> või <a href=\"org.gnome.Terminal."
+"desktop\">Käsureal APT-i</a>."
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:232
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:240
 #, fuzzy
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
-"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
+"gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
-"Juurde lisamiseks paigalda tarkvara kasutades <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager'i</a> või <a "
-"href=\"org.gnome.Terminal.desktop\">Käsureal APT-i</a>."
+"Juurde lisamiseks paigalda tarkvara kasutades <a href=\"synaptic."
+"desktop\">Synaptic Package Manager'i</a> või <a href=\"org.gnome.Terminal."
+"desktop\">Käsureal APT-i</a>."
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:250
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:258
 msgid "To do so, install Tails on a USB stick and create a Persistent Storage."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:296
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:304
 msgid "[package not available]"
 msgstr "[pakett pole saadaval]"
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:303
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:311
 #, fuzzy
 msgid "[description not available]"
 msgstr "[pakett pole saadaval]"
 
 #: config/chroot_local-includes/usr/local/lib/tails-htp-notify-user:68
+#, fuzzy
 msgid "Failed to synchronize the clock!"
 msgstr "Kella sünkroniseerimine ebaõnnestus"
 
@@ -2832,6 +2835,7 @@ msgid "Add an additional setting"
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:761
+#, fuzzy
 msgid "Shutdown"
 msgstr "Shutdown"
 
@@ -3437,6 +3441,7 @@ msgid "• Public network"
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:827
+#, fuzzy
 msgid ""
 "If you are in a shop, hotel, or airport, you might need to sign in to the "
 "local network using the Unsafe Browser."
@@ -3505,6 +3510,7 @@ msgid ""
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1241
+#, fuzzy
 msgid "<b>Connect to Tor _automatically</b>"
 msgstr "<b>Connect to Tor _automatically</b>"
 
@@ -3538,6 +3544,7 @@ msgid ""
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1431
+#, fuzzy
 msgid "<b>_Hide to my local network that I'm connecting to Tor</b>"
 msgstr "<b>_Hide to my local network that I'm connecting to Tor</b>"
 
