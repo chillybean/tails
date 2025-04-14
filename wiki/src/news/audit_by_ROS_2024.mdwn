@@ -1,0 +1,59 @@
+# Post-mortem
+
+After this audit, we conducted an internal post-mortem: we tried to understand
+how the vulnerabilities had made it into our releases, and we brainstormed
+changes that could minimize the chances we introduce vulnerabilities of the same
+kind again. This has lead us to design and implement both systemic and ad-hoc
+improvements: some technical, some about team policy & culture.
+
+This exercise felt useful to us and we'll definitely consider doing it again
+after our next audits.
+
+In the hope that this experience also benefits other projects, here's a sneak
+peek of the improvements we have implemented or planned.
+
+## Technical improvements
+
+ - Our `sudo` configuration is now generated from a higher-level description,
+   which has safer default settings and demands explanations when diverging
+   from them ([[!tails_mr 1979]]).
+
+   This will make it much harder to introduce vulnerabilities such as
+   [[!tails_ticket 19595]], [[!tails_ticket 20709]], and [[!tails_ticket
+   20710]].
+
+ - Our CI now ensures that all included Tails-made Python executables run in
+   isolated mode ([[!tails_mr 1911]]).
+
+   This defends against issues like [[!tails_ticket 20702]] and [[!tails_ticket 20744]].
+
+ - Our CI now ensures that we don't write software that does unsafe `.desktop`
+   files lookup ([[!tails_mr 2040]]).
+
+   This defends against issues like [[!tails_ticket 20733]] and [[!tails_ticket 20745]].
+
+ - While we prepare Tails N+1.0 based on next version of Debian,
+   we will look for Perl code, included in the Tails image,
+   that suspiciously modifies `@INC`.
+
+   This defends against issues like [[!tails_ticket 20701]].
+
+ - We will periodically audit our `onion-grater` configuration.
+
+## Policy & culture improvements
+
+ - We decided to be more intentional, as a team, about when it's worth the
+   effort & risk to do a big code refactoring.
+
+   While we recognize that refactoring is a necessary part of a healthy software
+   development process, this post-mortem showed that large refactorings also
+   provide opportunities for security vulnerabilities to sneak into our code
+   base, under the radar.
+
+ - For merge requests that include security-sensitive changes, such as
+   creating/modifying `sudo` configuration or code that elevates privileges:
+   we will now require an extra, *security-focused* review.
+
+ - We will share knowledge and awareness about security issues more broadly
+   within the team when we discover them, so that every team member has
+   opportunities to learn along the way.
