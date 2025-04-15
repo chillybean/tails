@@ -60,9 +60,9 @@ class GJsonRpcClient(GObject.GObject):
         GLib.io_add_watch(self.sock.fileno(), GLib.IO_IN, self._on_data)
         GLib.io_add_watch(self.sock.fileno(), GLib.IO_HUP | GLib.IO_ERR, self._on_close)
 
-    def call_async(self, method: str, callback: AsyncCallback | None, *args, **kwargs):
-        req = self.protocol.create_request(method, args, kwargs)
-        log.debug("call async %s %s %s %d", method, args, kwargs, req.unique_id)
+    def call_async(self, method: str, callback: AsyncCallback | None, *args):
+        req = self.protocol.create_request(method, args)
+        log.debug("call async %s %s %d", method, args, req.unique_id)
         if callback is not None:
             self.connect("response::%d" % req.unique_id, callback)
         output = req.serialize() + "\n"
