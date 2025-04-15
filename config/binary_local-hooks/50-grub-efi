@@ -128,9 +128,6 @@ for platform in $platforms ; do
    grub_cpmodules "$grub_module_dir" "$platform"
 done
 
-# Copy unicode fonts
-cp "chroot/boot/grub/unicode.pf2" "${grub_dir}"
-
 # Append Tails version in the boot loader entry
 sed -i -E "s#TAILS_VERSION\b#${TAILS_VERSION}#g" "binary/EFI/debian/grub.cfg"
 
