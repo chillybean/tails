@@ -6,8 +6,7 @@ from logging import getLogger
 import time
 
 import gi
-from tinyrpc.protocols.jsonrpc import JSONRPCProtocol
-from tinyrpc.exc import BadReplyError
+from tails_jsonrpc import Protocol, InvalidMessageError
 
 gi.require_version("GLib", "2.0")
 
@@ -53,7 +52,7 @@ class GJsonRpcClient(GObject.GObject):
 
     def __init__(self, sock: socket.socket):
         GObject.GObject.__init__(self)
-        self.protocol = JSONRPCProtocol()
+        self.protocol = Protocol()
         self.sock = sock
         self.buffer = b""
 
@@ -81,12 +80,11 @@ class GJsonRpcClient(GObject.GObject):
             self.buffer = self.buffer[newline_pos + 1 :]
             try:
                 response = self.protocol.parse_reply(msg)
-            except BadReplyError:
+            except InvalidMessageError:
                 return None
             if hasattr(response, "error"):
                 errordata = {}
-                if hasattr(response, "_jsonrpc_error_code"):
-                    errordata["code"] = response._jsonrpc_error_code  # noqa: SLF001
+                errordata["code"] = response.code
                 self.emit(
                     "response-error::%d" % response.unique_id, response.error, errordata
                 )
