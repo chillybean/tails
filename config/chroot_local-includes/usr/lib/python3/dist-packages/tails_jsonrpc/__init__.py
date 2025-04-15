@@ -1,0 +1,191 @@
+import json
+from enum import IntEnum
+
+JSON_RPC_VERSION = "2.0"
+
+
+class JsonRpcException(Exception):
+    pass
+
+
+class InvalidMessageError(JsonRpcException):
+    pass
+
+
+class FieldNotAllowed(InvalidMessageError):
+    pass
+
+
+class FieldMissing(InvalidMessageError):
+    pass
+
+
+class ResultAndError(InvalidMessageError):
+    pass
+
+
+class Message:
+    def _to_dict(self) -> dict:
+        raise NotImplementedError()
+
+    @classmethod
+    def validate(self, data: dict):
+        for k in data:
+            if k not in (self.REQUIRED_FIELDS | self.EXTRA_FIELDS):
+                raise FieldNotAllowed(k)
+
+        for k in self.REQUIRED_FIELDS:
+            if k not in data:
+                raise FieldMissing(k)
+
+        if ("error" in data) == ("result" in data):
+            raise ResultAndError
+
+    def serialize(self) -> str:
+        return json.dumps(self._to_dict())
+
+
+class Response(Message):
+    def __init__(self):
+        pass
+
+    @classmethod
+    def validate(self, data: dict):
+        super().validate(data)
+        if data["jsonrpc"] != JSON_RPC_VERSION:
+            raise InvalidMessageError()
+
+
+class SuccessResponse(Response):
+    def __init__(self, unique_id: int, result):
+        super().__init__()
+        self.unique_id = unique_id
+        self.result = result
+
+    def _to_dict(self) -> dict:
+        return {
+            "jsonrpc": JSON_RPC_VERSION,
+            "id": self.unique_id,
+            "result": self.result,
+        }
+
+
+class ErrorType(IntEnum):
+    GENERIC = 1
+
+
+class ErrorResponse(Response):
+    def __init__(self, unique_id, error, code: ErrorType | int = ErrorType.GENERIC):
+        super().__init__()
+        self.unique_id = unique_id
+        self.error = error
+        self.code = code
+
+    def _to_dict(self) -> dict:
+        return {
+            "jsonrpc": JSON_RPC_VERSION,
+            "id": self.unique_id,
+            "error": {
+                "message": str(self.error),
+                "code": int(self.code),
+            },
+        }
+
+
+class Request(Message):
+    def __init__(
+        self,
+        unique_id: int,
+        method: str,
+        args: list[str] | None = None,
+    ):
+        self.unique_id = unique_id
+        self.method = method
+        self.args = args if args is not None else []
+
+    @classmethod
+    def validate(self, data: dict):
+        super().validate(data)
+
+        if "method" not in data:
+            raise FieldMissing("method")
+
+        if not isinstance(data.get("params", []), list):
+            raise InvalidMessageError("params")
+
+        if not isinstance(data["method"], str):
+            raise InvalidMessageError()
+
+    def error_respond(self, error: Exception | str) -> ErrorResponse:
+        return ErrorResponse(
+            unique_id=self.unique_id,
+            error=error,
+        )
+
+    def respond(self, result) -> SuccessResponse:
+        return SuccessResponse(
+            unique_id=self.unique_id,
+            result=result,
+        )
+
+    def _to_dict(self):
+        jdata = {
+            "jsonrpc": JSON_RPC_VERSION,
+            "method": self.method,
+        }
+        if self.args:
+            jdata["params"] = self.args
+        if self.unique_id is not None:
+            jdata["id"] = self.unique_id
+        return jdata
+
+
+class Protocol:
+    REQUIRED_FIELDS = frozenset({"jsonrpc", "id"})
+    EXTRA_FIELDS = frozenset({"result", "error"})
+
+    def __init__(self):
+        self.last_request_id = 0
+
+    def _get_unique_id(self):
+        self.last_request_id += 1
+        return self.last_request_id
+
+    def create_request(self, method, args=None):
+        return Request(unique_id=self._get_unique_id(), method=method, args=args)
+
+    def parse_reply(self, raw: str) -> Response:
+        try:
+            data = json.loads(raw)
+        except Exception as e:  # noqa: BLE001
+            raise InvalidMessageError() from e
+
+        if not isinstance(data, dict):
+            raise InvalidMessageError()
+
+        Response.validate(data)
+
+        if "error" in data:
+            resp = ErrorResponse(
+                unique_id=data["id"],
+                error=data["error"]["message"],
+                code=data["error"]["code"],
+            )
+        else:
+            resp = SuccessResponse(unique_id=data["id"], result=data["result"])
+
+        return resp
+
+    def parse_request(self, raw: str) -> Request:
+        try:
+            data = json.loads(raw)
+        except Exception as e:  # noqa: BLE001
+            raise InvalidMessageError() from e
+
+        Request.validate(data)
+
+        return Request(
+            unique_id=data.get("id", None),
+            method=data["method"],
+            args=data.get("params", None),
+        )
