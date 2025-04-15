@@ -25,6 +25,9 @@ class ResultAndError(InvalidMessageError):
 
 
 class Message:
+    REQUIRED_FIELDS = frozenset({"jsonrpc", "id"})
+    EXTRA_FIELDS = frozenset()
+
     def _to_dict(self) -> dict:
         raise NotImplementedError()
 
@@ -38,14 +41,12 @@ class Message:
             if k not in data:
                 raise FieldMissing(k)
 
-        if ("error" in data) == ("result" in data):
-            raise ResultAndError
-
     def serialize(self) -> str:
         return json.dumps(self._to_dict())
 
 
 class Response(Message):
+    EXTRA_FIELDS = frozenset({"result", "error"})
     def __init__(self):
         pass
 
@@ -54,6 +55,9 @@ class Response(Message):
         super().validate(data)
         if data["jsonrpc"] != JSON_RPC_VERSION:
             raise InvalidMessageError()
+
+        if ("error" in data) == ("result" in data):
+            raise ResultAndError
 
 
 class SuccessResponse(Response):
@@ -93,6 +97,8 @@ class ErrorResponse(Response):
 
 
 class Request(Message):
+    REQUIRED_FIELDS = frozenset({"jsonrpc", "id", "method"})
+    EXTRA_FIELDS = frozenset({"params"})
     def __init__(
         self,
         unique_id: int,
@@ -141,9 +147,6 @@ class Request(Message):
 
 
 class Protocol:
-    REQUIRED_FIELDS = frozenset({"jsonrpc", "id"})
-    EXTRA_FIELDS = frozenset({"result", "error"})
-
     def __init__(self):
         self.last_request_id = 0
 
