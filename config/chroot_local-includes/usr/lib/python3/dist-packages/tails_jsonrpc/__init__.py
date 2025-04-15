@@ -47,6 +47,7 @@ class Message:
 
 class Response(Message):
     EXTRA_FIELDS = frozenset({"result", "error"})
+
     def __init__(self):
         pass
 
@@ -99,6 +100,7 @@ class ErrorResponse(Response):
 class Request(Message):
     REQUIRED_FIELDS = frozenset({"jsonrpc", "id", "method"})
     EXTRA_FIELDS = frozenset({"params"})
+
     def __init__(
         self,
         unique_id: int,
