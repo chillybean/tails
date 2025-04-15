@@ -29,6 +29,8 @@ def main():
     )
     args = p.parse_args()
 
+    # This is how we solved tails#20745, and we make sure to load the desktop filename from an absolute path,
+    # so: qa-tails-20745-ok
     app = Gio.DesktopAppInfo.new_from_filename(str(args.desktop))
     # noinspection PyArgumentList
     display: Gdk.Display = Gdk.Display.get_default()
