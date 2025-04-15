@@ -19,6 +19,7 @@ def wordlist():
         "ca": "ca",
         "de": "de",
         "es": "es",
+        "fr": "fr",
         "it": "it",
         "pt": "pt-br",
     }
