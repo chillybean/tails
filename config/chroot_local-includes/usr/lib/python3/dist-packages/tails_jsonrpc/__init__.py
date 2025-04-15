@@ -148,6 +148,25 @@ class Request(Message):
 
 class Protocol:
     def __init__(self):
+        """
+        >>> p = Protocol()
+        >>> rq1 = p.create_request('dosth', [42])
+        >>> rq = p.parse_request(rq1.serialize())
+        >>> rq.method
+        'dosth'
+        >>> rq.args[0]
+        42
+        >>> rp1 = rq.error_respond('Something went wrong')
+        >>> rp = p.parse_reply(rp1.serialize())
+        >>> rp.error
+        'Something went wrong'
+        >>> rp1 = rq.respond({'msg': 'all good', 'num': 42})
+        >>> rp = p.parse_reply(rp1.serialize())
+        >>> rp.result['msg']
+        'all good'
+        >>> rp.result['num']
+        42
+        """
         self.last_request_id = 0
 
     def _get_unique_id(self):
