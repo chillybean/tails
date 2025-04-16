@@ -135,6 +135,7 @@ class BaseCommand:
             return False, {
                 "error": "Command failed with returncode %d" % returncode,
                 "code": 1,
+                "data": {"returncode": returncode},
             }
 
 
@@ -411,11 +412,7 @@ class Handler(socketserver.StreamRequestHandler):
             response = req.respond(**data)
         else:
             assert data["error"] is not None
-
-            # The library we use doesn't seem to support adding the optional "data" parameter to error
-            # responses. We could definitely implement our own subclass, if we ever need that.
-            # Meanwhile, we are using this hackish way of specifying a return code
-            response = req.error_respond(data["error"], code=data.get("code", None))
+            response = req.error_respond(**data)
         self.outgoing_q.put(response)
 
     def send(self, response: Response):
