@@ -22,18 +22,21 @@
    /etc/foomatic/* r,
    /etc/gai.conf r,
    /etc/papersize r,
-@@ -81,9 +83,9 @@
+@@ -81,10 +83,10 @@
    @{PROC}/*/auxv r,
    @{PROC}/sys/crypto/** r,
    /sys/** r,
 -  /usr/bin/* ixr,
-+  /usr/bin/{[^h],h[^p],hp[^i],hpi[^j],hpij[^s]}* ixr,
-   /usr/sbin/* ixr,
+-  /usr/sbin/* ixr,
 -  /{usr/,}bin/* ixr,
-+  /{usr/,}bin/{[^h],h[^p],hp[^i],hpi[^j],hpij[^s]}* ixr,
-   /{usr/,}sbin/* ixr,
+-  /{usr/,}sbin/* ixr,
++  /usr/bin/{[^hu],h[^p],hp[^i],hpi[^j],hpij[^s],u[^n],un[^i],uni[^x],unix[^_],unix_[^c],unix_c[^h],unix_ch[^k],unix_chk[^p],unix_chkp[^w],unix_chkpw[^d]}* ixr,
++  /usr/sbin/{[^u],u[^n],un[^i],uni[^x],unix[^_],unix_[^c],unix_c[^h],unix_ch[^k],unix_chk[^p],unix_chkp[^w],unix_chkpw[^d]}* ixr,
++  /{usr/,}bin/{[^hu],h[^p],hp[^i],hpi[^j],hpij[^s],u[^n],un[^i],uni[^x],unix[^_],unix_[^c],unix_c[^h],unix_ch[^k],unix_chk[^p],unix_chkp[^w],unix_chkpw[^d]}* ixr,
++  /{usr/,}sbin/{[^u],u[^n],un[^i],uni[^x],unix[^_],unix_[^c],unix_c[^h],unix_ch[^k],unix_chk[^p],unix_chkp[^w],unix_chkpw[^d]}* ixr,
    /usr/lib/** rm,
  
+   # backends which come with CUPS can be confined
 @@ -109,7 +111,16 @@
  
    # third party backends get no restrictions as they often need high
