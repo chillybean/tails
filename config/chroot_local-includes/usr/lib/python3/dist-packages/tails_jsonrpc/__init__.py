@@ -80,11 +80,14 @@ class ErrorType(IntEnum):
 
 
 class ErrorResponse(Response):
-    def __init__(self, unique_id, error, code: ErrorType | int = ErrorType.GENERIC):
+    def __init__(
+        self, unique_id, error, code: ErrorType | int = ErrorType.GENERIC, data=None
+    ):
         super().__init__()
         self.unique_id = unique_id
         self.error = error
         self.code = code
+        self.data = data
 
     def _to_dict(self) -> dict:
         return {
@@ -93,6 +96,7 @@ class ErrorResponse(Response):
             "error": {
                 "message": str(self.error),
                 "code": int(self.code),
+                "data": self.data,
             },
         }
 
@@ -124,15 +128,15 @@ class Request(Message):
         if not isinstance(data["method"], str):
             raise InvalidMessageError()
 
-    def error_respond(self, error: Exception | str, code=None) -> ErrorResponse:
+    def error_respond(
+        self, error: Exception | str, code=None, data=None
+    ) -> ErrorResponse:
         kwargs = {}
         if code is not None:
             kwargs["code"] = code
-        return ErrorResponse(
-            unique_id=self.unique_id,
-            error=error,
-            **kwargs
-        )
+        if data is not None:
+            kwargs["data"] = data
+        return ErrorResponse(unique_id=self.unique_id, error=error, **kwargs)
 
     def respond(self, result) -> SuccessResponse:
         return SuccessResponse(
@@ -162,13 +166,15 @@ class Protocol:
         'dosth'
         >>> rq.args[0]
         42
-        >>> rp1 = rq.error_respond('Something went wrong')
+        >>> rp1 = rq.error_respond('Something went wrong', code=42, data={'returncode': 5})
         >>> rp = p.parse_reply(rp1.serialize())
         >>> rp.error
         'Something went wrong'
-        >>> rp1 = rq.respond({'msg': 'all good', 'num': 42})
+        >>> rp.data["returncode"]
+        5
+        >>> rp1 = rq.respond({'text': 'all good', 'num': 42})
         >>> rp = p.parse_reply(rp1.serialize())
-        >>> rp.result['msg']
+        >>> rp.result['text']
         'all good'
         >>> rp.result['num']
         42
@@ -198,6 +204,7 @@ class Protocol:
                 unique_id=data["id"],
                 error=data["error"]["message"],
                 code=data["error"]["code"],
+                data=data["error"].get("data", None),
             )
         else:
             resp = SuccessResponse(unique_id=data["id"], result=data["result"])

@@ -85,6 +85,7 @@ class GJsonRpcClient(GObject.GObject):
             if hasattr(response, "error"):
                 errordata = {}
                 errordata["code"] = response.code
+                errordata["data"] = response.data
                 self.emit(
                     "response-error::%d" % response.unique_id, response.error, errordata
                 )
