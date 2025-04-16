@@ -34,8 +34,18 @@ Changes to IDF and UDF
 The purpose of this check is to monitor if, during the _last_ development cycle, in particular outside of the release process, an attacker modified IDFs or
 UDFs in order to serve malicious images.
 
-    git log <old image commit>..<candidate image commit> -- wiki/src/install/v2/Tails/amd64/stable/latest.json wiki/src/upgrade/v2/
+    git log --pretty=medium --shortstat ${PREVIOUS_VERSION}..${VERSION} -- wiki/src/install/v2/Tails/amd64/stable/latest.json wiki/src/upgrade/v2/
 
+You should expect the only changes to have happened during the release process of `${PREVIOUS_VERSION}` (ie:
+shortly after the tag).
+
+In a typical scenario, exactly 4 messages are present:
+ - Remove UDFs for versions we'll never release
+ - Update IDF for download verification
+ - Add incremental upgrades on the test channel for Tails `${PREVIOUS_VERSION}`
+ - Update upgrade-description files.
+
+If you see anything different, please look deeper.
 
 Packages
 --------
