@@ -124,10 +124,14 @@ class Request(Message):
         if not isinstance(data["method"], str):
             raise InvalidMessageError()
 
-    def error_respond(self, error: Exception | str) -> ErrorResponse:
+    def error_respond(self, error: Exception | str, code=None) -> ErrorResponse:
+        kwargs = {}
+        if code is not None:
+            kwargs["code"] = code
         return ErrorResponse(
             unique_id=self.unique_id,
             error=error,
+            **kwargs
         )
 
     def respond(self, result) -> SuccessResponse:
