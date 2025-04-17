@@ -1,8 +1,6 @@
 #!/bin/sh
 #
-# Remove useless drivers from the initramfs to make some room and try to
-# drop back below 32 MiB which might be a magic number (= hard limit) on
-# Mac hardware (#17320).
+# Remove useless drivers from the initramfs for faster boot.
 
 # This script must support being run several times.
 
