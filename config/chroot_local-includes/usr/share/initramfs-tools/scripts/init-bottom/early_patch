@@ -60,7 +60,6 @@ run() {
     modprobe -vvv -d /root/ virtiofs
     fstype=virtiofs
   else
-    modprobe -vvv -d /root/ fscache
     modprobe -vvv -d /root/ 9pnet
     modprobe -vvv -d /root/ 9pnet_virtio
     modprobe -vvv -d /root/ 9p
