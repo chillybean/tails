@@ -175,7 +175,14 @@ These stakeholders must be part of the decision-making process:
    Here is some good queries to get you started:
 
      - `./bin/nvd-info.py search --vector 'AV:[^P]' --vector '[CI]:[MH]' "${listOfCVEs[@]}"`
+
+       - `AV:[^P]` means: attack does not require physical access
+       - `[CI]:[MH]` means: at least 1 among "confidentiality impact" and "integrity impact" must be medium or high
+
      - `./bin/nvd-info.py search --description 'privileg|escalat' "${listOfCVEs[@]}"`
+
+   To build your own queries, see the
+   [available metrics](https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator).
 
  - UX: evaluate the acceptability of mitigation measures proposed by
    developers; remind everyone else that any extra upgrade has a UX cost
