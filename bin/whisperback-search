@@ -9,7 +9,7 @@ It will parse them, then you can filter them using Python code to perform all th
 You need to provide a list of files over stdin.
 
 If you have notmuch, this would work:
-    notmuch search --output=files date:1M.. and GPT | ./bin/whisperback-search  'm.fat_resized'
+    notmuch search --output=files date:1M.. and GPT | ./bin/whisperback-search --output=wid 'm.fat_resized'
 
 If you don't, but you have a maildir:
     find | path/to/tails/git/bin/whisperback-search  'm.fat_resized'

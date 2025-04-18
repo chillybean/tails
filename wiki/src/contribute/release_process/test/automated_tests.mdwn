@@ -48,6 +48,13 @@ are tagged `@fragile`, if the images under test were built:
 Therefore, to ask Jenkins to run the full test suite on your topic
 branch, give it a name that ends `-force-all-tests`.
 
+### Run without Chutney
+
+Chutney, which creates a "virtual" Tor network, is used by default.
+
+You can disable this by adding `-real-Tor` to your branch name. This will only run scenarios which are tagged
+`@supports_real_tor` (not many!)
+
 ### Trigger a test suite run without rebuilding images
 
 Every `build_Tails_ISO_*` job run triggers a test suite run
@@ -821,6 +828,20 @@ The Screen class and dogtail:
   simply hard to "navigate" to the right element in the hierarchy of
   elements of some GUI, due to ambiguity and/or lack of labels.
 
+* When dogtail is not available or not convenient, there are two more
+  tools: images and OCR.
+
+  * Images can be matched, with the most common method being
+    `@screen.wait` (there are actually more). This is very practical
+    to have, with the main disadvantage being that images needs to be
+    bumped over time:
+      1. language changes (and sometimes also localization changes)
+      2. rendering changes (typically when migrating to a new Debian suite)
+
+  * OCR can be matched using `@screen.wait_text`. This is more "greppable",
+    but it still has limitations: don't expect the OCR engine to be able
+    to follow text which is wrapped in a dialog, for example.
+
 The remote shell:
 
 * Useful for testing non-GUI state.
@@ -831,8 +852,7 @@ The remote shell:
 
 * It is acceptable (but not encouraged) to use the remote shell for
   simulating user terminal interaction when we need to analyze the
-  commands output. Ideally we would use OCR, but we lack support for
-  it at the moment, and it might be too unreliable in practice.
+  commands output.
 
 # Limitations and issues
 
@@ -861,27 +881,31 @@ Although very rare, the remote shell can get into a state where it
 stops responding, resulting in the test suite waiting for a response
 forever.
 
-### Remote shell interact with other services to start
+### Remote shell interaction during early boot
 
-As it may be needed to interact with the system before a service gets started.
-In systemd the remote shell is defined as notify type, that means the remote
-shell can tell systemd, when it is ready. So we just need to make sure that the
-remote shell is needed to be started before another service.
+When it is needed to interact with the system before a certain service
+has started during the boot process, you must do the following:
 
-How to achieve that?
+* Make sure that `tails-autotest-remote-shell.service` is started
+  before the other service. It might be enough to add
+  `Before=other.service`, as is currently done for `gdm.service`,
+  but that will for instance not suffice for services with an earlier
+  `WantedBy=` target.
+* You then hook your code to be run before the service by passing it
+  as a code block to the `add_early_boot_hook` method. This code will
+  execute during the `the computer boots Tails` step, so your scenario
+  must use that step.
 
-In the service file of the remote shell we define the service, we want to hook
-on in Before.
-Than you need to add `autotest_wait_for_remote_shell` to the boot line; in
-cucumber you can set `@wait_for_remote_shell=true` before the step `the computer
-boots`. After that step you can interact with the remote shell. If you are done
-modifying the state, you need to trigger the READY signal (in Cucumber by
-executing`RemoteShell::SignalReady.new($vm)`). Now the system with further
-boot.
+As an example, you can look how the `<device> is damaged in a way that
+some read operations fail` step hooks into the system before
+`gdm.service` is started.
 
-As an example, you can look how the `Tails detects disk read failures` step hooks into the system
-before `gdm.service` is started.
-
+All this is achieved by defining the remote shell systemd service as
+notify type, so any services that depends on it are blocked until
+systemd is told the remote shell is ready to proceed. That is done by
+executing `RemoteShell::SignalReady.new($vm)`, which is done in the
+`the computer boots Tails`, right after executing the early boot
+hooks.
 
 * [[!tails_gitweb features/hardware_failure.feature]]
 * [[!tails_gitweb features/step_definitions/hardware.rb]]

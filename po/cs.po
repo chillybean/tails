@@ -28,9 +28,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-05 10:11+0100\n"
-"PO-Revision-Date: 2024-10-23 15:15+0000\n"
-"Last-Translator: Ondřej Staněk <stanekondrej@skiff.com>\n"
+"POT-Creation-Date: 2025-04-14 15:41+0200\n"
+"PO-Revision-Date: 2025-03-31 20:56+0000\n"
+"Last-Translator: slrslr <adm@prnet.info>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/tor/tails-gui/cs/"
 ">\n"
 "Language: cs\n"
@@ -39,7 +39,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n "
 "<= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
-"X-Generator: Weblate 5.8.2-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -138,7 +138,7 @@ msgid "This will stop installing {packages} automatically."
 msgstr "Tím se balík {packages} přestane automaticky aktualizovat."
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:165
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:180
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:188
 msgid "Remove"
 msgstr "Odstranit"
 
@@ -146,7 +146,7 @@ msgstr "Odstranit"
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/add_settings_dialog.py:40
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:178
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:483
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:840
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:834
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:728
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:119
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:376
@@ -220,15 +220,15 @@ msgstr ""
 "při spouštění Tails."
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:197
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
-"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
+"To add more, install some software using <a href=\"synaptic."
+"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
+"desktop\">APT on the command line</a>."
 msgstr ""
 "Pro přidání dalších, nainstalujte software prostřednictvím <a "
-"href=\"synaptic.desktop\">Správce balíčků Synaptic</a> nebo <a "
-"href=\"org.gnome.Terminal.desktop\">APT v příkazové řádce</a>."
+"href=\"synaptic.desktop\">Správce balíčků Synaptic</a> nebo <a href=\"org."
+"gnome.Terminal.desktop\">APT v příkazové řádce</a>."
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:154
 msgid "_Create persistent storage"
@@ -872,23 +872,23 @@ msgstr ""
 "Přerušili jste opravu systému souborů. Můžete spustit Tails bez trvalého "
 "úložiště nebo restartovat počítač a zkusit opravit souborový systém znovu."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:759
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:756
+msgid "Start Tails and open the Persistent Storage settings to find out more."
+msgstr ""
+"Spusťte Tails a otevřte nastavení Trvalého úložiště, kde se dozvíte více."
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:785
 msgid ""
 "Your Persistent Storage is unlocked. Its content will be available until you "
 "shut down Tails."
 msgstr ""
 "Trvalé úložiště je odemčeno. Jeho obsah bude dostupný dokud nevypnete Tails."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:772
-msgid "Start Tails and open the Persistent Storage settings to find out more."
-msgstr ""
-"Spusťte Tails a otevřte nastavení Trvalého úložiště, kde se dozvíte více."
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:806
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:800
 msgid "Incorrect passphrase. Please try again."
 msgstr "Nesprávné heslo. Zkuste to prosím znovu."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:817
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:811
 msgid ""
 "Error reading data from your Persistent Storage. The hardware of your USB "
 "stick is probably failing."
@@ -896,15 +896,15 @@ msgstr ""
 "Chyba při čtení dat z vašeho trvalého úložiště. Pravděpodobně dochází k "
 "selhání hardwaru vašeho USB flash disku."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:819
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:813
 msgid "Start Tails to learn how to recover your data."
 msgstr "Spusťte Tails a zjistěte, jak můžete obnovit vaše data."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:830
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:824
 msgid "File System Errors"
 msgstr "Chyby systému souborů"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:832
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:826
 msgid ""
 "Errors were detected in the file system of your Persistent Storage.\n"
 "                \n"
@@ -928,26 +928,26 @@ msgstr ""
 "Pokud zálohu nemáte, doporučujeme abyste nejprve vytvořili obraz oddílu "
 "vašeho trvalého úložiště."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:841
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:835
 msgid "Repair File System"
 msgstr "Opravit systém souborů"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:842
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:836
 msgid "Create Partition Image"
 msgstr "Vytvořit obraz oddílu"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:853
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:847
 msgid ""
 "Start Tails to learn how to create a partition image of your Persistent "
 "Storage."
 msgstr ""
 "Spusťte Tail a zjistěte jak vytvořit obraz oddílu vašeho trvalého úložiště."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:862
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:856
 msgid "Failed to unlock the Persistent Storage due to file system errors."
 msgstr "Selhalo odemčení trvalého úložiště kvůli chybám systému souborů."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:871
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:865
 msgid ""
 "Failed to upgrade the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -955,7 +955,7 @@ msgstr ""
 "Nepodařilo se aktualizovat Trvalé úložiště. Spusťte prosím Tails a odešlete "
 "zpětnou vazbu."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:878
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:872
 msgid ""
 "Failed to unlock the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -963,7 +963,7 @@ msgstr ""
 "Selhalo odemčení trvalého úložiště. Prosím spusťte Tails a odešlete hlášení "
 "chyby."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:886
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:880
 msgid ""
 "Failed to activate the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -971,7 +971,7 @@ msgstr ""
 "Selhala aktivace trvalého úložiště. Prosím spusťte Tails a odešlete hlášení "
 "chyby."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:897
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:891
 msgid "Upgrading the Persistent Storage. This might take a while…"
 msgstr "Probíhá upgrade trvalého úložiště. Může to chvíli trvat…"
 
@@ -1512,37 +1512,36 @@ msgid "Learn More"
 msgstr "Zjistit více"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:18
-#, fuzzy
 msgid "Partitioning Error"
-msgstr "Chyby nastavování oddílů disku"
+msgstr "Chyba nastavování oddílů disku"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:19
 msgid "Errors were detected in the partitioning of your Tails USB stick."
-msgstr ""
+msgstr "Byly rozpoznány chyby v nastavení oddílů vašeho USB disku Tails."
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:26
-#, fuzzy
 msgid ""
 "We recommend that you create a backup of your Tails using <i>Tails Cloner</"
 "i> to migrate to a new USB stick."
-msgstr "Doporučujeme vám přeinstalovat Tails na jiný USB disk."
+msgstr ""
+"Doporučujeme vytvořit zálohu systému Tails pomocí nástroje <i>Tails Cloner</"
+"i> a přejít na nový disk USB."
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:33
-#, fuzzy
 msgid "Open Tails Cloner"
-msgstr "Tails Cloner"
+msgstr "Otevřít Tails Cloner"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:42
-#, fuzzy
 msgid "Creation of Persistent Storage has been disabled."
-msgstr "Trvalé Úložiště se nepodařilo vytvořit."
+msgstr "Vytváření trvalého úložiště bylo vypnuto."
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:44
-#, fuzzy
 msgid ""
 "We recommend that you reinstall Tails from scratch. If the error persists, "
 "reinstall on a new USB stick."
-msgstr "Doporučujeme vám přeinstalovat Tails na jiný USB disk."
+msgstr ""
+"Doporučujeme od začátku zcela přeinstalovat systém Tails. Pokud chyba "
+"přetrvává, přeinstalujte systém na nový USB disk."
 
 #: config/chroot_local-includes/usr/src/perl5lib/lib/Tails/RunningSystem.pm:207
 #: config/chroot_local-includes/usr/local/bin/tails-upgrade-frontend-wrapper:77
@@ -1615,7 +1614,7 @@ msgstr "Sestaveno z %s"
 msgid "Documentation"
 msgstr "Dokumentace"
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:106
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:114
 #, python-brace-format
 msgid ""
 "Remove {package} from your additional software? This will stop installing "
@@ -1625,32 +1624,32 @@ msgstr ""
 "přestane automaticky aktualizovat."
 
 #. Translators: Don't translate {pkg}, it's a placeholder and will be replaced.
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:119
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:127
 #, python-brace-format
 msgid "Failed to remove {pkg}"
 msgstr "Odstranění {pkg} selhalo"
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:147
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:155
 msgid "Failed to read additional software configuration"
 msgstr "Selhalo čtení konfigurace dodatečného softwaru"
 
 #. Translators: Don't translate {package}, it's a placeholder and will be replaced.
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:176
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:184
 #, python-brace-format
 msgid "Stop installing {package} automatically"
 msgstr "Zastavit automatickou instalaci {package}"
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:207
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:215
 msgid ""
 "To do so, install some software using <a href=\"synaptic.desktop\">Synaptic "
 "Package Manager</a> or <a href=\"org.gnome.Terminal.desktop\">APT on the "
 "command line</a>."
 msgstr ""
 "To provedete tak, že nainstalujete software prostřednictvím <a "
-"href=\"synaptic.desktop\">Správce balíčků Synaptic</a> nebo <a "
-"href=\"org.gnome.Terminal.desktop\">APT v příkazové řádce</a>."
+"href=\"synaptic.desktop\">Správce balíčků Synaptic</a> nebo <a href=\"org."
+"gnome.Terminal.desktop\">APT v příkazové řádce</a>."
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:219
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:227
 msgid ""
 "To do so, unlock your Persistent Storage when starting Tails and install "
 "some software using <a href=\"synaptic.desktop\">Synaptic Package Manager</"
@@ -1661,27 +1660,27 @@ msgstr ""
 "balíčků Synaptic</a> nebo <a href=\"org.gnome.Terminal.desktop\">APT v "
 "příkazové řádce</a>."
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:232
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:240
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
-"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
+"gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "To provedete tak, že vytvoříte Trvalé Úložiště a nainstalujete software "
 "prostřednictvím <a href=\"synaptic.desktop\">Správce balíčků Synaptic</a> "
 "nebo <a href=\"org.gnome.Terminal.desktop\">APT v příkazové řádce</a>."
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:250
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:258
 msgid "To do so, install Tails on a USB stick and create a Persistent Storage."
 msgstr ""
 "To provedete tak, že nainstalujete Tails na USB disk a vytvoříte Trvalé "
 "Úložiště."
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:296
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:304
 msgid "[package not available]"
 msgstr "[balík není dostupný]"
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:303
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:311
 msgid "[description not available]"
 msgstr "[popis není dostupný]"
 
@@ -1698,7 +1697,7 @@ msgid "Set up a password to unlock the screen."
 msgstr "Nastavte heslo pro odemčení obrazovky."
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:149
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2227
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2304
 msgid "Password"
 msgstr "Heslo"
 
@@ -1936,12 +1935,12 @@ msgid "Connected to Tor successfully with bridges"
 msgstr "Úspěšně připojeno k Tor za pomoci mostů"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:644
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1960
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2037
 msgid "Connected to Tor successfully"
 msgstr "Úspěšně připojeno k Toru"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:648
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1985
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2062
 msgid "You can now browse the Internet anonymously and uncensored."
 msgstr "Nyní můžete procházet internet anonymně a bez cenzury."
 
@@ -1957,16 +1956,16 @@ msgstr "Nesprávný tvar Bridge adresy"
 msgid "Setting a bridge is needed if you want to hide that you are using Tor"
 msgstr "Pokud chcete skrýt fakt, že používáte Tor, je nutné nastavit most"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1034
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1058
 #, python-brace-format
 msgid "Scanned {bridge_type} bridge: <b>{bridge_info}</b>."
 msgstr "Skenovaný {bridge_type} most: <b>{bridge_info}</b>."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1123
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1147
 msgid "Are you sure you want to lose progress?"
 msgstr "Opravdu chcete o práci přijít?"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1127
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1151
 msgid ""
 "Tails will continue connecting to Tor after you close the Tor Connection "
 "assistant.\n"
@@ -1980,11 +1979,11 @@ msgstr ""
 "Pokud připojení k síti Tor selže, budete muset počkat až doběhne ukazatel "
 "průběhu, abyste mohli řešit problémy s připojením."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1133
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1157
 msgid "Close and Lose Progress"
 msgstr "Zavřít a přijít o průběh"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1135
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1159
 msgid "Wait"
 msgstr "Počkejte"
 
@@ -2010,19 +2009,19 @@ msgstr "_Otevřete pokyny k migraci"
 msgid "_Migrate Later"
 msgstr "_Migrovat později"
 
-#: config/chroot_local-includes/usr/bin/tor-browser:49
+#: config/chroot_local-includes/usr/local/lib/launch-tor-browser:38
 msgid "Tor is not ready"
 msgstr "Síť Tor není připravena"
 
-#: config/chroot_local-includes/usr/bin/tor-browser:50
+#: config/chroot_local-includes/usr/local/lib/launch-tor-browser:39
 msgid "Tor is not ready. Start Tor Browser anyway?"
 msgstr "Síť Tor není připravena. Chcete prohlížeč Tor přesto spustit?"
 
-#: config/chroot_local-includes/usr/bin/tor-browser:51
+#: config/chroot_local-includes/usr/local/lib/launch-tor-browser:40
 msgid "Start Tor Browser Offline"
 msgstr "Spustit prohlížeč Tor offline"
 
-#: config/chroot_local-includes/usr/bin/tor-browser:52
+#: config/chroot_local-includes/usr/local/lib/launch-tor-browser:41
 msgid "Open Tor Connection"
 msgstr "Otevřít spojení s Torem"
 
@@ -2031,12 +2030,11 @@ msgid "Tor Status"
 msgstr "Stav sítě Tor"
 
 #: config/chroot_local-includes/usr/share/gnome-shell/extensions/torstatus@tails.boum.org/extension.js:46
-#, fuzzy
 msgid "Open Tor Connection Assistant"
-msgstr "Otevřít spojení s Torem"
+msgstr "Otevřít asistenta připojení k Tor"
 
 #: config/chroot_local-includes/usr/share/gnome-shell/extensions/torstatus@tails.boum.org/extension.js:50
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2039
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2116
 msgid "View Tor Circuits"
 msgstr "Zobrazit Tor okruhy"
 
@@ -2629,8 +2627,8 @@ msgid ""
 "The %s variable was not found in the configuration file: /etc/whisperback/"
 "config.py"
 msgstr ""
-"Proměnná %s nebyla nalezena v konfiguračním souboru: /etc/whisperback/"
-"config.py"
+"Proměnná %s nebyla nalezena v konfiguračním souboru: /etc/whisperback/config."
+"py"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:136
 msgid "Unable to load a valid configuration."
@@ -2760,11 +2758,11 @@ msgstr "Instalovat, klonovat, aktualizovat Tails"
 msgid "Connect Tails to the Tor network"
 msgstr "Připojit Tails k síti Tor"
 
-#: ../config/chroot_local-includes/usr/share/applications/tor-browser.desktop.in.h:1
+#: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:1
 msgid "Tor Browser"
 msgstr "Prohlížeč Tor"
 
-#: ../config/chroot_local-includes/usr/share/applications/tor-browser.desktop.in.h:2
+#: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:2
 msgid "Anonymous Web Browser"
 msgstr "Anonymní webový prohlížeč"
 
@@ -2998,9 +2996,8 @@ msgid "Impossible to unlock the Persistent Storage."
 msgstr "Je nemožné odemknout Trvalé Úložiště."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:563
-#, fuzzy
 msgid "Partitioning Errors"
-msgstr "Chyby nastavování oddílů disku"
+msgstr "Chyby nastavení oddílů disku"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:599
 msgid ""
@@ -3008,6 +3005,10 @@ msgid ""
 "\n"
 "Try reinstalling Tails. If the error persists, reinstall on a new USB stick."
 msgstr ""
+"Byly zjištěny chyby v nastavení oddílů vašeho USB disku Tails.\n"
+"\n"
+"Zkuste Tails přeinstalovat. Pokud chyba přetrvává, přeinstalujte systém na "
+"nový USB disk."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:631
 msgid "_Additional Settings"
@@ -3689,9 +3690,9 @@ msgid ""
 "a Gmail or Riseup email address with your phone and scan the QR code that is "
 "attached to the automatic reply."
 msgstr ""
-"Abyste získali most, pošlete prázdný e-mail na adresu "
-"<tt>bridges@torproject.org</tt> z e-mailové adresy Gmail nebo Riseup, pomocí "
-"telefonu a pak oskenujte QR kód připojený k automatické odpovědi."
+"Abyste získali most, pošlete prázdný e-mail na adresu <tt>bridges@torproject."
+"org</tt> z e-mailové adresy Gmail nebo Riseup, pomocí telefonu a pak "
+"oskenujte QR kód připojený k automatické odpovědi."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1014
 msgid "Scan QR Code"
@@ -3811,11 +3812,42 @@ msgstr ""
 "<a href=\"doc/anonymous_internet/tor\">Zjistit více o tom, jak se Tails "
 "připojujjí k Toru</a>"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1629
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1634
+msgid "No Wi-Fi hardware detected"
+msgstr ""
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1652
+msgid ""
+"Tails couldn't find any Wi-Fi interface on your computer. If your computer "
+"has a Wi-Fi interface, it might not work on Tails.\n"
+"\n"
+"To connect to the Internet you can try to:\n"
+"\n"
+" • Use an Ethernet cable instead of Wi-Fi. Wired interfaces work much more "
+"reliably than Wi-Fi in Tails.\n"
+" • Use USB tethering to share the Wi-Fi or mobile data connection of your "
+"phone using a cable.\n"
+" • Buy a USB Wi-Fi adapter that works in Tails.\n"
+"                "
+msgstr ""
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1676
+#, fuzzy
+msgid ""
+"\n"
+"<a href=\"doc/anonymous_internet/no-wifi\">\n"
+"Learn more about troubleshooting Wi-Fi not working.\n"
+"</a>\n"
+"                "
+msgstr ""
+"<a href=\"doc/anonymous_internet/tor\">Zjistit více o tom, jak se Tails "
+"připojujjí k Toru</a>"
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1704
 msgid "Connect to a local network"
 msgstr "Připojit k místní síti"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1646
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1721
 msgid ""
 "You are not connected to a local network yet. To be able to connect to the "
 "Tor network, you first need to connect to a Wi-Fi, wire, or mobile network."
@@ -3823,91 +3855,92 @@ msgstr ""
 "Zatím nejste připojeni k místní síti. Abyste se mohli připojit k síti Tor, "
 "musíte se nejprve připojit k síti Wi-Fi, kabelové nebo mobilní síti."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1658
-msgid "Open Wi-Fi settings"
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1735
+#, fuzzy
+msgid "Open Wi-Fi Settings"
 msgstr "Otevřít nastavení Wi-Fi"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1707
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1784
 msgid "Testing Internet access…"
 msgstr "Zkouším přístup k internetu…"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1747
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1824
 msgid "You have access to the Internet"
 msgstr "Máte přístup k internetu"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1781
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1858
 msgid "Testing access to Tor…"
 msgstr "Zkouším přístup k Toru…"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1824
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1901
 msgid "You can connect to Tor"
 msgstr "K Toru se můžete připojit"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1854
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1931
 msgid "Failed to connect to Tor without bridges."
 msgstr "Připojení k Toru bez bridgů selhalo."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1870
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1947
 msgid "This local network is blocking access to Tor."
 msgstr "Tato místní síť blokuje přístup k Toru."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1902
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1979
 msgid "Connecting to Tor…"
 msgstr "Připojuji se k Toru…"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2007
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2084
 msgid "Start Tor Browser"
 msgstr "Spustit prohlížeč Tor"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2026
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2103
 msgid "Open Network Monitor"
 msgstr "Otevřete monitor sítě"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2053
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2130
 msgid "Reset Tor Connection"
 msgstr "Resetovat připojení k Toru"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2093
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2170
 msgid "Configure a Local Proxy"
 msgstr "Nakonfigurovat místní proxy"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2119
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2196
 msgid "Proxy Type"
 msgstr "Typ proxy"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2136
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2213
 msgid "No proxy"
 msgstr "Bez proxy"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2137
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2214
 msgid "SOCKS 4"
 msgstr "SOCKS 4"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2138
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2215
 msgid "SOCKS 5"
 msgstr "SOCKS 5"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2139
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2216
 msgid "HTTP / HTTPS"
 msgstr "HTTP / HTTPS"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2158
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2235
 msgid "Address"
 msgstr "Adresa"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2175
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2252
 msgid "Username"
 msgstr "Uživatelské jméno"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2192
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2269
 msgid "IP address or hostname"
 msgstr "IP adresa nebo název serveru"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2210
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2287
 msgid "Port"
 msgstr "Port"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2334
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2411
 msgid "_Save Proxy Settings"
 msgstr "_Uložit nastavení proxy"
 
@@ -4038,15 +4071,15 @@ msgstr "Hodiny"
 #~ "\n"
 #~ "Help us keep your bitcoins safe!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/"
-#~ "donate.en.html#expenses\">How we spend our money.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
+#~ "html#expenses\">How we spend our money.</a>"
 #~ msgstr ""
 #~ "Tails zabespečuje vaši peněženku.\n"
 #~ "\n"
 #~ "Pomocte nám udržet vaše bitcoiny v bezpečí!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/"
-#~ "donate.en.html#expenses\">Jak utrácíme vaše peníze</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
+#~ "html#expenses\">Jak utrácíme vaše peníze</a>"
 
 #~ msgid "Create Backup"
 #~ msgstr "Vytvořit zálohu"
@@ -4190,8 +4223,8 @@ msgstr "Hodiny"
 #~| "\n"
 #~| "Every bit helps in our fight against surveillance and censorship!\n"
 #~| "\n"
-#~| "<a href=\"file:///usr/share/doc/tails/website/"
-#~| "donate.en.html#expenses\">How we spend our money.</a>"
+#~| "<a href=\"file:///usr/share/doc/tails/website/donate.en."
+#~| "html#expenses\">How we spend our money.</a>"
 #~ msgid ""
 #~ "Our annual fundraiser is live!\n"
 #~ "\n"
@@ -4204,8 +4237,8 @@ msgstr "Hodiny"
 #~ "\n"
 #~ "Každá pomoc pomůže bojovat proti sledování a cenzuře.\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/"
-#~ "donate.en.html#expenses\">Jak utrácíme vaše peníze</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
+#~ "html#expenses\">Jak utrácíme vaše peníze</a>"
 
 #~ msgid "Name of the affected software"
 #~ msgstr "Název postiženého softwaru"

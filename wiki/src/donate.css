@@ -46,126 +46,12 @@
   margin: 1em 0;
 }
 
-/* Hide version with JavaScript by default */
-
-#paypal-with-js {
-  display: none;
-}
-
-/* JavaScript version */
-
-#amounts, #frequency-buttons,
-#frequency-explanation, #donate-paypal-button, .tax-deductible {
-  display: inline-block;
-}
-
-#amounts {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-#amounts label {
-  height: 50px;
-  padding-top: 16px !important;
-  font-size: 16px;
-  flex-basis: calc((100% - 30px)/4);
-  flex-grow: 1;
-  margin: 0;
-  text-align: center;
-}
-
-#amounts label input[type="radio"] {
-  position: absolute;
-  clip: rect(0,0,0,0);
-}
-
-#amounts label.other {
-  display: flex;
-  padding-left: 3px !important;
-  padding-top: 12px !important;
-}
-
-#amounts label.other input {
+.paypal {
   width: 100%;
-  min-width: 50px;
-  height: 28px;
 }
 
-#amounts label.other span {
-  padding-top: 4px;
-}
-
-#amounts label.active {
-  background-color: var(--dark-green) !important;
-  border-color: var(--dark-green) !important;
-  color: white !important;
-}
-
-#frequency-buttons {
-  margin-top: 1em;
-  padding-bottom: 0.3em;
-  border-bottom: 2px solid transparent;
-  display: flex;
-  justify-content: space-around;
-  font-weight: bold;
-  gap: 10px;
-}
-
-.shake {
-  animation: shake 1s;
-  display: inline-block;
-  border-color: var(--red) !important;
-}
-
-@keyframes shake {
-  10% { transform: translateX(-1px); }
-  20% { transform: translateX(2px); }
-  30% { transform: translateX(-4px); }
-  40% { transform: translateX(4px); }
-  50% { transform: translateX(-4px); }
-  60% { transform: translateX(4px); }
-  70% { transform: translateX(-4px); }
-  80% { transform: translateX(2px); }
-  90% { transform: translateX(-1px); }
-}
-
-#frequency-explanation {
-  font-size: 13px;
-  line-height: 1.5em;
-}
-
-.paypal-inline {
-  position: relative;
-  top: 3px;
-}
-
-#donate-paypal-button, #donate-paypal-button button, #donate-paypal-button input {
-  width: 100%;
-  font-size: 16px;
-}
-
-#newsletter {
-  margin: 1em 0;
-  font-size: 13px;
-  font-weight: bold;
-}
-
-#newsletter input {
-  top: 0;
-}
-
-#email {
-  display: none;
-  font-size: 11px;
-  font-weight: normal;
-  color: var(--medium-dark-gray);
-}
-
-.tax-deductible {
-  font-size: 9px;
-  line-height: 1.5em;
-  color: var(--medium-dark-gray);
+.paypal a {
+  font-size: 20px;
 }
 
 /* Other ways */

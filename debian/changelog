@@ -1,3 +1,453 @@
+tails (6.14.2) unstable; urgency=medium
+
+  * Merge upstream torbrowser-launcher into our copy (tails/tails!2061)
+
+    Closes issues:
+      - Merge upstream changes into our Tor Browser AppArmor policy, 2025 Q2 edition
+        (tails/tails#20877)
+
+    Commits:
+      - Merge upstream torbrowser-launcher into our copy
+
+  * Address more occurrences of #20745 (tails/tails!2043)
+
+    Commits:
+      - Merge the two scripts into one
+      - Tag DesktopAppInfo instances which are actually ok
+      - CI to look for more issues related to #20745
+      - Fix one more occurrence of #20745
+
+  * automatically check against the use of gtk-launch (tails/tails!2040)
+
+    Closes issues:
+      - Set up a CI job to check for usage of `gtk-launch` in our own code
+        (tails/tails#20871)
+
+    Commits:
+      - rewrite test in POSIX shell
+      - remove last mention of gtk-launch
+      - automatically check against the use of gtk-launch
+
+  * Allow user to force specific build memory requirements (tails/tails!2016)
+
+    Commits:
+      - add memory= parameter to TAILS_BUILD_OPTIONS
+
+ -- Tails developers <tails@boum.org>  Mon, 14 Apr 2025 17:28:40 +0200
+
+tails (6.14.1) unstable; urgency=medium
+
+  * Upgrade Tor Browser to 14.0.9 (tails/tails!2049)
+
+    Closes issues:
+      - Upgrade to Tor Browser 14.0.9 based on Firefox 128.9 ESR (tails/tails#20844)
+
+    Commits:
+      - Fetch Tor Browser from our own archive
+
+  * CI: ignore onionshare 2.6.3-1 (tails/tails!2015)
+
+    Closes issues:
+      - needed-package-updates fails: onionshare 2.6.3-1 (tails/tails#20846)
+
+    Commits:
+      - CI: ignore onionshare 2.6.3-1
+
+  * Update snapshot of the 'debian' archive to 2025031701 (tails/tails!2028)
+
+    Closes issues:
+      - Upgrade to Bookworm 12.10 (tails/tails#20804)
+
+    Commits:
+      - Update snapshot of the 'debian' archive to 2025031701
+
+  * Partially revert tails!1774: Welcome Screen: fix threading issues that
+    freezes... (tails/tails!2051)
+
+    Closes issues:
+      - Welcome screen disappears after unlocking persistent storage in 6.12+ when
+        persistent Welcome Screen settings are enabled (tails/tails#20783)
+
+    Commits:
+      - Partially revert tails!1774: Welcome Screen: fix threading issues that freezes
+        GUI when activating persistence
+
+  * Upgrade tor to 0.4.8.16 (tails/tails!2048)
+
+    Closes issues:
+      - Upgrade to Tor 0.4.8.16 (tails/tails#20876)
+
+    Commits:
+      - Upgrade tor to 0.4.8.16
+
+  * Don't throw an exception when closing Zenity (tails/tails!2034)
+
+    Closes issues:
+      - About Tails > Check for Upgrades says an error occurred if you exit without
+        clicking "ok" (tails/tails#20861)
+
+    Commits:
+      - Linting
+      - Upgrader: don't throw an exception when closing Zenity
+
+  * Make Qt applications have a window border and look more like GTK ones
+    (tails/tails!2031)
+
+    Closes issues:
+      - No border nor shadow around windows of Qt applications (Kleopatra, KeePassXC,
+        OnionShare) (tails/tails#20834)
+
+    Commits:
+      - Make Qt applications look more like GTK ones
+
+  * Split generate-images-signatures and generate-torrents (tails/tails!2013)
+
+    Closes issues:
+      - near future: improve `bin/generate-images-signatures-and-torrents` to avoid
+        this sort of problems → tails/tails!2011 (tails/tails#20850)
+
+    Commits:
+      - Use variable 1 more time to avoid hard-coding the directory name value twice
+        (DRY)
+      - shfmt
+      - avoid useless steps
+      - Split generate-images-signatures and generate-torrents
+
+  * Fix capitalization (tails/tails!2007)
+
+    Commits:
+      - Sync' test suite to updated UI
+      - Fix capitalization
+
+  * Post-Release doc improvements (6.13) (tails/tails!2004)
+
+    Commits:
+      - Tor blog post: fix commands ordering
+      - replace print with logging
+      - make links to GitLab easier to maintain
+      - clarify which IUK build we're talking about
+      - shfmt
+      - better document branch names suffixes and prefixes
+      - ruff improvements
+      - ruff format
+      - link to blog pipeline
+      - command to get password
+      - postpone waiting for the website update
+      - FIX link to GitLab pipelines
+      - Tor blog post: separate preparation from code
+      - Tor blog post: automate more
+      - tor blog post: point to commit directly
+      - tor blog post: suggest directory name
+      - handles cases where some build_IUKs subjob failed
+      - Put the "wait" instruction where the RM needs it to be
+      - clarify error message
+
+  * onion-grater: drop incorrectly allowed events (tails/tails!1995)
+
+    Closes issues:
+      - See if we can suppress STATUS_SERVER in all onion-grater profiles
+        (tails/tails#20815)
+
+    Commits:
+      - onion-grater: tighten stem-based profiles (refs: tails#20815)
+      - onion-grater: drop incorrectly allowed events
+
+  * Generate sudoers.d files (tails/tails!1979)
+
+    Closes issues:
+      - Automatically ensure we don't accept passing arbitrary arguments when elevating
+        privileges via sudo (tails/tails#20711)
+
+    Commits:
+      - Clarify those XXXs and make them easier to find
+      - whitespace around `=` in sudoers
+      - user → allowed_user
+      - become → run_as_user
+      - don't ship useless configuration for generate-sudoers.d/
+      - don't keep generate-sudoers deps in Tails
+      - drop python3-toml dependency
+      - each dangerous option requires a reason
+      - ruff format
+      - Clarify how sudoers is counterintuitive
+      - small comments improvements
+      - tails-install-iuk needs arguments
+      - reorder to make it more similar to old sudoers.d
+      - cleanup whitespace for easier comparison
+      - generate-sudoers: more commands get arbitrary arguments
+      - allow arbitrary arguments for tor browser
+      - generate-sudoers: fix permissions
+      - fix alias derivation
+      - convert more sudoers file into generate-sudoers.d
+      - Generate /etc/sudoers.d/ from TOML files
+
+  * Arti: upgrade to 1.4.0 (tails/tails!1971)
+
+    Commits:
+      - Update test suite log message
+      - update instructions to update arti
+      - update arti to 1.4.0
+      - Set UID and GID for arti
+
+  * Run Tor Browser in pseudo flatpak (tails/tails!1025)
+
+    Closes issues:
+      - "Large text" accessibility feature does not apply to Tor Browser since
+        5.8~beta1 (tails/tails#19266)
+      - Improve UX of saving downloaded files and pages to PDF from Tor Browser
+        (tails/tails#15678)
+      - Use desktop portals in Tor Browser (tails/tails#19408)
+      - Tor Browser ignores cursor size (accessibility issue) (tails/tails#19572)
+      - Tor Browser has no minimize & maximize buttons in the window titlebar
+        (tails/tails#19328)
+      - Remove the `tor-browser` shortcut from the sidebar in Tor Browser
+        (tails/tails#19254)
+
+    Commits:
+      - torbrowser-launcher!10 has been merged
+      - CI: ignore flatpak 1.16.0-2
+      - Add comment
+      - Add comment
+      - Document why we skip some org.mozilla.firefox flatpak settings
+      - Refactor tails-documentation: avoid converting URLs twice
+      - Flatpak runtime: be specific about /usr/.ref permissions
+      - Tor Browser: fix the local page detection vs "@@u ... @@"
+      - Adjust APT pinnings so we install our patched flatpak packages
+      - shfmt
+      - Tor Browser flatpak: drop override for devices=
+      - Flatpak runtime: further simplify after merged /usr
+      - Flatpak runtime: don't do anything special during early patching
+      - Remove /usr/src since it is only used during build time
+      - Document that we run Tor Browser in Flatpak
+      - Document how to keep track of org.mozilla.firefox flatpak metadata changes
+      - Tor Browser flatpak: make aware of already running instance
+      - Tor Browser flatpak: allow access to the speech dispatcher
+      - Tor Browser flatpak: allow access to a11y
+      - Tor Browser flatpak: allow access to CUPS for printing support
+      - Tor Browser flatpak: tighten session bus restrictions
+      - tails-documentation: don't start Tor Browser via .desktop file
+      - Remove xdg-desktop-portal-gnome
+      - Tor Browser: set X-Flatpak in .desktop file
+      - Tor Browser: re-enable namespace isolation for the sandbox
+      - Enable the 10422-tor-browser-in-flatpak APT overlay.
+      - Tor Browser: enable flatpak file forwarding through the document portal
+      - Flatpak runtime: Use modern early_patch mountpoint path
+      - shfmt
+      - shfmt
+      - shfmt
+      - Test suite: adjust file picker code vs XDG Desktop Portal shenanigans
+      - Adjust torbrowser-launcher AppArmor profile for Flatpak and XDG Desktop Portal
+        support
+      - Execute Tor Browser wrapper code outside of the Flatpak
+      - Tor Browser: avoid Flatpak warning
+      - Flatpak runtime: Improve comments and minor refactoring
+      - Flatpak runtime: Don't bind-mount /var into flatpak runtime
+      - Flatpak runtime: Adapt to merged /usr
+      - Flatpak runtime: Mount / into flatpak runtime instead of the SquashFS
+      - Run Ruff formatter
+      - Fix Ruff RUF012
+      - Link to design doc
+      - Tor Browser flatpak: allow Tor Browser access to XDG user dirs
+      - Tor Browser flatpak: tighten restrictions compared to upstream flatpak
+      - Flatpak runtime: Also overlay /mnt/config/chroot_local-includes
+      - Test suite: Don't expect AppArmor logs for Tor Browser
+      - Ensure Tor Browser is only started inside a flatpak
+      - Tor Browser: run as a pseudo flatpak
+      - Adjust UIDs/GIDs mangling for the addition of the _flatpak user & group
+      - Add flatpak package and dependencies
+      - Add shellcheck source comments
+
+ -- Tails developers <tails@boum.org>  Wed, 02 Apr 2025 19:05:19 +0200
+
+tails (6.13) unstable; urgency=medium
+
+  * Upgrade Tor Browser to 14.0.7 (tails/tails!1994)
+
+    Closes issues:
+      - Upgrade to Tor Browser 14.0.7 based on Firefox 128.8 ESR (tails/tails#20791)
+
+    Commits:
+      - Upgrade Tor Browser to 14.0.7-build2 (refs: tails#20791)
+
+  * Upgrade tor to 0.4.8.14 (tails/tails!1986)
+
+    Closes issues:
+      - Upgrade tor to 0.4.8.14 (tails/tails#20803)
+
+    Commits:
+      - Upgrade tor to 0.4.8.14
+
+  * Refresh Ublock Origin patch vs 1.62.0+dfsg-1 (tails/tails!1944)
+
+    Commits:
+      - Refresh webext-ublock-origin-firefox patch vs 1.62.0+dfsg-1
+
+  * Rename GitLab label: Foundations Team → Tails Team (tails/tails!1992)
+
+    Commits:
+      - Rename GitLab label: Foundations Team → Tails Team
+
+  * Ignore firmware-sof 2025.01-1 (tails/tails!1985)
+
+    Commits:
+      - Ignore firmware-sof 2025.01-1
+
+  * Change Bitcoin address used for donation incentive via Electrum
+    (tails/tails!1969)
+
+    Commits:
+      - Change Bitcoin address used for donation incentive via Electrum
+
+  * Check for corruption during first-boot repartitioning (tails/tails!1967)
+
+    Closes issues:
+      - Partition corruption detection does not work during first boot
+        (tails/tails#20797)
+
+    Commits:
+      - Add comment
+      - Fix indent
+      - Abort verify_partition_table if partition errors were already detected
+      - Consider the device corrupt if sgdisk detects corruption during first boot
+        (refs: tails#20797)
+      - Move procedure to library
+
+  * Update snapshot of the debian archive to 2025021702 (tails/tails!1966)
+
+    Closes issues:
+      - Bump snapshot of "debian" APT archive to update ublock-origin to 1.62.0+dfsg-1
+        (tails/tails#20802)
+
+    Commits:
+      - Refresh webext-ublock-origin-firefox patch vs 1.62.0+dfsg-1
+      - Update snapshot of the debian archive to 2025021702 (refs: tails#20802)
+
+  * CI: ignore onionshare 2.6.2-5 (tails/tails!1963)
+
+    Commits:
+      - CI: ignore onionshare 2.6.2-5
+
+  * whisperback-search: lower the risk of confusion with --output=
+    (tails/tails!1951)
+
+    Commits:
+      - whisperback-search: lower the risk of confusion with --output=
+
+  * Merge upstream torbrowser-launcher into our copy (tails/tails!1950)
+
+    Closes issues:
+      - Merge upstream torbrowser-launcher into our copy, 2024Q4 edition
+        (tails/tails#20614)
+
+    Commits:
+      - Update to merge commit
+      - Merge upstream torbrowser-launcher into our copy
+
+  * don't call Python3 explicitly: shebangs are good (tails/tails!1947)
+
+    Commits:
+      - Apply 1 suggestion(s) to 1 file(s)
+      - don't call Python3 explicitly: shebangs are good
+
+  * Resolve "Check that all relevant scenarios have the @doc tag (2025 edition)"
+    (tails/tails!1946)
+
+    Closes issues:
+      - Check that all relevant scenarios have the @doc tag (2025 edition)
+        (tails/tails#20211)
+
+    Commits:
+      - Test suite: drop unused step
+      - Test suite: drop stray newline
+      - Test suite: add missing @doc tags
+      - Test suite: fix typo
+
+  * Improve UX when Wi-Fi is not working (tails/tails!1937)
+
+    Commits:
+      - fix spelling of Wi-Fi
+      - Avoid useless try_for
+      - remove useless try_for
+      - Actually verify the Wi-Fi settings are displayed
+      - GObject.SIGNAL_* deprecated: → GObject.SignalFlags
+      - Fix Test Suite after 97ccf1
+      - small improvements in Wi-Fi tests
+      - Shorten to prevent wrapping
+      - Apply style guide
+      - NetworkLink → NetworkConnectionMonitor
+      - WifiAvailable → WifiAvailabilityMonitor
+      - Rename attributes to better describe what they are
+      - more event-subscribe logic replacing method invocation
+      - start ExternalProperty-es earlier
+      - remove useless argument
+      - better naming
+      - WifiAvailable consistent with TorConfigurationValue
+      - Call handlers for properties which have already changed
+      - Remove is_tor_working wrapper
+      - cleanup: formatting, logging, remove dead comments
+      - encapsulate more in NetworkLink.setup()
+      - encapsulate more in TorConfigurationValue.setup()
+      - encapsulate more in WifiAvailable.setup()
+      - encapsulate more in TorIsWorking.setup()
+      - fixup! implement Gherkin for the no-wifi scenario
+      - doc: how to learn more about connecting ExternalProperty to signals
+      - WifiAvailable is now event-based
+      - refactor is_network_link_ok to ExternalProperty
+      - TCA: monitor DisableNetwork by subscribing to CONF_CHANGED events instead of
+        GET_CONF polling
+      - fixup! refactor DisableNetwork check
+      - implement Gherkin for the no-wifi scenario
+      - make UI responsive to wifi availability
+      - ruff format
+      - signals are connected later in the process
+      - refactor DisableNetwork check
+      - refactor tor_is_working w/ ExternalProperty
+      - ruff format
+      - Detect if wifi is available
+      - Add ExternalProperty "framework"
+      - Gherkin for the feature we will implement
+      - Standalone command that checks for wifi devices
+
+  * gtk-abspath-launch: fix race condition (tails/tails!1936)
+
+    Closes issues:
+      - gtk-abspath-launch fails to start some .desktop files (tails/tails#20781)
+
+    Commits:
+      - explicitly set a timeout for the D-Bus call
+      - log messages instead of printing them
+      - fix race: wait for applications to actually open
+
+  * Test suite: add OCR feature and start using it instead of a few images
+    (tails/tails!1853)
+
+    Closes issues:
+      - Replace (some) images with OCR in our automated test suite (tails/tails#20522)
+
+    Commits:
+      - Don't run OCR once more after failure
+      - Test suite setup doc: fix name of new dependency
+      - fix typo
+      - rubocop style
+      - shfmt
+      - improve OCR via image preprocessing
+      - PlymouthDiskFailureMessage.png → OCR
+      - GnomeDiskFailureMessage → OCR
+      - document OCR support in Screen class
+      - @screen.ocr
+
+  * Test suite: add early boot hooks (tails/tails!1845)
+
+    Commits:
+      - Test suite: don't introduce more instances of obsolete terminology
+      - Clarify doc: Before= is sufficient only if both units are being started
+      - Test suite: rename tag @broken_greeter → @broken_welcome_screen
+      - Test suite: improve step name
+      - Improve docs
+      - Test suite: replace @wait_for_remote_shell=true hack with facility to hook code
+        to run during early boot
+
+ -- Tails developers <tails@boum.org>  Wed, 05 Mar 2025 10:33:40 +0100
+
 tails (6.12) unstable; urgency=medium
 
   * Upgrade to Thunderbird 1:128.6.0esr-1~deb12u1

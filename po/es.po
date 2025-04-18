@@ -22,9 +22,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-05 10:11+0100\n"
-"PO-Revision-Date: 2024-12-04 17:00+0000\n"
-"Last-Translator: gallegonovato <fran-carro@hotmail.es>\n"
+"POT-Creation-Date: 2025-04-14 15:41+0200\n"
+"PO-Revision-Date: 2025-03-31 20:57+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/tor/tails-gui/es/"
 ">\n"
 "Language: es\n"
@@ -33,7 +33,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n != 0 && n % 1000000 == "
 "0) ? 1 : 2);\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -134,7 +134,7 @@ msgid "This will stop installing {packages} automatically."
 msgstr "Esto parará la instalación de {packages} de forma automática."
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:165
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:180
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:188
 msgid "Remove"
 msgstr "Eliminar"
 
@@ -142,7 +142,7 @@ msgstr "Eliminar"
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/add_settings_dialog.py:40
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:178
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:483
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:840
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:834
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:728
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:119
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:376
@@ -217,11 +217,11 @@ msgstr ""
 "persistente cuando arrancas Tails."
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:197
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
-"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
+"To add more, install some software using <a href=\"synaptic."
+"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
+"desktop\">APT on the command line</a>."
 msgstr ""
 "Para añadir más, instala software usando <a href=\"synaptic.desktop\">el "
 "Gestor de Paquetes Synaptic</a> o <a href=\"org.gnome.Terminal.desktop\">con "
@@ -876,7 +876,13 @@ msgstr ""
 "almacenamiento persistente o reiniciar el ordenador para intentar reparar de "
 "nuevo el sistema de archivos."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:759
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:756
+msgid "Start Tails and open the Persistent Storage settings to find out more."
+msgstr ""
+"Inicia Tails y abre la configuración de Almacenamiento Persistente para "
+"obtener más información."
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:785
 msgid ""
 "Your Persistent Storage is unlocked. Its content will be available until you "
 "shut down Tails."
@@ -884,17 +890,11 @@ msgstr ""
 "Tu Almacenamiento Persistente está desbloqueado. Su contenido estará "
 "disponible hasta que cierres Tails."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:772
-msgid "Start Tails and open the Persistent Storage settings to find out more."
-msgstr ""
-"Inicia Tails y abre la configuración de Almacenamiento Persistente para "
-"obtener más información."
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:806
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:800
 msgid "Incorrect passphrase. Please try again."
 msgstr "Frase de contraseña incorrecta. Por favor, inténtelo de nuevo."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:817
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:811
 msgid ""
 "Error reading data from your Persistent Storage. The hardware of your USB "
 "stick is probably failing."
@@ -902,15 +902,15 @@ msgstr ""
 "Error al leer tus datos desde el almacenamiento persistente. Es probable que "
 "el hardware de tu memoria USB esté fallando."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:819
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:813
 msgid "Start Tails to learn how to recover your data."
 msgstr "Inicia Tails para aprender a recuperar tus datos."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:830
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:824
 msgid "File System Errors"
 msgstr "Errores del sistema de archivos"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:832
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:826
 msgid ""
 "Errors were detected in the file system of your Persistent Storage.\n"
 "                \n"
@@ -935,15 +935,15 @@ msgstr ""
 "Si no tienes una copia de seguridad, te recomendamos que primero crees una "
 "imagen de la partición de tu Almacenamiento persistente."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:841
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:835
 msgid "Repair File System"
 msgstr "Reparar el sistema de archivos"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:842
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:836
 msgid "Create Partition Image"
 msgstr "Crear una imagen de la partición"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:853
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:847
 msgid ""
 "Start Tails to learn how to create a partition image of your Persistent "
 "Storage."
@@ -951,13 +951,13 @@ msgstr ""
 "Inicia Tails para aprender a crear una imagen de la partición de tu "
 "Almacenamiento persistente."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:862
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:856
 msgid "Failed to unlock the Persistent Storage due to file system errors."
 msgstr ""
 "No se ha podido desbloquear el almacenamiento persistente debido a errores "
 "del sistema de archivos."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:871
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:865
 msgid ""
 "Failed to upgrade the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -965,7 +965,7 @@ msgstr ""
 "Falló la actualización del Almacenamiento Persistente. Inicia Tails y envía "
 "un informe de error."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:878
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:872
 msgid ""
 "Failed to unlock the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -973,7 +973,7 @@ msgstr ""
 "No se pudo desbloquear el Almacenamiento Persistente. Inicia Tails y envía "
 "un informe de error."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:886
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:880
 msgid ""
 "Failed to activate the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -981,7 +981,7 @@ msgstr ""
 "Falló la activación del Almacenamiento Persistente. Inicia Tails y envía un "
 "informe de error."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:897
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:891
 msgid "Upgrading the Persistent Storage. This might take a while…"
 msgstr ""
 "Actualizando el almacenamiento persistente. Esto puede tomar un tiempo…"
@@ -1637,7 +1637,7 @@ msgstr "Creado a partir de %s"
 msgid "Documentation"
 msgstr "Documentación"
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:106
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:114
 #, python-brace-format
 msgid ""
 "Remove {package} from your additional software? This will stop installing "
@@ -1647,22 +1647,22 @@ msgstr ""
 "automática del paquete."
 
 #. Translators: Don't translate {pkg}, it's a placeholder and will be replaced.
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:119
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:127
 #, python-brace-format
 msgid "Failed to remove {pkg}"
 msgstr "No se pudo quitar {pkg}"
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:147
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:155
 msgid "Failed to read additional software configuration"
 msgstr "Ha fallado la lectura de la configuración de software adicional"
 
 #. Translators: Don't translate {package}, it's a placeholder and will be replaced.
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:176
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:184
 #, python-brace-format
 msgid "Stop installing {package} automatically"
 msgstr "Detener la instalación automática de {package}"
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:207
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:215
 msgid ""
 "To do so, install some software using <a href=\"synaptic.desktop\">Synaptic "
 "Package Manager</a> or <a href=\"org.gnome.Terminal.desktop\">APT on the "
@@ -1672,7 +1672,7 @@ msgstr ""
 "de Paquetes Synaptic</a> o <a href=\"org.gnome.Terminal.desktop\">con APT en "
 "la línea de comandos</a>."
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:219
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:227
 msgid ""
 "To do so, unlock your Persistent Storage when starting Tails and install "
 "some software using <a href=\"synaptic.desktop\">Synaptic Package Manager</"
@@ -1683,27 +1683,27 @@ msgstr ""
 "Manager</a> o <a href=\"org.gnome.Terminal.desktop\">APT en la línea de "
 "comandos</a>."
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:232
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:240
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
-"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
+"gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "Para ello, cree un Almacenamiento Persistente e instale algún software "
 "mediante <a href=\"synaptic.desktop\">Administrador de paquetes Synaptic</a> "
 "o <a href=\"org.gnome.Terminal.desktop\">APT en la línea de comandos</a>."
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:250
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:258
 msgid "To do so, install Tails on a USB stick and create a Persistent Storage."
 msgstr ""
 "Para ello, instala Tails en una memoria USB y crea un Almacenamiento "
 "Persistente."
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:296
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:304
 msgid "[package not available]"
 msgstr "[paquete no disponible]"
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:303
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:311
 msgid "[description not available]"
 msgstr "[descripción no disponible]"
 
@@ -1720,7 +1720,7 @@ msgid "Set up a password to unlock the screen."
 msgstr "Establece una contraseña para desbloquear la pantalla."
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:149
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2227
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2304
 msgid "Password"
 msgstr "Contraseña"
 
@@ -1965,12 +1965,12 @@ msgid "Connected to Tor successfully with bridges"
 msgstr "Conectado a Tor con puentes"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:644
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1960
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2037
 msgid "Connected to Tor successfully"
 msgstr "Conectado a Tor con éxito"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:648
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1985
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2062
 msgid "You can now browse the Internet anonymously and uncensored."
 msgstr "Puedes navegar por Internet de forma anónima y sin censura."
 
@@ -1988,16 +1988,16 @@ msgstr ""
 "El uso de un puente es necesario si quieres ocultar el hecho de que estás "
 "usando Tor"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1034
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1058
 #, python-brace-format
 msgid "Scanned {bridge_type} bridge: <b>{bridge_info}</b>."
 msgstr "Analizado puente {bridge_type}: <b>{bridge_info}</b>."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1123
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1147
 msgid "Are you sure you want to lose progress?"
 msgstr "¿Estás seguro de que quieres perder el progreso?"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1127
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1151
 msgid ""
 "Tails will continue connecting to Tor after you close the Tor Connection "
 "assistant.\n"
@@ -2011,11 +2011,11 @@ msgstr ""
 "Si la conexión falla, deberás esperar de nuevo hasta que la barra de "
 "progreso termine, para poder diagnosticar el problema con la conexión."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1133
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1157
 msgid "Close and Lose Progress"
 msgstr "Cerrar y perder el trabajo actual"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1135
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1159
 msgid "Wait"
 msgstr "Esperar"
 
@@ -2042,19 +2042,19 @@ msgstr "_Abrir instrucciones de migración"
 msgid "_Migrate Later"
 msgstr "_Migrar más tarde"
 
-#: config/chroot_local-includes/usr/bin/tor-browser:49
+#: config/chroot_local-includes/usr/local/lib/launch-tor-browser:38
 msgid "Tor is not ready"
 msgstr "Tor no está listo"
 
-#: config/chroot_local-includes/usr/bin/tor-browser:50
+#: config/chroot_local-includes/usr/local/lib/launch-tor-browser:39
 msgid "Tor is not ready. Start Tor Browser anyway?"
 msgstr "Tor no está listo. ¿Iniciar el Navegador Tor de todos modos?"
 
-#: config/chroot_local-includes/usr/bin/tor-browser:51
+#: config/chroot_local-includes/usr/local/lib/launch-tor-browser:40
 msgid "Start Tor Browser Offline"
 msgstr "Iniciar el Navegador Tor sin conexión"
 
-#: config/chroot_local-includes/usr/bin/tor-browser:52
+#: config/chroot_local-includes/usr/local/lib/launch-tor-browser:41
 msgid "Open Tor Connection"
 msgstr "Abrir la conexión Tor"
 
@@ -2068,7 +2068,7 @@ msgid "Open Tor Connection Assistant"
 msgstr "Abrir la conexión Tor"
 
 #: config/chroot_local-includes/usr/share/gnome-shell/extensions/torstatus@tails.boum.org/extension.js:50
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2039
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2116
 msgid "View Tor Circuits"
 msgstr "Ver los circuitos de Tor"
 
@@ -2807,11 +2807,11 @@ msgstr "Instalar, clonar, actualizar Tails"
 msgid "Connect Tails to the Tor network"
 msgstr "Conectar Tails a la red Tor"
 
-#: ../config/chroot_local-includes/usr/share/applications/tor-browser.desktop.in.h:1
+#: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:1
 msgid "Tor Browser"
 msgstr "Navegador Tor"
 
-#: ../config/chroot_local-includes/usr/share/applications/tor-browser.desktop.in.h:2
+#: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:2
 msgid "Anonymous Web Browser"
 msgstr "Navegador web anónimo"
 
@@ -2865,8 +2865,8 @@ msgid ""
 "Authentication is required to remove a package from your additional software "
 "($(command_line))"
 msgstr ""
-"Se requiere autenticación para quitar un paquete de tu software adicional ($"
-"(command_line))"
+"Se requiere autenticación para quitar un paquete de tu software adicional "
+"($(command_line))"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:18
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:56
@@ -3753,9 +3753,9 @@ msgid ""
 "a Gmail or Riseup email address with your phone and scan the QR code that is "
 "attached to the automatic reply."
 msgstr ""
-"Para conseguir un puente, envía un correo vacío a "
-"<tt>bridges@torproject.org</tt> desde una dirección Gmail o Riseup con tu "
-"teléfono, y escanea el código QR adjunto a la respuesta automática."
+"Para conseguir un puente, envía un correo vacío a <tt>bridges@torproject."
+"org</tt> desde una dirección Gmail o Riseup con tu teléfono, y escanea el "
+"código QR adjunto a la respuesta automática."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1014
 msgid "Scan QR Code"
@@ -3876,11 +3876,42 @@ msgstr ""
 "<a href=\"doc/anonymous_internet/tor\">Más información sobre cómo Tails se "
 "conecta a Tor</a>"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1629
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1634
+msgid "No Wi-Fi hardware detected"
+msgstr ""
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1652
+msgid ""
+"Tails couldn't find any Wi-Fi interface on your computer. If your computer "
+"has a Wi-Fi interface, it might not work on Tails.\n"
+"\n"
+"To connect to the Internet you can try to:\n"
+"\n"
+" • Use an Ethernet cable instead of Wi-Fi. Wired interfaces work much more "
+"reliably than Wi-Fi in Tails.\n"
+" • Use USB tethering to share the Wi-Fi or mobile data connection of your "
+"phone using a cable.\n"
+" • Buy a USB Wi-Fi adapter that works in Tails.\n"
+"                "
+msgstr ""
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1676
+#, fuzzy
+msgid ""
+"\n"
+"<a href=\"doc/anonymous_internet/no-wifi\">\n"
+"Learn more about troubleshooting Wi-Fi not working.\n"
+"</a>\n"
+"                "
+msgstr ""
+"<a href=\"doc/anonymous_internet/tor\">Más información sobre cómo Tails se "
+"conecta a Tor</a>"
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1704
 msgid "Connect to a local network"
 msgstr "Conectar a una red local"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1646
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1721
 msgid ""
 "You are not connected to a local network yet. To be able to connect to the "
 "Tor network, you first need to connect to a Wi-Fi, wire, or mobile network."
@@ -3888,91 +3919,92 @@ msgstr ""
 "No estás conectado a una red local aún. Para conectarte a la red Tor, "
 "primero necesitas conectarte a una red Wi-Fi, cable o móvil."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1658
-msgid "Open Wi-Fi settings"
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1735
+#, fuzzy
+msgid "Open Wi-Fi Settings"
 msgstr "Abrir ajustes Wi-Fi"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1707
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1784
 msgid "Testing Internet access…"
 msgstr "Probando el acceso a Internet…"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1747
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1824
 msgid "You have access to the Internet"
 msgstr "Tienes acceso a Internet"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1781
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1858
 msgid "Testing access to Tor…"
 msgstr "Probando acceso a Tor…"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1824
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1901
 msgid "You can connect to Tor"
 msgstr "Puedes conectar a Tor"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1854
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1931
 msgid "Failed to connect to Tor without bridges."
 msgstr "Fallo en la conexión a Tor sin puentes."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1870
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1947
 msgid "This local network is blocking access to Tor."
 msgstr "Tu red local está bloqueando el acceso a Tor."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1902
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1979
 msgid "Connecting to Tor…"
 msgstr "Conectando a Tor…"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2007
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2084
 msgid "Start Tor Browser"
 msgstr "Iniciar Tor Browser"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2026
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2103
 msgid "Open Network Monitor"
 msgstr "Abrir el monitor de red"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2053
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2130
 msgid "Reset Tor Connection"
 msgstr "Restablecer la conexión Tor"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2093
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2170
 msgid "Configure a Local Proxy"
 msgstr "Configurar un Proxy local"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2119
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2196
 msgid "Proxy Type"
 msgstr "Tipo de proxy"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2136
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2213
 msgid "No proxy"
 msgstr "Sin proxy"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2137
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2214
 msgid "SOCKS 4"
 msgstr "SOCKS 4"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2138
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2215
 msgid "SOCKS 5"
 msgstr "SOCKS 5"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2139
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2216
 msgid "HTTP / HTTPS"
 msgstr "HTTP / HTTPS"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2158
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2235
 msgid "Address"
 msgstr "Dirección"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2175
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2252
 msgid "Username"
 msgstr "Nombre de usuario"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2192
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2269
 msgid "IP address or hostname"
 msgstr "Dirección IP o nombre de la máquina"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2210
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2287
 msgid "Port"
 msgstr "Puerto"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2334
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2411
 msgid "_Save Proxy Settings"
 msgstr "_Guardar configuración de proxy"
 
@@ -4126,15 +4158,15 @@ msgstr "Reloj"
 #~ "\n"
 #~ "Help us keep your bitcoins safe!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/"
-#~ "donate.en.html#expenses\">How we spend our money.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
+#~ "html#expenses\">How we spend our money.</a>"
 #~ msgstr ""
 #~ "Tails protege tu cartera.\n"
 #~ "\n"
 #~ "¡Ayúdanos a mantener tus bitcoins a salvo!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/"
-#~ "donate.es.html#expenses\">Cómo usamos el dinero.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/donate.es."
+#~ "html#expenses\">Cómo usamos el dinero.</a>"
 
 #~ msgid "Create Backup"
 #~ msgstr "Crear una copia de seguridad"

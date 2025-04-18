@@ -22,9 +22,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-05 10:11+0100\n"
-"PO-Revision-Date: 2025-01-17 14:28+0000\n"
-"Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
+"POT-Creation-Date: 2025-04-14 15:41+0200\n"
+"PO-Revision-Date: 2025-03-31 20:57+0000\n"
+"Last-Translator: Akseli Pihlajamaa <akselijuhanipihlajamaa@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/tor/tails-gui/fi/"
 ">\n"
 "Language: fi\n"
@@ -32,7 +32,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -133,7 +133,7 @@ msgid "This will stop installing {packages} automatically."
 msgstr "Tämä lopettaa {packages} asentamisen automaattisesti."
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:165
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:180
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:188
 msgid "Remove"
 msgstr "Poista"
 
@@ -141,7 +141,7 @@ msgstr "Poista"
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/add_settings_dialog.py:40
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:178
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:483
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:840
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:834
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:728
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:119
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:376
@@ -215,15 +215,15 @@ msgstr ""
 "kun käynnistät Tailsin."
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:197
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
-"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
+"To add more, install some software using <a href=\"synaptic."
+"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
+"desktop\">APT on the command line</a>."
 msgstr ""
-"Jos haluat asentaa lisää, asenna ohjelmistoja käyttäen <a "
-"href=\"synaptic.desktop\">Synaptic Package Manageria</a> tai <a "
-"href=\"org.gnome.Terminal.desktop\">APTta komentorivillä</a>."
+"Jos haluat asentaa lisää, asenna ohjelmistoja käyttäen <a href=\"synaptic."
+"desktop\">Synaptic Package Manageria</a> tai <a href=\"org.gnome.Terminal."
+"desktop\">APTta komentorivillä</a>."
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:154
 msgid "_Create persistent storage"
@@ -707,8 +707,8 @@ msgid ""
 msgstr ""
 "<b>Tapahtui virhe päivityksen asennuksen aikana.</b>\\n\\nTails-laitteesi "
 "tarvitsee korjausta ja sen uudelleenkäynnistys ei ehkä onnistu.\\n\\nNoudata "
-"osoitteen file:///usr/share/doc/tails/website/doc/upgrade/error/"
-"install.en.html ohjeita"
+"osoitteen file:///usr/share/doc/tails/website/doc/upgrade/error/install.en."
+"html ohjeita"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:861
 msgid "Error while installing the upgrade"
@@ -831,6 +831,7 @@ msgstr "Pysyvän tallennustilan määrittäminen epäonnistui"
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:502
 msgid "Start Tails to send an error report and learn how to recover your data."
 msgstr ""
+"Aloita Tails lähettääksesi virheraportti ja opi kuinka voit palauttaa datasi."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:516
 msgid "File System Repaired Successfully"
@@ -854,7 +855,13 @@ msgid ""
 "system again."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:759
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:756
+msgid "Start Tails and open the Persistent Storage settings to find out more."
+msgstr ""
+"Käynnistä Tails ja avaa pysyvän tallennustilan asetukset saadaksesi "
+"lisätietoja."
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:785
 msgid ""
 "Your Persistent Storage is unlocked. Its content will be available until you "
 "shut down Tails."
@@ -862,32 +869,26 @@ msgstr ""
 "Pysyvä tallennustilasi on avattu ja sen sisältö on käytettävissä kunnes "
 "Tails sammutetaan."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:772
-msgid "Start Tails and open the Persistent Storage settings to find out more."
-msgstr ""
-"Käynnistä Tails ja avaa pysyvän tallennustilan asetukset saadaksesi "
-"lisätietoja."
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:806
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:800
 msgid "Incorrect passphrase. Please try again."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:817
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:811
 #, fuzzy
 msgid ""
 "Error reading data from your Persistent Storage. The hardware of your USB "
 "stick is probably failing."
 msgstr "USB-muistisi on luultavasti hajoamassa."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:819
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:813
 msgid "Start Tails to learn how to recover your data."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:830
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:824
 msgid "File System Errors"
 msgstr "Virheitä tiedostojärjestelmässä"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:832
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:826
 msgid ""
 "Errors were detected in the file system of your Persistent Storage.\n"
 "                \n"
@@ -901,30 +902,30 @@ msgid ""
 "of your Persistent Storage first."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:841
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:835
 msgid "Repair File System"
 msgstr "Korjaa tiedostojärjestelmä"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:842
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:836
 #, fuzzy
 msgid "Create Partition Image"
 msgstr "Luo pysyvä tallennustila"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:853
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:847
 #, fuzzy
 msgid ""
 "Start Tails to learn how to create a partition image of your Persistent "
 "Storage."
 msgstr "Pysyvän tallennustilan luonti epäonnistui"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:862
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:856
 #, fuzzy
 msgid "Failed to unlock the Persistent Storage due to file system errors."
 msgstr ""
 "Pysyvän tallennustilan salauksen avaaminen epäonnistui. Käynnistä Tails ja "
 "lähetä virheilmoitus."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:871
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:865
 msgid ""
 "Failed to upgrade the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -932,7 +933,7 @@ msgstr ""
 "Pysyvän tallennustilan päivitys epäonnistui. Käynnistä Tails ja lähetä "
 "virheilmoitus."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:878
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:872
 msgid ""
 "Failed to unlock the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -940,7 +941,7 @@ msgstr ""
 "Pysyvän tallennustilan salauksen avaaminen epäonnistui. Käynnistä Tails ja "
 "lähetä virheilmoitus."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:886
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:880
 msgid ""
 "Failed to activate the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -948,7 +949,7 @@ msgstr ""
 "Pysyvän tallennustilan aktivointi epäonnistui. Käynnistä Tails ja lähetä "
 "virheilmoitus."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:897
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:891
 #, fuzzy
 msgid "Upgrading the Persistent Storage. This might take a while…"
 msgstr "Päivitetään pysyvää tallennustilaa. Tämä voi kestää jonkin aikaa…"
@@ -1020,8 +1021,8 @@ msgid ""
 "%(iso_size)dMB ISO + %(overlay_size)dMB overlay > %(free_space)dMB free space"
 msgstr ""
 "Laitteella ei ole tarpeeksi vapaata tilaa.\n"
-"%(iso_size)dMt:n ISO + %(overlay_size)dMt:n tallennustila > "
-"%(free_space)dMt:a vapaata tilaa"
+"%(iso_size)dMt:n ISO + %(overlay_size)dMt:n tallennustila > %(free_space)dMt:"
+"a vapaata tilaa"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:509
 #, python-format
@@ -1595,7 +1596,7 @@ msgstr "Luotu %s:sta"
 msgid "Documentation"
 msgstr "Ohjeet"
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:106
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:114
 #, python-brace-format
 msgid ""
 "Remove {package} from your additional software? This will stop installing "
@@ -1605,32 +1606,32 @@ msgstr ""
 "asennuksen."
 
 #. Translators: Don't translate {pkg}, it's a placeholder and will be replaced.
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:119
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:127
 #, python-brace-format
 msgid "Failed to remove {pkg}"
 msgstr "Poisto epäonnistui: {pkg}"
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:147
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:155
 msgid "Failed to read additional software configuration"
 msgstr "Lisäohjelmistomääritelmän luku epäonnistui"
 
 #. Translators: Don't translate {package}, it's a placeholder and will be replaced.
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:176
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:184
 #, python-brace-format
 msgid "Stop installing {package} automatically"
 msgstr "Lopeta {package} asennus automaattisesti"
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:207
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:215
 msgid ""
 "To do so, install some software using <a href=\"synaptic.desktop\">Synaptic "
 "Package Manager</a> or <a href=\"org.gnome.Terminal.desktop\">APT on the "
 "command line</a>."
 msgstr ""
-"Jos haluat tehdä niin, asenna ohjelmistoja käyttäen <a "
-"href=\"synaptic.desktop\">Synaptic Package Manageria</a> tai <a "
-"href=\"org.gnome.Terminal.desktop\">APTta komentorivillä</a>."
+"Jos haluat tehdä niin, asenna ohjelmistoja käyttäen <a href=\"synaptic."
+"desktop\">Synaptic Package Manageria</a> tai <a href=\"org.gnome.Terminal."
+"desktop\">APTta komentorivillä</a>."
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:219
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:227
 msgid ""
 "To do so, unlock your Persistent Storage when starting Tails and install "
 "some software using <a href=\"synaptic.desktop\">Synaptic Package Manager</"
@@ -1641,25 +1642,25 @@ msgstr ""
 "Package Manageria</a> tai <a href=\"org.gnome.Terminal.desktop\">APTta "
 "komentorivillä</a>."
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:232
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:240
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
-"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
+"gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "Jos haluat tehdä niin, luo pysyvä tallennustila ja asenna ohjelmistoja "
 "käyttämällä <a href=\"synaptic.desktop\">Synaptic Package Manageria</a> tai "
 "<a href=\"org.gnome.Terminal.desktop\">APTta komentorivillä</a>."
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:250
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:258
 msgid "To do so, install Tails on a USB stick and create a Persistent Storage."
 msgstr "Tehdäksesi niin, asenna Tails USB-tikulle ja luo pysyvä tallennustila."
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:296
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:304
 msgid "[package not available]"
 msgstr "[paketti ei saatavilla]"
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:303
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:311
 msgid "[description not available]"
 msgstr "[kuvaus ei saatavilla]"
 
@@ -1676,7 +1677,7 @@ msgid "Set up a password to unlock the screen."
 msgstr "Aseta salasana avataksesi näyton."
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:149
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2227
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2304
 msgid "Password"
 msgstr "Salasana"
 
@@ -1907,12 +1908,12 @@ msgid "Connected to Tor successfully with bridges"
 msgstr "Tor-yhteys muodostettu onnistuneesti siltojen avulla"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:644
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1960
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2037
 msgid "Connected to Tor successfully"
 msgstr "Tor-yhteys muodostettu onnistuneesti"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:648
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1985
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2062
 msgid "You can now browse the Internet anonymously and uncensored."
 msgstr "Voit nyt käyttää Internetiä anonyymisti ja sensuroimattomasti."
 
@@ -1928,16 +1929,16 @@ msgstr "Sillan osoite on virheellinen"
 msgid "Setting a bridge is needed if you want to hide that you are using Tor"
 msgstr "Sillan määritys on pakollista Tor-yhteyden käytön piilottamiseksi"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1034
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1058
 #, python-brace-format
 msgid "Scanned {bridge_type} bridge: <b>{bridge_info}</b>."
 msgstr "Skannattu {bridge_type} -silta: <b>{bridge_info}</b>."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1123
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1147
 msgid "Are you sure you want to lose progress?"
 msgstr "Haluatko varmasti menettää edistymisen?"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1127
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1151
 msgid ""
 "Tails will continue connecting to Tor after you close the Tor Connection "
 "assistant.\n"
@@ -1951,11 +1952,11 @@ msgstr ""
 "Jos yhteyden muodostus epäonnistuu, sinun on odotettava uudelleen "
 "edistymispalkin loppuun asti voidaksesi suorittaa yhteyden vianmäärityksen."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1133
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1157
 msgid "Close and Lose Progress"
 msgstr "Sulje ja menetä edistyminen"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1135
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1159
 msgid "Wait"
 msgstr "Odota"
 
@@ -1981,19 +1982,19 @@ msgstr "_Avaa siirtämis ohjeet"
 msgid "_Migrate Later"
 msgstr "_Siirrä myöhemmin"
 
-#: config/chroot_local-includes/usr/bin/tor-browser:49
+#: config/chroot_local-includes/usr/local/lib/launch-tor-browser:38
 msgid "Tor is not ready"
 msgstr "Tor ei ole valmis"
 
-#: config/chroot_local-includes/usr/bin/tor-browser:50
+#: config/chroot_local-includes/usr/local/lib/launch-tor-browser:39
 msgid "Tor is not ready. Start Tor Browser anyway?"
 msgstr "Tor ei ole valmis. Käynnistetäänkö Tor-selain siitä huolimatta?"
 
-#: config/chroot_local-includes/usr/bin/tor-browser:51
+#: config/chroot_local-includes/usr/local/lib/launch-tor-browser:40
 msgid "Start Tor Browser Offline"
 msgstr "Käynnistä Tor-selain yhteydettömässä tilassa"
 
-#: config/chroot_local-includes/usr/bin/tor-browser:52
+#: config/chroot_local-includes/usr/local/lib/launch-tor-browser:41
 msgid "Open Tor Connection"
 msgstr "Avaa Tor-yhteys"
 
@@ -2007,7 +2008,7 @@ msgid "Open Tor Connection Assistant"
 msgstr "Avaa Tor-yhteys"
 
 #: config/chroot_local-includes/usr/share/gnome-shell/extensions/torstatus@tails.boum.org/extension.js:50
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2039
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2116
 msgid "View Tor Circuits"
 msgstr "Näytä Tor-ketjut"
 
@@ -2737,11 +2738,11 @@ msgstr "Asenna, kopioi, päivitä Tails"
 msgid "Connect Tails to the Tor network"
 msgstr "Yhdistä Tails Tor-verkkoon"
 
-#: ../config/chroot_local-includes/usr/share/applications/tor-browser.desktop.in.h:1
+#: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:1
 msgid "Tor Browser"
 msgstr "Tor-selain"
 
-#: ../config/chroot_local-includes/usr/share/applications/tor-browser.desktop.in.h:2
+#: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:2
 msgid "Anonymous Web Browser"
 msgstr "Anonyymi webbiselain"
 
@@ -3801,11 +3802,42 @@ msgstr ""
 "<a href=\"doc/anonymous_internet/tor\">Lue lisää siitä, miten Tails "
 "muodostaa Tor-yhteyden</a>"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1629
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1634
+msgid "No Wi-Fi hardware detected"
+msgstr ""
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1652
+msgid ""
+"Tails couldn't find any Wi-Fi interface on your computer. If your computer "
+"has a Wi-Fi interface, it might not work on Tails.\n"
+"\n"
+"To connect to the Internet you can try to:\n"
+"\n"
+" • Use an Ethernet cable instead of Wi-Fi. Wired interfaces work much more "
+"reliably than Wi-Fi in Tails.\n"
+" • Use USB tethering to share the Wi-Fi or mobile data connection of your "
+"phone using a cable.\n"
+" • Buy a USB Wi-Fi adapter that works in Tails.\n"
+"                "
+msgstr ""
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1676
+#, fuzzy
+msgid ""
+"\n"
+"<a href=\"doc/anonymous_internet/no-wifi\">\n"
+"Learn more about troubleshooting Wi-Fi not working.\n"
+"</a>\n"
+"                "
+msgstr ""
+"<a href=\"doc/anonymous_internet/tor\">Lue lisää siitä, miten Tails "
+"muodostaa Tor-yhteyden</a>"
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1704
 msgid "Connect to a local network"
 msgstr "Yhdistä paikalliseen verkkoon"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1646
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1721
 msgid ""
 "You are not connected to a local network yet. To be able to connect to the "
 "Tor network, you first need to connect to a Wi-Fi, wire, or mobile network."
@@ -3814,91 +3846,92 @@ msgstr ""
 "verkkoon, sinun on ensin muodostettava yhteys Wi-Fi-, langalliseen tai "
 "mobiiliverkkoon."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1658
-msgid "Open Wi-Fi settings"
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1735
+#, fuzzy
+msgid "Open Wi-Fi Settings"
 msgstr "Avaa Wi-Fi-asetukset"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1707
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1784
 msgid "Testing Internet access…"
 msgstr "Testataan Internet-yhteyttä…"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1747
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1824
 msgid "You have access to the Internet"
 msgstr "Voit käyttää Internetiä"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1781
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1858
 msgid "Testing access to Tor…"
 msgstr "Testataan Tor-yhteyttä…"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1824
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1901
 msgid "You can connect to Tor"
 msgstr "Voit yhdistää Toriin"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1854
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1931
 msgid "Failed to connect to Tor without bridges."
 msgstr "Toriin ei voitu muodostaa yhteyttä ilman siltoja."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1870
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1947
 msgid "This local network is blocking access to Tor."
 msgstr "Paikallinen verkko estää Tor-yhteydet."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1902
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1979
 msgid "Connecting to Tor…"
 msgstr "Yhdistetään Toriin…"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2007
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2084
 msgid "Start Tor Browser"
 msgstr "Käynnistä Tor-selain"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2026
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2103
 msgid "Open Network Monitor"
 msgstr "Avaa verkonvalvonta"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2053
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2130
 msgid "Reset Tor Connection"
 msgstr "Nollaa Tor-yhteys"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2093
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2170
 msgid "Configure a Local Proxy"
 msgstr "Määritä paikallinen välityspalvelin"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2119
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2196
 msgid "Proxy Type"
 msgstr "Välityspalvelimen tyyppi"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2136
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2213
 msgid "No proxy"
 msgstr "Ei välityspalvelinta"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2137
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2214
 msgid "SOCKS 4"
 msgstr "SOCKS 4"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2138
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2215
 msgid "SOCKS 5"
 msgstr "SOCKS 5"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2139
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2216
 msgid "HTTP / HTTPS"
 msgstr "HTTP / HTTPS"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2158
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2235
 msgid "Address"
 msgstr "Osoite"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2175
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2252
 msgid "Username"
 msgstr "Käyttäjätunnus"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2192
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2269
 msgid "IP address or hostname"
 msgstr "IP-osoite tai palvelinnimi"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2210
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2287
 msgid "Port"
 msgstr "Portti"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2334
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2411
 msgid "_Save Proxy Settings"
 msgstr "_Tallenna välityspalvelimen asetukset"
 
@@ -4052,15 +4085,15 @@ msgstr "Kello"
 #~ "\n"
 #~ "Help us keep your bitcoins safe!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/"
-#~ "donate.en.html#expenses\">How we spend our money.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
+#~ "html#expenses\">How we spend our money.</a>"
 #~ msgstr ""
 #~ "Tails suojaa lompakkoasi.\n"
 #~ "\n"
 #~ "Auta meitä pitämään bitcoinisi turvassa!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/"
-#~ "donate.en.html#expenses\">Näin käytämme rahamme</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
+#~ "html#expenses\">Näin käytämme rahamme</a>"
 
 #, fuzzy
 #~| msgid "Create"
@@ -4200,8 +4233,8 @@ msgstr "Kello"
 #~| "\n"
 #~| "Every bit helps in our fight against surveillance and censorship!\n"
 #~| "\n"
-#~| "<a href=\"file:///usr/share/doc/tails/website/"
-#~| "donate.en.html#expenses\">How we spend our money.</a>"
+#~| "<a href=\"file:///usr/share/doc/tails/website/donate.en."
+#~| "html#expenses\">How we spend our money.</a>"
 #~ msgid ""
 #~ "Our annual fundraiser is live!\n"
 #~ "\n"
@@ -4215,8 +4248,8 @@ msgstr "Kello"
 #~ "\n"
 #~ "Jokainen avustus tukee valvonnan ja sensuroinnin vastaista taisteluamme!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/"
-#~ "donate.en.html#expenses\">Näin käytämme rahamme</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
+#~ "html#expenses\">Näin käytämme rahamme</a>"
 
 #~ msgid "Name of the affected software"
 #~ msgstr "Vaikutetun ohjelmiston nimi"
@@ -4266,8 +4299,8 @@ msgstr "Kello"
 #~ "Tekijänoikeus © 2009-2018 Tails-kehittäjät <tails@boum.org>\n"
 #~ "\n"
 #~ "Tämä on ilmainen ohjelmisto, ohjelma, jota saa levittää ja/tai muuttaa\n"
-#~ "Free Software Foundationin julkaiseman GNU General Public (GPL) "
-#~ "-lisenssin\n"
+#~ "Free Software Foundationin julkaiseman GNU General Public (GPL) -"
+#~ "lisenssin\n"
 #~ "version 3 tai (valintasi mukaan) myöhemmän version ehtojen mukaisesti.\n"
 #~ "\n"
 #~ "Ohjelmistoa levitetään siinä toivossa, että se olisi hyödyllinen, mutta "
@@ -4277,8 +4310,8 @@ msgstr "Kello"
 #~ "laadusta tai soveltuvuudesta tiettyyn tarkoitukseen.\n"
 #~ "Lisätietoja löydät GPL-lisenssistä.\n"
 #~ "\n"
-#~ "Ohjelmiston mukana pitäisi olla kopio GNU General Public (GPL) "
-#~ "-lisenssistä.\n"
+#~ "Ohjelmiston mukana pitäisi olla kopio GNU General Public (GPL) -"
+#~ "lisenssistä.\n"
 #~ "Jos näin ei ole, katso <http://www.gnu.org/licenses/>.\n"
 
 #~ msgid "Help:"

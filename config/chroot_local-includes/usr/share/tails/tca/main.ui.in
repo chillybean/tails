@@ -1622,40 +1622,117 @@ Tor relays are servers operated by different organizations and volunteers around
           </packing>
         </child>
         <child>
-          <object class="GtkLabel">
-            <property name="visible">True</property>
-            <property name="can-focus">False</property>
-            <property name="halign">start</property>
-            <property name="label" translatable="yes">Connect to a local network</property>
-            <style>
-              <class name="step-title"/>
-            </style>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">2</property>
-          </packing>
+
+          <object class="GtkBox" id="step_offline_wifi_not_available">
+            <property name="orientation">vertical</property>
+
+            <child>
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="halign">start</property>
+                <property name="label" translatable="yes">No Wi-Fi hardware detected</property>
+                <style>
+                  <class name="step-title"/>
+                </style>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+
+            <child>
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="halign">start</property>
+                <property name="valign">start</property>
+                <property name="label" translatable="yes">Tails couldn't find any Wi-Fi interface on your computer. If your computer has a Wi-Fi interface, it might not work on Tails.
+
+To connect to the Internet you can try to:
+
+ • Use an Ethernet cable instead of Wi-Fi. Wired interfaces work much more reliably than Wi-Fi in Tails.
+ • Use USB tethering to share the Wi-Fi or mobile data connection of your phone using a cable.
+ • Buy a USB Wi-Fi adapter that works in Tails.
+                </property>
+                <property name="wrap">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="padding">5</property>
+                <property name="position">3</property>
+              </packing>
+            </child>
+
+            <child>
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="halign">start</property>
+                <property name="valign">start</property>
+                <property name="label" translatable="yes">
+&lt;a href="doc/anonymous_internet/no-wifi"&gt;
+Learn more about troubleshooting Wi-Fi not working.
+&lt;/a&gt;
+                </property>
+                <property name="use-markup">True</property>
+                <signal name="activate-link" handler="on_link_help_clicked" swapped="no"/>
+                <property name="wrap">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="padding">5</property>
+                <property name="position">3</property>
+              </packing>
+            </child>
+
+          </object> <!-- step_offline_wifi_not_available -->
         </child>
+
         <child>
-          <object class="GtkLabel">
-            <property name="visible">True</property>
-            <property name="can-focus">False</property>
-            <property name="halign">start</property>
-            <property name="valign">start</property>
-            <property name="label" translatable="yes">You are not connected to a local network yet. To be able to connect to the Tor network, you first need to connect to a Wi-Fi, wire, or mobile network.</property>
-            <property name="wrap">True</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">False</property>
-            <property name="padding">5</property>
-            <property name="position">3</property>
-          </packing>
+          <object class="GtkBox" id="step_offline_wifi_available">
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="halign">start</property>
+                <property name="label" translatable="yes">Connect to a local network</property>
+                <style>
+                  <class name="step-title"/>
+                </style>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="halign">start</property>
+                <property name="valign">start</property>
+                <property name="label" translatable="yes">You are not connected to a local network yet. To be able to connect to the Tor network, you first need to connect to a Wi-Fi, wire, or mobile network.</property>
+                <property name="wrap">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="padding">5</property>
+                <property name="position">3</property>
+              </packing>
+            </child>
+          </object> <!-- step_offline_wifi_available -->
         </child>
         <child>
           <object class="GtkButton" id="step_offline_wificonf">
-            <property name="label" translatable="yes">Open Wi-Fi settings</property>
+            <property name="label" translatable="yes">Open Wi-Fi Settings</property>
             <property name="name">step_offline_wificonf</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
