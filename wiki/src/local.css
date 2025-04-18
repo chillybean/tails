@@ -66,6 +66,21 @@
   font-style: monospace;
 }
 
+:root {
+  /* Using a Major Third scale for headings */
+  --font-size-title: 44.0px;
+  --font-size-h1: 35.2px;
+  --font-size-h2: 28.1px;
+  --font-size-h3: 22.5px;
+  --font-size-base: 18px;
+  --font-size-small: 16px;
+  --font-size-smaller: 14px;
+  --font-weight-bold: 600;
+  --font-weight-semi-bold: 500;
+  --font-weight-regular: 400;
+  --font-weight-thin: 300;
+}
+
 /* Base */
 
 *,
@@ -79,7 +94,7 @@ body {
   color: black;
   margin: 0;
   padding: 0;
-  font-size: 18px;
+  font-size: var(--font-size-base);
   line-height: 1.5em;
 }
 
@@ -101,37 +116,12 @@ p {
   margin-left: 30px;
 }
 
-/* Headings */
+/* Typography */
 
-h1, h2, h3, h4, h5 {
-  font-weight: normal;
-}
-
-h1, h1 .code {
-  font-size: 28px;
-  line-height: 1em;
-  margin: 2em 0 1em;
-}
-
-h2, h2 .code {
-  font-size: 24px;
-  line-height: 1em;
-  margin: 2em 0 1em 0;
-}
-
-h3, h3 .code {
-  font-size: 20px;
-  margin: 1.5em 0 0.75em 0;
-}
-
-h4 {
-  font-size: 16px;
-  font-weight: bold;
-}
-
-p, h1, h2, h3, h4, h5, h6, blockquote, hr {
+p, h1, h2, h3, blockquote, hr {
   max-width: 40em; /* Avoid super-long lines */
 }
+
 hr {
     margin: 2em 0;
 }
@@ -273,7 +263,7 @@ table.img, table.img td, table.img tr {
 }
 
 table.img caption {
-  font-size: 16px;
+  font-size: var(--font-size-small);
   font-style: italic;
   color: var(--medium-dark-gray);
   margin: 1em 0;
@@ -314,7 +304,7 @@ button, input, textarea {
   padding: 5px;
   border-radius: 5px;
   font-family: "Source Sans 3", "DejaVu Sans", "Verdana", sans-serif;
-  font-size: 18px;
+  font-size: var(--font-size-base);
 }
 
 input, textarea {
@@ -335,9 +325,8 @@ input, textarea {
 #skip-link a {
   color: var(--medium-purple);
   display: block;
-  font-size: 24px;
-  font-weight: 600;
-  padding: 30px;
+  font-weight: var(--font-weight-bold);
+  padding: 10px 15px;
   background: white;
   text-decoration: underline;
 }
@@ -407,7 +396,7 @@ input, textarea {
   background: white;
   padding: 6px;
   border-radius: 5px 0 0 5px;
-  font-size: 16px;
+  font-size: var(--font-size-small);
   color: black;
   width: 140px;
 }
@@ -440,8 +429,8 @@ label[for="searchbox"]{
 #donate a {
   background: var(--medium-light-green);
   color: black !important;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-bold);
   border-radius: 5px;
   padding: 0 0.2em 0.2em 0.2em;
   display: flex;
@@ -499,7 +488,7 @@ label[for="searchbox"]{
     width: 200px;
   }
   #searchform input, #donate a {
-    font-size: 18px;
+    font-size: var(--font-size-base);
   }
 }
 
@@ -531,7 +520,7 @@ label[for="searchbox"]{
 #main-navigation a, #main-navigation .selflink {
   display: block;
   padding: 8px 0;
-  font-weight: 600;
+  font-weight: var(--font-weight-bold);
   border-bottom: 5px solid white;
 }
 
@@ -564,7 +553,7 @@ label[for="searchbox"]{
 
 #crumbs {
   flex-grow: 1;
-  font-size: 16px;
+  font-size: var(--font-size-small);
   display: flex;
   flex-wrap: wrap;
   min-height: 41px;
@@ -685,7 +674,7 @@ label[for="searchbox"]{
 }
 
 .other-languages li.improve-translations {
-  font-size: 14px;
+  font-size: var(--font-size-smaller);
 }
 
 /* Documentation index */
@@ -695,8 +684,8 @@ label[for="searchbox"]{
   position: relative;
   width: 250px !important;
   margin-right: 30px;
-  font-size: 16px;
-  font-weight: 300;
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-thin);
   margin-bottom: 60px;
 }
 
@@ -746,7 +735,7 @@ body:has(#doc-index) #page-body {
 }
 
 #doc-index .section > label {
-  font-weight: 500;
+  font-weight: var(--font-weight-semi-bold);
 }
 
 #doc-index .topic,
@@ -762,7 +751,7 @@ body:has(#doc-index) #page-body {
 #doc-index label:has(.selflink) {
   padding-left: 10px;
   border-left: 3px solid var(--medium-purple) !important;
-  font-weight: 500;
+  font-weight: var(--font-weight-semi-bold);
 }
 
 #doc-index .section input:checked ~ .topic,
@@ -834,7 +823,7 @@ body:has(#doc-index) #page-body {
     width: calc(100% + 60px) !important;
     margin-left: -30px;
     margin-right: -30px;
-    font-size: 18px;
+    font-size: var(--font-size-base);
   }
 
   body:has(#doc-index-button:checked) #doc-index {
@@ -868,10 +857,11 @@ body:has(#doc-index) #page-body {
 }
 
 #page-title h1 {
-  font-size: 2.8em;
+  font-size: var(--font-size-title);
+  font-weight: var(--font-weight-bold);
+  color: var(--medium-purple);
   line-height: 1em;
   margin: 0;
-  color: var(--medium-purple);
 }
 
 #page-title time {
@@ -898,6 +888,32 @@ body:has(#doc-index) #page-body {
   color: white;
   text-transform: capitalize;
   text-decoration: none;
+}
+
+/* Headings */
+
+h1, h1 .code {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-bold);
+  color: var(--medium-purple);
+  line-height: 1em;
+  margin: 2em 0 1em;
+}
+
+h2, h2 .code {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-semi-bold);
+  color: black;
+  line-height: 1em;
+  margin: 2em 0 1em;
+}
+
+h3, h3 .code {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-regular);
+  color: black;
+  line-height: 1em;
+  margin: 2em 0 1em;
 }
 
 /* Page content */
@@ -1024,37 +1040,27 @@ a:focus, button:focus, input:focus, textarea:focus, video:focus {
 }
 
 .inlinepage .inlineheader .header {
-  font-size: 36px;
+  font-size: var(--font-size-title);
   top: 5px;
   line-height: 1.5em;
   display: block;
   margin-bottom: 0.5em;
-  font-weight: normal;
+  font-weight: var(--font-weight-regular);
 }
 
 .inlinepage h1 {
-  font-size: 28px;
+  font-size: var(--font-size-h1);
   top: 8px;
 }
 
 .inlinepage h2 {
-  font-size: 22px;
+  font-size: var(--font-size-h2);
   top: 1px;
 }
 
 .inlinepage h3 {
-  font-size: 18px;
+  font-size: var(--font-size-h3);
   top: 2px;
-}
-
-.inlinepage h4 {
-  font-size: 15px;
-  top: 4px;
-}
-
-.inlinepage h5 {
-  font-size: 13px;
-  top: 5px;
 }
 
 /* Buttons and calls for action */
@@ -1090,8 +1096,8 @@ button:hover, .button > a:hover, label.button:hover, input[type="submit"]:hover 
   background: var(--medium-light-green) !important;
   color: black !important;
   text-decoration: none !important;
-  font-size: 24px;
-  font-weight: 600;
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-bold);
   border-radius: 5px;
   padding: 1em 0.5em;
   display: block;
@@ -1179,7 +1185,7 @@ span.guisubmenu,
 span.guimenuitem,
 span.keycap,
 span.menuchoice {
-  font-weight: 600;
+  font-weight: var(--font-weight-bold);
 }
 
 div.bug, div.caution, div.next, div.note, div.tip, div.attack {
@@ -1232,7 +1238,7 @@ div.bug > *:only-child, div.caution > *:only-child, div.next > *:only-child, div
 
 pre, code, .code, .command, .command-root, .command-windows, .command-template, .command-placeholder {
   font-family: "Source Code Pro Regular", "Courier", monospace;
-  font-size: 16px;
+  font-size: var(--font-size-small);
   color: var(--dark-gray);
   background-color: var(--background-gray);
   border: 1px solid var(--light-gray);
@@ -1276,7 +1282,7 @@ pre, p.code, p.command, p.command-root, p.command-windows, p.command-template, p
 .command-placeholder {
   color: var(--red);
   font-style: italic;
-  font-weight: bold;
+  font-weight: var(--font-weight-bold);
   padding-right: 4px !important;
 }
 
@@ -1340,7 +1346,7 @@ div#highlight p {
 .chart-key-list li {
   margin: 0 0 8px;
   padding: 0;
-  font-size: 16px;
+  font-size: var(--font-size-small);
   min-height: 3em;
 }
 
@@ -1368,7 +1374,7 @@ div#highlight p {
 }
 
 .key-label, .key-percent {
-  font-weight: 600;
+  font-weight: var(--font-weight-bold);
 }
 
 .chart {
@@ -1422,15 +1428,15 @@ div#highlight p {
   display: flex;
   gap: 30px;
   justify-content: space-between;
-  font-size: 14px;
+  font-size: var(--font-size-smaller);
   color: white;
   flex-wrap: wrap;
 }
 
 #footer-columns h5 {
-  font-size: 18px;
+  font-size: var(--font-size-base);
   color: white;
-  font-weight: 600;
+  font-weight: var(--font-weight-bold);
   margin: 0 0 0.75em 0;
 }
 
@@ -1469,7 +1475,7 @@ div#highlight p {
 }
 
 #footer-columns #social-media i {
-  font-size: 24px;
+  font-size: var(--font-size-h3);
 }
 
 #footer-columns #made-by img {

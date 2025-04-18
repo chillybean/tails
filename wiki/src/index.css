@@ -21,15 +21,14 @@ h2 {
 }
 
 .hero h1 {
-  font-size: 32px;
-  font-family: "Source Sans 3", "DejaVu Sans", "Verdana", sans-serif;
+  color: black;
   margin-top: 19px;
   padding-left: 7px;
 }
 
 .hero h1 .hero-tails {
-  font-size: 42px;
-  font-weight: 600;
+  font-size: var(--font-size-title);
+  font-weight: var(--font-weight-bold);
   color: var(--medium-purple);
   margin-left: -7px;
 }
@@ -40,7 +39,7 @@ h2 {
   }
   .hero .sentence {
     width: 420px;
-    font-size: 26px;
+    font-size: var(--font-size-h2);
   }
 }
 
@@ -127,8 +126,8 @@ h2 {
 }
 
 .persona {
-  font-size: 20px;
-  font-weight: 600;
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-bold);
   margin-bottom: 10px;
   color: var(--medium-purple);
   display: block;
