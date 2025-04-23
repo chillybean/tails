@@ -169,26 +169,24 @@ set_chroot_browser_name() {
     local human_readable_name="${2}"
     local browser_name="${3}"
     local browser_user="${4}"
-    local locale="${5}"
-
-    # Torbutton is installed in the browser's omni.ja and it decides
-    # the browser name.
-    local pack="${chroot}/${TBB_INSTALL}/omni.ja"
-    local tmp
-    tmp="$(mktemp -d)"
+    local requested_locale="${5}"
+    local pack="${chroot}/${TBB_INSTALL}/browser/omni.ja"
+    local tmp="$(mktemp -d)"
     (
+        local locale="${requested_locale}"
         cd "${tmp}"
-        7z x -o"${tmp}" "${pack}" chrome/torbutton/locale
-        local torbutton_locale_dir="chrome/torbutton/locale/${locale}"
-        if [ ! -d "${torbutton_locale_dir}" ]; then
-            torbutton_locale_dir="chrome/torbutton/locale/en-US"
+        if ! 7z x -o"${tmp}" "${pack}" "localization/${locale}/branding/brand.ftl" \
+            "chrome/${locale}/locale/branding/brand.properties"; then
+            locale="en-US"
+            7z x -o"${tmp}" "${pack}" "localization/${locale}/branding/brand.ftl" \
+                "chrome/${locale}/locale/branding/brand.properties"
         fi
         sed --regexp-extended -i \
             "s/-brand-(full|short|shorter|product)-name = .*$/-brand-\1-name = ${human_readable_name}/" \
-            "${torbutton_locale_dir}/branding/brand.ftl"
+            "./localization/${locale}/branding/brand.ftl"
         sed --regexp-extended -i \
             "s/^brand(Full|Product|Short|Shorter)Name=.*$/brand\1Name=${human_readable_name}/" \
-            "${torbutton_locale_dir}/brand.properties"
+            "./chrome/${locale}/locale/branding/brand.properties"
         7z u -tzip "${pack}" .
     )
     chmod a+r "${pack}"
