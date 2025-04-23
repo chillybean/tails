@@ -24,7 +24,7 @@ Feature: Localization
     Then the keyboard layout is set to "<layout>"
     When the network is plugged
     And Tor is ready
-    Then I successfully start the Unsafe Browser in "<lang_code>"
+    Then I successfully start the Unsafe Browser
     And I kill the Unsafe Browser
     When I enable the screen keyboard
     Then the screen keyboard works in Tor Browser

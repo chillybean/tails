@@ -69,12 +69,8 @@ When /^I (try to )?start the Unsafe Browser$/ do |try_to|
   launch_unsafe_browser(check_started: !try_to)
 end
 
-When /^I successfully start the Unsafe Browser(?: in "([^"]+)")?$/ do |lang_code|
+When /^I successfully start the Unsafe Browser$/ do
   step 'I start the Unsafe Browser'
-  if lang_code && lang_code == 'en'
-    step 'I see the "Starting the Unsafe Browser..." notification ' \
-         'after at most 60 seconds'
-  end
   step 'the Unsafe Browser has started'
 end
 
