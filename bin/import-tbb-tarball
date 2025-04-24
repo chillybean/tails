@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -eu
+set -o pipefail
 
 CHROOT_INCLUDES="config/chroot_local-includes"
 TBB_SHA256SUMS_FILE="${CHROOT_INCLUDES:?}/usr/share/tails/tbb-sha256sums.txt"
