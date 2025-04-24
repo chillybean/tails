@@ -84,7 +84,7 @@ class GdmClient(object):
     def __on_verification_complete(self, *args):
         logging.debug("Received verification-complete")
 
-    def __on_session_opened(self, client, service_name):
+    def __on_session_opened(self, client, service_name, _unused):
         logging.debug("Received session-opened with %s" % service_name)
         if self.session_opened_cb:
             self.session_opened_cb()
