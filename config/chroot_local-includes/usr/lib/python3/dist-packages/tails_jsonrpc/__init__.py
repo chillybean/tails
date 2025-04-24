@@ -191,7 +191,7 @@ class Protocol:
     def parse_reply(self, raw: str) -> Response:
         try:
             data = json.loads(raw)
-        except Exception as e:  # noqa: BLE001
+        except json.decoder.JSONDecodeError as e:
             raise InvalidMessageError() from e
 
         if not isinstance(data, dict):
@@ -214,7 +214,7 @@ class Protocol:
     def parse_request(self, raw: str) -> Request:
         try:
             data = json.loads(raw)
-        except Exception as e:  # noqa: BLE001
+        except json.decoder.JSONDecodeError as e:
             raise InvalidMessageError() from e
 
         Request.validate(data)
