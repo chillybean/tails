@@ -1,6 +1,15 @@
 import json
 from enum import IntEnum
 
+# This library is only used internally in Tails, so while we're using a standard protocol, we don't really aim
+# for an exact implementation of the standard.
+# We still consider https://www.jsonrpc.org/specification (ie: version 2.0) to be our guide, and we document
+# whenever we intentionally deviate from the standard:
+#  - Batch requests are unsupported.
+#  - Notification requests are unsupported (ie: all messages need to have an id)
+#  - Requests parameters can only be lists; this is contrary to the specification, which says that they can also
+#    be dicts
+
 JSON_RPC_VERSION = "2.0"
 
 
