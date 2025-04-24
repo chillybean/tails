@@ -171,7 +171,8 @@ set_chroot_browser_name() {
     local browser_user="${4}"
     local requested_locale="${5}"
     local pack="${chroot}/${TBB_INSTALL}/browser/omni.ja"
-    local tmp="$(mktemp -d)"
+    local tmp
+    tmp="$(mktemp -d)"
     (
         local locale="${requested_locale}"
         cd "${tmp}"
