@@ -19,20 +19,19 @@ export TEXTDOMAIN
 # Import nm_is_connected
 . /usr/local/lib/tails-shell-library/network.sh
 
-
-_zenity () {
+_zenity() {
     AT_SPI_BUS_ADDRESS="$(
         /usr/local/lib/run-with-user-env \
-        dbus-send --session --print-reply=literal \
-            --dest=org.a11y.Bus /org/a11y/bus org.a11y.Bus.GetAddress \
-            | sed 's/^ *//'
+            dbus-send --session --print-reply=literal \
+            --dest=org.a11y.Bus /org/a11y/bus org.a11y.Bus.GetAddress |
+            sed 's/^ *//'
     )"
     sudo -u "${SUDO_USER}" \
-         env AT_SPI_BUS_ADDRESS="${AT_SPI_BUS_ADDRESS}" \
-         /usr/bin/zenity "${@}"
+        env AT_SPI_BUS_ADDRESS="${AT_SPI_BUS_ADDRESS}" \
+        /usr/bin/zenity "${@}"
 }
 
-error () {
+error() {
     local cli_text dialog_text
     cli_text="${CMD}: $(gettext "error:") ${*}"
     dialog_text="<b><big>$(gettext "Error")</big></b>
@@ -48,9 +47,9 @@ exit_because_disabled() {
     msg="$(gettext "The Unsafe Browser was disabled in the Welcome Screen.\n\n")"
     # People with a Persistent Storage might have the Unsafe Browser disabled by default
     if persistence_is_enabled; then
-       msg="${msg}""$(gettext "To use the Unsafe Browser, restart Tails and make sure that the Unsafe Browser is enabled in the additional settings of the Welcome Screen.")"
+        msg="${msg}""$(gettext "To use the Unsafe Browser, restart Tails and make sure that the Unsafe Browser is enabled in the additional settings of the Welcome Screen.")"
     else
-       msg="${msg}""$(gettext "To use the Unsafe Browser, restart Tails.")"
+        msg="${msg}""$(gettext "To use the Unsafe Browser, restart Tails.")"
     fi
 
     restart="$(gettext "_Restart")"
@@ -58,18 +57,16 @@ exit_because_disabled() {
     confirm_msg="$(gettext "Do you really want to restart Tails now?\n\nAll your current work will be lost.")"
     confirm_button="$(gettext "Restart Now")"
     if _zenity --question --ellipsize --title "" --text "${msg}" --icon-name="dialog-error" \
-               --ok-label "${restart}"  --cancel-label "${cancel}" --default-cancel \
-       && \
-       _zenity --question --width=300 --title "" --text "${confirm_msg}" \
-               --ok-label "${confirm_button}" --cancel-label "${cancel}" --default-cancel
-    then
+        --ok-label "${restart}" --cancel-label "${cancel}" --default-cancel &&
+        _zenity --question --width=300 --title "" --text "${confirm_msg}" \
+            --ok-label "${confirm_button}" --cancel-label "${cancel}" --default-cancel; then
         /sbin/reboot || error "$(gettext "Failed to restart the system.")"
     fi
 
     exit 1
 }
 
-show_shutdown_notification () {
+show_shutdown_notification() {
     local title body
     title="$(gettext "Shutting down the Unsafe Browser...")"
     body="$(gettext "This may take a while, and you may not restart the Unsafe Browser until it is properly shut down.")"
@@ -122,7 +119,7 @@ fi
 # Disable some Firefox "phone home" features
 # (https://bugzilla.mozilla.org/show_bug.cgi?id=1598562)
 echo '127.0.0.42 firefox.settings.services.mozilla.com' \
-     >> "${CHROOT}"/etc/hosts
+    >>"${CHROOT}"/etc/hosts
 
 echo "* Starting Unsafe Browser"
 # Do not localize the 5th argument: it becomes WM_CLASS and then GNOME
@@ -145,8 +142,8 @@ bwrap --bind / / --bind "$CHROOT" /chroot --proc /proc --dev /dev \
     --chroot "/chroot" \
     --profile "$PROFILE" \
     --chroot-user-uid "$CHROOT_USER_UID" \
-    --wm-class "$WM_CLASS" \
-    || error "$(gettext "Failed to run browser.")"
+    --wm-class "$WM_CLASS" ||
+    error "$(gettext "Failed to run browser.")"
 
 echo "* Exiting the Unsafe Browser"
 show_shutdown_notification
