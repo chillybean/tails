@@ -6,11 +6,11 @@ if [ "$(whoami)" != "root" ]; then
 fi
 
 case "$-" in
-    *e*) : ;;
-    *)
-        echo "This library is meant to be used with 'set -e'. Exiting..." >&2
-        exit 1
-        ;;
+*e*) : ;;
+*)
+    echo "This library is meant to be used with 'set -e'. Exiting..." >&2
+    exit 1
+    ;;
 esac
 
 # Import the TBB_INSTALL variable
@@ -20,7 +20,7 @@ esac
 . /usr/local/lib/tails-shell-library/common.sh
 
 # Break down the chroot and kill all of its processes
-try_cleanup_browser_chroot () {
+try_cleanup_browser_chroot() {
     local chroot="${1}"
     local cow="${2}"
     # findmnt sorts submounts so we just have to revert the list to
@@ -37,7 +37,7 @@ try_cleanup_browser_chroot () {
 }
 
 # Setup a chroot on a clean overlayfs "fork" of the root filesystem.
-setup_chroot_for_browser () {
+setup_chroot_for_browser() {
     local chroot="${1}"
     local cow="${2}"
 
@@ -51,9 +51,9 @@ setup_chroot_for_browser () {
     # oldest first, newest last.
     while read -r rootfs_dir; do
         rootfs_dir="${rootfs_dirs_path}/${rootfs_dir}"
-        mountpoint -q "${rootfs_dir}" && \
-        lowerdirs="${rootfs_dir}:${lowerdirs}"
-    done < "${tails_module_path}"
+        mountpoint -q "${rootfs_dir}" &&
+            lowerdirs="${rootfs_dir}:${lowerdirs}"
+    done <"${tails_module_path}"
     # Remove the trailing colon
     lowerdirs=${lowerdirs%?}
 
@@ -70,30 +70,31 @@ setup_chroot_for_browser () {
     chmod 755 "${chroot}"
 }
 
-browser_conf_dir () {
+browser_conf_dir() {
     local browser_name="${1}"
     local browser_user="${2}"
     echo "/home/${browser_user}/.${browser_name}"
 }
 
-browser_profile_dir () {
+browser_profile_dir() {
     local conf_dir
     conf_dir="$(browser_conf_dir "${@}")"
     echo "${conf_dir}/profile.default"
 }
 
-chroot_browser_conf_dir () {
-    local chroot="${1}"; shift
+chroot_browser_conf_dir() {
+    local chroot="${1}"
+    shift
     echo "${chroot}/$(browser_conf_dir "${@}")"
 }
 
-chroot_browser_profile_dir () {
+chroot_browser_profile_dir() {
     local conf_dir
     conf_dir="$(chroot_browser_conf_dir "${@}")"
     echo "${conf_dir}/profile.default"
 }
 
-set_chroot_browser_permissions () {
+set_chroot_browser_permissions() {
     local chroot="${1}"
     local browser_name="${2}"
     local browser_user="${3}"
@@ -102,16 +103,20 @@ set_chroot_browser_permissions () {
     chown -R "${browser_user}:${browser_user}" "${browser_conf}"
 }
 
-configure_chroot_browser_profile () {
-    local chroot="${1}" ; shift
-    local browser_name="${1}" ; shift
-    local browser_user="${1}" ; shift
-    local home_page="${1}" ; shift
+configure_chroot_browser_profile() {
+    local chroot="${1}"
+    shift
+    local browser_name="${1}"
+    shift
+    local browser_user="${1}"
+    shift
+    local home_page="${1}"
+    shift
     # Now $@ is a list of paths (that must be valid after chrooting)
     # to extensions to enable.
 
     # Prevent sudo from complaining about failing to resolve the 'amnesia' host
-    echo "127.0.0.1 localhost amnesia" > "${chroot}/etc/hosts"
+    echo "127.0.0.1 localhost amnesia" >"${chroot}/etc/hosts"
 
     # Create a fresh browser profile for the clearnet user
     local browser_profile
@@ -122,11 +127,12 @@ configure_chroot_browser_profile () {
     # Select extensions to enable
     local extension
     while [ -n "${*:-}" ]; do
-        extension="${1}" ; shift
+        extension="${1}"
+        shift
         if [ "$(basename "${extension}")" = 'red-2.0-an+fx.xpi' ]; then
-           ln -s "${extension}" "${browser_ext}"/'{91a24c60-0f27-427c-b9a6-96b71f3984a9}.xpi'
+            ln -s "${extension}" "${browser_ext}"/'{91a24c60-0f27-427c-b9a6-96b71f3984a9}.xpi'
         else
-           ln -s "${extension}" "${browser_ext}"
+            ln -s "${extension}" "${browser_ext}"
         fi
     done
 
@@ -134,7 +140,7 @@ configure_chroot_browser_profile () {
     local browser_prefs="${browser_profile}/user.js"
     local chroot_browser_config="/usr/share/tails/chroot-browsers"
     cat "${chroot_browser_config}/common/prefs.js" \
-        "${chroot_browser_config}/${browser_name}/prefs.js" > "${browser_prefs}"
+        "${chroot_browser_config}/${browser_name}/prefs.js" >"${browser_prefs}"
 
     # Install addonStartup.json.lz4. This is required to enable the red theme.
     cp "${chroot_browser_config}/${browser_name}/addonStartup.json.lz4" \
@@ -153,37 +159,36 @@ configure_chroot_browser_profile () {
     mkdir -p "$(dirname "${browser_chrome}")"
     cat "${chroot_browser_config}/common/userChrome.css" \
         "${chroot_browser_config}/${browser_name}/userChrome.css" >> \
-            "${browser_chrome}"
+        "${browser_chrome}"
 
     set_chroot_browser_permissions "${chroot}" "${browser_name}" "${browser_user}"
 }
 
-set_chroot_browser_name () {
+set_chroot_browser_name() {
     local chroot="${1}"
     local human_readable_name="${2}"
     local browser_name="${3}"
     local browser_user="${4}"
-    local locale="${5}"
-
-    # Torbutton is installed in the browser's omni.ja and it decides
-    # the browser name.
-    local pack="${chroot}/${TBB_INSTALL}/omni.ja"
+    local requested_locale="${5}"
+    local pack="${chroot}/${TBB_INSTALL}/browser/omni.ja"
     local tmp
     tmp="$(mktemp -d)"
     (
-       cd "${tmp}"
-       7z x -o"${tmp}" "${pack}" chrome/torbutton/locale
-       local torbutton_locale_dir="chrome/torbutton/locale/${locale}"
-       if [ ! -d "${torbutton_locale_dir}" ]; then
-          torbutton_locale_dir="chrome/torbutton/locale/en-US"
-       fi
-       sed --regexp-extended -i \
-           "s/-brand-(full|short|shorter|product)-name = .*$/-brand-\1-name = ${human_readable_name}/" \
-	   "${torbutton_locale_dir}/branding/brand.ftl"
-       sed --regexp-extended -i \
-           "s/^brand(Full|Product|Short|Shorter)Name=.*$/brand\1Name=${human_readable_name}/" \
-           "${torbutton_locale_dir}/brand.properties"
-       7z u -tzip "${pack}" .
+        local locale="${requested_locale}"
+        cd "${tmp}"
+        if ! 7z x -o"${tmp}" "${pack}" "localization/${locale}/branding/brand.ftl" \
+            "chrome/${locale}/locale/branding/brand.properties"; then
+            locale="en-US"
+            7z x -o"${tmp}" "${pack}" "localization/${locale}/branding/brand.ftl" \
+                "chrome/${locale}/locale/branding/brand.properties"
+        fi
+        sed --regexp-extended -i \
+            "s/-brand-(full|short|shorter|product)-name = .*$/-brand-\1-name = ${human_readable_name}/" \
+            "./localization/${locale}/branding/brand.ftl"
+        sed --regexp-extended -i \
+            "s/^brand(Full|Product|Short|Shorter)Name=.*$/brand\1Name=${human_readable_name}/" \
+            "./chrome/${locale}/locale/branding/brand.properties"
+        7z u -tzip "${pack}" .
     )
     chmod a+r "${pack}"
     rm -Rf "${tmp}"
@@ -202,7 +207,7 @@ delete_chroot_browser_searchplugins() {
         7z d -tzip "${pack}" "${searchplugins_dir}/*/manifest.json"
         mkdir -p "${searchplugins_dir}"
         echo '{"default": {"visibleDefaultEngines": []}, "experimental-hidden": {"visibleDefaultEngines": []}}' \
-             > "${searchplugins_list}"
+            >"${searchplugins_list}"
         7z u -tzip "${pack}" "${searchplugins_list}"
     )
     rm -r "${tmp}"
@@ -219,14 +224,16 @@ delete_chroot_browser_icons() {
     chmod a+r "${pack}"
 }
 
-delete_chroot_browser_embedded_extensions_in_omni_ja () {
-    local chroot="${1}" ; shift
+delete_chroot_browser_embedded_extensions_in_omni_ja() {
+    local chroot="${1}"
+    shift
     # Now $@ is a list of extensions to delete.
     local pack="${chroot}/${TBB_INSTALL}/omni.ja"
 
     local extension
     while [ -n "${*:-}" ]; do
-        extension="${1}" ; shift
+        extension="${1}"
+        shift
         7z d -tzip "${pack}" "chrome/tails/content/extensions/${extension}"
     done
     chmod a+r "${pack}"
@@ -239,12 +246,17 @@ delete_chroot_browser_bookmarks() {
     chmod a+r "${pack}"
 }
 
-configure_chroot_browser () {
-    local chroot="${1}" ; shift
-    local browser_user="${1}" ; shift
-    local browser_name="${1}" ; shift
-    local human_readable_name="${1}" ; shift
-    local home_page="${1}" ; shift
+configure_chroot_browser() {
+    local chroot="${1}"
+    shift
+    local browser_user="${1}"
+    shift
+    local browser_name="${1}"
+    shift
+    local human_readable_name="${1}"
+    shift
+    local home_page="${1}"
+    shift
     # Now $@ is a list of paths (that must be valid after chrooting)
     # to extensions to enable.
     local best_locale
@@ -254,11 +266,11 @@ configure_chroot_browser () {
 
     if ! chroot "${chroot}" id -a "${browser_user}" 2>/dev/null; then
         chroot "${chroot}" addgroup --quiet --gid 1000 "${browser_user}"
-        chroot "${chroot}" adduser  --quiet --disabled-password --gecos "" --uid 1000 --gid 1000 "${browser_user}"
+        chroot "${chroot}" adduser --quiet --disabled-password --gecos "" --uid 1000 --gid 1000 "${browser_user}"
     fi
     configure_chroot_browser_profile "${chroot}" "${browser_name}" \
         "${browser_user}" "${home_page}" "${@}"
-    set_chroot_browser_name "${chroot}" "${human_readable_name}"  \
+    set_chroot_browser_name "${chroot}" "${human_readable_name}" \
         "${browser_name}" "${browser_user}" "${best_locale}"
     delete_chroot_browser_searchplugins "${chroot}"
     delete_chroot_browser_icons "${chroot}"
@@ -272,5 +284,5 @@ configure_chroot_browser () {
     # the path and will fail to create the $uid folder, so we do it
     # manually here instead.
     install --directory --owner="${browser_user}" --group="${browser_user}" \
-       "${chroot}/run/user/${browser_user_uid}"
+        "${chroot}/run/user/${browser_user_uid}"
 }
