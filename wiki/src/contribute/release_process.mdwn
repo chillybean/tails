@@ -451,9 +451,14 @@ and commit the result, including new PO files:
 If `lint_po` complains:
 
 * rollback the offending PO files and retry; worst case, delete it
-* send a note to <tails-l10n@boum.org> [public] so that they get in touch with
-  whoever can fix them.
-
+* locate the buggy strings in [Weblate](https://hosted.weblate.org/projects/tor/tails-gui/) and:
+  1. Set their status to *Needs editing*. As a consequence, Weblate will mark
+     the string as fuzzy and our QA tooling will stop complaining when we import it.
+  2. Consider adding a comment or suggestion for translators in Weblate.
+  3. Take a note to come back to it after the release, and then:
+     consider adding a screenshot or a `Translators:` comment in the source code,
+     ([[!tails_ticket 20410]]), to lower the risk that other translators
+     make the same mistake in the future.
 
 Regenerate the localization list:
 
