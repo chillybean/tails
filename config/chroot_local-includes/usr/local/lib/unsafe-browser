@@ -13,7 +13,6 @@ def main():
     parser.add_argument("--chroot", type=str, action="store")
     parser.add_argument("--profile", type=str, action="store")
     parser.add_argument("--chroot-user-uid", type=int, action="store")
-    parser.add_argument("--wm-class", type=str, action="store")
     args = parser.parse_args()
 
     run_in_netns_as_amnesia(
@@ -23,8 +22,6 @@ def main():
         export TOR_TRANSPROXY=1 && \
         export MOZ_ENABLE_WAYLAND=1 && \
         exec_firefox_helper firefox.unsafe-browser \
-           --class '{args.wm_class}' \
-           --name '{args.wm_class}' \
            --profile '{args.profile}'",
         netns="clearnet",
         root=args.chroot,
