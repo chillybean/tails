@@ -356,8 +356,8 @@ you need to wait for the tarballs to appear on
     while [ -z "$(elinks -dump -no-references -no-numbering "$url"   | grep 'tor-browser-linux-x86_64.*MiB')" ]
     do
         sleep 5
-     done
-     )
+    done
+    )
 
 
 Push the updated branch
