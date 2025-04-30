@@ -2,7 +2,7 @@ import inspect
 
 from tps.configuration.conflicting_app import ConflictingApp
 from tps.configuration.binding import Binding
-from tps.configuration.feature import Feature
+from tps.configuration.feature import Feature, PlaintextFeature
 
 
 class PersistentDirectory(Feature):
@@ -29,6 +29,11 @@ class WelcomeScreen(Feature):
     Id = "WelcomeScreen"
     translatable_name = "Welcome Screen"
     Bindings = (Binding("greeter-settings", "/var/lib/gdm3/settings/persistent"),)
+
+class Language(PlaintextFeature):
+    Id = "Language"
+    translatable_name = "Language and Keymap"
+    Bindings = (Binding("language", "/var/lib/gdm3/language-settings/persistent"),)
 
 
 class NetworkConnections(Feature):
