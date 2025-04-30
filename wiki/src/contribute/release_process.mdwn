@@ -395,11 +395,7 @@ Bootstrap internal manual testing coordination:
 
 1. To give the pad a clear title, add this section on top:
 
-        cat <<EOF
-        ---
-        title: Testing ${VERSION:?}
-        ---
-        EOF
+        echo "---\ntitle: Testing ${VERSION:?}\n---"
 
 2. Set the `PAD` environment variable to the URL of this pad.
 
