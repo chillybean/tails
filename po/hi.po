@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-14 15:41+0200\n"
-"PO-Revision-Date: 2025-04-03 14:14+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"POT-Creation-Date: 2025-04-30 09:33+0200\n"
+"PO-Revision-Date: 2025-04-24 14:02+0000\n"
+"Last-Translator: emma peel <emma.peel@riseup.net>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/tor/tails-gui/hi/"
 ">\n"
 "Language: hi\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.11.1-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -203,9 +203,9 @@ msgstr ""
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
-"desktop\">APT on the command line</a>."
+"To add more, install some software using <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:154
@@ -292,6 +292,26 @@ msgid "1y"
 msgid_plural "{count}y"
 msgstr[0] "1y"
 msgstr[1] "{count}y"
+
+#. Translators: Don't translate {count}, it's a place holder and
+#. will be replaced.
+#. d is the short form for days.
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/DownloadProgress.pm:82
+#, fuzzy, perl-brace-format
+msgid "1d"
+msgid_plural "{count}d"
+msgstr[0] "1दि"
+msgstr[1] "{count}दि"
+
+#. Translators: Don't translate {count}, it's a place holder and
+#. will be replaced.
+#. h is the short form for hours;
+#: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/DownloadProgress.pm:86
+#, fuzzy, perl-brace-format
+msgid "1h"
+msgid_plural "{count}h"
+msgstr[0] "{count} घंटा"
+msgstr[1] "{count} घंटा"
 
 #. Translators: Don't translate {count}, it's a place holder and
 #. will be replaced.
@@ -1384,7 +1404,7 @@ msgstr ""
 #: config/chroot_local-includes/usr/src/perl5lib/lib/Tails/RunningSystem.pm:207
 #: config/chroot_local-includes/usr/local/bin/tails-upgrade-frontend-wrapper:77
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/application.py:79
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:38
+#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:37
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:314
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:460
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:593
@@ -1494,8 +1514,8 @@ msgstr ""
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:240
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
-"gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:258
@@ -1524,7 +1544,7 @@ msgid "Set up a password to unlock the screen."
 msgstr ""
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:149
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2304
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2290
 msgid "Password"
 msgstr "पासवर्ड"
 
@@ -1634,7 +1654,7 @@ msgid ""
 msgstr ""
 
 #: config/chroot_local-includes/usr/local/bin/tails-upgrade-frontend-wrapper:76
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:37
+#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:36
 msgid "error:"
 msgstr "त्रुटि :"
 
@@ -1681,13 +1701,13 @@ msgid ""
 msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:269
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:798
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:795
 #, python-brace-format
 msgid "Invalid: {exception}"
 msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:281
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:811
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:808
 msgid "You need to configure an obfs4 bridge to hide that you are using Tor"
 msgstr ""
 
@@ -1740,28 +1760,28 @@ msgstr ""
 msgid "You can now browse the Internet anonymously and uncensored."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:726
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:723
 msgid "This local network seems to be blocking access to Tor."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:801
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:798
 msgid "Bridge address malformed"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:819
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:816
 msgid "Setting a bridge is needed if you want to hide that you are using Tor"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1058
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1055
 #, python-brace-format
 msgid "Scanned {bridge_type} bridge: <b>{bridge_info}</b>."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1147
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1144
 msgid "Are you sure you want to lose progress?"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1151
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1148
 msgid ""
 "Tails will continue connecting to Tor after you close the Tor Connection "
 "assistant.\n"
@@ -1770,11 +1790,11 @@ msgid ""
 "progress bar to be able to troubleshoot your connection."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1157
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1154
 msgid "Close and Lose Progress"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1159
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1156
 msgid "Wait"
 msgstr "ठाहरे"
 
@@ -2085,7 +2105,7 @@ msgid ""
 msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:191
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:57
+#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:56
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:304
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:121
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:219
@@ -2304,25 +2324,25 @@ msgstr ""
 msgid "Choose File Container"
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:48
+#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:47
 msgid "The Unsafe Browser was disabled in the Welcome Screen.\\n\\n"
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:51
+#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:50
 msgid ""
 "To use the Unsafe Browser, restart Tails and make sure that the Unsafe "
 "Browser is enabled in the additional settings of the Welcome Screen."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:53
+#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:52
 msgid "To use the Unsafe Browser, restart Tails."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:56
+#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:55
 msgid "_Restart"
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:58
+#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:57
 msgid ""
 "Do you really want to restart Tails now?\\n\\nAll your current work will be "
 "lost."
@@ -2330,52 +2350,44 @@ msgstr ""
 "Do you really want to restart Tails now?\\n\\nAll your current work will be "
 "lost।"
 
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:59
+#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:58
 msgid "Restart Now"
 msgstr "पुनःशुरु करें"
 
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:66
+#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:63
 msgid "Failed to restart the system."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:74
-msgid "Starting the Unsafe Browser..."
-msgstr ""
-
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:75
-msgid "This may take a while, so please be patient."
-msgstr ""
-
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:81
+#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:71
 msgid "Shutting down the Unsafe Browser..."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:82
+#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:72
 msgid ""
 "This may take a while, and you may not restart the Unsafe Browser until it "
 "is properly shut down."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:95
+#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:85
 #: ../config/chroot_local-includes/usr/share/applications/unsafe-browser.desktop.in.h:1
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:544
 msgid "Unsafe Browser"
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:110
+#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:100
 msgid ""
 "Another Unsafe Browser is currently running, or being cleaned up. Please "
 "retry in a while."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:128
+#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:116
 msgid ""
 "You are not connected to a local network yet.\\n\\nTo be able to start the "
 "Unsafe Browser, you first need to connect to a Wi-Fi, wired, or mobile "
 "network."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:158
+#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:139
 msgid "Failed to run browser."
 msgstr ""
 
@@ -3530,51 +3542,47 @@ msgstr ""
 msgid "Open Network Monitor"
 msgstr ""
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2130
-msgid "Reset Tor Connection"
-msgstr ""
-
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2170
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2156
 msgid "Configure a Local Proxy"
 msgstr ""
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2196
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2182
 msgid "Proxy Type"
 msgstr "प्रॉक्सी प्रकार"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2213
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2199
 msgid "No proxy"
 msgstr "कोई प्रॉक्सी नहीं"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2214
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2200
 msgid "SOCKS 4"
 msgstr "SOCKS 4"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2215
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2201
 msgid "SOCKS 5"
 msgstr "SOCKS 5"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2216
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2202
 msgid "HTTP / HTTPS"
 msgstr "HTTP / HTTPS"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2235
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2221
 msgid "Address"
 msgstr "पता"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2252
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2238
 msgid "Username"
 msgstr "यूज़रनाम"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2269
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2255
 msgid "IP address or hostname"
 msgstr "IP पता या मेजबाननाम"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2287
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2273
 msgid "Port"
 msgstr "पोर्ट"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2411
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2397
 msgid "_Save Proxy Settings"
 msgstr ""
 
@@ -3671,15 +3679,15 @@ msgstr "घडी"
 #~ "\n"
 #~ "Help us keep your bitcoins safe!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~ "html#expenses\">How we spend our money.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/"
+#~ "donate.en.html#expenses\">How we spend our money.</a>"
 #~ msgstr ""
 #~ "टेल्स आपके वॉलेट की सुरक्षा करता है।\n"
 #~ "\n"
 #~ "हमें आपके बिटकॉइन सुरक्षित रखने में मदद करें!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~ "html#expenses\">हम अपना धन कैसे खर्च करते हैं।</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/"
+#~ "donate.en.html#expenses\">हम अपना धन कैसे खर्च करते हैं।</a>"
 
 #~ msgid "Cannot unlock encrypted storage with this passphrase."
 #~ msgstr "इस पासफ़्रेज़ के साथ एन्क्रिप्टेड स्टोरेज को अनलॉक नहीं किया जा सकता है।"
