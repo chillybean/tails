@@ -1,8 +1,128 @@
 tails (6.18) UNRELEASED; urgency=medium
 
-  * Dummy entry for next release.
+  * Upgrade to Tor Browser 14.5.1 (tails/tails!2108)
 
- -- boyska <boyska@riseup.net>  Tue, 15 Apr 2025 19:39:05 +0200
+    Closes issues:
+     - Upgrade to Tor Browser based on Firefox 115.23 ESR (tails/tails#20891)
+
+  * Upgrade Linux to 6.1.135-1
+
+  * Stop installing b43legacy firmware (tails/tails!2093)
+
+    Closes issues:
+      - Some builds FTBFS on Jenkins: firmware-b43legacy-installer postinst fails to
+        connect to downloads.openwrt.org (tails/tails#20887)
+
+    Commits:
+      - Stop installing b43legacy firmware
+
+  * fix FTBFS on devel (tails/tails!2092)
+
+    Commits:
+      - bump memory requirements
+
+  * Upgrade to Tor Browser 14.5 (tails/tails!2091)
+
+    Closes issues:
+      - Upgrade to Tor Browser 14.5 (tails/tails#20904)
+
+    Commits:
+      - Browsers: stop passing --class and --name options
+      - Fix shellcheck SC2155 instance
+      - shfmt
+      - Browsers: work around Wayland issue where the window is outside of the screen
+      - Unsafe Browser: remove start notification
+      - Unsafe Browser: adjust to omni.ja changes in Tor Browser 14.5
+      - shfmt
+      - Refresh localization list for Tor Browser 14.5 (refs: tails#20904)
+      - Upgrade Tor Browser to 14.5 (refs: tails#20904)
+
+  * APT: use CloudFront instead of Fastly (tails/tails!2089)
+
+    Closes issues:
+      - APT timeouts during automated test suite runs when using the Fastly CDN mirror
+        on Jenkins (tails/tails#20870)
+
+    Commits:
+      - shfmt
+      - APT: use https://cloudfront.debian.net/ instead of Fastly
+
+  * generate-sudoers.d: make expectations for next step clearer (tails/tails!2090)
+
+    Commits:
+      - generate-sudoers.d: make expectations for next step clearer
+
+  * Fix appearance of the GRUB menu under Secure Boot (tails/tails!2078)
+
+    Closes issues:
+      - Buggy GRUB box border drawing on EFI system with Secure Boot enforced: �
+        (tails/tails#20899)
+
+    Commits:
+      - shfmt
+      - Don't copy the GRUB unicode font to the EFI directory anymore
+      - Fix appearance of the GRUB menu under Secure Boot
+
+  * nvd-info: use HTTP connection pooling, document recommended queries
+    (tails/tails!2075)
+
+    Commits:
+      - nvd-info: explain example queries, link to doc
+      - nvd-info: use HTTP connection pooling
+
+  * make sure data can't be saved on EFI storage or ACPI ERST (tails/tails!2074)
+
+    Commits:
+      - make sure data can't be saved on ACPI ERST
+      - make sure data can't be saved on EFI storage
+
+  * apt-cacher-ng: support 7.x and 8.x releases (tails/tails!2072)
+
+    Commits:
+      - shfmt
+      - apt-cacher-ng: support 7.x and 8.x releases
+
+  * make Tor Browser upgrade instructions more foolproof (tails/tails!2071)
+
+    Commits:
+      - add pipefail to bash script
+      - preserve DL_DIR across runs
+      - simplify and comment
+      - shfmt
+      - shellcheck
+      - move to dedicated script
+      - simplify git parsing
+      - make sure those files changed
+      - merge commands in less block:  reduce chances of forgetting one
+
+  * Revamp the TR and reproducibility setup (tails/tails!2045)
+
+    Closes issues:
+      - Revamp goals and implementation of verification process around release process
+        & reproducible builds (tails/tails#20840)
+
+    Commits:
+      - remove paragraph about past behavior
+      - clarify what's expected in log
+      - clarify the status of the issue
+      - clarify what this check is really about
+      - remove leftovers
+      - add checking changes to IDF and UDF to QA
+      - make the diff more manageable, excluding non-code paths
+      - Revert "Manual test suite: drop Source/Changes section"
+      - remove scary message from release process
+      - change release process threat model + goals
+      - remove Trusted Reproducer
+
+  * Various TCA improvements (tails/tails!1901)
+
+    Commits:
+      - this could still be called from a different step
+      - Only stop tails-tor-has-bootstrapped.target when NetworkManager thinks we are
+        disconnected
+      - TCA: kill dead code and glade XML
+
+ -- Tails developers <tails@boum.org>  Wed, 30 Apr 2025 07:40:07 +0000
 
 tails (6.14.2) unstable; urgency=medium
 
