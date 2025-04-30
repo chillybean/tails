@@ -16,17 +16,16 @@ Source
 --------
 
 
-Compare the to-be-released source code with previous version's one e.g.:
+To compare the to-be-released source code with previous version's one:
 
-Boot the candidate image and find the commit it was build from with the
+1. Boot the candidate image and find the commit it was build from with the
 `tails-version` command.
 
-Then, from the source tree, see the diff:
+2. Then, from the source tree, see the diff:
 
-	git diff --find-renames <old image commit>..<candidate image commit> -- '*' ':!config/binary_rootfs/squashfs.sort' ':!po' ':!wiki'
+         git diff --find-renames <old image commit>..<candidate image commit> -- '*' ':!config/binary_rootfs/squashfs.sort' ':!po' ':!wiki'
 
 e.g. `git diff --find-renames 334e1c485a3a79be9fff899d4dc9d2db89cdc9e1..cfbde80925fdd0af008f10bc90c8a91a578c58e3`
-
 
 Changes to IDF and UDF
 ------------------------
