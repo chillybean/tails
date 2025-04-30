@@ -17,13 +17,13 @@ Source
 
 To compare the to-be-released source code with previous version's one:
 
-1. Boot the most recent version of Tails we've already released and find the commit it was build from, using the `tails-version` command.
+1. Boot the most recent version of Tails we've already released and find the commit it was build from, using the `tails-version` command. Set `OLD_IMAGE_COMMIT` to this value.
 
-2. Boot the candidate image and find the commit it was build from, using the `tails-version` command.
+2. Boot the candidate image and find the commit it was build from, using the `tails-version` command. Set `CANDIDATE_IMAGE_COMMIT` to this value.
 
 3. Then, from the source tree, see the diff:
 
-         git diff --find-renames <old image commit>..<candidate image commit> -- '*' ':!config/binary_rootfs/squashfs.sort' ':!po' ':!wiki'
+         git diff --find-renames "${OLD_IMAGE_COMMIT:?}".."${CANDIDATE_IMAGE_COMMIT:?}" -- '*' ':!config/binary_rootfs/squashfs.sort' ':!po' ':!wiki'
 
 Changes to IDF and UDFs
 ------------------------
