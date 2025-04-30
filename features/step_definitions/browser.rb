@@ -616,9 +616,9 @@ end
 Then /^the Tor Browser restarts into a fresh session$/ do
   step 'the Tor Browser loads the startup page'
 
-  # Check that there is only one tab (the startup page). We search for
-  # 'document web' nodes to detect tabs because each tab (and only them)
-  # has its own 'document web' node.
-  tabs = @torbrowser.children(roleName: 'document web', showingOnly: false)
+  # Check that there is only one tab (the startup page)
+  tabs = @torbrowser.child('Browser tabs', roleName: 'tool bar')
+                    .child(roleName: 'page tab list')
+                    .children(roleName: 'page tab', showingOnly: false)
   assert_equal(1, tabs.size)
 end
