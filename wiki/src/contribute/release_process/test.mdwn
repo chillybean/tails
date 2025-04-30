@@ -28,7 +28,7 @@ To compare the to-be-released source code with previous version's one:
 Changes to IDF and UDFs
 ------------------------
 
-The purpose of this check is to monitor if, during the _last_ development cycle, in particular outside of the release process, an attacker modified IDFs or
+The purpose of this check is to monitor if, during the _last_ development cycle, in particular outside of the release process, an attacker modified the IDF or
 UDFs in order to serve malicious images.
 
     git log --pretty=medium --shortstat ${PREVIOUS_VERSION}..${VERSION} -- wiki/src/install/v2/Tails/amd64/stable/latest.json wiki/src/upgrade/v2/
