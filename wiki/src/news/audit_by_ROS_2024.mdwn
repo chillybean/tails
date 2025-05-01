@@ -120,18 +120,17 @@ how we worked on these long-lasting improvements.
    policy|contribute/security_policy]], based on the policy of the Tor
    Project's Network Team.
 
- - We decided to be more intentional, as a team, about when it's worth the
-   effort & risk to do a big code refactoring.
+ - We will be more intentional about when it's worth the
+   effort and risk to do large code refactoring.
 
-   While we recognize that refactoring is a necessary part of a healthy software
-   development process, this postmortem showed that large refactorings also
-   provide opportunities for security vulnerabilities to sneak into our code
-   base, under the radar.
+   While refactoring is necessary for a healthy software
+   development process, this postmortem showed that large refactoring can
+   also introduce security vulnerabilities.
 
- - For merge requests that include security-sensitive changes, such as
-   creating/modifying `sudo` configuration or code that elevates privileges:
-   we will now require an extra, *security-focused* review.
+ - When changing security-sensitive code, such as
+   our `sudo` configuration or any code that elevates privileges,
+   we now require an extra review focused on security.
 
- - We will share knowledge and awareness about security issues more broadly
-   within the team when we discover them, so that every team member has
-   opportunities to learn along the way.
+ - We will communicate about security issues more broadly
+   within our team when we discover them so that every team member can
+   learn along the way.
