@@ -66,18 +66,30 @@ how we worked on these long-lasting improvements.
 
 ## Technical improvements
 
- - Our `sudo` configuration is now generated from a higher-level description,
+ - Postmortem of OTF-001
+
+   While we prepare Tails N+1.0 based on next version of Debian,
+   we will look for Perl code, included in the Tails image,
+   that suspiciously modifies `@INC`.
+
+   <!-- XXX: Where is this in GitLab? -->
+
+   <!-- XXX: Mention https://gitlab.tails.boum.org/tails/tails-private/-/merge_requests/4/diffs? -->
+
+ - Postmortem of OTF-002 ([[!tails_ticket 20719]] and [[!tails_mr 1911]])
+
+   Our CI now ensures that all included Tails-made Python executables run in
+   isolated mode.
+
+ - Postmortem of OTF-003 ([[!tails_ticket 20711]] and [[!tails_mr 1979]])
+
+   Our `sudo` configuration is now generated from a higher-level description,
    which has safer default settings and demands explanations when diverging
    from them.
 
-   Postmortem of OTF-003 ([[!tails_ticket 20711]] and [[!tails_mr 1979]])
+ - Postmortem of OTF-004 ([[!tails_ticket 20817]] and [[!tails_mr 2040]])
 
- - Our CI now ensures that all included Tails-made Python executables run in
-   isolated mode.
-
-   Postmortem of OTF-002 ([[!tails_ticket 20719]] and [[!tails_mr 1911]])
-
- - Our CI now ensures that we don't write software that does unsafe `.desktop`
+   Our CI now ensures that we don't write software that does unsafe `.desktop`
    files lookup.
 
    This check already helped us solve 9 other instances of similar
@@ -86,18 +98,6 @@ how we worked on these long-lasting improvements.
    We will periodically audit our `onion-grater` configuration.
 
    <!-- XXX: Where is this in GitLab? -->
-
-   Postmortem of OTF-004 ([[!tails_ticket 20817]] and [[!tails_mr 2040]])
-
- - While we prepare Tails N+1.0 based on next version of Debian,
-   we will look for Perl code, included in the Tails image,
-   that suspiciously modifies `@INC`.
-
-   Postmortem of OTF-001
-
-   <!-- XXX: Where is this in GitLab? -->
-
-   <!-- XXX: Mention https://gitlab.tails.boum.org/tails/tails-private/-/merge_requests/4/diffs? -->
 
 ## Policy & culture improvements
 
