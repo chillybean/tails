@@ -1,4 +1,4 @@
-[[!meta title="Security audit of Tails Upgrade and recent changes"]]
+[[!meta title="Security audit of automatic upgrades and recent changes"]]
 [[!meta date="$DOW, $DOM $MON $YEAR 00:00:00 +0000"]]<!-- TZ=UTC date -d YYYY-MM-DD -R -->
 [[!pagetemplate template="news.tmpl"]]
 [[!tag announce]]
@@ -8,11 +8,11 @@ In March 2025, [Radically Open
 Security](https://www.radicallyopensecurity.com/) conducted another security
 audit on critical parts of Tails.
 
-To better protect our users, we addressed most of the security vulnerabilities
+To better protect our users, we addressed the security vulnerabilities
 as soon as they were discovered and reported to us, without waiting for the
 audit to be complete and public.
 
-We can now share with your the [final
+We can now share with you the [final
 report](https://gitlab.tails.boum.org/-/project/103/uploads/56c89755aa84636e900094ed23e0919f/report_tails-1.pdf).
 
 The auditors concluded that:
@@ -58,7 +58,7 @@ The auditors found 4 issues in:
 Our team went further than simply fixing these issues. We conducted a
 *postmortem* to understand *how* we introduced these vulnerabilities in our
 releases and *what* we could do to avoid similar vulnerabilities in the future.
-This analysis lead to technical, policy, and culture changes.
+This analysis led to technical, policy, and culture changes.
 
 This analysis was useful and we'll definitely consider doing postmortems again
 after future audits. It might also be useful for other projects to understand
@@ -68,9 +68,9 @@ how we worked on these long-lasting improvements.
 
  - Postmortem of OTF-001
 
-   While we prepare Tails N+1.0 based on next version of Debian,
-   we will look for Perl code, included in the Tails image,
-   that suspiciously modifies `@INC`.
+   While preparing a major Tails release based on a new version of Debian, for example, Tails 7.0,
+   we will look for Perl code included in Tails
+   that modifies `@INC` in a dangerous way.
 
    <!-- XXX: Where is this in GitLab? -->
 
@@ -78,45 +78,47 @@ how we worked on these long-lasting improvements.
 
  - Postmortem of OTF-002 ([[!tails_ticket 20719]] and [[!tails_mr 1911]])
 
-   Our CI now ensures that all included Tails-made Python executables run in
+   Our CI now ensures that all our custom Python software runs in
    isolated mode.
 
  - Postmortem of OTF-003 ([[!tails_ticket 20711]] and [[!tails_mr 1979]])
 
    Our `sudo` configuration is now generated from a higher-level description,
-   which has safer default settings and demands explanations when diverging
+   which has safer defaults and demands explanations when diverging
    from them.
 
  - Postmortem of OTF-004 ([[!tails_ticket 20817]] and [[!tails_mr 2040]])
 
    Our CI now ensures that we don't write software that does unsafe `.desktop`
-   files lookup.
+   file lookup.
 
    This check already helped us solve 9 other instances of similar
    vulnerabilities. ([[!tails_mr 2043]])
 
-   We will periodically audit our `onion-grater` configuration.
+   We will also periodically audit the configuration of `onion-grater`, our
+   firewall for the Tor control port.
 
    <!-- XXX: Where is this in GitLab? -->
 
-## Policy & culture improvements
+## Policy and culture improvements
 
- - While the security audit process was ongoing, we noticed that we lacked
-   a shared, documented understanding of whether, and when, confidential
-   security issues shall be made public.
+ - During the audit, we noticed that we lacked a policy about when we should
+   make confidential security issues public.
 
-   This caused a variety of problems. First, team members were working with
-   different implicit assumptions, which caused a couple of communication
-   mishaps. Second, during this audit we have been erring on the side of
-   secrecy. This felt better as a temporary measure, in order to be "on the safe
-   side", to protect our users on the short term — but without a disclosure
-   process, we were not meeting our own standards in terms of transparency and
-   openness to third-party reviews of our work.
+   This was problematic because:
 
-   So we created our [security issue response
-   policy](https://tails.net/contribute/security_policy/), based on the Tor
-   network team's one. It includes, in particular, guidelines for
-   confidentiality & disclosure.
+   - We have sometimes been too secretive.
+
+     As a temporary measure, this protected our users by erring on the safe
+     side.  But, without a disclosure process, we were not meeting our own
+     standards for transparency and openness to third-party reviews.
+
+   - Different team members were working with different assumptions, which
+     caused communication issues.
+
+   To have better guidelines for confidentiality and disclosure, we created our [[security issue response
+   policy|contribute/security_policy]], based on the policy of the Tor
+   Project's Network Team.
 
  - We decided to be more intentional, as a team, about when it's worth the
    effort & risk to do a big code refactoring.
