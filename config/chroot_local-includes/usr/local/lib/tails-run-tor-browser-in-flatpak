@@ -53,4 +53,4 @@ exec \
     /bin/ip netns exec tbb \
     sudo -u amnesia -- \
     /usr/local/lib/run-with-env --env-file="${ENVFILE}" --delete -- \
-    flatpak run --allow=unconfined --file-forwarding --command=tor-browser org.boum.tails.TorBrowser "$@"
+    flatpak --installation=tails run --allow=unconfined --file-forwarding --command=tor-browser org.boum.tails.TorBrowser "$@"

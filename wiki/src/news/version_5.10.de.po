@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2024-04-05 17:54+0000\n"
+"POT-Creation-Date: 2025-06-10 12:51+0200\n"
 "PO-Revision-Date: 2024-11-27 10:19+0000\n"
 "Last-Translator: Benjamin Held <Benjamin.Held@protonmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,18 +43,25 @@ msgstr "[[!tag announce]]\n"
 msgid "<h1 id=\"changes\">Changes and updates</h1>\n"
 msgstr "<h1 id=\"changes\">Änderungen und Updates</h1>\n"
 
-#. type: Plain text
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid ""
+#| "- Update *Tor Browser* to [12.0.3](https://blog.torproject.org/new-"
+#| "release-tor-browser-1203)."
 msgid ""
-"- Update *Tor Browser* to [12.0.3](https://blog.torproject.org/new-release-"
-"tor-browser-1203)."
+"Update *Tor Browser* to [12.0.3](https://blog.torproject.org/new-release-tor-"
+"browser-1203)."
 msgstr ""
 "- Updated *Tor Browser* auf [12.0.3](https://blog.torproject.org/new-release-"
 "tor-browser-1203)."
 
-#. type: Plain text
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid ""
+#| "- Ask for confirmation when starting without unlocking the Persistent "
+#| "Storage."
 msgid ""
-"- Ask for confirmation when starting without unlocking the Persistent "
-"Storage."
+"Ask for confirmation when starting without unlocking the Persistent Storage."
 msgstr ""
 "- Bestätigung anfordern, wenn ohne Entsperren des persistenten Speichers "
 "gestartet wird."
@@ -62,13 +69,15 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "  [[!img unlock.png link=\"no\" alt=\"Do you really want to start Tails without unlocking your Persistent Storage?\"]]\n"
-msgstr ""
-"  [[!img unlock.png link=\"no\" alt=\"Möchten Sie Tails wirklich ohne das "
-"Entsperren Ihres persistenten Speichers starten?\"]]\n"
+msgstr "  [[!img unlock.png link=\"no\" alt=\"Möchten Sie Tails wirklich ohne das Entsperren Ihres persistenten Speichers starten?\"]]\n"
 
-#. type: Plain text
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid ""
+#| "- Update our [[documentation on the Persistent Storage|doc/"
+#| "persistent_storage]]."
 msgid ""
-"- Update our [[documentation on the Persistent Storage|doc/"
+"Update our [[documentation on the Persistent Storage|doc/"
 "persistent_storage]]."
 msgstr ""
 "- Aktualisiert unsere [[Dokumentation zum beständigen Datenspeicher|doc/"
@@ -79,17 +88,24 @@ msgstr ""
 msgid "<h1 id=\"fixes\">Fixed problems</h1>\n"
 msgstr "<h1 id=\"fixes\">Behobene Probleme</h1>\n"
 
-#. type: Plain text
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid ""
+#| "- Avoid crashing when the download of an upgrade is stopped and resumed. "
+#| "([[!tails_ticket 18435]])"
 msgid ""
-"- Avoid crashing when the download of an upgrade is stopped and resumed. ([[!"
+"Avoid crashing when the download of an upgrade is stopped and resumed. ([[!"
 "tails_ticket 18435]])"
 msgstr ""
 "- Vermeidet Abstürze, wenn der Download eines Upgrades gestoppt und "
 "fortgesetzt wird. ([[!tails_ticket 18435]])"
 
-#. type: Plain text
-msgid "- Solve a possible privilege escalation through a symlink attack."
-msgstr "- Behebt eine mögliche Privilegienerhöhung durch einen Symlink-Angriff."
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid "- Solve a possible privilege escalation through a symlink attack."
+msgid "Solve a possible privilege escalation through a symlink attack."
+msgstr ""
+"- Behebt eine mögliche Privilegienerhöhung durch einen Symlink-Angriff."
 
 #. type: Plain text
 #, no-wrap
@@ -99,8 +115,7 @@ msgid ""
 "  to reading arbitrary files on the system. It might have been possible to use\n"
 "  this as part of an exploit chain to gain root privileges.\n"
 msgstr ""
-"  Dennis Brinkrolf entdeckte, dass ein Angreifer, der bereits beliebigen "
-"Code\n"
+"  Dennis Brinkrolf entdeckte, dass ein Angreifer, der bereits beliebigen Code\n"
 "  als der Amnesie-Benutzer in Tails 5.9 ausführen konnte, seine Privilegien\n"
 "  hätte erhöhen können, um beliebige Dateien im System zu lesen. Es könnte\n"
 "  möglich gewesen sein, dies als Teil einer Exploit-Kette zu verwenden,\n"
@@ -125,16 +140,16 @@ msgid ""
 "the unlocking timeout to 120 seconds. ([[!tails_ticket 19432]])"
 msgstr ""
 "Behebt einige Fälle, in denen der beständige Datenspeicher nicht aktiviert "
-"werden kann, indem das Entsperren-Timeout auf 120 Sekunden erhöht wurde. ([["
-"!tails_ticket 19432]])"
+"werden kann, indem das Entsperren-Timeout auf 120 Sekunden erhöht wurde. ([[!"
+"tails_ticket 19432]])"
 
 #. type: Plain text
 msgid ""
 "For more details, read our [[!tails_gitweb debian/changelog "
 "desc=\"changelog\"]]."
 msgstr ""
-"Für weitere Details lesen Sie unser [[!tails_gitweb debian/changelog desc="
-"\"Änderungsprotokoll\"]]."
+"Für weitere Details lesen Sie unser [[!tails_gitweb debian/changelog "
+"desc=\"Änderungsprotokoll\"]]."
 
 #. type: Plain text
 #, no-wrap
@@ -176,12 +191,10 @@ msgstr "<h1 id=\"get\">Tails 5.10 herunterladen</h1>\n"
 #. type: Title ##
 #, no-wrap
 msgid "To upgrade your Tails USB stick and keep your Persistent Storage"
-msgstr ""
-"Um Ihren Tails-USB-Stick zu aktualisieren und Ihren beständigen "
-"Datenspeicher beizubehalten"
+msgstr "Um Ihren Tails-USB-Stick zu aktualisieren und Ihren beständigen Datenspeicher beizubehalten"
 
-#. type: Plain text
-msgid "- Automatic upgrades are available from Tails 5.0 or later to 5.10."
+#. type: Bullet: '- '
+msgid "Automatic upgrades are available from Tails 5.0 or later to 5.10."
 msgstr ""
 
 #. type: Plain text
@@ -199,8 +212,8 @@ msgid ""
 "automatic upgrade, please try to do a [[manual upgrade|doc/upgrade/#manual]]."
 msgstr ""
 "Wenn Sie ein automatisches Upgrade nicht durchführen können oder Tails nach "
-"einem automatischen Upgrade nicht startet, versuchen Sie bitte ein [["
-"manuelles Upgrade|doc/upgrade/#manual]]."
+"einem automatischen Upgrade nicht startet, versuchen Sie bitte ein "
+"[[manuelles Upgrade|doc/upgrade/#manual]]."
 
 #. type: Title ##
 #, no-wrap
@@ -237,8 +250,7 @@ msgid ""
 "<div class=\"caution\"><p>The Persistent Storage on the USB stick will be lost if\n"
 "you install instead of upgrading.</p></div>\n"
 msgstr ""
-"<div class=\"caution\"><p>Der beständige Datenspeicher auf dem USB-Stick "
-"geht verloren,\n"
+"<div class=\"caution\"><p>Der beständige Datenspeicher auf dem USB-Stick geht verloren,\n"
 "wenn Sie installieren anstatt zu aktualisieren.</p></div>\n"
 
 #. type: Title ##

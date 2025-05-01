@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-30 09:33+0200\n"
+"POT-Creation-Date: 2025-06-25 11:02+0200\n"
 "PO-Revision-Date: 2025-04-03 14:13+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/tor/tails-gui/"
@@ -132,7 +132,7 @@ msgstr "Eliminar"
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:483
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:834
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:728
-#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:119
+#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:126
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:376
 msgid "Cancel"
 msgstr "Cancelar"
@@ -206,13 +206,13 @@ msgstr ""
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
-"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
+"To add more, install some software using <a href=\"synaptic."
+"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
+"desktop\">APT on the command line</a>."
 msgstr ""
-"Para engadir máis, instalae algún software utilizando <a "
-"href=\"synaptic.desktop\">Xestor de paquetes Synaptic</a> e <a "
-"href=\"org.gnome.Terminal.desktop\">APT na liña de ordes</a>."
+"Para engadir máis, instalae algún software utilizando <a href=\"synaptic."
+"desktop\">Xestor de paquetes Synaptic</a> e <a href=\"org.gnome.Terminal."
+"desktop\">APT na liña de ordes</a>."
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:154
 msgid "_Create persistent storage"
@@ -466,10 +466,13 @@ msgstr ""
 "pero só hai {free_memory} dispoñíbel."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:474
+#, fuzzy
 msgid ""
-"An error ocurred while detecting available upgrades.\n"
+"An error occurred while detecting available upgrades.\n"
 "This should not happen. Please report a bug."
 msgstr ""
+"Está dispoñíbel unha anovación incremental pero non é unha anovación total.\n"
+"Isto non debería ser así. Envíenos un informe de erro, por favor."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:477
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:496
@@ -1514,7 +1517,7 @@ msgstr ""
 "está vostede utilizando a opción «toram»?"
 
 #: config/chroot_local-includes/usr/share/gnome-shell/extensions/status-menu-helper@tails.boum.org/extension.js:86
-#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:110
+#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:118
 msgid "Lock Screen"
 msgstr "Bloquear pantalla"
 
@@ -1589,9 +1592,9 @@ msgid ""
 "Package Manager</a> or <a href=\"org.gnome.Terminal.desktop\">APT on the "
 "command line</a>."
 msgstr ""
-"Para facelo, instale algún software utilizando o <a "
-"href=\"synaptic.desktop\">Xestor de paquetes Synaptic</a> ou <a "
-"href=\"org.gnome.Terminal.desktop\">APT en liña de ordes</a>."
+"Para facelo, instale algún software utilizando o <a href=\"synaptic."
+"desktop\">Xestor de paquetes Synaptic</a> ou <a href=\"org.gnome.Terminal."
+"desktop\">APT en liña de ordes</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:227
 msgid ""
@@ -1608,8 +1611,8 @@ msgstr ""
 #, fuzzy
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
-"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
+"gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "Para facelo, cree un almacén persistente e instale algún software utilizando "
 "o <a href=\"synaptic.desktop\">Xestor de paquetes Synaptic</a>ou <a "
@@ -1635,16 +1638,16 @@ msgstr "[package not available]"
 msgid "Failed to synchronize the clock!"
 msgstr "Produciuse un erro ao sincronizar o reloxo!"
 
-#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:125
+#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:130
 msgid "Screen Locker"
 msgstr "Bloqueador de pantalla"
 
-#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:131
+#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:136
 msgid "Set up a password to unlock the screen."
 msgstr "Defina un contrasinal para desbloquear a pantalla."
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:149
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2290
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2277
 msgid "Password"
 msgstr "Contrasinal"
 
@@ -1818,13 +1821,13 @@ msgid ""
 msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:269
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:795
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:792
 #, python-brace-format
 msgid "Invalid: {exception}"
 msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:281
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:808
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:805
 msgid "You need to configure an obfs4 bridge to hide that you are using Tor"
 msgstr ""
 
@@ -1875,28 +1878,28 @@ msgstr ""
 msgid "You can now browse the Internet anonymously and uncensored."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:723
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:720
 msgid "This local network seems to be blocking access to Tor."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:798
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:795
 msgid "Bridge address malformed"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:816
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:813
 msgid "Setting a bridge is needed if you want to hide that you are using Tor"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1055
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1052
 #, python-brace-format
 msgid "Scanned {bridge_type} bridge: <b>{bridge_info}</b>."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1144
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1141
 msgid "Are you sure you want to lose progress?"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1148
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1145
 msgid ""
 "Tails will continue connecting to Tor after you close the Tor Connection "
 "assistant.\n"
@@ -1905,11 +1908,11 @@ msgid ""
 "progress bar to be able to troubleshoot your connection."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1154
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1151
 msgid "Close and Lose Progress"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1156
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1153
 msgid "Wait"
 msgstr ""
 
@@ -1962,7 +1965,7 @@ msgid "Open Tor Connection Assistant"
 msgstr "Conexións de Rede"
 
 #: config/chroot_local-includes/usr/share/gnome-shell/extensions/torstatus@tails.boum.org/extension.js:50
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2116
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2103
 msgid "View Tor Circuits"
 msgstr ""
 
@@ -2019,7 +2022,7 @@ msgid ""
 "again after closing some applications or rebooting."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/configuration/binding.py:425
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/configuration/binding.py:411
 #, python-brace-format
 msgid ""
 "Can't unmount target {target}, some process is still using it. Please close "
@@ -2530,7 +2533,7 @@ msgid ""
 "network."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:139
+#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:146
 msgid "Failed to run browser."
 msgstr "Produciuse un fallo ao executar o navegador."
 
@@ -2728,8 +2731,8 @@ msgid ""
 "Authentication is required to remove a package from your additional software "
 "($(command_line))"
 msgstr ""
-"Requírese autenticación para retirar un paquete do seu software adicional ($"
-"(command_line))"
+"Requírese autenticación para retirar un paquete do seu software adicional "
+"($(command_line))"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:18
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:56
@@ -3733,51 +3736,47 @@ msgstr "A conectar con Tor…"
 msgid "Start Tor Browser"
 msgstr "Arrancar Tor Browser"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2103
-msgid "Open Network Monitor"
-msgstr ""
-
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2156
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2143
 msgid "Configure a Local Proxy"
 msgstr ""
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2182
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2169
 msgid "Proxy Type"
 msgstr "Tipo de Proxy"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2199
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2186
 msgid "No proxy"
 msgstr ""
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2200
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2187
 msgid "SOCKS 4"
 msgstr "SOCKS 4"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2201
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2188
 msgid "SOCKS 5"
 msgstr "SOCKS 5"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2202
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2189
 msgid "HTTP / HTTPS"
 msgstr "HTTP / HTTPS"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2221
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2208
 msgid "Address"
 msgstr "Enderezo"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2238
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2225
 msgid "Username"
 msgstr "Nome de usuario"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2255
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2242
 msgid "IP address or hostname"
 msgstr "Enderezo IP ou nome da máquina"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2273
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2260
 msgid "Port"
 msgstr "Porto"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2397
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2384
 msgid "_Save Proxy Settings"
 msgstr ""
 
@@ -3860,12 +3859,6 @@ msgstr "Decembro"
 msgid "Clock"
 msgstr "Reloxo"
 
-#~ msgid "Starting the Unsafe Browser..."
-#~ msgstr "Iniciando o navegador inseguro..."
-
-#~ msgid "This may take a while, so please be patient."
-#~ msgstr "Isto pode levar un pouco de tempo. Por favor, sé paciente."
-
 #~ msgid ""
 #~ "For debugging information, execute the following command: sudo tails-"
 #~ "debugging-info"
@@ -3875,6 +3868,12 @@ msgstr "Reloxo"
 
 #~ msgid "Open Onion Circuits"
 #~ msgstr "Abrir circuítos onion"
+
+#~ msgid "Starting the Unsafe Browser..."
+#~ msgstr "Iniciando o navegador inseguro..."
+
+#~ msgid "This may take a while, so please be patient."
+#~ msgstr "Isto pode levar un pouco de tempo. Por favor, sé paciente."
 
 #~ msgid "Error while updating the signing key"
 #~ msgstr "Produciuse un erro ao actualizar a clave de sinatura"
@@ -4030,8 +4029,8 @@ msgstr "Reloxo"
 #~ "along with this program.  If not, see <http://www.gnu.org/licenses/>.\n"
 #~ msgstr ""
 #~ "WhisperBack - Enviar comentarios nun correco cifrado\n"
-#~ "Dereitos de autor (C) 2009-2018 Desenvolvedores de Tails  "
-#~ "<tails@boum.org>\n"
+#~ "Dereitos de autor (C) 2009-2018 Desenvolvedores de Tails  <tails@boum."
+#~ "org>\n"
 #~ "\n"
 #~ "Este programa é software libre; pode redistribuílo e/ou modificalo\n"
 #~ "baixo os termos da licenza pública xeral de GNU tal como a publica a Free "

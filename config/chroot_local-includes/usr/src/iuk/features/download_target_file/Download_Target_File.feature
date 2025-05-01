@@ -18,7 +18,7 @@ Feature: download and verify a target file
       | whatever1.file | abc     |
 
   Scenario: Successful download and verification of a target file
-    Given a HTTP server that serves "<file>" in "<webdir>" with content "<content>" and hash "<sha256>"
+    Given an HTTP server that serves "<file>" in "<webdir>" with content "<content>" and hash "<sha256>"
     When I download "<file>" (of expected size <size>) from "<webdir>", and check its hash is "<sha256>"
     Then it should succeed
     And I should see the downloaded file in the temporary directory
@@ -31,7 +31,7 @@ Feature: download and verify a target file
 
   @retry
   Scenario: Successfully resuming an interrupted download, from the same mirror
-    Given a HTTP server that supports Range requests and serves "<file>" in "<webdir>" with content "<content>" and hash "<sha256>"
+    Given an HTTP server that supports Range requests and serves "<file>" in "<webdir>" with content "<content>" and hash "<sha256>"
     When I download "<file>" (of expected size <size>) from "<webdir>", failing 1 time, and check its hash is "<sha256>"
     Then it should succeed
     And I should be told "Sending HTTP request: attempt no. 1"
@@ -47,8 +47,8 @@ Feature: download and verify a target file
       | whatever2.file | /sub/dir | 123     |    3 | a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3 |
 
   Scenario: Successful download and verification with redirect to another hostname over HTTPS
-    Given a HTTP server that redirects to 127.0.0.2 over HTTPS
-    And a HTTPS server on 127.0.0.2 that serves "<file>" in "<webdir>" with content "<content>" and hash "<sha256>"
+    Given an HTTP server that redirects to 127.0.0.2 over HTTPS
+    And an HTTPS server on 127.0.0.2 that serves "<file>" in "<webdir>" with content "<content>" and hash "<sha256>"
     When I download "<file>" (of expected size <size>) from "<webdir>", and check its hash is "<sha256>"
     Then it should succeed
     And I should see the downloaded file in the temporary directory
@@ -68,7 +68,7 @@ Feature: download and verify a target file
       | whatever1.file | abc     |
 
   Scenario: Failed download of a non-existing target file
-    Given a HTTP server that does not serve "<file>" in "<webdir>"
+    Given an HTTP server that does not serve "<file>" in "<webdir>"
     When I download "<file>" (of expected size 42) from "<webdir>", and check its hash is "dummy_hash"
     Then it should fail
     And I should be told "Could not download '[^']*<file>'"
@@ -79,7 +79,7 @@ Feature: download and verify a target file
       | whatever2.file | /sub/dir |
 
   Scenario: Failed verification of a target file with wrong hash
-    Given a HTTP server that serves "<file>" in "<webdir>" with content "<content>" and hash "<good-sha256>"
+    Given an HTTP server that serves "<file>" in "<webdir>" with content "<content>" and hash "<good-sha256>"
     When I download "<file>" (of expected size <size>) from "<webdir>", and check its hash is "<bad-sha256>"
     Then it should fail
     And I should be told "The file '[^']*<file>' was downloaded but its hash is not correct"
@@ -90,7 +90,7 @@ Feature: download and verify a target file
       | whatever2.file | /sub/dir | 12345   |    5 | 5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5  | I'd rather not to  |
 
   Scenario: Failed download of a target file that is bigger than expected
-    Given a HTTP server that serves "<file>" in "<webdir>" with size "<size>" and hash "<sha256>"
+    Given an HTTP server that serves "<file>" in "<webdir>" with size "<size>" and hash "<sha256>"
     When I download "<file>" (of expected size <expected_size>) from "<webdir>", and check its hash is "<sha256>"
     Then it should fail
     And I should be told "Could not download .*[(]Client-Aborted[)]: max_size"
@@ -100,7 +100,7 @@ Feature: download and verify a target file
       | whatever2.file | /sub/dir |    2048 |             2 | a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3 |
 
   Scenario: Failed download of a target file that is smaller than expected
-    Given a HTTP server that serves "<file>" in "<webdir>" with size "<size>" and hash "<sha256>"
+    Given an HTTP server that serves "<file>" in "<webdir>" with size "<size>" and hash "<sha256>"
     When I download "<file>" (of expected size <expected_size>) from "<webdir>", and check its hash is "<sha256>"
     Then it should fail
     And I should be told "The file '[^']*<file>' was downloaded but its size .* should be .*"

@@ -12,6 +12,7 @@ Feature: The Tor enforcement is effective
     And the firewall's NAT rules only redirect traffic for the Unsafe Browser, Tor's TransPort, and DNSPort
     And the firewall is configured to block all external IPv6 traffic
 
+  @doc
   Scenario: Anti test: Detecting TCP leaks from the Unsafe Browser with the firewall leak detector
     Given I have started Tails from DVD and logged in and the network is connected
     And I capture all network traffic

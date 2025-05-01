@@ -8,7 +8,8 @@ import json
 import socket
 from stem.control import Controller
 import stem.socket
-from typing import Optional, Any, cast
+from typing import Any, cast
+from collections.abc import Sequence
 import tca.config
 
 from tca.ui.asyncutils import AsyncCallback
@@ -164,7 +165,7 @@ class InvalidBridgeTypeException(InvalidBridgeException):
     pass
 
 
-VALID_BRIDGE_TYPES = {"bridge", "obfs4"}
+VALID_BRIDGE_TYPES = {"bridge", "obfs4", "webtunnel"}
 
 
 class TorConnectionConfig:
@@ -213,6 +214,14 @@ class TorConnectionConfig:
         spaces are normalized
         >>> TorConnectionConfig.parse_bridge_line("  obfs4   1.2.3.4:25 foo")
         'obfs4 1.2.3.4:25 foo'
+
+        WebTunnel with IPv4 works
+        >>> TorConnectionConfig.parse_bridge_line("webtunnel 1.2.3.4:443 2Q2QQ2222Q22Q2QQQ22Q222Q2Q222QQQQ2222222 url=https://example.net/path ver=0.0.1")
+        'webtunnel 1.2.3.4:443 2Q2QQ2222Q22Q2QQQ22Q222Q2Q222QQQQ2222222 url=https://example.net/path ver=0.0.1'
+
+        WebTunnel with IPv6 works
+        >>> TorConnectionConfig.parse_bridge_line("webtunnel [2001:aaaa:bbbb:cccc:dddd:eeee:ffff:5555]:443 2Q2QQ2222Q22Q2QQQ22Q222Q2Q222QQQQ2222222 url=https://example.net/path ver=0.0.1")
+        'webtunnel [2001:aaaa:bbbb:cccc:dddd:eeee:ffff:5555]:443 2Q2QQ2222Q22Q2QQQ22Q222Q2Q222QQQQ2222222 url=https://example.net/path ver=0.0.1'
 
         An error is raised if the IP is not valid
         >>> TorConnectionConfig.parse_bridge_line("1.2.3:25")
@@ -327,7 +336,7 @@ class TorConnectionConfig:
         return cls.parse_bridge_lines(lines)
 
     @classmethod
-    def get_default_bridges(cls, only_type: str | None = None) -> list[str]:
+    def get_default_bridges(cls, valid_types: Sequence[str] = ()) -> list[str]:
         """Get default bridges from a txt file."""
         bridges = []
         with open(os.path.join(tca.config.data_path, "default_bridges.txt")) as buf:
@@ -338,7 +347,7 @@ class TorConnectionConfig:
                     continue
                 if not parsed:
                     continue
-                if only_type and parsed.split()[0] != only_type:
+                if valid_types and parsed.split()[0] not in valid_types:
                     continue
                 bridges.append(parsed)
         return bridges
@@ -350,13 +359,15 @@ class TorConnectionConfig:
         bridges = self.__class__.parse_bridge_lines(bridges)
         self.bridges.extend(bridges)
 
-    def enable_default_bridges(self, only_type: str | None = None):
+    def enable_default_bridges(self, valid_types: Sequence[str] = ()):
         """
         Set default bridges.
 
         useful for Tor blocking, not for unnoticed-mode
         """
-        bridges = self.__class__.get_default_bridges(only_type)
+        if valid_types:
+            valid_types = [bridge_type for bridge_type in valid_types if bridge_type]
+        bridges = self.__class__.get_default_bridges(valid_types)
         self.enable_bridges(bridges)
 
     @classmethod
@@ -456,7 +467,7 @@ class TorLauncherUtils:
         self.read_config_fn = read_config_fn
         self.write_config_fn = write_config_fn
         self.state_buf = state_buf
-        self.tor_connection_config = None
+        self.tor_connection_config: TorConnectionConfig | None = None
         self.set_tor_sandbox_fn = set_tor_sandbox_fn
 
     def load_conf_from_tor(self):

@@ -76,7 +76,7 @@ The storage device is partitioned using [GPT](https://en.wikipedia.org/wiki/GUID
    running system (Windows among other OS).
 
  * `sgdisk` can run on Windows whereas no other free partitioning tools
-   are available under Windows for other partioning method.
+   are available under Windows for other partitioning method.
 
  * Partitions can be labeled. The [[design/persistence]] setup tools can
    easily detect the right partitions without blind tries.
@@ -85,7 +85,7 @@ The Tails system partition uses a FAT32 filesystem, mainly because it is the
 one supported by SYSLINUX we may easily create, in a programmatic manner, from
 Windows systems. This choice has consequences that are barely related to the
 USB installation task: the restrictions on filenames imposed by the FAT32
-filesystem limits what can be shipped on the system parition
+filesystem limits what can be shipped on the system partition
 (e.g. Tails documentation is only available inside Tails).
 
 The rest of the device is left unpartitionned for an encrypted storage

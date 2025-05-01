@@ -19,7 +19,7 @@ gnupg_keyring = "/usr/share/keyrings/whisperback-keyring.gpg"
 
 # RECIPIENT
 #
-# This section defines the recepient parameters
+# This section defines the recipient parameters
 
 # The address of the recipient
 to_address = "support@tails.net"
@@ -69,7 +69,7 @@ def mail_prepended_info():
     software version.
 
     It should not take any parameter, and should return a string to be
-    preprended to the email
+    prepended to the email
 
     @return The tails version, if possible, or an English string
             explaining the error

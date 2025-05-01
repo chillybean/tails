@@ -1800,7 +1800,7 @@ util.DataBuffer.prototype.clear = function() {
 };
 
 /**
- * Shortens this buffer by triming bytes off of the end of this buffer.
+ * Shortens this buffer by trimming bytes off of the end of this buffer.
  *
  * @param count the number of bytes to trim off.
  *
@@ -3124,7 +3124,7 @@ util.format = function(format) {
         parts.push('<?>');
       }
       break;
-    // FIXME: do proper formating for numbers, etc
+    // FIXME: do proper formatting for numbers, etc
     //case 'f':
     //case 'd':
     case '%':

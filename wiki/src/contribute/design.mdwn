@@ -199,7 +199,7 @@ The adversary may have one or more goals among the following ones.
 - **Data recovery after system shutdown**:  "normal" operating systems
   keep a lot of traces about their users' Internet activities (notably
   browser cache, cookies and history) on local storage media;
-  similary, working on a sensitive document with a "normal" operating
+  similarly, working on a sensitive document with a "normal" operating
   system is very likely to leave traces of this document. User's data
   can remain on the equipment even after the machine is shut down; be
   it stored in the filesystem or in the memories, both RAM and swap,
@@ -561,7 +561,7 @@ software. XXX: this paragraph is mostly obsolete.
 
 As an addition to the security against exploitable vulnerabilities
 provided by the kernel, compiling software with stack smashing
-protection, Position Independant Executable (PIE) and similar compiler
+protection, Position Independent Executable (PIE) and similar compiler
 security enhancements is RECOMMENDED. Note that some
 compiler-level options may be necessary to take advantage of in-kernel
 security features. Thus the use of a hardened tool chain might depend
@@ -670,7 +670,7 @@ document on the Tor wiki:
 
 The impact of HTTP keepalive and possible solutions are being
 discussed
-on the [[tails-dev@boum.org|about/contact#tails-dev]] mailing list.
+on the [[tails-dev@boum.org|doc/about/contact#tails-dev]] mailing list.
 
 ### 2.7.3 Mounting of filesystems stored on removable devices
 
@@ -823,8 +823,8 @@ through the necessary steps.
 Users can send feedback in several ways to Tails developers.
 A [[!tails_gitlab desc="task tracker"]] is available.
 Users can also send email to the private [[developers mailing
-list|about/contact#tails]] or to the private [[support mailing
-list|about/contact#support]].
+list|doc/about/contact#tails]] or to the private [[support mailing
+list|doc/about/contact#support]].
 
 A dedicated application called *WhisperBack*
 is also available in every running Tails copy. WhisperBack allows
@@ -867,23 +867,6 @@ would increase one's anonymity for a number for reasons but we still
 feel that most users probably would not want this due to the added
 consumption of bandwidth.
 
-If a compromised software had access to the Tor control port,
-an attacker who controls it could simply ask Tor the public
-IP through the `GETINFO address` command.
-To prevent this, access to the Tor control port is only
-granted to the `root` user, as well as to the
-members of the `debian-tor` group (via the control socket).
-A filtering proxy to the control port runs on port 9051 (i.e. the default
-Tor ControlPort), so for instance
-Torbutton still can perform safe commands like `SIGNAL NEWNYM`. It
-allows defining fine-grained lists of allowed commands (and their
-arguments) and events on a per-application basis, which can enforce
-rules like "this `$user` (e.g. `amnesia`) when running this
-`$application` (e.g. `/usr/bin/onionshare`) from this network namespace,
-can only run these commands (`ADD_ONION` etc.) and listen to these
-events (e.g. `HS_DESC`, which is expected after a successfull use of
-`ADD_ONION`)".
-
 We disabled the default warning messages of Tor (`WarnPlaintextPorts`)
 when connecting to ports 110 (POP3) and 143 (IMAP). These ports are used
 for both plaintext and StartTLS connections. As more and more email
@@ -891,10 +874,33 @@ providers recommend and even enforce StartTLS on these ports, the effect
 of these warnings were most of the time counterproductive as people had
 to click through needlessly scary security warnings.
 
+- [[!tails_gitweb config/chroot_local-includes/etc/tor/torrc]]
+
+#### Tor control port filter
+
+If a compromised software had access to the Tor control port,
+an attacker who controls it could simply ask Tor the public
+IP through the `GETINFO address` command.
+To prevent this, access to the Tor control port is only
+granted to the `root` user, as well as to the
+members of the `debian-tor` group (via the control socket).
+
+`onion-grater`, a filtering proxy to the control port runs on port 9051 (i.e. the default
+Tor ControlPort), so for instance
+Torbutton still can perform safe commands like `SIGNAL NEWNYM`. It
+allows defining fine-grained lists of allowed commands (and their
+arguments) and events on a per-application basis, which can enforce
+rules like "this `$user` (e.g. `amnesia`) when running this
+`$application` (e.g. `/usr/bin/onionshare`) from this network namespace,
+can only run these commands (`ADD_ONION` etc.) and listen to these
+events (e.g. `HS_DESC`, which is expected after a successful use of
+`ADD_ONION`)".
+
 - [[!tails_gitweb_dir config/chroot_local-includes/etc/onion-grater.d/]]
 - [[!tails_gitweb config/chroot_local-includes/lib/systemd/system/onion-grater.service]]
 - [[!tails_gitweb config/chroot_local-includes/usr/local/lib/onion-grater]]
-- [[!tails_gitweb config/chroot_local-includes/etc/tor/torrc]]
+
+#### Viewing Tor status
 
 [[!tails_gitweb_repo onioncircuits desc="Onion Circuits"]] allows the
 user to view the state of their Tor circuits and streams. The Tor
@@ -1062,7 +1068,7 @@ The remaining configuration differences can be found in:
 Here are some useful resources when working on the integration of Tor
 Browser in Tails:
 
-- [Environment variables and related preferences](https://gitlab.torproject.org/tpo/applications/team/-/wikis/Environment-variables-and-related-preferences)
+- [Environment variables and related preferences](https://gitlab.torproject.org/tpo/applications/wiki/-/wikis/Environment-variables-and-related-preferences)
 
 #### Tor Browser Flatpak
 
@@ -1076,7 +1082,7 @@ is generated and installed at build time.
 But this is actually just a "pseudo" Flatpak in the sense that it
 doesn't contain the application files or runtime as usual, which would
 use a lot of disk space (i.e. increase the Tails image size) and add a
-lot of redundancy unless it can be shared with the [[Unsafe
+lot of redundancy unless it can be shared with the [[design/Unsafe
 Browser]]. Since the application files are installed in the usual
 Tails filesystem, as described above, we create an overlay filesystem
 with the required bits for the Flatpak runtime:

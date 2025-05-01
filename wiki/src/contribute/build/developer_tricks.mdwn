@@ -58,7 +58,7 @@ To run an ISO directly without clicking through virt-manager:
 kvm -m 2048 -cdrom <ISO NAME>.iso
 ```
 
-you can even share a directoy with the client system:
+you can even share a directory with the client system:
 
 ```sh
 kvm -m 2048 -virtfs local,path=/path/to/tails-git-dir,security_model=passthrough,mount_tag=src --cdrom /path/to/tails.iso

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2024-10-07 10:47+0200\n"
+"POT-Creation-Date: 2025-06-24 16:26-0600\n"
 "PO-Revision-Date: 2025-02-08 13:24+0000\n"
 "Last-Translator: Chre <tor@renaudineau.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,9 +20,7 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "[[!meta title=\"Recovering data from the Persistent Storage when Tails doesn't start\"]]\n"
-msgstr ""
-"[[!meta title=\"Récupération de données depuis le stockage persistant "
-"lorsque Tails ne démarre pas\"]]\n"
+msgstr "[[!meta title=\"Récupération de données depuis le stockage persistant lorsque Tails ne démarre pas\"]]\n"
 
 #. type: Plain text
 msgid ""
@@ -44,10 +42,8 @@ msgid ""
 "to unlock, refer to our instructions on [[recovering data from the Persistent\n"
 "Storage when it has file system errors|fsck]].</p>\n"
 msgstr ""
-"<p>Si, au contraire, votre clé USB Tails démarre mais que le stockage "
-"persistant ne se\n"
-"déverrouille pas, consultez nos instructions sur la [[récupération de "
-"données depuis le stockage\n"
+"<p>Si, au contraire, votre clé USB Tails démarre mais que le stockage persistant ne se\n"
+"déverrouille pas, consultez nos instructions sur la [[récupération de données depuis le stockage\n"
 "persistant lorsqu'il a des erreurs de système de fichiers|fsck]].</p>\n"
 
 #. type: Plain text
@@ -134,20 +130,20 @@ msgstr ""
 msgid "Refer to our instructions on how to do a manual upgrade, either:"
 msgstr ""
 
-#. type: Plain text
-msgid "- [[Downloading and upgrading from Windows|upgrade/windows]]"
+#. type: Bullet: '- '
+msgid "[[Downloading and upgrading from Windows|upgrade/windows]]"
 msgstr ""
 
-#. type: Plain text
-msgid "- [[Downloading and upgrading from macOS|upgrade/mac]]"
+#. type: Bullet: '- '
+msgid "[[Downloading and upgrading from macOS|upgrade/mac]]"
 msgstr ""
 
-#. type: Plain text
-msgid "- [[Downloading and upgrading from Linux|upgrade/linux]]"
+#. type: Bullet: '- '
+msgid "[[Downloading and upgrading from Linux|upgrade/linux]]"
 msgstr ""
 
-#. type: Plain text
-msgid "- [[Upgrading by cloning from another Tails|doc/upgrade/#clone]]"
+#. type: Bullet: '- '
+msgid "[[Upgrading by cloning from another Tails|doc/upgrade/#clone]]"
 msgstr ""
 
 #. type: Plain text
@@ -200,10 +196,8 @@ msgid ""
 "   Storage. So, it does not matter which features you turn on after creating\n"
 "   the Persistent Storage.\n"
 msgstr ""
-"   Le processus décrit ci-dessous remplace le contenu et la configuration du "
-"nouveau stockage\n"
-"   persistant. Ainsi, les fonctionnalités que vous activez après la "
-"création\n"
+"   Le processus décrit ci-dessous remplace le contenu et la configuration du nouveau stockage\n"
+"   persistant. Ainsi, les fonctionnalités que vous activez après la création\n"
 "   du stockage persistant n'ont aucune importance.\n"
 
 #. type: Plain text
@@ -273,22 +267,25 @@ msgid ""
 "   using forensics tools|recover#image]].</p>\n"
 msgstr ""
 
-#. type: Plain text
-#, no-wrap
+#. type: Bullet: '1. '
+#, fuzzy
+#| msgid ""
+#| "1. Choose\n"
+#| "   <span class=\"menuchoice\">\n"
+#| "     **Applications**&nbsp;▸\n"
+#| "     **System Tools**&nbsp;▸\n"
+#| "     **Root Terminal**\n"
+#| "   </span>\n"
+#| "   to open a terminal with administration rights.\n"
 msgid ""
-"1. Choose\n"
-"   <span class=\"menuchoice\">\n"
-"     <span class=\"guimenu\">Applications</span>&nbsp;▸\n"
-"     <span class=\"guisubmenu\">System Tools</span>&nbsp;▸\n"
-"     <span class=\"guimenuitem\">Root Terminal</span>\n"
-"   </span>\n"
-"   to open a terminal with administration rights.\n"
+"Choose **Applications&nbsp;▸ System Tools&nbsp;▸ Root Terminal** to open a "
+"terminal with administration rights."
 msgstr ""
 "1. Choisir\n"
 "   <span class=\"menuchoice\">\n"
-"     <span class=\"guimenu\">Applications</span>&nbsp;▸\n"
-"     <span class=\"guisubmenu\">Outils système</span>&nbsp;▸\n"
-"     <span class=\"guimenuitem\">Terminal superutilisateur</span>\n"
+"     **Applications**&nbsp;▸\n"
+"     **Outils système**&nbsp;▸\n"
+"     **Terminal superutilisateur**\n"
 "   </span>\n"
 "   pour ouvrir un terminal avec les droits d'administration.\n"
 
@@ -325,12 +322,12 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid ""
-"   You can now eject the <span class=\"guilabel\">TailsData</span> volume in the\n"
-"   <span class=\"application\">Files</span> browser and unplug the USB stick that\n"
+"   You can now eject the **TailsData** volume in the\n"
+"   *Files* browser and unplug the USB stick that\n"
 "   has your broken Tails on it.\n"
 msgstr ""
-"   Vous pouvez maintenant éjecter le volume <span class=\"guilabel\">TailsData</span> dans le\n"
-"   navigateur de <span class=\"application\">Fichiers</span> et débrancher la clé USB sur laquelle\n"
+"   Vous pouvez maintenant éjecter le volume **TailsData** dans le\n"
+"   navigateur de *Fichiers* et débrancher la clé USB sur laquelle\n"
 "   se trouve votre Tails endommagé.\n"
 
 #. type: Plain text
@@ -381,8 +378,7 @@ msgid ""
 "   Try the technique using the [[*Disks* utility|fsck#disks]] first, then the\n"
 "   technique using [[`ddrescue`|fsck#ddrescue]] if needed.\n"
 msgstr ""
-"   Essayez d'abord la technique qui utilise l'[[utilitaire "
-"*Disques*|fsck#disks]], puis la\n"
+"   Essayez d'abord la technique qui utilise l'[[utilitaire *Disques*|fsck#disks]], puis la\n"
 "  technique qui utilise [[`ddrescue`|fsck#ddrescue]] si nécessaire.\n"
 
 #. type: Bullet: '1. '
@@ -397,8 +393,7 @@ msgid ""
 "   stick|fsck#copy]] first, then the technique using\n"
 "   [[*Autopsy*|fsck#autopsy]].\n"
 msgstr ""
-"   Essayez d'abord la technique de [[copier l'image de partition sur une "
-"nouvelle clé\n"
+"   Essayez d'abord la technique de [[copier l'image de partition sur une nouvelle clé\n"
 "  USB|fsck#copy]], puis la technique utilisant\n"
 "  [[*Autopsy*|fsck#autopsy]].\n"
 
@@ -426,14 +421,14 @@ msgstr ""
 #~ msgid ""
 #~ "1. Choose\n"
 #~ "   <span class=\"menuchoice\">\n"
-#~ "     <span class=\"guimenu\">Applications</span>&nbsp;▸\n"
-#~ "     <span class=\"guisubmenu\">Accessories</span>&nbsp;▸\n"
-#~ "     <span class=\"guimenuitem\">Files</span></span>\n"
-#~ "   to open the <span class=\"application\">Files</span> browser.\n"
+#~ "     **Applications**&nbsp;▸\n"
+#~ "     **Accessories**&nbsp;▸\n"
+#~ "     **Files**</span>\n"
+#~ "   to open the *Files* browser.\n"
 #~ msgstr ""
 #~ "1. Choisir\n"
 #~ "   <span class=\"menuchoice\">\n"
-#~ "     <span class=\"guimenu\">Applications</span>&nbsp;▸\n"
-#~ "     <span class=\"guisubmenu\">Accessoires</span>&nbsp;▸\n"
-#~ "     <span class=\"guimenuitem\">Fichiers</span></span>\n"
-#~ "   pour ouvrir le navigateur de <span class=\"application\">Fichiers</span>.\n"
+#~ "     **Applications**&nbsp;▸\n"
+#~ "     **Accessoires**&nbsp;▸\n"
+#~ "     **Fichiers**</span>\n"
+#~ "   pour ouvrir le navigateur de *Fichiers*.\n"

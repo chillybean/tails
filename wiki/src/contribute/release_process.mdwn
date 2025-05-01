@@ -78,7 +78,7 @@ TRAP: whenever you go AFK for long times
 
 Keep this section at the top of this copy of the release process, so you don't forget
 
-When you clock off, or take any other kind of long break, please comunicate this on XMPP. Clarify:
+When you clock off, or take any other kind of long break, please communicate this on Matrix. Clarify:
 
  - when do you expect to come back
 
@@ -111,7 +111,7 @@ To release Tails you'll need some packages installed:
 
 * `squashfs-tools-ng` and `libsquashfs1` from Bookworm
 
-* `po4a` 0.62:
+* `po4a` 0.69:
 
    - Different versions extract Markdown headings in a different way, which
      makes tons of strings fuzzy.
@@ -161,7 +161,7 @@ To release Tails you need:
 
    - In the `TailsRM` section, set the value of the `private_token` option to
      the `role-release-automation` GitLab user's API token, which you'll find in
-     `rm.git`'s keyringer. Test it with:
+     [vault](https://gitlab.torproject.org/tpo/tpa/team/-/wikis/service/vault). Test it with:
 
          python-gitlab --gitlab TailsRM -o json  project-issue get --project-id 2 --iid 6094 | jq .title
 
@@ -1077,7 +1077,7 @@ Tell testers that they can start testing. Remember to encrypt and sign your emai
     Please note that the attached Torrents don't work yet.
     EOF
 
-Send a message on XMPP, too:
+Send a message on Matrix, too:
 
     Tails Team, please check your inbox and get the QA started!
 
@@ -1663,7 +1663,7 @@ Run the automated test suite
 ===============================
 
 This is not a required step: check the manual testers pad and see if anyone
-volunteered for that. But if noone did, start the automated test suite. The
+volunteered for that. But if no one did, start the automated test suite. The
 sooner, the better.
 
 You probably already know how to do that, but keep this in mind:
@@ -1842,7 +1842,7 @@ Rename, copy, garbage collect and update various files:
 
 Then, build the website and commit this last set of changes:
 
-	if [ "$(./bin/po4a-version)" = 0.62 ]; then
+	if [ "$(./bin/po4a-version)" = 0.69 ]; then
 	    ./build-website && \
 	    git add wiki/src/{inc,torrents} && \
 	    git commit -m "Update various website source files for ${VERSION:?}"
@@ -1921,7 +1921,7 @@ In any case
 Generate PO files for the pages added or updated earlier in this
 section, and publish them on the `$WEBSITE_RELEASE_BRANCH` branch:
 
-	if [ "$(./bin/po4a-version)" = 0.62 ]; then
+	if [ "$(./bin/po4a-version)" = 0.69 ]; then
 	    ./build-website && \
 	    git add wiki/src && \
 	    git commit -m "Releasing version ${VERSION:?}" && \
@@ -2109,19 +2109,8 @@ to the release notes:
 
     echo "Tails ${VERSION:?} is out: https://tails.net/news/version_${TAG:?}/"
 
-To login:
-
- - Get username and password:
-
-      keyringer tails-rm decrypt credentials.asc | grep twitter.com
-
- - Get the OTP code:
-
-    oathtool -b --totp \
-      "$(keyringer tails decrypt credentials.asc |
-         grep 'twitter OTP code' |
-         grep -Po 'otpauth://totp/.*[?]secret=\K[A-Z0-9]*' )"
-
+To login, use your [vault](https://gitlab.torproject.org/tpo/tpa/team/-/wikis/service/vault)
+client.
 
 Publish the Tor blog post
 -------------------------
@@ -2148,9 +2137,6 @@ Amnesia news
 and accept the release announcement (it's been automatically sent
 to `amnesia-news@` every half hour and is stuck in the
 moderation queue).
-
-    keyringer tails-rm decrypt credentials.asc | grep amnesia-news
-
 
 Prepare for the next development cycle
 ======================================

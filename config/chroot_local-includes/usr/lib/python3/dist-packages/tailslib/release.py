@@ -1,5 +1,5 @@
 """
-This module is meant to provide informations about Tails release data
+This module is meant to provide information about Tails release data
 (ie: /etc/os-release).
 """
 

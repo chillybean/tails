@@ -1,4 +1,4 @@
-"""Miscelaneous Tails Python utilities."""
+"""Miscellaneous Tails Python utilities."""
 
 import contextlib
 import logging

@@ -1,8 +1,528 @@
-tails (6.16) UNRELEASED; urgency=medium
+tails (6.18) UNRELEASED; urgency=medium
 
   * Dummy entry for next release.
 
- -- intrigeri <intrigeri@debian.org>  Thu, 01 May 2025 09:24:04 +0000
+ -- boyska <boyska@riseup.net>  Thu, 26 Jun 2025 12:07:17 +0200
+
+tails (6.17) unstable; urgency=medium
+
+  * Resolve "Upgrade the Tor Browser for 6.17" (tails/tails!2252)
+
+    Closes issues:
+      - Upgrade the Tor Browser for 6.17 (tails/tails#21023)
+
+    Commits:
+      - Fetch Tor Browser from our own archive
+      - Upgrade Tor Browser to 14.5.4-build1 (refs: tails#21023)
+
+  * Unsafe Browser: don't display the contents of about:tor on new tabs
+    (tails/tails!2214)
+
+    Closes issues:
+      - Unsafe Browser homepage for new tabs is the Tor Browser's (tails/tails#21004)
+
+    Commits:
+      - Unsafe Browser: don't display the contents of about:tor on new tabs
+
+  * Update uBlock origin (tails/tails!2254)
+
+    Closes issues:
+      - uBlock is not up-to-date (tails/tails#21036)
+
+    Commits:
+      - Bump debian snapshot
+
+  * Don't include a useless copy of CPU microcode in the SquashFS (refs:
+    tails#21001) (tails/tails!2232)
+
+    Closes issues:
+      - Remove useless CPU microcodes from SquashFS (tails/tails#21001)
+
+    Commits:
+      - Don't include CPU microcode in the SquashFS (refs: tails#21001)
+
+  * Fix typos (tails/tails!2230)
+
+    Commits:
+      - Fix typo in filename
+      - Fix typos and style
+      - Fix a/an typos
+      - Fix typos
+
+  * onion-grater: Write 250 OK in the same syscall as its \r\n (tails/tails!2228)
+
+    Commits:
+      - more ruff fixes
+      - ruff format
+      - Write 250 OK in the same syscall as its \r\n
+
+  * Migrate the tails-dev chat room from XMPP to Matrix (tails/tails!2224)
+
+    Commits:
+      - Migrate the tails-dev chat room from XMPP to Matrix
+
+  * Ensure we install custom packages for flatpak, gnome-settings-daemon, and
+    gnome-shell (tails/tails!2223)
+
+    Commits:
+      - Make regexp stricter
+      - shfmt
+      - Ensure we install custom packages for flatpak, gnome-settings-daemon, and
+        gnome-shell
+
+  * Merge branch 'master' into 'stable' (tails/tails!2222)
+
+    Closes issues:
+      - Virtualization doc: take into account Microsoft Recall (tails/tails#21000)
+      - Document better the lack of support for Apple chips (tails/tails#20807)
+      - Clarify that data is not securely erased from the USB stick when installing
+        (tails/tails#20749)
+
+    Commits:
+      - Translated using Weblate (Spanish)
+      - Weblate commit
+      - Weblate commit
+      - Weblate commit
+      - updated PO files
+      - Use Microsoft Recall as an example
+      - Warn earlier that we only have solutions for Linux
+      - updated PO files
+      - Document better the lack of support for Apple chips
+      - Apple is at M4 already
+      - updated PO files
+      - Data is not securely erased when installing
+      - Translated using Weblate (Catalan)
+      - Migrate the tails-dev chat room from XMPP to Matrix
+      - Overwrite style.css
+      - Translated using Weblate (Portuguese)
+
+  * Vagrant: upgrade to po4a/bookworm and ikiwiki/trixie (tails/tails!2220)
+
+    Commits:
+      - shfmt
+      - Drop obsolete variable
+      - Vagrant: upgrade to po4a/bookworm and ikiwiki/trixie
+
+  * Release process, website build: require ikiwiki from Trixie and po4a 0.69 from
+    Bookworm (tails/tails!2219)
+
+    Commits:
+      - GitLab CI: use ikiwiki:trixie container image
+      - Refresh PO files with ikiwiki/trixie and po4a/bookworm
+      - Fix typos
+      - Release process, website build: require ikiwiki from Trixie and po4a 0.69 from
+        Bookworm
+
+  * Refresh org.boum.tails.TorBrowser Flatpak manifest (tails/tails!2208)
+
+    Commits:
+      - shfmt
+      - Document why we can't remove this
+      - Refresh org.boum.tails.TorBrowser flatpak manifest
+
+  * CI: ignore flatpak 1.16.1-1~bpo12+1 (tails/tails!2206)
+
+    Closes issues:
+      - neede-package-updates: flatpak 1.16.1-1~bpo12+1 (tails/tails#20999)
+
+    Commits:
+      - CI: ignore flatpak 1.16.1-1~bpo12+1
+
+  * screen-locker: Add "Show Password" checkbox (tails/tails!2201)
+
+    Closes issues:
+      - "Show password" checkbox for tails-screen-locker dialog (tails/tails#20965)
+
+    Commits:
+      - Appease ruff check
+      - Appease ruff format
+      - screen-locker: Add "Show Password" checkbox
+
+  * htpdate pool: replace unreliable www.gnu.org with mullvad.net
+    (tails/tails!2200)
+
+    Closes issues:
+      - www.gnu.org is unreliable in htpdate pool (tails/tails#20992)
+
+    Commits:
+      - htpdate pool: replace unreliable www.gnu.org with mullvad.net
+
+  * Improve website navigation: 2025 edition (tails/tails!2046)
+
+    Closes issues:
+      - Have a secondary navigation in our documentation (tails/tails#20393)
+      - Consider using a hamburger menu to navigate the website on mobile
+        (tails/tails#20065)
+      - Use a bigger font everywhere on our website (tails/tails#17665)
+      - H1 and H2 headings are hard to differentiate (tails/tails#20805)
+      - Use a variable font on our website (tails/tails#16188)
+      - Add H1 heading at the beginning of page content (tails/tails#7506)
+      - Add WCAG "skip to main content" quick link (tails/tails#7507)
+      - Move Contribute from our top navigation to the footer only (tails/tails#20835)
+      - Start integrating our doc for contributors with Tor's, identifying other
+        problems in this section along the way (tails/tails#20768)
+
+    Commits:
+      - shfmt
+      - Fix link to contact page
+      - Fix link to upgrade doc
+      - Fix link to upgrade doc
+      - Remove stray PO files
+      - Avoid having different widths for each element in smaller screens
+      - Don't shring doc index on smaller screen
+      - Improve right padding
+      - Simplify HTML
+      - Improve vertical rhythm
+      - Add back feed links
+      - Remove artificial category
+      - Don't translate /upgrade anymore
+      - Animate caret
+      - Allow collapsing accordions
+      - Add authoritative reference
+      - Add timestamp
+      - Add license information for fonts
+      - Remove dead CSS
+      - Remove unused images
+      - Tails is now made by TPI
+      - Apply 1 suggestion(s) to 1 file(s)
+      - Update core pages
+      - Update PO files
+      - Fix broken links
+      - Document headings
+      - Prevent too much vertical space between page title and first heading
+      - Remove dead page
+      - Use consistent headings in inline news
+      - Update PO files
+      - Update PO files
+      - Redesign the headings scale
+      - Fix headings level
+      - Add back custom CSS
+      - Fix navigation for the section "Download, installation, and upgrade"
+      - Display pointer on caret
+      - Prevent jump to top of the page
+      - Separate the click on the caret from the click to open the page
+      - Fix vertical rhythm
+      - Force margin between doc index and footer
+      - Remove dead pages from po_translatable_pages
+      - Remove useless template
+      - Remove dead CSS
+      - Adapt custom CSS to navigation and font changes
+      - Add back 'meta' directives
+      - Simplify
+      - Remove deprecated reporting mechanism
+      - Update PO files
+      - Add all navigation elements to core pages
+      - Rescue translations
+      - Remove duplicated aria-label
+      - Rename PO files
+      - Add <h1> at the beginning of page content
+      - Add a skip navigation link
+      - Improve the underlining of links in footer
+      - Remove /contribute from our main navigation
+      - Display display on mobile
+      - Improve page structure for accessibility
+      - Improve scanability of doc index
+      - Use a variable font size
+      - Add caret to identify parent topics
+      - Add padding on top of page title
+      - Fix vertical alignment of crumbs and language switcher
+      - Prevent language switcher from wrapping below the crumbs
+      - Add bottom padding
+      - Use float instead of flex
+      - Add horizontal scroll to long commands instead of overflowing
+      - Improve compatibility with different page width
+      - Move doc index to a better place
+      - Fix alignment of languages in RTL
+      - Make the doc index responsive
+      - Give more space to long commands
+      - Remove dead code
+      - Use a bigger font everywhere on our website (#17665)
+      - Use Source Sans everywhere
+      - Rework the basic HTML structure of pages
+      - Indent templates
+      - Remove noise from Ikiwiki templates
+      - Display language switcher below breadcrumbs when they wrap
+      - Prototype documentation index
+      - Remove cruft
+      - Use consistent tree style
+      - Add missing subpage
+      - Move /about/contact under /doc/about
+      - Remove external link from doc index
+      - Improve index
+      - Avoid linking to subtrees
+      - Move all navigation elements to a dedicated folder
+      - Expand banner and footer on entire width
+      - Remove striped background
+
+  * Update Chutney (2025Q2 edition) (tails/tails!2033)
+
+    Closes issues:
+      - Upgrade Chutney (2025Q2 edition) (tails/tails#18215)
+      - chutney: `ModuleNotFoundError: No module named 'cgitb'` (tails/tails#20761)
+
+    Commits:
+      - Test suite: fallback to kill approach when chutney stop fails
+      - Test suite: log when resorting to kill leftover Chutney processes
+      - Test suite: adapt pgrep/pkill regex vs newer Chutney
+      - Test suite: refactor again
+      - Test suite: refactor
+      - Test suite: only keep the last Chutney data dir as artifact on failure
+      - Test suite: bump the number of Chutney dirauths to 4
+      - Chutney: drop usage of typeguard.check_type()
+      - Test suite: disable info-level logging for Chutney nodes
+      - Test suite: don't repeat scenario name and exception with --interactive-
+        debugging
+      - Test suite: improve handling of leftover tor processes from previous runs
+      - Test suite: make the output on Chutney bootstrap failure more manageble
+      - Test suite: add option to make cmd_helper() less verbose on error
+      - Test suite: also save the Chutney data directory as artifact on Chutney
+        bootstrap failure
+      - Test suite: raise new CommandFailed exception on cmd_helper() failure
+      - Reset Chutney to most recent revision (refs: tails#18215)
+
+ -- Tails developers <tails@boum.org>  Wed, 25 Jun 2025 12:31:50 +0200
+
+tails (6.16) unstable; urgency=medium
+
+  * Upgrade Linux to 6.1.140-1
+
+  * Upgrade Tor Browser to 14.5.3 (tails/tails!2191)
+
+    Closes issues:
+      - Upgrade to Tor Browser 14.5.3 based on Firefox 128.11 (tails/tails#20987)
+
+    Commits:
+      - Upgrade Tor Browser to 14.5.3-build2 (refs: tails#20987)
+
+  * remove unused method (tails/tails!2130)
+
+    Commits:
+      - remove unused open-networkmonitor method
+
+  * Test suite: improve the 'The Tor Browser's "New identity" feature works as
+    expected' scenario (tails/tails!2115)
+
+    Commits:
+      - Test suite: improve the 'The Tor Browser's "New identity" feature works as
+        expected' scenario
+
+ -- Tails developers <tails@boum.org>  Wed, 28 May 2025 12:21:18 +0200
+
+tails (6.15.1) unstable; urgency=medium
+
+  * Upgrade to Thunderbird 1:128.10.1esr-1~deb12u1
+
+  * Upgrade to Tor Browser 14.5.2 based on Firefox 128.10.1 (tails/tails!2165)
+
+    Closes issues:
+      - Upgrade to Tor Browser 14.5.2 based on Firefox 128.10.1 (tails/tails#20967)
+
+    Commits:
+      - Create a draft MR
+      - Fetch Tor Browser from our own archive
+      - Export variable needed in script
+      - Lint
+      - Fix Markdown syntax
+      - Fix Markdown rendering on website
+      - Upgrade Tor Browser to 14.5.2-build2 (refs: tails#20967)
+
+  * Drop dependency on python3-tinyrpc (tails/tails!2079)
+
+    Closes issues:
+      - python3-tinyrpc is not in Trixie (tails/tails#20898)
+
+    Commits:
+      - tails_jsonrpc is derived from https://github.com/mbr/tinyrpc
+      - tca-portal logs valid requests
+      - document how much we respect JsonRpc 2.0 standard
+      - catch specific exceptions
+      - refactor, since our lib supports the data attribute
+      - add support to data field in ErrorResponse
+      - fix: get-network-time must pass returncode to tca
+      - error_respond gains code= parameter
+      - ruff format
+      - add doctest for jsonrpc Protocol
+      - move to new API (drop kwargs)
+      - fix message validation
+      - move TCA to home-grown jsonrpc implementation
+      - move from tinyrpc to our own jsonrpc implementation
+
+  * Upgrade Tails and Vagrant build box to Bookworm 12.11 (tails/tails!2164)
+
+    Closes issues:
+      - Upgrade to Bookworm 12.11 (tails/tails#20935)
+      - USB tethering broken in 6.15 with some phones (tails/tails#20940)
+      - Figure out our response to DSA 5919-1 (open-vm-tools) (tails/tails#20959)
+
+    Commits:
+      - Pin our src:network-manager packages that have a bad version (refs:
+        tails#20935)
+      - Enable the 20935-bookworm-12.11-force-all-tests APT overlay (refs: tails#20935)
+      - CI: ignore flatpak 1.16.0-2~bpo12+1
+      - Upgrade Tails and Vagrant build box to Bookworm 12.11
+
+  * Don't install sshfs anymore (tails/tails!2151)
+
+    Closes issues:
+      - Remove sshfs (tails/tails#20950)
+
+    Commits:
+      - Don't install sshfs anymore
+
+  * Fix devel branch FTBFS on Jenkins (tails/tails!2147)
+
+    Commits:
+      - Revert "bump memory requirements"
+
+  * Stop installing libgtk-3-bin (obsolete dependency) (tails/tails!2143)
+
+    Commits:
+      - Test suite: stop using gtk-launch, which we don't install anymore
+      - Remove obsolete dependency
+
+  * Test suite: drop "wget(1) with tricky options ..." scenario (tails/tails!2139)
+
+    Closes issues:
+      - wget test suite scenario fails due to redirect on the test mirror
+        (tails/tails#20912)
+
+    Commits:
+      - Test suite: drop "wget(1) with tricky options ..." scenario (refs: tails#20912)
+
+  * Test suite: fix xmpp-bot on recent versions of python3-slixmpp
+    (tails/tails!2132)
+
+    Commits:
+      - Test suite: add context to comment
+      - Appease ruff
+      - Test suite: fix xmpp-bot on recent versions of python3-slixmpp
+
+  * CI: ignore candidate firmware updates (tails/tails!2131)
+
+    Closes issues:
+      - needed-package-updates fails: firmware-free, firmware-nonfree
+        (tails/tails#20937)
+
+    Commits:
+      - CI: ignore candidate firmware updates
+
+  * Test suite: add --collect-always feature, to collect artifacts even when
+    scenario succeeds (tails/tails!2129)
+
+    Commits:
+      - document CAPTURE_ALWAYS in documentation
+      - don't report scenarios as failed when COLLECT_ALWAYS
+      - use the same style for CAPTURE_ALL and COLLECT_ALWAYS
+      - Sort
+      - run_test_suite --collect-always
+
+  * Vagrant: bump memory for systems with 12 CPUs or fewer (tails/tails!2128)
+
+    Closes issues:
+      - Build sometimes FTBFS on intrigeri's system (tails/tails#20900)
+
+    Commits:
+      - Clarify comment, dropping magic number duplication that's hard to maintain
+      - Vagrant: bump memory for systems with 12 CPUs or fewer
+
+  * Have Unsafe Browser displayed with its own icon in the GNOME UI, not Tor
+    Browser's (tails/tails!2126)
+
+    Closes issues:
+      - Unsafe Browser appears as Tor Browser (no Unsafe Browser icon)
+        (tails/tails#20934)
+
+    Commits:
+      - Fix obsolete reference in comment
+      - Unsafe Browser: don't pass --class
+      - Tor Browser: don't pass --name and --class
+      - Revert "Browsers: stop passing --class and --name options"
+
+  * Remove the "Tor Browser" and "Tor Browser (persistent)" directories
+    (tails/tails!2124)
+
+    Closes issues:
+      - Remove the "Tor Browser" and "Tor Browser (persistent)" bookmarks
+        (tails/tails#15028)
+
+    Commits:
+      - point the submodule to the relevant merge commit
+      - Test suite: generalize steps
+      - Appease ruff vs several instances of UP007
+      - Test suite: work around Save Page As being broken
+      - Drop the Tor Browser dirs and GNOME shortcuts (tails#15028)
+
+  * Refresh modules/BrowserGlue.sys.mjs patch (tails/tails!2123)
+
+    Closes issues:
+      - Refresh modules/BrowserGlue.sys.mjs patch (tails/tails#20920)
+
+    Commits:
+      - Refresh patch (refs: tails#20920)
+
+  * Use non-Onion access to WhisperBack's SMTP relay (tails/tails!2117)
+
+    Closes issues:
+      - Use non-Onion access to WhisperBack's SMTP relay (tails/tails#20921)
+      - Whisperback has temporary errors about IPv6 (tails/tails#19394)
+
+    Commits:
+      - Fix who's responsible for Whisperback mail service
+      - No need to special-case IPv6 anymore
+      - fix links to whisperback source code
+      - clarify WhisperBack design wrt non-Onion services
+      - non-onion whisperback report
+
+  * Improve release process post-6.15 (tails/tails!2116)
+
+    Commits:
+      - Use consistent spelling for variable name
+      - shfmt
+      - More defensive programming
+      - Use consistent spelling for variable name
+      - Fix many instances of ${parameter?:} → ${parameter:?}
+      - Fix ruff violations + ruff format
+      - Sort imports
+      - Fix ruff violations
+      - ruff format
+      - shfmt
+      - Fix phrasing
+      - Require automailer configuration
+      - Deduplicate
+      - Move inline script to actual script
+      - More specific terminology
+      - Simplify
+      - Delete Torrents for previous release before adding the new ones
+      - Match phrasing used by Tor Browser release blog posts
+      - Update heading to match current contents
+      - Remove unsupported conditional clause
+      - Lint
+      - Move inline script to actual script
+      - Move inline script to actual script
+      - Be more specific
+      - Release process: move ad-hoc variable to local configuration
+      - Fix "TypeError: subprocess.run() got multiple values for keyword argument
+        'check'"
+      - Use environment variables to store state
+      - Improve grammar
+      - Improve grammar
+      - Clarify how to get "old image commit"
+      - Clarify
+      - Fix typo
+      - Remove spurious empty line
+      - Remove incorrect example
+      - Order steps and remove misuse of "e.g."
+      - Fix grammar
+
+  * Update APT snapshots for Vagrant build box (tails/tails!2114)
+
+    Closes issues:
+      - Update APT snapshots of Vagrant build box (tails/tails#20919)
+
+    Commits:
+      - Update APT snapshots for Vagrant build box
+
+ -- Tails developers <tails@boum.org>  Mon, 19 May 2025 18:08:52 +0200
 
 tails (6.15) unstable; urgency=medium
 
@@ -24081,7 +24601,7 @@ tails (0.5) unstable; urgency=low
 
   * Pidgin
   - Automatically connect to irc.oftc.net with a randomized nickname,
-    so as not to advertize the use of T(A)ILS; this nickname is made of:
+    so as not to advertise the use of T(A)ILS; this nickname is made of:
      . a random firstname picked from the 2000 most registered by the U.S.
        social security administration in the 70s;
      . two random digits.

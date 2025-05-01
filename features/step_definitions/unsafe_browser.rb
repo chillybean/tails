@@ -21,7 +21,7 @@ Then /^the Unsafe Browser has no bookmarks$/ do
   # we have to close.
   @screen.press('Escape')
   sleep 1
-  path = "/home/#{info[:user]}/Tor Browser/bookmarks.json"
+  path = "/home/#{info[:user]}/Downloads/bookmarks.json"
   # The .json extension is automatically added in this prompt so we
   # avoid adding it again.
   @screen.paste(path.sub(/[.]json$/, ''))
@@ -140,4 +140,11 @@ Then /^the Unsafe Browser has (|not )sent packets out to the Internet$/ do |sent
   when 'not'
     assert_equal(0, pkts, 'Packets have gone out to the internet.')
   end
+end
+
+Then /^the Tails homepage loads in the Unsafe Browser$/ do
+  page_has_heading(
+    @unsafe_browser, 'Tails', 'Tails is a portable operating system that protects ' \
+                              'against surveillance and censorship.'
+  )
 end

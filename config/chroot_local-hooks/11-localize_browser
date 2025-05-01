@@ -53,7 +53,7 @@ while IFS=: read -r MOZILLA_LOCALE LOCATION; do
     echo "- Localizing ${MOZILLA_LOCALE} for browsers..."
 
     # In some places we'll need the locale in xx_YY format instead of
-    # Mozilla's xx-YY fromat. Over all, the greatest difficulty in
+    # Mozilla's xx-YY format. Over all, the greatest difficulty in
     # this whole script is really to know when to use the correct
     # locale format, since Firefox isn't very consistent in it.
     if echo "${MOZILLA_LOCALE}" | grep -q '-'; then

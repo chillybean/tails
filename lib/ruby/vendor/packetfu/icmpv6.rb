@@ -97,7 +97,7 @@ module PacketFu
       checksum == 0 ? 0xffff : checksum
     end
 
-    # Recalculates the calculatable fields for ICMPv6.
+    # Recalculates the calculable fields for ICMPv6.
     def icmpv6_recalc(arg = :all)
       case arg.to_sym
       when :icmpv6_sum

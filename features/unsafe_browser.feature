@@ -31,6 +31,7 @@ Feature: Browsing the web using the Unsafe Browser
     And the Unsafe Browser has no bookmarks
     And the Unsafe Browser uses all expected TBB shared libraries
 
+  @doc
   Scenario: The Unsafe Browser can load a web page from the Internet
     Given I have started Tails from DVD and logged in and the network is connected
     When I successfully start the Unsafe Browser

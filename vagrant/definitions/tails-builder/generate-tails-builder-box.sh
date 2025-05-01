@@ -8,14 +8,14 @@ GIT_DIR="$(git rev-parse --show-toplevel)"
 
 build_setting() {
     ruby -I "${GIT_DIR}/vagrant/lib" \
-         -e "require 'tails_build_settings.rb'; print ${1}"
+        -e "require 'tails_build_settings.rb'; print ${1}"
 }
 
 get_serial() {
     (
-        cd "${GIT_DIR}/vagrant/definitions/tails-builder/" && \
-        "${GIT_DIR}"/auto/scripts/apt-snapshots-serials \
-            cat --print-serials-only "${1}"
+        cd "${GIT_DIR}/vagrant/definitions/tails-builder/" &&
+            "${GIT_DIR}"/auto/scripts/apt-snapshots-serials \
+                cat --print-serials-only "${1}"
     )
 }
 
@@ -31,10 +31,8 @@ HOSTNAME="vagrant-${DISTRIBUTION}"
 USERNAME="vagrant"
 PASSWORD="vagrant"
 
-
 DEBIAN_SERIAL="$(get_serial debian)"
 DEBIAN_SECURITY_SERIAL="$(get_serial debian-security)"
-TAILS_SERIAL="$(get_serial tails)"
 
 DEBOOTSTRAP_GNUPG_HOMEDIR="$(mktemp -d --tmpdir tmp.debootstrap-gnupg-XXXXXXXX)"
 gpg --homedir "${DEBOOTSTRAP_GNUPG_HOMEDIR}" \
@@ -48,7 +46,7 @@ fi
 trap 'rm --preserve-root=all -rf "${SPECFILE}" "${TARGET_IMG}" "${TARGET_QCOW2}" "${TARGET_FS_TAR}" "${DEBOOTSTRAP_GNUPG_HOMEDIR}"' EXIT
 
 # Create specification file for vmdb2
-cat > "${SPECFILE}" <<EOF
+cat >"${SPECFILE}" <<EOF
 steps:
   - mkimg: "{{ output }}"
     size: 20G
@@ -126,8 +124,8 @@ steps:
 
   - chroot: rootfs
     shell: |
-      sed -e 's/${DISTRIBUTION}/bullseye/' /etc/apt/sources.list \\
-        > "/etc/apt/sources.list.d/bullseye.list"
+      sed -e 's/${DISTRIBUTION}/trixie/' /etc/apt/sources.list \\
+        > "/etc/apt/sources.list.d/trixie.list"
 
   - chroot: rootfs
     shell: |
@@ -143,26 +141,22 @@ steps:
     contents: |
       deb http://time-based.snapshots.deb.tails.boum.org/debian-security/${DEBIAN_SECURITY_SERIAL}/ ${DISTRIBUTION}-security main
 
-  - create-file: /etc/apt/sources.list.d/tails.list
-    contents: |
-      deb http://time-based.snapshots.deb.tails.boum.org/tails/${TAILS_SERIAL}/ ikiwiki main
-
   - create-file: /etc/apt/preferences.d/ikiwiki
     contents: |
       Package: ikiwiki
-      Pin: origin deb.tails.boum.org
+      Pin: release n=trixie
       Pin-Priority: 1000
 
   - create-file: /etc/apt/preferences.d/po4a
     contents: |
       Package: po4a
-      Pin: version 0.62-1
+      Pin: version 0.69-1
       Pin-Priority: 1000
 
-  - create-file: /etc/apt/preferences.d/bullseye
+  - create-file: /etc/apt/preferences.d/trixie
     contents: |
       Package: *
-      Pin: release n=bullseye
+      Pin: release n=trixie
       Pin-Priority: 100
 
   - create-file: /etc/apt/preferences.d/${DISTRIBUTION}-backports
@@ -324,9 +318,9 @@ EOF
 rm -f "${TARGET_NAME}"*
 # shellcheck disable=SC2154
 sudo ${http_proxy:+http_proxy=$http_proxy} vmdb2 "${SPECFILE}" \
-     --output "${TARGET_IMG}" --verbose --log "${LOG_VMDB2}" \
-     --rootfs-tarball "${TARGET_FS_TAR}"
+    --output "${TARGET_IMG}" --verbose --log "${LOG_VMDB2}" \
+    --rootfs-tarball "${TARGET_FS_TAR}"
 qemu-img convert -O qcow2 "${TARGET_IMG}" "${TARGET_QCOW2}"
 bash -e -x "${GIT_DIR}/vagrant/definitions/tails-builder/create_box.sh" \
-     "${TARGET_QCOW2}" "${TARGET_BOX}"
+    "${TARGET_QCOW2}" "${TARGET_BOX}"
 rm -f "${LOG_VMDB2}"

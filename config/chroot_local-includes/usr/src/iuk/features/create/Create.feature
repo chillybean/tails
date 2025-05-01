@@ -93,8 +93,8 @@ Feature: create an IUK
 
   Scenario: create an IUK without passing a product name
 
-  Scenario: create an IUK whithout passing an old version number
+  Scenario: create an IUK without passing an old version number
 
-  Scenario: create an IUK whithout passing a new version number
+  Scenario: create an IUK without passing a new version number
 
-  Scenario: create an IUK whithout passing a build target
+  Scenario: create an IUK without passing a build target

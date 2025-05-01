@@ -46,8 +46,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-30 09:33+0200\n"
-"PO-Revision-Date: 2025-03-31 20:58+0000\n"
+"POT-Creation-Date: 2025-06-25 11:02+0200\n"
+"PO-Revision-Date: 2025-05-13 03:04+0000\n"
 "Last-Translator: Sketch6580 <sketch6580@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/tor/tails-gui/zh_Hans/>\n"
@@ -56,7 +56,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -161,7 +161,7 @@ msgstr "移除"
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:483
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:834
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:728
-#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:119
+#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:126
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:376
 msgid "Cancel"
 msgstr "取消"
@@ -229,9 +229,9 @@ msgstr "在 Tails 启动时会从永久存储中安装下列附加软件。"
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
-"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
+"To add more, install some software using <a href=\"synaptic."
+"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
+"desktop\">APT on the command line</a>."
 msgstr ""
 "要添加更多附加软件，可以使用 <a href=\"synaptic.desktop\">新立得软件包管理器"
 "</a> 或<a href=\"org.gnome.Terminal.desktop\">通过终端使用 APT</a>。"
@@ -241,19 +241,16 @@ msgid "_Create persistent storage"
 msgstr "创建永久存储(_C)"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:69
-#, fuzzy
 msgid ""
 "Tails needs donations to keep everybody free and safe online.\n"
 "\n"
 "Every bit helps in our fight against surveillance and censorship!\n"
 "\n"
 msgstr ""
-"Tails 需要捐款以保持每个人在网上的自由和安全。\n"
+"Tails 需要捐款来让每个人在网上保持自由和安全。\n"
 "\n"
 "每一点帮助都在我们对抗监视和审查的斗争中起作用！\n"
 "\n"
-"<a href=\"file:///usr/share/doc/tails/website/donate.en.html#expenses\">我们"
-"如何使用资金</a>"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:79
 msgid ""
@@ -262,6 +259,10 @@ msgid ""
 "Help us keep your bitcoins safe!\n"
 "\n"
 msgstr ""
+"Tails 保护您的钱包。\n"
+"\n"
+"帮助我们保护您的比特币安全！\n"
+"\n"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:156
 msgid "Donate Now"
@@ -381,17 +382,15 @@ msgid "bytes"
 msgstr "字节"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:296
-#, fuzzy
 msgid ""
 "<b>An error occurred while updating the signing key.</b>\\n\\n<b>This "
 "prevents determining whether an upgrade is available from our website.</"
 "b>\\n\\nCheck your network connection and restart Tails.\\n\\nIf the problem "
 "persists, try doing a manual upgrade."
 msgstr ""
-"<b>当更新密钥时出现了一个错误。</b>\\n\\n<b>这将无法通过我们的网站确定是否有"
-"可用更新。</b>\\n\\n检查您的网络连接状态，重启Tails并再次尝试更新。\\n\\n如果"
-"问题仍未被解决，请前往file:///usr/share/doc/tails/website/doc/upgrade/error/"
-"check.en.html"
+"<b>更新签名密钥时出错。</b>\\n\\n<b>这会阻止从我们的网站确定是否有可用的升"
+"级。</b>\\n\\n请检查您的网络连接并重启 Tails。\\n\\n如果问题仍然存在，请尝试"
+"手动升级。"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:310
 msgid "Error while downloading the signing key"
@@ -402,7 +401,6 @@ msgid "Error while checking for upgrades"
 msgstr "检查更新时发生了错误"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:345
-#, fuzzy
 msgid ""
 "<b>Could not determine whether an upgrade is available from our website.</"
 "b>\n"
@@ -411,12 +409,11 @@ msgid ""
 "\n"
 "If the problem persists, try doing a manual upgrade."
 msgstr ""
-"<b>无法从我们的网站上检测是否有升级可用</b>\n"
+"<b>无法从我们的网站确定是否有可用的升级</b>\n"
 "\n"
-"请检查您的网络连接，重启 Tails 并尝试升级\n"
+"请检查您的网络连接并重启 Tails。\n"
 "\n"
-"如果依旧有这个问题，请参阅本地文件 file:///usr/share/doc/tails/website/doc/"
-"upgrade/error/check.en.html"
+"如果问题仍然存在，请尝试手动升级。"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:360
 msgid "no automatic upgrade is available from our website for this version"
@@ -451,12 +448,11 @@ msgstr "系统已是最新"
 msgid ""
 "You are currently running the latest version. There is no upgrade "
 "available.\n"
-msgstr ""
+msgstr "您当前运行的是最新版本。没有可用的升级。\n"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:415
-#, fuzzy
 msgid "Tails is up to date"
-msgstr "系统已是最新"
+msgstr "Tails 已是最新版本"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:421
 msgid "This version of Tails is outdated, and may have security issues."
@@ -481,8 +477,9 @@ msgstr ""
 "存可用。"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:474
+#, fuzzy
 msgid ""
-"An error ocurred while detecting available upgrades.\n"
+"An error occurred while detecting available upgrades.\n"
 "This should not happen. Please report a bug."
 msgstr ""
 "检查更新时发生错误。\n"
@@ -573,14 +570,12 @@ msgid "Downloading the upgrade to {name} {version}..."
 msgstr "正在下载到 {name} {version} 的升级包…"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:712
-#, fuzzy
 msgid ""
 "<b>The upgrade could not be downloaded.</b>\\n\\nCheck your network "
 "connection, and restart Tails to try upgrading again."
 msgstr ""
-"<b>无法下载升级包。</b>\\n\\n检查您的网络连接，并且重启 Tails 后重新尝试升"
-"级。\\n\\n如果依旧有这个问题，请到 file:///usr/share/doc/tails/website/doc/"
-"upgrade/error/download.en.html"
+"<b>无法下载升级。</b>\\n\\n请检查您的网络连接，然后重启 Tails 以尝试再次升"
+"级。"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:715
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:730
@@ -693,15 +688,14 @@ msgstr ""
 "由于安全原因，网络连接已经被禁用。"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:856
-#, fuzzy
 msgid ""
 "<b>An error occurred while installing the upgrade.</b>\\n\\nYour Tails "
 "device needs to be repaired and might be unable to restart.\\n\\nPlease "
 "follow the instructions at file:///usr/share/doc/tails/website/doc/upgrade/"
 "error/install.en.html"
 msgstr ""
-"<b>安装更新时出现错误</b>\\n\\n您的Tails设备需要修复，并且可能无法重启。"
-"\\n\\n请查看以下说明：file:///usr/share/doc/tails/website/doc/upgrade/error/"
+"<b>安装升级时出错。</b>\\n\\n您的 Tails 设备需要修复，可能无法重启。\\n\\n请"
+"按照以下说明操作 file:///usr/share/doc/tails/website/doc/upgrade/error/"
 "install.en.html"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:861
@@ -1515,7 +1509,7 @@ msgid ""
 msgstr "Tails 启动时的设备已无法找到。可能您使用了“toram”选项?"
 
 #: config/chroot_local-includes/usr/share/gnome-shell/extensions/status-menu-helper@tails.boum.org/extension.js:86
-#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:110
+#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:118
 msgid "Lock Screen"
 msgstr "锁定屏幕"
 
@@ -1542,9 +1536,8 @@ msgid "About Tails"
 msgstr "关于"
 
 #: config/chroot_local-includes/usr/local/bin/tails-about:34
-#, fuzzy
 msgid "Check for Upgrades"
-msgstr "检查更新时发生了错误"
+msgstr "检查升级"
 
 #: config/chroot_local-includes/usr/local/bin/tails-about:57
 msgid "UNRELEASED"
@@ -1598,18 +1591,18 @@ msgid ""
 "a> or <a href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "要执行此操作，请在启动Tails时解锁持久存储，并在命令行上使用<a "
-"href=\"synaptic.desktop\">synaptic Package Manager</a>或<a "
-"href=\"org.gnome.Terminal.desktop\">APT安装一些软件</a>。"
+"href=\"synaptic.desktop\">synaptic Package Manager</a>或<a href=\"org.gnome."
+"Terminal.desktop\">APT安装一些软件</a>。"
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:240
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
-"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
+"gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
-"为实现以上操作，创建一个永久存储并在安装某些软件时使用 <a "
-"href=\"synaptic.desktop\">新立得软件包管理器</a> 或<a "
-"href=\"org.gnome.Terminal.desktop\">通过终端使用 APT</a>。"
+"为实现以上操作，创建一个永久存储并在安装某些软件时使用 <a href=\"synaptic."
+"desktop\">新立得软件包管理器</a> 或<a href=\"org.gnome.Terminal.desktop\">通"
+"过终端使用 APT</a>。"
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:258
 msgid "To do so, install Tails on a USB stick and create a Persistent Storage."
@@ -1627,16 +1620,16 @@ msgstr "[描述不可用]"
 msgid "Failed to synchronize the clock!"
 msgstr "同步时间失败！"
 
-#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:125
+#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:130
 msgid "Screen Locker"
 msgstr "屏幕锁"
 
-#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:131
+#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:136
 msgid "Set up a password to unlock the screen."
 msgstr "设定解锁屏幕的密码。"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:149
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2290
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2277
 msgid "Password"
 msgstr "密码"
 
@@ -1808,13 +1801,13 @@ msgstr ""
 "一个持久存储</a>。"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:269
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:795
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:792
 #, python-brace-format
 msgid "Invalid: {exception}"
 msgstr "无效：{exception}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:281
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:808
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:805
 msgid "You need to configure an obfs4 bridge to hide that you are using Tor"
 msgstr "您需要配置 obfs4 网桥来隐藏您正在使用 Tor"
 
@@ -1865,28 +1858,28 @@ msgstr "已成功连接至 Tor"
 msgid "You can now browse the Internet anonymously and uncensored."
 msgstr "您现在可以匿名且不受审查地浏览互联网。"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:723
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:720
 msgid "This local network seems to be blocking access to Tor."
 msgstr "这个局域网络似乎阻止了对 Tor 的访问。"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:798
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:795
 msgid "Bridge address malformed"
 msgstr "网桥地址格式错误"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:816
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:813
 msgid "Setting a bridge is needed if you want to hide that you are using Tor"
 msgstr "如果你想隐藏你正在使用 Tor，则需要设置网桥"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1055
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1052
 #, python-brace-format
 msgid "Scanned {bridge_type} bridge: <b>{bridge_info}</b>."
 msgstr "扫描了{bridge_type}网桥：<b>{bridge_info}</b>。"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1144
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1141
 msgid "Are you sure you want to lose progress?"
 msgstr "您确认您想要失去进度吗？"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1148
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1145
 msgid ""
 "Tails will continue connecting to Tor after you close the Tor Connection "
 "assistant.\n"
@@ -1898,11 +1891,11 @@ msgstr ""
 "\n"
 "如果连接至 Tor 失败了，您将必须再次等待至进程结束才能排除您的连接故障。"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1154
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1151
 msgid "Close and Lose Progress"
 msgstr "关闭并失去进度"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1156
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1153
 msgid "Wait"
 msgstr "等待"
 
@@ -1952,7 +1945,7 @@ msgid "Open Tor Connection Assistant"
 msgstr "打开 Tor 连接助手"
 
 #: config/chroot_local-includes/usr/share/gnome-shell/extensions/torstatus@tails.boum.org/extension.js:50
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2116
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2103
 msgid "View Tor Circuits"
 msgstr "查看 Tor 线路"
 
@@ -2012,7 +2005,7 @@ msgid ""
 msgstr ""
 "内存不足，无法更改永久存储的密码短语。关闭一些应用程序或重新启动后重试。"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/configuration/binding.py:425
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/configuration/binding.py:411
 #, python-brace-format
 msgid ""
 "Can't unmount target {target}, some process is still using it. Please close "
@@ -2509,7 +2502,7 @@ msgstr ""
 "您尚未连接到本地网络。\\n\\n无法启动非安全浏览器，您需要先连接到 Wi-Fi、有线"
 "或移动网络。"
 
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:139
+#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:146
 msgid "Failed to run browser."
 msgstr "运行浏览器失败。"
 
@@ -2571,9 +2564,8 @@ msgid "Your message has been sent."
 msgstr "信息已发送。"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:248
-#, fuzzy
 msgid "An error occurred during encryption."
-msgstr "加密时出现错误。"
+msgstr "加密过程中出错。"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:317
 msgid "This doesn't seem to be a valid URL or OpenPGP key."
@@ -3656,7 +3648,7 @@ msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1634
 msgid "No Wi-Fi hardware detected"
-msgstr ""
+msgstr "未检测到 Wi-Fi 硬件"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1652
 msgid ""
@@ -3672,9 +3664,17 @@ msgid ""
 " • Buy a USB Wi-Fi adapter that works in Tails.\n"
 "                "
 msgstr ""
+"Tails 在您的计算机上找不到任何 Wi-Fi 接口。如果您的计算机有 Wi-Fi 接口，它可"
+"能在 Tails 上无法工作。\n"
+"\n"
+"要连接到互联网，您可以尝试：\n"
+"\n"
+" • 使用以太网线代替 Wi-Fi。在 Tails 中，有线接口比 Wi-Fi 工作更可靠。\n"
+" • 使用 USB 网络共享，使用 USB 线共享手机的 Wi-Fi 或移动数据连接。\n"
+" • 购买在 Tails 上可用的 USB Wi-Fi 适配器。\n"
+"                "
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1676
-#, fuzzy
 msgid ""
 "\n"
 "<a href=\"doc/anonymous_internet/no-wifi\">\n"
@@ -3682,8 +3682,11 @@ msgid ""
 "</a>\n"
 "                "
 msgstr ""
-"<a href=\"doc/anonymous_internet/tor\">了解有关 Tails 如何连接到 Tor 的更多信"
-"息</a>"
+"\n"
+"<a href=\"doc/anonymous_internet/no-wifi\">\n"
+"详细了解 Wi-Fi 无法工作的故障排除。\n"
+"</a>\n"
+"                "
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1704
 msgid "Connect to a local network"
@@ -3698,7 +3701,6 @@ msgstr ""
 "移动网络。"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1735
-#, fuzzy
 msgid "Open Wi-Fi Settings"
 msgstr "打开 Wi-Fi 设置"
 
@@ -3734,51 +3736,47 @@ msgstr "正在连接至 Tor……"
 msgid "Start Tor Browser"
 msgstr "启动 Tor 浏览器"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2103
-msgid "Open Network Monitor"
-msgstr "打开网络监视器"
-
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2156
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2143
 msgid "Configure a Local Proxy"
 msgstr "配置本地代理"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2182
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2169
 msgid "Proxy Type"
 msgstr "代理服务器类型"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2199
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2186
 msgid "No proxy"
 msgstr "无代理"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2200
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2187
 msgid "SOCKS 4"
 msgstr "SOCKS 4"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2201
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2188
 msgid "SOCKS 5"
 msgstr "SOCKS 5"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2202
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2189
 msgid "HTTP / HTTPS"
 msgstr "HTTP / HTTPS"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2221
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2208
 msgid "Address"
 msgstr "地址"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2238
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2225
 msgid "Username"
 msgstr "用户名"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2255
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2242
 msgid "IP address or hostname"
 msgstr "IP 地址或主机名"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2273
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2260
 msgid "Port"
 msgstr "端口"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2397
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2384
 msgid "_Save Proxy Settings"
 msgstr "保存代理设置 (_S)"
 
@@ -3863,14 +3861,8 @@ msgstr "十二月"
 msgid "Clock"
 msgstr "时钟"
 
-#~ msgid "Starting the Unsafe Browser..."
-#~ msgstr "正在启动非安全浏览器..."
-
-#~ msgid "This may take a while, so please be patient."
-#~ msgstr "可能需要一会儿，请稍等。"
-
-#~ msgid "Reset Tor Connection"
-#~ msgstr "重置 Tor 连接"
+#~ msgid "Open Network Monitor"
+#~ msgstr "打开网络监视器"
 
 #, python-brace-format
 #~ msgid ""
@@ -3899,6 +3891,15 @@ msgstr "时钟"
 
 #~ msgid "Open Onion Circuits"
 #~ msgstr "打开 Onion 线路"
+
+#~ msgid "Starting the Unsafe Browser..."
+#~ msgstr "正在启动非安全浏览器..."
+
+#~ msgid "This may take a while, so please be patient."
+#~ msgstr "可能需要一会儿，请稍等。"
+
+#~ msgid "Reset Tor Connection"
+#~ msgstr "重置 Tor 连接"
 
 #~ msgid "Error while updating the signing key"
 #~ msgstr "当更新登录密钥时出现错误"
@@ -3930,8 +3931,8 @@ msgstr "时钟"
 #~ "\n"
 #~ "Help us keep your bitcoins safe!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/"
-#~ "donate.en.html#expenses\">How we spend our money.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
+#~ "html#expenses\">How we spend our money.</a>"
 #~ msgstr ""
 #~ "Tails 将保护您的财产安全。\n"
 #~ "\n"
@@ -4087,8 +4088,8 @@ msgstr "时钟"
 #~| "\n"
 #~| "Every bit helps in our fight against surveillance and censorship!\n"
 #~| "\n"
-#~| "<a href=\"file:///usr/share/doc/tails/website/"
-#~| "donate.en.html#expenses\">How we spend our money.</a>"
+#~| "<a href=\"file:///usr/share/doc/tails/website/donate.en."
+#~| "html#expenses\">How we spend our money.</a>"
 #~ msgid ""
 #~ "Our annual fundraiser is live!\n"
 #~ "\n"

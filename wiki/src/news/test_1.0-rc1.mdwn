@@ -38,24 +38,21 @@ us|doc/first_steps/whisperback]]! Bonus points if you check if it is a
 How to automatically upgrade from 0.23?
 =======================================
 
-These steps allow you to automatically upgrade a device installed with <span
-class="application">Tails Installer</span> from Tails 0.23 to Tails 1.0~rc1.
+These steps allow you to automatically upgrade a device installed with
+*Tails Installer* from Tails 0.23 to Tails 1.0~rc1.
 
 1. Start Tails 0.23 and [[set an administration
    password|doc/first_steps/welcome_screen/administration_password]].
 
-1. Run this command in a <span class="application">Root
-   Terminal</span> to select the "alpha" upgrade channel
+1. Run this command in a *Root Terminal*
+   to select the "alpha" upgrade channel
    and start the upgrade:
 
        echo TAILS_CHANNEL=\"alpha\" >> /etc/os-release && \
             tails-upgrade-frontend-wrapper
 
 1. Once the upgrade has been installed, restart Tails and choose
-   <span class="menuchoice">
-     <span class="guimenu">System</span>&nbsp;&#x25B8;
-     <span class="guimenuitem">About Tails</span>
-   </span>
+   **System&nbsp;&#x25B8; About Tails**
    to confirm that the running system is Tails 1.0~rc1.
 
 What's new since 0.23?

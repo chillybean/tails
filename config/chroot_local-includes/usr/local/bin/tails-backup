@@ -33,7 +33,7 @@ pinentry_auth() {
         read -r title
         desc="$(cat)"
         # shellcheck disable=SC2059
-        ( pinentry-gnome3 | sed -n 's/^D //p' ) <<EOF
+        (pinentry-gnome3 | sed -n 's/^D //p') <<EOF
 SETPROMPT ${title}
 SETDESC $(printf "${desc}" "${your_device}")
 GETPIN
@@ -64,7 +64,7 @@ if [ ! -d "$SOURCE" ] || [ ! -b "$(backup_luks_device)" ]; then
 fi
 
 msg="$(gettext -s 'Do you want to back up your Persistent Storage now?\n\nThis will replace all data in the Persistent Storage of your backup Tails USB stick.\n\nThis will not update the version of Tails on your backup Tails USB stick. Use Tails Cloner to do so.')"
-if ! zenity --question --ellipsize --title "$title" --text "$msg" --ok-label "$(gettext -s 'Back Up')" --cancel-label "$(gettext -s 'Cancel')" ; then
+if ! zenity --question --ellipsize --title "$title" --text "$msg" --ok-label "$(gettext -s 'Back Up')" --cancel-label "$(gettext -s 'Cancel')"; then
     exit 1
 fi
 
@@ -74,8 +74,8 @@ if [ ! -d "${DEST}" ]; then
     else
         for _ in 1 2 3; do
             res="$(
-                pinentry_auth | \
-                LANG=C gio mount --device "$(backup_luks_device)" 2>&1 || :
+                pinentry_auth |
+                    LANG=C gio mount --device "$(backup_luks_device)" 2>&1 || :
             )"
             if [ -d "${DEST}" ]; then
                 break
@@ -91,18 +91,19 @@ if [ ! -d "${DEST}" ]; then
 fi
 
 # Run real backup command. This requires privileges.
-if sudo /usr/local/lib/tails-backup-rsync \
-        | tee /dev/stderr \
-        | zenity --progress --pulsate --auto-close --no-cancel
-then
+if sudo /usr/local/lib/tails-backup-rsync |
+    tee /dev/stderr |
+    zenity --progress --pulsate --auto-close --no-cancel; then
     # Ensure RAM buffers are written out
     echo "Synchronizing data on USB stick..."
-    sync; sync; sync
+    sync
+    sync
+    sync
     sleep 1
     echo "Done!"
     gio mount --eject "${DEST}"
     title="$(gettext -s 'Persistent Storage Backup Successful')"
-    msg="$(gettext -s '<b>Your Persistent Storage was backed up successfully to your backup Tails USB stick!</b>\n\nYou can now safely unplug your backup Tails USB stick.\n\nIf your backup Tails USB stick has an outdated version of Tails, we recommend you\nupdate it by cloning your current Tails using <i>Tails Cloner</i>.\n\nSee <a href="file:///usr/share/doc/tails/website/upgrade/clone.en.html#upgrade">manually upgrade from another Tails</a>.')"
+    msg="$(gettext -s '<b>Your Persistent Storage was backed up successfully to your backup Tails USB stick!</b>\n\nYou can now safely unplug your backup Tails USB stick.\n\nIf your backup Tails USB stick has an outdated version of Tails, we recommend you\nupdate it by cloning your current Tails using <i>Tails Cloner</i>.\n\nSee <a href="file:///usr/share/doc/tails/website/doc/upgrade/clone.en.html#upgrade">manually upgrade from another Tails</a>.')"
     zenity --info --ellipsize --title "$title" --text "$msg"
 else
     title="$(gettext -s 'Persistent Storage Backup Failed')"

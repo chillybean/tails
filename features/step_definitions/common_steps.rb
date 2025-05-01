@@ -124,7 +124,7 @@ def post_snapshot_restore_hook(snapshot_name, num_try)
     $vm.execute('systemctl stop tor@default.service')
     $vm.host_to_guest_time_sync
     already_synced_time_host_to_guest = true
-    wait_until_chutney_is_working unless config_bool('DISABLE_CHUTNEY')
+    wait_until_chutney_is_working unless @real_tor
     $vm.execute('systemctl start tor@default.service')
     wait_until_tor_is_working
   end
@@ -171,7 +171,7 @@ Then /^drive "([^"]+)" is detected by Tails$/ do |name|
 end
 
 Given /^the network is plugged$/ do
-  unless config_bool('DISABLE_CHUTNEY')
+  unless @real_tor
     wait_until_chutney_is_working
     begin
       finalize_simulated_Tor_network_configuration
@@ -246,6 +246,10 @@ end
 
 Given /^I set Tails to boot with options "([^"]*)"$/ do |options|
   @boot_options = options
+end
+
+Given /^I set Tails to run with real Tor network$/ do
+  @real_tor = true
 end
 
 When /^I start the computer$/ do
@@ -450,7 +454,7 @@ Given /^the computer (?:re)?boots Tails$/ do
   $vm.wait_until_remote_shell_is_up(5 * 60)
 
   post_vm_start_hook
-  configure_simulated_Tor_network unless config_bool('DISABLE_CHUTNEY')
+  configure_simulated_Tor_network unless @real_tor
 
   @early_boot_hooks&.each(&:call)
   RemoteShell::SignalReady.new($vm)
@@ -1034,7 +1038,8 @@ def launch_app(desktop_file_name, app_name, **options)
   # sessions apply to it.
   cmd = ['systemd-run', '--user',
          '--remain-after-exit',
-         'gtk-launch', desktop_file_name,].join(' ')
+         '/usr/local/bin/gtk-abspath-launch',
+         "/usr/share/applications/#{desktop_file_name}",].join(' ')
   $vm.execute(cmd, **options)
 
   unless options[:check_started]
@@ -1213,19 +1218,11 @@ When /^I press the "([^"]+)" key$/ do |key|
   @screen.press(key)
 end
 
-Then /^the (amnesiac|persistent) (.*) directory (exists|does not exist)$/ do |persistent_or_not, directory, mode|
-  case persistent_or_not
-  when 'amnesiac'
-    dir = "/home/#{LIVE_USER}/"
-  when 'persistent'
-    dir = "/home/#{LIVE_USER}/Persistent/"
-  end
-  dir += directory
-  step "the directory \"#{dir}\" #{mode}"
+Then /^the live user's (.*) directory (exists|does not exist)$/ do |directory, mode|
+  step "the directory \"/home/#{LIVE_USER}/#{directory}\" #{mode}"
 end
 
-Then /^there is a GNOME bookmark for the (amnesiac|persistent) (.*) directory$/ do |persistent_or_not, bookmark|
-  bookmark += ' (persistent)' if persistent_or_not == 'persistent'
+Then /^there is a GNOME bookmark for the (.*) directory$/ do |bookmark|
   open_gnome_places_menu
   Dogtail::Application.new('gnome-shell').child(bookmark, roleName: 'label')
   @screen.press('Escape')
@@ -1535,7 +1532,7 @@ def reload_code(path_glob)
   # identical pattern. So we enable cucumber's --guess option which
   # we have monkeypatched to use the last (loaded) definition.
   $cucumber_options[:guess] = true
-  # This will enable the monkeypatch handling step redifinitions
+  # This will enable the monkeypatch handling step redefinitions
   $cucumber_options[:redefine_steps] = true
   # Some tests (e.g. those tagged @source) change the current working
   # directory so the glob below finds nothing unless we restore it to

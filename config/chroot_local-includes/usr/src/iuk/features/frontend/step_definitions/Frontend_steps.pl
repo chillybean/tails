@@ -141,7 +141,7 @@ Given qr{^the system has not enough free memory to install this incremental upgr
     );
 };
 
-Given qr{^a HTTPS server with a valid SSL certificate$}, fun ($c) {
+Given qr{^an HTTPS server with a valid SSL certificate$}, fun ($c) {
     $c->{stash}->{scenario}->{server}->{https_port} = 40000 + int(rand(10000));
     ok(defined $c->{stash}->{scenario}->{server}->{https_port});
 

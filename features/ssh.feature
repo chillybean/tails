@@ -12,7 +12,7 @@ Feature: Logging in via SSH
     Given I monitor the network connections of SSH
     And I have the SSH key pair for an SSH server
     When I connect to an SSH server on the Internet
-    Then I have sucessfully logged into the SSH server
+    Then I have successfully logged into the SSH server
     And I see that SSH is properly stream isolated
 
   @check_tor_leaks

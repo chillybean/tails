@@ -196,7 +196,7 @@ unless defined? SCENARIO_INDENT
     # Cucumber may read this file multiple times, and hence run this
     # AfterConfiguration hook multiple times. We only want our
     # ExtraHooks formatter to be loaded once, otherwise the hooks would
-    # be run miltiple times.
+    # be run multiple times.
     extra_hooks = [
       ['ExtraFormatters::ExtraHooks', '/dev/null'],
       ['Cucumber::Formatter::Pretty', "#{ARTIFACTS_DIR}/pretty.log"],

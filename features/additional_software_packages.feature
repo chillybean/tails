@@ -2,7 +2,7 @@
 
 Feature: Additional software
   As a Tails user
-  I may want to install softwares not shipped in Tails
+  I may want to install software not shipped in Tails
   And have them installed automatically when I enable persistence in the Greeter
 
   # An issue with this feature is that scenarios depend on each

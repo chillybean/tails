@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2024-04-05 11:23+0000\n"
-"PO-Revision-Date: 2025-02-24 23:58+0000\n"
+"POT-Creation-Date: 2025-06-24 16:26-0600\n"
+"PO-Revision-Date: 2025-06-27 17:01+0000\n"
 "Last-Translator: victor dargallo <victordargallo@disroot.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ca\n"
@@ -126,12 +126,10 @@ msgstr ""
 "signatura de Tails."
 
 #. type: Bullet: '1. '
-msgid ""
-"Import the Tails signing key in your <span class=\"application\">GnuPG</"
-"span> keyring:"
-msgstr ""
-"Importeu la clau de signatura de Tails al vostre anell de claus <span "
-"class=\"application\">GnuPG</span>:"
+#, fuzzy
+#| msgid "Certify the Tails signing key with your own key:"
+msgid "Import the Tails signing key in your *GnuPG* keyring:"
+msgstr "Certifiqueu la clau de signatura de Tails amb la vostra pròpia clau:"
 
 #. type: Plain text
 #, no-wrap
@@ -268,9 +266,7 @@ msgstr "Baixeu la imatge USB:"
 #. type: Plain text
 #, no-wrap
 msgid "   <p class=\"command\">wget --continue [[!inline pages=\"inc/stable_amd64_img_url\" raw=\"yes\" sort=\"age\"]]</p>\n"
-msgstr ""
-"   <p class=\"command\">wget --continue [[!inline pages=\"inc/"
-"stable_amd64_img_url\" raw=\"yes\" sort=\"age\"]]</p>\n"
+msgstr "   <p class=\"command\">wget --continue [[!inline pages=\"inc/stable_amd64_img_url\" raw=\"yes\" sort=\"age\"]]</p>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -379,8 +375,23 @@ msgstr "Connecteu el llapis USB on voleu instal·lar Tails."
 
 #. type: Plain text
 #, no-wrap
-msgid "   <div class=\"caution\"><p>All the data on this USB stick will be lost.</p></div>\n"
-msgstr "   <div class=\"caution\"><p>Totes les dades d'aquest llapis USB es perdran.</p></div>\n"
+msgid "   <div class=\"caution\">\n"
+msgstr "   <div class=\"caution\">\n"
+
+#. type: Plain text
+#, no-wrap
+msgid "   <p>All the data on this USB stick will be lost.</p>\n"
+msgstr "   <p>Totes les dades d'aquest llapis USB es perdran.</p>\n"
+
+#. type: Plain text
+#, no-wrap
+msgid "   <p>Some data might still be recovered using advanced forensics tools.</p>\n"
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid "   </div>\n"
+msgstr "   </div>\n"
 
 #. type: Bullet: '1. '
 msgid "Execute again the same command:"
@@ -500,11 +511,6 @@ msgstr "   <p class=\"command-example\">dd if=<span class=\"command-placeholder\
 
 #. type: Plain text
 #, no-wrap
-msgid "   </div>\n"
-msgstr "   </div>\n"
-
-#. type: Plain text
-#, no-wrap
 msgid "   The installation is complete after the command prompt reappears.\n"
 msgstr "   La instal·lació s'haurà completat un cop torni a aparèixer l'indicador d'ordres.\n"
 
@@ -517,6 +523,13 @@ msgstr "[[!inline pages=\"install/inc/steps/restart_first_time.inline.ca\" raw=\
 #, no-wrap
 msgid "[[!inline pages=\"install/inc/steps/welcome.inline\" raw=\"yes\" sort=\"age\"]]\n"
 msgstr "[[!inline pages=\"install/inc/steps/welcome.inline.ca\" raw=\"yes\" sort=\"age\"]]\n"
+
+#~ msgid ""
+#~ "Import the Tails signing key in your <span class=\"application\">GnuPG</"
+#~ "span> keyring:"
+#~ msgstr ""
+#~ "Importeu la clau de signatura de Tails al vostre anell de claus <span "
+#~ "class=\"application\">GnuPG</span>:"
 
 #, no-wrap
 #~ msgid ""

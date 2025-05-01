@@ -2,23 +2,23 @@
 
 [[!toc levels=2]]
 
-Introduction to <span class="application">VeraCrypt</span>
+Introduction to *VeraCrypt*
 ==========================================================
 
-<span class="application">[VeraCrypt](https://www.veracrypt.fr/)</span> is a
+*[VeraCrypt](https://www.veracrypt.fr/)* is a
 disk encryption tool that works on Windows, macOS, and Linux.
 
-Comparison between <span class="application">LUKS</span> and <span class="application">VeraCrypt</span>
+Comparison between *LUKS* and *VeraCrypt*
 -------------------------------------------------------------------------------------------------------
 
-You can also create and open <span class="application">LUKS</span>
-encrypted volumes in Tails. <span class="application">LUKS</span> is the
+You can also create and open *LUKS*
+encrypted volumes in Tails. *LUKS* is the
 standard for disk encryption in Linux. [[See our documentation about
-<span class="application">LUKS</span>.|encrypted_volumes]]
+*LUKS*.|encrypted_volumes]]
 
 [[!inline pages="doc/encryption_and_privacy/luks_vs_veracrypt.inline" raw="yes" sort="age"]]
 
-To create new <span class="application">VeraCrypt</span> volumes, do so
+To create new *VeraCrypt* volumes, do so
 outside of Tails. See the step-by-step guides by Security-in-a-Box on
 [VeraCrypt for Windows](https://securityinabox.org/en/tools/veracrypt/).
 
@@ -27,7 +27,7 @@ outside of Tails. See the step-by-step guides by Security-in-a-Box on
 Difference between file containers and partitions
 -------------------------------------------------
 
-With <span class="application">VeraCrypt</span> you can store your files
+With *VeraCrypt* you can store your files
 encrypted in two different kinds of *volumes*:
 
 <h3>File containers</h3>
@@ -56,34 +56,34 @@ But, drives can also be split into several partitions.
 Unlocking parameters
 --------------------
 
-To unlock a <span class="application">VeraCrypt</span> volume, you might need
+To unlock a *VeraCrypt* volume, you might need
 the following parameters, depending on the options that were selected when the
 volume was created:
 
 - **Passphrase**
 
 - **Keyfiles**: instead of or in addition to the passphrase, a
-  <span class="application">VeraCrypt</span> volume can be unlocked using a
+  *VeraCrypt* volume can be unlocked using a
   particular file or set of files.
 
-  [See the <span class="application">VeraCrypt</span> documentation on
+  [See the *VeraCrypt* documentation on
   keyfiles.](https://www.veracrypt.fr/en/Keyfiles.html)
 
 - **PIM**: a number that is needed if it was specified when creating the
-  <span class="application">VeraCrypt</span> volume.
+  *VeraCrypt* volume.
 
-  [See the <span class="application">VeraCrypt</span> documentation on
+  [See the *VeraCrypt* documentation on
   PIM.](https://www.veracrypt.fr/en/Personal%20Iterations%20Multiplier%20\(PIM\).html)
 
 - **Hidden volume**: if you want to unlock the hidden volume inside the
-  <span class="application">VeraCrypt</span> volume.
+  *VeraCrypt* volume.
 
-  [See the <span class="application">VeraCrypt</span> documentation on hidden
+  [See the *VeraCrypt* documentation on hidden
   volumes.](https://www.veracrypt.fr/en/Hidden%20Volume.html)
 
 - **System volume**: if you want to unlock an encrypted Windows system partition.
 
-  [See the <span class="application">VeraCrypt</span> documentation on
+  [See the *VeraCrypt* documentation on
   encrypting a Windows system partition.](https://www.veracrypt.fr/en/System%20Encryption.html)
 
 Using a file container
@@ -97,12 +97,9 @@ Unlocking a file container without keyfiles
 -------------------------------------------
 
 1. Choose
-   <span class="menuchoice">
-     <span class="guimenu">Applications</span>&nbsp;▸
-     <span class="guisubmenu">Utilities</span>&nbsp;▸
-     <span class="guisubmenuitem">Unlock VeraCrypt Volumes</span></span>.
+   **Applications&nbsp;▸ Utilities&nbsp;▸ Unlock VeraCrypt Volumes**.
 
-1. Click <span class="bold">Add</span> and choose the file container
+1. Click **Add** and choose the file container
    that you want to unlock.
 
 1. Enter the parameters to unlock the volume. For more information, see
@@ -110,14 +107,14 @@ Unlocking a file container without keyfiles
 
 1. Click **Unlock**.
 
-   <span class="application">Unlock VeraCrypt Volumes</span> unlocks your volume.
+   *Unlock VeraCrypt Volumes* unlocks your volume.
 
    If unlocking the volume fails (for example, if you mistyped the
-   password), click on <span class="bold">Unlock</span> to try
+   password), click on **Unlock** to try
    unlocking again.
 
-1. Click <span class="bold">Open</span> to open the volume in the
-   <span class="application">Files</span> browser.
+1. Click **Open** to open the volume in the
+   *Files* browser.
 
 <a id="container-disks"></a>
 
@@ -125,31 +122,28 @@ Unlocking a file container with keyfiles
 ----------------------------------------
 
 1. Choose
-   <span class="menuchoice">
-     <span class="guimenu">Applications</span>&nbsp;▸
-     <span class="guisubmenu">Utilities</span>&nbsp;▸
-     <span class="guisubmenuitem">Disks</span></span>
-   to start the <span class="application">Disks</span> utility.
+   **Applications&nbsp;▸ Utilities&nbsp;▸ Disks**
+   to start the *Disks* utility.
 
 1. Choose **[[!img lib/open-menu.png alt="" class=symbolic link="no"]]&nbsp;▸
    Attach Disk Image&hellip;** from the top navigation bar.
 
-1. In the <span class="bold">Select Disk Image to Attach</span> dialog:
+1. In the **Select Disk Image to Attach** dialog:
 
-   - Unselect the <span class="guilabel">Set up read-only loop device</span>
+   - Unselect the **Set up read-only loop device**
      check box in the bottom-left corner if you want to modify the content of
      the file container.
 
      [[!img read-only.png link="no" class="screenshot" alt=""]]
 
-   - Choose <span class="guilabel">All Files</span> in the file filter in the
+   - Choose **All Files** in the file filter in the
      bottom-right corner.
 
      [[!img all-files.png link="no" class="screenshot" alt=""]]
 
    - Navigate to the folder containing the file container that you want to open.
 
-   - Select the file container and click <span class="bold">Attach</span>.
+   - Select the file container and click **Attach**.
 
    An authentication dialog appears.
 

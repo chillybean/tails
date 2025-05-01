@@ -47,7 +47,7 @@ class WhisperBackBackend:
     """
 
     def set_contact_email(self, email):
-        """Sets an optional email address to be used for furether communication"""
+        """Sets an optional email address to be used for further communication"""
 
         LOG.debug("Setting contact email")
         if whisperBack.utils.is_valid_email(email):
@@ -60,7 +60,7 @@ class WhisperBackBackend:
     contact_email = property(lambda self: self._contact_email, set_contact_email)
 
     def set_contact_gpgkey(self, gpgkey):
-        """Sets an optional PGP key to be used for furether communication"""
+        """Sets an optional PGP key to be used for further communication"""
 
         LOG.debug("Setting PGP key")
         if (
@@ -232,19 +232,19 @@ class WhisperBackBackend:
         Execute the function `func` with arguments `args` in another thread,
         and poll whether the thread is alive, executing the callback
         `progress_callback` every `polling_frequency`. When the function
-        thread terminates, saves the execption it eventually raised and pass
+        thread terminates, saves the exception it eventually raised and pass
         it to `finished_callback`.
 
         @param func               the function to execute.
         @param args               the tuple to pass as arguments to `func`.
         @param progress_callback  (optional) a callback function to call
                                   every time the execution thread is polled.
-                                  It doesn't take any agument.
+                                  It doesn't take any argument.
         @param finished_callback  (optional) a callback function to call when
                                   the execution thread terminated. It receives
                                   the exception raised by `func`, if any, or
                                   None.
-        @param polling_freq       (optional) the interal between polling
+        @param polling_freq       (optional) the interval between polling
                                   iterations (in ms).
         """
 
@@ -277,7 +277,7 @@ class WhisperBackBackend:
     def get_message_body(self):
         """Returns the content of the message body
 
-        Aggregate all informations to prepare the message body.
+        Aggregate all information to prepare the message body.
         """
         LOG.debug("Creating message body")
         body = "Subject: %s\n" % self.subject

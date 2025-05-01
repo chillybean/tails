@@ -293,18 +293,44 @@ def convert_from_bytes(size, unit)
   size.to_f / convert_bytes_mod(unit)
 end
 
-def cmd_helper(cmd, env: {})
+# Raised when cmd_helper() ran a command that exited with non-zero
+# status
+class CommandFailed < StandardError
+  attr_reader :command_output
+
+  def initialize(message, command_output)
+    super(message)
+    @command_output = command_output
+  end
+end
+
+def cmd_helper(cmd, env: {}, print_output: false, output_in_exception: true)
+  # print_output will print the output *as it arrives*; which implies it will be printed
+  # also for successful commands. Setting this to true might be useful if you want to
+  # debug a long-running command which prints useful information as it runs
+  # output_in_exception will include the command output in the exception
   if cmd.instance_of?(Array)
     cmd << { err: [:child, :out] }
   elsif cmd.instance_of?(String)
     cmd += ' 2>&1'
   end
   env = ENV.to_h.merge(env)
+  out = ''
   IO.popen(env, cmd) do |p|
-    out = p.read
+    loop do
+      line = p.readline
+      out += line
+      print(line) if print_output
+    rescue EOFError
+      break
+    end
     Process.wait(p.pid)
     ret = $CHILD_STATUS
-    assert_equal(0, ret, "Command failed (returned #{ret}): #{cmd}:\n#{out}")
+    if ret.exitstatus != 0
+      message = "Command failed (#{ret}): #{cmd}"
+      message += ":\n#{out}" if output_in_exception
+      raise CommandFailed.new(message, out)
+    end
     return out
   end
 end
@@ -317,7 +343,8 @@ def all_tor_hosts
   chutney_torrcs.each do |torrc|
     File.open(torrc) do |f|
       nodes += f.grep(/^(Or|Dir)Port\b/).map do |line|
-        { address: $vmnet.bridge_ip_address.to_s, port: line.split.last.to_i }
+        { address: $vmnet.bridge_ip_address.to_s,
+          port:    line.split.last.split(':').last.to_i, }
       end
     end
   end

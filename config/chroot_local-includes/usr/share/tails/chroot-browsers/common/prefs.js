@@ -10,6 +10,8 @@ user_pref("browser.newtabpage.directory.source", "");
 user_pref("browser.newtabpage.directory.ping", "");
 // ... and disable the explanation shown the first time
 user_pref("browser.newtabpage.introShown", true);
+// ... and ensure we don't display the contents of about:tor in non-Tor browsers
+user_pref("browser.newtabpage.enabled", false);
 
 // Disable another "phone home" feature that generates automatic traffic
 user_pref("services.settings.server", "");

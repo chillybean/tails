@@ -2,7 +2,7 @@ Authority = Node(
     tag="auth",
     authority=1,
     relay=1,
-    torrc="authority.tmpl"
+    info_log=0,
 )
 
 BridgeAuthority = Node(
@@ -10,50 +10,54 @@ BridgeAuthority = Node(
     authority=1,
     bridgeauthority=1,
     relay=1,
-    torrc="bridgeauthority.tmpl"
+    info_log=0,
 )
 
 NonExitRelay = Node(
     tag="relay",
     relay=1,
-    torrc="relay-non-exit.tmpl"
+    info_log=0,
 )
 
 ExitRelay = Node(
     tag="relay",
     relay=1,
     exit=1,
-    torrc="relay.tmpl"
+    info_log=0,
 )
 
 Client = Node(
     tag="client",
     client=1,
-    torrc="client.tmpl"
+    info_log=0,
 )
 
 Bridge = Node(
     tag="bridge",
     bridge=1,
     relay=1,
-    torrc="bridge.tmpl"
+    info_log=0,
 )
 
 BridgeObfs4 = Node(
     tag="obfs4",
     bridge=1,
+    pt_bridge=1,
     relay=1,
-    torrc="bridge-obfs4.tmpl"
+    pt_transport="obfs4",
+    info_log=0,
 )
 
 BridgeDefault = Node(
     tag="defbr",
     bridge=1,
+    pt_bridge=1,
     relay=1,
-    torrc="bridge-obfs4.tmpl"
+    pt_transport="obfs4",
+    info_log=0,
 )
 
-NODES = Authority.getN(3) + \
+NODES = Authority.getN(4) + \
         BridgeAuthority.getN(1) + \
         NonExitRelay.getN(10) + \
         ExitRelay.getN(5) + \

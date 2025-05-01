@@ -95,7 +95,7 @@ class TailsInstallerCreator:
     source = None  # the object representing our live source image
     label = CONFIG["branding"]["partition_label"]  # if one doesn't exist
     fstype = None  # the format of our usb stick
-    overlay = 0  # size in mb of our persisten overlay
+    overlay = 0  # size in mb of our persistent overlay
     dest = None  # the mount point of of our selected drive
     uuid = None  # the uuid of our selected drive
     output = StringIO()  # log subprocess output in case of errors
@@ -197,7 +197,7 @@ class TailsInstallerCreator:
         self, obj: UDisks.Object, force_partitions=False
     ) -> Optional[dict]:
         """
-        Returns a dictionarty containing our own description of a udisk object
+        Returns a dictionary containing our own description of a udisk object
         """
         block = obj.props.block
         self.log.debug("looking at %s", obj.get_object_path())
@@ -1198,7 +1198,7 @@ class TailsInstallerCreator:
         More details on this can be found here:
             http://syslinux.zytor.com/doc/usbkey.txt
         """
-        self.log.info("Initializing %s in a zip-like fashon" % self._drive)
+        self.log.info("Initializing %s in a zip-like fashion" % self._drive)
         heads = 64
         cylinders = 32
         self.popen(

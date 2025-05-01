@@ -6,6 +6,9 @@ echo "Make sure we install the required custom Tails packages"
 
 # The following packages must be custom Tails versions, which currently is determined by ".0tails" being a substring of the version.
 TAILS_PACKAGES="
+flatpak
+gnome-settings-daemon
+gnome-shell
 network-manager
 "
 
@@ -14,7 +17,7 @@ package_version() {
 }
 
 tails_package_installed() {
-    package_version "${1}" | grep -q "\.0tails"
+    package_version "${1}" | grep -q --extended-regexp '([.]0|[+])tails[0-9]+$'
 }
 
 errors=
@@ -26,7 +29,7 @@ done
 
 if [ -n "${errors}" ]; then
     echo "These packages were expected to be custom Tails versions," \
-         "but are not:" >&2
+        "but are not:" >&2
     for p in ${errors}; do
         echo " - ${p} ($(package_version "${p}"))" >&2
     done
