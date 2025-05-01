@@ -15,7 +15,7 @@ torBlogDir="content/blog/new-release-tails-${VERSION//./_}"
 mkdir -p "$torBlogDir"
 cd "$torBlogDir"
 mv "${TOR_BLOG_FILE}" contents.lr
-ln -s ../../../assets/static/images/blog/tails.jpeg lead.jpg && \
+ln -s ../../../assets/static/images/blog/tails.jpeg lead.jpg &&
     git add lead.jpg
 git add contents.lr
 git commit -m "Announce Tails ${VERSION}"
