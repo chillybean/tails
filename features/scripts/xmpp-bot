@@ -91,6 +91,11 @@ if __name__ == '__main__':
                       log_file=args.log_file)
     try:
         otr_bot.connect()
-        otr_bot.process()
+        try:
+            otr_bot.process()
+        except AttributeError:
+            # Handle recent versions of slixmpp
+            import asyncio
+            asyncio.get_event_loop().run_forever()
     except KeyboardInterrupt:
         otr_bot.disconnect()
