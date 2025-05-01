@@ -69,12 +69,8 @@ When /^I (try to )?start the Unsafe Browser$/ do |try_to|
   launch_unsafe_browser(check_started: !try_to)
 end
 
-When /^I successfully start the Unsafe Browser(?: in "([^"]+)")?$/ do |lang_code|
+When /^I successfully start the Unsafe Browser$/ do
   step 'I start the Unsafe Browser'
-  if lang_code && lang_code == 'en'
-    step 'I see the "Starting the Unsafe Browser..." notification ' \
-         'after at most 60 seconds'
-  end
   step 'the Unsafe Browser has started'
 end
 
@@ -124,8 +120,7 @@ def unsafe_browser_application_info(defaults)
   binary = $vm.execute_successfully(
     'echo ${TBB_INSTALL}/firefox.unsafe-browser', libs: 'tor-browser'
   ).stdout.chomp
-  cmd_regex = "#{binary} .* " \
-              "--profile /home/#{user}/\.unsafe-browser/profile\.default"
+  cmd_regex = "#{binary} --profile /home/#{user}/\.unsafe-browser/profile\.default"
   defaults.merge(
     {
       user:,
@@ -621,9 +616,9 @@ end
 Then /^the Tor Browser restarts into a fresh session$/ do
   step 'the Tor Browser loads the startup page'
 
-  # Check that there is only one tab (the startup page). We search for
-  # 'document web' nodes to detect tabs because each tab (and only them)
-  # has its own 'document web' node.
-  tabs = @torbrowser.children(roleName: 'document web', showingOnly: false)
+  # Check that there is only one tab (the startup page)
+  tabs = @torbrowser.child('Browser tabs', roleName: 'tool bar')
+                    .child(roleName: 'page tab list')
+                    .children(roleName: 'page tab', showingOnly: false)
   assert_equal(1, tabs.size)
 end
