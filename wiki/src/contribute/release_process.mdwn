@@ -451,9 +451,14 @@ and commit the result, including new PO files:
 If `lint_po` complains:
 
 * rollback the offending PO files and retry; worst case, delete it
-* send a note to <tails-l10n@boum.org> [public] so that they get in touch with
-  whoever can fix them.
-
+* locate the buggy strings in [Weblate](https://hosted.weblate.org/projects/tor/tails-gui/) and:
+  1. Set their status to *Needs editing*. As a consequence, Weblate will mark
+     the string as fuzzy and our QA tooling will stop complaining when we import it.
+  2. Consider adding a comment or suggestion for translators in Weblate.
+  3. Take a note to come back to it after the release, and then:
+     consider adding a screenshot or a `Translators:` comment in the source code,
+     ([[!tails_ticket 20410]]), to lower the risk that other translators
+     make the same mistake in the future.
 
 Regenerate the localization list:
 
@@ -794,7 +799,7 @@ after you went through the *Freeze* section:
 3. Redo the steps that were invalidated.
 
    Note: many of these steps are not idempotent, so in some cases you'll need to
-   do something smarter than following the instructions is-is a second time.
+   do something smarter than following the instructions as-is a second time.
 
 4. Close the full copy of the release process that you have used for
    this section.
@@ -918,7 +923,7 @@ Jenkins workers.
    one to be safe.
 
 1. Make sure the Jenkins build is right: you can recognize this is the case,
-   when you see Jenkins starts building the website (which should happen in
+   when you see Jenkins start building the website (which should happen in
    \~2-3 minutes, at least on `dragon` and `iguana`). Jenkins will take
    20-65 minutes to complete the build, depending on the `isoworkerN`
    that is used.

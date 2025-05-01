@@ -62,21 +62,18 @@ folder in your <i>Home</i> folder or Persistent Storage.</p>
 
 </div>
 
-Still, some file operations are not allowed in *Tor Browser*:
-
-- When opening HTML files from the *Files* browser, *Tor Browser* displays the
-  following error:
-
-      File not found
-
-- When opening files in the `/usr` folder from *Tor Browser*, *Tor Browser*
-  displays the following error:
-
-      Access to the file was denied
-
 This confinement relies on 2 security technologies: *[[!debwiki AppArmor]]* and
 the [XDG Desktop Portals](https://flatpak.github.io/xdg-desktop-portal/) of
 *Flatpak*.
+
+<div class="bug">
+
+<p>When opening files from the <i>/usr</i> or <i>/etc</i> folders in Tor
+Browser, Tor Browser displays the following error:</p>
+
+<p class="command">Access to the file was denied</p>
+
+</div>
 
 <h1 id="fingerprint">Hiding that you are using <i>Tor Browser</i></h1>
 
