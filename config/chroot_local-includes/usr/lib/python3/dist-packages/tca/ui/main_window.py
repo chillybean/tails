@@ -603,7 +603,7 @@ class StepConnectProgressMixin:
                     not self.state["hide"]["hide"] and not self.state["hide"]["bridge"]
                 ) and not self.app.configurator.tor_connection_config.bridges:
                     log.info("Retrying with default bridges")
-                    self.get_object("box_tor_direct_fail").show()
+                    self.builder.get_object("step_progress_box_tor_direct_fail").show()
                     self.connection_progress.set_fraction(0.0, allow_going_back=True)
                     idle_add_chain(
                         [do_tor_connect_default_bridges, do_tor_connect_apply]
@@ -674,9 +674,6 @@ class StepConnectProgressMixin:
 
     def cb_step_progress_btn_starttbb_clicked(self, *args):
         self.app.portal.call_async("open-tbb", None)
-
-    def cb_step_progress_btn_reset_clicked(self, *args):
-        self.app.portal.call_async("tor/restart", None)
 
     def cb_step_progress_btn_monitor_clicked(self, *args):
         self.app.portal.call_async("open-networkmonitor", None)

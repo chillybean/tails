@@ -30,3 +30,9 @@ user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
 // Hide bookmarks toolbar
 user_pref("browser.toolbars.bookmarks.visibility", "never");
+
+// On Wayland, when starting the browser its window is resized so the
+// bottom part is outside of the screen
+// (https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/43693)
+// which we work around through this pref.
+pref("privacy.resistFingerprinting.letterboxing.rememberSize", true);

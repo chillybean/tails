@@ -13,10 +13,7 @@ this requirement slightly for practical purposes. :)
 
 1. The Release Manager (RM) is not evil! ♥
 
-2. A compromised RM system can block arbitrary outgoing communication
-   (e.g. email) so it cannot be trusted to initiate a check that's
-   precisely meant to verify whether said system is compromised (and
-   compromising our published products).
+2. RM's computer is trusted.
 
 3. RMs don't plug their smartcard in a computer outside of the release
    process.
@@ -25,7 +22,11 @@ this requirement slightly for practical purposes. :)
    other Tails stuff relies on this that we can't reasonably set the
    bar higher).
 
-5. An attacker publishing a compromised Tails needs to update the IDF,
+5. The attacker can push to tails.git but cannot force-push
+
+6. The attacker has write access to rsync.lizard
+
+7. An attacker publishing a compromised Tails needs to update the IDF,
    UDFs and/or detached signatures to our website, and possibly replace
    a Git tag. If this is done through Git, there's a much greater
    chance we notice it after of our release process than during it. (If
@@ -49,19 +50,7 @@ Here are our high-level goals and their rationales.
 
    * A reproducibility bug can be a symptom of another bug.
 
-2. Identify compromised RM system and/or Tails products ASAP
-
-   * Allow RMs to sleep better at night.
-
-   * Avoid letting users use a compromised Tails.
-
-   * OTOH, generally speaking, anything that has to be done in a tight
-     time frame is stressful. Specifically, steps that block the
-     release process are stressful because it's hard to predict when
-     one will need to be available to go through them. This has a big
-     impact on the "P" in "ASAP".
-
-3. Ensure what we've tested (QA) and reproduced matches what is
+2. Ensure what we've tested (QA) and reproduced matches what is
    published
 
 Furthermore, let's make the process _not_ depend on a few key persons
@@ -82,20 +71,7 @@ We do two reproducibility checks:
   - [[IUKs|contribute/release_process#reproducibility-sanity-check-iuk]]
     (not very useful at the moment since Jenkins doesn't build IUKs)
 
-* For Goals 2 and 3, we do
-  [[a second reproducibility check|contribute/release_process#reproducibility-final-check]]
-  by a trusted third-party (the Trusted Reproducer) after the RM
-  has unplugged their OpenPGP smart card; this implies that the
-  attacker must have had the compromised RM system sign compromised
-  data earlier, and then either publish the compromised product during
-  the confused release process time (when there's less chance for it
-  to be noticed) or later (and then they have a good chance to be
-  caught). This raises the bar for a successful attack a bit, although
-  it leaves a window during which users can download a compromised
-  Tails.
+* For Goal 2, we consistently monitor that IDFs and UDFs are legitimate:
 
-The rest of the time we're all careful about what's going on in the
-UDFs, IDFs, detached signatures and Git tags (this is not true
-anymore; [[!tails_ticket 20617]] will update these expectations).
-Of course, we should have monitoring of these things and alerts whenever they change
-([[!tails_ticket 20825]]).
+  - via automatic montitoring ([[!tails_ticket 20825 desc="not implemented yet"]])
+  - manually checking [[on a monthly basis|contribute/release_process/test]]
