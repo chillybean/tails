@@ -68,29 +68,36 @@ how we worked on these long-lasting improvements.
 
  - Our `sudo` configuration is now generated from a higher-level description,
    which has safer default settings and demands explanations when diverging
-   from them ([[!tails_mr 1979]]).
+   from them.
 
-   This will make it much harder to introduce vulnerabilities such as
-   [[!tails_ticket 19595]], [[!tails_ticket 20709]], and [[!tails_ticket
-   20710]].
+   Postmortem of OTF-003 ([[!tails_ticket 20711]] and [[!tails_mr 1979]])
 
  - Our CI now ensures that all included Tails-made Python executables run in
-   isolated mode ([[!tails_mr 1911]]).
+   isolated mode.
 
-   This defends against issues like [[!tails_ticket 20702]] and [[!tails_ticket 20744]].
+   Postmortem of OTF-002 ([[!tails_ticket 20719]] and [[!tails_mr 1911]])
 
  - Our CI now ensures that we don't write software that does unsafe `.desktop`
-   files lookup ([[!tails_mr 2040]]).
+   files lookup.
 
-   This defends against issues like [[!tails_ticket 20733]] and [[!tails_ticket 20745]].
+   This check already helped us solve 9 other instances of similar
+   vulnerabilities. ([[!tails_mr 2043]])
+
+   We will periodically audit our `onion-grater` configuration.
+
+   <!-- XXX: Where is this in GitLab? -->
+
+   Postmortem of OTF-004 ([[!tails_ticket 20817]] and [[!tails_mr 2040]])
 
  - While we prepare Tails N+1.0 based on next version of Debian,
    we will look for Perl code, included in the Tails image,
    that suspiciously modifies `@INC`.
 
-   This defends against issues like [[!tails_ticket 20701]].
+   Postmortem of OTF-001
 
- - We will periodically audit our `onion-grater` configuration.
+   <!-- XXX: Where is this in GitLab? -->
+
+   <!-- XXX: Mention https://gitlab.tails.boum.org/tails/tails-private/-/merge_requests/4/diffs? -->
 
 ## Policy & culture improvements
 
