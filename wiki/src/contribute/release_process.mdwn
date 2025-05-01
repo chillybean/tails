@@ -1919,7 +1919,7 @@ Skip this if you are not preparing a stable release.
 In order to announce the new Tails release on Tor blog post, you need to:
  - have a personal account on https://gitlab.torproject.org/tpo/web/blog
  - Have a checkout of https://gitlab.torproject.org/tpo/web/blog in
-   `${BLOG_CHECKOUT}`
+   `${TOR_BLOG_CHECKOUT}`
  - Check the
    [Tor
 documentation](https://gitlab.torproject.org/tpo/tpa/team/-/wikis/service/blog#how-to-write-a-new-blog-post-in-gitlab)
@@ -1941,7 +1941,7 @@ documentation](https://gitlab.torproject.org/tpo/tpa/team/-/wikis/service/blog#h
 
 - Prepare a *draft* merge request against the [Tor blog](https://gitlab.torproject.org/tpo/web/blog)
 
-        cd "${BLOG_CHECKOUT}"
+        cd "${TOR_BLOG_CHECKOUT}"
         git checkout main
         git pull
         git checkout -b "Tails-${VERSION}"
