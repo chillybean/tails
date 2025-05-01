@@ -1941,24 +1941,7 @@ documentation](https://gitlab.torproject.org/tpo/tpa/team/-/wikis/service/blog#h
 
 - Prepare a *draft* merge request against the [Tor blog](https://gitlab.torproject.org/tpo/web/blog)
 
-        cd "${TOR_BLOG_CHECKOUT}"
-        git checkout main
-        git pull
-        git checkout -b "Tails-${VERSION}"
-        torBlogDir="content/blog/new-release-tails-${VERSION//./_}"
-        mkdir -p "$torBlogDir"
-        cd "$torBlogDir"
-        mv "${torBlogFile}" contents.lr
-        ln -s ../../../assets/static/images/blog/tails.jpeg lead.jpg && \
-            git add lead.jpg
-        git add contents.lr
-        git commit -m "Announce Tails ${VERSION}"
-        git push \
-            -o merge_request.create \
-            -o merge_request.draft \
-            -o merge_request.title="Announce Tails ${VERSION}" \
-            --set-upstream origin HEAD
-
+        ./bin/create-tor-blog-mr "${TOR_BLOG_CHECKOUT}" "${VERSION}" "${torBlogFile}"
 
 Go wild!
 ========
