@@ -67,7 +67,7 @@ Get the timestamp from the `Valid-Until` field in the `Release` file
 for the old snapshot of that distribution, and compute the number of
 days between now and then:
 
-    old_url="https://time-based.snapshots.deb.tails.boum.org/torproject/dists/${DIST?:}/snapshots/${OLD_SERIAL?:}/Release"
+    old_url="https://time-based.snapshots.deb.tails.boum.org/torproject/dists/${DIST:?}/snapshots/${OLD_SERIAL:?}/Release"
     old_ts=$(date -d "$(wget -q $old_url -O- | awk '/^Valid-Until:/ {$1=""; print}')" +%s)
     now_ts=$(date +%s)
     echo "DAYS_FROM_NOW=$(((old_ts-now_ts)/(24*60*60)+1))"

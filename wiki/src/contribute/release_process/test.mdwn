@@ -15,31 +15,28 @@ many safeguards against releasing crap.
 Source
 --------
 
+To compare the to-be-released source code with previous version's one:
 
-Compare the to-be-released source code with previous version's one e.g.:
+1. Boot the most recent version of Tails we've already released and find the commit it was build from, using the `tails-version` command. Set `OLD_IMAGE_COMMIT` to this value.
 
-Boot the candidate image and find the commit it was build from with the
-`tails-version` command.
+2. Boot the candidate image and find the commit it was build from, using the `tails-version` command. Set `CANDIDATE_IMAGE_COMMIT` to this value.
 
-Then, from the source tree, see the diff:
+3. Then, from the source tree, see the diff:
 
-	git diff --find-renames <old image commit>..<candidate image commit> -- '*' ':!config/binary_rootfs/squashfs.sort' ':!po' ':!wiki'
+         git diff --find-renames "${OLD_IMAGE_COMMIT:?}".."${CANDIDATE_IMAGE_COMMIT:?}" -- '*' ':!config/binary_rootfs/squashfs.sort' ':!po' ':!wiki'
 
-e.g. `git diff --find-renames 334e1c485a3a79be9fff899d4dc9d2db89cdc9e1..cfbde80925fdd0af008f10bc90c8a91a578c58e3`
-
-
-Changes to IDF and UDF
+Changes to IDF and UDFs
 ------------------------
 
-The purpose of this check is to monitor if, during the _last_ development cycle, in particular outside of the release process, an attacker modified IDFs or
+The purpose of this check is to monitor if, during the _last_ development cycle, in particular outside of the release process, an attacker modified the IDF or
 UDFs in order to serve malicious images.
 
     git log --pretty=medium --shortstat ${PREVIOUS_VERSION}..${VERSION} -- wiki/src/install/v2/Tails/amd64/stable/latest.json wiki/src/upgrade/v2/
 
-You should expect the only changes to have happened during the release process of `${PREVIOUS_VERSION}` (ie:
+You should expect the only changes to have happened during the release process of `${PREVIOUS_VERSION}` (i.e.:
 shortly after the tag).
 
-In a typical scenario, exactly 4 messages are present:
+In a typical scenario, exactly 4 commits are present:
  - Remove UDFs for versions we'll never release
  - Update IDF for download verification
  - Add incremental upgrades on the test channel for Tails `${PREVIOUS_VERSION}`
