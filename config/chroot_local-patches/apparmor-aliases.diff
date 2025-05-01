@@ -22,11 +22,15 @@ diff -Naur /etc/apparmor.d.orig/abstractions/base /etc/apparmor.d/abstractions/b
    /{usr/,}lib/@{multiarch}/**.so*   mr,
    /{usr/,}lib/tls/i686/{cmov,nosegneg}/*.so*    mr,
    /{usr/,}lib/i386-linux-gnu/tls/i686/{cmov,nosegneg}/*.so*    mr,
-diff -Naur /etc/apparmor.d.orig/abstractions/ubuntu-helpers /etc/apparmor.d/abstractions/ubuntu-helpers
---- a/etc/apparmor.d/abstractions/ubuntu-helpers	2025-04-02 16:15:24.000000000 +0000
-+++ b/etc/apparmor.d/abstractions/ubuntu-helpers	2025-04-15 15:01:54.789739774 +0000
-@@ -55,7 +55,8 @@
-   /{usr/,usr/local/,}{bin,sbin}/* Pixr,
+diff -Naur /etc/apparmor.d/abstractions.orig/ubuntu-helpers /etc/apparmor.d/abstractions/ubuntu-helpers
+--- /etc/apparmor.d/abstractions.orig/ubuntu-helpers	2025-04-10 15:06:25.000000000 +0000
++++ /etc/apparmor.d/abstractions/ubuntu-helpers	2025-05-01 12:00:17.520861277 +0000
+@@ -52,10 +52,11 @@
+ 
+   # Allow exec of anything, but under this profile. Allow transition
+   # to other profiles if they exist.
+-  /{usr/,usr/local/,}{bin,sbin}/* Pixr,
++  /{usr/,usr/local/,}{bin,sbin}/{[^hu],h[^p],hp[^i],hpi[^j],hpij[^s],u[^n],un[^i],uni[^x],unix[^_],unix_[^c],unix_c[^h],unix_ch[^k],unix_chk[^p],unix_chkp[^w],unix_chkpw[^d]}* Pixr,
  
    # Allow exec of libexec applications in /usr/lib* and /usr/local/lib*
 -  /usr/{,local/}lib*/{,**/}* Pixr,
@@ -46,7 +50,13 @@ diff -Naur /etc/apparmor.d.orig/abstractions/ubuntu-helpers /etc/apparmor.d/abst
    /opt/google/chrome{,-beta,-unstable}/chrome-sandbox PUxr,
    /opt/google/chrome{,-beta,-unstable}/google-chrome Pixr,
    /opt/google/chrome{,-beta,-unstable}/chrome Pixr,
-@@ -90,7 +91,8 @@
+@@ -85,12 +86,13 @@
+ 
+   # Allow running snap applications
+   # https://bugs.launchpad.net/apparmor/+bug/2095872
+-  /usr/bin/snap ux,
++  # /usr/bin/snap ux,
+ 
    # Full access
    / r,
    /** rwkl,
