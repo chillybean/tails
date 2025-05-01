@@ -2,7 +2,6 @@
 
 import argparse
 import hashlib
-import io
 import logging
 from pathlib import Path
 import re
@@ -10,9 +9,9 @@ import shlex
 import subprocess
 import sys
 import tempfile
-from xdg.BaseDirectory import xdg_config_home  # type: ignore
-from voluptuous import Any, Schema  # type: ignore
-from voluptuous.validators import (  # type: ignore
+from xdg.BaseDirectory import xdg_config_home
+from voluptuous import Any, Schema
+from voluptuous.validators import (
     And,
     Date,
     IsDir,
@@ -97,7 +96,7 @@ def git_repo_root():
     """Returns the root of the current Git repository as a Path object"""
     return Path(
         subprocess.check_output(
-            ["git", "rev-parse", "--show-toplevel"], encoding="utf8"
+            ["/usr/bin/git", "rev-parse", "--show-toplevel"], encoding="utf8"
         ).rstrip("\n")
     )
 
@@ -105,7 +104,7 @@ def git_repo_root():
 def sha256_file(filename):
     """Returns the hex-encoded SHA256 hash of FILENAME"""
     sha256 = hashlib.sha256()
-    with io.open(filename, mode="rb") as input_fd:
+    with open(filename, mode="rb") as input_fd:
         content = input_fd.read()
         sha256.update(content)
     return sha256.hexdigest()
@@ -117,8 +116,9 @@ class Config:
     def __init__(self, stage: str):
         self.stage = stage
         self.config_files = [
-            git_repo_root() / "config/release_management/defaults.yml"
-        ] + list((Path(xdg_config_home) / "tails/release_management").glob("*.yml"))
+            git_repo_root() / "config/release_management/defaults.yml",
+            *list((Path(xdg_config_home) / "tails/release_management").glob("*.yml")),
+        ]
         self.data = self.load_config_files()
         self.data.update(self.generate_config())
         log.debug("Configuration:\n%s", self.data)
@@ -132,7 +132,7 @@ class Config:
         data = {}
         for config_file in self.config_files:
             log.debug("Loading %s", config_file)
-            data.update(yaml.safe_load(open(config_file, "r")))
+            data.update(yaml.safe_load(open(config_file)))
         return data
 
     def generate_config(self):
@@ -171,10 +171,10 @@ class Config:
         }
         if self.stage == "built-iuks":
             iso_path = Path(self.data["isos"]) / (
-                "tails-amd64-%s/tails-amd64-%s.iso" % (version, version)
+                f"tails-amd64-{version}/tails-amd64-{version}.iso"
             )
             img_path = Path(self.data["isos"]) / (
-                "tails-amd64-%s/tails-amd64-%s.img" % (version, version)
+                f"tails-amd64-{version}/tails-amd64-{version}.img"
             )
             generated_config.update(
                 {
@@ -214,8 +214,7 @@ class Config:
         return (
             "\n".join(
                 [
-                    "export %(key)s=%(val)s"
-                    % {"key": k.upper(), "val": shlex.quote(str(v))}
+                    f"export {k.upper()}={shlex.quote(str(v))}"
                     for (k, v) in self.data.items()
                 ]
             )
