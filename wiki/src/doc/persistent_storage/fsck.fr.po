@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
 "POT-Creation-Date: 2024-10-07 10:47+0200\n"
-"PO-Revision-Date: 2025-04-29 19:49+0000\n"
+"PO-Revision-Date: 2025-04-30 17:16+0000\n"
 "Last-Translator: Chre <tor@renaudineau.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fr\n"
@@ -275,6 +275,12 @@ msgid ""
 "of the same size as your Tails USB stick, but writing to a USB stick is "
 "usually much slower than writing to a hard disk."
 msgstr ""
+"Pour sauvegarder l'image de partition en dehors de Tails, vous avez besoin "
+"d'un disque dur externe avec autant d'espace libre que votre stockage "
+"persistant, généralement 8&nbsp;Go de moins que votre clé USB Tails. Vous "
+"pouvez aussi utiliser une autre clé USB de même capacité que votre clé USB "
+"Tails, mais sachez qu'écrire sur une clé USB est souvent beaucoup plus lent "
+"qu'écrire sur un disque dur."
 
 #. type: Plain text
 #, markdown-text, no-wrap
@@ -287,6 +293,8 @@ msgid ""
 "<p>The partition image contains a <i>decrypted</i> version of your\n"
 "Persistent Storage.</p>\n"
 msgstr ""
+"<p>L'image de partition contient une version <i>non chiffrée</i> de votre\n"
+"stockage persistant.</p>\n"
 
 #. type: Plain text
 #, markdown-text, no-wrap
@@ -294,6 +302,9 @@ msgid ""
 "<p>We recommend that you save the partition image to an [[encrypted hard\n"
 "disk|encryption_and_privacy/encrypted_volumes]].</p>\n"
 msgstr ""
+"<p>Nous vous recommandons de sauvegarder l'image de partition sur un [["
+"disque dur\n"
+"chiffré|encryption_and_privacy/encrypted_volumes]].</p>\n"
 
 #. type: Plain text
 #, markdown-text
@@ -305,7 +316,7 @@ msgstr ""
 #. type: Bullet: '1. '
 #, markdown-text
 msgid "[[Create a partition image using the *Disks* utility|fsck#disks]]"
-msgstr ""
+msgstr "[[Créer une image de partition avec l'utilitaire *Disques*|fsck#disks]]"
 
 #. type: Plain text
 #, markdown-text, no-wrap
@@ -313,6 +324,8 @@ msgid ""
 "   Try this technique first if the hardware of your USB stick is not "
 "failing.\n"
 msgstr ""
+"   Essayez cette approche en premier si le matériel de votre clé USB "
+"fonctionne.\n"
 
 #. type: Bullet: '1. '
 #, markdown-text
@@ -320,11 +333,15 @@ msgid ""
 "[[Create a partition image using `ddrescue` on the command "
 "line|fsck#ddrescue]]"
 msgstr ""
+"[[Créer une image de partition via `ddrescue` dans l'interface en ligne de "
+"commande|fsck#ddrescue]]"
 
 #. type: Plain text
 #, markdown-text, no-wrap
 msgid "   Try this technique first if the hardware of your USB stick is failing.\n"
 msgstr ""
+"   Essayez cette approche en premier si le matériel de votre clé USB est non "
+"fonctionnel.\n"
 
 #. type: Plain text
 #, markdown-text, no-wrap
@@ -701,6 +718,8 @@ msgid ""
 "class=\"command-placeholder\">/dev/mapper/luks-xyz</span> "
 "persistent-storage.img ddrescue.log</p>\n"
 msgstr ""
+"   <p class=\"command-template\">ddrescue <span class=\"command-placeholder\""
+">/dev/mapper/luks-xyz</span> persistent-storage.img ddrescue.log</p>\n"
 
 #. type: Plain text
 #, markdown-text, no-wrap
