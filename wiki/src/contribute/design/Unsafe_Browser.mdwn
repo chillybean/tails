@@ -70,7 +70,9 @@ The Unsafe Browser is run in a restricted environment:
    - the system is shown as it was before booting. No modification to the state that happened after boot is
      visible
 
-   - however, `/home` is fully readable and writable, and is just a bind-mount of the "normal" `/home`
+   - however, `/home` is fully readable and writable, and is just a
+     bind-mount of the "normal" `/home` (although see below how this
+     is restricted with AppArmor)
 
  - it runs in its own network namespace
 
@@ -78,16 +80,15 @@ The Unsafe Browser is run in a restricted environment:
 
    - it cannot contact local services, like Tor
 
- - AppArmor rules prevent it from accessing sensitive files:
+ - AppArmor rules prevent it from accessing sensitive files, only
+   allowing:
 
-   - Every file in Desktop, Downloads, Documents, etc.
+   - its own configuration, `~/.unsafe-browser`, and various other
+     configurations, like `~/.config/gtk-2.0`
 
-   - Every file in home except `/home/amnesia/.*`
+   - the amnesic XDG user directories, like `~/Downloads`,
+     `~/Documents`, etc.
 
-   - However, it can access `/home/amnesia/Tor Browser/` and `/home/amnesia/Persistent/Tor Browser/`.
-
-This means that the Unsafe Browser cannot access most user files (with the exception of files in `Tor
-Browser/`, reducing the risk of deanonymization.
 It can also only go through the clearnet, but not interact with any other Tails service which could ever lead
 to deanonymizaation.
 

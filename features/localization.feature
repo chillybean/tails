@@ -7,8 +7,8 @@ Feature: Localization
   Scenario Outline: Do not localize the XDG User Dirs to be able to use those dirs in Tor Browser (#19255)
     Given I have started Tails from DVD without network and stopped at Tails Greeter's login screen
     And I log in to a new session in German (de)
-    Then the amnesiac <dir> directory exists
-    And there is a GNOME bookmark for the amnesiac <dir> directory
+    Then the live user's <dir> directory exists
+    And there is a GNOME bookmark for the <dir> directory
     Examples:
       | dir |
       | Documents |

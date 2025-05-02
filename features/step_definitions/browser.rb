@@ -304,7 +304,7 @@ end
 
 Then /^the file is saved to the default Tor Browser download directory$/ do
   assert_not_nil(@some_file)
-  expected_path = "/home/#{LIVE_USER}/Tor Browser/#{@some_file}"
+  expected_path = "/home/#{LIVE_USER}/Downloads/#{@some_file}"
   try_for(10) { $vm.file_exist?(expected_path) }
 end
 
@@ -515,11 +515,11 @@ Given /^the Tor Browser has a bookmark to eff.org$/ do
   @screen.wait('TorBrowserEFFBookmark.png', 10)
 end
 
-When /^I can print the current page as "([^"]+[.]pdf)" to the (default downloads|persistent Tor Browser) directory$/ do |output_file, output_dir|
-  output_dir = if output_dir == 'persistent Tor Browser'
-                 "/home/#{LIVE_USER}/Persistent/Tor Browser"
+When /^I can print the current page as "([^"]+[.]pdf)" to the (default downloads|Persistent) directory$/ do |output_file, output_dir|
+  output_dir = if output_dir == 'Persistent'
+                 "/home/#{LIVE_USER}/Persistent"
                else
-                 "/home/#{LIVE_USER}/Tor Browser"
+                 "/home/#{LIVE_USER}/Downloads"
                end
   @screen.press('ctrl', 'p')
   @torbrowser.child('Save', roleName: 'push button').press
@@ -570,10 +570,10 @@ When /^I (can|cannot) save the current page as "([^"]+[.]html)" to the (.*) (dir
   file_dialog = save_page_as
 
   output_dir = case output_dir
-               when 'persistent Tor Browser'
-                 "/home/#{LIVE_USER}/Persistent/Tor Browser"
+               when 'Persistent'
+                 "/home/#{LIVE_USER}/Persistent"
                when 'default downloads'
-                 "/home/#{LIVE_USER}/Tor Browser"
+                 "/home/#{LIVE_USER}/Downloads"
                else
                  "/home/#{LIVE_USER}/#{output_dir}"
                end
