@@ -391,6 +391,8 @@ class Handler(socketserver.StreamRequestHandler):
         if req.method not in self.spawn_commands:
             return req.error_respond(error="Method not implemented")
 
+        log = getLogger(self.__class__.__name__)
+        log.info("Received valid request '%s'", req.method)
         cmd = self.spawn_commands[req.method]
         cmd.validate_request(req)
         p = multiprocessing.Process(target=self.run, args=(cmd, req))
