@@ -23,7 +23,6 @@ def main():
         export TOR_TRANSPROXY=1 && \
         export MOZ_ENABLE_WAYLAND=1 && \
         exec_firefox_helper firefox.unsafe-browser \
-           --class '{args.wm_class}' \
            --name '{args.wm_class}' \
            --profile '{args.profile}'",
         netns="clearnet",
