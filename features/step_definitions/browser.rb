@@ -120,7 +120,8 @@ def unsafe_browser_application_info(defaults)
   binary = $vm.execute_successfully(
     'echo ${TBB_INSTALL}/firefox.unsafe-browser', libs: 'tor-browser'
   ).stdout.chomp
-  cmd_regex = "#{binary} --profile /home/#{user}/\.unsafe-browser/profile\.default"
+  cmd_regex = "#{binary} .* " \
+              "--profile /home/#{user}/\.unsafe-browser/profile\.default"
   defaults.merge(
     {
       user:,
