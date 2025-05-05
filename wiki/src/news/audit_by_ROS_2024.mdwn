@@ -74,7 +74,9 @@ how we worked on these long-lasting improvements.
 
    <!-- XXX: Where is this in GitLab? -->
 
-   <!-- XXX: Mention https://gitlab.tails.boum.org/tails/tails-private/-/merge_requests/4/diffs? -->
+   Furthermore, we now
+   [[!tails_gitweb config/chroot_local-hooks/99-zzz_check_mite desc="automatically check"]]
+   for potentially vulnerable Mite code and fail the build if we find any.
 
  - Postmortem of OTF-002 ([[!tails_ticket 20719]] and [[!tails_mr 1911]])
 
