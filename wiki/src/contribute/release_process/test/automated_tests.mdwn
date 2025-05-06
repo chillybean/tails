@@ -92,6 +92,14 @@ to rebuild images first. To do so:
    - If you set this parameter to `--tags @automatic_upgrade`, then Cucumber
      will run only the scenarios that are tagged `@automatic_upgrade`.
 
+### Developer access to the Jenkins infrastructure
+
+Tails Team members can:
+
+ - SSH into Jenkins worker VMs as their own user and use password-less sudo there
+
+ - SSH into the Jenkins orchestrator as the `jenkins` user: `ssh jenkins@jenkins.dragon`
+
 ### Known usability issues
 
 We collect a list of other known CI usability issues on a dedicated
