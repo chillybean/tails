@@ -122,7 +122,7 @@ echo '127.0.0.42 firefox.settings.services.mozilla.com' \
     >>"${CHROOT}"/etc/hosts
 
 echo "* Starting Unsafe Browser"
-# Do not localize the 5th argument: it becomes WM_CLASS and then GNOME
+# Do not localize $WM_CLASS: it becomes WM_CLASS and then GNOME
 # displays the localized app name found in the matching .desktop file;
 # if WM_CLASS were localized then not only string encoding problems
 # would happen, but GNOME would pick the wrong icon. It is also passed
