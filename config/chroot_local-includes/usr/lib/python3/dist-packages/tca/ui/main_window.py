@@ -675,9 +675,6 @@ class StepConnectProgressMixin:
     def cb_step_progress_btn_starttbb_clicked(self, *args):
         self.app.portal.call_async("open-tbb", None)
 
-    def cb_step_progress_btn_monitor_clicked(self, *args):
-        self.app.portal.call_async("open-networkmonitor", None)
-
     def cb_step_progress_btn_onioncircuits_clicked(self, *args):
         self.app.portal.call_async("open-onioncircuits", None)
 
