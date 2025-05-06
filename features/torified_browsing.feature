@@ -29,8 +29,8 @@ Feature: Browsing the web using the Tor Browser
     Given I have started Tails from DVD and logged in and the network is connected
     When I start the Tor Browser
     Then the Tor Browser loads the startup page
-    When I download some file in the Tor Browser
-    Then the file is saved to the default Tor Browser download directory
+    When I download some file in the Tor Browser to the default downloads directory
+    Then the file is saved to the default downloads directory
 
   @check_tor_leaks
   Scenario: Playing an Ogg audio track
@@ -100,7 +100,7 @@ Feature: Browsing the web using the Tor Browser
     When I open the address "https://mozilla.github.io/webrtc-landing/pc_test.html" in the Tor Browser
     Then Tor Browser displays a "RTCPeerConnection is missing!" heading on the "Simple RTCPeerConnection Video Test" page
 
-  Scenario: The persistent directory is usable
+  Scenario: The Persistent directory is usable in Tor Browser
     Given I have started Tails without network from a USB drive with a persistent partition enabled and logged in
     And the network is plugged
     And I successfully configure Tor
@@ -108,10 +108,9 @@ Feature: Browsing the web using the Tor Browser
     And all notifications have disappeared
     And there is a GNOME bookmark for the Persistent directory
     When I start the Tor Browser
-    And I open the address "https://tails.net/about" in the Tor Browser
-    And "Tails - How Tails works" has loaded in the Tor Browser
-    Then I can save the current page as "index.html" to the Persistent GNOME bookmark
-    And I open the address "file:///home/amnesia/Persistent/index.html" in the Tor Browser
+    And I download some file in the Tor Browser to the Persistent directory
+    Then the file is saved to the Persistent directory
+    When I open the address "https://tails.net/about" in the Tor Browser
     Then "Tails - How Tails works" has loaded in the Tor Browser
     And I can print the current page as "output.pdf" to the Persistent directory
 

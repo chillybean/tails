@@ -279,7 +279,7 @@ Then /^the (.*) runs as the expected user$/ do |browser|
   )
 end
 
-When /^I download some file in the Tor Browser$/ do
+When /^I download some file in the Tor Browser to the (default downloads|Persistent) directory$/ do |target|
   @some_file = 'tails-signing.key'
   some_url = "https://tails.net/#{@some_file}"
   step "I open the address \"#{some_url}\" in the Tor Browser without waiting"
@@ -292,6 +292,9 @@ When /^I download some file in the Tor Browser$/ do
   try_for(10) { button.sensitive? }
   button.press
   file_dialog = desktop_portal_save_as_dialog
+  if target == 'Persistent'
+    activate_places_sidebar_item(file_dialog, "/home/#{LIVE_USER}/Persistent")
+  end
   file_dialog.child('Save', roleName: 'push button').click
 
   @torbrowser
@@ -302,9 +305,14 @@ When /^I download some file in the Tor Browser$/ do
     .child("#{@some_file} Completed .*", roleName: 'list item')
 end
 
-Then /^the file is saved to the default Tor Browser download directory$/ do
+Then /^the file is saved to the (default downloads|Persistent) directory$/ do |target|
+  target_dir = if target == 'Persistent'
+                 "/home/#{LIVE_USER}/Persistent"
+               else
+                 "/home/#{LIVE_USER}/Downloads"
+               end
   assert_not_nil(@some_file)
-  expected_path = "/home/#{LIVE_USER}/Downloads/#{@some_file}"
+  expected_path = "#{target_dir}/#{@some_file}"
   try_for(10) { $vm.file_exist?(expected_path) }
 end
 
