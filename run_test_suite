@@ -304,6 +304,9 @@ while [ $# -gt 0 ]; do
         export CAPTURE="yes"
         export CAPTURE_ALL="yes"
         ;;
+    --collect-always)
+        export COLLECT_ALWAYS="yes"
+        ;;
     --interactive-debugging)
         export INTERACTIVE_DEBUGGING="yes"
         ;;
@@ -364,9 +367,6 @@ while [ $# -gt 0 ]; do
     --)
         shift
         break
-        ;;
-    --collect-always)
-        export COLLECT_ALWAYS="yes"
         ;;
     esac
     shift
