@@ -1960,7 +1960,7 @@ documentation](https://gitlab.torproject.org/tpo/tpa/team/-/wikis/service/blog#h
 
 - Prepare a *draft* merge request against the [Tor blog](https://gitlab.torproject.org/tpo/web/blog)
 
-        ./bin/create-tor-blog-mr "${TOR_BLOG_CHECKOUT}" "${VERSION}" "${torBlogFile}"
+        ./bin/create-tor-blog-mr "${TOR_BLOG_CHECKOUT:?}" "${VERSION:?}" "${torBlogFile:?}"
 
 Go wild!
 ========
