@@ -11,9 +11,9 @@ cd "${TOR_BLOG_CHECKOUT}"
 git checkout main
 git pull
 git checkout -b "Tails-${VERSION}"
-torBlogDir="content/blog/new-release-tails-${VERSION//./_}"
-mkdir -p "$torBlogDir"
-cd "$torBlogDir"
+TOR_BLOG_DIR="content/blog/new-release-tails-${VERSION//./_}"
+mkdir -p "${TOR_BLOG_DIR}"
+cd "${TOR_BLOG_DIR}"
 mv "${TOR_BLOG_FILE}" contents.lr
 ln -s ../../../assets/static/images/blog/tails.jpeg lead.jpg &&
     git add lead.jpg
