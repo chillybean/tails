@@ -1105,7 +1105,7 @@ Build the Incremental Upgrade Kits locally
 
 Verify there's enough free disk space in `$IUKS_DIR`:
 
-    N_IUKS="$(echo ${IUK_SOURCE_VERSIONS?:} | wc -w)"
+    N_IUKS="$(echo ${IUK_SOURCE_VERSIONS:?} | wc -w)"
     MIN_DISK_SPACE=$((N_IUKS * 700))
     FREE_DISK_SPACE=$(/bin/df --block-size=M --output=avail "${IUKS_DIR:?}" \
        | tail -n1 | sed --regexp-extended 's,M$,,')
@@ -1121,15 +1121,15 @@ To build the IUKS, run this command:
        set -eu
        set -o pipefail
        WORK_DIR=$(mktemp -d)
-       TAILS_REMOTE="$(git -C "${RELEASE_CHECKOUT?:}" remote get-url origin)"
-       PUPPET_TAILS_REMOTE=$(echo -n "${TAILS_REMOTE?:}" | perl -p -E 's,:tails/tails(?:[.]git)?\z,:tails/puppet-tails,')
-       cd "${WORK_DIR?:}"
+       TAILS_REMOTE="$(git -C "${RELEASE_CHECKOUT:?}" remote get-url origin)"
+       PUPPET_TAILS_REMOTE=$(echo -n "${TAILS_REMOTE:?}" | perl -p -E 's,:tails/tails(?:[.]git)?\z,:tails/puppet-tails,')
+       cd "${WORK_DIR:?}"
        git clone "$PUPPET_TAILS_REMOTE"
        TMPFILES_CONF=/etc/tmpfiles.d/tails-create-iuks.conf
        OUR_TMPDIR=/var/tmp/tails-create-iuks
        echo "D ${OUR_TMPDIR} 0755 root root -" | sudo tee "$TMPFILES_CONF"
        sudo systemd-tmpfiles --remove --create "$TMPFILES_CONF"
-       N_IUKS="$(echo ${IUK_SOURCE_VERSIONS?:} | wc -w)"
+       N_IUKS="$(echo ${IUK_SOURCE_VERSIONS:?} | wc -w)"
        MIN_DISK_SPACE=$((N_IUKS * 3000))
        FREE_DISK_SPACE=$(/bin/df --block-size=M --output=avail "${OUR_TMPDIR:?}" \
           | tail -n1 | sed --regexp-extended 's,M$,,')
@@ -1144,20 +1144,20 @@ To build the IUKS, run this command:
        sudo                                                                   \
        nice                                                                   \
        ./puppet-tails/files/jenkins/slaves/isobuilders/wrap_tails_create_iuks \
-           --tails-git-remote "file://${RELEASE_CHECKOUT?:}/.git"             \
-           --tails-git-commit "${TAG?:}"                                      \
-           --source-date-epoch "${SOURCE_DATE_EPOCH?:}"                       \
-           --local-isos-dir "${ISOS?:}"                                       \
+           --tails-git-remote "file://${RELEASE_CHECKOUT:?}/.git"             \
+           --tails-git-commit "${TAG:?}"                                      \
+           --source-date-epoch "${SOURCE_DATE_EPOCH:?}"                       \
+           --local-isos-dir "${ISOS:?}"                                       \
            --tmp-dir "${TMPDIR:-${OUR_TMPDIR}}"                                        \
-           --output-dir "${IUKS_DIR?:}"                                       \
-           --source-versions "${IUK_SOURCE_VERSIONS?:}"                       \
-           --new-version "${VERSION?:}"                                       \
+           --output-dir "${IUKS_DIR:?}"                                       \
+           --source-versions "${IUK_SOURCE_VERSIONS:?}"                       \
+           --new-version "${VERSION:?}"                                       \
            --verbose                                                          \
-           --jobs "${JOBS?:}"                                                 \
+           --jobs "${JOBS:?}"                                                 \
            2>&1 | tee "$IUK_CREATION_LOG"
     ) && \
-     cd "${IUKS_DIR?:}" && \
-     sha256sum Tails_amd64_*_to_${VERSION?:}.iuk > "${IUKS_HASHES?:}"
+     cd "${IUKS_DIR:?}" && \
+     sha256sum Tails_amd64_*_to_${VERSION:?}.iuk > "${IUKS_HASHES:?}"
     )
 
 This command takes a long time. In parallel, while it is running,
@@ -1461,7 +1461,7 @@ If preparing a RC, skip this part:
 
 Update the image description file (IDF) used by the verification JavaScript:
 
-    cd "${RELEASE_CHECKOUT?:}" && \
+    cd "${RELEASE_CHECKOUT:?}" && \
     ./bin/idf-content \
        --version "${VERSION:?}" \
        --iso "${ISO_PATH:?}" \
@@ -1808,7 +1808,7 @@ technical writers who have likely prepared release notes:
 	cd "${RELEASE_CHECKOUT:?}" && \
 	   git checkout "${WEBSITE_RELEASE_BRANCH:?}" && \
 	   git fetch && \
-	   git merge "origin/${WEBSITE_RELEASE_BRANCH?:}"
+	   git merge "origin/${WEBSITE_RELEASE_BRANCH:?}"
 
 If no release notes where prepared, create one with placeholders:
 
@@ -2456,7 +2456,7 @@ Check that you are indeed preparing a RC:
 
 1. Delete your local copy of the IUKs
 
-        rm -f "${IUKS_DIR:?}/"Tails_amd64_*_to_${VERSION?:}.iuk "${IUKS_HASHES?:}"
+        rm -f "${IUKS_DIR:?}/"Tails_amd64_*_to_${VERSION:?}.iuk "${IUKS_HASHES:?}"
 
 1. Delete logs
 

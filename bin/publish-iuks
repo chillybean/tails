@@ -14,4 +14,4 @@ EOF
 "$(dirname "$0")"/update-trace-time \
    "Updating trace file after uploading the IUKs for ${VERSION:?}."
 
-ssh rsync.lizard rm -f "/srv/tmp/to_${VERSION?:}.sha256sum"
+ssh rsync.lizard rm -f "/srv/tmp/to_${VERSION:?}.sha256sum"
