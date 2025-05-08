@@ -99,20 +99,22 @@ class TorStatusIndicator extends PanelMenu.Button {
     }
 });
 
-let tor_status_indicator;
+export default class TorStatusExtension {
 
-function init() {
-}
+    init() {
+    }
 
-function enable() {
-    log("TorStatus: entering enable()");
-    tor_status_indicator = new TorStatusIndicator;
-    Main.panel.addToStatusArea(TorStatusIndicatorName, tor_status_indicator);
-    log("TorStatus: exiting enable()");
-}
+    enable() {
+        log("TorStatus: entering enable()");
+        this.tor_status_indicator = new TorStatusIndicator;
+        Main.panel.addToStatusArea(TorStatusIndicatorName, this.tor_status_indicator);
+        log("TorStatus: exiting enable()");
+    }
 
-function disable() {
-    log("TorStatus: entering disable()");
-    tor_status_indicator.destroy();
-    log("TorStatus: exiting disable()");
+    disable() {
+        log("TorStatus: entering disable()");
+        this.tor_status_indicator.destroy();
+        log("TorStatus: exiting disable()");
+    }
+
 }
