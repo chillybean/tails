@@ -348,7 +348,9 @@ After('@product') do |scenario|
     mins = format('%<mins>02d', mins: (time_of_fail / 60) % 60)
     hrs  = format('%<hrs>02d',  hrs: time_of_fail / (60 * 60))
     elapsed = "#{hrs}:#{mins}:#{secs}"
-    info_log("SCENARIO FAILED: '#{scenario.name}' (at time #{elapsed})")
+    if scenario.failed?
+      info_log("SCENARIO FAILED: '#{scenario.name}' (at time #{elapsed})")
+    end
     save_journal
     unless $vm.display.nil?
       screenshot_path = sanitize_filename("#{scenario.name}.png")
