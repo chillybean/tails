@@ -1,27 +1,26 @@
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import GLib from 'gi://GLib';
 
-import * as ByteArray from 'resource:///org/gnome/shell/byteArray.js';
-
 var settings;
 
 export default class DateExtension {
 
-    function init() {
+    init() {
     }
 
-    function overrider(lbl) {
+    overrider() {
         var now = new Date();
         let [res, out] = GLib.spawn_sync(null, ['sudo', '-n', '/usr/local/lib/tails-get-date'], null, GLib.SpawnFlags.SEARCH_PATH, null);
         if(out == null) {
             var desired = now.toLocaleString('en-US') + ' GMT';
         } else {
-            desired = ByteArray.toString(out).trim();
+            const decoder = new TextDecoder()
+            desired = decoder.decode(out).trim();
         }
 
         var t = this.lbl.get_text();
         if (t != desired) {
-            last = t;
+            this.last = t;
             this.lbl.set_text(desired);
         }
     }
@@ -29,8 +28,8 @@ export default class DateExtension {
 
     enable() {
         this.lbl = null;
-        signalHandlerID = null;
-        last = "";
+        this.signalHandlerID = null;
+        this.last = "";
         var sA = Main.panel.statusArea;
         if (!sA) { sA = Main.panel._statusArea; }
 
@@ -39,7 +38,7 @@ export default class DateExtension {
             return;
         }
 
-        sA.dateMenu.first_child.get_children().forEach(function(w) {
+        sA.dateMenu.first_child.get_children().forEach((w) => {
             // assume that the text label is the first StLabel we find.
             // This is dodgy behaviour but there's no reliable way to
             // work out which it is.
@@ -52,15 +51,15 @@ export default class DateExtension {
             print("Looks like Shell has changed where things live again; aborting.");
             return;
         }
-        signalHandlerID = this.lbl.connect("notify::text", overrider);
-        last = this.lbl.get_text();
-        overrider(this.lbl);
+        this.signalHandlerID = this.lbl.connect("notify::text", () => { this.overrider() });
+        this.last = this.lbl.get_text();
+        this.overrider();
     }
 
     disable() {
-        if (this.lbl && signalHandlerID) {
-            this.lbl.disconnect(signalHandlerID);
-            this.lbl.set_text(last);
+        if (this.lbl && this.signalHandlerID) {
+            this.lbl.disconnect(this.signalHandlerID);
+            this.lbl.set_text(this.last);
         }
     }
 }
