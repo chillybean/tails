@@ -15,7 +15,7 @@ if grep -qw "debug=greeter" /proc/cmdline && [ -z "${DEBUG_GREETER:-}" ]; then
     # it - belong to the GDM session, we have to run it as a child process.
     # By default, gnome-terminals are spawned by systemd. This is a
     # workaround based on https://unix.stackexchange.com/a/201915.
-    /usr/libexec/gnome-terminal-server --app-id greeter.debug.Terminal &
+    /usr/libexec/gnome-terminal-server &
     sleep 1
 
     text="To start the greeter, run:
@@ -28,10 +28,10 @@ To start the greeter with GtkInspector, run:
 
 To spawn more terminals, run:
 
-  gnome-terminal --app-id greeter.debug.Terminal -- /bin/bash
+  gnome-terminal -- /bin/bash
 "
 
-    gnome-terminal --app-id greeter.debug.Terminal -- /bin/bash -c "echo '${text}'; /bin/bash"
+    gnome-terminal -- /bin/bash -c "echo '${text}'; /bin/bash"
 else
     cd /usr/share/tails/greeter/
     /usr/share/tails/greeter/set-cursor.py watch
