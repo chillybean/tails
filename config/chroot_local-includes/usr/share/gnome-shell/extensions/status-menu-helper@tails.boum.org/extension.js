@@ -30,14 +30,19 @@ import * as Util from 'resource:///org/gnome/shell/misc/util.js';
 Gettext.textdomain('tails');
 const _ = Gettext.gettext;
 
-var Action = new Lang.Class({
-    Name: 'Action',
+function initTranslations(extension) {
+    let localeDir = extension.dir.get_child('locale').get_path();
 
-    _init: function(button, id) {
-        this.button = button;
-        this.id = id;
+    // Extension installed in .local
+    if (GLib.file_test(localeDir, GLib.FileTest.EXISTS)) {
+        Gettext.bindtextdomain('gnome-shell-extension-status-menu-helper', localeDir);
     }
-});
+    // Extension installed system-wide
+    else {
+        Gettext.bindtextdomain('gnome-shell-extension-status-menu-helper',
+            Config.LOCALEDIR);
+    }
+}
 
 export default class StatusMenuHelperExtension {
 
