@@ -20,17 +20,15 @@
    (https://github.com/laserb/gnome-shell-extension-suspend-button) by
    Raphael Freudiger <laser_b@gmx.ch>.
 **/
-const Lang = imports.lang;
-const Main = imports.ui.main;
-const PopupMenu = imports.ui.popupMenu;
+import * as Main from 'resource:///org/gnome/shell/ui/main.js';
+import * as PopupMenu from 'resource:///org/gnome/shell/ui/popupMenu.js';
+import GLib from 'gi://GLib';
+import * as Gettext from 'gettext';
+import * as Config from 'resource:///org/gnome/shell/misc/config.js';
+import * as Util from 'resource:///org/gnome/shell/misc/util.js';
 
-const Gettext = imports.gettext.domain('tails');
+Gettext.textdomain('tails');
 const _ = Gettext.gettext;
-
-const Me = imports.misc.extensionUtils.getCurrentExtension();
-const Lib = Me.imports.lib;
-
-const Util = imports.misc.util;
 
 var Action = new Lang.Class({
     Name: 'Action',

@@ -1,8 +1,7 @@
-const Main = imports.ui.main;
-const GLib = imports.gi.GLib;
+import * as Main from 'resource:///org/gnome/shell/ui/main.js';
+import GLib from 'gi://GLib';
 
-const ExtensionUtils = imports.misc.extensionUtils;
-const ByteArray = imports.byteArray;
+import * as ByteArray from 'resource:///org/gnome/shell/byteArray.js';
 
 var settings;
 
