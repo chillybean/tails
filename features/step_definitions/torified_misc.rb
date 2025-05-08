@@ -1,24 +1,15 @@
 require 'resolv'
 
-When /^I (wget|curl) "([^"]+)" to stdout(?:| with the '([^']+)' options)$/ do |cmd, target, options|
+When /^I (wget|curl) "([^"]+)" to stdout$/ do |cmd, url|
   retry_tor do
-    if target == 'some Tails mirror'
-      host = 'dl.amnesia.boum.org'
-      address = Resolv.new.getaddresses(host).sample
-      puts "Resolved #{host} to #{address}"
-      url = "http://#{address}/tails/stable/"
-    else
-      url = target
-    end
     arguments = if cmd == 'wget'
                   "-O - '#{url}'"
                 else
                   "-s '#{url}'"
                 end
-    arguments = "#{options} #{arguments}" if options
     @vm_execute_res = $vm.execute("#{cmd} #{arguments}", user: LIVE_USER)
     if @vm_execute_res.failure?
-      raise "#{cmd}:ing #{url} with options #{options} failed with:\n" \
+      raise "#{cmd}:ing #{url} failed with:\n" \
             "#{@vm_execute_res.stdout}\n" +
             @vm_execute_res.stderr.to_s
     end
