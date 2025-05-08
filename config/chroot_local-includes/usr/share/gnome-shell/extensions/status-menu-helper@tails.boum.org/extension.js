@@ -137,7 +137,9 @@ export default class StatusMenuHelperExtension {
     }
 
     _addSeparateButtons() {
-        this.statusMenu._addItems(this._actions);
+        for(const action of this._actions) {
+            this.statusMenu.menu.addItem(action)
+        }
     }
 
     _destroyActions() {
