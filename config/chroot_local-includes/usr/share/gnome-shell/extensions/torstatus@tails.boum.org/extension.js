@@ -55,7 +55,7 @@ class TorStatusIndicator extends PanelMenu.Button {
         // Create icon
         this._icon = new St.Icon({ style_class: 'system-status-icon' });
         this._updateIcon(status_file.query_exists(null));
-        this.add_actor(this._icon);
+        this.add_child(this._icon);
         this.add_style_class_name('panel-status-button');
     }
 
