@@ -39,10 +39,9 @@ var Action = new Lang.Class({
     }
 });
 
-const Extension = new Lang.Class({
-    Name: 'StatusMenuHelper.Extension',
+export default class StatusMenuHelperExtension {
 
-    enable: function() {
+    enable() {
         if (this._isEnabled) return;
         this._isEnabled = true;
 
@@ -66,9 +65,9 @@ const Extension = new Lang.Class({
                 return;
             this._onMenuOpen();
         });
-    },
+    }
 
-    disable: function() {
+    disable() {
         // We want to keep the extention enabled on the lock screen
         if (Main.sessionMode.isLocked) return;
         if (!this._isEnabled) return;
@@ -78,9 +77,9 @@ const Extension = new Lang.Class({
         this._restoreOrigActions();
 
         this.statusMenu.menu.disconnect(this._menuOpenStateChangedId);
-    },
+    }
 
-    _createActions: function() {
+    _createActions() {
         this._lockScreenAction = this._createAction(_("Lock Screen"),
                                                    'changes-prevent-symbolic',
                                                     this._onLockClicked);
@@ -99,51 +98,51 @@ const Extension = new Lang.Class({
 
         this._actions = [this._lockScreenAction, this._suspendAction,
                          this._restartAction, this._powerOffAction];
-    },
+    }
 
-    _createAction: function(label, icon, onClickedFunction) {
+    _createAction(label, icon, onClickedFunction) {
         item = new PopupMenu.PopupImageMenuItem(label, icon);
         item.connect('activate', onClickedFunction);
         return item;
-    },
+    }
 
-    _hideOrigActions: function() {
+    _hideOrigActions() {
         this._origLockItem.hide();
         this._origShutdownItem.hide();
-    },
+    }
 
-    _restoreOrigActions: function() {
+    _restoreOrigActions() {
         this._origLockItem.show();
         this._origShutdownItem.show();
-    },
+    }
 
-    _addSeparateButtons: function() {
+    _addSeparateButtons() {
         this.statusMenu._addItems(this._actions);
-    },
+    }
 
-    _destroyActions: function() {
+    _destroyActions() {
         for (var item of this._actions) {
             item.destroy();
         }
-    },
+    }
 
-    _onLockClicked: function() {
+    _onLockClicked() {
         Util.spawn(['tails-screen-locker']);
-    },
+    }
 
-    _onSuspendClicked: function() {
+    _onSuspendClicked() {
         Util.spawn(['systemctl', 'suspend'])
-    },
+    }
 
-    _onRestartClicked: function() {
+    _onRestartClicked() {
         Util.spawn(['sudo', '-n', 'reboot'])
-    },
+    }
 
-    _onPowerOffClicked: function() {
+    _onPowerOffClicked() {
         Util.spawn(['sudo', '-n', 'poweroff'])
-    },
+    }
 
-    _onMenuOpen: function() {
+    _onMenuOpen() {
         this._lockScreenAction.visible = !Main.sessionMode.isLocked && !Main.sessionMode.isGreeter;
         // Ideally we would only have to hide the original actions in
         // the enable() method, but something keeps making the original
@@ -152,7 +151,7 @@ const Extension = new Lang.Class({
         this._hideOrigActions();
     }
 
-});
+}
 
 function init(metadata) {
     Lib.initTranslations(Me);
