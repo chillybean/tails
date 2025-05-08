@@ -121,7 +121,7 @@ export default class StatusMenuHelperExtension {
     }
 
     _createAction(label, icon, onClickedFunction) {
-        item = new PopupMenu.PopupImageMenuItem(label, icon);
+        const item = new PopupMenu.PopupImageMenuItem(label, icon);
         item.connect('activate', onClickedFunction);
         return item;
     }
