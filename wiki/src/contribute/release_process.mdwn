@@ -1946,9 +1946,9 @@ documentation](https://gitlab.torproject.org/tpo/tpa/team/-/wikis/service/blog#h
 
 - Generate the draft blog post:
 
-        torBlogFile=$(./bin/generate-Tor-blog-post "${VERSION:?}" "${TAG:?}" "${DIST:?}" "${RELEASE_DATE:?}")
+        TOR_BLOG_FILE=$(./bin/generate-Tor-blog-post "${VERSION:?}" "${TAG:?}" "${DIST:?}" "${RELEASE_DATE:?}")
 
-- Ensure the `summary` section of the draft blog post in `${torBlogFile}` has adequate contents:
+- Ensure the `summary` section of the draft blog post in `${TOR_BLOG_FILE}` has adequate contents:
 
   - If the body of the release notes has introduction sentences: copy these sentences.
 
@@ -1956,11 +1956,11 @@ documentation](https://gitlab.torproject.org/tpo/tpa/team/-/wikis/service/blog#h
 
   - In any case, do *not* leave the `FIXME` placeholder as-is.
 
-- Proof-read `${torBlogFile}`.
+- Proof-read `${TOR_BLOG_FILE}`.
 
 - Prepare a *draft* merge request against the [Tor blog](https://gitlab.torproject.org/tpo/web/blog)
 
-        ./bin/create-tor-blog-mr "${TOR_BLOG_CHECKOUT:?}" "${VERSION:?}" "${torBlogFile:?}"
+        ./bin/create-tor-blog-mr "${TOR_BLOG_CHECKOUT:?}" "${VERSION:?}" "${TOR_BLOG_FILE:?}"
 
 Go wild!
 ========
