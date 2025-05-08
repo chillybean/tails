@@ -49,10 +49,22 @@ export default class StatusMenuHelperExtension {
     enable() {
         if (this._isEnabled) return;
         this._isEnabled = true;
+        this.setupTimer = setInterval(() => { this.setup() }, 2000); // try until it works
+    }
 
+    setup() {
+        console.log("setup()...")
         this.statusMenu = Main.panel.statusArea.quickSettings;
 
-        statusMenuTopButtons = this.statusMenu._system._systemItem.child.get_children();
+        if(
+            this.statusMenu === undefined ||
+            this.statusMenu._system === undefined ||
+            this.statusMenu._system._systemItem === undefined ||
+            this.statusMenu._system._systemItem.child === undefined
+        ) {
+            return;
+        }
+        const statusMenuTopButtons = this.statusMenu._system._systemItem.child.get_children();
         for (var item of statusMenuTopButtons) {
             if (item.constructor.name == "LockItem") {
                 this._origLockItem = item;
@@ -70,6 +82,9 @@ export default class StatusMenuHelperExtension {
                 return;
             this._onMenuOpen();
         });
+
+        console.log("setup() COMPLETE")
+        clearInterval(this.setupTimer)
     }
 
     disable() {
