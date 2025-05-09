@@ -2,20 +2,25 @@
 
 import argparse
 import hashlib
-import io
 import logging
-from pathlib import Path
 import re
 import shlex
 import subprocess
 import sys
 import tempfile
-from xdg.BaseDirectory import xdg_config_home  # type: ignore
-from voluptuous import Any, Schema  # type: ignore
-from voluptuous.validators import (  # type: ignore
-    And, Date, IsDir, IsFile, Match, NotIn
-)
+from pathlib import Path
+
 import yaml
+from voluptuous import Any, Schema
+from voluptuous.validators import (
+    And,
+    Date,
+    IsDir,
+    IsFile,
+    Match,
+    NotIn,
+)
+from xdg.BaseDirectory import xdg_config_home
 
 LOG_FORMAT = "%(levelname)s %(message)s"
 log = logging.getLogger()
@@ -41,6 +46,7 @@ STAGE_SCHEMA = {
         "artifacts": IsDir(),
         "master_checkout": IsDir(),
         "release_checkout": IsDir(),
+        "tor_blog_checkout": IsDir(),
         "version": InputStr,
         "previous_version": InputStr,
         "previous_stable_version": InputStr,
@@ -82,7 +88,7 @@ STAGE_SCHEMA = {
         "img_size_in_bytes": int,
         "candidate_jenkins_iuks_build_id": int,
         "iuks_hashes": IsFile(),
-    }
+    },
 }
 # pylint: enable=E1120
 
@@ -90,27 +96,31 @@ STAGE_SCHEMA = {
 def git_repo_root():
     """Returns the root of the current Git repository as a Path object"""
     return Path(
-        subprocess.check_output(["git", "rev-parse", "--show-toplevel"],
-                                encoding="utf8").rstrip("\n"))
+        subprocess.check_output(
+            ["/usr/bin/git", "rev-parse", "--show-toplevel"],
+            encoding="utf8",
+        ).rstrip("\n"),
+    )
 
 
 def sha256_file(filename):
     """Returns the hex-encoded SHA256 hash of FILENAME"""
     sha256 = hashlib.sha256()
-    with io.open(filename, mode="rb") as input_fd:
+    with open(filename, mode="rb") as input_fd:
         content = input_fd.read()
         sha256.update(content)
     return sha256.hexdigest()
 
 
-class Config():
+class Config:
     """Load, validate, generate, and output Release Management configuration"""
+
     def __init__(self, stage: str):
         self.stage = stage
         self.config_files = [
-            git_repo_root() / "config/release_management/defaults.yml"
-        ] + list(
-            (Path(xdg_config_home) / "tails/release_management").glob("*.yml"))
+            git_repo_root() / "config/release_management/defaults.yml",
+            *list((Path(xdg_config_home) / "tails/release_management").glob("*.yml")),
+        ]
         self.data = self.load_config_files()
         self.data.update(self.generate_config())
         log.debug("Configuration:\n%s", self.data)
@@ -124,7 +134,7 @@ class Config():
         data = {}
         for config_file in self.config_files:
             log.debug("Loading %s", config_file)
-            data.update(yaml.safe_load(open(config_file, 'r')))
+            data.update(yaml.safe_load(open(config_file)))
         return data
 
     def generate_config(self):
@@ -135,22 +145,21 @@ class Config():
         version = self.data["version"]
         tails_signature_key = self.data["tails_signature_key"]
         tag = version.replace("~", "-")
-        release_branch = "testing" \
-            if self.data["major_release"] == 1 \
-            else "stable"
+        release_branch = "testing" if self.data["major_release"] == 1 else "stable"
         iuks_dir = Path(self.data["isos"]) / "iuks/v2"
         iuk_hashes = Path(iuks_dir) / ("to_%s.sha256sum" % version)
         iuk_source_versions = subprocess.check_output(
             [git_repo_root() / "bin/iuk-source-versions", version],
-            encoding="utf8").rstrip("\n")
+            encoding="utf8",
+        ).rstrip("\n")
         # We always test the upgrade path from the last stable version
-        test_iuk_source_versions = self.data['previous_stable_version']
+        test_iuk_source_versions = self.data["previous_stable_version"]
         # ... but also from the last of any alphas/betas/RCs. Given Tails
         # versioning scheme we trivially have that it can only be the
         # previous version, but only if it isn't the same as the previous
         # stable release (alpha/beta/RC is not stable by definition).
-        if self.data['previous_stable_version'] != self.data['previous_version']:
-            test_iuk_source_versions += ' ' + self.data['previous_version']
+        if self.data["previous_stable_version"] != self.data["previous_version"]:
+            test_iuk_source_versions += " " + self.data["previous_version"]
         generated_config = {
             "release_branch": release_branch,
             "tag": tag,
@@ -160,22 +169,26 @@ class Config():
             "test_iuk_source_versions": test_iuk_source_versions,
             "iuks_dir": str(iuks_dir),
             "iuks_hashes": str(iuk_hashes),
-            "milestone": re.sub('~.*', '', self.data["version"]),
+            "milestone": re.sub("~.*", "", self.data["version"]),
             "tails_signature_key_long_id": tails_signature_key[24:],
         }
-        if self.stage == 'built-iuks':
-            iso_path = Path(self.data["isos"]) \
-                / ("tails-amd64-%s/tails-amd64-%s.iso" % (version, version))
-            img_path = Path(self.data["isos"]) \
-                / ("tails-amd64-%s/tails-amd64-%s.img" % (version, version))
-            generated_config.update({
-                "iso_path": str(iso_path),
-                "img_path": str(img_path),
-                "iso_sha256sum": sha256_file(iso_path),
-                "img_sha256sum": sha256_file(img_path),
-                "iso_size_in_bytes": iso_path.stat().st_size,
-                "img_size_in_bytes": img_path.stat().st_size,
-            })
+        if self.stage == "built-iuks":
+            iso_path = Path(self.data["isos"]) / (
+                f"tails-amd64-{version}/tails-amd64-{version}.iso"
+            )
+            img_path = Path(self.data["isos"]) / (
+                f"tails-amd64-{version}/tails-amd64-{version}.img"
+            )
+            generated_config.update(
+                {
+                    "iso_path": str(iso_path),
+                    "img_path": str(img_path),
+                    "iso_sha256sum": sha256_file(iso_path),
+                    "img_sha256sum": sha256_file(img_path),
+                    "iso_size_in_bytes": iso_path.stat().st_size,
+                    "img_size_in_bytes": img_path.stat().st_size,
+                },
+            )
         return generated_config
 
     def schema(self):
@@ -201,23 +214,27 @@ class Config():
         Returns shell commands that, if executed, would export the
         configuration into the environment.
         """
-        return "\n".join([
-            "export %(key)s=%(val)s" % {
-                "key": k.upper(),
-                "val": shlex.quote(str(v))
-            } for (k, v) in self.data.items()
-        ]) + "\n"
+        return (
+            "\n".join(
+                [
+                    f"export {k.upper()}={shlex.quote(str(v))}"
+                    for (k, v) in self.data.items()
+                ],
+            )
+            + "\n"
+        )
 
 
 def generate_boilerplate(stage: str):
     """Generate boilerplate for STAGE"""
     log.debug("Generating boilerplate for stage '%s'", stage)
-    with open(git_repo_root() /
-              ("config/release_management/templates/%s.yml" % stage)) as src:
-        with open(
-                Path(xdg_config_home) / "tails/release_management/current.yml",
-                'a') as dst:
-            dst.write(src.read())
+    with open(
+        git_repo_root() / ("config/release_management/templates/%s.yml" % stage),
+    ) as src, open(
+        Path(xdg_config_home) / "tails/release_management/current.yml",
+        "a",
+    ) as dst:
+        dst.write(src.read())
 
 
 def generate_environment(stage: str):
@@ -228,7 +245,7 @@ def generate_environment(stage: str):
     log.debug("Generating environment for stage '%s'", stage)
     config = Config(stage=stage)
     shell_snippet = tempfile.NamedTemporaryFile(delete=False)
-    with open(shell_snippet.name, 'w') as shell_snippet_fd:
+    with open(shell_snippet.name, "w") as shell_snippet_fd:
         shell_snippet_fd.write(config.to_shell())
     print(shell_snippet.name)
 
@@ -245,44 +262,53 @@ def main():
     parser = argparse.ArgumentParser(
         description="Query and manage Release Management configuration",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
-        )
+    )
     parser.add_argument("--debug", action="store_true", help="debug output")
     subparsers = parser.add_subparsers(help="sub-command help", dest="command")
 
     parser_generate_boilerplate = subparsers.add_parser(
         "generate-boilerplate",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
-        help="Creates a configuration file template that you will fill")
-    parser_generate_boilerplate.add_argument("--stage",
-                                             type=str,
-                                             action="store",
-                                             default="base",
-                                             choices=STAGES,
-                                             help="Select stage")
+        help="Creates a configuration file template that you will fill",
+    )
+    parser_generate_boilerplate.add_argument(
+        "--stage",
+        type=str,
+        action="store",
+        default="base",
+        choices=STAGES,
+        help="Select stage",
+    )
     parser_generate_boilerplate.set_defaults(func=generate_boilerplate)
 
     parser_validate_configuration = subparsers.add_parser(
         "validate-configuration",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
-        help="Validate configuration files")
-    parser_validate_configuration.add_argument("--stage",
-                                               type=str,
-                                               action="store",
-                                               default="base",
-                                               choices=STAGES,
-                                               help="Select stage")
+        help="Validate configuration files",
+    )
+    parser_validate_configuration.add_argument(
+        "--stage",
+        type=str,
+        action="store",
+        default="base",
+        choices=STAGES,
+        help="Select stage",
+    )
     parser_validate_configuration.set_defaults(func=validate_configuration)
 
     parser_generate_environment = subparsers.add_parser(
         "generate-environment",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
-        help="Creates a shell sourceable file with resulting environment")
-    parser_generate_environment.add_argument("--stage",
-                                             type=str,
-                                             action="store",
-                                             default="base",
-                                             choices=STAGES,
-                                             help="Select stage")
+        help="Creates a shell sourceable file with resulting environment",
+    )
+    parser_generate_environment.add_argument(
+        "--stage",
+        type=str,
+        action="store",
+        default="base",
+        choices=STAGES,
+        help="Select stage",
+    )
     parser_generate_environment.set_defaults(func=generate_environment)
 
     args = parser.parse_args()
@@ -298,5 +324,5 @@ def main():
         args.func(stage=args.stage)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     sys.exit(main())
