@@ -10,7 +10,7 @@ def vm_memory_for_disk_builds(cpus)
   # RAM, especially when defaulcomp (xz) is used. We only adjust when
   # there are many CPUs since that's the only situation where we have
   # observed this kind of RAM shortage.
-  memory += (cpus - 12) * 120 if cpus > 12
+  memory += cpus * 50
   memory
 end
 
