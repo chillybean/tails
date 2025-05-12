@@ -342,13 +342,15 @@ After('@product') do |scenario|
     Process.wait(@video_capture_pid)
     save_failure_artifact('Video', @video_path)
   end
-  if scenario.failed?
+  if scenario.failed? || config_bool('COLLECT_ALWAYS')
     time_of_fail = Time.now - TIME_AT_START
     secs = format('%<secs>02d', secs: time_of_fail % 60)
     mins = format('%<mins>02d', mins: (time_of_fail / 60) % 60)
     hrs  = format('%<hrs>02d',  hrs: time_of_fail / (60 * 60))
     elapsed = "#{hrs}:#{mins}:#{secs}"
-    info_log("SCENARIO FAILED: '#{scenario.name}' (at time #{elapsed})")
+    if scenario.failed?
+      info_log("SCENARIO FAILED: '#{scenario.name}' (at time #{elapsed})")
+    end
     save_journal
     unless $vm.display.nil?
       screenshot_path = sanitize_filename("#{scenario.name}.png")
