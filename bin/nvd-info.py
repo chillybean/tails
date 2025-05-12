@@ -99,12 +99,12 @@ class CveFetcher:
     def get_path_for_cve(self, cve: str):
         return self.args.config_dir / "nvd" / f"{cve}.json"
 
-    def fetch(self, cve: str):
+    def fetch(self, session, cve: str):
         fpath = self.get_path_for_cve(cve)
         if not self.args.overwrite and fpath.exists():
             self.log.debug("%s already downloaded, skipping", cve)
             return
-        resp = requests.get(self.baseurl, params={"cveId": cve}, timeout=30)
+        resp = session.get(self.baseurl, params={"cveId": cve}, timeout=30)
         if not resp.ok:
             self.log.warning("Could not fetch %s", cve)
             return
@@ -126,8 +126,9 @@ class CveFetcher:
     def main_fetch(self):
         self.args.config_dir.mkdir(exist_ok=True)
         (self.args.config_dir / "nvd").mkdir(exist_ok=True)
+        session = requests.Session()
         for cve in self.args.cveid:
-            self.fetch(cve)
+            self.fetch(session, cve)
 
     def vuln_match(self, vuln: dict) -> bool:
         impact_to_number = {

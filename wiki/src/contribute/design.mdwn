@@ -867,13 +867,25 @@ would increase one's anonymity for a number for reasons but we still
 feel that most users probably would not want this due to the added
 consumption of bandwidth.
 
+We disabled the default warning messages of Tor (`WarnPlaintextPorts`)
+when connecting to ports 110 (POP3) and 143 (IMAP). These ports are used
+for both plaintext and StartTLS connections. As more and more email
+providers recommend and even enforce StartTLS on these ports, the effect
+of these warnings were most of the time counterproductive as people had
+to click through needlessly scary security warnings.
+
+- [[!tails_gitweb config/chroot_local-includes/etc/tor/torrc]]
+
+#### Tor control port filter
+
 If a compromised software had access to the Tor control port,
 an attacker who controls it could simply ask Tor the public
 IP through the `GETINFO address` command.
 To prevent this, access to the Tor control port is only
 granted to the `root` user, as well as to the
 members of the `debian-tor` group (via the control socket).
-A filtering proxy to the control port runs on port 9051 (i.e. the default
+
+`onion-grater`, a filtering proxy to the control port runs on port 9051 (i.e. the default
 Tor ControlPort), so for instance
 Torbutton still can perform safe commands like `SIGNAL NEWNYM`. It
 allows defining fine-grained lists of allowed commands (and their
@@ -884,17 +896,11 @@ can only run these commands (`ADD_ONION` etc.) and listen to these
 events (e.g. `HS_DESC`, which is expected after a successfull use of
 `ADD_ONION`)".
 
-We disabled the default warning messages of Tor (`WarnPlaintextPorts`)
-when connecting to ports 110 (POP3) and 143 (IMAP). These ports are used
-for both plaintext and StartTLS connections. As more and more email
-providers recommend and even enforce StartTLS on these ports, the effect
-of these warnings were most of the time counterproductive as people had
-to click through needlessly scary security warnings.
-
 - [[!tails_gitweb_dir config/chroot_local-includes/etc/onion-grater.d/]]
 - [[!tails_gitweb config/chroot_local-includes/lib/systemd/system/onion-grater.service]]
 - [[!tails_gitweb config/chroot_local-includes/usr/local/lib/onion-grater]]
-- [[!tails_gitweb config/chroot_local-includes/etc/tor/torrc]]
+
+#### Viewing Tor status
 
 [[!tails_gitweb_repo onioncircuits desc="Onion Circuits"]] allows the
 user to view the state of their Tor circuits and streams. The Tor

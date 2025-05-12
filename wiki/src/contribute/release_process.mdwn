@@ -184,9 +184,9 @@ To release Tails you need:
             HostName lizard.tails.boum.org
             Port 3003
 
-* Optional: configure _automailer_ by running `./bin/automailer.py --long-help`,
-  which will give you tips on how to configure it. This will make sending emails
-  a bit easier.
+* Configure _automailer_
+
+  To learn how, run `./bin/automailer.py --long-help`.
 
 Environment
 ===========
@@ -395,11 +395,7 @@ Bootstrap internal manual testing coordination:
 
 1. To give the pad a clear title, add this section on top:
 
-        cat <<EOF
-        ---
-        title: Testing ${VERSION:?}
-        ---
-        EOF
+        echo "---\ntitle: Testing ${VERSION:?}\n---"
 
 2. Set the `PAD` environment variable to the URL of this pad.
 
@@ -451,9 +447,14 @@ and commit the result, including new PO files:
 If `lint_po` complains:
 
 * rollback the offending PO files and retry; worst case, delete it
-* send a note to <tails-l10n@boum.org> [public] so that they get in touch with
-  whoever can fix them.
-
+* locate the buggy strings in [Weblate](https://hosted.weblate.org/projects/tor/tails-gui/) and:
+  1. Set their status to *Needs editing*. As a consequence, Weblate will mark
+     the string as fuzzy and our QA tooling will stop complaining when we import it.
+  2. Consider adding a comment or suggestion for translators in Weblate.
+  3. Take a note to come back to it after the release, and then:
+     consider adding a screenshot or a `Translators:` comment in the source code,
+     ([[!tails_ticket 20410]]), to lower the risk that other translators
+     make the same mistake in the future.
 
 Regenerate the localization list:
 
@@ -794,7 +795,7 @@ after you went through the *Freeze* section:
 3. Redo the steps that were invalidated.
 
    Note: many of these steps are not idempotent, so in some cases you'll need to
-   do something smarter than following the instructions is-is a second time.
+   do something smarter than following the instructions as-is a second time.
 
 4. Close the full copy of the release process that you have used for
    this section.
@@ -918,7 +919,7 @@ Jenkins workers.
    one to be safe.
 
 1. Make sure the Jenkins build is right: you can recognize this is the case,
-   when you see Jenkins starts building the website (which should happen in
+   when you see Jenkins start building the website (which should happen in
    \~2-3 minutes, at least on `dragon` and `iguana`). Jenkins will take
    20-65 minutes to complete the build, depending on the `isoworkerN`
    that is used.
@@ -1049,7 +1050,7 @@ images and with a `.sig` extension):
 
     ./bin/generate-images-signatures
 
-Then, create a `.torrent` file and check the generated `.torrent`
+Then, create `.torrent` files and check the generated `.torrent`
 files metadata:
 
     ./bin/generate-torrents
@@ -1104,7 +1105,7 @@ Build the Incremental Upgrade Kits locally
 
 Verify there's enough free disk space in `$IUKS_DIR`:
 
-    N_IUKS="$(echo ${IUK_SOURCE_VERSIONS?:} | wc -w)"
+    N_IUKS="$(echo ${IUK_SOURCE_VERSIONS:?} | wc -w)"
     MIN_DISK_SPACE=$((N_IUKS * 700))
     FREE_DISK_SPACE=$(/bin/df --block-size=M --output=avail "${IUKS_DIR:?}" \
        | tail -n1 | sed --regexp-extended 's,M$,,')
@@ -1120,15 +1121,15 @@ To build the IUKS, run this command:
        set -eu
        set -o pipefail
        WORK_DIR=$(mktemp -d)
-       TAILS_REMOTE="$(git -C "${RELEASE_CHECKOUT?:}" remote get-url origin)"
-       PUPPET_TAILS_REMOTE=$(echo -n "${TAILS_REMOTE?:}" | perl -p -E 's,:tails/tails(?:[.]git)?\z,:tails/puppet-tails,')
-       cd "${WORK_DIR?:}"
+       TAILS_REMOTE="$(git -C "${RELEASE_CHECKOUT:?}" remote get-url origin)"
+       PUPPET_TAILS_REMOTE=$(echo -n "${TAILS_REMOTE:?}" | perl -p -E 's,:tails/tails(?:[.]git)?\z,:tails/puppet-tails,')
+       cd "${WORK_DIR:?}"
        git clone "$PUPPET_TAILS_REMOTE"
        TMPFILES_CONF=/etc/tmpfiles.d/tails-create-iuks.conf
        OUR_TMPDIR=/var/tmp/tails-create-iuks
        echo "D ${OUR_TMPDIR} 0755 root root -" | sudo tee "$TMPFILES_CONF"
        sudo systemd-tmpfiles --remove --create "$TMPFILES_CONF"
-       N_IUKS="$(echo ${IUK_SOURCE_VERSIONS?:} | wc -w)"
+       N_IUKS="$(echo ${IUK_SOURCE_VERSIONS:?} | wc -w)"
        MIN_DISK_SPACE=$((N_IUKS * 3000))
        FREE_DISK_SPACE=$(/bin/df --block-size=M --output=avail "${OUR_TMPDIR:?}" \
           | tail -n1 | sed --regexp-extended 's,M$,,')
@@ -1143,20 +1144,20 @@ To build the IUKS, run this command:
        sudo                                                                   \
        nice                                                                   \
        ./puppet-tails/files/jenkins/slaves/isobuilders/wrap_tails_create_iuks \
-           --tails-git-remote "file://${RELEASE_CHECKOUT?:}/.git"             \
-           --tails-git-commit "${TAG?:}"                                      \
-           --source-date-epoch "${SOURCE_DATE_EPOCH?:}"                       \
-           --local-isos-dir "${ISOS?:}"                                       \
+           --tails-git-remote "file://${RELEASE_CHECKOUT:?}/.git"             \
+           --tails-git-commit "${TAG:?}"                                      \
+           --source-date-epoch "${SOURCE_DATE_EPOCH:?}"                       \
+           --local-isos-dir "${ISOS:?}"                                       \
            --tmp-dir "${TMPDIR:-${OUR_TMPDIR}}"                                        \
-           --output-dir "${IUKS_DIR?:}"                                       \
-           --source-versions "${IUK_SOURCE_VERSIONS?:}"                       \
-           --new-version "${VERSION?:}"                                       \
+           --output-dir "${IUKS_DIR:?}"                                       \
+           --source-versions "${IUK_SOURCE_VERSIONS:?}"                       \
+           --new-version "${VERSION:?}"                                       \
            --verbose                                                          \
-           --jobs "${JOBS?:}"                                                 \
+           --jobs "${JOBS:?}"                                                 \
            2>&1 | tee "$IUK_CREATION_LOG"
     ) && \
-     cd "${IUKS_DIR?:}" && \
-     sha256sum Tails_amd64_*_to_${VERSION?:}.iuk > "${IUKS_HASHES?:}"
+     cd "${IUKS_DIR:?}" && \
+     sha256sum Tails_amd64_*_to_${VERSION:?}.iuk > "${IUKS_HASHES:?}"
     )
 
 This command takes a long time. In parallel, while it is running,
@@ -1460,7 +1461,7 @@ If preparing a RC, skip this part:
 
 Update the image description file (IDF) used by the verification JavaScript:
 
-    cd "${RELEASE_CHECKOUT?:}" && \
+    cd "${RELEASE_CHECKOUT:?}" && \
     ./bin/idf-content \
        --version "${VERSION:?}" \
        --iso "${ISO_PATH:?}" \
@@ -1498,22 +1499,6 @@ Done with OpenPGP signing
 
 Unplug your OpenPGP smartcard and store it away, so you don't plug it
 back semi-mechanically later on.
-
-**Beware!** If your have to plug your OpenPGP smart card or reassemble the
-key again after this point it invalidates *everything* done for
-the [[reproduction of this release|release_process#reproducibility-final-check]]
-so it has to be started from the beginning:
-
-* the original text is restored on the pad, and
-* some tester follows it from scratch, and
-* the Trusted Reproducer follows awaits the new input from said tester
-  and then starts from scratch.
-
-So please try to avoid this!
-
-If you don't know, or don't remember, why plugging the smart card again would
-invalidate all that work: you're not alone. We've all been there.
-We will document this: [[!tails_ticket 20617]].
 
 Upload images
 =============
@@ -1624,6 +1609,25 @@ If, at a later stage of the process, you realize Mirrorbits is still not
 the Mirrorbits service again.
 
 ## Announce, seed and test the Torrents
+
+First, to make space for the new files, remove the previous stable release from
+our BitTorrent seed:
+
+1. Get the previous release's _Transmission_ IDs (ISO and USB image, use
+   comma-separated values) with:
+
+         ssh bittorrent.lizard transmission-remote --list \
+             | grep --fixed-strings "tails-amd64-${PREVIOUS_VERSION:?}-i"
+
+1. Delete the Torrents (`PREVIOUS_VERSION_TRANSMISSION_IDS` must be a
+   comma-separated list of IDs, based on the previous command):
+
+         ssh bittorrent.lizard transmission-remote \
+             -t "${PREVIOUS_VERSION_TRANSMISSION_IDS:?}" --remove-and-delete
+
+1. Finally, check that everything looks good:
+
+         ssh bittorrent.lizard transmission-remote --list
 
 Check if there's enough space on our Bittorrent seed to import the new
 ISO and USB images:
@@ -1794,22 +1798,6 @@ Lead the internal manual testing to conclusion
 
 <a id="reproducibility-final-check"></a>
 
-Notify the Trusted Reproducer
-=============================
-
-Send an email to the TR telling them they can now start the
-Reproducibility test.
-
-Note that the Trusted Reproducer has 72 hours to complete this check,
-you do not have to wait for this to be completed, just make sure they
-are informed that the Reproducibility check can be started.
-
-    ./bin/automailer.py <<EOF
-    Subject: Trusted Reproducer for ${VERSION:?}
-    
-    You can now start the reproducibility test.
-    EOF
-
 Prepare announcements and blog posts
 ====================================
 
@@ -1820,7 +1808,7 @@ technical writers who have likely prepared release notes:
 	cd "${RELEASE_CHECKOUT:?}" && \
 	   git checkout "${WEBSITE_RELEASE_BRANCH:?}" && \
 	   git fetch && \
-	   git merge "origin/${WEBSITE_RELEASE_BRANCH?:}"
+	   git merge "origin/${WEBSITE_RELEASE_BRANCH:?}"
 
 If no release notes where prepared, create one with placeholders:
 
@@ -1948,9 +1936,9 @@ Draft the Tor blog post
 Skip this if you are not preparing a stable release.
 
 In order to announce the new Tails release on Tor blog post, you need to:
- - have a personal account on https://gitlab.torproject.org/tpo/web/blog
+ - have a personal account on [Tor's GitLab](https://gitlab.torproject.org/) with at least *Developer* access to the [Tor blog](https://gitlab.torproject.org/tpo/web/blog/-/project_members)
  - Have a checkout of https://gitlab.torproject.org/tpo/web/blog in
-   `${BLOG_CHECKOUT}`
+   `${TOR_BLOG_CHECKOUT}`
  - Check the
    [Tor
 documentation](https://gitlab.torproject.org/tpo/tpa/team/-/wikis/service/blog#how-to-write-a-new-blog-post-in-gitlab)
@@ -1958,37 +1946,21 @@ documentation](https://gitlab.torproject.org/tpo/tpa/team/-/wikis/service/blog#h
 
 - Generate the draft blog post:
 
-        torBlogFile=$(./bin/generate-Tor-blog-post "${VERSION:?}" "${TAG:?}" "${DIST:?}" "${RELEASE_DATE:?}")
+        TOR_BLOG_FILE=$(./bin/generate-Tor-blog-post "${VERSION:?}" "${TAG:?}" "${DIST:?}" "${RELEASE_DATE:?}")
 
-- Ensure the `summary` section of the draft blog post in `${torBlogFile}` has adequate contents:
+- Ensure the `summary` section of the draft blog post in `${TOR_BLOG_FILE}` has adequate contents:
 
   - If the body of the release notes has introduction sentences: copy these sentences.
 
-  - Else, write `Tails ${VERSION:?} is out.`
+  - Else, write `Tails ${VERSION:?} is now available.`
 
   - In any case, do *not* leave the `FIXME` placeholder as-is.
 
-- Proof-read `${torBlogFile}`.
+- Proof-read `${TOR_BLOG_FILE}`.
 
 - Prepare a *draft* merge request against the [Tor blog](https://gitlab.torproject.org/tpo/web/blog)
 
-        cd "${BLOG_CHECKOUT}"
-        git checkout main
-        git pull
-        git checkout -b "Tails-${VERSION}"
-        torBlogDir="content/blog/new-release-tails-${VERSION//./_}"
-        mkdir -p "$torBlogDir"
-        cd "$torBlogDir"
-        mv "${torBlogFile}" contents.lr
-        ln -s ../../../assets/static/images/blog/tails.jpeg lead.jpg && \
-            git add lead.jpg
-        git add contents.lr
-        git commit -m "Announce Tails ${VERSION}"
-        git push \
-            -o merge_request.create -o merge_requests.draft \
-            -o merge_requests.title="Announce Tails ${VERSION}" \
-            --set-upstream origin HEAD
-
+        ./bin/create-tor-blog-mr "${TOR_BLOG_CHECKOUT:?}" "${VERSION:?}" "${TOR_BLOG_FILE:?}"
 
 Go wild!
 ========
@@ -2093,19 +2065,7 @@ MR](https://gitlab.tails.boum.org/tails/gitlab-config/-/edit/master/main.yml)
    website to identify the issues that might
    be resolved in this release.
 
-       cd "${MASTER_CHECKOUT:?}" && \
-       find wiki/src/{doc,support} ! -path wiki/src/support/known_issues/graphics.mdwn -name "*.mdwn" -o -name "*.html" | xargs cat | \
-           ruby -e 'puts STDIN.read.scan(/\[\[!tails_ticket\s+(\d+)[^\]]*\]\]/)' | \
-           while read ticket; do
-               ticket_status="$(python-gitlab --gitlab TailsRM -o json --fields state project-issue get --project-id 2 --iid "$ticket" | jq --raw-output .state)"
-               if [ -z "${ticket_status:-}" ]; then
-                   echo "Failed to find the status of #${ticket:?}" >&2
-                   continue
-               fi
-               if [ "${ticket_status:?}" = "closed" ]; then
-                   echo "It seems issue #${ticket:?} has been fixed. Please find all instances on the website and adjust them as needed. Ticket URL: https://gitlab.tails.boum.org/tails/tails/-/issues/${ticket:?}"
-               fi
-           done
+        ./bin/closed-issues-linked-from-website "${MASTER_CHECKOUT:?}"
 
 2. Create a GitLab issue to list them.
 
@@ -2117,7 +2077,7 @@ Wait for the website update
 
 Wait for the release to be fully published, that is for the website to have been
 fully refreshed. To do so, first wait for the
-[!tails_gitlab tails/tails/-/pipelines/?ref=master desc="GitLab CI pipeline" ]]
+[[!tails_gitlab tails/tails/-/pipelines/?ref=master desc="GitLab CI pipeline"]]
 triggered by your last push to build and deploy the website. And then:
 
 ### If you're publishing a final release
@@ -2163,15 +2123,10 @@ To login:
          grep -Po 'otpauth://totp/.*[?]secret=\K[A-Z0-9]*' )"
 
 
-Request the publication of the Tor blog post
---------------------------------------------
+Publish the Tor blog post
+-------------------------
 
 Skip this section unless you have prepared a draft Tor blog post earlier.
-
-Check if you have developer status on
-https://gitlab.torproject.org/tpo/web/blog/-/project_members
-
-### If you have developer status
 
   - To inspect the result, see the pipeline of the MR, in particular the
     `deploy-review` job. On top of the job page, a message will tell "This job
@@ -2185,11 +2140,6 @@ deployment". Check if everything looks good.
     is started whose last stage (Deploy) will require manual action: click on it
     to open a menu where you will see "deploy-prod ▶️", then click on the ▶️ to
     deploy.
-
-### Else
-
-Mark the merge request as ready by remove the `Draft:`
-prefix, and request a review from one of your fellow RMs who has Developer status
 
 Amnesia news
 ------------
@@ -2212,24 +2162,9 @@ Check that you are indeed preparing a final release:
     [ "${DIST:?}" = stable ]
 
 1. If you just released a new stable release, remove the previous
-   stable release from:
-   - our rsync server:
-     `ssh rsync.lizard sudo rm -rf /srv/rsync/tails/tails/stable/tails-amd64-${PREVIOUS_STABLE_VERSION:?}/`
-   - our Bittorrent seed: get the previous release's _Transmission_ IDs
-     (ISO and USB image, use comma-separated values)
-     with:
+   stable release from our rsync server:
 
-         ssh bittorrent.lizard transmission-remote --list | grep --fixed-strings "tails-amd64-${PREVIOUS_VERSION:?}-i"
-
-     Then delete them with (`PREVIOUS_VERSION_TRANSMISSION_IDS` must be a
-     comma-separated list of IDs, based on the previous command):
-
-         ssh bittorrent.lizard transmission-remote \
-             -t "${PREVIOUS_VERSION_TRANSMISSION_IDS:?}" --remove-and-delete
-
-     Finally, check that everything looks good:
-
-         ssh bittorrent.lizard transmission-remote --list
+         ssh rsync.lizard sudo rm -rf /srv/rsync/tails/tails/stable/tails-amd64-${PREVIOUS_STABLE_VERSION:?}/`
 
 1. Remove any remaining RC for the just-published release from
    `rsync.lizard:/srv/rsync/tails/tails/alpha/`.
@@ -2382,7 +2317,7 @@ Check that you are indeed preparing a final release:
 
         git push origin stable testing devel
 
-1. Check the Mozilla and Tor Browser release calendars:
+1. Check the Firefox and Tor Browser release calendars:
 
    * [Tor Browser release calendar](https://gitlab.torproject.org/tpo/applications/tor-browser/-/wikis/Release-Schedule)
 
@@ -2392,40 +2327,18 @@ Check that you are indeed preparing a final release:
        issues](https://gitlab.torproject.org/tpo/applications/tor-browser-build/-/issues/?search=Prepare%20stable%20release&sort=updated_desc&state=opened).
        If necessary, ask the Tor Browser developers.
 
-   * [Google calendar](https://www.google.com/calendar/embed?src=mozilla.com_2d37383433353432352d3939%40resource.calendar.google.com)
+   * [Firefox Release Calendar](https://whattrainisitnow.com/calendar/)
 
-   * [Release schedule](https://whattrainisitnow.com/calendar/)
-
-   If the upcoming release dates in the Mozilla calendar does not match
+   If the upcoming release dates in the Firefox Release Calendar does not match
    what we have in our release calendar, then alert
    <tails-dev@boum.org>, <rm@tails.net>, and explicitly Cc the
    designated RM for that upcoming release.
 
 1. Announce the date of the next release:
 
-         ./bin/automailer.py <<EOF
-         To: tails-dev@boum.org,tails-l10n@boum.org
-         Subject: Release schedule for Tails ${NEXT_PLANNED_VERSION:?}
+         ./bin/announce-next-release-schedule "${NEXT_PLANNED_VERSION:?}"
 
-         Hi,
-
-         XXX will be the RM for Tails ${NEXT_PLANNED_VERSION:?}.
-
-         The current plan is:
-
-          - Wednesday, XXX: build images, start testing
-          - Thursday, XXX: release
-
-         Developers, please:
-
-           - Book time for automated and manual QA during office hours,
-             from Wednesday 13:00 to Thursday 11:00 (Europe/Berlin).
-             If you can't, please let the RM know.
-
-           - During these 2 days, don't push any change to the branch
-             used for the release.
-
-         EOF
+   Adjust the body if needed:
 
    - If a release candidate is planned, include it in the release schedule
      and the call for manual testers.
@@ -2436,35 +2349,18 @@ Check that you are indeed preparing a final release:
 
      - exist
      - say who is the release manager
-     - say who is the trusted reproducer
 
    If any of this information is missing, open an issue for each release that
-   lacks a RM or TR:
+   lacks a RM:
 
        /label ~"C:Release management" ~"Tails Team" ~"To Do" ~"P:Elevated"
        /milestone %"Tails_${NEXT_PLANNED_VERSION:?}"
-
-   Include this information:
-
-   - For the Trusted Reproducer
-     - Your job will be to reproduce the ISO and USB images for the RC (if
-       applicable) and final release within 72 hours after the RM has
-       unplugged their smartcard.
-     - If you volunteer, you must immediately read the "Preparation" section of
-       the instructions:
-       https://tails.net/contribute/release_process/reproducibility/#preparation
 
 1. If you are the release manager for the next release too, look at the
    tasks that must be done at the beginning of your shift in the
    [[release manager role page|contribute/working_together/roles/release_manager#shift]].
 
    Otherwise, kindly remind the next release manager about this :)
-
-   - Send an email to the next RM with:
-
-     - subject "RM for Tails NEXT_PLANNED_VERSION"
-
-     - body: "This is a reminder that you will be RM for Tails NEXT_PLANNED_VERSION. Please see https://tails.net/contribute/working_together/roles/release_manager/#shift".
 
         ./bin/automailer.py <<EOF
         Subject: RM for Tails ${NEXT_PLANNED_VERSION}
@@ -2560,7 +2456,7 @@ Check that you are indeed preparing a RC:
 
 1. Delete your local copy of the IUKs
 
-        rm -f "${IUKS_DIR:?}/"Tails_amd64_*_to_${VERSION?:}.iuk "${IUKS_HASHES?:}"
+        rm -f "${IUKS_DIR:?}/"Tails_amd64_*_to_${VERSION:?}.iuk "${IUKS_HASHES:?}"
 
 1. Delete logs
 

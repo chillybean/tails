@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-02 09:44+0200\n"
-"PO-Revision-Date: 2025-03-31 20:57+0000\n"
+"POT-Creation-Date: 2025-04-30 09:33+0200\n"
+"PO-Revision-Date: 2025-04-03 14:14+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Malay <https://hosted.weblate.org/projects/tor/tails-gui/ms/"
 ">\n"
@@ -125,7 +125,7 @@ msgid "This will stop installing {packages} automatically."
 msgstr "Tindakan ini akan menghentikan pemasangan {packages} secara automatik."
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:165
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:180
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:188
 msgid "Remove"
 msgstr "Buang"
 
@@ -207,7 +207,7 @@ msgstr ""
 "ketika memulakan Tails."
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:197
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
 "To add more, install some software using <a "
 "href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
@@ -484,6 +484,7 @@ msgid "Error while detecting available upgrades"
 msgstr "Ralat ketika mengesan penataran yang tersedia"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:492
+#, fuzzy
 msgid ""
 "An incremental upgrade is available, but no full upgrade is.\n"
 "This should not happen. Please report a bug."
@@ -1262,7 +1263,7 @@ msgstr ""
 "pasang pada model pemacu pena yang lain."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:592
-#, python-format
+#, fuzzy, python-format
 msgid ""
 "The device \"%(pretty_name)s\" is too small to install Tails (at least "
 "%(size)s GB is required)."
@@ -1488,7 +1489,7 @@ msgstr ""
 #: config/chroot_local-includes/usr/src/perl5lib/lib/Tails/RunningSystem.pm:207
 #: config/chroot_local-includes/usr/local/bin/tails-upgrade-frontend-wrapper:77
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/application.py:79
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:38
+#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:37
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:314
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:460
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:593
@@ -1557,7 +1558,7 @@ msgstr ""
 msgid "Documentation"
 msgstr "Dokumentasi"
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:106
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:114
 #, python-brace-format
 msgid ""
 "Remove {package} from your additional software? This will stop installing "
@@ -1567,22 +1568,22 @@ msgstr ""
 "menghentikan pemasangan pakej secara automatik."
 
 #. Translators: Don't translate {pkg}, it's a placeholder and will be replaced.
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:119
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:127
 #, python-brace-format
 msgid "Failed to remove {pkg}"
 msgstr "Gagal membuang {pkg}"
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:147
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:155
 msgid "Failed to read additional software configuration"
 msgstr "Gagal membaca konfigurasi perisian tambahan"
 
 #. Translators: Don't translate {package}, it's a placeholder and will be replaced.
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:176
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:184
 #, python-brace-format
 msgid "Stop installing {package} automatically"
 msgstr "Henti memasang {package} secara automatik"
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:207
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:215
 msgid ""
 "To do so, install some software using <a href=\"synaptic.desktop\">Synaptic "
 "Package Manager</a> or <a href=\"org.gnome.Terminal.desktop\">APT on the "
@@ -1592,7 +1593,8 @@ msgstr ""
 "href=\"synaptic.desktop\">Pengurus Pakej Synaptic</a> atau <a "
 "href=\"org.gnome.Terminal.desktop\">APT dalam baris perintah</a>."
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:219
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:227
+#, fuzzy
 msgid ""
 "To do so, unlock your Persistent Storage when starting Tails and install "
 "some software using <a href=\"synaptic.desktop\">Synaptic Package Manager</"
@@ -1603,7 +1605,7 @@ msgstr ""
 "Pakej Synaptic</a> atau <a href=\"org.gnome.Terminal.desktop\">APT dalam "
 "baris perintah</a>."
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:232
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:240
 #, fuzzy
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
@@ -1614,15 +1616,15 @@ msgstr ""
 "menggunakan <a href=\"synaptic.desktop\">Pengurus Pakej Synaptic</a> atau <a "
 "href=\"org.gnome.Terminal.desktop\">APT dalam baris perintah</a>."
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:250
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:258
 msgid "To do so, install Tails on a USB stick and create a Persistent Storage."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:296
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:304
 msgid "[package not available]"
 msgstr "[pakej tidak tersedia]"
 
-#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:303
+#: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:311
 #, fuzzy
 msgid "[description not available]"
 msgstr "[pakej tidak tersedia]"
@@ -1640,7 +1642,7 @@ msgid "Set up a password to unlock the screen."
 msgstr "Sediakan satu kata laluan untuk membuka skrin."
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:149
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2304
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2290
 msgid "Password"
 msgstr "Kata Laluan"
 
@@ -1751,7 +1753,7 @@ msgid ""
 msgstr ""
 
 #: config/chroot_local-includes/usr/local/bin/tails-upgrade-frontend-wrapper:76
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:37
+#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:36
 msgid "error:"
 msgstr "ralat:"
 
@@ -1801,13 +1803,13 @@ msgid ""
 msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:269
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:798
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:795
 #, python-brace-format
 msgid "Invalid: {exception}"
 msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:281
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:811
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:808
 msgid "You need to configure an obfs4 bridge to hide that you are using Tor"
 msgstr ""
 
@@ -1858,28 +1860,28 @@ msgstr ""
 msgid "You can now browse the Internet anonymously and uncensored."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:726
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:723
 msgid "This local network seems to be blocking access to Tor."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:801
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:798
 msgid "Bridge address malformed"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:819
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:816
 msgid "Setting a bridge is needed if you want to hide that you are using Tor"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1058
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1055
 #, python-brace-format
 msgid "Scanned {bridge_type} bridge: <b>{bridge_info}</b>."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1147
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1144
 msgid "Are you sure you want to lose progress?"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1151
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1148
 msgid ""
 "Tails will continue connecting to Tor after you close the Tor Connection "
 "assistant.\n"
@@ -1888,11 +1890,11 @@ msgid ""
 "progress bar to be able to troubleshoot your connection."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1157
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1154
 msgid "Close and Lose Progress"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1159
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1156
 msgid "Wait"
 msgstr ""
 
@@ -2210,7 +2212,7 @@ msgid ""
 msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:191
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:57
+#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:56
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:304
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:121
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:219
@@ -2439,51 +2441,43 @@ msgstr ""
 msgid "Choose File Container"
 msgstr "Pilih Bekas Fail"
 
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:48
+#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:47
 msgid "The Unsafe Browser was disabled in the Welcome Screen.\\n\\n"
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:51
+#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:50
 msgid ""
 "To use the Unsafe Browser, restart Tails and make sure that the Unsafe "
 "Browser is enabled in the additional settings of the Welcome Screen."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:53
+#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:52
 msgid "To use the Unsafe Browser, restart Tails."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:56
+#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:55
 msgid "_Restart"
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:58
+#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:57
 msgid ""
 "Do you really want to restart Tails now?\\n\\nAll your current work will be "
 "lost."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:59
+#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:58
 msgid "Restart Now"
 msgstr "Ulangmula Sekarang"
 
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:66
+#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:63
 msgid "Failed to restart the system."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:74
-msgid "Starting the Unsafe Browser..."
-msgstr "Memulakan Pelayar Tidak Selamat..."
-
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:75
-msgid "This may take a while, so please be patient."
-msgstr "Ia mengambil sedikit masa, harap bersabar."
-
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:81
+#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:71
 msgid "Shutting down the Unsafe Browser..."
 msgstr "Mematikan Pelayar Tidak Selamat..."
 
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:82
+#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:72
 msgid ""
 "This may take a while, and you may not restart the Unsafe Browser until it "
 "is properly shut down."
@@ -2491,13 +2485,13 @@ msgstr ""
 "Ia mengambil sedikit masa, dan anda tidak perlu mulakan semula Pelayar Tidak "
 "Selamat sehinggalah ia dimatikan dengan betul."
 
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:95
+#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:85
 #: ../config/chroot_local-includes/usr/share/applications/unsafe-browser.desktop.in.h:1
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:544
 msgid "Unsafe Browser"
 msgstr "Pelayar Tidak Selamat"
 
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:110
+#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:100
 msgid ""
 "Another Unsafe Browser is currently running, or being cleaned up. Please "
 "retry in a while."
@@ -2505,14 +2499,14 @@ msgstr ""
 "Pelayar Tidak Selamat yang lain masih berjalan, atau baru ditutup. Cuba lagi "
 "kemudian."
 
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:128
+#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:116
 msgid ""
 "You are not connected to a local network yet.\\n\\nTo be able to start the "
 "Unsafe Browser, you first need to connect to a Wi-Fi, wired, or mobile "
 "network."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:158
+#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:139
 msgid "Failed to run browser."
 msgstr "Gagal menjalankan pelayar."
 
@@ -3500,6 +3494,7 @@ msgid "• Public network"
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:827
+#, fuzzy
 msgid ""
 "If you are in a shop, hotel, or airport, you might need to sign in to the "
 "local network using the Unsafe Browser."
@@ -3568,6 +3563,7 @@ msgid ""
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1241
+#, fuzzy
 msgid "<b>Connect to Tor _automatically</b>"
 msgstr "<b>Connect to Tor _automatically</b>"
 
@@ -3601,6 +3597,7 @@ msgid ""
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1431
+#, fuzzy
 msgid "<b>_Hide to my local network that I'm connecting to Tor</b>"
 msgstr "<b>_Hide to my local network that I'm connecting to Tor</b>"
 
@@ -3707,51 +3704,47 @@ msgstr "Mula Pelayar Tor"
 msgid "Open Network Monitor"
 msgstr ""
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2130
-msgid "Reset Tor Connection"
-msgstr ""
-
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2170
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2156
 msgid "Configure a Local Proxy"
 msgstr ""
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2196
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2182
 msgid "Proxy Type"
 msgstr "Jenis Proxy"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2213
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2199
 msgid "No proxy"
 msgstr ""
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2214
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2200
 msgid "SOCKS 4"
 msgstr "SOCKS 4"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2215
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2201
 msgid "SOCKS 5"
 msgstr "SOCKS 5"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2216
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2202
 msgid "HTTP / HTTPS"
 msgstr "HTTP / HTTPS"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2235
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2221
 msgid "Address"
 msgstr "Alamat"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2252
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2238
 msgid "Username"
 msgstr "Nama Pengguna"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2269
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2255
 msgid "IP address or hostname"
 msgstr "Alamat IP atau nama hos"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2287
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2273
 msgid "Port"
 msgstr "Port"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2411
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2397
 msgid "_Save Proxy Settings"
 msgstr ""
 
@@ -3833,6 +3826,12 @@ msgstr ""
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr ""
+
+#~ msgid "Starting the Unsafe Browser..."
+#~ msgstr "Memulakan Pelayar Tidak Selamat..."
+
+#~ msgid "This may take a while, so please be patient."
+#~ msgstr "Ia mengambil sedikit masa, harap bersabar."
 
 #~ msgid ""
 #~ "For debugging information, execute the following command: sudo tails-"

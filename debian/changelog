@@ -1,3 +1,166 @@
+tails (6.15) unstable; urgency=medium
+
+  * Upgrade to Tor Browser 14.5.1 (tails/tails!2108)
+
+    Closes issues:
+     - Upgrade to Tor Browser based on Firefox 115.23 ESR (tails/tails#20891)
+
+  * Upgrade Linux to 6.1.135-1
+
+  * Stop installing b43legacy firmware (tails/tails!2093)
+
+    Closes issues:
+      - Some builds FTBFS on Jenkins: firmware-b43legacy-installer postinst fails to
+        connect to downloads.openwrt.org (tails/tails#20887)
+
+    Commits:
+      - Stop installing b43legacy firmware
+
+  * fix FTBFS on devel (tails/tails!2092)
+
+    Commits:
+      - bump memory requirements
+
+  * Upgrade to Tor Browser 14.5 (tails/tails!2091)
+
+    Closes issues:
+      - Upgrade to Tor Browser 14.5 (tails/tails#20904)
+
+    Commits:
+      - Browsers: stop passing --class and --name options
+      - Fix shellcheck SC2155 instance
+      - shfmt
+      - Browsers: work around Wayland issue where the window is outside of the screen
+      - Unsafe Browser: remove start notification
+      - Unsafe Browser: adjust to omni.ja changes in Tor Browser 14.5
+      - shfmt
+      - Refresh localization list for Tor Browser 14.5 (refs: tails#20904)
+      - Upgrade Tor Browser to 14.5 (refs: tails#20904)
+
+  * APT: use CloudFront instead of Fastly (tails/tails!2089)
+
+    Closes issues:
+      - APT timeouts during automated test suite runs when using the Fastly CDN mirror
+        on Jenkins (tails/tails#20870)
+
+    Commits:
+      - shfmt
+      - APT: use https://cloudfront.debian.net/ instead of Fastly
+
+  * generate-sudoers.d: make expectations for next step clearer (tails/tails!2090)
+
+    Commits:
+      - generate-sudoers.d: make expectations for next step clearer
+
+  * Fix appearance of the GRUB menu under Secure Boot (tails/tails!2078)
+
+    Closes issues:
+      - Buggy GRUB box border drawing on EFI system with Secure Boot enforced: �
+        (tails/tails#20899)
+
+    Commits:
+      - shfmt
+      - Don't copy the GRUB unicode font to the EFI directory anymore
+      - Fix appearance of the GRUB menu under Secure Boot
+
+  * nvd-info: use HTTP connection pooling, document recommended queries
+    (tails/tails!2075)
+
+    Commits:
+      - nvd-info: explain example queries, link to doc
+      - nvd-info: use HTTP connection pooling
+
+  * make sure data can't be saved on EFI storage or ACPI ERST (tails/tails!2074)
+
+    Commits:
+      - make sure data can't be saved on ACPI ERST
+      - make sure data can't be saved on EFI storage
+
+  * apt-cacher-ng: support 7.x and 8.x releases (tails/tails!2072)
+
+    Commits:
+      - shfmt
+      - apt-cacher-ng: support 7.x and 8.x releases
+
+  * make Tor Browser upgrade instructions more foolproof (tails/tails!2071)
+
+    Commits:
+      - add pipefail to bash script
+      - preserve DL_DIR across runs
+      - simplify and comment
+      - shfmt
+      - shellcheck
+      - move to dedicated script
+      - simplify git parsing
+      - make sure those files changed
+      - merge commands in less block:  reduce chances of forgetting one
+
+  * Revamp the TR and reproducibility setup (tails/tails!2045)
+
+    Closes issues:
+      - Revamp goals and implementation of verification process around release process
+        & reproducible builds (tails/tails#20840)
+
+    Commits:
+      - remove paragraph about past behavior
+      - clarify what's expected in log
+      - clarify the status of the issue
+      - clarify what this check is really about
+      - remove leftovers
+      - add checking changes to IDF and UDF to QA
+      - make the diff more manageable, excluding non-code paths
+      - Revert "Manual test suite: drop Source/Changes section"
+      - remove scary message from release process
+      - change release process threat model + goals
+      - remove Trusted Reproducer
+
+  * Various TCA improvements (tails/tails!1901)
+
+    Commits:
+      - this could still be called from a different step
+      - Only stop tails-tor-has-bootstrapped.target when NetworkManager thinks we are
+        disconnected
+      - TCA: kill dead code and glade XML
+
+ -- Tails developers <tails@boum.org>  Wed, 30 Apr 2025 09:04:23 +0000
+
+tails (6.14.2) unstable; urgency=medium
+
+  * Merge upstream torbrowser-launcher into our copy (tails/tails!2061)
+
+    Closes issues:
+      - Merge upstream changes into our Tor Browser AppArmor policy, 2025 Q2 edition
+        (tails/tails#20877)
+
+    Commits:
+      - Merge upstream torbrowser-launcher into our copy
+
+  * Address more occurrences of #20745 (tails/tails!2043)
+
+    Commits:
+      - Merge the two scripts into one
+      - Tag DesktopAppInfo instances which are actually ok
+      - CI to look for more issues related to #20745
+      - Fix one more occurrence of #20745
+
+  * automatically check against the use of gtk-launch (tails/tails!2040)
+
+    Closes issues:
+      - Set up a CI job to check for usage of `gtk-launch` in our own code
+        (tails/tails#20871)
+
+    Commits:
+      - rewrite test in POSIX shell
+      - remove last mention of gtk-launch
+      - automatically check against the use of gtk-launch
+
+  * Allow user to force specific build memory requirements (tails/tails!2016)
+
+    Commits:
+      - add memory= parameter to TAILS_BUILD_OPTIONS
+
+ -- Tails developers <tails@boum.org>  Mon, 14 Apr 2025 17:28:40 +0200
+
 tails (6.14.1) unstable; urgency=medium
 
   * Upgrade Tor Browser to 14.0.9 (tails/tails!2049)
@@ -150,6 +313,74 @@ tails (6.14.1) unstable; urgency=medium
       - update instructions to update arti
       - update arti to 1.4.0
       - Set UID and GID for arti
+
+  * Run Tor Browser in pseudo flatpak (tails/tails!1025)
+
+    Closes issues:
+      - "Large text" accessibility feature does not apply to Tor Browser since
+        5.8~beta1 (tails/tails#19266)
+      - Improve UX of saving downloaded files and pages to PDF from Tor Browser
+        (tails/tails#15678)
+      - Use desktop portals in Tor Browser (tails/tails#19408)
+      - Tor Browser ignores cursor size (accessibility issue) (tails/tails#19572)
+      - Tor Browser has no minimize & maximize buttons in the window titlebar
+        (tails/tails#19328)
+      - Remove the `tor-browser` shortcut from the sidebar in Tor Browser
+        (tails/tails#19254)
+
+    Commits:
+      - torbrowser-launcher!10 has been merged
+      - CI: ignore flatpak 1.16.0-2
+      - Add comment
+      - Add comment
+      - Document why we skip some org.mozilla.firefox flatpak settings
+      - Refactor tails-documentation: avoid converting URLs twice
+      - Flatpak runtime: be specific about /usr/.ref permissions
+      - Tor Browser: fix the local page detection vs "@@u ... @@"
+      - Adjust APT pinnings so we install our patched flatpak packages
+      - shfmt
+      - Tor Browser flatpak: drop override for devices=
+      - Flatpak runtime: further simplify after merged /usr
+      - Flatpak runtime: don't do anything special during early patching
+      - Remove /usr/src since it is only used during build time
+      - Document that we run Tor Browser in Flatpak
+      - Document how to keep track of org.mozilla.firefox flatpak metadata changes
+      - Tor Browser flatpak: make aware of already running instance
+      - Tor Browser flatpak: allow access to the speech dispatcher
+      - Tor Browser flatpak: allow access to a11y
+      - Tor Browser flatpak: allow access to CUPS for printing support
+      - Tor Browser flatpak: tighten session bus restrictions
+      - tails-documentation: don't start Tor Browser via .desktop file
+      - Remove xdg-desktop-portal-gnome
+      - Tor Browser: set X-Flatpak in .desktop file
+      - Tor Browser: re-enable namespace isolation for the sandbox
+      - Enable the 10422-tor-browser-in-flatpak APT overlay.
+      - Tor Browser: enable flatpak file forwarding through the document portal
+      - Flatpak runtime: Use modern early_patch mountpoint path
+      - shfmt
+      - shfmt
+      - shfmt
+      - Test suite: adjust file picker code vs XDG Desktop Portal shenanigans
+      - Adjust torbrowser-launcher AppArmor profile for Flatpak and XDG Desktop Portal
+        support
+      - Execute Tor Browser wrapper code outside of the Flatpak
+      - Tor Browser: avoid Flatpak warning
+      - Flatpak runtime: Improve comments and minor refactoring
+      - Flatpak runtime: Don't bind-mount /var into flatpak runtime
+      - Flatpak runtime: Adapt to merged /usr
+      - Flatpak runtime: Mount / into flatpak runtime instead of the SquashFS
+      - Run Ruff formatter
+      - Fix Ruff RUF012
+      - Link to design doc
+      - Tor Browser flatpak: allow Tor Browser access to XDG user dirs
+      - Tor Browser flatpak: tighten restrictions compared to upstream flatpak
+      - Flatpak runtime: Also overlay /mnt/config/chroot_local-includes
+      - Test suite: Don't expect AppArmor logs for Tor Browser
+      - Ensure Tor Browser is only started inside a flatpak
+      - Tor Browser: run as a pseudo flatpak
+      - Adjust UIDs/GIDs mangling for the addition of the _flatpak user & group
+      - Add flatpak package and dependencies
+      - Add shellcheck source comments
 
  -- Tails developers <tails@boum.org>  Wed, 02 Apr 2025 19:05:19 +0200
 
