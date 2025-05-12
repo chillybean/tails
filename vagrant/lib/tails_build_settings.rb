@@ -1,9 +1,10 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-# Approximate amount of RAM needed to run the builder's base system
+# Virtual machine memory size for on-disk builds:
+# approximate amount of RAM needed to run the builder's base system
 # and perform a build
-def vm_memory_base(cpus)
+def vm_memory_for_disk_builds(cpus)
   memory = 1.85 * 1024
   # mksquashfs will run one thread per CPU, and each of them uses more
   # RAM, especially when defaulcomp (xz) is used. We only adjust when
@@ -13,17 +14,12 @@ def vm_memory_base(cpus)
   memory
 end
 
-# Approximate amount of extra space needed for builds
-BUILD_SPACE_REQUIREMENT = 13 * 1024
-
-# Virtual machine memory size for on-disk builds
-def vm_memory_for_disk_builds(cpus)
-  vm_memory_base(cpus)
-end
-
 # Virtual machine memory size for in-memory builds
-def vm_memory_for_ram_builds(cpus)
-  vm_memory_base(cpus) + BUILD_SPACE_REQUIREMENT
+# Please note that we aren't even trying to make this accurate for anything other
+# than our Jenkins instance. If you're building from RAM, we assume you are setting
+# $TAILS_BUILD_MEMORY in your environment.
+def vm_memory_for_ram_builds(_cpus)
+  15207
 end
 
 # The builder VM's platform

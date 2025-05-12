@@ -287,7 +287,7 @@ task :ensure_enough_free_memory do
   required_memory = if ENV['TAILS_RAM_BUILD']
                       vm_memory_for_ram_builds(cpus)
                     else
-                      vm_memory_base(cpus)
+                      vm_memory_for_disk_builds(cpus)
                     end
 
   if free_memory < required_memory
