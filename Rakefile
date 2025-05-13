@@ -174,8 +174,6 @@ ENV['TAILS_WEBSITE_CACHE'] = releasing? ? '0' : '1'
 task :parse_build_options do
   options = []
 
-  # Default to in-disk builds
-  options << 'noram'
   # Default to build using the in-VM proxy
   options << 'vmproxy'
   # Default to fast compression on development branches
