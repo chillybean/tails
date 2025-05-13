@@ -1034,7 +1034,8 @@ def launch_app(desktop_file_name, app_name, **options)
   # sessions apply to it.
   cmd = ['systemd-run', '--user',
          '--remain-after-exit',
-         'gtk-launch', desktop_file_name,].join(' ')
+         '/usr/local/bin/gtk-abspath-launch',
+         "/usr/share/applications/#{desktop_file_name}",].join(' ')
   $vm.execute(cmd, **options)
 
   unless options[:check_started]
