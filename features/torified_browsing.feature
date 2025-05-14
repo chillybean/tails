@@ -15,22 +15,22 @@ Feature: Browsing the web using the Tor Browser
     And no traffic was sent to the web server on the LAN
 
   @check_tor_leaks
-  Scenario: The Tor Browser's default downloads directory is usable
+  Scenario: The Downloads directory is usable in Tor Browser
     Given I have started Tails from DVD and logged in and the network is connected
     Then the live user's Downloads directory exists
     And there is a GNOME bookmark for the Downloads directory
     When I start the Tor Browser
     And the Tor Browser loads the startup page
-    Then I can save the current page as "index.html" to the default downloads directory
-    And I can print the current page as "output.pdf" to the default downloads directory
+    Then I can save the current page as "index.html" to the Downloads directory
+    And I can print the current page as "output.pdf" to the Downloads directory
 
   @check_tor_leaks
   Scenario: Downloading files with the Tor Browser
     Given I have started Tails from DVD and logged in and the network is connected
     When I start the Tor Browser
     Then the Tor Browser loads the startup page
-    When I download some file in the Tor Browser to the default downloads directory
-    Then the file is saved to the default downloads directory
+    When I download some file in the Tor Browser to the Downloads directory
+    Then the file is saved to the Downloads directory
 
   @check_tor_leaks
   Scenario: Playing an Ogg audio track
