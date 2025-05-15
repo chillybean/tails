@@ -25,7 +25,7 @@ def work_around_issue20054(confirm: false)
   end
   if confirm
     begin
-      greeter.child('Start Tails', roleName: 'push button').grabFocus
+      greeter.child('Start Tails', roleName: 'button').grabFocus
     rescue StandardError => e
       debug_log('Issue #20054: Dogtail failed to focus the Greeter ⇒ bug confirmed ' \
                 "(got exception #{e.class}: #{e.message})")
@@ -39,7 +39,7 @@ def work_around_issue20054(confirm: false)
   $vm.execute_successfully('systemctl restart spice-vdagentd.socket')
   if confirm # rubocop:disable Style/GuardClause
     begin
-      greeter.child('Start Tails', roleName: 'push button').grabFocus
+      greeter.child('Start Tails', roleName: 'button').grabFocus
     rescue StandardError => e
       debug_log('Issue #20054: Dogtail failed to focus the Greeter after recovering ' \
                 'spice-vdagentd ⇒ our proposed fix is not enough ' \
@@ -525,8 +525,7 @@ Given /^I log in to a new session(?: in ([^ ]*) \(([^ ]*)\))?( without activatin
 end
 
 def open_greeter_additional_settings
-  greeter.child('Add an additional setting', roleName: 'push button').grabFocus
-  @screen.press('Return')
+  greeter.child('Add an additional setting', roleName: 'button').click
 
   greeter.child('Additional Settings', roleName: 'dialog')
 end
@@ -732,8 +731,7 @@ Given /^all notifications have disappeared$/ do
       roleName: 'label', retry: false
     )
     unless no_notifications
-      gnome_shell.child('Clear', roleName: 'push button').grabFocus
-      @screen.press('Return')
+      gnome_shell.child('Clear all notifications', roleName: 'button').click
       gnome_shell.child?('No Notifications', roleName: 'label')
     end
   end
