@@ -346,6 +346,10 @@ module Dogtail
       run("#{@var}.#{method_call}")
     end
 
+    def click(*args, **kwargs)
+      call_tree_api_method('click', *args, **kwargs)
+    end
+
     def doActionNamed(action_name)
       call_tree_node_method('doActionNamed', action_name)
     end
@@ -362,10 +366,6 @@ module Dogtail
 
     def activate
       doActionNamed('activate')
-    end
-
-    def click
-      doActionNamed('click')
     end
 
     def open
