@@ -31,7 +31,6 @@ systemctl enable run-initramfs.mount
 systemctl enable var-tmp.mount
 
 # Enable our own systemd user unit files
-systemctl --global enable tails-add-GNOME-bookmarks.service
 systemctl --global enable tails-additional-software-install.service
 systemctl --global enable tails-configure-keyboard.service
 systemctl --global enable tails-report-disk-partitioning-errors.service
