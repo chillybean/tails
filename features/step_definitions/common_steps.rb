@@ -449,9 +449,12 @@ Given /^the computer (?:re)?boots Tails$/ do
   RemoteShell::SignalReady.new($vm)
 
   unless @scenario.match_tags?('@broken_welcome_screen')
-    try_for(60) do
-      !greeter.nil?
-    end
+    # There is a window of time while the Welcome Screen is
+    # initializing when attempting to use Dogtail breaks it for the
+    # rest of the session. That window is closed once the Welcome
+    # Screen appears, so we wait for that to happen using image
+    # matching.
+    @screen.wait('TailsGreeter.png', 60)
     work_around_issue20054(confirm: true)
   end
 end
