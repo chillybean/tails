@@ -493,7 +493,7 @@ def tca_configure(mode, connect: true, &block)
     radio_button_label, roleName: 'radio button'
   )
   try_for(10) do
-    radio_button.click
+    radio_button.doActionNamed('click')
     radio_button.checked?
   end
   block.call if block_given?
