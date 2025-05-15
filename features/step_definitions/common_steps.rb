@@ -455,6 +455,12 @@ Given /^the computer (?:re)?boots Tails$/ do
     # Screen appears, so we wait for that to happen using image
     # matching.
     @screen.wait('TailsGreeter.png', 60)
+    # Close the notification which otherwise obscures parts of the
+    # Welcome Screen window.
+    Dogtail::Application.new('gnome-shell', user: 'Debian-gdm')
+                        .child(roleName: 'notification')
+                        .child('System was put in unsafe mode', roleName: 'label')
+                        .click
     work_around_issue20054(confirm: true)
   end
 end
