@@ -90,7 +90,7 @@ class PasswordDialog(object):
             self.ok_button.clicked()
 
     def wait_until_password_set_and_lock_screen(self):
-        # TODO: Remove this once this is fixed: https://bugzilla.gnome.org/show_bug.cgi?id=761969
+        # TODO: Remove this once this is fixed: https://gitlab.gnome.org/GNOME/gdm/-/issues/251
         p = pam()
         while not p.authenticate(pwd.getpwuid(os.getuid()).pw_name, self.pw):
             logging.debug("PAM not updated yet...")
