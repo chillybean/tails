@@ -346,13 +346,15 @@ module Dogtail
       run("#{@var}.#{method_call}")
     end
 
-    def click
+    def click(force_tree_api: false)
       # The tree API doesn't always work, so we first try any of the
       # actions that a click would trigger.
-      preferred_actions = ['click', 'activate', 'open', 'press', 'select', 'toggle']
-      self.actions.each do |action|
-        if preferred_actions.include?(action)
-          return doActionNamed(action)
+      unless force_tree_api
+        preferred_actions = ['click', 'activate', 'open', 'press', 'select', 'toggle']
+        self.actions.each do |action|
+          if preferred_actions.include?(action)
+            return doActionNamed(action)
+          end
         end
       end
       call_tree_api_method('click')

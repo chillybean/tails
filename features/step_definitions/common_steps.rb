@@ -525,7 +525,11 @@ Given /^I log in to a new session(?: in ([^ ]*) \(([^ ]*)\))?( without activatin
 end
 
 def open_greeter_additional_settings
-  greeter.child('Add an additional setting', roleName: 'button').click
+  # For some reason, using the action 'click' makes the whole Welcome
+  # Screen become invisible to Dogtail, so we call the tree click
+  # method directly, which doesn't have this problem.
+  greeter.child('Add an additional setting', roleName: 'button')
+         .click(force_tree_api: true)
 
   greeter.child('Additional Settings', roleName: 'dialog')
 end
