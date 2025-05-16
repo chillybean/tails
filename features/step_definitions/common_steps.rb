@@ -933,7 +933,7 @@ end
 
 When /^I run "([^"]+)" in GNOME Terminal$/ do |command|
   app = if $vm.process_running?('gnome-terminal-server')
-          Dogtail::Application.new('gnome-terminal-server')
+          Dogtail::Application.new('org.gnome.Terminal')
         else
           launch_gnome_terminal
         end
@@ -1060,7 +1060,7 @@ end
 def launch_gnome_terminal(**opts)
   launch_app(
     'org.gnome.Terminal.desktop',
-    'gnome-terminal-server',
+    'org.gnome.Terminal',
     **opts
   )
 end

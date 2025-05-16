@@ -30,7 +30,7 @@ Feature: GNOME is well-integrated into Tails
     # The close button of GNOME Disks is not accessible
     And I close the "gnome-disks" window via Alt+F4
     When I start "GNOME Terminal" via GNOME Activities Overview
-    And I close the "gnome-terminal-server" window
+    And I close the "org.gnome.Terminal" window
     When I start "Files" via GNOME Activities Overview
     And I close the "org.gnome.Nautilus" window
     When I start "Persistent Storage" via GNOME Activities Overview

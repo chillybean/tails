@@ -20,7 +20,7 @@ Then /^I cannot login as root using su with the standard passwords$/ do
     # We use /bin/su because Tails' bash has its own su() function,
     # which merely prints instructions.
     step 'I run "/bin/su" in GNOME Terminal'
-    terminal = Dogtail::Application.new('gnome-terminal-server')
+    terminal = Dogtail::Application.new('org.gnome.Terminal')
                                    .child('Terminal', roleName: 'terminal')
     terminal.text['Password:']
     @screen.paste(password, app: :terminal)
@@ -60,7 +60,7 @@ Then /^I cannot run a command as root with pkexec and the standard passwords$/ d
   end
   sleep 2
   @screen.press('Escape')
-  Dogtail::Application.new('gnome-terminal-server')
+  Dogtail::Application.new('org.gnome.Terminal')
                       .child('Terminal', roleName: 'terminal')
                       .text[
                         'Error executing command as another user: Request dismissed'
