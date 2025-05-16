@@ -1140,7 +1140,7 @@ Given /^I start "([^"]+)" via GNOME Activities Overview$/ do |app_name|
   when 'Persistent Storage'
     # "Persistent Storage" also matches "Back Up Persistent Storage"
     # (tails-backup.desktop).
-    app_name = 'Configure which files'
+    app_name = 'tails-persistent-storage'
   end
   @screen.wait("GnomeApplicationsMenu#{$language}.png", 10)
   @screen.press('super')

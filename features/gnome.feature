@@ -35,7 +35,7 @@ Feature: GNOME is well-integrated into Tails
     And I close the "org.gnome.Nautilus" window
     When I start "Persistent Storage" via GNOME Activities Overview
     And I close the "tps-frontend" window
-    When I start "Persistent Storage Backup" via GNOME Activities Overview
+    When I start "Back Up Persistent Storage" via GNOME Activities Overview
     And I close the "zenity" window
     When I start "Pidgin" via GNOME Activities Overview
     And I close the "Pidgin" window via Alt+F4
