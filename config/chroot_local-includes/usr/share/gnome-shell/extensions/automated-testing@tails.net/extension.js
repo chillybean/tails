@@ -12,7 +12,7 @@ export default class AutomatedTestingExtension {
     // session, which it cannot ehilw remote access is inhibited. GDM
     // sessions start with remote access inhibited.
     global.backend.get_remote_access_controller().uninhibit_remote_access();
-    if (this.orig) return;
+    if (this.orig !== undefined) return;
     this.orig = global.backend.get_remote_access_controller().inhibit_remote_access;
     // For completness, let's make it impossible to inhibit remote
     // access by overriding the corresponding method.
@@ -21,8 +21,8 @@ export default class AutomatedTestingExtension {
 
   disable() {
     global.context.unsafe_mode = false;
-    if (!this.orig) return;
+    if (this.orig === undefined) return;
     global.backend.get_remote_access_controller().inhibit_remote_access = this.orig;
-    this.orig = null;
+    delete this.orig;
   }
 }
