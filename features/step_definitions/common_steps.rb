@@ -1189,15 +1189,7 @@ When /^I close the "([^"]+)" window$/ do |app_name|
     )
   end
 
-  # Some close buttons have a "click" action, some have a "press"
-  # action (for example Thunderbird).
-  if close_button.actions.include?('click')
-    close_button.click
-  elsif close_button.actions.include?('press')
-    close_button.press
-  else
-    raise 'Close button has no click or press action'
-  end
+  close_button.click
 
   # Wait for the app to terminate (some apps take a while to actually
   # terminate after the window is closed, for example GNOME Files).
