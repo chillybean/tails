@@ -549,7 +549,7 @@ Given /^I set an administration password$/ do
   @screen.wait('TailsGreeterAdminPasswordDialog.png', 10)
   greeter.childLabelled('Administration Password').text = @sudo_password
   greeter.childLabelled('Confirm').text = @sudo_password
-  greeter.child('Add', roleName: 'push button').click
+  greeter.child('Add', roleName: 'button').click
   # Wait for the Administration Password dialog to be closed,
   # otherwise the next step can fail.
   @screen.wait('TailsGreeterLoginButton.png', 10)
@@ -949,7 +949,7 @@ When /^I run "([^"]+)" in GNOME Terminal$/ do |command|
       debug_log('Error while pasting; trying again...')
       # The command was not pasted successfully. Close the terminal and
       # open a new one.
-      app.child('Close', roleName: 'push button').click
+      app.child('Close', roleName: 'button').click
       app = launch_gnome_terminal
       terminal = app.child('Terminal', roleName: 'terminal')
       terminal.text['amnesia@amnesia:']
@@ -1173,7 +1173,7 @@ When /^I close the "([^"]+)" window$/ do |app_name|
 
   close_button = app.child(
     'Close',
-    roleName:    'push button',
+    roleName:    'button',
     # For some reason, the 'showing' attribute of the close button is
     # false in some apps (e.g. Nautilus), even though it's visible.
     showingOnly: false

@@ -163,7 +163,7 @@ end
 Then /^I verify the SSH fingerprint for the SFTP server$/ do
   try_for(30) do
     Dogtail::Application.new('gnome-shell').child?('Log In Anyway',
-                                                   roleName: 'push button')
+                                                   roleName: 'button')
   end
   # Here we'd like to click on the button using Dogtail, but something
   # is buggy so let's just use the keyboard.

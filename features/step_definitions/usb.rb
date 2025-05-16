@@ -1533,7 +1533,7 @@ Given /^I install a Tails USB image to the (\d+) MiB disk with GNOME Disks$/ do 
        .grabFocus
   disks.child(description: 'Drive Options', roleName: 'toggle button')
        .click
-  disks.child('Restore Disk Image…', roleName: 'push button').click
+  disks.child('Restore Disk Image…', roleName: 'button').click
   restore_dialog = disks.child('Restore Disk Image', roleName: 'dialog')
   # Open the file chooser
   @screen.press('Enter')
@@ -1556,10 +1556,10 @@ Given /^I install a Tails USB image to the (\d+) MiB disk with GNOME Disks$/ do 
   # modal dialog to be run via gtk_dialog_run() which causes the
   # application to hang when triggered via a ATSPI action. See
   # https://gitlab.gnome.org/GNOME/gtk/-/issues/1281
-  restore_dialog.child('Start Restoring…', roleName: 'push button').grabFocus
+  restore_dialog.child('Start Restoring…', roleName: 'button').grabFocus
   @screen.press('Return')
   disks.child('Information', roleName: 'alert')
-       .child('Restore', roleName: 'push button')
+       .child('Restore', roleName: 'button')
        .grabFocus
   @screen.press('Return')
   # Wait until the restoration job is finished
@@ -1693,7 +1693,7 @@ When /^I delete the data of the Persistent Folder feature$/ do
   def persistent_folder_delete_button(**opts)
     persistent_storage_main_frame.child(
       'Delete Persistent Folder data',
-      roleName: 'push button', **opts
+      roleName: 'button', **opts
     )
   end
 
@@ -1731,7 +1731,7 @@ end
 Then(/^the Welcome Screen tells me that filesystem errors were found on the Persistent Storage$/) do
   try_for(60) do
     greeter.child?('File System Errors', roleName: 'label') && \
-      greeter.child?('Repair File System', roleName: 'push button')
+      greeter.child?('Repair File System', roleName: 'button')
   end
 end
 
@@ -1814,7 +1814,7 @@ Then(/^the filesystem of the Persistent Storage was repaired$/) do
 end
 
 When(/^I repair the filesystem of the Persistent Storage$/) do
-  greeter.child('Repair File System', roleName: 'push button').click
+  greeter.child('Repair File System', roleName: 'button').click
 end
 
 Then(/^the Welcome Screen tells me that the filesystem was repaired successfully$/) do
@@ -1824,7 +1824,7 @@ Then(/^the Welcome Screen tells me that the filesystem was repaired successfully
 end
 
 When(/^I close the filesystem repair dialog$/) do
-  greeter.child('Close', roleName: 'push button').click
+  greeter.child('Close', roleName: 'button').click
 end
 
 Then(/^the Persistent Storage is successfully unlocked$/) do
