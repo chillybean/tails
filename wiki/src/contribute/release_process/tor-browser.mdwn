@@ -130,8 +130,10 @@ If that's the case, just set it to an empty string:
 
     TBB_SIGNER_SUFFIX=''
 
-Fetch the version's hash file and its detached signature, and verify
-with GnuPG:
+Fetch the version's hash file and its detached signature, verify
+with GnuPG, build the list of tarballs we want and their hashes,
+(so this information is available at build time,
+when the tarballs are fetched):
 
     (
         set -e
@@ -140,18 +142,13 @@ with GnuPG:
             wget "${TBB_DIST_URL:?}/$f" -O "$f"
         done
         gpg --verify sha256sums-unsigned-build.txt{.asc${TBB_SIGNER_SUFFIX?},}
+        grep --color=never -E \
+            "\stor-browser-linux-x86_64-${TBB_VERSION%-build*}\.tar\.xz$" \
+            sha256sums-unsigned-build.txt \
+            > config/chroot_local-includes/usr/share/tails/tbb-sha256sums.txt
     )
 
 
-Build the list of tarballs we want and their hashes,
-so this information is available at build time,
-when the tarballs are fetched:
-
-    (
-        grep --color=never -E \
-            "\stor-browser-linux-x86_64-${TBB_VERSION%-build*}\.tar\.xz$" \
-            sha256sums-unsigned-build.txt
-    ) > config/chroot_local-includes/usr/share/tails/tbb-sha256sums.txt
 
 Set download url
 ----------------
@@ -184,11 +181,21 @@ We cannot use such a server directly, so we need to (at least temporarily) self-
 
 #### If you can access torbrowser-archive.git
 
-    echo "${TBB_DIST_URL:?}" > \
+    (
+      set -e
+      echo "${TBB_DIST_URL:?}" > \
          config/chroot_local-includes/usr/share/tails/tbb-dist-url.txt
-    git commit config/chroot_local-includes/usr/share/tails/tbb-*.txt \
+      files=(config/chroot_local-includes/usr/share/tails/tbb-dist-url.txt config/chroot_local-includes/usr/share/tails/tbb-sha256sums.txt)
+      for file in "${files[@]}"; do
+          if git diff --quiet $file; then
+             echo "Error: file $file not changed" >&2
+             exit 2
+          fi
+      done
+      git commit "${files[@]}" \
         -m "Upgrade Tor Browser to ${TBB_VERSION:?} (refs: tails#${TBB_TAILS_TICKET})" && \
-    git show
+      git show
+    )
 
 Please refer to [[Self-hosted Tor Browser tarballs archive|tor-browser#self-host]] section.
 
@@ -301,39 +308,12 @@ Set up environment variables
 Import a new set of Tor Browser tarballs
 ----------------------------------------
 
-1. Download and verify all the tarballs we need:
+1. Download, verify and import all the tarballs we need:
 
-        DL_DIR=$(mktemp --tmpdir -d "tor-browser-${TBB_VERSION}.XXXXXXXXXX")
-        CHROOT_INCLUDES="config/chroot_local-includes"
-        TBB_SHA256SUMS_FILE="${CHROOT_INCLUDES:?}/usr/share/tails/tbb-sha256sums.txt"
-        TBB_DIST_URL_FILE="${CHROOT_INCLUDES:?}/usr/share/tails/tbb-dist-url.txt"
-        cd "${TAILS_GIT_REPO:?}" && git checkout "${TBB_IMPORT_BRANCH:?}"
-        TBB_TARBALLS_BASE_URL="$(cat "${TBB_DIST_URL_FILE:?}" | sed "s,^http://,https://,")"
-        current_branch=$(git -C "${TAILS_GIT_REPO:?}" branch | awk '/^\* / { print $2 }')
-        for branch in "$current_branch" ; do
-           git -C "${TAILS_GIT_REPO:?}" show "$branch:${TBB_SHA256SUMS_FILE:?}" \
-           | while read expected_sha256 tarball; do
-              (
-                 cd "$DL_DIR"
-                 echo "Retrieving '${TBB_TARBALLS_BASE_URL:?}/${tarball:?}'..."
-                 curl --remote-name --retry 20 --continue-at - \
-                    "${TBB_TARBALLS_BASE_URL:?}/${tarball:?}"
-              )
-           done
-           (
-              cd "${DL_DIR:?}" && \
-              git -C "${TAILS_GIT_REPO:?}" show "$branch:${TBB_SHA256SUMS_FILE:?}" \
-                 | sha256sum -c -
-           )
-        done
+    export TBB_ARCHIVE TBB_IMPORT_BRANCH TBB_VERSION
+    export DL_DIR=$(mktemp --tmpdir -d "tor-browser-${TBB_VERSION}.XXXXXXXXXX")
+    ./bin/import-tbb-tarball
 
-2. Import the tarballs into your local Git annex:
-
-        (
-        cd "${TBB_ARCHIVE:?}" && \
-        mkdir "${TBB_VERSION:?}" && cd "${TBB_VERSION:?}" && \
-        git annex import --duplicate "${DL_DIR:?}/"* "${TAILS_GIT_REPO:?}/"sha256sums-*
-        )
 
 Commit and push your changes
 ----------------------------
@@ -376,8 +356,8 @@ you need to wait for the tarballs to appear on
     while [ -z "$(elinks -dump -no-references -no-numbering "$url"   | grep 'tor-browser-linux-x86_64.*MiB')" ]
     do
         sleep 5
-     done
-     )
+    done
+    )
 
 
 Push the updated branch
@@ -393,7 +373,7 @@ Clean up
 	cd "${TBB_ARCHIVE:?}" && \
 	git annex drop -- "${TBB_VERSION:?}" && \
     git annex sync --no-content && \
-    rm -rf "${DL_DIR:?}" && \
+    rm -rf "$DL_DIR" && \
     cd "${TAILS_GIT_REPO:?}" && \
     rm -f sha256sums-unsigned-build.txt{,.asc${TBB_SIGNER_SUFFIX}}
     )

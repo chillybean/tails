@@ -121,13 +121,12 @@ class CopyAndVerify:
         if skip_if_dry_run and self.dry_run:
             log.info("Would run %s, but --dry-run prevents this", cmd)
             return None
-        return subprocess.run(*args, **kwargs, check=False)
+        return subprocess.run(*args, **kwargs, check=True)
 
     def send_hashes_file(self, hashes_file: str, desthost: str, destdir: str) -> None:
         log.info(f"Sending {hashes_file} to {destdir} on {desthost}…")
         self.run(
             ["scp", hashes_file, f"{desthost}:{destdir}"],
-            check=True,
             skip_if_dry_run=True,
         )
 
@@ -256,7 +255,6 @@ class CopyAndVerify:
                     "--directory-prefix=%s" % destdir,
                     iuk_url,
                 ],
-                check=True,
                 skip_if_dry_run=True,
             )
 
@@ -272,7 +270,6 @@ class CopyAndVerify:
                         f=Path(hashes_file).name,
                     ),
                 ],
-                check=True,
             )
         except subprocess.CalledProcessError:
             log.error("ERROR: IUKs built on Jenkins don't match yours")  # noqa: TRY400

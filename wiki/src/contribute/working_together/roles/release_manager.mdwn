@@ -18,11 +18,11 @@ See <https://gitlab.tails.boum.org/tails/team/-/wikis/responsibilities>.
 - Check the [Tor Browser release
   schedule](https://gitlab.torproject.org/tpo/applications/tor-browser/-/wikis/Release-Schedule). `[skip-if-emergency-release]`. In doubt, check the [logs from their last meeting](http://meetbot.debian.net/tor-meeting/).
 
-- Check the Mozilla release calendars: `[skip-if-emergency-release]`
+- Check the Firefox release calendars: `[skip-if-emergency-release]`
 
   * [Google calendar](https://www.google.com/calendar/embed?src=mozilla.com_2d37383433353432352d3939%40resource.calendar.google.com)
 
-  * [Release schedule](https://whattrainisitnow.com/calendar/)
+  * [Firefox Release Calendar](https://whattrainisitnow.com/calendar/)
 
 - Reply to the email sent to <tails-dev@boum.org> and
   <tails-l10n@boum.org> by the RM for the previous release,
@@ -31,14 +31,6 @@ See <https://gitlab.tails.boum.org/tails/team/-/wikis/responsibilities>.
   - Code freeze date, if it's different from what's in the email sent by the previous RM.
 
   - If this will be a major release: the release schedule for its RC.
-
-- Ensure a _Trusted Reproducer_ is encoded in the release calendar
-
-  This should have been done while scheduling the Release Manager shift.
-  If we forgot, ask someone to do it:
-
-        ./bin/generate-call-for-trusted-reproducer \
-           --version VERSION_YOU_WILL_RELEASE
 
 - Update [[contribute/calendar]] accordingly.
 
@@ -92,9 +84,6 @@ See <https://gitlab.tails.boum.org/tails/team/-/wikis/responsibilities>.
   organization tool.
 
 ## Two weeks after the beginning of your shift
-
-- Ensure you have found a _Trusted Reproducer_ and write who this is
-  in the [[contribute/calendar]].
 
 - Check that enough developers have booked time for manual tests.
 
@@ -175,7 +164,14 @@ These stakeholders must be part of the decision-making process:
    Here is some good queries to get you started:
 
      - `./bin/nvd-info.py search --vector 'AV:[^P]' --vector '[CI]:[MH]' "${listOfCVEs[@]}"`
+
+       - `AV:[^P]` means: attack does not require physical access
+       - `[CI]:[MH]` means: at least 1 among "confidentiality impact" and "integrity impact" must be medium or high
+
      - `./bin/nvd-info.py search --description 'privileg|escalat' "${listOfCVEs[@]}"`
+
+   To build your own queries, see the
+   [available metrics](https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator).
 
  - UX: evaluate the acceptability of mitigation measures proposed by
    developers; remind everyone else that any extra upgrade has a UX cost

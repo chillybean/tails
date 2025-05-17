@@ -40,7 +40,5 @@ if ! [ -f /.flatpak-info ]; then
 fi
 
 exec_firefox -allow-remote \
-    --class "Tor Browser" \
-    --name "Tor Browser" \
     -profile "${PROFILE}" \
     "${@}"
