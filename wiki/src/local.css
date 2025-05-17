@@ -775,16 +775,34 @@ body:has(#doc-index) #page-body {
 
 #doc-index .section:has(.topic) > label,
 #doc-index .topic:has(.subtopic) > label {
-  background-image: url(lib/go-down.png) !important;
-  background-repeat: no-repeat !important;
-  background-position: right 8px top 10px !important;
   padding-right: 30px;
   cursor: pointer;
+  position: relative;
 }
 
-#doc-index .section:has(.topic .selflink) > label,
-#doc-index .topic:has(.subtopic .selflink) > label {
-  background-image: none !important;
+#doc-index .section:has(.topic) > label::after,
+#doc-index .topic:has(.subtopic) > label::after {
+  content: "";
+  position: absolute;
+  top: 20px;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  background: url(lib/go-down.png) no-repeat center;
+  transform: translateY(-50%) rotate(0deg);
+  transition: transform 0.15s ease;
+}
+
+#doc-index .topic:has(.selflink) > label::after,
+#doc-index .section:has(.selflink) > label::after,
+#doc-index .topic input:checked + label::after,
+#doc-index .section input:checked + label::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+#doc-index .section:has(.topic .selflink) > label::after,
+#doc-index .topic:has(.subtopic .selflink) > label::after {
+  display: none;
 }
 
 #crumbs #doc-index-button-wrapper {
