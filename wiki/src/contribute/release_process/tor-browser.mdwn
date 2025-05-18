@@ -360,7 +360,7 @@ you need to wait for the tarballs to appear on
 Push the updated branch
 -----------------------
 
-	git push -o merge_request.create --set-upstream \
+	git push -o merge_request.create -o merge_request.draft --set-upstream \
 	   origin "${TBB_IMPORT_BRANCH:?}"
 
 Clean up
