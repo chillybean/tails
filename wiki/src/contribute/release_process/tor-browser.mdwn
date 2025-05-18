@@ -308,9 +308,9 @@ Import a new set of Tor Browser tarballs
 
 1. Download, verify and import all the tarballs we need:
 
-    export TBB_ARCHIVE TBB_IMPORT_BRANCH TBB_VERSION
-    export DL_DIR=$(mktemp --tmpdir -d "tor-browser-${TBB_VERSION}.XXXXXXXXXX")
-    ./bin/import-tbb-tarball
+        export TBB_ARCHIVE TBB_IMPORT_BRANCH TBB_VERSION
+        export DL_DIR=$(mktemp --tmpdir -d "tor-browser-${TBB_VERSION}.XXXXXXXXXX")
+        ./bin/import-tbb-tarball
 
 
 Commit and push your changes
