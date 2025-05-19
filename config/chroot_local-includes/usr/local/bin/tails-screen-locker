@@ -70,7 +70,7 @@ class PasswordDialog:
         user_object.Changed.connect(self.wait_until_password_set_and_lock_screen)
 
         p = subprocess.Popen(
-            "passwd",
+            "/bin/passwd",
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
