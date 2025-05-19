@@ -176,8 +176,8 @@ def get_lock():
     # Original author: https://stackoverflow.com/users/639295/aychedee
     # Without holding a reference to our socket somewhere it gets garbage
     # collected when the function exits
-    get_lock._lock_socket = socket.socket(socket.AF_UNIX, socket.SOCK_DGRAM)
-    get_lock._lock_socket.bind("\0" + "tails-screen-locker")
+    get_lock._lock_socket = socket.socket(socket.AF_UNIX, socket.SOCK_DGRAM)  # noqa: SLF001
+    get_lock._lock_socket.bind("\0" + "tails-screen-locker")  # noqa: SLF001
 
 
 def main():
