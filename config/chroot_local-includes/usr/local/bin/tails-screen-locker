@@ -37,7 +37,7 @@ def lock_screen():
         sys.exit()
 
 
-class PasswordDialog(object):
+class PasswordDialog:
 
     def on_cancel_clicked(self, button, data=None):
         sys.exit(1)
