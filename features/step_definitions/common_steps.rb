@@ -1207,19 +1207,11 @@ When /^I press the "([^"]+)" key$/ do |key|
   @screen.press(key)
 end
 
-Then /^the (amnesiac|persistent) (.*) directory (exists|does not exist)$/ do |persistent_or_not, directory, mode|
-  case persistent_or_not
-  when 'amnesiac'
-    dir = "/home/#{LIVE_USER}/"
-  when 'persistent'
-    dir = "/home/#{LIVE_USER}/Persistent/"
-  end
-  dir += directory
-  step "the directory \"#{dir}\" #{mode}"
+Then /^the live user's (.*) directory (exists|does not exist)$/ do |directory, mode|
+  step "the directory \"/home/#{LIVE_USER}/#{directory}\" #{mode}"
 end
 
-Then /^there is a GNOME bookmark for the (amnesiac|persistent) (.*) directory$/ do |persistent_or_not, bookmark|
-  bookmark += ' (persistent)' if persistent_or_not == 'persistent'
+Then /^there is a GNOME bookmark for the (.*) directory$/ do |bookmark|
   open_gnome_places_menu
   Dogtail::Application.new('gnome-shell').child(bookmark, roleName: 'label')
   @screen.press('Escape')
