@@ -1,25 +1,25 @@
 #!/usr/bin/python3 -I
 
-import logging
-import socket
-import sys
 import gettext
-import subprocess
-from pydbus import SessionBus, SystemBus
+import logging
 import os
-from pam import pam
-import time
 import pwd
+import socket
+import subprocess
+import sys
+import time
 
 import gi
+from pam import pam
+from pydbus import SessionBus, SystemBus
 
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk, GLib
+from gi.repository import Gtk, GLib  # NOQA: E402
 
 gi.require_version("Gdk", "3.0")
-from gi.repository import Gdk
+from gi.repository import Gdk  # NOQA: E402
 
-from tailslib.adminpassword import is_password_set
+from tailslib.adminpassword import is_password_set  # NOQA: E402
 
 _ = gettext.gettext
 gettext.textdomain("tails")

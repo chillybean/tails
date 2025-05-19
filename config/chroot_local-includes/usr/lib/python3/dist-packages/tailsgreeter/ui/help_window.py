@@ -7,7 +7,7 @@ from tailsgreeter.ui import _
 
 gi.require_version("Gtk", "3.0")
 gi.require_version("WebKit2", "4.1")
-from gi.repository import Gtk, WebKit2
+from gi.repository import Gtk, WebKit2  # NOQA: E402
 
 PREFERRED_WIDTH = 800
 
