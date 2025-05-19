@@ -47,7 +47,7 @@ msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-30 09:33+0200\n"
-"PO-Revision-Date: 2025-03-31 20:58+0000\n"
+"PO-Revision-Date: 2025-05-13 03:04+0000\n"
 "Last-Translator: Sketch6580 <sketch6580@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/tor/tails-gui/zh_Hans/>\n"
@@ -56,7 +56,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -241,19 +241,16 @@ msgid "_Create persistent storage"
 msgstr "创建永久存储(_C)"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:69
-#, fuzzy
 msgid ""
 "Tails needs donations to keep everybody free and safe online.\n"
 "\n"
 "Every bit helps in our fight against surveillance and censorship!\n"
 "\n"
 msgstr ""
-"Tails 需要捐款以保持每个人在网上的自由和安全。\n"
+"Tails 需要捐款来让每个人在网上保持自由和安全。\n"
 "\n"
 "每一点帮助都在我们对抗监视和审查的斗争中起作用！\n"
 "\n"
-"<a href=\"file:///usr/share/doc/tails/website/donate.en.html#expenses\">我们"
-"如何使用资金</a>"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:79
 msgid ""
@@ -262,6 +259,10 @@ msgid ""
 "Help us keep your bitcoins safe!\n"
 "\n"
 msgstr ""
+"Tails 保护您的钱包。\n"
+"\n"
+"帮助我们保护您的比特币安全！\n"
+"\n"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:156
 msgid "Donate Now"
@@ -381,17 +382,15 @@ msgid "bytes"
 msgstr "字节"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:296
-#, fuzzy
 msgid ""
 "<b>An error occurred while updating the signing key.</b>\\n\\n<b>This "
 "prevents determining whether an upgrade is available from our website.</"
 "b>\\n\\nCheck your network connection and restart Tails.\\n\\nIf the problem "
 "persists, try doing a manual upgrade."
 msgstr ""
-"<b>当更新密钥时出现了一个错误。</b>\\n\\n<b>这将无法通过我们的网站确定是否有"
-"可用更新。</b>\\n\\n检查您的网络连接状态，重启Tails并再次尝试更新。\\n\\n如果"
-"问题仍未被解决，请前往file:///usr/share/doc/tails/website/doc/upgrade/error/"
-"check.en.html"
+"<b>更新签名密钥时出错。</b>\\n\\n<b>这会阻止从我们的网站确定是否有可用的升"
+"级。</b>\\n\\n请检查您的网络连接并重启 Tails。\\n\\n如果问题仍然存在，请尝试"
+"手动升级。"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:310
 msgid "Error while downloading the signing key"
@@ -402,7 +401,6 @@ msgid "Error while checking for upgrades"
 msgstr "检查更新时发生了错误"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:345
-#, fuzzy
 msgid ""
 "<b>Could not determine whether an upgrade is available from our website.</"
 "b>\n"
@@ -411,12 +409,11 @@ msgid ""
 "\n"
 "If the problem persists, try doing a manual upgrade."
 msgstr ""
-"<b>无法从我们的网站上检测是否有升级可用</b>\n"
+"<b>无法从我们的网站确定是否有可用的升级</b>\n"
 "\n"
-"请检查您的网络连接，重启 Tails 并尝试升级\n"
+"请检查您的网络连接并重启 Tails。\n"
 "\n"
-"如果依旧有这个问题，请参阅本地文件 file:///usr/share/doc/tails/website/doc/"
-"upgrade/error/check.en.html"
+"如果问题仍然存在，请尝试手动升级。"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:360
 msgid "no automatic upgrade is available from our website for this version"
@@ -451,12 +448,11 @@ msgstr "系统已是最新"
 msgid ""
 "You are currently running the latest version. There is no upgrade "
 "available.\n"
-msgstr ""
+msgstr "您当前运行的是最新版本。没有可用的升级。\n"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:415
-#, fuzzy
 msgid "Tails is up to date"
-msgstr "系统已是最新"
+msgstr "Tails 已是最新版本"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:421
 msgid "This version of Tails is outdated, and may have security issues."
@@ -573,14 +569,12 @@ msgid "Downloading the upgrade to {name} {version}..."
 msgstr "正在下载到 {name} {version} 的升级包…"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:712
-#, fuzzy
 msgid ""
 "<b>The upgrade could not be downloaded.</b>\\n\\nCheck your network "
 "connection, and restart Tails to try upgrading again."
 msgstr ""
-"<b>无法下载升级包。</b>\\n\\n检查您的网络连接，并且重启 Tails 后重新尝试升"
-"级。\\n\\n如果依旧有这个问题，请到 file:///usr/share/doc/tails/website/doc/"
-"upgrade/error/download.en.html"
+"<b>无法下载升级。</b>\\n\\n请检查您的网络连接，然后重启 Tails 以尝试再次升"
+"级。"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:715
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:730
@@ -693,15 +687,14 @@ msgstr ""
 "由于安全原因，网络连接已经被禁用。"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:856
-#, fuzzy
 msgid ""
 "<b>An error occurred while installing the upgrade.</b>\\n\\nYour Tails "
 "device needs to be repaired and might be unable to restart.\\n\\nPlease "
 "follow the instructions at file:///usr/share/doc/tails/website/doc/upgrade/"
 "error/install.en.html"
 msgstr ""
-"<b>安装更新时出现错误</b>\\n\\n您的Tails设备需要修复，并且可能无法重启。"
-"\\n\\n请查看以下说明：file:///usr/share/doc/tails/website/doc/upgrade/error/"
+"<b>安装升级时出错。</b>\\n\\n您的 Tails 设备需要修复，可能无法重启。\\n\\n请"
+"按照以下说明操作 file:///usr/share/doc/tails/website/doc/upgrade/error/"
 "install.en.html"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:861
@@ -1542,9 +1535,8 @@ msgid "About Tails"
 msgstr "关于"
 
 #: config/chroot_local-includes/usr/local/bin/tails-about:34
-#, fuzzy
 msgid "Check for Upgrades"
-msgstr "检查更新时发生了错误"
+msgstr "检查升级"
 
 #: config/chroot_local-includes/usr/local/bin/tails-about:57
 msgid "UNRELEASED"
@@ -2571,9 +2563,8 @@ msgid "Your message has been sent."
 msgstr "信息已发送。"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:248
-#, fuzzy
 msgid "An error occurred during encryption."
-msgstr "加密时出现错误。"
+msgstr "加密过程中出错。"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:317
 msgid "This doesn't seem to be a valid URL or OpenPGP key."
@@ -3656,7 +3647,7 @@ msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1634
 msgid "No Wi-Fi hardware detected"
-msgstr ""
+msgstr "未检测到 Wi-Fi 硬件"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1652
 msgid ""
@@ -3672,9 +3663,17 @@ msgid ""
 " • Buy a USB Wi-Fi adapter that works in Tails.\n"
 "                "
 msgstr ""
+"Tails 在您的计算机上找不到任何 Wi-Fi 接口。如果您的计算机有 Wi-Fi 接口，它可"
+"能在 Tails 上无法工作。\n"
+"\n"
+"要连接到互联网，您可以尝试：\n"
+"\n"
+" • 使用以太网线代替 Wi-Fi。在 Tails 中，有线接口比 Wi-Fi 工作更可靠。\n"
+" • 使用 USB 网络共享，使用 USB 线共享手机的 Wi-Fi 或移动数据连接。\n"
+" • 购买在 Tails 上可用的 USB Wi-Fi 适配器。\n"
+"                "
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1676
-#, fuzzy
 msgid ""
 "\n"
 "<a href=\"doc/anonymous_internet/no-wifi\">\n"
@@ -3682,8 +3681,11 @@ msgid ""
 "</a>\n"
 "                "
 msgstr ""
-"<a href=\"doc/anonymous_internet/tor\">了解有关 Tails 如何连接到 Tor 的更多信"
-"息</a>"
+"\n"
+"<a href=\"doc/anonymous_internet/no-wifi\">\n"
+"详细了解 Wi-Fi 无法工作的故障排除。\n"
+"</a>\n"
+"                "
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1704
 msgid "Connect to a local network"
@@ -3698,7 +3700,6 @@ msgstr ""
 "移动网络。"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1735
-#, fuzzy
 msgid "Open Wi-Fi Settings"
 msgstr "打开 Wi-Fi 设置"
 
@@ -3863,15 +3864,6 @@ msgstr "十二月"
 msgid "Clock"
 msgstr "时钟"
 
-#~ msgid "Starting the Unsafe Browser..."
-#~ msgstr "正在启动非安全浏览器..."
-
-#~ msgid "This may take a while, so please be patient."
-#~ msgstr "可能需要一会儿，请稍等。"
-
-#~ msgid "Reset Tor Connection"
-#~ msgstr "重置 Tor 连接"
-
 #, python-brace-format
 #~ msgid ""
 #~ "<b>Shape the future of Tails, today.</b>\n"
@@ -3899,6 +3891,15 @@ msgstr "时钟"
 
 #~ msgid "Open Onion Circuits"
 #~ msgstr "打开 Onion 线路"
+
+#~ msgid "Starting the Unsafe Browser..."
+#~ msgstr "正在启动非安全浏览器..."
+
+#~ msgid "This may take a while, so please be patient."
+#~ msgstr "可能需要一会儿，请稍等。"
+
+#~ msgid "Reset Tor Connection"
+#~ msgstr "重置 Tor 连接"
 
 #~ msgid "Error while updating the signing key"
 #~ msgstr "当更新登录密钥时出现错误"
