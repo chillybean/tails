@@ -95,9 +95,7 @@ class GdmClient:
         logging.debug("Received default-session-name-changed: %s" % session_id)
 
     def __on_timed_login_requested(self, client, user_name, seconds):
-        logging.debug(
-            f"Received timed-login-requested for {user_name} in {seconds}"
-        )
+        logging.debug(f"Received timed-login-requested for {user_name} in {seconds}")
         raise NotImplementedError
 
     def do_login(self):
