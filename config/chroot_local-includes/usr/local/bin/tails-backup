@@ -102,7 +102,7 @@ then
     echo "Done!"
     gio mount --eject "${DEST}"
     title="$(gettext -s 'Persistent Storage Backup Successful')"
-    msg="$(gettext -s '<b>Your Persistent Storage was backed up successfully to your backup Tails USB stick!</b>\n\nYou can now safely unplug your backup Tails USB stick.\n\nIf your backup Tails USB stick has an outdated version of Tails, we recommend you\nupdate it by cloning your current Tails using <i>Tails Cloner</i>.\n\nSee <a href="file:///usr/share/doc/tails/website/upgrade/clone.en.html#upgrade">manually upgrade from another Tails</a>.')"
+    msg="$(gettext -s '<b>Your Persistent Storage was backed up successfully to your backup Tails USB stick!</b>\n\nYou can now safely unplug your backup Tails USB stick.\n\nIf your backup Tails USB stick has an outdated version of Tails, we recommend you\nupdate it by cloning your current Tails using <i>Tails Cloner</i>.\n\nSee <a href="file:///usr/share/doc/tails/website/doc/upgrade/clone.en.html#upgrade">manually upgrade from another Tails</a>.')"
     zenity --info --ellipsize --title "$title" --text "$msg"
 else
     title="$(gettext -s 'Persistent Storage Backup Failed')"
