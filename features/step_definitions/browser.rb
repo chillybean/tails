@@ -120,7 +120,8 @@ def unsafe_browser_application_info(defaults)
   binary = $vm.execute_successfully(
     'echo ${TBB_INSTALL}/firefox.unsafe-browser', libs: 'tor-browser'
   ).stdout.chomp
-  cmd_regex = "#{binary} --profile /home/#{user}/\.unsafe-browser/profile\.default"
+  cmd_regex = "#{binary} .* " \
+              "--profile /home/#{user}/\.unsafe-browser/profile\.default"
   defaults.merge(
     {
       user:,
@@ -278,7 +279,7 @@ Then /^the (.*) runs as the expected user$/ do |browser|
   )
 end
 
-When /^I download some file in the Tor Browser$/ do
+When /^I download some file in the Tor Browser to the (.*) directory$/ do |target_dir|
   @some_file = 'tails-signing.key'
   some_url = "https://tails.net/#{@some_file}"
   step "I open the address \"#{some_url}\" in the Tor Browser without waiting"
@@ -291,6 +292,7 @@ When /^I download some file in the Tor Browser$/ do
   try_for(10) { button.sensitive? }
   button.press
   file_dialog = desktop_portal_save_as_dialog
+  activate_places_sidebar_item(file_dialog, "/home/#{LIVE_USER}/#{target_dir}")
   file_dialog.child('Save', roleName: 'push button').click
 
   @torbrowser
@@ -301,10 +303,9 @@ When /^I download some file in the Tor Browser$/ do
     .child("#{@some_file} Completed .*", roleName: 'list item')
 end
 
-Then /^the file is saved to the default Tor Browser download directory$/ do
+Then /^the file is saved to the (.*) directory$/ do |target_dir|
   assert_not_nil(@some_file)
-  expected_path = "/home/#{LIVE_USER}/Tor Browser/#{@some_file}"
-  try_for(10) { $vm.file_exist?(expected_path) }
+  try_for(10) { $vm.file_exist?("/home/#{LIVE_USER}/#{target_dir}/#{@some_file}") }
 end
 
 When /^I open the Tails homepage in the (.+)$/ do |browser|
@@ -514,12 +515,8 @@ Given /^the Tor Browser has a bookmark to eff.org$/ do
   @screen.wait('TorBrowserEFFBookmark.png', 10)
 end
 
-When /^I can print the current page as "([^"]+[.]pdf)" to the (default downloads|persistent Tor Browser) directory$/ do |output_file, output_dir|
-  output_dir = if output_dir == 'persistent Tor Browser'
-                 "/home/#{LIVE_USER}/Persistent/Tor Browser"
-               else
-                 "/home/#{LIVE_USER}/Tor Browser"
-               end
+When /^I can print the current page as "([^"]+[.]pdf)" to the (.*) directory$/ do |output_file, target_dir|
+  output_dir = "/home/#{LIVE_USER}/#{target_dir}"
   @screen.press('ctrl', 'p')
   @torbrowser.child('Save', roleName: 'push button').press
   file_dialog = desktop_portal_save_as_dialog
@@ -562,20 +559,11 @@ def activate_places_sidebar_item(parent, path)
   end
 end
 
-When /^I (can|cannot) save the current page as "([^"]+[.]html)" to the (.*) (directory|GNOME bookmark)$/ do |should_work, output_file, output_dir, bookmark|
+When /^I (can|cannot) save the current page as "([^"]+[.]html)" to the (.*) (directory|GNOME bookmark)$/ do |should_work, output_file, target_dir, bookmark|
   should_work = should_work == 'can'
   is_gnome_bookmark = bookmark == 'GNOME bookmark'
-
   file_dialog = save_page_as
-
-  output_dir = case output_dir
-               when 'persistent Tor Browser'
-                 "/home/#{LIVE_USER}/Persistent/Tor Browser"
-               when 'default downloads'
-                 "/home/#{LIVE_USER}/Tor Browser"
-               else
-                 "/home/#{LIVE_USER}/#{output_dir}"
-               end
+  output_dir = "/home/#{LIVE_USER}/#{target_dir}"
 
   if is_gnome_bookmark
     activate_places_sidebar_item(file_dialog, output_dir)

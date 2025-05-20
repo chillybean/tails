@@ -307,7 +307,7 @@ class TCAApplication(Gtk.Application):
             if error:
                 self.get_network_time_result["status"] = "error"
                 if (
-                    errordata.get("code")
+                    errordata["data"].get("returncode")
                     == GET_NETWORK_TIME_RETURN_CODE["captive-portal"]
                 ):
                     self.get_network_time_result["reason"] = "captive-portal"

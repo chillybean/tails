@@ -283,6 +283,7 @@ test-python-doctest:
     - config/chroot_local-includes/usr/local/lib/tails-gdm-error-message doctest --verbose
     - env PYTHONPATH=config/chroot_local-includes/usr/lib/python3/dist-packages python3 config/chroot_local-includes/usr/local/bin/tails-documentation --doctest
     - ./bin/locale-descriptions doctest
+    - env PYTHONPATH=config/chroot_local-includes/usr/lib/python3/dist-packages python3 -m doctest --verbose config/chroot_local-includes/usr/lib/python3/dist-packages/tails_jsonrpc/__init__.py
 
 test-tca:
   rules:

@@ -67,7 +67,6 @@ To check if the desired version is available:
 
 2. Run this script:
 
-        ```sh
         (
             set -eu
             typeset -a tbbUrls
@@ -92,7 +91,6 @@ To check if the desired version is available:
                 sleep 10m
             done
         )
-        ```
 
 Verify
 ------
@@ -310,10 +308,9 @@ Import a new set of Tor Browser tarballs
 
 1. Download, verify and import all the tarballs we need:
 
-    export TBB_ARCHIVE TBB_IMPORT_BRANCH TBB_VERSION
-    export DL_DIR=$(mktemp --tmpdir -d "tor-browser-${TBB_VERSION}.XXXXXXXXXX")
-    ./bin/import-tbb-tarball
-
+        export TAILS_GIT_REPO TBB_ARCHIVE TBB_IMPORT_BRANCH TBB_VERSION
+        export DL_DIR=$(mktemp --tmpdir -d "tor-browser-${TBB_VERSION}.XXXXXXXXXX")
+        ./bin/import-tbb-tarball
 
 Commit and push your changes
 ----------------------------
@@ -363,7 +360,7 @@ you need to wait for the tarballs to appear on
 Push the updated branch
 -----------------------
 
-	git push -o merge_request.create --set-upstream \
+	git push -o merge_request.create -o merge_request.draft --set-upstream \
 	   origin "${TBB_IMPORT_BRANCH:?}"
 
 Clean up

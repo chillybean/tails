@@ -37,6 +37,11 @@ Package: obfs4proxy
 Pin: origin deb.tails.boum.org
 Pin-Priority: 999
 
+Explanation: This package was built and uploaded in tails!2164 (tails#20935) but its version is problematic since it is lower than our previous package's version 1.42.4-1.0tails1. So we pin this version for now, and will resolve this properly soon.
+Package: src:network-manager
+Pin: version 1.42.4-1+deb12u1.0tails1
+Pin-Priority: 999
+
 Package: onioncircuits
 Pin: release o=Debian,n=sid
 Pin-Priority: 999
