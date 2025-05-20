@@ -122,6 +122,12 @@ echo '127.0.0.42 firefox.settings.services.mozilla.com' \
     >>"${CHROOT}"/etc/hosts
 
 echo "* Starting Unsafe Browser"
+# Do not localize $WM_CLASS: it becomes WM_CLASS and then GNOME
+# displays the localized app name found in the matching .desktop file;
+# if WM_CLASS were localized then not only string encoding problems
+# would happen, but GNOME would pick the wrong icon. It is also passed
+# as the value for the --name Firefox option.
+WM_CLASS='Unsafe Browser'
 PROFILE="$(browser_profile_dir "${BROWSER_NAME}" "${BROWSER_USER}")"
 CHROOT_USER_UID="$(id --user "${BROWSER_USER}")"
 
@@ -135,7 +141,8 @@ bwrap --bind / / --bind "$CHROOT" /chroot --proc /proc --dev /dev \
     /usr/local/lib/unsafe-browser \
     --chroot "/chroot" \
     --profile "$PROFILE" \
-    --chroot-user-uid "$CHROOT_USER_UID" ||
+    --chroot-user-uid "$CHROOT_USER_UID" \
+    --wm-class "$WM_CLASS" ||
     error "$(gettext "Failed to run browser.")"
 
 echo "* Exiting the Unsafe Browser"

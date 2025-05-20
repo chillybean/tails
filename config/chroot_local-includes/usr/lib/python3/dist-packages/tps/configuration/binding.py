@@ -70,8 +70,8 @@ class Binding:
 
     def __init__(
         self,
-        src: Union[str, Path],
-        dest: Union[str, Path],
+        src: str | Path,
+        dest: str | Path,
         is_file=False,
         uses_symlinks=False,
         tps_mount_point: str = TPS_MOUNT_POINT,
@@ -181,20 +181,6 @@ class Binding:
     def has_data(self) -> bool:
         if self.is_file:
             return self.src.exists()
-
-        # Special handling for the Persistent directory:
-        # Return False if the directory contains only an empty
-        # "Tor Browser" directory.
-        if self.src.name == "Persistent":
-            if not self.src.exists():
-                return False
-            if not any(self.src.iterdir()):
-                return False
-            if any(d.name != "Tor Browser" for d in self.src.iterdir()):
-                return True
-            return Path(self.src, "Tor Browser").exists() and any(
-                Path(self.src, "Tor Browser").iterdir()
-            )
 
         return self.src.exists() and any(self.src.iterdir())
 
@@ -507,7 +493,7 @@ class Binding:
                 os.chown(p, LIVE_USER_UID, LIVE_USER_UID)
 
 
-def _what_is_mounted_on(path: Union[str, Path]) -> Optional[str]:
+def _what_is_mounted_on(path: str | Path) -> str | None:
     try:
         output = executil.check_output(
             [
@@ -526,7 +512,7 @@ def _what_is_mounted_on(path: Union[str, Path]) -> Optional[str]:
     return output.strip()
 
 
-def _is_mountpoint(path: Union[str, Path]) -> bool:
+def _is_mountpoint(path: str | Path) -> bool:
     try:
         executil.check_call(["mountpoint", "--quiet", "--nofollow", path])
     except subprocess.CalledProcessError:
@@ -534,7 +520,7 @@ def _is_mountpoint(path: Union[str, Path]) -> bool:
     return True
 
 
-def _chown_ref(source: Union[str, Path], dest: Union[str, Path]):
+def _chown_ref(source: str | Path, dest: str | Path):
     """Change the owner and group of dest to the ones of source"""
     # If the destination is a symlink, we want to change the symlinks
     # owner, so we set --no-dereference.
@@ -545,7 +531,7 @@ def _chown_ref(source: Union[str, Path], dest: Union[str, Path]):
     executil.check_call(["chown", "--no-dereference", f"{uid}:{gid}", dest])
 
 
-def _chmod_ref(source: Union[str, Path], dest: Union[str, Path]):
+def _chmod_ref(source: str | Path, dest: str | Path):
     """Change the permissions of dest to the ones of source"""
     # Don't call chmod when the destination is a symlink, because we
     # don't want to change the permissions of the symlink's target and

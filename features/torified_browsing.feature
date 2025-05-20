@@ -15,23 +15,22 @@ Feature: Browsing the web using the Tor Browser
     And no traffic was sent to the web server on the LAN
 
   @check_tor_leaks
-  Scenario: The Tor Browser directory is usable
+  Scenario: The Downloads directory is usable in Tor Browser
     Given I have started Tails from DVD and logged in and the network is connected
-    Then the amnesiac Tor Browser directory exists
-    And there is a GNOME bookmark for the amnesiac Tor Browser directory
-    And the persistent Tor Browser directory does not exist
+    Then the live user's Downloads directory exists
+    And there is a GNOME bookmark for the Downloads directory
     When I start the Tor Browser
     And the Tor Browser loads the startup page
-    Then I can save the current page as "index.html" to the default downloads directory
-    And I can print the current page as "output.pdf" to the default downloads directory
+    Then I can save the current page as "index.html" to the Downloads directory
+    And I can print the current page as "output.pdf" to the Downloads directory
 
   @check_tor_leaks
   Scenario: Downloading files with the Tor Browser
     Given I have started Tails from DVD and logged in and the network is connected
     When I start the Tor Browser
     Then the Tor Browser loads the startup page
-    When I download some file in the Tor Browser
-    Then the file is saved to the default Tor Browser download directory
+    When I download some file in the Tor Browser to the Downloads directory
+    Then the file is saved to the Downloads directory
 
   @check_tor_leaks
   Scenario: Playing an Ogg audio track
@@ -47,9 +46,9 @@ Feature: Browsing the web using the Tor Browser
     And the Tor Browser loads the startup page
     Then I can watch a WebM video in Tor Browser
 
-  Scenario: I can view a file stored in "~/Tor Browser" but not in ~/.gnupg
+  Scenario: I can view a file stored in "~/Downloads" but not in ~/.gnupg
     Given I have started Tails from DVD and logged in and the network is connected
-    And I copy "/usr/share/synaptic/html/index.html" to "/home/amnesia/Tor Browser/synaptic.html" as user "amnesia"
+    And I copy "/usr/share/synaptic/html/index.html" to "/home/amnesia/Downloads/synaptic.html" as user "amnesia"
     And I copy "/usr/share/synaptic/html/index.html" to "/home/amnesia/.gnupg/synaptic.html" as user "amnesia"
     And I copy "/usr/share/synaptic/html/index.html" to "/tmp/synaptic.html" as user "amnesia"
     Then the file "/home/amnesia/.gnupg/synaptic.html" exists
@@ -59,9 +58,9 @@ Feature: Browsing the web using the Tor Browser
     Given I start monitoring the AppArmor log of "torbrowser_firefox"
     When I start the Tor Browser
     And the Tor Browser loads the startup page
-    And I open the address "file:///home/amnesia/Tor Browser/synaptic.html" in the Tor Browser
+    And I open the address "file:///home/amnesia/Downloads/synaptic.html" in the Tor Browser
     Then I see "TorBrowserSynapticManual.png" after at most 5 seconds
-    And AppArmor has not denied "torbrowser_firefox" from opening "/home/amnesia/Tor Browser/synaptic.html"
+    And AppArmor has not denied "torbrowser_firefox" from opening "/home/amnesia/Downloads/synaptic.html"
     When I open the address "file:///home/amnesia/.gnupg/synaptic.html" in the Tor Browser
     Then I do not see "TorBrowserSynapticManual.png" after at most 5 seconds
     When I open the address "file:///lib/live/mount/overlay/rw/home/amnesia/.gnupg/synaptic.html" in the Tor Browser
@@ -101,26 +100,24 @@ Feature: Browsing the web using the Tor Browser
     When I open the address "https://mozilla.github.io/webrtc-landing/pc_test.html" in the Tor Browser
     Then Tor Browser displays a "RTCPeerConnection is missing!" heading on the "Simple RTCPeerConnection Video Test" page
 
-  Scenario: The persistent Tor Browser directory is usable
+  Scenario: The Persistent directory is usable in Tor Browser
     Given I have started Tails without network from a USB drive with a persistent partition enabled and logged in
     And the network is plugged
     And I successfully configure Tor
     And available upgrades have been checked
     And all notifications have disappeared
-    Then the persistent Tor Browser directory exists
-    And there is a GNOME bookmark for the persistent Tor Browser directory
+    And there is a GNOME bookmark for the Persistent directory
     When I start the Tor Browser
-    And I open the address "https://tails.net/about" in the Tor Browser
-    And "Tails - How Tails works" has loaded in the Tor Browser
-    Then I can save the current page as "index.html" to the persistent Tor Browser GNOME bookmark
-    And I open the address "file:///home/amnesia/Persistent/Tor Browser/index.html" in the Tor Browser
+    And I download some file in the Tor Browser to the Persistent directory
+    Then the file is saved to the Persistent directory
+    When I open the address "https://tails.net/about" in the Tor Browser
     Then "Tails - How Tails works" has loaded in the Tor Browser
-    And I can print the current page as "output.pdf" to the persistent Tor Browser directory
+    And I can print the current page as "output.pdf" to the Persistent directory
 
   Scenario Outline: The default XDG directories are usable in Tor Browser
     Given I have started Tails from DVD without network and logged in
-    Then the amnesiac <dir> directory exists
-    And there is a GNOME bookmark for the amnesiac <dir> directory
+    Then the live user's <dir> directory exists
+    And there is a GNOME bookmark for the <dir> directory
     Then I start the Tor Browser in offline mode
     And I can save the current page as "index.html" to the <dir> GNOME bookmark
     Examples:

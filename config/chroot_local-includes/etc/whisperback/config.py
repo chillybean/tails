@@ -39,9 +39,9 @@ from_address = "devnull@tails.boum.org"
 # This section defines the SMTP server parameters
 #
 # The SMTP server to use to send the mail
-smtp_host = "5w5qrbg4cufz5w6qhvrdhkgecjlmwj3d7thwelkzau55l2xmrtfbtaid.onion"
+smtp_host = "whisperback.tails.net"
 # The port to connect to on that SMTP server
-smtp_port = 25
+smtp_port = 2525
 
 # SOCKS
 #

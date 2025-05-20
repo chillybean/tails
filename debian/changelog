@@ -1,3 +1,219 @@
+tails (6.15.1) unstable; urgency=medium
+
+  * Upgrade to Thunderbird 1:128.10.1esr-1~deb12u1
+
+  * Upgrade to Tor Browser 14.5.2 based on Firefox 128.10.1 (tails/tails!2165)
+
+    Closes issues:
+      - Upgrade to Tor Browser 14.5.2 based on Firefox 128.10.1 (tails/tails#20967)
+
+    Commits:
+      - Create a draft MR
+      - Fetch Tor Browser from our own archive
+      - Export variable needed in script
+      - Lint
+      - Fix Markdown syntax
+      - Fix Markdown rendering on website
+      - Upgrade Tor Browser to 14.5.2-build2 (refs: tails#20967)
+
+  * Drop dependency on python3-tinyrpc (tails/tails!2079)
+
+    Closes issues:
+      - python3-tinyrpc is not in Trixie (tails/tails#20898)
+
+    Commits:
+      - tails_jsonrpc is derived from https://github.com/mbr/tinyrpc
+      - tca-portal logs valid requests
+      - document how much we respect JsonRpc 2.0 standard
+      - catch specific exceptions
+      - refactor, since our lib supports the data attribute
+      - add support to data field in ErrorResponse
+      - fix: get-network-time must pass returncode to tca
+      - error_respond gains code= parameter
+      - ruff format
+      - add doctest for jsonrpc Protocol
+      - move to new API (drop kwargs)
+      - fix message validation
+      - move TCA to home-grown jsonrpc implementation
+      - move from tinyrpc to our own jsonrpc implementation
+
+  * Upgrade Tails and Vagrant build box to Bookworm 12.11 (tails/tails!2164)
+
+    Closes issues:
+      - Upgrade to Bookworm 12.11 (tails/tails#20935)
+      - USB tethering broken in 6.15 with some phones (tails/tails#20940)
+      - Figure out our response to DSA 5919-1 (open-vm-tools) (tails/tails#20959)
+
+    Commits:
+      - Pin our src:network-manager packages that have a bad version (refs:
+        tails#20935)
+      - Enable the 20935-bookworm-12.11-force-all-tests APT overlay (refs: tails#20935)
+      - CI: ignore flatpak 1.16.0-2~bpo12+1
+      - Upgrade Tails and Vagrant build box to Bookworm 12.11
+
+  * Don't install sshfs anymore (tails/tails!2151)
+
+    Closes issues:
+      - Remove sshfs (tails/tails#20950)
+
+    Commits:
+      - Don't install sshfs anymore
+
+  * Fix devel branch FTBFS on Jenkins (tails/tails!2147)
+
+    Commits:
+      - Revert "bump memory requirements"
+
+  * Stop installing libgtk-3-bin (obsolete dependency) (tails/tails!2143)
+
+    Commits:
+      - Test suite: stop using gtk-launch, which we don't install anymore
+      - Remove obsolete dependency
+
+  * Test suite: drop "wget(1) with tricky options ..." scenario (tails/tails!2139)
+
+    Closes issues:
+      - wget test suite scenario fails due to redirect on the test mirror
+        (tails/tails#20912)
+
+    Commits:
+      - Test suite: drop "wget(1) with tricky options ..." scenario (refs: tails#20912)
+
+  * Test suite: fix xmpp-bot on recent versions of python3-slixmpp
+    (tails/tails!2132)
+
+    Commits:
+      - Test suite: add context to comment
+      - Appease ruff
+      - Test suite: fix xmpp-bot on recent versions of python3-slixmpp
+
+  * CI: ignore candidate firmware updates (tails/tails!2131)
+
+    Closes issues:
+      - needed-package-updates fails: firmware-free, firmware-nonfree
+        (tails/tails#20937)
+
+    Commits:
+      - CI: ignore candidate firmware updates
+
+  * Test suite: add --collect-always feature, to collect artifacts even when
+    scenario succeeds (tails/tails!2129)
+
+    Commits:
+      - document CAPTURE_ALWAYS in documentation
+      - don't report scenarios as failed when COLLECT_ALWAYS
+      - use the same style for CAPTURE_ALL and COLLECT_ALWAYS
+      - Sort
+      - run_test_suite --collect-always
+
+  * Vagrant: bump memory for systems with 12 CPUs or fewer (tails/tails!2128)
+
+    Closes issues:
+      - Build sometimes FTBFS on intrigeri's system (tails/tails#20900)
+
+    Commits:
+      - Clarify comment, dropping magic number duplication that's hard to maintain
+      - Vagrant: bump memory for systems with 12 CPUs or fewer
+
+  * Have Unsafe Browser displayed with its own icon in the GNOME UI, not Tor
+    Browser's (tails/tails!2126)
+
+    Closes issues:
+      - Unsafe Browser appears as Tor Browser (no Unsafe Browser icon)
+        (tails/tails#20934)
+
+    Commits:
+      - Fix obsolete reference in comment
+      - Unsafe Browser: don't pass --class
+      - Tor Browser: don't pass --name and --class
+      - Revert "Browsers: stop passing --class and --name options"
+
+  * Remove the "Tor Browser" and "Tor Browser (persistent)" directories
+    (tails/tails!2124)
+
+    Closes issues:
+      - Remove the "Tor Browser" and "Tor Browser (persistent)" bookmarks
+        (tails/tails#15028)
+
+    Commits:
+      - point the submodule to the relevant merge commit
+      - Test suite: generalize steps
+      - Appease ruff vs several instances of UP007
+      - Test suite: work around Save Page As being broken
+      - Drop the Tor Browser dirs and GNOME shortcuts (tails#15028)
+
+  * Refresh modules/BrowserGlue.sys.mjs patch (tails/tails!2123)
+
+    Closes issues:
+      - Refresh modules/BrowserGlue.sys.mjs patch (tails/tails#20920)
+
+    Commits:
+      - Refresh patch (refs: tails#20920)
+
+  * Use non-Onion access to WhisperBack's SMTP relay (tails/tails!2117)
+
+    Closes issues:
+      - Use non-Onion access to WhisperBack's SMTP relay (tails/tails#20921)
+      - Whisperback has temporary errors about IPv6 (tails/tails#19394)
+
+    Commits:
+      - Fix who's responsible for Whisperback mail service
+      - No need to special-case IPv6 anymore
+      - fix links to whisperback source code
+      - clarify WhisperBack design wrt non-Onion services
+      - non-onion whisperback report
+
+  * Improve release process post-6.15 (tails/tails!2116)
+
+    Commits:
+      - Use consistent spelling for variable name
+      - shfmt
+      - More defensive programming
+      - Use consistent spelling for variable name
+      - Fix many instances of ${parameter?:} → ${parameter:?}
+      - Fix ruff violations + ruff format
+      - Sort imports
+      - Fix ruff violations
+      - ruff format
+      - shfmt
+      - Fix phrasing
+      - Require automailer configuration
+      - Deduplicate
+      - Move inline script to actual script
+      - More specific terminology
+      - Simplify
+      - Delete Torrents for previous release before adding the new ones
+      - Match phrasing used by Tor Browser release blog posts
+      - Update heading to match current contents
+      - Remove unsupported conditional clause
+      - Lint
+      - Move inline script to actual script
+      - Move inline script to actual script
+      - Be more specific
+      - Release process: move ad-hoc variable to local configuration
+      - Fix "TypeError: subprocess.run() got multiple values for keyword argument
+        'check'"
+      - Use environment variables to store state
+      - Improve grammar
+      - Improve grammar
+      - Clarify how to get "old image commit"
+      - Clarify
+      - Fix typo
+      - Remove spurious empty line
+      - Remove incorrect example
+      - Order steps and remove misuse of "e.g."
+      - Fix grammar
+
+  * Update APT snapshots for Vagrant build box (tails/tails!2114)
+
+    Closes issues:
+      - Update APT snapshots of Vagrant build box (tails/tails#20919)
+
+    Commits:
+      - Update APT snapshots for Vagrant build box
+
+ -- Tails developers <tails@boum.org>  Mon, 19 May 2025 18:08:52 +0200
+
 tails (6.15) unstable; urgency=medium
 
   * Upgrade to Tor Browser 14.5.1 (tails/tails!2108)

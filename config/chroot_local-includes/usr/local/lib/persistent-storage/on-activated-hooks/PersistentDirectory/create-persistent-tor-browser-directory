@@ -1,8 +1,0 @@
-#!/bin/sh
-
-set -e
-set -u
-
-NOSYMFOLLOW_MOUNTPOINT='/run/nosymfollow'
-TARGET="${NOSYMFOLLOW_MOUNTPOINT}/home/amnesia/Persistent/Tor Browser"
-install -d -o amnesia -g amnesia -m 0700 "${TARGET}"
