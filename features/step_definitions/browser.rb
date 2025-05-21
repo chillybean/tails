@@ -601,12 +601,9 @@ When /^I request a new identity in Tor Browser$/ do
   @torbrowser.child('Restart Tor Browser', roleName: 'push button').press
 end
 
-Then /^the Tor Browser restarts into a fresh session$/ do
-  step 'the Tor Browser loads the startup page'
-
-  # Check that there is only one tab (the startup page)
+Then /^the Tor Browser has (\d+) tabs? open$/ do |expected_tab_count|
   tabs = @torbrowser.child('Browser tabs', roleName: 'tool bar')
                     .child(roleName: 'page tab list')
                     .children(roleName: 'page tab', showingOnly: false)
-  assert_equal(1, tabs.size)
+  assert_equal(expected_tab_count.to_i, tabs.size)
 end
