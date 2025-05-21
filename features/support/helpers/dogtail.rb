@@ -351,7 +351,7 @@ module Dogtail
       # actions that a click would trigger.
       unless force_tree_api
         preferred_actions = ['click', 'activate', 'open', 'press', 'select', 'toggle']
-        self.actions.each do |action|
+        actions.each do |action|
           if preferred_actions.include?(action)
             return doActionNamed(action)
           end
