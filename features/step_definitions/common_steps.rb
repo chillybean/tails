@@ -1176,18 +1176,18 @@ When /^I close the "([^"]+)" window$/ do |app_name|
     app = Dogtail::Application.new(app_name)
   end
 
-  case app_name
-  when 'zenity'
-    close_button = app.button('Cancel')
-  else
-    close_button = app.child(
-      'Close',
-      roleName:    'button',
-      # For some reason, the 'showing' attribute of the close button is
-      # false in some apps (e.g. Nautilus), even though it's visible.
-      showingOnly: false
-    )
-  end
+  close_button = case app_name
+                 when 'zenity'
+                   app.button('Cancel')
+                 else
+                   app.child(
+                     'Close',
+                     roleName:    'button',
+                     # For some reason, the 'showing' attribute of the close button is
+                     # false in some apps (e.g. Nautilus), even though it's visible.
+                     showingOnly: false
+                   )
+                 end
 
   close_button.click
 
