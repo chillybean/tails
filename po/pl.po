@@ -31,8 +31,8 @@ msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-30 09:33+0200\n"
-"PO-Revision-Date: 2025-03-31 20:57+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2025-05-12 21:02+0000\n"
+"Last-Translator: Matthaiks <kitynska@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/tor/tails-gui/pl/"
 ">\n"
 "Language: pl\n"
@@ -42,7 +42,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && "
 "(n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && "
 "n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -240,20 +240,17 @@ msgid "_Create persistent storage"
 msgstr "_Utwórz pamięć trwałą"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:69
-#, fuzzy
 msgid ""
 "Tails needs donations to keep everybody free and safe online.\n"
 "\n"
 "Every bit helps in our fight against surveillance and censorship!\n"
 "\n"
 msgstr ""
-"Tails potrzebuje darowizn, aby zapewnić wszystkim wolność i bezpieczeństwo w "
-"Internecie.\n"
+"Tails potrzebuje darowizn, aby wszyscy mogli być wolni i bezpieczni w "
+"sieci.\n"
 "\n"
 "Każda wpłata pomaga w naszej walce z inwigilacją i cenzurą!\n"
 "\n"
-"<a href=\"file:///usr/share/doc/tails/website/donate.en.html#expenses\">Jak "
-"wydajemy nasze pieniądze.</a>"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:79
 msgid ""
@@ -262,6 +259,10 @@ msgid ""
 "Help us keep your bitcoins safe!\n"
 "\n"
 msgstr ""
+"Tails chroni Twój portfel.\n"
+"\n"
+"Pomóż nam chronić Twoje bitcoiny!\n"
+"\n"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:156
 msgid "Donate Now"
@@ -398,19 +399,17 @@ msgid "bytes"
 msgstr "bajtów"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:296
-#, fuzzy
 msgid ""
 "<b>An error occurred while updating the signing key.</b>\\n\\n<b>This "
 "prevents determining whether an upgrade is available from our website.</"
 "b>\\n\\nCheck your network connection and restart Tails.\\n\\nIf the problem "
 "persists, try doing a manual upgrade."
 msgstr ""
-"<b>Wystąpił błąd podczas aktualizacji klucza podpisu.</b>\\n\\n<b>To "
-"uniemożliwia ustalenie czy uaktualnienie z naszej strony internetowej jest "
-"dostępne.</b>\\n\\nSprawdź swoje połączenie sieciowe i uruchom ponownie "
-"Tails, żeby spróbować uaktualniania ponownie.\\n\\nJeśli problem pozostaje, "
-"udaj się do file:///usr/share/doc/tails/website/doc/upgrade/error/"
-"check.en.html"
+"<b>Wystąpił błąd podczas aktualizacji klucza podpisu.</"
+"b>\\n\\n<b>Uniemożliwia to ustalenie, czy aktualizacja jest dostępna na "
+"naszej stronie internetowej.</b>\\n\\nSprawdź połączenie sieciowe i uruchom "
+"ponownie Tails.\\n\\nJeśli problem będzie się powtarzał, spróbuj wykonać "
+"aktualizację ręcznie."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:310
 msgid "Error while downloading the signing key"
@@ -421,7 +420,6 @@ msgid "Error while checking for upgrades"
 msgstr "Błąd podczas wyszukiwania dostępnych aktualizacji"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:345
-#, fuzzy
 msgid ""
 "<b>Could not determine whether an upgrade is available from our website.</"
 "b>\n"
@@ -433,11 +431,9 @@ msgstr ""
 "<b>Nie można określić, czy aktualizacja jest dostępna na naszej stronie "
 "internetowej.</b>\n"
 "\n"
-"Sprawdź swoje połączenie internetowe i zrestartuj Tails, aby spróbować "
-"ponowić próbę aktualizacji.\n"
+"Sprawdź połączenie internetowe i uruchom ponownie Tails.\n"
 "\n"
-"Jeśli problem będzie się powtarzał, idź do file:///usr/share/doc/tails/"
-"website/doc/upgrade/error/check.en.html"
+"Jeśli problem będzie się powtarzał, spróbuj wykonać ręczną aktualizację."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:360
 msgid "no automatic upgrade is available from our website for this version"
@@ -476,12 +472,11 @@ msgstr "System jest aktualny"
 msgid ""
 "You are currently running the latest version. There is no upgrade "
 "available.\n"
-msgstr ""
+msgstr "Obecnie używasz najnowszej wersji. Nie ma dostępnej aktualizacji.\n"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:415
-#, fuzzy
 msgid "Tails is up to date"
-msgstr "System jest aktualny"
+msgstr "Tails jest aktualny"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:421
 msgid "This version of Tails is outdated, and may have security issues."
@@ -603,15 +598,12 @@ msgid "Downloading the upgrade to {name} {version}..."
 msgstr "Trwa pobieranie aktualizacji do {name} {version}..."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:712
-#, fuzzy
 msgid ""
 "<b>The upgrade could not be downloaded.</b>\\n\\nCheck your network "
 "connection, and restart Tails to try upgrading again."
 msgstr ""
-"<b>Aktualizacja nie mogła być pobrana.</b>\\n\\nSprawdź swoje połączenie "
-"internetowe i zrestartuj Tails, aby spróbować ponownie.\\n\\nJeśli problem "
-"będzie się powtarzał, przejdź do file:///usr/share/doc/tails/website/doc/"
-"upgrade/error/download.en.html"
+"<b>Nie można pobrać aktualizacji.</b>\\n\\nSprawdź połączenie internetowe i "
+"uruchom ponownie Tails, aby spróbować ponownie wykonać aktualizację."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:715
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:730
@@ -724,17 +716,16 @@ msgstr ""
 "Ze względów bezpieczeństwa połączenie sieciowe jest teraz wyłączone."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:856
-#, fuzzy
 msgid ""
 "<b>An error occurred while installing the upgrade.</b>\\n\\nYour Tails "
 "device needs to be repaired and might be unable to restart.\\n\\nPlease "
 "follow the instructions at file:///usr/share/doc/tails/website/doc/upgrade/"
 "error/install.en.html"
 msgstr ""
-"<b>Wystąpił błąd podczas instalacji aktualizacji.</b>\\n\\n\\Twoje "
-"urządzenie Tails musi być zreperowane. Być może system Tails nie będzie mógł "
-"się w ponownie uruchomić.\\n\\n\\Proszę postępować zgodnie z instrukcjami na "
-"file:///usr/share/doc/tails/website/doc/upgrade/error/install.en.html"
+"<b>Wystąpił błąd podczas instalowania aktualizacji.</b>\\n\\nUrządzenie "
+"Tails wymaga naprawy i może nie być możliwe jego ponowne uruchomienie."
+"\\n\\nPostępuj zgodnie z instrukcjami podanymi na stronie file:///usr/share/"
+"doc/tails/website/doc/upgrade/error/install.en.html"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:861
 msgid "Error while installing the upgrade"
@@ -1620,9 +1611,8 @@ msgid "About Tails"
 msgstr "O systemie Tails"
 
 #: config/chroot_local-includes/usr/local/bin/tails-about:34
-#, fuzzy
 msgid "Check for Upgrades"
-msgstr "Błąd podczas wyszukiwania dostępnych aktualizacji"
+msgstr "Sprawdź aktualizacje"
 
 #: config/chroot_local-includes/usr/local/bin/tails-about:57
 msgid "UNRELEASED"
@@ -2706,7 +2696,6 @@ msgid "Your message has been sent."
 msgstr "Wiadomość została wysłana."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:248
-#, fuzzy
 msgid "An error occurred during encryption."
 msgstr "Wystąpił błąd podczas szyfrowania."
 
@@ -3859,7 +3848,7 @@ msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1634
 msgid "No Wi-Fi hardware detected"
-msgstr ""
+msgstr "Nie wykryto sprzętu Wi-Fi"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1652
 msgid ""
@@ -3875,9 +3864,19 @@ msgid ""
 " • Buy a USB Wi-Fi adapter that works in Tails.\n"
 "                "
 msgstr ""
+"Tails nie znalazł żadnego interfejsu Wi-Fi na tym komputerze. Jeśli ten "
+"komputer ma interfejs Wi-Fi, może on nie działać w Tails.\n"
+"\n"
+"Aby połączyć się z Internetem, możesz spróbować:\n"
+"\n"
+"• Użyj kabla Ethernet zamiast Wi-Fi. Interfejsy przewodowe działają o wiele "
+"bardziej niezawodnie niż Wi-Fi w Tails.\n"
+"• Użyj tetheringu USB, aby udostępnić połączenie Wi-Fi lub dane mobilne "
+"swojego telefonu za pomocą kabla.\n"
+"• Kup adapter USB Wi-Fi, który działa w Tails.\n"
+"                "
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1676
-#, fuzzy
 msgid ""
 "\n"
 "<a href=\"doc/anonymous_internet/no-wifi\">\n"
@@ -3885,8 +3884,11 @@ msgid ""
 "</a>\n"
 "                "
 msgstr ""
-"<a href=\"doc/anonymous_internet/tor\">Dowiedz się więcej o tym, jak Tails "
-"łączy się z siecią Tor</a>"
+"\n"
+"<a href=\"doc/anonymous_internet/no-wifi\">\n"
+"Dowiedz się więcej o rozwiązywaniu problemów z niedziałającym Wi-Fi.\n"
+"</a>\n"
+"                "
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1704
 msgid "Connect to a local network"
@@ -3901,7 +3903,6 @@ msgstr ""
 "Tor, musisz najpierw połączyć się z siecią Wi-Fi, przewodową lub komórkową."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1735
-#, fuzzy
 msgid "Open Wi-Fi Settings"
 msgstr "Otwórz ustawienia Wi-Fi"
 
@@ -4067,15 +4068,6 @@ msgstr "grudzień"
 msgid "Clock"
 msgstr "Zegar"
 
-#~ msgid "Starting the Unsafe Browser..."
-#~ msgstr "Uruchamianie nebezpiecznej przeglądarki..."
-
-#~ msgid "This may take a while, so please be patient."
-#~ msgstr "To może chwilę potrwać, prosimy o cierpliwość."
-
-#~ msgid "Reset Tor Connection"
-#~ msgstr "Zresetuj połączenie Tor"
-
 #, python-brace-format
 #~ msgid ""
 #~ "<b>Shape the future of Tails, today.</b>\n"
@@ -4106,6 +4098,15 @@ msgstr "Zegar"
 
 #~ msgid "Open Onion Circuits"
 #~ msgstr "Otwarte obwody onion"
+
+#~ msgid "Starting the Unsafe Browser..."
+#~ msgstr "Uruchamianie nebezpiecznej przeglądarki..."
+
+#~ msgid "This may take a while, so please be patient."
+#~ msgstr "To może chwilę potrwać, prosimy o cierpliwość."
+
+#~ msgid "Reset Tor Connection"
+#~ msgstr "Zresetuj połączenie Tor"
 
 #~ msgid "Error while updating the signing key"
 #~ msgstr "Błąd podczas aktualizacji klucza do podpisu"

@@ -829,18 +829,18 @@ list|doc/about/contact#support]].
 A dedicated application called *WhisperBack*
 is also available in every running Tails copy. WhisperBack allows
 users to send anonymous or pseudonymous feedback via OpenPGP-encrypted
-email. It is configured in Tails to use a Tor onion service run by
-Tails developers as the outgoing SMTP server. WhisperBack only sends
-email over a STARTTLS session after carefully verifying the remote
-SMTP SSL certificate. Some minimal information about the system is
-gathered and sent along with the report; the reporting user can
-opt-out of this though. Users can also provide an email address and an
-OpenPGP public key in case further discussion is needed to address the
-reported issue. WhisperBack's graphical interface fully supports
+email. It is configured in Tails to use a dedicated service [run by
+TPA](https://gitlab.torproject.org/tpo/tpa/team/-/wikis/tails/services#whisperback-relay) as the outgoing SMTP server. This doesn't strictly require TLS
+to be used, as the message is encrypted anyway.
+Some minimal information about the system is gathered and sent along with the
+report; the reporting user can opt-out of this though. Users can also provide
+an email address and an OpenPGP public key in case further discussion is needed
+to address the reported issue. WhisperBack's graphical interface fully supports
 internationalization and is ready to be translated.
 
 - [[!tails_gitweb_dir config/chroot_local-includes/etc/whisperback]]
-- [[!tails_gitweb_repo whisperback desc="WhisperBack source code"]]
+- [[!tails_gitweb_dir config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/]]
+- [[!tails_gitweb config/chroot_local-includes/usr/local/bin/whisperback]]
 
 ## 3.6 Configuration
 

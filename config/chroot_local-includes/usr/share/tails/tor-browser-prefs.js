@@ -20,9 +20,6 @@ pref("extensions.torbutton.lastBrowserVersion", "Tails");
 pref("torbrowser.version", "Tails");
 
 // Other non-Torbutton, Tails-specific prefs
-pref("browser.download.dir", "/home/amnesia/Tor Browser");
-pref("dom.input.fallbackUploadDir", "/home/amnesia/Tor Browser");
-pref("print.print_to_filename", "/home/amnesia/Tor Browser/output.pdf");
 pref("browser.download.folderList", 2);
 pref("browser.download.manager.closeWhenDone", true);
 pref("extensions.update.enabled", false);
