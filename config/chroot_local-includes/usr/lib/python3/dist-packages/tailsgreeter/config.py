@@ -47,9 +47,6 @@ persistent_settings_dir = "/var/lib/gdm3/settings/persistent"
 # /var/lib/gdm3/settings/persistent.
 transient_settings_dir = "/var/lib/gdm3/settings/transient"
 
-# File where the session language setting is stored
-language_setting_path = os.path.join(persistent_settings_dir, "tails.language")
-
 # File where the session formats setting is stored
 formats_setting_path = os.path.join(persistent_settings_dir, "tails.formats")
 

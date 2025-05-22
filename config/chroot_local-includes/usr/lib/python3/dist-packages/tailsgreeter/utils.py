@@ -18,7 +18,8 @@ def glib_idle_add_once(function: callable, *args, **kwargs):
 
 
 def get_cleartext_storage(key: str) -> str | None:
-    cmd = ['/usr/bin/sudo', '-n', '/usr/local/lib/tails-cleartext-storage', 'load', key]
+    cmd = ['/usr/bin/sudo', '-n', '/usr/local/bin/tails-cleartext-storage', 'load', key]
+    print(f"Running {cmd}")
     try:
         content = subprocess.check_output(cmd, text=True)
         return json.loads(content)
@@ -27,7 +28,8 @@ def get_cleartext_storage(key: str) -> str | None:
 
 
 def set_cleartext_storage(key: str, value) -> str | None:
-    cmd = ['/usr/bin/sudo', '-n', '/usr/local/lib/tails-cleartext-storage', 'save', key]
+    cmd = ['/usr/bin/sudo', '-n', '/usr/local/bin/tails-cleartext-storage', 'save', key]
+    print(f"Running {cmd}")
     content = json.dumps(value)
     try:
         return subprocess.check_output(cmd, text=True, input=content)

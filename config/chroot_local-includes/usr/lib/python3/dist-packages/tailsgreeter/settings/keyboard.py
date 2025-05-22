@@ -5,6 +5,7 @@ from typing import Optional
 from tailsgreeter.settings import SettingNotFoundError
 from tailsgreeter.settings.localization import (
     LocalizationSetting,
+    CleartextStorageMixin,
     ln_iso639_tri,
     ln_iso639_2_T_to_B,
     language_from_locale,
@@ -44,6 +45,8 @@ class KeyboardSetting(CleartextStorageMixin, LocalizationSetting):
 
     def load(self) -> tuple[str, bool]:
         settings = self.get_cleartext_storage()
+        if not settings:
+            raise SettingNotFoundError
 
         keyboard_layout = settings.get("TAILS_XKBLAYOUT")
         if keyboard_layout is None:

@@ -95,18 +95,23 @@ class GreeterApplication:
         self.network_setting = NetworkSetting()
         self.unsafe_browser_setting = UnsafeBrowserSetting()
 
+        language_settings_ui = LanguageSettingUI(
+                self.localisationsettings.language, self.on_language_changed
+            )
+        keyboard_settings_ui = KeyboardSettingUI(self.localisationsettings.keyboard)
         # Initialize the settings
         self.settings = GreeterSettingsCollection(
-            LanguageSettingUI(
-                self.localisationsettings.language, self.on_language_changed
-            ),
-            KeyboardSettingUI(self.localisationsettings.keyboard),
+            language_settings_ui,
+            keyboard_settings_ui,
             FormatsSettingUI(self.localisationsettings.formats),
             AdminSettingUI(self.admin_setting),
             MACSpoofSettingUI(self.macspoof_setting),
             NetworkSettingUI(self.network_setting),
             UnsafeBrowserSettingUI(self.unsafe_browser_setting),
         )
+
+        language_settings_ui.load()
+        keyboard_settings_ui.load()
 
         # Initialize main window
         self.mainwindow = GreeterMainWindow(self, persistence, self.settings)

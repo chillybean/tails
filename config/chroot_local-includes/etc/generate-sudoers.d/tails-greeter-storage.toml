@@ -3,10 +3,29 @@
 [[commands]]
 allowed_user = "Debian-gdm"
 executable = "/usr/local/bin/tails-cleartext-storage"
-args = ["load", "keymap"]
+args = ["load", "keyboard"]
 
 [[commands]]
 allowed_user = "Debian-gdm"
 executable = "/usr/local/bin/tails-cleartext-storage"
-args = ["save", "keymap"]
+args = ["save", "keyboard"]
 
+[[commands]]
+allowed_user = "Debian-gdm"
+executable = "/usr/local/bin/tails-cleartext-storage"
+args = ["load", "language"]
+
+[[commands]]
+allowed_user = "Debian-gdm"
+executable = "/usr/local/bin/tails-cleartext-storage"
+args = ["save", "language"]
+
+[[commands]]
+allowed_user = "Debian-gdm"
+executable = "/usr/local/bin/tails-cleartext-storage"
+args = ["load", "formats"]
+
+[[commands]]
+allowed_user = "Debian-gdm"
+executable = "/usr/local/bin/tails-cleartext-storage"
+args = ["save", "formats"]
