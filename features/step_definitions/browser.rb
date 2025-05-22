@@ -13,11 +13,11 @@ end
 def save_page_as
   browser.child(
     description: 'Open application menu',
-    roleName:    'push button'
+    roleName:    'button'
   ).press
   browser.child(
     name:     'Save page as\u2026',
-    roleName: 'push button'
+    roleName: 'button'
   ).press
   desktop_portal_save_as_dialog
 end
@@ -183,8 +183,8 @@ When /^I open the address "([^"]*)" in the (.* Browser)( without waiting)?$/ do 
     open_address.call
     unless non_blocking
       try_for(120, delay: 3) do
-        !browser.child?('Stop', roleName: 'push button', retry: false) &&
-          browser.child?('Reload', roleName: 'push button', retry: false)
+        !browser.child?('Stop', roleName: 'button', retry: false) &&
+          browser.child?('Reload', roleName: 'button', retry: false)
       end
     end
   end
@@ -211,7 +211,7 @@ def page_has_loaded_in_the_tor_browser(page_titles)
         .map  { |page_title| "#{page_title} #{separator} #{browser_name}" }
         .any? { |page_title| page_title == frame.name }
     end &&
-      @torbrowser.child(reload_action, roleName: 'push button')
+      @torbrowser.child(reload_action, roleName: 'button')
   end
 end
 
@@ -293,7 +293,7 @@ When /^I download some file in the Tor Browser to the (.*) directory$/ do |targe
   button.press
   file_dialog = desktop_portal_save_as_dialog
   activate_places_sidebar_item(file_dialog, "/home/#{LIVE_USER}/#{target_dir}")
-  file_dialog.child('Save', roleName: 'push button').click
+  file_dialog.child('Save', roleName: 'button').click
 
   @torbrowser
     .button('Downloads')
@@ -432,7 +432,7 @@ When /^I log-in to the Captive Portal$/ do
 end
 
 Then /^Tor Browser's circuit view is working$/ do
-  @torbrowser.child('Tor Circuit', roleName: 'push button').click
+  @torbrowser.child('Tor Circuit', roleName: 'button').click
   nodes = @torbrowser.child('This browser', roleName: 'list item')
                      .parent.children(roleName: 'list item')
   domain = URI.parse(get_current_browser_url).host.split('.')[-2..].join('.')
@@ -503,7 +503,7 @@ Given /^I add a bookmark to eff.org in the Tor Browser$/ do
   step "I open the address \"#{url}\" in the Tor Browser"
   step 'the Tor Browser shows the ' \
        '"The proxy server is refusing connections" error'
-  @torbrowser.child('Bookmark this page (Ctrl+D)', roleName: 'push button').click
+  @torbrowser.child('Bookmark this page (Ctrl+D)', roleName: 'button').click
   prompt = @torbrowser.child('Add bookmark', roleName: 'panel')
   prompt.child('Location', roleName: 'combo box').open
   prompt.child('Bookmarks Menu', roleName: 'menu item').click
@@ -518,13 +518,13 @@ end
 When /^I can print the current page as "([^"]+[.]pdf)" to the (.*) directory$/ do |output_file, target_dir|
   output_dir = "/home/#{LIVE_USER}/#{target_dir}"
   @screen.press('ctrl', 'p')
-  @torbrowser.child('Save', roleName: 'push button').press
+  @torbrowser.child('Save', roleName: 'button').press
   file_dialog = desktop_portal_save_as_dialog
   # Enter the output filename in the text entry
   text_entry = file_dialog.child('Name', roleName: 'label').labelee
   filename = "#{output_dir}/#{output_file}"
   text_entry.text = filename
-  file_dialog.child('Save', roleName: 'push button').click
+  file_dialog.child('Save', roleName: 'button').click
 
   try_for(30,
           msg: "The page was not printed to #{output_dir}/#{output_file}") do
@@ -579,7 +579,7 @@ When /^I (can|cannot) save the current page as "([^"]+[.]html)" to the (.*) (dir
   # Enter the output filename in the text entry
   text_entry = file_dialog.child('Name', roleName: 'label').labelee
   text_entry.text = output_file
-  save_button = file_dialog.child('Save', roleName: 'push button')
+  save_button = file_dialog.child('Save', roleName: 'button')
   # When changing output directory the Save button turns insensitive
   # for a few moments
   try_for(10) { save_button.sensitive? }
@@ -596,9 +596,9 @@ When /^I (can|cannot) save the current page as "([^"]+[.]html)" to the (.*) (dir
 end
 
 When /^I request a new identity in Tor Browser$/ do
-  @torbrowser.child('Tor Browser', roleName: 'push button').press
-  @torbrowser.child('New identity', roleName: 'push button').press
-  @torbrowser.child('Restart Tor Browser', roleName: 'push button').press
+  @torbrowser.child('Tor Browser', roleName: 'button').press
+  @torbrowser.child('New identity', roleName: 'button').press
+  @torbrowser.child('Restart Tor Browser', roleName: 'button').press
 end
 
 Then /^the Tor Browser restarts into a fresh session$/ do

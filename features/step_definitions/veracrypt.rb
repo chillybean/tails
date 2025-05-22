@@ -157,11 +157,11 @@ When /^I unlock and mount this VeraCrypt (volume|file container) with Unlock Ver
   app = launch_unlock_veracrypt_volumes
   case support
   when 'volume'
-    app.child('Unlock', roleName: 'push button').click
+    app.child('Unlock', roleName: 'button').click
   when 'file container'
     # Clicking on this button breaks accessibility of the app,
     # so we instead use the keyboard
-    app.child('Add', roleName: 'push button').grabFocus
+    app.child('Add', roleName: 'button').grabFocus
     @screen.press('Return')
 
     select_path_in_file_chooser(
@@ -250,7 +250,7 @@ When /^I unlock and mount this VeraCrypt (volume|file container) with GNOME Disk
     end
   end
   disks.child(
-    roleName:    'push button',
+    roleName:    'button',
     description: 'Unlock selected encrypted partition'
   ).click
   unlock_dialog = disks.dialog('Set options to unlock')
@@ -292,7 +292,7 @@ When /^I unlock and mount this VeraCrypt (volume|file container) with GNOME Disk
     disks.child(
       '',
       description: 'Mount selected partition',
-      roleName:    'push button'
+      roleName:    'button'
     ).click
     true
   rescue Dogtail::Failure

@@ -10,7 +10,7 @@ Then /^I can print the current document to "([^"]+)"$/ do |output_file|
   output_file_selection_button = nil
   try_for(10) do
     output_file_selection_button = print_dialog
-                                   .children(roleName: 'push button')
+                                   .children(roleName: 'button')
                                    .find { |b| /[.]pdf$/.match(b.name) }
     !output_file_selection_button.nil?
   end

@@ -210,7 +210,7 @@ module Dogtail
     end
 
     def actions
-      get_field('actions')
+      get_field('actions').scan(/['"]([^'"]+)['"]/).flatten
     end
 
     def combovalue
@@ -346,6 +346,20 @@ module Dogtail
       run("#{@var}.#{method_call}")
     end
 
+    def click(force_tree_api: false)
+      # The tree API doesn't always work, so we first try any of the
+      # actions that a click would trigger.
+      unless force_tree_api
+        preferred_actions = ['click', 'activate', 'open', 'press', 'select', 'toggle']
+        actions.each do |action|
+          if preferred_actions.include?(action)
+            return doActionNamed(action)
+          end
+        end
+      end
+      call_tree_api_method('click')
+    end
+
     def doActionNamed(action_name)
       call_tree_node_method('doActionNamed', action_name)
     end
@@ -362,10 +376,6 @@ module Dogtail
 
     def activate
       doActionNamed('activate')
-    end
-
-    def click
-      doActionNamed('click')
     end
 
     def open

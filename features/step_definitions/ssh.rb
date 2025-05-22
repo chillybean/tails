@@ -65,7 +65,7 @@ end
 
 Given /^I (?:am prompted to )?verify the SSH fingerprint for the (?:Git|SSH) (?:repository|server)$/ do
   try_for(60) do
-    Dogtail::Application.new('gnome-terminal-server')
+    Dogtail::Application.new('org.gnome.Terminal')
                         .child('Terminal', roleName: 'terminal')
                         .text['Are you sure you want to continue connecting']
   end
@@ -120,7 +120,7 @@ end
 Then /^I have sucessfully logged into the SSH server$/ do
   try_for(60) do
     @ssh_prompt_re.match(
-      Dogtail::Application.new('gnome-terminal-server')
+      Dogtail::Application.new('org.gnome.Terminal')
                           .child('Terminal', roleName: 'terminal')
                           .text
     )
@@ -163,7 +163,7 @@ end
 Then /^I verify the SSH fingerprint for the SFTP server$/ do
   try_for(30) do
     Dogtail::Application.new('gnome-shell').child?('Log In Anyway',
-                                                   roleName: 'push button')
+                                                   roleName: 'button')
   end
   # Here we'd like to click on the button using Dogtail, but something
   # is buggy so let's just use the keyboard.

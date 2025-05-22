@@ -103,7 +103,7 @@ end
 
 Then /^the Greeter forbids starting Tails$/ do
   assert_false(
-    greeter.child('Start Tails', roleName: 'push button').sensitive?
+    greeter.child('Start Tails', roleName: 'button').sensitive?
   )
 end
 

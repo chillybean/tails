@@ -25,7 +25,7 @@ def work_around_issue20054(confirm: false)
   end
   if confirm
     begin
-      greeter.child('Start Tails', roleName: 'push button').grabFocus
+      greeter.child('Start Tails', roleName: 'button').grabFocus
     rescue StandardError => e
       debug_log('Issue #20054: Dogtail failed to focus the Greeter ⇒ bug confirmed ' \
                 "(got exception #{e.class}: #{e.message})")
@@ -39,7 +39,7 @@ def work_around_issue20054(confirm: false)
   $vm.execute_successfully('systemctl restart spice-vdagentd.socket')
   if confirm # rubocop:disable Style/GuardClause
     begin
-      greeter.child('Start Tails', roleName: 'push button').grabFocus
+      greeter.child('Start Tails', roleName: 'button').grabFocus
     rescue StandardError => e
       debug_log('Issue #20054: Dogtail failed to focus the Greeter after recovering ' \
                 'spice-vdagentd ⇒ our proposed fix is not enough ' \
@@ -449,9 +449,18 @@ Given /^the computer (?:re)?boots Tails$/ do
   RemoteShell::SignalReady.new($vm)
 
   unless @scenario.match_tags?('@broken_welcome_screen')
-    try_for(60) do
-      !greeter.nil?
-    end
+    # There is a window of time while the Welcome Screen is
+    # initializing when attempting to use Dogtail breaks it for the
+    # rest of the session. That window is closed once the Welcome
+    # Screen appears, so we wait for that to happen using image
+    # matching.
+    @screen.wait('TailsGreeter.png', 60)
+    # Close the notification which otherwise obscures parts of the
+    # Welcome Screen window.
+    Dogtail::Application.new('gnome-shell', user: 'Debian-gdm')
+                        .child(roleName: 'notification')
+                        .child('System was put in unsafe mode', roleName: 'label')
+                        .click
     work_around_issue20054(confirm: true)
   end
 end
@@ -516,8 +525,11 @@ Given /^I log in to a new session(?: in ([^ ]*) \(([^ ]*)\))?( without activatin
 end
 
 def open_greeter_additional_settings
-  greeter.child('Add an additional setting', roleName: 'push button').grabFocus
-  @screen.press('Return')
+  # For some reason, using the action 'click' makes the whole Welcome
+  # Screen become invisible to Dogtail, so we call the tree click
+  # method directly, which doesn't have this problem.
+  greeter.child('Add an additional setting', roleName: 'button')
+         .click(force_tree_api: true)
 
   greeter.child('Additional Settings', roleName: 'dialog')
 end
@@ -541,7 +553,7 @@ Given /^I set an administration password$/ do
   @screen.wait('TailsGreeterAdminPasswordDialog.png', 10)
   greeter.childLabelled('Administration Password').text = @sudo_password
   greeter.childLabelled('Confirm').text = @sudo_password
-  greeter.child('Add', roleName: 'push button').click
+  greeter.child('Add', roleName: 'button').click
   # Wait for the Administration Password dialog to be closed,
   # otherwise the next step can fail.
   @screen.wait('TailsGreeterLoginButton.png', 10)
@@ -723,8 +735,8 @@ Given /^all notifications have disappeared$/ do
       roleName: 'label', retry: false
     )
     unless no_notifications
-      gnome_shell.child('Clear', roleName: 'push button').grabFocus
-      @screen.press('Return')
+      gnome_shell.child('Clear all notifications', roleName: 'button').grabFocus
+      @screen.press('return')
       gnome_shell.child?('No Notifications', roleName: 'label')
     end
   end
@@ -926,7 +938,7 @@ end
 
 When /^I run "([^"]+)" in GNOME Terminal$/ do |command|
   app = if $vm.process_running?('gnome-terminal-server')
-          Dogtail::Application.new('gnome-terminal-server')
+          Dogtail::Application.new('org.gnome.Terminal')
         else
           launch_gnome_terminal
         end
@@ -942,7 +954,7 @@ When /^I run "([^"]+)" in GNOME Terminal$/ do |command|
       debug_log('Error while pasting; trying again...')
       # The command was not pasted successfully. Close the terminal and
       # open a new one.
-      app.child('Close', roleName: 'push button').click
+      app.child('Close', roleName: 'button').click
       app = launch_gnome_terminal
       terminal = app.child('Terminal', roleName: 'terminal')
       terminal.text['amnesia@amnesia:']
@@ -1053,7 +1065,7 @@ end
 def launch_gnome_terminal(**opts)
   launch_app(
     'org.gnome.Terminal.desktop',
-    'gnome-terminal-server',
+    'org.gnome.Terminal',
     **opts
   )
 end
@@ -1129,7 +1141,7 @@ Given /^I start "([^"]+)" via GNOME Activities Overview$/ do |app_name|
   when 'Persistent Storage'
     # "Persistent Storage" also matches "Back Up Persistent Storage"
     # (tails-backup.desktop).
-    app_name = 'Configure which files'
+    app_name = 'tails-persistent-storage'
   end
   @screen.wait("GnomeApplicationsMenu#{$language}.png", 10)
   @screen.press('super')
@@ -1164,23 +1176,20 @@ When /^I close the "([^"]+)" window$/ do |app_name|
     app = Dogtail::Application.new(app_name)
   end
 
-  close_button = app.child(
-    'Close',
-    roleName:    'push button',
-    # For some reason, the 'showing' attribute of the close button is
-    # false in some apps (e.g. Nautilus), even though it's visible.
-    showingOnly: false
-  )
+  close_button = case app_name
+                 when 'zenity'
+                   app.button('Cancel')
+                 else
+                   app.child(
+                     'Close',
+                     roleName:    'button',
+                     # For some reason, the 'showing' attribute of the close button is
+                     # false in some apps (e.g. Nautilus), even though it's visible.
+                     showingOnly: false
+                   )
+                 end
 
-  # Some close buttons have a "click" action, some have a "press"
-  # action (for example Thunderbird).
-  if close_button.actions.include?('click')
-    close_button.click
-  elsif close_button.actions.include?('press')
-    close_button.press
-  else
-    raise 'Close button has no click or press action'
-  end
+  close_button.click
 
   # Wait for the app to terminate (some apps take a while to actually
   # terminate after the window is closed, for example GNOME Files).
