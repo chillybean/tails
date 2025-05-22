@@ -2,7 +2,6 @@ import gi
 import logging
 from typing import Optional
 
-import tailsgreeter.config
 from tailsgreeter.settings import SettingNotFoundError
 from tailsgreeter.settings.localization import (
     LocalizationSetting,
@@ -11,7 +10,6 @@ from tailsgreeter.settings.localization import (
     language_from_locale,
     country_from_locale,
 )
-from tailsgreeter.settings.utils import read_settings, write_settings
 
 gi.require_version("Gio", "2.0")
 gi.require_version("GLib", "2.0")
@@ -21,11 +19,11 @@ gi.require_version("Gtk", "3.0")
 from gi.repository import Gio, GLib, GnomeDesktop, GObject, Gtk  # noqa: E402
 
 
-class KeyboardSetting(LocalizationSetting):
+class KeyboardSetting(CleartextStorageMixin, LocalizationSetting):
+    SETTINGS_KEY = 'keyboard'
     def __init__(self):
         super().__init__()
         self.xkbinfo = GnomeDesktop.XkbInfo()
-        self.settings_file = tailsgreeter.config.keyboard_setting_path
 
     def save(self, value: str, is_default: bool):
         try:
@@ -34,8 +32,7 @@ class KeyboardSetting(LocalizationSetting):
             layout = value
             variant = ""
 
-        write_settings(
-            self.settings_file,
+        self.set_cleartext_storage(
             {
                 # The default value from /etc/default/keyboard
                 "TAILS_XKBMODEL": "pc105",
@@ -46,19 +43,12 @@ class KeyboardSetting(LocalizationSetting):
         )
 
     def load(self) -> tuple[str, bool]:
-        try:
-            settings = read_settings(self.settings_file)
-        except FileNotFoundError as e:
-            raise SettingNotFoundError(
-                "No persistent keyboard settings file found (path: %s)"
-                % self.settings_file
-            ) from e
+        settings = self.get_cleartext_storage()
 
         keyboard_layout = settings.get("TAILS_XKBLAYOUT")
         if keyboard_layout is None:
             raise SettingNotFoundError(
-                "No keyboard setting found in settings file (path: %s)"
-                % self.settings_file
+                f"No keyboard setting found ({self.SETTINGS_KEY})"
             )
 
         keyboard_variant = settings.get("TAILS_XKBVARIANT")

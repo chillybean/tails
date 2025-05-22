@@ -1,3 +1,6 @@
+import json
+import subprocess
+
 import gi
 from gi.repository import GLib
 
@@ -12,3 +15,21 @@ def glib_idle_add_once(function: callable, *args, **kwargs):
         return False
 
     return GLib.idle_add(wrapper, *args, **kwargs)
+
+
+def get_cleartext_storage(key: str) -> str | None:
+    cmd = ['/usr/bin/sudo', '-n', '/usr/local/lib/tails-cleartext-storage', 'load', key]
+    try:
+        content = subprocess.check_output(cmd, text=True)
+        return json.loads(content)
+    except subprocess.CalledProcessError:
+        return None
+
+
+def set_cleartext_storage(key: str, value) -> str | None:
+    cmd = ['/usr/bin/sudo', '-n', '/usr/local/lib/tails-cleartext-storage', 'save', key]
+    content = json.dumps(value)
+    try:
+        return subprocess.check_output(cmd, text=True, input=content)
+    except subprocess.CalledProcessError:
+        return None

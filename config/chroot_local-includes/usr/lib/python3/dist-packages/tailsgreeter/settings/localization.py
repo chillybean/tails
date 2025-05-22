@@ -19,10 +19,13 @@
 
 import gi
 import pycountry
+from subprocess import CalledProcessError
 from typing import TYPE_CHECKING
 
 gi.require_version("GObject", "2.0")
 from gi.repository import GObject
+
+from tailsgreeter.settings import SettingNotFoundError
 
 if TYPE_CHECKING:
     from gi.repository import Gtk
@@ -48,6 +51,19 @@ class LocalizationSetting(GObject.Object, object):
 
     def load(self):
         pass
+
+
+class CleartextStorageMixin:
+    def get_cleartext_storage(self):
+        try:
+            return tailsgreeter.utils.get_cleartext_storage(self.SETTINGS_KEY)
+        except CalledProcessError:
+            raise SettingNotFoundError(
+                f"No persistent setting found ({self.SETTINGS_KEY})"
+            ) from e
+
+    def set_cleartext_storage(self, value):
+        return tailsgreeter.utils.get_cleartext_storage(self.SETTINGS_KEY, value)
 
 
 def ln_iso639_tri(ln_CC):
