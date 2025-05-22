@@ -430,17 +430,3 @@ class Feature(DBusObject, ServiceUsingJobs, metaclass=abc.ABCMeta):
             pids = [p.pid for p in processes]
             res[name] = pids
         return res
-
-
-class PlaintextFeature(Feature):
-    """
-    The only user of this class is Language (see features.py), which is quite limited.
-    """
-    def Activate(self):
-        raise NotImplementedError()
-
-    def Deactivate(self):
-        raise NotImplementedError()
-
-    def Delete(self):
-        raise NotImplementedError()
