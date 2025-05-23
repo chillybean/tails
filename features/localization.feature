@@ -41,7 +41,7 @@ Feature: Localization
     #  - Arabic's layout should be "ara": #12638
     Examples:
       | language   | layout | osk_layout | lang_code |
-      | Arabic     | us     | us         | ar    |
+      | Arabic     | eg     | us         | ar    |
       | Chinese    | cn     | us         | zh_CN |
       | English    | us     | us         | en    |
       | French     | fr     | fr         | fr    |
