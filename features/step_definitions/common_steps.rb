@@ -1221,9 +1221,11 @@ Then /^the live user's (.*) directory (exists|does not exist)$/ do |directory, m
 end
 
 Then /^there is a GNOME bookmark for the (.*) directory$/ do |bookmark|
-  open_gnome_places_menu
-  Dogtail::Application.new('gnome-shell').child(bookmark, roleName: 'label')
-  @screen.press('Escape')
+  launch_nautilus
+  Dogtail::Application.new('org.gnome.Nautilus')
+                      .child('Sidebar', roleName: 'list')
+                      .child(bookmark, roleName: 'label')
+  step 'I close the "org.gnome.Nautilus" window'
 end
 
 def pipewire_input_ports
