@@ -397,5 +397,20 @@ module Dogtail
     def position
       get_field('position')[1...-1].split(', ').map(&:to_i)
     end
+
+    def print_parents
+      nodes = []
+      current = self
+      until current.roleName == 'desktop frame'
+        nodes << current
+        current = current.parent
+      end
+      max_roleName_length = nodes.map { |n| n.roleName.length }.max
+      warn(
+        nodes.reverse
+             .map { |n| "  #{n.roleName.rjust(max_roleName_length)}: '#{n.name}'" }
+             .join("\n")
+      )
+    end
   end
 end
