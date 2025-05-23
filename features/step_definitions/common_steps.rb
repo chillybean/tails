@@ -51,6 +51,15 @@ def work_around_issue20054(confirm: false)
   end
 end
 
+def gnome_activities_overview_image
+  case $language
+  when 'Arabic', 'Persian'
+    'GnomeApplicationsMenuRTL.png'
+  else
+    'GnomeApplicationsMenu.png'
+  end
+end
+
 def post_snapshot_restore_hook(snapshot_name, num_try)
   # Press escape to wake up the display
   @screen.press('Escape')
@@ -61,7 +70,7 @@ def post_snapshot_restore_hook(snapshot_name, num_try)
     pattern = 'TailsGreeter.png'
     work_around_issue20054(confirm: true)
   else
-    pattern = "GnomeApplicationsMenu#{$language}.png"
+    pattern = gnome_activities_overview_image
     # We skip attempting to confirm issue #20054 in this general case
     # since we don't know what (suitable) application to test Dogtail
     # with, and we might use a non-English locale which would make it
@@ -567,8 +576,7 @@ Given /^I disable the Unsafe Browser$/ do
 end
 
 Given /^the Tails desktop is ready$/ do
-  desktop_started_picture = "GnomeApplicationsMenu#{$language}.png"
-  @screen.wait(desktop_started_picture, 180)
+  @screen.wait(gnome_activities_overview_image, 180)
   # Disable screen blanking since we sometimes need to wait long
   # enough for it to activate, which can cause problems when we are
   # waiting for an image for a very long time.
@@ -1143,7 +1151,7 @@ Given /^I start "([^"]+)" via GNOME Activities Overview$/ do |app_name|
     # (tails-backup.desktop).
     app_name = 'tails-persistent-storage'
   end
-  @screen.wait("GnomeApplicationsMenu#{$language}.png", 10)
+  @screen.wait(gnome_activities_overview_image, 10)
   @screen.press('super')
   pic = if RTL_LANGUAGES.include?($language)
           'GnomeActivitiesOverviewSearchRTL.png'
