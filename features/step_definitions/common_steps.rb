@@ -1230,10 +1230,14 @@ end
 
 Then /^there is a GNOME bookmark for the (.*) directory$/ do |bookmark|
   launch_nautilus
+  # We cannot pass translation_domain to the Dogtail::Application
+  # because then it would also translate the bookmark, but we don't do
+  # that for XDG user dirs (tails#20868).
   Dogtail::Application.new('org.gnome.Nautilus')
-                      .child('Sidebar', roleName: 'list')
+                      .child(translate('Sidebar', translation_domain: 'nautilus'),
+                             roleName: 'list')
                       .child(bookmark, roleName: 'label')
-  step 'I close the "org.gnome.Nautilus" window'
+  step 'I close the "org.gnome.Nautilus" window via Alt+F4'
 end
 
 def pipewire_input_ports
