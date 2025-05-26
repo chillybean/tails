@@ -878,8 +878,7 @@ end
 def open_gnome_menu(name)
   Dogtail::Application.new('gnome-shell')
                       .child(name, roleName: 'menu')
-                      .grabFocus
-  @screen.press('Return')
+                      .click
 end
 
 def open_gnome_places_menu
