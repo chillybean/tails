@@ -4,6 +4,7 @@ import subprocess
 import gi
 from gi.repository import GLib
 
+from tailsgreeter.settings import SettingNotFoundError
 
 # GLib has idle_add_once(), but it is not exposed, so here we
 # implement it ourselves.
@@ -23,8 +24,10 @@ def get_cleartext_storage(key: str) -> str | None:
     try:
         content = subprocess.check_output(cmd, text=True)
         return json.loads(content)
-    except subprocess.CalledProcessError:
-        return None
+    except subprocess.CalledProcessError as exc:
+        raise SettingNotFoundError(
+                "No persistent setting found"
+                ) from exc
 
 
 def set_cleartext_storage(key: str, value) -> str | None:

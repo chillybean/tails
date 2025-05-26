@@ -52,21 +52,14 @@ class LanguageSetting(CleartextStorageMixin, LocalizationSetting):
             self.lang_codes
         )
 
-
-    def save(self, language: str, is_default: bool):
-        self.set_cleartext_storage(
-            {
+    def serialize(self, language: str, is_default: bool):
+        return {
                 "TAILS_LOCALE_NAME": language,
                 "IS_DEFAULT": is_default,
-            },
-        )
+            }
 
     def load(self) -> tuple[str, bool]:
-        settings = self.get_cleartext_storage()
-        if not settings:
-            raise SettingNotFoundError(
-                "No persistent language settings found"
-            )
+        settings = super().load()
 
         language = settings.get("TAILS_LOCALE_NAME")
         if language is None:

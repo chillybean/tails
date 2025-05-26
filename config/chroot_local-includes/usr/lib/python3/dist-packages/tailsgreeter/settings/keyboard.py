@@ -26,27 +26,23 @@ class KeyboardSetting(CleartextStorageMixin, LocalizationSetting):
         super().__init__()
         self.xkbinfo = GnomeDesktop.XkbInfo()
 
-    def save(self, value: str, is_default: bool):
+    def serialize(self, value: str, is_default: bool):
         try:
             layout, variant = value.split("+")
         except ValueError:
             layout = value
             variant = ""
 
-        self.set_cleartext_storage(
-            {
+        return {
                 # The default value from /etc/default/keyboard
                 "TAILS_XKBMODEL": "pc105",
                 "TAILS_XKBLAYOUT": layout,
                 "TAILS_XKBVARIANT": variant,
                 "IS_DEFAULT": is_default,
-            },
-        )
+            }
 
     def load(self) -> tuple[str, bool]:
-        settings = self.get_cleartext_storage()
-        if not settings:
-            raise SettingNotFoundError
+        settings = super().load()
 
         keyboard_layout = settings.get("TAILS_XKBLAYOUT")
         if keyboard_layout is None:

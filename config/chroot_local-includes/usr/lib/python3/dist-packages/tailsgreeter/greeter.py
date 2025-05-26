@@ -17,6 +17,7 @@
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>
 #
 
+import contextlib
 import gettext
 import gi
 import logging
@@ -26,7 +27,7 @@ from pathlib import Path
 from tailsgreeter import config
 from tailsgreeter.config import persistent_settings_dir, transient_settings_dir
 from tailsgreeter.gdmclient import GdmClient
-from tailsgreeter.settings import localization
+from tailsgreeter.settings import localization, SettingNotFoundError
 from tailsgreeter.settings.admin import AdminSetting
 from tailsgreeter.settings.localization_settings import LocalisationSettings
 from tailsgreeter.settings.macspoof import MacSpoofSetting
@@ -110,15 +111,19 @@ class GreeterApplication:
             UnsafeBrowserSettingUI(self.unsafe_browser_setting),
         )
 
-        language_settings_ui.load()
-        keyboard_settings_ui.load()
-
         # Initialize main window
         self.mainwindow = GreeterMainWindow(self, persistence, self.settings)
 
         # Apply the default settings
+        logging.info('Applying default settings')
         for setting in self.settings:
             setting.apply()
+
+        logging.info('Now loading...')
+        with contextlib.suppress(SettingNotFoundError):
+            language_settings_ui.load()
+        with contextlib.suppress(SettingNotFoundError):
+            keyboard_settings_ui.load()
 
         # Inhibit the session being marked as idle
         self.inhibit_idle()

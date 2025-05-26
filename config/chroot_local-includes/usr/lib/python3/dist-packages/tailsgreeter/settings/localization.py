@@ -18,6 +18,7 @@
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>
 
 import gi
+import logging
 import pycountry
 from typing import TYPE_CHECKING
 
@@ -54,11 +55,24 @@ class LocalizationSetting(GObject.Object, object):
 
 
 class CleartextStorageMixin:
-    def get_cleartext_storage(self):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.cleartext_loaded = False
+
+    def load(self):
+        if not self.cleartext_loaded:
+            logging.debug(f"{self.__class__.__name__} first load")
+        else:
+            logging.debug(f"{self.__class__.__name__} reload")
+        self.cleartext_loaded = True
         return tailsgreeter.utils.get_cleartext_storage(self.SETTINGS_KEY)
 
-    def set_cleartext_storage(self, value):
-        return tailsgreeter.utils.set_cleartext_storage(self.SETTINGS_KEY, value)
+    def save(self, *args, **kwargs):
+        if not self.cleartext_loaded:
+            return
+        logging.debug(f"{self.__class__.__name__} save")
+        return tailsgreeter.utils.set_cleartext_storage(self.SETTINGS_KEY, self.serialize(*args, **kwargs))
+
 
 
 def ln_iso639_tri(ln_CC):
