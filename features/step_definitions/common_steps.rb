@@ -197,34 +197,19 @@ Given /^the network is unplugged$/ do
   $vm.unplug_network
 end
 
-def activate_gnome_shell_menu_entry(label)
-  gnome_shell = Dogtail::Application.new('gnome-shell')
-  menu_entry = gnome_shell.child(label, roleName: 'label')
-  menu_entry.grabFocus
-  @screen.press('Return')
-end
-
-def expand_gnome_shell_menu_section(label)
-  expand_button = Dogtail::Application.new('gnome-shell')
-                                      .child(label, roleName: 'label')
-                                      .parent
-                                      .button('')
-  expand_button.grabFocus
-  @screen.press('Return')
-end
-
-Given /^I (dis)?connect the network through GNOME$/ do |disconnect|
+Given /^I (connect|disconnect) the network through GNOME$/ do |action|
   open_gnome_system_menu
+  Dogtail::Application.new('gnome-shell')
+                      .child('Wired', roleName: 'label')
+                      .parent.parent.parent.parent
+                      .child('Open menu', roleName: 'button')
+                      .click
+  Dogtail::Application.new('gnome-shell')
+                      .child(action.capitalize, roleName: 'label')
+                      .click
 
-  # Expand the menu entry for the wired connection
-  expand_gnome_shell_menu_section('Wired')
-
-  # Activate the Connect/Disconnect entry
-  if disconnect
-    activate_gnome_shell_menu_entry('Disconnect Wired')
-  else
-    activate_gnome_shell_menu_entry('Connect to Wired')
-  end
+  # Close the menu
+  open_gnome_system_menu
 end
 
 Given /^the network connection is ready(?: within (\d+) seconds)?$/ do |timeout|
