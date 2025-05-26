@@ -743,8 +743,7 @@ Given /^all notifications have disappeared$/ do
       roleName: 'label', retry: false
     )
     unless no_notifications
-      gnome_shell.child('Clear all notifications', roleName: 'button').grabFocus
-      @screen.press('return')
+      gnome_shell.child('Clear all notifications', roleName: 'button').click
       gnome_shell.child?('No Notifications', roleName: 'label')
     end
   end
