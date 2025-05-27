@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-04-22 16:50-0600\n"
-"PO-Revision-Date: 2025-04-09 20:57+0000\n"
+"POT-Creation-Date: 2023-09-04 09:56+0200\n"
+"PO-Revision-Date: 2025-05-21 15:05+0000\n"
 "Last-Translator: victor dargallo <victordargallo@disroot.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ca\n"
@@ -289,8 +289,8 @@ msgid ""
 "- Display a percentage on the connection progress bar. ([[!tails_ticket "
 "19208]])"
 msgstr ""
-"- Es mostra un percentatge a la barra de progrés de la connexió. ([[!"
-"tails_ticket 19208]])"
+"- Es mostra un percentatge a la barra de progrés de la connexió. ([["
+"!tails_ticket 19208]])"
 
 #. type: Plain text
 #, no-wrap
@@ -312,11 +312,11 @@ msgstr ""
 
 #. type: Plain text
 msgid ""
-"For more details, read our [[!tails_gitweb debian/changelog "
-"desc=\"changelog\"]]."
+"For more details, read our [[!tails_gitweb debian/changelog desc=\"changelog"
+"\"]]."
 msgstr ""
-"Per a més detalls, llegiu el nostre [[!tails_gitweb debian/changelog "
-"desc=\"registre de canvis\"]]."
+"Per a més detalls, llegiu el nostre [[!tails_gitweb debian/changelog desc="
+"\"registre de canvis\"]]."
 
 #. type: Plain text
 #, no-wrap
@@ -331,13 +331,9 @@ msgstr ""
 "Si teniu alguns d'aquests problemes, proveu de baixar Tails 5.7. Per fer-ho:"
 
 #. type: Plain text
-#, fuzzy
-#| msgid ""
-#| "- Download [Tails 5.7](https://iso-history.tails.boum.org/tails-"
-#| "amd64-5.7/)  - Do a [[manual upgrade|upgrade#manual]] to Tails 5.7."
 msgid ""
 "- Download [Tails 5.7](https://iso-history.tails.boum.org/tails-amd64-5.7/)  "
-"- Do a manual upgrade to Tails 5.7."
+"- Do a [[manual upgrade|upgrade#manual]] to Tails 5.7."
 msgstr ""
 "- Baixeu [Tails 5.7](https://iso-history.tails.boum.org/tails-amd64-5.7/)\n"
 "- Feu una [[actualització manual|upgrade#manual]] a Tails 5.7."
@@ -345,7 +341,9 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "<h2 id=\"qt\">Problems with Qt applications like <i>Kleopatra</i> and <i>Feather</i></h2>\n"
-msgstr "<h2 id=\"qt\">Problemes amb aplicacions Qt com <i>Kleopatra</i> i <i>Feather</i></h2>\n"
+msgstr ""
+"<h2 id=\"qt\">Problemes amb aplicacions Qt com <i>Kleopatra</i> i "
+"<i>Feather</i></h2>\n"
 
 #. type: Plain text
 msgid ""
@@ -359,7 +357,9 @@ msgstr ""
 #. type: Title ###
 #, no-wrap
 msgid "Clipboard encryption and decryption is broken in *Kleopatra* ([[!tails_ticket 19329]])"
-msgstr "L'encriptatge i el desencriptatge del porta-retalls estan trencats a *Kleopatra* ([[!tails_ticket 19329]])"
+msgstr ""
+"L'encriptatge i el desencriptatge del porta-retalls estan trencats a "
+"*Kleopatra* ([[!tails_ticket 19329]])"
 
 #. type: Plain text
 msgid "To fix this:"
@@ -388,7 +388,8 @@ msgid ""
 "   This only works if *Kleopatra* has never been started since Tails started.\n"
 "   Otherwise, execute this command and try again:\n"
 msgstr ""
-"   Això només funciona si *Kleopatra* no s'ha iniciat des que s'ha iniciat Tails.\n"
+"   Això només funciona si *Kleopatra* no s'ha iniciat des que s'ha iniciat "
+"Tails.\n"
 "   En cas contrari, executeu aquesta ordre i torneu-ho a provar:\n"
 
 #. type: Plain text
@@ -399,7 +400,9 @@ msgstr "       killall kleopatra\n"
 #. type: Title ###
 #, no-wrap
 msgid "AppImages like *Feather* wallet and *Bitcoin-Qt* fail to load ([[!tails_ticket 19326]])"
-msgstr "Imatges d'aplicacions com la cartera *Feather* i *Bitcoin-Qt* no es poden carregar ([[!tails_ticket 19326]])"
+msgstr ""
+"Imatges d'aplicacions com la cartera *Feather* i *Bitcoin-Qt* no es poden "
+"carregar ([[!tails_ticket 19326]])"
 
 #. type: Bullet: '1. '
 msgid "Navigate to your AppImage in the *Files* browser."
@@ -433,12 +436,16 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "   <p class=\"pre command\">unset QT_QPA_PLATFORM ; ./<span class=\"command-placeholder\">application.AppImage</span></p>\n"
-msgstr "   <p class=\"pre command\">unset QT_QPA_PLATFORM ; ./<span class=\"command-placeholder\">application.AppImage</span></p>\n"
+msgstr ""
+"   <p class=\"pre command\">unset QT_QPA_PLATFORM ; ./<span class=\"command-"
+"placeholder\">application.AppImage</span></p>\n"
 
 #. type: Plain text
 #, no-wrap
 msgid "   For example, to start the *Feather* wallet version 2.1.2, execute:\n"
-msgstr "   Per exemple, per iniciar la versió 2.1.2 de la cartera *Feather*, executeu:\n"
+msgstr ""
+"   Per exemple, per iniciar la versió 2.1.2 de la cartera *Feather*, "
+"executeu:\n"
 
 #. type: Plain text
 #, no-wrap
@@ -448,7 +455,9 @@ msgstr "       unset QT_QPA_PLATFORM ; ./feather-2.1.2.AppImage\n"
 #. type: Plain text
 #, no-wrap
 msgid "<h2 id=\"graphics\">Some graphics cards stopped working in Tails 5.8 ([[!tails_ticket 19353]])</h2>\n"
-msgstr "<h2 id=\"graphics\">Algunes targetes gràfiques van deixar de funcionar a Tails 5.8 ([[!tails_ticket 19353]])</h2>\n"
+msgstr ""
+"<h2 id=\"graphics\">Algunes targetes gràfiques van deixar de funcionar a "
+"Tails 5.8 ([[!tails_ticket 19353]])</h2>\n"
 
 #. type: Plain text
 msgid ""
@@ -742,7 +751,9 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "<h2 id=\"ps\">Persistent Storage fails to load with symbolic links in Dotfiles ([[!tails_ticket 19346]])</h2>\n"
-msgstr "<h2 id=\"ps\">L'Emmagatzematge Persistent no es pot carregar amb enllaços simbòlics a Dotfiles ([[!tails_ticket 19346]])</h2>\n"
+msgstr ""
+"<h2 id=\"ps\">L'Emmagatzematge Persistent no es pot carregar amb enllaços "
+"simbòlics a Dotfiles ([[!tails_ticket 19346]])</h2>\n"
 
 #. type: Plain text
 msgid ""
@@ -813,8 +824,8 @@ msgstr "Seleccioneu la partició **TailsData LUKS** al panell dret."
 
 #. type: Bullet: '  1. '
 msgid ""
-"Click the **[[!img lib/unlock.png alt=\"Unlock selected encrypted "
-"partition\" class=\"symbolic\" link=\"no\"]]** button."
+"Click the **[[!img lib/unlock.png alt=\"Unlock selected encrypted partition"
+"\" class=\"symbolic\" link=\"no\"]]** button."
 msgstr ""
 "Feu clic al botó **[[!img lib/unlock.png alt=\"Desbloqueja la partició "
 "encriptada seleccionada\" class=\"symbolic\" link=\"no\"]]**."
@@ -843,7 +854,8 @@ msgid ""
 "  1. Click the **[[!img lib/media-playback-start.png alt=\"Mount selected\n"
 "   partition\" link=no class=symbolic]]**.\n"
 msgstr ""
-"  1. Feu clic a **[[!img lib/media-playback-start.png alt=\"Munta la partició\n"
+"  1. Feu clic a **[[!img lib/media-playback-start.png alt=\"Munta la "
+"partició\n"
 "   seleccionada\" link=no class=symbolic]]**.\n"
 
 #. type: Bullet: '  1. '
@@ -883,7 +895,9 @@ msgstr "Al navegador de *Fitxers*, aneu a */media/amnesia/TailsData/dotfiles*."
 #. type: Plain text
 #, no-wrap
 msgid "     Remove or replace all symbolic links in the dotfiles folder.\n"
-msgstr "     Elimineu o substituïu tots els enllaços simbòlics de la carpeta dotfiles.\n"
+msgstr ""
+"     Elimineu o substituïu tots els enllaços simbòlics de la carpeta "
+"dotfiles.\n"
 
 #. type: Plain text
 #, no-wrap
@@ -904,7 +918,9 @@ msgstr ""
 #. type: Title ##
 #, no-wrap
 msgid "*Tor Browser* has no minimize and maximize buttons ([[!tails_ticket 19328]])"
-msgstr "El *Navegador Tor* no té botons de minimització i maximització ([[!tails_ticket 19328]])"
+msgstr ""
+"El *Navegador Tor* no té botons de minimització i maximització ([["
+"!tails_ticket 19328]])"
 
 #. type: Plain text
 msgid "To work around this:"
@@ -925,7 +941,9 @@ msgstr "Trieu **Minimitza** o **Maximitza**."
 #. type: Title ##
 #, no-wrap
 msgid "Welcome Screen and Tor Connection don't fit on 800×600 ([[!tails_ticket 19324]])"
-msgstr "La Pantalla de Benvinguda i la Connexió Tor no encaixen en 800×600 ([[!tails_ticket 19324]])"
+msgstr ""
+"La Pantalla de Benvinguda i la Connexió Tor no encaixen en 800×600 ([["
+"!tails_ticket 19324]])"
 
 #. type: Plain text
 msgid ""
@@ -943,7 +961,9 @@ msgstr "Podeu prémer **Alt+S** per iniciar Tails."
 #. type: Title ##
 #, no-wrap
 msgid "Switches of the Persistent Storage settings are very slow sometimes ([[!tails_ticket 19291]])"
-msgstr "Els canvis de la configuració de l'Emmagatzematge Persistent de vegades són molt lents ([[!tails_ticket 19291]])"
+msgstr ""
+"Els canvis de la configuració de l'Emmagatzematge Persistent de vegades són "
+"molt lents ([[!tails_ticket 19291]])"
 
 #. type: Plain text
 #, no-wrap
@@ -952,14 +972,18 @@ msgid ""
 "are very slow to respond on some USB sticks. Please report on [[!tails_ticket\n"
 "19291]] if this happens to you.\n"
 msgstr ""
-"Els interruptors que encenen i apaguen les diferents funcions de l'Emmagatzematge Persistent\n"
-"són molt lents a respondre en alguns llapis USB. Informeu-nos a [[!tails_ticket\n"
+"Els interruptors que encenen i apaguen les diferents funcions de "
+"l'Emmagatzematge Persistent\n"
+"són molt lents a respondre en alguns llapis USB. Informeu-nos a [[!"
+"tails_ticket\n"
 "19291]] si això us passa.\n"
 
 #. type: Title ##
 #, no-wrap
 msgid "Progress bar of *Tor Connection* gets stuck around 50% ([[!tails_ticket 19173]])"
-msgstr "La barra de progrés de *Connexió Tor* s'encalla al voltant del 50% ([[!tails_ticket 19173]])"
+msgstr ""
+"La barra de progrés de *Connexió Tor* s'encalla al voltant del 50% ([["
+"!tails_ticket 19173]])"
 
 #. type: Plain text
 msgid ""
@@ -994,8 +1018,7 @@ msgstr ""
 
 #. type: Plain text
 msgid "See the list of [[long-standing issues|support/known_issues]]."
-msgstr ""
-"Vegeu la llista de [[problemes de llarga durada|support/known_issues]]."
+msgstr "Vegeu la llista de [[problemes de llarga durada|support/known_issues]]."
 
 #. type: Plain text
 #, no-wrap
@@ -1005,7 +1028,9 @@ msgstr "<h1 id=\"get\">Obtenir Tails 5.8</h1>\n"
 #. type: Title ##
 #, no-wrap
 msgid "To upgrade your Tails USB stick and keep your Persistent Storage"
-msgstr "Per actualitzar el vostre llapis USB de Tails i mantenir el vostre Emmagatzematge Persistent"
+msgstr ""
+"Per actualitzar el vostre llapis USB de Tails i mantenir el vostre "
+"Emmagatzematge Persistent"
 
 #. type: Plain text
 msgid "- Automatic upgrades are available from Tails 5.0 or later to 5.8."
@@ -1020,7 +1045,8 @@ msgid ""
 "  automatic upgrades by doing a manual upgrade to the latest version.\n"
 msgstr ""
 "  Podeu [[reduir la mida de la baixada|doc/upgrade#reduce]] de futures\n"
-"  actualitzacions automàtiques fent una actualització manual a la darrera versió.\n"
+"  actualitzacions automàtiques fent una actualització manual a la darrera "
+"versió.\n"
 
 #. type: Bullet: '- '
 msgid ""
@@ -1066,7 +1092,8 @@ msgid ""
 "<div class=\"caution\"><p>The Persistent Storage on the USB stick will be lost if\n"
 "you install instead of upgrading.</p></div>\n"
 msgstr ""
-"<div class=\"caution\"><p>L'Emmagatzematge Persistent del llapis USB es perdrà si\n"
+"<div class=\"caution\"><p>L'Emmagatzematge Persistent del llapis USB es "
+"perdrà si\n"
 "instal·leu en comptes d'actualitzar.</p></div>\n"
 
 #. type: Title ##
