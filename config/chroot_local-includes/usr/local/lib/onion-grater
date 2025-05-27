@@ -571,7 +571,7 @@ class FilteredControlPortProxySession:
                 break
             line = str(binary_line, "ascii")
             if line.isspace():
-                self.debug_log("ignoring received empty (or whitespace-only) " + "line")
+                self.debug_log("ignoring received empty (or whitespace-only) line")
                 continue
             match = re.match(
                 r"(?P<cmd>\S+)(?P<cmd_arg_sep>\s*)(?P<arg_str>[^\r\n]*)\r?\n$",
