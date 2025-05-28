@@ -17,9 +17,12 @@ Source
 
 To compare the to-be-released source code with previous version's one:
 
-1. Boot the most recent version of Tails we've already released and find the commit it was build from, using the `tails-version` command. Set `OLD_IMAGE_COMMIT` to this value.
+1. Boot the most recent version of Tails we've already released and find the
+   commit it was build from, using the `tails-version` command.
+   Set `OLD_IMAGE_COMMIT` to this value.
 
-2. Boot the candidate image and find the commit it was build from, using the `tails-version` command. Set `CANDIDATE_IMAGE_COMMIT` to this value.
+2. Boot the candidate image and find the commit it was build from, using the
+   `tails-version` command. Set `CANDIDATE_IMAGE_COMMIT` to this value.
 
 3. Then, from the source tree, see the diff:
 
@@ -28,13 +31,14 @@ To compare the to-be-released source code with previous version's one:
 Changes to IDF and UDFs
 ------------------------
 
-The purpose of this check is to monitor if, during the _last_ development cycle, in particular outside of the release process, an attacker modified the IDF or
+The purpose of this check is to monitor if, during the _last_ development cycle,
+in particular outside of the release process, an attacker modified the IDF or
 UDFs in order to serve malicious images.
 
     git log --pretty=medium --shortstat ${PREVIOUS_VERSION}..${VERSION} -- wiki/src/install/v2/Tails/amd64/stable/latest.json wiki/src/upgrade/v2/
 
-You should expect the only changes to have happened during the release process of `${PREVIOUS_VERSION}` (i.e.:
-shortly after the tag).
+You should expect the only changes to have happened during the release process
+of `${PREVIOUS_VERSION}` (i.e.: shortly after the tag).
 
 In a typical scenario, exactly 4 commits are present:
  - Remove UDFs for versions we'll never release
