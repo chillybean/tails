@@ -54,6 +54,10 @@ class PasswordDialog(object):
             self.ok_button.set_sensitive(False)
             self.entry2.set_icon_from_stock(1, "gtk-dialog-warning")
 
+    def on_show_checkbox_toggled(self, checkbutton, data=None):
+            self.entry1.set_visibility(self.show_checkbox.get_active())
+            self.entry2.set_visibility(self.show_checkbox.get_active())
+
     def on_ok_clicked(self, button, data=None):
         pw1 = self.entry1.get_text()
         pw2 = self.entry2.get_text()
@@ -144,12 +148,17 @@ class PasswordDialog(object):
             width_request=200
         )
         self.entry2.connect("changed", self.on_entry_changed)
+        
+        self.show_checkbox = Gtk.CheckButton(label="Show Password")
+        self.show_checkbox.connect("toggled", self.on_show_checkbox_toggled)
+
 
         grid = Gtk.Grid(row_spacing=2, column_spacing=10)
         grid.attach(Gtk.Label(label=_("Password"), xalign=1), 0, 0, 1, 1)
         grid.attach(Gtk.Label(label=_("Confirm"), xalign=1), 0, 1, 1, 1)
         grid.attach(self.entry1, 1, 0, 1, 1)
         grid.attach(self.entry2, 1, 1, 1, 1)
+        grid.attach(self.show_checkbox, 1, 2, 1, 1)
 
         content_box = Gtk.Box(Gtk.Orientation.HORIZONTAL)
         content_box.pack_start(Gtk.Box(hexpand=True), False, False, 0)
