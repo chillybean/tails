@@ -78,7 +78,7 @@ def error(msg):
                                                           msg)
     print(cli_text, file=sys.stderr)
 
-    sh.zenity('--error', '--ellipsize', '--title', "", '--text', dialog_text,
+    sh.zenity('--error', '--title', "", '--text', dialog_text,
               _ok_code=[0, 1, 5])
     sys.exit(1)
 

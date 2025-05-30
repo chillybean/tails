@@ -33,7 +33,7 @@ Renaming your database to <i>\${default_filename}</i> would allow <i>KeePassXC</
     rename="$(gettext "Rename")"
     local open
     open="$(gettext "Keep current name")"
-    zenity --question --ellipsize --title "" --text "${dialog_msg}" --default-cancel \
+    zenity --question --title "" --text "${dialog_msg}" --default-cancel \
            --ok-label "${rename}" --cancel-label "${open}"
 }
 
