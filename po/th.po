@@ -10,12 +10,13 @@
 # Mishari Muqbil <mishari@mishari.net>, 2015
 # Tee de Jatt, 2021
 # lanichita <vainilla7@gmail.com>, 2013
+# Anucha Lhaononkor <achn.syps@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-30 09:33+0200\n"
-"PO-Revision-Date: 2025-05-19 13:03+0000\n"
+"POT-Creation-Date: 2025-05-28 10:55+0200\n"
+"PO-Revision-Date: 2025-05-28 00:01+0000\n"
 "Last-Translator: Anucha Lhaononkor <achn.syps@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/tor/tails-gui/th/>\n"
 "Language: th\n"
@@ -89,9 +90,8 @@ msgid "Create Persistent Storage"
 msgstr "สร้างพื้นที่เก็บข้อมูล Persistent Storage"
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:90
-#, fuzzy
 msgid "Creating your Persistent Storage failed."
-msgstr "_สร้างพื้นที่เก็บข้อมูล Persistent Storage"
+msgstr "สร้างพื้นที่เก็บข้อมูลถาวร"
 
 #. Translators: Don't translate {packages}, it's a placeholder and
 #. will be replaced.
@@ -325,9 +325,9 @@ msgstr[0] "{count}s"
 #. Translators: don't translate {time}, {downloaded}, {size}
 #. and {speed}, they are placeholders and will be replaced.
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/DownloadProgress.pm:139
-#, fuzzy, perl-brace-format
+#, perl-brace-format
 msgid "#{time} left — {downloaded} of {size} ({speed}/sec)\n"
-msgstr "#{time} left — {downloaded} of {size} ({speed}/sec)\n"
+msgstr "#เหลือเวลา {time} — {downloaded} จาก {size} ({speed}/วินาที)\n"
 
 #. Translators: KB is the short form for kilobyte
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Role/FormatByte.pm:32
@@ -530,14 +530,12 @@ msgid "Downloading the upgrade to {name} {version}..."
 msgstr "กำลังปรับรุ่นไปยัง {name} {version}..."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:712
-#, fuzzy
 msgid ""
 "<b>The upgrade could not be downloaded.</b>\\n\\nCheck your network "
 "connection, and restart Tails to try upgrading again."
 msgstr ""
-"<b>ไม่สามารถดาวน์โหลดการอัพเกรดได้</b>\\n\\nตรวจสอบการเชื่อมต่อเครือข่ายของคุณ "
-"แล้วทำการรีสตาร์ท Tails แล้วลองอัพเกรดใหม่อีกครั้ง\\n\\nหากยังพบปัญหา ให้ไปยัง file:///"
-"usr/share/doc/tails/website/doc/upgrade/error/download.en.html"
+"<b>ไม่สามารถดาวน์โหลดการอัปเกรดได้</"
+"b>\\n\\nตรวจสอบการเชื่อมต่อเครือข่ายของคุณและรีสตาร์ท Tails เพื่อลองอัปเกรดอีกครั้ง"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:715
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:730
@@ -648,16 +646,15 @@ msgstr ""
 "การเชื่อมต่อเครือข่ายได้ถูกระงับไว้เพื่อความปลอดภัย"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:856
-#, fuzzy
 msgid ""
 "<b>An error occurred while installing the upgrade.</b>\\n\\nYour Tails "
 "device needs to be repaired and might be unable to restart.\\n\\nPlease "
 "follow the instructions at file:///usr/share/doc/tails/website/doc/upgrade/"
 "error/install.en.html"
 msgstr ""
-"<b>พบข้อผิดพลาดขณะติดตั้งการอัพเกรด</b>\\n\\nอุปกรณ์ Tails ของคุณควรถูกซ่อมแซม "
-"และอาจไม่สามารถเริ่มต้นใหม่ได้ กรุณาทำการขั้นตอนที่ file:///usr/share/doc/tails/website/"
-"doc/upgrade/error/install.en.html"
+"<b>เกิดข้อผิดพลาดขณะติดตั้งการอัปเกรด</b>\\n\\nอุปกรณ์ Tails "
+"ของคุณจำเป็นต้องได้รับการซ่อมแซมและอาจไม่สามารถรีสตาร์ทได้\\n\\nโปรดปฏิบัติตามคำแนะนำที่ "
+"file:///usr/share/doc/tails/website/doc/upgrade/error/install.en.html"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:861
 msgid "Error while installing the upgrade"
@@ -734,9 +731,8 @@ msgid "Off (default)"
 msgstr "ปิด (โดยปริยาย)"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:174
-#, fuzzy
 msgid "Persistent Storage Still Locked"
-msgstr "_สร้างพื้นที่เก็บข้อมูล Persistent Storage"
+msgstr "ที่เก็บข้อมูลยังถูกล็อคอยู่"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:176
 msgid ""
@@ -744,9 +740,8 @@ msgid ""
 msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:179
-#, fuzzy
 msgid "Start Without Persistent Storage"
-msgstr "_สร้างพื้นที่เก็บข้อมูล Persistent Storage"
+msgstr "เริ่มต้นโดยไม่มีการจัดเก็บข้อมูล"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:247
 msgid ""
@@ -775,9 +770,8 @@ msgid "This might take a long time..."
 msgstr "นี่อาจใช้เวลาสักพัก..."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:500
-#, fuzzy
 msgid "Failed to repair the file system of your Persistent Storage."
-msgstr "_สร้างพื้นที่เก็บข้อมูล Persistent Storage"
+msgstr "ไม่สามารถซ่อมแซมระบบไฟล์ของ Persistent Storage ของคุณได้"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:502
 msgid "Start Tails to send an error report and learn how to recover your data."
@@ -852,21 +846,18 @@ msgid "Repair File System"
 msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:836
-#, fuzzy
 msgid "Create Partition Image"
-msgstr "_สร้างพื้นที่เก็บข้อมูล Persistent Storage"
+msgstr "สร้างพาร์ติชั่น"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:847
-#, fuzzy
 msgid ""
 "Start Tails to learn how to create a partition image of your Persistent "
 "Storage."
-msgstr "_สร้างพื้นที่เก็บข้อมูล Persistent Storage"
+msgstr "เริ่มต้น Tails เพื่อเรียนรู้วิธีการสร้างอิมเมจพาร์ติชัน Persistent Storage ของคุณ"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:856
-#, fuzzy
 msgid "Failed to unlock the Persistent Storage due to file system errors."
-msgstr "_สร้างพื้นที่เก็บข้อมูล Persistent Storage"
+msgstr "ไม่สามารถปลดล็อค Persistent Storage ได้เนื่องจากมีข้อผิดพลาดของระบบ"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:865
 msgid ""
@@ -887,18 +878,16 @@ msgid ""
 msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:891
-#, fuzzy
 msgid "Upgrading the Persistent Storage. This might take a while…"
-msgstr "_สร้างพื้นที่เก็บข้อมูล Persistent Storage"
+msgstr "การอัพเกรด Persistent Storage อาจใช้เวลาสักครู่…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/settings/persistence.py:125
 msgid "Error unlocking Persistent Storage: {}"
 msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/settings/persistence.py:150
-#, fuzzy
 msgid "Error upgrading Persistent Storage: {}"
-msgstr "_สร้างพื้นที่เก็บข้อมูล Persistent Storage"
+msgstr "ผิดพลาดในการอัพเกรด Persistent Storage: {}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/settings/persistence.py:176
 #, python-brace-format
@@ -906,9 +895,8 @@ msgid "Failed to activate some features of the Persistent Storage: {features}."
 msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/settings/persistence.py:181
-#, fuzzy
 msgid "Error activating Persistent Storage: {}"
-msgstr "_สร้างพื้นที่เก็บข้อมูล Persistent Storage"
+msgstr "ผิดพลาดในการเปิดใช้งาน Persistent Storage {}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/settings/persistence.py:202
 #, fuzzy
@@ -1015,9 +1003,8 @@ msgid "No mount points found"
 msgstr "ไม่พบจุดเมาต์"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:805
-#, fuzzy
 msgid "Target device has opened files"
-msgstr "เขียนไปยังอุปกรณ์ ณ %(speed)d MB/sec"
+msgstr "อุปกรณ์ได้เปิดไฟล์แล้ว"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:833
 #, python-format
@@ -1057,9 +1044,8 @@ msgid "Removing %(file)s"
 msgstr "ถอดแฟ้มออก %(file)s"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1086
-#, fuzzy
 msgid "Cloning Persistent Storage..."
-msgstr "_สร้างพื้นที่เก็บข้อมูล Persistent Storage"
+msgstr "โคลนพื้นที่เก็บข้อมูลถาวร..."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1169
 #, python-format
@@ -1186,9 +1172,8 @@ msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:541
 #: ../config/chroot_local-includes/usr/share/tails-installer/tails-installer.ui.in:180
-#, fuzzy
 msgid "Clone the current Persistent Storage"
-msgstr "_สร้างพื้นที่เก็บข้อมูล Persistent Storage"
+msgstr "โคลนที่เก็บข้อมูลถาวรปัจจุบัน"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:544
 msgid ""
@@ -1413,9 +1398,8 @@ msgid "Open Tails Cloner"
 msgstr "ตัวติดตั้ง Tails"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:42
-#, fuzzy
 msgid "Creation of Persistent Storage has been disabled."
-msgstr "_สร้างพื้นที่เก็บข้อมูล Persistent Storage"
+msgstr "การสร้างที่จัดเก็บข้อมูลถูกปิดการใช้งาน"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:44
 msgid ""
@@ -1570,7 +1554,7 @@ msgid "Set up a password to unlock the screen."
 msgstr "ตั้งรหัสผ่านเพื่อปลดล็อกหน้าจอ"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:149
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2290
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2277
 msgid "Password"
 msgstr "รหัสผ่าน"
 
@@ -1728,13 +1712,13 @@ msgid ""
 msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:269
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:795
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:792
 #, python-brace-format
 msgid "Invalid: {exception}"
 msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:281
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:808
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:805
 msgid "You need to configure an obfs4 bridge to hide that you are using Tor"
 msgstr ""
 
@@ -1785,28 +1769,28 @@ msgstr ""
 msgid "You can now browse the Internet anonymously and uncensored."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:723
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:720
 msgid "This local network seems to be blocking access to Tor."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:798
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:795
 msgid "Bridge address malformed"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:816
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:813
 msgid "Setting a bridge is needed if you want to hide that you are using Tor"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1055
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1052
 #, python-brace-format
 msgid "Scanned {bridge_type} bridge: <b>{bridge_info}</b>."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1144
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1141
 msgid "Are you sure you want to lose progress?"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1148
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1145
 msgid ""
 "Tails will continue connecting to Tor after you close the Tor Connection "
 "assistant.\n"
@@ -1815,11 +1799,11 @@ msgid ""
 "progress bar to be able to troubleshoot your connection."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1154
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1151
 msgid "Close and Lose Progress"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1156
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1153
 msgid "Wait"
 msgstr "รอ"
 
@@ -1868,7 +1852,7 @@ msgid "Open Tor Connection Assistant"
 msgstr "การเชื่อมต่อเครือข่าย"
 
 #: config/chroot_local-includes/usr/share/gnome-shell/extensions/torstatus@tails.boum.org/extension.js:50
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2116
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2103
 msgid "View Tor Circuits"
 msgstr ""
 
@@ -1925,7 +1909,7 @@ msgid ""
 "again after closing some applications or rebooting."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/configuration/binding.py:425
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/configuration/binding.py:411
 #, python-brace-format
 msgid ""
 "Can't unmount target {target}, some process is still using it. Please close "
@@ -2421,7 +2405,7 @@ msgid ""
 "network."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:139
+#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:146
 msgid "Failed to run browser."
 msgstr ""
 
@@ -3593,51 +3577,47 @@ msgstr ""
 msgid "Start Tor Browser"
 msgstr "เริ่มต้นใช้งาน Tor Browser"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2103
-msgid "Open Network Monitor"
-msgstr ""
-
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2156
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2143
 msgid "Configure a Local Proxy"
 msgstr ""
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2182
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2169
 msgid "Proxy Type"
 msgstr "ชนิดพร็อกซี"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2199
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2186
 msgid "No proxy"
 msgstr ""
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2200
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2187
 msgid "SOCKS 4"
 msgstr "SOCKS 4"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2201
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2188
 msgid "SOCKS 5"
 msgstr "SOCKS 5"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2202
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2189
 msgid "HTTP / HTTPS"
 msgstr "HTTP หรือ HTTPS"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2221
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2208
 msgid "Address"
 msgstr "ที่อยู่"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2238
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2225
 msgid "Username"
 msgstr "ชื่อผู้ใช้"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2255
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2242
 msgid "IP address or hostname"
 msgstr "ที่อยู่ IP หรือชื่อโฮสต์"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2273
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2260
 msgid "Port"
 msgstr "พอร์ต"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2397
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2384
 msgid "_Save Proxy Settings"
 msgstr ""
 

@@ -46,9 +46,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-30 09:33+0200\n"
-"PO-Revision-Date: 2025-03-31 20:56+0000\n"
-"Last-Translator: Codeyro <codeyro@users.noreply.hosted.weblate.org>\n"
+"POT-Creation-Date: 2025-05-28 10:55+0200\n"
+"PO-Revision-Date: 2025-05-25 22:01+0000\n"
+"Last-Translator: Maksim_220 Кабанов <law820314@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/tor/tails-gui/ru/"
 ">\n"
 "Language: ru\n"
@@ -58,7 +58,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -258,20 +258,17 @@ msgid "_Create persistent storage"
 msgstr "_Создать постоянное хранилище"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:69
-#, fuzzy
 msgid ""
 "Tails needs donations to keep everybody free and safe online.\n"
 "\n"
 "Every bit helps in our fight against surveillance and censorship!\n"
 "\n"
 msgstr ""
-"Tails нужна ваша помощь, чтобы все могли пользоваться Интернетом безопасно и "
-"свободно.\n"
+"Tails нуждается в пожертвованиях, чтобы сохранить свободу и безопасность в "
+"Интернете.\n"
 "\n"
-"Каждая копейка помогает в борьбе против слежки и цензуры!\n"
+"Каждая крупица поможет в нашей борьбе против слежки и цензуры!\n"
 "\n"
-"<a href=\"file:///usr/share/doc/tails/website/donate.en.html#expenses\">Как "
-"мы распределяем наши доходы.</a>"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:79
 msgid ""
@@ -280,6 +277,10 @@ msgid ""
 "Help us keep your bitcoins safe!\n"
 "\n"
 msgstr ""
+"Tails защищает ваш кошелек.\n"
+"\n"
+"Помогите нам сохранить ваши биткоины в безопасности!\n"
+"\n"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:156
 msgid "Donate Now"
@@ -416,7 +417,6 @@ msgid "bytes"
 msgstr "байт"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:296
-#, fuzzy
 msgid ""
 "<b>An error occurred while updating the signing key.</b>\\n\\n<b>This "
 "prevents determining whether an upgrade is available from our website.</"
@@ -427,7 +427,7 @@ msgstr ""
 "доступно ли обновление на нашем сайте.</b>\\n\\nПроверьте ваше интернет-"
 "соединение и перезапустите Tails, чтобы попробовать снова.\\n\\nЕсли "
 "проблема сохраняется, смотрите:///usr/share/doc/tails/website/doc/upgrade/"
-"error/check.en.html"
+"error/check.en.html."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:310
 msgid "Error while downloading the signing key"
@@ -438,7 +438,6 @@ msgid "Error while checking for upgrades"
 msgstr "Ошибка проверки обновлений"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:345
-#, fuzzy
 msgid ""
 "<b>Could not determine whether an upgrade is available from our website.</"
 "b>\n"
@@ -447,13 +446,11 @@ msgid ""
 "\n"
 "If the problem persists, try doing a manual upgrade."
 msgstr ""
-"<b>Невозможно определить, доступно ли обновление с нашего сайта.</b>\n"
+"<b>Не удалось определить, доступно ли обновление на нашем сайте.</b>\n"
 "\n"
-"Проверьте интернет-соединение и перезапустите Tails, чтобы попробовать "
-"вновь.\n"
+"Проверьте сетевое подключение и перезапустите Tails.\n"
 "\n"
-"Если проблема не устранена, тогда перейдите по ссылке file:///usr/share/doc/"
-"tails/website/doc/upgrade/error/check.en.html"
+"Если проблема сохраняется, попробуйте выполнить обновление вручную."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:360
 msgid "no automatic upgrade is available from our website for this version"
@@ -491,11 +488,11 @@ msgid ""
 "You are currently running the latest version. There is no upgrade "
 "available.\n"
 msgstr ""
+"В настоящее время вы используете последнюю версию. Обновление недоступно.\n"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:415
-#, fuzzy
 msgid "Tails is up to date"
-msgstr "Система обновлена"
+msgstr "Tails в актуальном состоянии"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:421
 msgid "This version of Tails is outdated, and may have security issues."
@@ -616,15 +613,12 @@ msgid "Downloading the upgrade to {name} {version}..."
 msgstr "Загрузка обновления {name} {version}..."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:712
-#, fuzzy
 msgid ""
 "<b>The upgrade could not be downloaded.</b>\\n\\nCheck your network "
 "connection, and restart Tails to try upgrading again."
 msgstr ""
-"<b>Обновление не может быть загружено.</b>\\n\\nПроверьте сеть и "
-"перезапустите Tails, чтобы попытаться обновить еще раз.\\n\\nЕсли проблема "
-"сохранится, смотрите file:///usr/share/doc/tails/website/doc/upgrade/error/"
-"download.en.html"
+"<b>Обновление не удалось загрузить.</b>\\n\\nПроверьте подключение к сети и "
+"перезапустите Tails, чтобы попробовать обновить снова."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:715
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:730
@@ -737,17 +731,16 @@ msgstr ""
 "В целях безопасности сетевое соединение сейчас отключено."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:856
-#, fuzzy
 msgid ""
 "<b>An error occurred while installing the upgrade.</b>\\n\\nYour Tails "
 "device needs to be repaired and might be unable to restart.\\n\\nPlease "
 "follow the instructions at file:///usr/share/doc/tails/website/doc/upgrade/"
 "error/install.en.html"
 msgstr ""
-"<b>В процессе установки обновления произошла ошибка.</b>\\n\\nВаше Tails-"
-"устройство нуждается в восстановлении, и, возможно, не сможет запуститься "
-"вновь.\\n\\nПожалуйста, следуйте инструкциям по ссылке file:///usr/share/doc/"
-"tails/website/doc/upgrade/error/install.en.html"
+"<b>Во время установки обновления произошла ошибка.</b>\\n\\nВаше устройство "
+"Tails нуждается в ремонте и, возможно, не сможет перезапуститься."
+"\\n\\nПожалуйста, следуйте инструкциям в file:///usr/share/doc/tails/website/"
+"doc/upgrade/error/install.en.html"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:861
 msgid "Error while installing the upgrade"
@@ -1633,9 +1626,8 @@ msgid "About Tails"
 msgstr "О Tails"
 
 #: config/chroot_local-includes/usr/local/bin/tails-about:34
-#, fuzzy
 msgid "Check for Upgrades"
-msgstr "Ошибка проверки обновлений"
+msgstr "Проверьте наличие обновлений"
 
 #: config/chroot_local-includes/usr/local/bin/tails-about:57
 msgid "UNRELEASED"
@@ -1734,7 +1726,7 @@ msgid "Set up a password to unlock the screen."
 msgstr "Настройте пароль для разблокировки экрана."
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:149
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2290
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2277
 msgid "Password"
 msgstr "Пароль"
 
@@ -1924,13 +1916,13 @@ msgstr ""
 "Постоянное хранилище</a> на вашем Tails."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:269
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:795
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:792
 #, python-brace-format
 msgid "Invalid: {exception}"
 msgstr "Неверно: {exception}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:281
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:808
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:805
 msgid "You need to configure an obfs4 bridge to hide that you are using Tor"
 msgstr "Вам нужно настроить мост obfs4, чтобы скрыть, что вы используете Tor"
 
@@ -1986,28 +1978,28 @@ msgstr "Успешное подключение к сети Tor"
 msgid "You can now browse the Internet anonymously and uncensored."
 msgstr "Теперь вы можете просматривать Интернет анонимно и без цензуры."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:723
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:720
 msgid "This local network seems to be blocking access to Tor."
 msgstr "Кажется, ваша локальная сеть блокирует доступ к сети Tor."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:798
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:795
 msgid "Bridge address malformed"
 msgstr "Некорректный адрес моста"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:816
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:813
 msgid "Setting a bridge is needed if you want to hide that you are using Tor"
 msgstr "Настройка моста необходима, если вы хотите скрыть, что используете Tor"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1055
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1052
 #, python-brace-format
 msgid "Scanned {bridge_type} bridge: <b>{bridge_info}</b>."
 msgstr "Просканирован {bridge_type} мост: <b>{bridge_info}</b>."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1144
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1141
 msgid "Are you sure you want to lose progress?"
 msgstr "Вы уверены, что хотите потерять прогресс?"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1148
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1145
 msgid ""
 "Tails will continue connecting to Tor after you close the Tor Connection "
 "assistant.\n"
@@ -2022,11 +2014,11 @@ msgstr ""
 "индикатора выполнения, чтобы появилась возможность устранить неполадки с "
 "подключением."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1154
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1151
 msgid "Close and Lose Progress"
 msgstr "Закрыть и потерять прогресс"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1156
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1153
 msgid "Wait"
 msgstr "Подождать"
 
@@ -2077,7 +2069,7 @@ msgid "Open Tor Connection Assistant"
 msgstr "Открыть Ассистент подключения к Tor"
 
 #: config/chroot_local-includes/usr/share/gnome-shell/extensions/torstatus@tails.boum.org/extension.js:50
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2116
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2103
 msgid "View Tor Circuits"
 msgstr "Посмотреть цепочки Tor"
 
@@ -2143,7 +2135,7 @@ msgstr ""
 "Недостаточно памяти для изменения пароля Постоянного хранилища. Попробуйте "
 "вновь после закрытия нескольких приложений или перезапуска системы."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/configuration/binding.py:425
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/configuration/binding.py:411
 #, python-brace-format
 msgid ""
 "Can't unmount target {target}, some process is still using it. Please close "
@@ -2659,7 +2651,7 @@ msgstr ""
 "браузер, вам сначала нужно подключиться к Wi-Fi, проводной или мобильной "
 "сети."
 
-#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:139
+#: config/chroot_local-includes/usr/local/sbin/unsafe-browser:146
 msgid "Failed to run browser."
 msgstr "Не удалось запустить браузер."
 
@@ -2723,9 +2715,8 @@ msgid "Your message has been sent."
 msgstr "Ваше сообщение отправлено."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:248
-#, fuzzy
 msgid "An error occurred during encryption."
-msgstr "Произошла ошибка во время шифрования."
+msgstr "Во время шифрования произошла ошибка."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:317
 msgid "This doesn't seem to be a valid URL or OpenPGP key."
@@ -3871,7 +3862,7 @@ msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1634
 msgid "No Wi-Fi hardware detected"
-msgstr ""
+msgstr "Оборудование Wi-Fi не обнаружено"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1652
 msgid ""
@@ -3887,9 +3878,19 @@ msgid ""
 " • Buy a USB Wi-Fi adapter that works in Tails.\n"
 "                "
 msgstr ""
+"Tails не смог найти на вашем компьютере интерфейс Wi-Fi. Если на вашем "
+"компьютере есть интерфейс Wi-Fi, он может не работать в Tails.\n"
+"\n"
+"Чтобы подключиться к Интернету, вы можете попробовать:\n"
+"\n"
+" • Вместо Wi-Fi используйте кабель Ethernet. Проводные интерфейсы работают в "
+"Tails гораздо надежнее, чем Wi-Fi..\n"
+" • Используйте USB tethering для совместного использования Wi-Fi или "
+"мобильной передачи данных телефона с помощью кабеля..\n"
+" • Купить USB-адаптер Wi-Fi, который работает в Tails.\n"
+"                "
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1676
-#, fuzzy
 msgid ""
 "\n"
 "<a href=\"doc/anonymous_internet/no-wifi\">\n"
@@ -3897,8 +3898,11 @@ msgid ""
 "</a>\n"
 "                "
 msgstr ""
-"<a href=\"doc/anonymous_internet/tor\">Узнайте больше о том, как Tails "
-"подключается к Tor</a>"
+"\n"
+"<a href=\"doc/anonymous_internet/no-wifi\">\n"
+"Узнайте больше об устранении неполадок, связанных с неработающим Wi-Fi.\n"
+"</a>\n"
+"                "
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1704
 msgid "Connect to a local network"
@@ -3914,9 +3918,8 @@ msgstr ""
 "мобильной сети."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1735
-#, fuzzy
 msgid "Open Wi-Fi Settings"
-msgstr "Открыть настройки Wi-Fi"
+msgstr "Откройте настройки Wi-Fi"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1784
 msgid "Testing Internet access…"
@@ -3951,51 +3954,47 @@ msgstr "Подключение к сети Tor…"
 msgid "Start Tor Browser"
 msgstr "Запустить Tor Browser"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2103
-msgid "Open Network Monitor"
-msgstr "Открыть сетевой монитор"
-
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2156
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2143
 msgid "Configure a Local Proxy"
 msgstr "Настроить локальный прокси"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2182
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2169
 msgid "Proxy Type"
 msgstr "Тип прокси"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2199
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2186
 msgid "No proxy"
 msgstr "Нет прокси"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2200
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2187
 msgid "SOCKS 4"
 msgstr "SOCKS 4"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2201
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2188
 msgid "SOCKS 5"
 msgstr "SOCKS 5"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2202
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2189
 msgid "HTTP / HTTPS"
 msgstr "HTTP/HTTPS"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2221
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2208
 msgid "Address"
 msgstr "Адрес"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2238
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2225
 msgid "Username"
 msgstr "Логин"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2255
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2242
 msgid "IP address or hostname"
 msgstr "IP-адрес или хост"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2273
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2260
 msgid "Port"
 msgstr "Порт"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2397
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2384
 msgid "_Save Proxy Settings"
 msgstr "_Сохранение настроек прокси"
 
@@ -4081,6 +4080,9 @@ msgstr "Декабрь"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "Часы"
+
+#~ msgid "Open Network Monitor"
+#~ msgstr "Открыть сетевой монитор"
 
 #, python-brace-format
 #~ msgid ""

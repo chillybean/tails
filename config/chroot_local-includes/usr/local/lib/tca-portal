@@ -294,10 +294,6 @@ class Handler(socketserver.StreamRequestHandler):
             ),
             False,
         ),
-        "open-networkmonitor": UserCommandTransientSystemdScope(
-            ("/usr/bin/gnome-system-monitor", "--show-resources-tab"),
-            False,
-        ),
         "open-onioncircuits": UserCommandTransientSystemdScope(
             (
                 "/usr/local/bin/gtk-abspath-launch",
