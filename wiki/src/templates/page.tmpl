@@ -10,7 +10,7 @@
 <TMPL_IF BASEURL><base href="<TMPL_VAR BASEURL>" /></TMPL_IF>
 </TMPL_IF>
 </TMPL_IF>
-<TMPL_IF HTML5><meta charset="utf-8" /><TMPL_ELSE><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></TMPL_IF>
+<meta charset="utf-8" />
 <title>Tails - <TMPL_VAR TITLE></title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <TMPL_IF FAVICON>
@@ -20,24 +20,15 @@
 <TMPL_IF LOCAL_CSS>
 <link rel="stylesheet" href="<TMPL_VAR BASEURL><TMPL_VAR LOCAL_CSS>" type="text/css" />
 <TMPL_ELSE>
-<link rel="stylesheet" href="<TMPL_VAR BASEURL>local.css?reload-2022-10-17" type="text/css" />
+<link rel="stylesheet" href="<TMPL_VAR BASEURL>local.css?reload-2025-05-01" type="text/css" />
 <link rel="stylesheet" href="<TMPL_VAR BASEURL>lib/fontawesome/css/all.min.css" type="text/css" />
 </TMPL_IF>
 <TMPL_IF YEAR-END>
 <link rel="stylesheet" href="<TMPL_VAR BASEURL>donate/year-end.css?reload-2022-10-17" type="text/css" />
 </TMPL_IF>
-
 <script src="<TMPL_VAR BASEURL>lib/js/local.js" type="text/javascript"></script>
-
-<TMPL_UNLESS DYNAMIC>
-<TMPL_IF EDITURL>
-<link rel="alternate" type="application/x-wiki" title="Edit this page" href="<TMPL_VAR EDITURL>" />
-</TMPL_IF>
 <TMPL_IF FEEDLINKS><TMPL_VAR FEEDLINKS></TMPL_IF>
-<TMPL_IF RELVCS><TMPL_VAR RELVCS></TMPL_IF>
 <TMPL_IF META><TMPL_VAR META></TMPL_IF>
-</TMPL_UNLESS>
-
 </head>
 
 <TMPL_IF HTML_LANG_CODE>
@@ -46,127 +37,128 @@
 <body>
 </TMPL_IF>
 
-<header id="banner" role="banner">
-<TMPL_VAR BANNER>
+<TMPL_IF SKIP>
+<nav id="skip-link">
+<!-- Skip navigation link for accessibility -->
+  <TMPL_VAR SKIP>
+</nav>
+</TMPL_IF>
+
+<header id="banner">
+  <div id="banner-container">
+    <TMPL_VAR BANNER>
+  </div>
 </header>
 
-<TMPL_IF YEAR-END>
-<nav id="year-end">
-<TMPL_VAR YEAR-END>
-</nav>
-</TMPL_IF>
+<header id="navigation-container">
 
-<TMPL_UNLESS DYNAMIC>
-<TMPL_IF SIDEBAR>
-<TMPL_IF HTML5><nav class="topbar" role="navigation"><TMPL_ELSE><div class="topbar" role="navigation"></TMPL_IF>
-<TMPL_VAR SIDEBAR>
-<TMPL_IF HTML5></nav><TMPL_ELSE></div></TMPL_IF>
-</TMPL_IF>
-</TMPL_UNLESS>
+  <TMPL_IF YEAR-END>
+  <nav id="year-end" aria-label="Donation campaign">
+    <TMPL_VAR YEAR-END>
+  </nav>
+  </TMPL_IF>
 
-<TMPL_IF HTML5><article class="page"><TMPL_ELSE><div class="page"></TMPL_IF>
+  <TMPL_IF MAIN>
+  <nav id="main-navigation" aria-label="Primary">
+    <TMPL_VAR MAIN>
+  </nav>
+  </TMPL_IF>
 
-<section id="pageheader">
+  <div id="crumbs-and-languages">
 
-<div id="language-switcher-top">
-<TMPL_IF OTHERLANGUAGES>
-<nav class="language-switcher">
-  <div class="current-language"><TMPL_VAR LANG_NAME></div>
-  <ul class="other-languages">
-    <TMPL_LOOP OTHERLANGUAGES>
-    <li>
-      <a href="<TMPL_VAR URL>"><TMPL_VAR LANGUAGE></a>
-    </li>
-    </TMPL_LOOP>
-    <TMPL_IF HAVE_ACTIONS>
-    <li class="improve-translations">
-      <a href="<TMPL_VAR BASEURL>contribute/how/translate/" rel="nofollow">Improve translations</a>
-    </li>
-    </TMPL_IF>
-  </ul>
-</nav>
-</TMPL_IF>
-</div>
+    <nav id="crumbs" aria-label="Breadcrumbs">
+      <ul>
+        <TMPL_IF DOC>
+        <li id="doc-index-button-wrapper">
+          <label for="doc-index-button" id="doc-index-menu"></label>
+          <input type="checkbox" id="doc-index-button">
+        </li>
+        </TMPL_IF>
+        <TMPL_LOOP PARENTLINKS>
+        <TMPL_IF DEPTH_0>
+        <TMPL_ELSE>
+        <li><a href="<TMPL_VAR URL>"><TMPL_VAR PAGE></a></li>
+        </TMPL_IF>
+        </TMPL_LOOP>
+        <li><TMPL_VAR TITLE></li>
+      </ul>
+    </nav>
 
-<ul id="crumbs">
+    <div id="language-switcher-top">
+      <TMPL_IF OTHERLANGUAGES>
+      <nav class="language-switcher" aria-label="Languages">
+        <div class="current-language"><TMPL_VAR LANG_NAME></div>
+        <ul class="other-languages">
+          <TMPL_LOOP OTHERLANGUAGES>
+          <li>
+            <a href="<TMPL_VAR URL>"><TMPL_VAR LANGUAGE></a>
+          </li>
+          </TMPL_LOOP>
+          <TMPL_IF HAVE_ACTIONS>
+          <li class="improve-translations">
+            <a href="<TMPL_VAR BASEURL>contribute/how/translate/" rel="nofollow">Improve translations</a>
+          </li>
+          </TMPL_IF>
+        </ul>
+      </nav>
+      </TMPL_IF>
+    </nav>
 
-<TMPL_LOOP PARENTLINKS>
-<TMPL_IF DEPTH_0>
-<TMPL_ELSE>
+  </div>
 
-<li><a href="<TMPL_VAR URL>"><TMPL_VAR PAGE></a></li>
+</header>
 
-</TMPL_IF>
-</TMPL_LOOP>
+<main id="page-container">
 
-<li><TMPL_VAR TITLE></li>
+  <TMPL_IF DOC>
+  <nav id="doc-index" aria-label="Documentation">
+    <label for="doc-index-button" id="doc-index-close"></label>
+    <TMPL_VAR DOC>
+  </nav>
+  </TMPL_IF>
 
-</ul>
+  <article id="page-body">
+    <div id="page-title">
+      <h1>
+        <TMPL_VAR TITLE>
+      </h1>
+    </div>
+    <section id="content">
+      <TMPL_VAR CONTENT>
+    </section>
+  </article>
 
-</section>
+</main>
 
-<TMPL_IF HTML5><header class="title"><TMPL_ELSE><div class="title"></TMPL_IF>
-<span class="title">
-<TMPL_VAR TITLE>
-</span>
-<TMPL_IF HTML5></header><TMPL_ELSE></div></TMPL_IF>
+<footer id="footer" class="pagefooter">
+  <div id="footer-container">
 
-<div id="pagebody">
+    <div id="language-switcher-bottom">
+      <TMPL_IF OTHERLANGUAGES>
+      <nav class="language-switcher" aria-label="Languages">
+        <div class="current-language"><TMPL_VAR LANG_NAME></div>
+        <ul class="other-languages">
+          <TMPL_LOOP OTHERLANGUAGES>
+          <li>
+            <a href="<TMPL_VAR URL>"><TMPL_VAR LANGUAGE></a>
+          </li>
+          </TMPL_LOOP>
+          <TMPL_IF HAVE_ACTIONS>
+          <li class="improve-translations">
+            <a href="<TMPL_VAR BASEURL>contribute/how/translate/" rel="nofollow">Improve translations</a>
+          </li>
+          </TMPL_IF>
+        </ul>
+      </nav>
+      </TMPL_IF>
+    </div>
 
-<TMPL_IF HTML5><section<TMPL_ELSE><div</TMPL_IF> id="content" role="main">
-<TMPL_VAR CONTENT>
-<TMPL_IF HTML5></section><TMPL_ELSE></div></TMPL_IF>
+    <div id="footer-columns">
+      <TMPL_VAR FOOTER>
+    </div>
 
-<TMPL_IF ENCLOSURE>
-<TMPL_IF HTML5><section id="enclosure"><TMPL_ELSE><div id="enclosure"></TMPL_IF>
-<a href="<TMPL_VAR ENCLOSURE>">Download</a>
-<TMPL_IF HTML5></section><TMPL_ELSE></div></TMPL_IF>
-</TMPL_IF>
-
-<TMPL_UNLESS DYNAMIC>
-<TMPL_IF COMMENTS>
-<TMPL_IF HTML5><section<TMPL_ELSE><div</TMPL_IF> id="comments" role="complementary">
-<TMPL_VAR COMMENTS>
-<TMPL_IF ADDCOMMENTURL>
-<div class="addcomment">
-<a href="<TMPL_VAR ADDCOMMENTURL>">Add a comment</a>
-</div>
-<TMPL_ELSE>
-<div class="addcomment">Comments on this page are closed.</div>
-</TMPL_IF>
-<TMPL_IF HTML5></section><TMPL_ELSE></div></TMPL_IF>
-</TMPL_IF>
-</TMPL_UNLESS>
-
-</div>
-
-<TMPL_IF HTML5></article><TMPL_ELSE></div></TMPL_IF>
-
-<div id="language-switcher-bottom">
-<TMPL_IF OTHERLANGUAGES>
-<nav class="language-switcher">
-  <div class="current-language"><TMPL_VAR LANG_NAME></div>
-  <ul class="other-languages">
-    <TMPL_LOOP OTHERLANGUAGES>
-    <li>
-      <a href="<TMPL_VAR URL>"><TMPL_VAR LANGUAGE></a>
-    </li>
-    </TMPL_LOOP>
-    <TMPL_IF HAVE_ACTIONS>
-    <li class="improve-translations">
-      <a href="<TMPL_VAR BASEURL>contribute/how/translate/" rel="nofollow">Improve translations</a>
-    </li>
-    </TMPL_IF>
-  </ul>
-</nav>
-</TMPL_IF>
-</div>
-
-<TMPL_IF HTML5><footer<TMPL_ELSE><div</TMPL_IF> id="footer" class="pagefooter" role="contentinfo">
-
-<TMPL_VAR FOOTER>
-
-<TMPL_IF HTML5></footer><TMPL_ELSE></div></TMPL_IF>
+  </div>
+</footer>
 
 </body>
 </html>

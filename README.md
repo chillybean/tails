@@ -37,7 +37,7 @@ However, Tails includes non-free firmware in order to work on as much hardware a
 
 ### Contact
 
-email and mailing lists: https://tails.net/about/contact
+email and mailing lists: https://tails.net/doc/about/contact
 
 XMPP: tails@chat.disroot.org and tails-dev@chat.disroot.org
 
