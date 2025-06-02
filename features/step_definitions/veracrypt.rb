@@ -181,12 +181,10 @@ When /^I unlock and mount this VeraCrypt (volume|file container) with Unlock Ver
   end
   if @veracrypt_is_hidden
     checkbox = dialog.childLabelled('Hidden Volume')
-    checkbox.grabFocus
-    @screen.press('Space')
+    checkbox.click
     try_for(10) { checkbox.checked? }
   end
-  dialog.button('Unlock').grabFocus
-  @screen.press('Return')
+  dialog.button('Unlock').click
   try_for(10) { !gnome_shell_unlock_dialog? }
   try_for(30) do
     !$vm.file_glob('/media/amnesia/*/GPL-3').empty?
