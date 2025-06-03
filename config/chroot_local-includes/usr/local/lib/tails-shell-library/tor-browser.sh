@@ -23,6 +23,9 @@ exec_firefox_helper() {
     local binary="${1}"; shift
 
     export LD_LIBRARY_PATH="${TBB_INSTALL}"
+    # This is only useful for the Unsafe Browser: for Tor Browser, this variable
+    # is already set by Flatpak
+    # (config/chroot_local-includes/usr/share/tails/build/flatpak/org.boum.tails.TorBrowser/metadata).
     export GNOME_ACCESSIBILITY=1
 
     # Don't let Tor Browser manage the tor daemon: we do it ourselves.
