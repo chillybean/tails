@@ -443,7 +443,7 @@ class TailsInstallerWindow(Gtk.ApplicationWindow):
             self.force_reinstall = False
             self.__button_start.set_label(_("Upgrade"))
             self.__help_link.set_label(_("Manual Upgrade Instructions"))
-            self.__help_link.set_uri("https://tails.net/upgrade/")
+            self.__help_link.set_uri("https://tails.net/doc/upgrade/")
             if device["is_device_big_enough_for_reinstall"]:
                 self.force_reinstall_button_available = True
                 self.__button_force_reinstall.set_visible(True)
