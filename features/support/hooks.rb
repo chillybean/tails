@@ -367,24 +367,24 @@ After('@product') do |scenario|
     elsif [ChutneyBootstrapFailure, TorBootstrapFailure, TimeSyncingError].any? \
           { |c| scenario.exception.is_a?(c) }
       if File.exist?("#{$config['TMPDIR']}/chutney-data")
-        chutney_logs = sanitize_filename(
+        chutney_artifact_dir = "#{ARTIFACTS_DIR}/chutney-data"
+        chutney_scenario_symlink = "#{ARTIFACTS_DIR}/" + sanitize_filename(
           "#{elapsed}_#{scenario.name}_chutney-data"
         )
-        FileUtils.mkdir("#{ARTIFACTS_DIR}/#{chutney_logs}")
         FileUtils.rm(Dir.glob("#{$config['TMPDIR']}/chutney-data/**/control"))
+        FileUtils.rm_rf(chutney_artifact_dir)
+        FileUtils.mkdir(chutney_artifact_dir)
         begin
           FileUtils.copy_entry(
             "#{$config['TMPDIR']}/chutney-data",
-            "#{ARTIFACTS_DIR}/#{chutney_logs}"
+            chutney_artifact_dir
           )
         rescue StandardError => e
           info_log("Failed to copy Chutney data: #{e}")
         end
+        File.symlink('./chutney-data', chutney_scenario_symlink)
         info_log
-        info_log_artifact_location(
-          'Chutney logs',
-          "#{ARTIFACTS_DIR}/#{chutney_logs}"
-        )
+        info_log_artifact_location('Chutney logs', chutney_scenario_symlink)
       else
         info_log('Found no Chutney data')
       end
