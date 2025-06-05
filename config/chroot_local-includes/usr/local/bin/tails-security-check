@@ -128,7 +128,6 @@ sub notify_user {
 
     exec(
         qw{/usr/bin/zenity --warning},
-        q{--ellipsize},
         q{--title}, __('Known security issues'),
         q{--text},  $body,
     );

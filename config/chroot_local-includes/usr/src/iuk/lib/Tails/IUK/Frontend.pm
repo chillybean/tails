@@ -260,7 +260,7 @@ method dialog (Str $question, Str :$type = 'question', Str :$title,
         assert_undefined($cancel_label);
         assert_undefined($default_cancel);
     }
-    my @cmd  = ('zenity', "--$type", '--ellipsize', '--text', $question);
+    my @cmd  = ('zenity', "--$type", '--text', $question);
     my $info = $question;
     if (defined $title) {
         $info = "$title\n$info";
