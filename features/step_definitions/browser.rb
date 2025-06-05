@@ -402,8 +402,6 @@ Then /^DuckDuckGo is the default search engine$/ do
   case $language
   when 'Arabic', 'Persian'
     ddg_search_prompt = 'DuckDuckGoSearchPromptRTL.png'
-  when 'Hindi'
-    ddg_search_prompt = "DuckDuckGoSearchPrompt#{$language}.png"
   end
   step 'I open a new tab in the Tor Browser'
   set_browser_url('a random search string')
