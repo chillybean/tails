@@ -51,6 +51,15 @@ def work_around_issue20054(confirm: false)
   end
 end
 
+def gnome_activities_overview_image
+  case $language
+  when 'Arabic', 'Persian'
+    'GnomeApplicationsMenuRTL.png'
+  else
+    'GnomeApplicationsMenu.png'
+  end
+end
+
 def post_snapshot_restore_hook(snapshot_name, num_try)
   # Press escape to wake up the display
   @screen.press('Escape')
@@ -61,7 +70,7 @@ def post_snapshot_restore_hook(snapshot_name, num_try)
     pattern = 'TailsGreeter.png'
     work_around_issue20054(confirm: true)
   else
-    pattern = "GnomeApplicationsMenu#{$language}.png"
+    pattern = gnome_activities_overview_image
     # We skip attempting to confirm issue #20054 in this general case
     # since we don't know what (suitable) application to test Dogtail
     # with, and we might use a non-English locale which would make it
@@ -188,34 +197,17 @@ Given /^the network is unplugged$/ do
   $vm.unplug_network
 end
 
-def activate_gnome_shell_menu_entry(label)
-  gnome_shell = Dogtail::Application.new('gnome-shell')
-  menu_entry = gnome_shell.child(label, roleName: 'label')
-  menu_entry.grabFocus
-  @screen.press('Return')
-end
-
-def expand_gnome_shell_menu_section(label)
-  expand_button = Dogtail::Application.new('gnome-shell')
-                                      .child(label, roleName: 'label')
-                                      .parent
-                                      .button('')
-  expand_button.grabFocus
-  @screen.press('Return')
-end
-
-Given /^I (dis)?connect the network through GNOME$/ do |disconnect|
-  open_gnome_system_menu
-
-  # Expand the menu entry for the wired connection
-  expand_gnome_shell_menu_section('Wired')
-
-  # Activate the Connect/Disconnect entry
-  if disconnect
-    activate_gnome_shell_menu_entry('Disconnect Wired')
-  else
-    activate_gnome_shell_menu_entry('Connect to Wired')
-  end
+Given /^I (connect|disconnect) the network through GNOME$/ do |action|
+  toggle_gnome_system_menu
+  Dogtail::Application.new('gnome-shell')
+                      .child('Wired', roleName: 'label')
+                      .parent.parent.parent.parent
+                      .child('Open menu', roleName: 'button')
+                      .click
+  Dogtail::Application.new('gnome-shell')
+                      .child(action.capitalize, roleName: 'label')
+                      .click
+  toggle_gnome_system_menu
 end
 
 Given /^the network connection is ready(?: within (\d+) seconds)?$/ do |timeout|
@@ -567,8 +559,7 @@ Given /^I disable the Unsafe Browser$/ do
 end
 
 Given /^the Tails desktop is ready$/ do
-  desktop_started_picture = "GnomeApplicationsMenu#{$language}.png"
-  @screen.wait(desktop_started_picture, 180)
+  @screen.wait(gnome_activities_overview_image, 180)
   # Disable screen blanking since we sometimes need to wait long
   # enough for it to activate, which can cause problems when we are
   # waiting for an image for a very long time.
@@ -735,8 +726,7 @@ Given /^all notifications have disappeared$/ do
       roleName: 'label', retry: false
     )
     unless no_notifications
-      gnome_shell.child('Clear all notifications', roleName: 'button').grabFocus
-      @screen.press('return')
+      gnome_shell.child('Clear all notifications', roleName: 'button').click
       gnome_shell.child?('No Notifications', roleName: 'label')
     end
   end
@@ -871,8 +861,7 @@ end
 def open_gnome_menu(name)
   Dogtail::Application.new('gnome-shell')
                       .child(name, roleName: 'menu')
-                      .grabFocus
-  @screen.press('Return')
+                      .click
 end
 
 def open_gnome_places_menu
@@ -883,13 +872,13 @@ def open_gnome_places_menu
   end
 end
 
-def open_gnome_system_menu
+def toggle_gnome_system_menu
   open_gnome_menu('System')
 end
 
 When /^I request a (shutdown|reboot) using the system menu$/ do |action|
   gnome_shell = Dogtail::Application.new('gnome-shell')
-  open_gnome_system_menu
+  toggle_gnome_system_menu
   menu_item_name = if action == 'shutdown'
                      'Power Off'
                    else
@@ -1143,7 +1132,7 @@ Given /^I start "([^"]+)" via GNOME Activities Overview$/ do |app_name|
     # (tails-backup.desktop).
     app_name = 'tails-persistent-storage'
   end
-  @screen.wait("GnomeApplicationsMenu#{$language}.png", 10)
+  @screen.wait(gnome_activities_overview_image, 10)
   @screen.press('super')
   pic = if RTL_LANGUAGES.include?($language)
           'GnomeActivitiesOverviewSearchRTL.png'
@@ -1221,9 +1210,15 @@ Then /^the live user's (.*) directory (exists|does not exist)$/ do |directory, m
 end
 
 Then /^there is a GNOME bookmark for the (.*) directory$/ do |bookmark|
-  open_gnome_places_menu
-  Dogtail::Application.new('gnome-shell').child(bookmark, roleName: 'label')
-  @screen.press('Escape')
+  launch_nautilus
+  # We cannot pass translation_domain to the Dogtail::Application
+  # because then it would also translate the bookmark, but we don't do
+  # that for XDG user dirs (tails#20868).
+  Dogtail::Application.new('org.gnome.Nautilus')
+                      .child(translate('Sidebar', translation_domain: 'nautilus'),
+                             roleName: 'list')
+                      .child(bookmark, roleName: 'label')
+  step 'I close the "org.gnome.Nautilus" window via Alt+F4'
 end
 
 def pipewire_input_ports

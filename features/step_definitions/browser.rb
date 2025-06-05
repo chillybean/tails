@@ -2,15 +2,31 @@ def browser
   Dogtail::Application.new('Firefox')
 end
 
-def desktop_portal
-  Dogtail::Application.new('xdg-desktop-portal-gtk')
+def desktop_portal_save_as(filename: nil, directory: nil, bookmark: false)
+  dialog = Dogtail::Application.new('org.gnome.Nautilus').child(roleName: 'frame')
+  # Enter the output filename in the initially focused text entry
+  dialog.child('File Name', roleName: 'text').text = filename unless filename.nil?
+  unless directory.nil?
+    # Enter the output directory in its text entry
+    @screen.press('ctrl', 'l')
+    dialog.child('', roleName: 'text').text = directory
+    @screen.press('enter')
+    if bookmark
+      # Unfortunately when using Dogtail to click a bookmark in the
+      # sidebar it clicks the element above it in the list, so instead
+      # of clicking it we always enter the directory via text and then
+      # verify that the corresponding GNOME bookmark becomes selected.
+      try_for(10) do
+        dialog.child('Sidebar', roleName: 'list')
+              .child(directory, roleName: 'list item')
+              .selected?
+      end
+    end
+  end
+  dialog.child('Save', roleName: 'button').click
 end
 
-def desktop_portal_save_as_dialog
-  desktop_portal.child(roleName: 'file chooser')
-end
-
-def save_page_as
+def browser_save_page_as(*args, **opts)
   browser.child(
     description: 'Open application menu',
     roleName:    'button'
@@ -19,7 +35,7 @@ def save_page_as
     name:     'Save page as\u2026',
     roleName: 'button'
   ).press
-  desktop_portal_save_as_dialog
+  desktop_portal_save_as(*args, **opts)
 end
 
 def browser_url_entry
@@ -291,10 +307,7 @@ When /^I download some file in the Tor Browser to the (.*) directory$/ do |targe
            .button('Save File')
   try_for(10) { button.sensitive? }
   button.press
-  file_dialog = desktop_portal_save_as_dialog
-  activate_places_sidebar_item(file_dialog, "/home/#{LIVE_USER}/#{target_dir}")
-  file_dialog.child('Save', roleName: 'button').click
-
+  desktop_portal_save_as(directory: "/home/#{LIVE_USER}/#{target_dir}")
   @torbrowser
     .button('Downloads')
     .press
@@ -389,8 +402,6 @@ Then /^DuckDuckGo is the default search engine$/ do
   case $language
   when 'Arabic', 'Persian'
     ddg_search_prompt = 'DuckDuckGoSearchPromptRTL.png'
-  when 'Hindi'
-    ddg_search_prompt = "DuckDuckGoSearchPrompt#{$language}.png"
   end
   step 'I open a new tab in the Tor Browser'
   set_browser_url('a random search string')
@@ -519,72 +530,18 @@ When /^I can print the current page as "([^"]+[.]pdf)" to the (.*) directory$/ d
   output_dir = "/home/#{LIVE_USER}/#{target_dir}"
   @screen.press('ctrl', 'p')
   @torbrowser.child('Save', roleName: 'button').press
-  file_dialog = desktop_portal_save_as_dialog
-  # Enter the output filename in the text entry
-  text_entry = file_dialog.child('Name', roleName: 'label').labelee
-  filename = "#{output_dir}/#{output_file}"
-  text_entry.text = filename
-  file_dialog.child('Save', roleName: 'button').click
-
+  desktop_portal_save_as(filename: output_file, directory: output_dir)
   try_for(30,
           msg: "The page was not printed to #{output_dir}/#{output_file}") do
     $vm.file_exist?("#{output_dir}/#{output_file}")
   end
 end
 
-def activate_places_sidebar_item(parent, path)
-  list_item = parent.child(description: path, roleName: 'list item')
-  # We have had problems with the Space press not causing the
-  # bookmark to be selected despite it being focused (tails#20356,
-  # tails#20159)
-  try_for(20) do
-    # Unlike the native file picker, the XDG Desktop Portal file
-    # picker use here has this issue: grabbing focus of the list item
-    # and then pressing Space to activate it does nothing, which for
-    # the native file picker selects the list item in its list box and
-    # changes the directory. So we also manually making the list item
-    # selected and then it works as expected.
-    # Furthermore, our Dogtail::Node#select is implemented with
-    # .doActionNamed('select'), but for some reason that action is not
-    # available for this list item like it usually is. So we instead
-    # call .select() which Dogtail implements differently and is
-    # available for this list item node.
-    list_item.call_tree_api_method('select')
-    list_item.grabFocus
-    @screen.press('Space')
-    # If we successfully selected the bookmark then the path will be
-    # updated accordingly, and each path component is a 'toggle
-    # button' labelled with the name of the folder.
-    parent.child?(path.split('/').last, roleName: 'toggle button', retry: false)
-  end
-end
-
 When /^I (can|cannot) save the current page as "([^"]+[.]html)" to the (.*) (directory|GNOME bookmark)$/ do |should_work, output_file, target_dir, bookmark|
   should_work = should_work == 'can'
-  is_gnome_bookmark = bookmark == 'GNOME bookmark'
-  file_dialog = save_page_as
   output_dir = "/home/#{LIVE_USER}/#{target_dir}"
-
-  if is_gnome_bookmark
-    activate_places_sidebar_item(file_dialog, output_dir)
-  else
-    # Enter the output directory in the text entry
-    text_entry = file_dialog.child('Name', roleName: 'label').labelee
-    text_entry.text = output_dir
-    # Do the "activate" action of the text entry (same effect as
-    # pressing Enter) to open the directory.
-    text_entry.activate
-  end
-
-  # Enter the output filename in the text entry
-  text_entry = file_dialog.child('Name', roleName: 'label').labelee
-  text_entry.text = output_file
-  save_button = file_dialog.child('Save', roleName: 'button')
-  # When changing output directory the Save button turns insensitive
-  # for a few moments
-  try_for(10) { save_button.sensitive? }
-  save_button.click
-
+  browser_save_page_as(filename: output_file, directory: output_dir,
+                       bookmark: bookmark == 'GNOME bookmark')
   if should_work
     try_for(20,
             msg: "The page was not saved to #{output_dir}/#{output_file}") do

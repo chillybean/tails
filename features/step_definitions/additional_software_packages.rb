@@ -34,13 +34,10 @@ Then /^I am proposed to add the "([^"]*)" package to my Additional Software$/ do
 end
 
 def click_gnome_shell_notification_button(title)
-  # The notification buttons do not expose any actions through AT-SPI,
-  # so Dogtail is unable to click it directly. We let it grab focus
-  # and activate it via the keyboard instead.
   Dogtail::Application.new('gnome-shell')
+                      .child(roleName: 'notification')
                       .child(title, roleName: 'button')
-                      .grabFocus
-  @screen.press('Return')
+                      .click
 end
 
 Then /^I create a persistent storage and activate the Additional Software feature$/ do
