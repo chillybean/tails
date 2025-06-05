@@ -104,7 +104,20 @@ export default class StatusMenuHelperExtension {
                                                    'changes-prevent-symbolic',
                                                     this._onLockClicked);
 
-        this._actions = [this._lockScreenAction];
+        this._suspendAction = this._createAction(_("Suspend"),
+                                                 'media-playback-pause-symbolic',
+                                                 this._onSuspendClicked);
+
+        this._restartAction = this._createAction(_("Restart"),
+                                                 'view-refresh-symbolic',
+                                                 this._onRestartClicked);
+
+        this._powerOffAction = this._createAction(_("Power Off"),
+                                                  'system-shutdown-symbolic',
+                                                  this._onPowerOffClicked);
+
+        this._actions = [this._lockScreenAction, this._suspendAction,
+                         this._restartAction, this._powerOffAction];
     }
 
     _createAction(label, icon, onClickedFunction) {
@@ -115,10 +128,12 @@ export default class StatusMenuHelperExtension {
 
     _hideOrigActions() {
         this._origLockItem.hide();
+        this._origShutdownItem.hide();
     }
 
     _restoreOrigActions() {
         this._origLockItem.show();
+        this._origShutdownItem.show();
     }
 
     _addSeparateButtons() {
@@ -135,6 +150,18 @@ export default class StatusMenuHelperExtension {
 
     _onLockClicked() {
         Util.spawn(['tails-screen-locker']);
+    }
+
+    _onSuspendClicked() {
+        Util.spawn(['systemctl', 'suspend'])
+    }
+
+    _onRestartClicked() {
+        Util.spawn(['sudo', '-n', 'reboot'])
+    }
+
+    _onPowerOffClicked() {
+        Util.spawn(['sudo', '-n', 'poweroff'])
     }
 
     _onMenuOpen() {
