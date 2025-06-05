@@ -198,7 +198,7 @@ Given /^the network is unplugged$/ do
 end
 
 Given /^I (connect|disconnect) the network through GNOME$/ do |action|
-  open_gnome_system_menu
+  toggle_gnome_system_menu
   Dogtail::Application.new('gnome-shell')
                       .child('Wired', roleName: 'label')
                       .parent.parent.parent.parent
@@ -207,9 +207,7 @@ Given /^I (connect|disconnect) the network through GNOME$/ do |action|
   Dogtail::Application.new('gnome-shell')
                       .child(action.capitalize, roleName: 'label')
                       .click
-
-  # Close the menu
-  open_gnome_system_menu
+  toggle_gnome_system_menu
 end
 
 Given /^the network connection is ready(?: within (\d+) seconds)?$/ do |timeout|
@@ -874,13 +872,13 @@ def open_gnome_places_menu
   end
 end
 
-def open_gnome_system_menu
+def toggle_gnome_system_menu
   open_gnome_menu('System')
 end
 
 When /^I request a (shutdown|reboot) using the system menu$/ do |action|
   gnome_shell = Dogtail::Application.new('gnome-shell')
-  open_gnome_system_menu
+  toggle_gnome_system_menu
   menu_item_name = if action == 'shutdown'
                      'Power Off'
                    else
