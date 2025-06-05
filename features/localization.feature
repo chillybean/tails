@@ -38,7 +38,6 @@ Feature: Localization
 
     # Known issues, that this step effectively verifies are still present:
     #  - Not all localized layouts exist in the GNOME screen keyboard: #8444
-    #  - Arabic's layout should be "ara": #12638
     Examples:
       | language   | layout | osk_layout | lang_code |
       | Arabic     | eg     | us         | ar    |
