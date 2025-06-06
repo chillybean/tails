@@ -387,6 +387,8 @@ Tor Browser, so it doesn't necessarily have to be done at the same time
 as the Tor Browser update, but like the Tor Browser update, it should be
 done once per release cycle, so we just do it at the same time.
 
+### Import changes from the Tor Browser Launcher Flatpak
+
 1. Update the Tor Browser Launcher Flatpak app:
 
         cd "${TAILS_GIT_REPO:?}" && \
@@ -399,6 +401,8 @@ done once per release cycle, so we just do it at the same time.
    `config/chroot_local-includes/var/lib/flatpak/overrides/org.boum.tails.TorBrowser`.
 
 3. Commit the changes and push the updated branch.
+
+### Import changes from the official Mozilla Firefox Flatpak
 
 It is at least as important to check for changes in the
 `org.mozilla.firefox` flatpak, given that upstream Firefox
