@@ -386,6 +386,30 @@ Browser major versions, especially those that bump the Firefox ESR
 since that is more likely to introduce new functionality that is
 relevant for the Flatpak.
 
+Here are some general guidelines for what to look for when importing
+changes from either upstream:
+
+* `[Applications]` section: leave it as-is unless you know what you're
+  doing.
+* `[Build]` section: since we do not build a real Flatpak anything in
+  this section is irrelevant but we still should import changes there
+  just to keep those changes out from future comparisons.
+* `[Context]` section: this is about access/permissions of system
+  resources, which we already heavily override. Changes here are most
+  likely due to Flatpak introducing permissions for a new resource, of
+  Firefox starting to use a new resource.
+* `[Environment]`, `[Session Bus Policy]` and `[System Bus Policy]`
+  sections: these sections are the most likely to be interesting to
+  us, and can be about enabling new features introduced by (primarily)
+  Firefox.
+* `[Extension NAME]` sections: due to our pseudo-flatpak approach we
+  are very unlikely to use Flatpak extensions; since our runtime is
+  the full Tails filesystem so whatever is in the extension is likely
+  available already.
+
+Note that we document why we skip some of the settings in
+`config/chroot_local-includes/var/lib/flatpak/overrides/org.boum.tails.TorBrowser`.
+
 ### Import changes from the Tor Browser Launcher Flatpak
 
 1. Update the Tor Browser Launcher Flatpak app:
