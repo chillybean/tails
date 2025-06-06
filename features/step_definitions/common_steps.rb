@@ -447,6 +447,9 @@ Given /^the computer (?:re)?boots Tails$/ do
     # Screen appears, so we wait for that to happen using image
     # matching.
     @screen.wait('TailsGreeter.png', 60)
+    # Enable GNOME introspection for Dogtail and Ponytail
+    $vm.execute_successfully('gnome-extensions enable automated-testing@tails.net',
+                             user: 'Debian-gdm')
     # Close the notification which otherwise obscures parts of the
     # Welcome Screen window.
     Dogtail::Application.new('gnome-shell', user: 'Debian-gdm')

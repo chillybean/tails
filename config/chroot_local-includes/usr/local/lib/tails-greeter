@@ -4,8 +4,6 @@ export LANG="en_US.UTF-8"
 if grep -qw "autotest_never_use_this_option" /proc/cmdline; then
     # Store the environment for usage by tails-autotest-remote-shell
     env >"/tmp/gdm-env"
-    # Enable GNOME introspection for Dogtail and Ponytail
-    gnome-extensions enable automated-testing@tails.net
 fi
 
 if grep -qw "debug=greeter" /proc/cmdline && [ -z "${DEBUG_GREETER:-}" ]; then
