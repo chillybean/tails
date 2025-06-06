@@ -127,6 +127,7 @@ def tor_browser_application_info(defaults)
       browser_reload_button_image:     'TorBrowserReloadButton.png',
       browser_reload_button_image_rtl: 'TorBrowserReloadButtonRTL.png',
       browser_stop_button_image:       'TorBrowserStopButton.png',
+      flatpak:                         true,
     }
   )
 end
@@ -146,6 +147,7 @@ def unsafe_browser_application_info(defaults)
       new_tab_button_image:        'UnsafeBrowserNewTabButton.png',
       browser_reload_button_image: 'UnsafeBrowserReloadButton.png',
       browser_stop_button_image:   'UnsafeBrowserStopButton.png',
+      flatpak:                     false,
     }
   )
 end
@@ -235,7 +237,7 @@ Then /^"([^"]+)" has loaded in the Tor Browser$/ do |title|
   page_has_loaded_in_the_tor_browser(title)
 end
 
-def xul_app_shared_lib_check(pid, expected_absent_tbb_libs: [])
+def xul_app_shared_lib_check(pid, expected_absent_tbb_libs: [], flatpak: false)
   absent_tbb_libs = []
   unwanted_native_libs = []
   tbb_libs = $vm.execute_successfully('ls -1 ${TBB_INSTALL}/*.so',
@@ -246,10 +248,14 @@ def xul_app_shared_lib_check(pid, expected_absent_tbb_libs: [])
   ).stdout.split
   tbb_libs.each do |lib|
     lib_name = File.basename lib
+    # Since Trixie the `pmap --show-path` output omits "/usr" from the
+    # paths when running as a Flatpak.
+    lib.sub!(%r{^/usr}, '') if flatpak
     absent_tbb_libs << lib_name unless /\W#{lib}$/.match(firefox_pmap_info)
     native_libs.each do |native_lib|
       next unless native_lib.end_with?("/#{lib_name}")
 
+      native_lib.sub!(%r{^/usr}, '') if flatpak
       if /\W#{native_lib}$"/.match(firefox_pmap_info)
         unwanted_native_libs << lib_name
       end
@@ -270,7 +276,8 @@ Then /^the (.*) uses all expected TBB shared libraries$/ do |application|
   ).stdout.chomp
   pid = pid.scan(/\d+/).first
   assert_match(/\A\d+\z/, pid, "It seems like #{application} is not running")
-  xul_app_shared_lib_check(pid, expected_absent_tbb_libs: info[:unused_tbb_libs])
+  xul_app_shared_lib_check(pid, expected_absent_tbb_libs: info[:unused_tbb_libs],
+                                flatpak:                  info[:flatpak])
 end
 
 Then /^the (.*) chroot is torn down$/ do |browser|
