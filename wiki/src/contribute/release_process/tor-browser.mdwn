@@ -378,14 +378,13 @@ Clean up
 Update the Tor Browser Flatpak metadata
 ---------------------------------------
 
-We should regularly update the Tor Browser Flatpak metadata to check if
-the upstream version from the Tor Browser Launcher Flatpak app added any
-new permissions that we should allow or deny.
-
-The Tor Browser Launcher Flatpak app is updated independently from the
-Tor Browser, so it doesn't necessarily have to be done at the same time
-as the Tor Browser update, but like the Tor Browser update, it should be
-done once per release cycle, so we just do it at the same time.
+We should regularly update the Tor Browser Flatpak metadata by
+importing relevant changes from the upstream version of the Tor
+Browser Launcher Flatpak and Mozilla's official Firefox Flatpak. An
+appropriate time to do this is when we are migrating to new Tor
+Browser major versions, especially those that bump the Firefox ESR
+since that is more likely to introduce new functionality that is
+relevant for the Flatpak.
 
 ### Import changes from the Tor Browser Launcher Flatpak
 
