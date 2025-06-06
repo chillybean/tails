@@ -305,7 +305,7 @@ end
 When /^I download some file in the Tor Browser to the (.*) directory$/ do |target_dir|
   @some_file = 'tails-signing.key'
   some_url = "https://tails.net/#{@some_file}"
-  step "I open the address \"#{some_url}\" in the Tor Browser without waiting"
+  step "I open the address \"#{some_url}\" in the Tor Browser"
   # Note that the "Opening ..." dialog sometimes appear with roleName
   # "frame" and sometimes with "dialog", so we deliberately do not
   # specify the roleName.
