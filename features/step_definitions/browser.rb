@@ -3,7 +3,11 @@ def browser
 end
 
 def desktop_portal_save_as(filename: nil, directory: nil, bookmark: false)
-  dialog = Dogtail::Application.new('org.gnome.Nautilus').child(roleName: 'frame')
+  dialog = nil
+  try_for(30) do
+    dialog = Dogtail::Application.new('org.gnome.Nautilus').child(roleName: 'frame')
+    true
+  end
   # Enter the output filename in the initially focused text entry
   dialog.child('File Name', roleName: 'text').text = filename unless filename.nil?
   unless directory.nil?
