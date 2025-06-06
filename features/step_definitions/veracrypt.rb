@@ -327,15 +327,12 @@ Then /^I see the expected contents in this VeraCrypt volume$/ do
 end
 
 When /^I lock the currently opened VeraCrypt (volume|file container)$/ do |support|
-  $vm.execute_successfully(
-    'udisksctl unmount --block-device /dev/mapper/tcrypt-*',
-    user: LIVE_USER
-  )
-  device = support == 'volume' ? '/dev/sda' : '/dev/loop1'
-  $vm.execute_successfully(
-    "udisksctl lock --block-device #{device}",
-    user: LIVE_USER
-  )
+  action = if support == 'file container'
+             'Unmount'
+           else
+             'Eject'
+           end
+  nautilus_with_open_veracrypt_volume.button(action).click
 end
 
 Then /^the VeraCrypt (?:volume|file container) has been unmounted and locked$/ do
