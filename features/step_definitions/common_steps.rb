@@ -1186,7 +1186,8 @@ When /^I close the "([^"]+)" window$/ do |app_name|
 
   close_button = case app_name
                  when 'zenity'
-                   app.button('Cancel')
+                   app.children(roleName: 'button')
+                      .find { |n| ['cancel', 'close', 'ok'].include?(n.name.downcase) }
                  else
                    app.child(
                      'Close',
