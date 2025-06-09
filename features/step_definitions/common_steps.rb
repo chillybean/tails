@@ -901,8 +901,10 @@ When /^I request a (shutdown|reboot) using the system menu$/ do |action|
                    else
                      'Restart'
                    end
-  gnome_shell.child(menu_item_name, roleName: 'label').grabFocus
-  @screen.press('Return')
+  # If we .click() using Dogtail we risk losing the connection with
+  # the remote shell before it sends the response, leading to a
+  # time-consuming RemoteShell::Timeout.
+  @screen.click(*gnome_shell.child(menu_item_name, roleName: 'label').position)
 end
 
 When /^I warm reboot the computer$/ do
