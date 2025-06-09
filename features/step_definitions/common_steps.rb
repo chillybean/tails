@@ -423,6 +423,18 @@ def add_early_boot_hook(&block)
   @early_boot_hooks << block
 end
 
+def wait_for_ponytail(user: LIVE_USER, timeout: 60)
+  try_for(timeout) do
+    $vm.execute(
+      'dbus-send --session --print-reply ' \
+      '--dest=org.gnome.Shell.Introspect ' \
+      '/org/gnome/Shell/Introspect ' \
+      'org.gnome.Shell.Introspect.GetWindows',
+      user:
+    ).success?
+  end
+end
+
 Given /^the computer (?:re)?boots Tails$/ do
   enter_boot_menu_cmdline
   boot_key = @os_loader == 'UEFI' ? 'F10' : 'Return'
@@ -450,6 +462,7 @@ Given /^the computer (?:re)?boots Tails$/ do
     # Enable GNOME introspection for Dogtail and Ponytail
     $vm.execute_successfully('gnome-extensions enable automated-testing@tails.net',
                              user: 'Debian-gdm')
+    wait_for_ponytail(user: 'Debian-gdm')
     # Close the notification which otherwise obscures parts of the
     # Welcome Screen window.
     Dogtail::Application.new('gnome-shell', user: 'Debian-gdm')
@@ -587,6 +600,7 @@ Given /^the Tails desktop is ready$/ do
     '/usr/lib/systemd/user/tails-upgrade-frontend.service'
   )
   $vm.execute_successfully('systemctl --user daemon-reload', user: LIVE_USER)
+  wait_for_ponytail
 end
 
 When /^I see the "(.+)" notification(?: after at most (\d+) seconds)?$/ do |title, timeout|
