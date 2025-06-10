@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-02-06 16:06+0000\n"
+"POT-Creation-Date: 2025-06-10 12:51+0200\n"
 "PO-Revision-Date: 2025-04-17 17:40+0000\n"
 "Last-Translator: Chre <tor@renaudineau.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,9 +70,9 @@ msgstr ""
 msgid "</div>\n"
 msgstr "</div>\n"
 
-#. type: Plain text
+#. type: Bullet: '- '
 msgid ""
-"- Prevent an attacker from monitoring Tor circuits. ([[!tails_ticket 20733]] "
+"Prevent an attacker from monitoring Tor circuits. ([[!tails_ticket 20733]] "
 "and [[!tails_ticket 20744]])"
 msgstr ""
 
@@ -84,9 +84,9 @@ msgid ""
 "  and our *Tor Browser* wrapper that might lead to deanonymization.\n"
 msgstr ""
 
-#. type: Plain text
+#. type: Bullet: '- '
 msgid ""
-"- Prevent an attacker from changing the Persistent Storage settings. ([[!"
+"Prevent an attacker from changing the Persistent Storage settings. ([[!"
 "tails_ticket 20745]])"
 msgstr ""
 
@@ -95,45 +95,51 @@ msgstr ""
 msgid "<h1 id=\"changes\">Changes and updates</h1>\n"
 msgstr "<h1 id=\"changes\">Changements et mises à jour</h1>\n"
 
-#. type: Plain text
-msgid "- Add a button to check for upgrades from the **About Tails** utility."
+#. type: Bullet: '- '
+msgid "Add a button to check for upgrades from the **About Tails** utility."
 msgstr ""
 
 #. type: Plain text
 #, no-wrap
 msgid "  [[!img news/version_6.12/check_for_upgrades.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
-msgstr ""
-"  [[!img news/version_6.12/check_for_upgrades.png link=\"no\" class="
-"\"screenshot\" alt=\"\"]]\n"
+msgstr "  [[!img news/version_6.12/check_for_upgrades.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
 
-#. type: Plain text
-msgid "- Add the keyboard shortcut **Ctrl+Alt+T** to open a *Terminal*."
+#. type: Bullet: '- '
+msgid "Add the keyboard shortcut **Ctrl+Alt+T** to open a *Terminal*."
 msgstr ""
 
-#. type: Plain text
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid ""
+#| "- Update *Tor Browser* to [14.0.5](https://blog.torproject.org/new-"
+#| "release-tor-browser-1405)."
 msgid ""
-"- Update *Tor Browser* to [14.0.5](https://blog.torproject.org/new-release-"
-"tor-browser-1405)."
+"Update *Tor Browser* to [14.0.5](https://blog.torproject.org/new-release-tor-"
+"browser-1405)."
 msgstr ""
-"- Mise à jour du *Navigateur Tor* vers la version [14.0.5](https://blog."
-"torproject.org/new-release-tor-browser-1405)."
+"- Mise à jour du *Navigateur Tor* vers la version [14.0.5](https://"
+"blog.torproject.org/new-release-tor-browser-1405)."
 
-#. type: Plain text
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid ""
+#| "- Update *Thunderbird* to [128.6.0esr](https://www.thunderbird.net/en-US/"
+#| "thunderbird/128.6.0esr/releasenotes/)."
 msgid ""
-"- Update *Thunderbird* to [128.6.0esr](https://www.thunderbird.net/en-US/"
+"Update *Thunderbird* to [128.6.0esr](https://www.thunderbird.net/en-US/"
 "thunderbird/128.6.0esr/releasenotes/)."
 msgstr ""
-"- Mise à jour de *Thunderbird* vers la version [128.6.0esr](https://www."
-"thunderbird.net/en-US/thunderbird/128.6.0esr/releasenotes/)."
+"- Mise à jour de *Thunderbird* vers la version [128.6.0esr](https://"
+"www.thunderbird.net/en-US/thunderbird/128.6.0esr/releasenotes/)."
 
 #. type: Plain text
 #, no-wrap
 msgid "<h1 id=\"fixes\">Fixed problems</h1>\n"
 msgstr "<h1 id=\"fixes\">Problèmes corrigés</h1>\n"
 
-#. type: Plain text
+#. type: Bullet: '- '
 msgid ""
-"- Ensure all our Python code keeps running in *isolated mode*. ([[!"
+"Ensure all our Python code keeps running in *isolated mode*. ([[!"
 "tails_ticket 20719]])"
 msgstr ""
 
@@ -149,9 +155,9 @@ msgid ""
 "([[!tails_ticket 20635]])"
 msgstr ""
 
-#. type: Plain text
+#. type: Bullet: '- '
 msgid ""
-"- Made time synchronization more reliable when restarting Tor. ([[!"
+"Made time synchronization more reliable when restarting Tor. ([[!"
 "tails_ticket 20530]])"
 msgstr ""
 
@@ -166,8 +172,8 @@ msgid ""
 "For more details, read our [[!tails_gitweb debian/changelog "
 "desc=\"changelog\"]]."
 msgstr ""
-"Pour plus de détails, lisez notre [[!tails_gitweb debian/changelog desc="
-"\"liste des changements\"]]."
+"Pour plus de détails, lisez notre [[!tails_gitweb debian/changelog "
+"desc=\"liste des changements\"]]."
 
 #. type: Plain text
 #, no-wrap
@@ -210,11 +216,12 @@ msgstr "<h1 id=\"get\">Obtenir Tails 6.12</h1>\n"
 #. type: Title ##
 #, no-wrap
 msgid "To upgrade your Tails USB stick and keep your Persistent Storage"
-msgstr ""
-"Pour mettre à jour votre clé USB Tails et conserver votre stockage persistant"
+msgstr "Pour mettre à jour votre clé USB Tails et conserver votre stockage persistant"
 
-#. type: Plain text
-msgid "- Automatic upgrades are available from Tails 6.0 or later to 6.12."
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid "- Automatic upgrades are available from Tails 6.0 or later to 6.12."
+msgid "Automatic upgrades are available from Tails 6.0 or later to 6.12."
 msgstr ""
 "- Mises à jour automatiques disponibles depuis Tails 6.0 ou plus récent vers "
 "la version 6.12."
@@ -237,21 +244,31 @@ msgstr "Pour installer Tails 6.12 sur une nouvelle clé USB"
 msgid "Follow our installation instructions:"
 msgstr "Suivez nos instructions d'installation :"
 
-#. type: Plain text
-msgid "- [[Install from Windows|install/windows]]"
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid "- [[Install from Windows|install/windows]]"
+msgid "[[Install from Windows|install/windows]]"
 msgstr "- [[Installer depuis Windows|install/windows]]"
 
-#. type: Plain text
-msgid "- [[Install from macOS|install/mac]]"
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid "- [[Install from macOS|install/mac]]"
+msgid "[[Install from macOS|install/mac]]"
 msgstr "- [[Installer depuis macOS|install/mac]]"
 
-#. type: Plain text
-msgid "- [[Install from Linux|install/linux]]"
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid "- [[Install from Linux|install/linux]]"
+msgid "[[Install from Linux|install/linux]]"
 msgstr "- [[Installer depuis Linux|install/linux]]"
 
-#. type: Plain text
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid ""
+#| "- [[Install from Debian or Ubuntu using the command line and GnuPG|"
+#| "install/expert]]"
 msgid ""
-"- [[Install from Debian or Ubuntu using the command line and GnuPG|install/"
+"[[Install from Debian or Ubuntu using the command line and GnuPG|install/"
 "expert]]"
 msgstr ""
 "- [[Installer depuis Debian ou Ubuntu en utilisant la ligne de commande et "
@@ -263,8 +280,7 @@ msgid ""
 "<div class=\"caution\"><p>The Persistent Storage on the USB stick will be lost if\n"
 "you install instead of upgrading.</p></div>\n"
 msgstr ""
-"<div class=\"caution\"><p>Le stockage persistant de la clé USB sera perdu "
-"si\n"
+"<div class=\"caution\"><p>Le stockage persistant de la clé USB sera perdu si\n"
 "vous faites une installation au lieu d'une mise à jour.</p></div>\n"
 
 #. type: Title ##
@@ -280,10 +296,14 @@ msgstr ""
 "Si vous n'avez pas besoin d'instructions d'installation ou de mise à jour, "
 "vous pouvez télécharger directement Tails 6.12 :"
 
-#. type: Plain text
-msgid "- [[For USB sticks (USB image)|install/download]]"
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid "- [[For USB sticks (USB image)|install/download]]"
+msgid "[[For USB sticks (USB image)|install/download]]"
 msgstr "- [[Pour clés USB (image USB)|install/download]]"
 
-#. type: Plain text
-msgid "- [[For DVDs and virtual machines (ISO image)|install/download-iso]]"
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid "- [[For DVDs and virtual machines (ISO image)|install/download-iso]]"
+msgid "[[For DVDs and virtual machines (ISO image)|install/download-iso]]"
 msgstr "- [[Pour DVD et machines virtuelles (image ISO)|install/download-iso]]"

@@ -16,13 +16,17 @@ set_mozilla_pref() {
     # Sometimes we might want to do e.g. user_pref
     prefix="${4:-pref}"
     [ -e "${file}" ] && sed -i "/^${prefix}(\"${name}\",/d" "${file}"
-    echo "${prefix}(\"${name}\", ${value});" >> "${file}"
+    echo "${prefix}(\"${name}\", ${value});" >>"${file}"
 }
 
 exec_firefox_helper() {
-    local binary="${1}"; shift
+    local binary="${1}"
+    shift
 
     export LD_LIBRARY_PATH="${TBB_INSTALL}"
+    # This is only useful for the Unsafe Browser: for Tor Browser, this variable
+    # is already set by Flatpak
+    # (config/chroot_local-includes/usr/share/tails/build/flatpak/org.boum.tails.TorBrowser/metadata).
     export GNOME_ACCESSIBILITY=1
 
     # Don't let Tor Browser manage the tor daemon: we do it ourselves.
@@ -107,9 +111,9 @@ guess_best_tor_browser_locale() {
     # there may be a similar locale xx-ZZ that we should use instead.
     # shellcheck disable=SC2012
     similar_locale=$(
-        supported_tor_browser_locales | \
-	    grep --max-count=1 --extended-regexp --line-regexp \
-		 "${short_locale}-[A-Z]+" \
+        supported_tor_browser_locales |
+            grep --max-count=1 --extended-regexp --line-regexp \
+                "${short_locale}-[A-Z]+"
     ) || :
     if [ -n "${similar_locale:-}" ]; then
         echo "${similar_locale}"
@@ -124,13 +128,13 @@ configure_best_tor_browser_locale() {
     profile="${1}"
     best_locale="$(guess_best_tor_browser_locale)"
     cat "/etc/tor-browser/locale-profiles/${best_locale}.js" \
-        >> "${profile}/prefs.js"
+        >>"${profile}/prefs.js"
 }
 
 supported_tor_browser_locales() {
     tmp=$(mktemp -d)
     7z e -tzip -o"$tmp" -- "${TBB_INSTALL}/omni.ja" res/multilocale.txt >/dev/null
-    tr ',' "\n" < "$tmp"/multilocale.txt
+    tr ',' "\n" <"$tmp"/multilocale.txt
     rm -rf "$tmp"
 }
 
@@ -138,8 +142,8 @@ locale_is_supported_by_tor_browser() {
     local mozilla_locale
     mozilla_locale="${1}"
 
-    supported_tor_browser_locales \
-        | grep --quiet --fixed-strings --line-regexp "$mozilla_locale"
+    supported_tor_browser_locales |
+        grep --quiet --fixed-strings --line-regexp "$mozilla_locale"
 }
 
 set_firefox_content_process_count() {
@@ -147,8 +151,8 @@ set_firefox_content_process_count() {
     local count="$2"
 
     set_mozilla_pref "${profile}/prefs.js" \
-                     "dom.ipc.processCount" "$count" \
-                     user_pref
+        "dom.ipc.processCount" "$count" \
+        user_pref
 }
 
 configure_tor_browser_memory_usage() {
