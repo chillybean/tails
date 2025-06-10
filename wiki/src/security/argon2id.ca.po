@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2024-05-14 22:38+0000\n"
+"POT-Creation-Date: 2025-06-10 12:51+0200\n"
 "PO-Revision-Date: 2025-06-03 00:31+0000\n"
 "Last-Translator: victor dargallo <victordargallo@disroot.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -164,8 +164,8 @@ msgid ""
 "the actual operations by the French police are kept secret."
 msgstr ""
 "Alguns criptògrafs pensen que aquesta debilitat ja podria haver estat "
-"[utilitzada contra un activista a França](https://mjg59.dreamwidth.org/66429."
-"html), però les operacions reals de la policia francesa es mantenen en "
+"[utilitzada contra un activista a França](https://mjg59.dreamwidth.org/"
+"66429.html), però les operacions reals de la policia francesa es mantenen en "
 "secret."
 
 #. type: Plain text
@@ -240,14 +240,17 @@ msgstr ""
 "Fins i tot si endevinar una contrasenya de 3 paraules aleatòries amb LUKS1 "
 "costa molt poca energia, qualsevol atac d'aquest tipus també requereix:"
 
-#. type: Plain text
-msgid ""
-"- Physical access to the device - Very expensive computer equipment - "
-"Professional hacking skills"
+#. type: Bullet: '- '
+msgid "Physical access to the device"
 msgstr ""
-"- Accés físic al dispositiu\n"
-"- Equips informàtics molt cars\n"
-"- Habilitats professionals de pirateria informàtica"
+
+#. type: Bullet: '- '
+msgid "Very expensive computer equipment"
+msgstr ""
+
+#. type: Bullet: '- '
+msgid "Professional hacking skills"
+msgstr ""
 
 #. type: Plain text
 msgid ""
@@ -302,11 +305,11 @@ msgstr ""
 #. type: Plain text
 msgid ""
 "To understand the maths behind password strength, watch [An information "
-"theoretic model of privacy and security metrics](https://media.libreplanet."
-"org/u/libreplanet/m/an-information-theoretic-model-of-privacy-and-security-"
-"metrics/).  Bill Budington from the EFF explains the concept of entropy and "
-"its implication on browser fingerprinting and password safety in accessible "
-"terms."
+"theoretic model of privacy and security metrics](https://"
+"media.libreplanet.org/u/libreplanet/m/an-information-theoretic-model-of-"
+"privacy-and-security-metrics/).  Bill Budington from the EFF explains the "
+"concept of entropy and its implication on browser fingerprinting and "
+"password safety in accessible terms."
 msgstr ""
 "Per entendre les matemàtiques darrere de la força de la contrasenya, mireu "
 "[Un model teòric de la informació de mètriques de privadesa i seguretat]"
@@ -338,15 +341,23 @@ msgstr ""
 "Depenent de la força de la vostra contrasenya, també us recomanem que trieu "
 "una altra contrasenya i migreu a un altre llapis USB de Tails:"
 
-#. type: Plain text
-msgid ""
-"- [[If your passphrase has 4 random words or fewer|argon2id#4]] - [[If your "
-"passphrase has 5 random words|argon2id#5]] - [[If your passphrase has 6 "
-"random words or more|argon2id#6]]"
-msgstr ""
-"- [[Si la vostra contrasenya té 4 paraules aleatòries o menys|argon2id#4]]\n"
-"- [[Si la vostra contrasenya té 5 paraules aleatòries|argon2id#5]]\n"
-"- [[Si la vostra contrasenya té 6 paraules aleatòries o més|argon2id#6]]"
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid "If your current passphrase has 4 random words or fewer:"
+msgid "[[If your passphrase has 4 random words or fewer|argon2id#4]]"
+msgstr "Si la vostra contrasenya actual té 4 paraules aleatòries o menys:"
+
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid "If your current passphrase has 5 random words:"
+msgid "[[If your passphrase has 5 random words|argon2id#5]]"
+msgstr "Si la vostra contrasenya actual té 5 paraules aleatòries:"
+
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid "If your current passphrase has 6 random words or more:"
+msgid "[[If your passphrase has 6 random words or more|argon2id#6]]"
+msgstr "Si la vostra contrasenya actual té 6 paraules aleatòries o més:"
 
 #. type: Plain text
 #, no-wrap
@@ -357,8 +368,10 @@ msgstr "<h2 id=\"4\">Si la vostra contrasenya té 4 paraules aleatòries o menys
 msgid "If your current passphrase has 4 random words or fewer:"
 msgstr "Si la vostra contrasenya actual té 4 paraules aleatòries o menys:"
 
-#. type: Plain text
-msgid "- Your encryption is insecure with LUKS1."
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid "- Your encryption is insecure with LUKS1."
+msgid "Your encryption is insecure with LUKS1."
 msgstr "- El vostre encriptatge no és segur amb LUKS1."
 
 #. type: Plain text
@@ -366,8 +379,10 @@ msgstr "- El vostre encriptatge no és segur amb LUKS1."
 msgid "  You have to upgrade to LUKS2.\n"
 msgstr "  Heu d'actualitzar a LUKS2.\n"
 
-#. type: Plain text
-msgid "- Your encryption is more secure with LUKS2."
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid "- Your encryption is more secure with LUKS2."
+msgid "Your encryption is more secure with LUKS2."
 msgstr "- El vostre encriptatge és més segur amb LUKS2."
 
 #. type: Plain text
@@ -693,8 +708,10 @@ msgstr ""
 msgid "  We still recommend you upgrade to LUKS2.\n"
 msgstr "  Encara us recomanem que actualitzeu a LUKS2.\n"
 
-#. type: Plain text
-msgid "- Your encryption is even more secure with LUKS2."
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid "- Your encryption is even more secure with LUKS2."
+msgid "Your encryption is even more secure with LUKS2."
 msgstr "- El vostre encriptatge és encara més segur amb LUKS2."
 
 #. type: Plain text
@@ -868,10 +885,13 @@ msgstr "<h2 id=\"6\">Si la vostra contrasenya té 6 paraules aleatòries o més<
 msgid "If your current passphrase has 6 random words or more:"
 msgstr "Si la vostra contrasenya actual té 6 paraules aleatòries o més:"
 
-#. type: Plain text
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid ""
+#| "- Your encryption is secure with LUKS1, even against a very powerful "
+#| "adversary."
 msgid ""
-"- Your encryption is secure with LUKS1, even against a very powerful "
-"adversary."
+"Your encryption is secure with LUKS1, even against a very powerful adversary."
 msgstr ""
 "- El vostre encriptatge és segur amb LUKS1, fins i tot contra un adversari "
 "molt poderós."
@@ -1109,6 +1129,24 @@ msgid ""
 msgstr ""
 "      Substituïu <span class=\"command-placeholder\">[partició]</span> amb el\n"
 "      nom de la partició trobat al pas 6.\n"
+
+#~ msgid ""
+#~ "- Physical access to the device - Very expensive computer equipment - "
+#~ "Professional hacking skills"
+#~ msgstr ""
+#~ "- Accés físic al dispositiu\n"
+#~ "- Equips informàtics molt cars\n"
+#~ "- Habilitats professionals de pirateria informàtica"
+
+#~ msgid ""
+#~ "- [[If your passphrase has 4 random words or fewer|argon2id#4]] - [[If "
+#~ "your passphrase has 5 random words|argon2id#5]] - [[If your passphrase "
+#~ "has 6 random words or more|argon2id#6]]"
+#~ msgstr ""
+#~ "- [[Si la vostra contrasenya té 4 paraules aleatòries o menys|"
+#~ "argon2id#4]]\n"
+#~ "- [[Si la vostra contrasenya té 5 paraules aleatòries|argon2id#5]]\n"
+#~ "- [[Si la vostra contrasenya té 6 paraules aleatòries o més|argon2id#6]]"
 
 #~ msgid ""
 #~ "`PBKDF` indicates the key derivation function, either `pbkdf2` or "

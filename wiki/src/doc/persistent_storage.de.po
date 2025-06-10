@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tails\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2024-03-14 17:30+0000\n"
+"POT-Creation-Date: 2025-06-10 12:51+0200\n"
 "PO-Revision-Date: 2024-10-17 09:09+0000\n"
 "Last-Translator: Benjamin Held <Benjamin.Held@protonmail.com>\n"
 "Language-Team: Tails Translators <tails-l10n@boum.org>\n"
@@ -36,20 +36,28 @@ msgstr ""
 "verschlüsselten beständigen Datenspeicher auf Ihrem Tails-USB-Stick "
 "speichern, zum Beispiel:"
 
-#. type: Plain text
-msgid "- Your documents"
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid "- Your documents"
+msgid "Your documents"
 msgstr "- Ihre Dokumente"
 
-#. type: Plain text
-msgid "- Your Wi-Fi passwords"
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid "- Your Wi-Fi passwords"
+msgid "Your Wi-Fi passwords"
 msgstr "- Ihre WLAN-Passwörter"
 
-#. type: Plain text
-msgid "- Your browser bookmarks"
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid "- Your browser bookmarks"
+msgid "Your browser bookmarks"
 msgstr "- Ihre Browser-Lesezeichen"
 
-#. type: Plain text
-msgid "- ..."
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid "- ..."
+msgid "..."
 msgstr "- ..."
 
 #. type: Plain text
@@ -85,12 +93,9 @@ msgid ""
 "stick can know that there is a Persistent Storage. Take into consideration that\n"
 "you could be forced or tricked to give out its passphrase.</p>\n"
 msgstr ""
-"<p>Der beständige Datenspeicher ist nicht verborgen. Ein Angreifer, der im "
-"Besitz\n"
-"Ihres USB-Sticks ist, kann erkennen, dass es einen beständigen Datenspeicher "
-"gibt.\n"
-"Berücksichtigen Sie, dass Sie möglicherweise gezwungen oder getäuscht "
-"werden\n"
+"<p>Der beständige Datenspeicher ist nicht verborgen. Ein Angreifer, der im Besitz\n"
+"Ihres USB-Sticks ist, kann erkennen, dass es einen beständigen Datenspeicher gibt.\n"
+"Berücksichtigen Sie, dass Sie möglicherweise gezwungen oder getäuscht werden\n"
 "könnten, seine Passphrase preiszugeben.</p>\n"
 
 #. type: Plain text
@@ -106,9 +111,7 @@ msgstr "[[!inline pages=\"doc/persistent_storage.index.de\" raw=\"yes\" sort=\"a
 #. type: Plain text
 #, no-wrap
 msgid "<h2 id=\"luks\">How strong is the encryption of the Persistent Storage?</h2>\n"
-msgstr ""
-"<h2 id=\"luks\">Wie stark ist die Verschlüsselung des beständigen "
-"Datenspeichers?</h2>\n"
+msgstr "<h2 id=\"luks\">Wie stark ist die Verschlüsselung des beständigen Datenspeichers?</h2>\n"
 
 #. type: Plain text
 msgid "The encryption of the Persistent Storage uses LUKS and DMCrypt."
@@ -125,13 +128,13 @@ msgid ""
 "as we recommend for [[creating and using encrypted volumes|doc/"
 "encryption_and_privacy/encrypted_volumes]] in general."
 msgstr ""
-"[LUKS](https://gitlab.com/cryptsetup/cryptsetup/) und "
-"[DMCrypt](https://gitlab.com/cryptsetup/cryptsetup/-/wikis/DMCrypt) sind die "
-"Standardmethoden für die Festplattenverschlüsselung in Linux. Tails "
-"verwendet deren Standardverschlüsselungsparameter, die als sehr sicher "
-"gelten. Dies ist die gleiche Technik, die wir allgemein für [[das Erstellen "
-"und Verwenden verschlüsselter Volumes|doc/encryption_and_privacy/"
-"encrypted_volumes]] empfehlen."
+"[LUKS](https://gitlab.com/cryptsetup/cryptsetup/) und [DMCrypt](https://"
+"gitlab.com/cryptsetup/cryptsetup/-/wikis/DMCrypt) sind die Standardmethoden "
+"für die Festplattenverschlüsselung in Linux. Tails verwendet deren "
+"Standardverschlüsselungsparameter, die als sehr sicher gelten. Dies ist die "
+"gleiche Technik, die wir allgemein für [[das Erstellen und Verwenden "
+"verschlüsselter Volumes|doc/encryption_and_privacy/encrypted_volumes]] "
+"empfehlen."
 
 #. type: Plain text
 #, no-wrap
@@ -159,12 +162,9 @@ msgid ""
 "   <a href=\"https://theintercept.com/2015/03/26/passphrases-can-memorize-attackers-cant-guess/\">Learn\n"
 "   about the maths behind memorizable and secure passphrases.</a></p>\n"
 msgstr ""
-"   <p>Wir empfehlen, eine lange Passphrase aus 5 bis 7 zufälligen Wörtern zu "
-"wählen. \n"
-"      <a href=\"https://theintercept.com/2015/03/26/"
-"passphrases-can-memorize-attackers-cant-guess/\">Erfahren\n"
-"      Sie mehr über die Mathematik hinter merkbaren und sicheren "
-"Passphrasen.</a></p>\n"
+"   <p>Wir empfehlen, eine lange Passphrase aus 5 bis 7 zufälligen Wörtern zu wählen. \n"
+"      <a href=\"https://theintercept.com/2015/03/26/passphrases-can-memorize-attackers-cant-guess/\">Erfahren\n"
+"      Sie mehr über die Mathematik hinter merkbaren und sicheren Passphrasen.</a></p>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -182,8 +182,7 @@ msgid ""
 "<p>To learn more about how the Persistent Storage is implemented, see our\n"
 "[[design documentation|contribute/design/persistence]].</p>\n"
 msgstr ""
-"<p>Um mehr darüber zu erfahren, wie der beständige Datenspeicher "
-"implementiert ist,\n"
+"<p>Um mehr darüber zu erfahren, wie der beständige Datenspeicher implementiert ist,\n"
 "siehe unsere [[Entwurfsdokumentation|contribute/design/persistence]].</p>\n"
 
 #~ msgid ""
@@ -890,9 +889,9 @@ msgstr ""
 #~ "Create a folder called <span class=\"filename\">.config</span> (<span "
 #~ "class=\"filename\">config</span> preceded by a dot)."
 #~ msgstr ""
-#~ "Erstellen Sie einen Ordner mit dem Namen <span class=\"filename\">."
-#~ "config</span> (<span class=\"filename\">config</span> mit vorangestelltem "
-#~ "Punkt)."
+#~ "Erstellen Sie einen Ordner mit dem Namen <span "
+#~ "class=\"filename\">.config</span> (<span class=\"filename\">config</span> "
+#~ "mit vorangestelltem Punkt)."
 
 #~ msgid ""
 #~ "Copy the <span class=\"filename\">.config/monitors.xml</span> file from "
@@ -1079,8 +1078,8 @@ msgstr ""
 #~ "you may lessen your anonymity,\n"
 #~ "weaken the encryption defaults or render GnuPG unusable.\n"
 #~ msgstr ""
-#~ "Falls Sie die Konfigurationsdatei <span class=\"filename\">~/.gnupg/gpg."
-#~ "conf</span>\n"
+#~ "Falls Sie die Konfigurationsdatei <span class=\"filename\">~/.gnupg/"
+#~ "gpg.conf</span>\n"
 #~ "händisch bearbeiten oder überschreiben, könnten Sie möglicherweise Ihre "
 #~ "Anonymität verringern,\n"
 #~ "die Verschlüsselungs-Voreinstellungen schwächen oder GnuPG unbenutzbar "

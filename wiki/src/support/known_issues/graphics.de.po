@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2024-07-15 11:57+0200\n"
+"POT-Creation-Date: 2025-06-10 12:51+0200\n"
 "PO-Revision-Date: 2024-11-27 10:19+0000\n"
 "Last-Translator: Benjamin Held <Benjamin.Held@protonmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,10 +23,14 @@ msgstr ""
 msgid "[[!meta title=\"Known issues with graphics cards\"]]\n"
 msgstr "[[!meta title=\"Bekannte Probleme mit Grafikkarten\"]]\n"
 
-#. type: Plain text
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid ""
+#| "- For other hardware compatibility issues, refer to our [[known issues|"
+#| "support/known_issues]]."
 msgid ""
-"- For other hardware compatibility issues, refer to our [[known issues|"
-"support/known_issues]]."
+"For other hardware compatibility issues, refer to our [[known issues|support/"
+"known_issues]]."
 msgstr ""
 "- Für andere Hardwarekompatibilitätsprobleme, siehe unsere [[bekannten "
 "Probleme|support/known_issues]]."
@@ -59,10 +63,7 @@ msgid ""
 "</p>\n"
 msgstr ""
 "<p class=\"code\">\n"
-"Fehler beim Starten von GDM mit Ihrer Grafikkarte: <span class=\"command-"
-"placeholder\">Name Ihrer Grafikkarte [ID] (Rev-Nummer)</span>. Bitte "
-"notieren Sie sich diesen Fehler und besuchen Sie https://tails.net/gdm zur "
-"Fehlerbehebung.\n"
+"Fehler beim Starten von GDM mit Ihrer Grafikkarte: <span class=\"command-placeholder\">Name Ihrer Grafikkarte [ID] (Rev-Nummer)</span>. Bitte notieren Sie sich diesen Fehler und besuchen Sie https://tails.net/gdm zur Fehlerbehebung.\n"
 "</p>\n"
 
 #. type: Plain text
@@ -74,8 +75,8 @@ msgstr "[[!img error.png link=\"no\" alt=\"\"]]\n"
 msgid ""
 "Identify the name, ID, and revision number (if any) of your graphics card."
 msgstr ""
-"Identifizieren Sie den Namen, die ID und die Versionsnummer (falls vorhanden)"
-" Ihrer Grafikkarte."
+"Identifizieren Sie den Namen, die ID und die Versionsnummer (falls "
+"vorhanden) Ihrer Grafikkarte."
 
 #. type: Plain text
 #, no-wrap
@@ -130,10 +131,8 @@ msgid ""
 "     on this computer. Our best hope is that a future update of Linux drivers will\n"
 "     solve the problem.\n"
 msgstr ""
-"     Wenn der Workaround nicht funktioniert, tut es uns leid, dass Tails auf "
-"diesem Computer\n"
-"     nicht gut funktioniert. Unsere größte Hoffnung ist, dass ein "
-"zukünftiges Update der \n"
+"     Wenn der Workaround nicht funktioniert, tut es uns leid, dass Tails auf diesem Computer\n"
+"     nicht gut funktioniert. Unsere größte Hoffnung ist, dass ein zukünftiges Update der \n"
 "     Linux-Treiber das Problem löst.\n"
 
 #. type: Bullet: '   - '
@@ -168,9 +167,7 @@ msgstr "     <div class=\"tip\">\n"
 msgid ""
 "     <p>You can send us a photo of the error message as it appears on\n"
 "     your screen.</p>\n"
-msgstr ""
-"     <p>Sie können uns ein Foto der Fehlermeldung senden, wie sie auf Ihrem "
-"Bildschirm angezeigt wird.</p>\n"
+msgstr "     <p>Sie können uns ein Foto der Fehlermeldung senden, wie sie auf Ihrem Bildschirm angezeigt wird.</p>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -311,12 +308,16 @@ msgstr ""
 "verwendet wird. Zum Beispiel mit der folgenden [[Boot-Option|doc/"
 "advanced_topics/boot_options]]:"
 
-#. type: Plain text
-msgid "- `modprobe.blacklist=amdgpu`"
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid "- `modprobe.blacklist=amdgpu`"
+msgid "`modprobe.blacklist=amdgpu`"
 msgstr "- `modprobe.blacklist=amdgpu`"
 
-#. type: Plain text
-msgid "- `modprobe.blacklist=radeon`"
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid "- `modprobe.blacklist=radeon`"
+msgid "`modprobe.blacklist=radeon`"
 msgstr "- `modprobe.blacklist=radeon`"
 
 #. type: Plain text
@@ -435,12 +436,9 @@ msgid ""
 msgstr ""
 "<table>\n"
 "<tr><th>Name</th><th>ID</th><th>Versionsnummer</th></tr>\n"
-"<tr><td>Intel Corporation TigerLake-LP GT2 [Iris Xe "
-"Graphics]</td><td>[8086:9a49]</td><td></td></tr>\n"
-"<tr><td>Intel Corporation JasperLake [UHD "
-"Graphics]</td><td>[8086:4e55]</td><td></td></tr>\n"
-"<tr><td>Intel Corporation Iris Plus Graphics G1 (Ice "
-"Lake)</td><td>[8086:8a56]</td><td></td></tr>\n"
+"<tr><td>Intel Corporation TigerLake-LP GT2 [Iris Xe Graphics]</td><td>[8086:9a49]</td><td></td></tr>\n"
+"<tr><td>Intel Corporation JasperLake [UHD Graphics]</td><td>[8086:4e55]</td><td></td></tr>\n"
+"<tr><td>Intel Corporation Iris Plus Graphics G1 (Ice Lake)</td><td>[8086:8a56]</td><td></td></tr>\n"
 "</table>\n"
 
 #. type: Plain text
@@ -634,9 +632,7 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "<h2 id=\"display-artifacts-intel\">Display artifact when starting Tails on Intel display</h2>\n"
-msgstr ""
-"<h2 id=\"display-artifacts-intel\">Artefakte anzeigen beim Start von Tails "
-"auf Intel-Displays</h2>\n"
+msgstr "<h2 id=\"display-artifacts-intel\">Artefakte anzeigen beim Start von Tails auf Intel-Displays</h2>\n"
 
 #. type: Plain text
 msgid ""
