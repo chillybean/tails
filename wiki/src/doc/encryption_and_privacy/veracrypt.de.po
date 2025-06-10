@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2024-02-26 12:26+0100\n"
+"POT-Creation-Date: 2025-06-10 12:51+0200\n"
 "PO-Revision-Date: 2024-11-27 10:19+0000\n"
 "Last-Translator: Benjamin Held <Benjamin.Held@protonmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -72,10 +72,8 @@ msgid ""
 "outside of Tails. See the step-by-step guides by Security-in-a-Box on\n"
 "[VeraCrypt for Windows](https://securityinabox.org/en/tools/veracrypt/).\n"
 msgstr ""
-"Um neue <span class=\"application\">VeraCrypt</span>-Volumes zu erstellen, "
-"tun Sie \n"
-"dies außerhalb von Tails. Siehe die Schritt-für-Schritt-Anleitungen von "
-"Security-in-a-Box \n"
+"Um neue <span class=\"application\">VeraCrypt</span>-Volumes zu erstellen, tun Sie \n"
+"dies außerhalb von Tails. Siehe die Schritt-für-Schritt-Anleitungen von Security-in-a-Box \n"
 "zu [VeraCrypt für Windows](https://securityinabox.org/en/tools/veracrypt/).\n"
 
 #. type: Plain text
@@ -122,9 +120,7 @@ msgid ""
 "</div>\n"
 msgstr ""
 "<div class=\"text\">\n"
-"<p>Ein Dateicontainer ist eine einzelne große Datei, in der Sie mehrere "
-"verschlüsselte Dateien speichern können, ähnlich wie bei einer ZIP-Datei.</p>"
-"\n"
+"<p>Ein Dateicontainer ist eine einzelne große Datei, in der Sie mehrere verschlüsselte Dateien speichern können, ähnlich wie bei einer ZIP-Datei.</p>\n"
 "</div>\n"
 "</div>\n"
 
@@ -167,12 +163,13 @@ msgid ""
 "volume was created:\n"
 msgstr ""
 "Um ein <span class=\"application\">VeraCrypt</span>-Volume zu entsperren,\n"
-"benötigen Sie möglicherweise die folgenden Parameter, abhängig von den "
-"Optionen,\n"
+"benötigen Sie möglicherweise die folgenden Parameter, abhängig von den Optionen,\n"
 "die bei der Erstellung des Volumes ausgewählt wurden:\n"
 
-#. type: Plain text
-msgid "- **Passphrase**"
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid "- **Passphrase**"
+msgid "**Passphrase**"
 msgstr "- **Passwortphrase**"
 
 #. type: Bullet: '- '
@@ -219,13 +216,12 @@ msgid ""
 "  [See the <span class=\"application\">VeraCrypt</span> documentation on hidden\n"
 "  volumes.](https://www.veracrypt.fr/en/Hidden%20Volume.html)\n"
 msgstr ""
-"  [Siehe die <span class=\"application\">VeraCrypt</span>-Dokumentation zu "
-"versteckten\n"
+"  [Siehe die <span class=\"application\">VeraCrypt</span>-Dokumentation zu versteckten\n"
 "  Volumes.](https://www.veracrypt.fr/en/Hidden%20Volume.html)\n"
 
-#. type: Plain text
+#. type: Bullet: '- '
 msgid ""
-"- **System volume**: if you want to unlock an encrypted Windows system "
+"**System volume**: if you want to unlock an encrypted Windows system "
 "partition."
 msgstr ""
 
@@ -278,8 +274,8 @@ msgid ""
 "[[Unlocking parameters|veracrypt#parameters]] section above."
 msgstr ""
 "Geben Sie die Parameter ein, um das Volume zu entsperren. Weitere "
-"Informationen finden Sie im Abschnitt "
-"[[Entsperrparameter|veracrypt#parameters]] weiter oben."
+"Informationen finden Sie im Abschnitt [[Entsperrparameter|"
+"veracrypt#parameters]] weiter oben."
 
 #. type: Bullet: '1. '
 msgid "Click **Unlock**."
@@ -288,9 +284,7 @@ msgstr "Klicken Sie auf **Entsperren**."
 #. type: Plain text
 #, no-wrap
 msgid "   <span class=\"application\">Unlock VeraCrypt Volumes</span> unlocks your volume.\n"
-msgstr ""
-"   <span class=\"application\">VeraCrypt-Volumes entsperren</span> entsperrt "
-"Ihr Volume.\n"
+msgstr "   <span class=\"application\">VeraCrypt-Volumes entsperren</span> entsperrt Ihr Volume.\n"
 
 #. type: Plain text
 #, no-wrap
@@ -298,10 +292,7 @@ msgid ""
 "   If unlocking the volume fails (for example, if you mistyped the\n"
 "   password), click on <span class=\"bold\">Unlock</span> to try\n"
 "   unlocking again.\n"
-msgstr ""
-"   Wenn das Entsperren des Volumes fehlschlägt (zum Beispiel, wenn Sie das "
-"Passwort falsch eingegeben haben), klicken Sie auf <span class=\"bold\""
-">Entsperren</span>, um es erneut zu versuchen.\n"
+msgstr "   Wenn das Entsperren des Volumes fehlschlägt (zum Beispiel, wenn Sie das Passwort falsch eingegeben haben), klicken Sie auf <span class=\"bold\">Entsperren</span>, um es erneut zu versuchen.\n"
 
 #. type: Bullet: '1. '
 msgid ""
@@ -334,18 +325,18 @@ msgstr ""
 
 #. type: Bullet: '1. '
 msgid ""
-"Choose **[[!img lib/open-menu.png alt=\"\" class=symbolic link=\"no\"]]&nbsp;"
-"▸ Attach Disk Image&hellip;** from the top navigation bar."
+"Choose **[[!img lib/open-menu.png alt=\"\" class=symbolic "
+"link=\"no\"]]&nbsp;▸ Attach Disk Image&hellip;** from the top navigation bar."
 msgstr ""
-"Wählen Sie **[[!img lib/open-menu.png alt=\"\" class=symbolic link=\"no\""
-"]]&nbsp;▸ Festplattendatei anhängen&hellip;** aus der oberen "
+"Wählen Sie **[[!img lib/open-menu.png alt=\"\" class=symbolic "
+"link=\"no\"]]&nbsp;▸ Festplattendatei anhängen&hellip;** aus der oberen "
 "Navigationsleiste."
 
 #. type: Bullet: '1. '
 msgid "In the <span class=\"bold\">Select Disk Image to Attach</span> dialog:"
 msgstr ""
-"Im <span class=\"bold\">Dialog \"Disk-Image Auswählen, um es anzuhängen\""
-"</span>:"
+"Im <span class=\"bold\">Dialog \"Disk-Image Auswählen, um es anzuhängen\"</"
+"span>:"
 
 #. type: Bullet: '   - '
 msgid ""
@@ -353,9 +344,9 @@ msgid ""
 "check box in the bottom-left corner if you want to modify the content of the "
 "file container."
 msgstr ""
-"Deaktivieren Sie das Kontrollkästchen <span class=\"guilabel\""
-">Schreibgeschütztes Loop-Gerät einrichten</span> in der unteren linken Ecke, "
-"wenn Sie den Inhalt des Dateicontainers ändern möchten."
+"Deaktivieren Sie das Kontrollkästchen <span "
+"class=\"guilabel\">Schreibgeschütztes Loop-Gerät einrichten</span> in der "
+"unteren linken Ecke, wenn Sie den Inhalt des Dateicontainers ändern möchten."
 
 #. type: Plain text
 #, no-wrap
@@ -383,8 +374,8 @@ msgstr ""
 #. type: Bullet: '   - '
 msgid "Select the file container and click <span class=\"bold\">Attach</span>."
 msgstr ""
-"Wählen Sie den Dateicontainer aus und klicken Sie auf <span class=\"bold\""
-">Anhängen</span>."
+"Wählen Sie den Dateicontainer aus und klicken Sie auf <span "
+"class=\"bold\">Anhängen</span>."
 
 #. type: Plain text
 #, no-wrap
@@ -413,9 +404,7 @@ msgstr "[[!img partition-icon.png link=\"no\" alt=\"\"]]\n"
 #. type: Plain text
 #, no-wrap
 msgid "<h2 id=\"partition-external\">Unlocking a partition on an external storage device</h2>\n"
-msgstr ""
-"<h2 id=\"partition-external\">Entsperren einer Partition auf einem externen "
-"Speichergerät</h2>\n"
+msgstr "<h2 id=\"partition-external\">Entsperren einer Partition auf einem externen Speichergerät</h2>\n"
 
 #. type: Bullet: '1. '
 msgid "Plug in the USB stick or hard disk that you want to unlock."
@@ -426,9 +415,7 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "<h2 id=\"partition-internal\">Unlocking a partition on an internal hard disk</h2>\n"
-msgstr ""
-"<h2 id=\"partition-internal\">Eine Partition auf einer internen Festplatte "
-"entsperren</h2>\n"
+msgstr "<h2 id=\"partition-internal\">Eine Partition auf einer internen Festplatte entsperren</h2>\n"
 
 #. type: Bullet: '1. '
 msgid ""
@@ -510,9 +497,9 @@ msgstr ""
 
 #. type: Bullet: '1. '
 msgid ""
-"In the sidebar of the *Files* browser, click on the [[!img lib/media-eject."
-"png alt=\"Eject\" class=\"symbolic\" link=\"no\"]] button on the label of "
-"your *VeraCrypt* volume."
+"In the sidebar of the *Files* browser, click on the [[!img lib/media-"
+"eject.png alt=\"Eject\" class=\"symbolic\" link=\"no\"]] button on the label "
+"of your *VeraCrypt* volume."
 msgstr ""
 "Klicken Sie in der Seitenleiste des *Dateien*-Browsers auf die [[!img lib/"
 "media-eject.png alt=\"Auswerfen\" class=\"symbolic\" link=\"no\"]] "
