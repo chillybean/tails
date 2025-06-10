@@ -977,49 +977,49 @@ span.keycap { font-weight: bold; }
 span.menuchoice { font-weight: bold; }
 
 div.bug, div.caution, div.next, div.note, div.tip, div.attack {
-  background-color: var(--background-yellow);
-  border: 1px solid var(--light-gray);
-  border-radius: 5px;
-  padding: 1.5em 6px 0em;
-  background-position: 6px 0.5em;
-  background-repeat: no-repeat;
-  min-height: 48px;
-  padding-left: 66px;
-  margin: 30px 0;
-  max-width: 52em;
+  background-color: var(--background-yellow) !important;
+  border: 1px solid var(--light-gray) !important;
+  border-radius: 5px !important;
+  padding: 1.5em 6px 0em !important;
+  background-position: 6px 0.5em !important;
+  background-repeat: no-repeat !important;
+  min-height: 48px !important;
+  padding-left: 66px !important;
+  margin: 30px 0 !important;
+  max-width: 52em !important;
 }
 
 div.bug {
-  background-image: url(lib/admon-bug.png);
+  background-image: url(lib/admon-bug.png) !important;
 }
 
 div.caution {
-  background-image: url(lib/dialog-warning.png);
+  background-image: url(lib/dialog-warning.png) !important;
 }
 
 div.next {
-  background-image: url(lib/next.png);
+  background-image: url(lib/next.png) !important;
 }
 
 div.note {
-  background-image: url(lib/admon-note.png);
+  background-image: url(lib/admon-note.png) !important;
 }
 
 div.tip {
-  background-image: url(lib/admon-tip.png);
+  background-image: url(lib/admon-tip.png) !important;
 }
 
 div.attack {
-  background-image: url(lib/weather-showers-scattered.png);
+  background-image: url(lib/weather-showers-scattered.png) !important;
 }
 
 div.bug > *:first-child, div.caution > *:first-child, div.next > *:first-child, div.note > *:first-child, div.tip > *:first-child {
-  margin-top: 0;
+  margin-top: 0 !important;
 }
 
 div.bug > *:last-child, div.caution > *:last-child, div.next > *:last-child, div.note > *:last-child, div.tip > *:last-child,
 div.bug > *:only-child, div.caution > *:only-child, div.next > *:only-child, div.note > *:only-child, div.tip > *:only-child {
-  margin-bottom: 1.5em;
+  margin-bottom: 1.5em !important;
 }
 
 /* Code, preformatted text, and command lines */
