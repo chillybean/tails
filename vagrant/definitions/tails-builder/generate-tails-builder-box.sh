@@ -34,7 +34,6 @@ PASSWORD="vagrant"
 
 DEBIAN_SERIAL="$(get_serial debian)"
 DEBIAN_SECURITY_SERIAL="$(get_serial debian-security)"
-TAILS_SERIAL="$(get_serial tails)"
 
 DEBOOTSTRAP_GNUPG_HOMEDIR="$(mktemp -d --tmpdir tmp.debootstrap-gnupg-XXXXXXXX)"
 gpg --homedir "${DEBOOTSTRAP_GNUPG_HOMEDIR}" \
