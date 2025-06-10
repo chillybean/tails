@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2024-05-14 22:38+0000\n"
+"POT-Creation-Date: 2025-06-10 12:51+0200\n"
 "PO-Revision-Date: 2024-09-30 11:58+0000\n"
 "Last-Translator: Chre <tor@renaudineau.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -162,9 +162,9 @@ msgid ""
 "the actual operations by the French police are kept secret."
 msgstr ""
 "Certains personnes expertes en cryptographie pensent que cette vulnérabilité "
-"a déjà été [utilisée contre une personne militante en France](https://mjg59."
-"dreamwidth.org/66429.html) mais les opérations réelles menées par la police "
-"française sont gardées secrètes."
+"a déjà été [utilisée contre une personne militante en France](https://"
+"mjg59.dreamwidth.org/66429.html) mais les opérations réelles menées par la "
+"police française sont gardées secrètes."
 
 #. type: Plain text
 msgid ""
@@ -239,14 +239,17 @@ msgstr ""
 "Même si deviner une phrase de passe de 3 mots aléatoires avec LUKS1 coûte "
 "très peu d'énergie, une attaque de ce type nécessite également :"
 
-#. type: Plain text
-msgid ""
-"- Physical access to the device - Very expensive computer equipment - "
-"Professional hacking skills"
+#. type: Bullet: '- '
+msgid "Physical access to the device"
 msgstr ""
-"- Un accès physique à l'appareil\n"
-"- Un équipement informatique très onéreux\n"
-"- Des compétences de piratage professionnelles"
+
+#. type: Bullet: '- '
+msgid "Very expensive computer equipment"
+msgstr ""
+
+#. type: Bullet: '- '
+msgid "Professional hacking skills"
+msgstr ""
 
 #. type: Plain text
 msgid ""
@@ -301,11 +304,11 @@ msgstr ""
 #. type: Plain text
 msgid ""
 "To understand the maths behind password strength, watch [An information "
-"theoretic model of privacy and security metrics](https://media.libreplanet."
-"org/u/libreplanet/m/an-information-theoretic-model-of-privacy-and-security-"
-"metrics/).  Bill Budington from the EFF explains the concept of entropy and "
-"its implication on browser fingerprinting and password safety in accessible "
-"terms."
+"theoretic model of privacy and security metrics](https://"
+"media.libreplanet.org/u/libreplanet/m/an-information-theoretic-model-of-"
+"privacy-and-security-metrics/).  Bill Budington from the EFF explains the "
+"concept of entropy and its implication on browser fingerprinting and "
+"password safety in accessible terms."
 msgstr ""
 "Pour comprendre les mathématiques derrière la robustesse d'un mot de passe, "
 "regardez [An information theoretic model of privacy and security metrics]"
@@ -339,15 +342,23 @@ msgstr ""
 "vous recommander de choisir une autre phrase de passe et de migrer vers une "
 "autre clé USB Tails :"
 
-#. type: Plain text
-msgid ""
-"- [[If your passphrase has 4 random words or fewer|argon2id#4]] - [[If your "
-"passphrase has 5 random words|argon2id#5]] - [[If your passphrase has 6 "
-"random words or more|argon2id#6]]"
-msgstr ""
-"- [[Si votre phrase de passe a quatre mots aléatoires ou moins|argon2id#4]]\n"
-"- [[Si votre phrase de passe a cinq mots aléatoires|argon2id#5]]\n"
-"- [[Si votre phrase de passe a six mots aléatoires ou plus|argon2id#6]]"
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid "If your current passphrase has 4 random words or fewer:"
+msgid "[[If your passphrase has 4 random words or fewer|argon2id#4]]"
+msgstr "Si votre phrase de passe actuelle a quatre mots aléatoires ou moins :"
+
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid "If your current passphrase has 5 random words:"
+msgid "[[If your passphrase has 5 random words|argon2id#5]]"
+msgstr "Si votre phrase de passe actuelle a 5 mots aléatoires :"
+
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid "If your current passphrase has 4 random words or fewer:"
+msgid "[[If your passphrase has 6 random words or more|argon2id#6]]"
+msgstr "Si votre phrase de passe actuelle a quatre mots aléatoires ou moins :"
 
 #. type: Plain text
 #, no-wrap
@@ -358,8 +369,10 @@ msgstr "<h2 id=\"4\">Si votre phrase de passe a quatre mots aléatoires ou moins
 msgid "If your current passphrase has 4 random words or fewer:"
 msgstr "Si votre phrase de passe actuelle a quatre mots aléatoires ou moins :"
 
-#. type: Plain text
-msgid "- Your encryption is insecure with LUKS1."
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid "- Your encryption is insecure with LUKS1."
+msgid "Your encryption is insecure with LUKS1."
 msgstr "- Votre chiffrement n'est pas sûr avec LUKS1."
 
 #. type: Plain text
@@ -367,8 +380,10 @@ msgstr "- Votre chiffrement n'est pas sûr avec LUKS1."
 msgid "  You have to upgrade to LUKS2.\n"
 msgstr "  Vous devez passer à LUKS2.\n"
 
-#. type: Plain text
-msgid "- Your encryption is more secure with LUKS2."
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid "- Your encryption is more secure with LUKS2."
+msgid "Your encryption is more secure with LUKS2."
 msgstr "- Votre chiffrement est plus sûr avec LUKS2."
 
 #. type: Plain text
@@ -681,8 +696,10 @@ msgstr ""
 msgid "  We still recommend you upgrade to LUKS2.\n"
 msgstr "  Nous recommandons tout de même de passer à LUKS2.\n"
 
-#. type: Plain text
-msgid "- Your encryption is even more secure with LUKS2."
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid "- Your encryption is even more secure with LUKS2."
+msgid "Your encryption is even more secure with LUKS2."
 msgstr "- Votre chiffrement est encore plus sûr avec LUKS2."
 
 #. type: Plain text
@@ -832,11 +849,12 @@ msgstr ""
 msgid "If your current passphrase has 6 random words or more:"
 msgstr ""
 
-#. type: Plain text
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid "- Your encryption is insecure with LUKS1."
 msgid ""
-"- Your encryption is secure with LUKS1, even against a very powerful "
-"adversary."
-msgstr ""
+"Your encryption is secure with LUKS1, even against a very powerful adversary."
+msgstr "- Votre chiffrement n'est pas sûr avec LUKS1."
 
 #. type: Plain text
 msgid "Congratulations on following our most secure recommendations!"
@@ -1051,6 +1069,24 @@ msgid ""
 "      Replace <span class=\"command-placeholder\">[partition]</span> with the\n"
 "      partition name found in step 6.\n"
 msgstr ""
+
+#~ msgid ""
+#~ "- Physical access to the device - Very expensive computer equipment - "
+#~ "Professional hacking skills"
+#~ msgstr ""
+#~ "- Un accès physique à l'appareil\n"
+#~ "- Un équipement informatique très onéreux\n"
+#~ "- Des compétences de piratage professionnelles"
+
+#~ msgid ""
+#~ "- [[If your passphrase has 4 random words or fewer|argon2id#4]] - [[If "
+#~ "your passphrase has 5 random words|argon2id#5]] - [[If your passphrase "
+#~ "has 6 random words or more|argon2id#6]]"
+#~ msgstr ""
+#~ "- [[Si votre phrase de passe a quatre mots aléatoires ou moins|"
+#~ "argon2id#4]]\n"
+#~ "- [[Si votre phrase de passe a cinq mots aléatoires|argon2id#5]]\n"
+#~ "- [[Si votre phrase de passe a six mots aléatoires ou plus|argon2id#6]]"
 
 #~ msgid ""
 #~ "<span class=\"command\">Version</span> indicates the version of LUKS, "
