@@ -9,6 +9,8 @@ def chutney_status_log(cmd)
              'stopping'
            when 'stop_old'
              'cleaning up old instance'
+           when 'kill'
+             'killing leftover processes'
            when 'configure'
              'configuring'
            when 'wait_for_bootstrap'
@@ -90,6 +92,7 @@ def clean_up_old_chutney_processes
     chutney_cmd('stop_old')
     return unless chutney_processes_running?
   end
+  chutney_status_log('kill')
   begin
     kill_chutney_processes
   rescue StandardError
