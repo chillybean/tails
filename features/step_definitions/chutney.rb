@@ -46,6 +46,40 @@ def chutney_data_dir_cleanup
   end
 end
 
+def chutney_processes_match_args
+  [
+    '--full',
+    '--exact',
+    "tor -f #{chutney_env['CHUTNEY_DATA_DIR']}/nodes/.*/torrc --quiet",
+  ]
+end
+
+def chutney_processes_running?
+  cmd_helper(['pgrep', *chutney_processes_match_args])
+rescue CommandFailed
+  false
+else
+  true
+end
+
+def kill_chutney_processes(sigkill: false)
+  pkill_args = (sigkill ? ['-KILL'] : []) + chutney_processes_match_args
+  begin
+    cmd_helper(['pkill', *pkill_args])
+  rescue CommandFailed
+    # Either nothing matched, which means we're done, or the
+    # signalling failed, which means we're not done, so we're treating
+    # pkill failure and success the same.
+  end
+
+  try_for(30) do
+    assert_raise(CommandFailed) do
+      cmd_helper(['pgrep', *chutney_processes_match_args])
+    end
+    true
+  end
+end
+
 def clean_up_old_chutney_processes
   # After an unclean shutdown of the test suite (e.g. Ctrl+C) the
   # tor processes are left running, listening on the same ports we
@@ -54,35 +88,12 @@ def clean_up_old_chutney_processes
   # processes are killed manually.
   if File.directory?(chutney_env['CHUTNEY_DATA_DIR'])
     chutney_cmd('stop_old')
-  else
-    args = [
-      '--full',
-      '--exact',
-      "tor -f #{chutney_env['CHUTNEY_DATA_DIR']}/nodes/.*/torrc --quiet",
-    ]
-    begin
-      cmd_helper(['pkill', *args])
-    rescue CommandFailed
-      # Nothing to kill
-    else
-      begin
-        try_for(30) do
-          assert_raise(CommandFailed) { cmd_helper(['pgrep', *args]) }
-          true
-        end
-      rescue Timeout::Error
-        begin
-          cmd_helper(['pkill', '-KILL', *args])
-        rescue CommandFailed
-          # Nothing to kill
-        else
-          try_for(30) do
-            assert_raise(CommandFailed) { cmd_helper(['pgrep', *args]) }
-            true
-          end
-        end
-      end
-    end
+    return unless chutney_processes_running?
+  end
+  begin
+    kill_chutney_processes
+  rescue StandardError
+    kill_chutney_processes(sigkill: true)
   end
 end
 
