@@ -29,7 +29,7 @@ done
 
 if [ -n "${errors}" ]; then
     echo "These packages were expected to be custom Tails versions," \
-         "but are not:" >&2
+        "but are not:" >&2
     for p in ${errors}; do
         echo " - ${p} ($(package_version "${p}"))" >&2
     done
