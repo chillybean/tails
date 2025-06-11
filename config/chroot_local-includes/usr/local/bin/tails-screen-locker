@@ -5,21 +5,19 @@ import socket
 import sys
 import gettext
 import subprocess
-from pydbus import SessionBus, SystemBus
 import os
-from pam import pam
 import time
 import pwd
+from pydbus import SessionBus, SystemBus
+from pam import pam
 
 import gi
 
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk, GLib
-
 gi.require_version("Gdk", "3.0")
-from gi.repository import Gdk
+from gi.repository import Gdk, Gtk, GLib  # noqa: E402
 
-from tailslib.adminpassword import is_password_set
+from tailslib.adminpassword import is_password_set  # noqa: E402
 
 _ = gettext.gettext
 gettext.textdomain("tails")
@@ -39,7 +37,7 @@ def lock_screen():
         sys.exit()
 
 
-class PasswordDialog(object):
+class PasswordDialog:
     def on_cancel_clicked(self, button, data=None):
         sys.exit(1)
 
@@ -74,7 +72,7 @@ class PasswordDialog(object):
         user_object.Changed.connect(self.wait_until_password_set_and_lock_screen)
 
         p = subprocess.Popen(
-            "passwd",
+            ["/usr/bin/passwd"],
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
@@ -184,8 +182,8 @@ def get_lock():
     # Original author: https://stackoverflow.com/users/639295/aychedee
     # Without holding a reference to our socket somewhere it gets garbage
     # collected when the function exits
-    get_lock._lock_socket = socket.socket(socket.AF_UNIX, socket.SOCK_DGRAM)
-    get_lock._lock_socket.bind("\0" + "tails-screen-locker")
+    get_lock.lock_socket = socket.socket(socket.AF_UNIX, socket.SOCK_DGRAM)
+    get_lock.lock_socket.bind("\0" + "tails-screen-locker")
 
 
 def main():
