@@ -50,7 +50,7 @@ def chutney_processes_match_args
   [
     '--full',
     '--exact',
-    "tor -f #{chutney_env['CHUTNEY_DATA_DIR']}/nodes/.*/torrc --quiet",
+    "tor -f #{chutney_env['CHUTNEY_DATA_DIR']}/nodes.*/.*/torrc (--quiet|--hush)",
   ]
 end
 
