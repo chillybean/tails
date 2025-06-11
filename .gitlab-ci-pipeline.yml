@@ -30,7 +30,7 @@ build-website:
     - changes:
         - .gitlab-ci.yml
         - .gitlab-ci-pipeline.yml
-  image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/ikiwiki:bookworm
+  image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/ikiwiki:trixie
   cache:
     key: website-$CI_COMMIT_REF_SLUG
     paths:

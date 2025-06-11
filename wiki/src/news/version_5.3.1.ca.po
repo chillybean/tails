@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2023-08-24 19:56+0000\n"
+"POT-Creation-Date: 2025-06-10 12:51+0200\n"
 "PO-Revision-Date: 2025-06-03 00:31+0000\n"
 "Last-Translator: victor dargallo <victordargallo@disroot.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -59,8 +59,8 @@ msgid ""
 "privileges."
 msgstr ""
 "S'ha actualitzat el nucli de *Linux* a la versió 5.10.127-2, que soluciona "
-"[CVE-2022-34918](https://cve.mitre.org/cgi-bin/cvename."
-"cgi?name=CVE-2022-34918), una vulnerabilitat que permet a les aplicacions de "
+"[CVE-2022-34918](https://cve.mitre.org/cgi-bin/cvename.cgi?"
+"name=CVE-2022-34918), una vulnerabilitat que permet a les aplicacions de "
 "Tails obtenir privilegis d'administració."
 
 #. type: Plain text
@@ -70,10 +70,8 @@ msgid ""
 "  vulnerabilities in *Tor Browser*, they might then use CVE-2022-34918 to take\n"
 "  full control of your Tails and deanonymize you.\n"
 msgstr ""
-"  Per exemple, si un atacant pogués explotar una altra vulnerabilitat "
-"seguretat\n"
-"  desconeguda al *Navegador Tor*, llavors podria utilitzar CVE-2022-34918 "
-"per prendre\n"
+"  Per exemple, si un atacant pogués explotar una altra vulnerabilitat seguretat\n"
+"  desconeguda al *Navegador Tor*, llavors podria utilitzar CVE-2022-34918 per prendre\n"
 "  el control total del vostre Tails i desanonimitzar-vos.\n"
 
 #. type: Plain text
@@ -83,19 +81,21 @@ msgid ""
 "  such as a government or a hacking firm. We are not aware of this attack being\n"
 "  used in the wild.\n"
 msgstr ""
-"  Aquest atac és molt poc probable, però podria ser realitzat per un atacant "
-"fort,\n"
-"  com un govern o una empresa de pirateria informàtica. No som conscients "
-"que aquest atac\n"
+"  Aquest atac és molt poc probable, però podria ser realitzat per un atacant fort,\n"
+"  com un govern o una empresa de pirateria informàtica. No som conscients que aquest atac\n"
 "  s'hagi utilitzat actualment.\n"
 
-#. type: Plain text
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid ""
+#| "- Update *Thunderbird* to [91.12.0](https://www.thunderbird.net/en-US/"
+#| "thunderbird/91.12.0/releasenotes/)."
 msgid ""
-"- Update *Thunderbird* to [91.12.0](https://www.thunderbird.net/en-US/"
+"Update *Thunderbird* to [91.12.0](https://www.thunderbird.net/en-US/"
 "thunderbird/91.12.0/releasenotes/)."
 msgstr ""
-"- S'ha actualitzat el *Thunderbird* a la versió [91.12.0](https://www."
-"thunderbird.net/en-US/thunderbird/91.12.0/releasenotes/)."
+"- S'ha actualitzat el *Thunderbird* a la versió [91.12.0](https://"
+"www.thunderbird.net/en-US/thunderbird/91.12.0/releasenotes/)."
 
 #. type: Plain text
 #, no-wrap
@@ -104,11 +104,11 @@ msgstr "<h1 id=\"fixes\">Problemes solucionats</h1>\n"
 
 #. type: Plain text
 msgid ""
-"For more details, read our [[!tails_gitweb debian/changelog desc=\"changelog"
-"\"]]."
+"For more details, read our [[!tails_gitweb debian/changelog "
+"desc=\"changelog\"]]."
 msgstr ""
-"Per a més detalls, llegiu el nostre [[!tails_gitweb debian/changelog desc="
-"\"registre de canvis\"]]."
+"Per a més detalls, llegiu el nostre [[!tails_gitweb debian/changelog "
+"desc=\"registre de canvis\"]]."
 
 #. type: Plain text
 #, no-wrap
@@ -121,7 +121,8 @@ msgstr "Cap específic d'aquesta versió."
 
 #. type: Plain text
 msgid "See the list of [[long-standing issues|support/known_issues]]."
-msgstr "Vegeu la llista de [[problemes de llarga durada|support/known_issues]]."
+msgstr ""
+"Vegeu la llista de [[problemes de llarga durada|support/known_issues]]."
 
 #. type: Plain text
 #, no-wrap
@@ -131,12 +132,12 @@ msgstr "<h1 id=\"get\">Obtenir Tails 5.3.1</h1>\n"
 #. type: Title ##
 #, no-wrap
 msgid "To upgrade your Tails USB stick and keep your Persistent Storage"
-msgstr ""
-"Per actualitzar el vostre llapis USB de Tails i mantenir el vostre "
-"Emmagatzematge Persistent"
+msgstr "Per actualitzar el vostre llapis USB de Tails i mantenir el vostre Emmagatzematge Persistent"
 
-#. type: Plain text
-msgid "- Automatic upgrades are available from Tails 5.0 or later to 5.3.1."
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid "- Automatic upgrades are available from Tails 5.0 or later to 5.3.1."
+msgid "Automatic upgrades are available from Tails 5.0 or later to 5.3.1."
 msgstr ""
 "- Les actualitzacions automàtiques estan disponibles des de Tails 5.0 o "
 "posterior a la versió 5.3.1."
@@ -148,8 +149,7 @@ msgid ""
 "  automatic upgrades by doing a manual upgrade to the latest version.\n"
 msgstr ""
 "  Podeu [[reduir la mida de la baixada|doc/upgrade#reduce]] de futures\n"
-"  actualitzacions automàtiques fent una actualització manual a la darrera "
-"versió.\n"
+"  actualitzacions automàtiques fent una actualització manual a la darrera versió.\n"
 
 #. type: Bullet: '- '
 msgid ""
@@ -195,8 +195,7 @@ msgid ""
 "<div class=\"caution\"><p>The Persistent Storage on the USB stick will be lost if\n"
 "you install instead of upgrading.</p></div>\n"
 msgstr ""
-"<div class=\"caution\"><p>L'Emmagatzematge Persistent del llapis USB es "
-"perdrà si\n"
+"<div class=\"caution\"><p>L'Emmagatzematge Persistent del llapis USB es perdrà si\n"
 "instal·leu en comptes d'actualitzar.</p></div>\n"
 
 #. type: Title ##

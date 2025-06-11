@@ -33,7 +33,6 @@ PASSWORD="vagrant"
 
 DEBIAN_SERIAL="$(get_serial debian)"
 DEBIAN_SECURITY_SERIAL="$(get_serial debian-security)"
-TAILS_SERIAL="$(get_serial tails)"
 
 DEBOOTSTRAP_GNUPG_HOMEDIR="$(mktemp -d --tmpdir tmp.debootstrap-gnupg-XXXXXXXX)"
 gpg --homedir "${DEBOOTSTRAP_GNUPG_HOMEDIR}" \
@@ -125,8 +124,8 @@ steps:
 
   - chroot: rootfs
     shell: |
-      sed -e 's/${DISTRIBUTION}/bullseye/' /etc/apt/sources.list \\
-        > "/etc/apt/sources.list.d/bullseye.list"
+      sed -e 's/${DISTRIBUTION}/trixie/' /etc/apt/sources.list \\
+        > "/etc/apt/sources.list.d/trixie.list"
 
   - chroot: rootfs
     shell: |
@@ -142,26 +141,22 @@ steps:
     contents: |
       deb http://time-based.snapshots.deb.tails.boum.org/debian-security/${DEBIAN_SECURITY_SERIAL}/ ${DISTRIBUTION}-security main
 
-  - create-file: /etc/apt/sources.list.d/tails.list
-    contents: |
-      deb http://time-based.snapshots.deb.tails.boum.org/tails/${TAILS_SERIAL}/ ikiwiki main
-
   - create-file: /etc/apt/preferences.d/ikiwiki
     contents: |
       Package: ikiwiki
-      Pin: origin deb.tails.boum.org
+      Pin: release n=trixie
       Pin-Priority: 1000
 
   - create-file: /etc/apt/preferences.d/po4a
     contents: |
       Package: po4a
-      Pin: version 0.62-1
+      Pin: version 0.69-1
       Pin-Priority: 1000
 
-  - create-file: /etc/apt/preferences.d/bullseye
+  - create-file: /etc/apt/preferences.d/trixie
     contents: |
       Package: *
-      Pin: release n=bullseye
+      Pin: release n=trixie
       Pin-Priority: 100
 
   - create-file: /etc/apt/preferences.d/${DISTRIBUTION}-backports

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2024-08-13 16:36+0000\n"
+"POT-Creation-Date: 2025-06-10 12:51+0200\n"
 "PO-Revision-Date: 2025-04-17 17:39+0000\n"
 "Last-Translator: Chre <tor@renaudineau.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,21 +43,29 @@ msgstr "[[!tag announce]]\n"
 msgid "<h1 id=\"changes\">Changes and updates</h1>\n"
 msgstr "<h1 id=\"changes\">Changements et mises à jour</h1>\n"
 
-#. type: Plain text
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid ""
+#| "- Update *Tor Browser* to [13.5.2](https://blog.torproject.org/new-"
+#| "release-tor-browser-1352)."
 msgid ""
-"- Update *Tor Browser* to [13.5.2](https://blog.torproject.org/new-release-"
-"tor-browser-1352)."
+"Update *Tor Browser* to [13.5.2](https://blog.torproject.org/new-release-tor-"
+"browser-1352)."
 msgstr ""
-"- Mise à jour du *Navigateur Tor* vers la version [13.5.2](https://blog."
-"torproject.org/new-release-tor-browser-1352)."
+"- Mise à jour du *Navigateur Tor* vers la version [13.5.2](https://"
+"blog.torproject.org/new-release-tor-browser-1352)."
 
-#. type: Plain text
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid ""
+#| "- Update *Thunderbird* to [115.14.0](https://www.thunderbird.net/en-US/"
+#| "thunderbird/115.14.0/releasenotes/)."
 msgid ""
-"- Update *Thunderbird* to [115.14.0](https://www.thunderbird.net/en-US/"
+"Update *Thunderbird* to [115.14.0](https://www.thunderbird.net/en-US/"
 "thunderbird/115.14.0/releasenotes/)."
 msgstr ""
-"- Mise à jour de *Thunderbird* vers la version [115.14.0](https://www."
-"thunderbird.net/en-US/thunderbird/115.14.0/releasenotes/)."
+"- Mise à jour de *Thunderbird* vers la version [115.14.0](https://"
+"www.thunderbird.net/en-US/thunderbird/115.14.0/releasenotes/)."
 
 #. type: Bullet: '- '
 msgid ""
@@ -65,8 +73,8 @@ msgid ""
 "master/debian/changelog?ref_type=heads) firmware packages. This improves the "
 "support for newer hardware: graphics, Wi-Fi, and so on."
 msgstr ""
-"Mise à jour de [nombreux](https://salsa.debian.org/kernel-team/"
-"firmware-nonfree/-/blob/master/debian/changelog?ref_type=heads) paquets de "
+"Mise à jour de [nombreux](https://salsa.debian.org/kernel-team/firmware-"
+"nonfree/-/blob/master/debian/changelog?ref_type=heads) paquets de "
 "micrologiciels. Cela permet d'améliorer la prise en charge du matériel plus "
 "récent : cartes graphiques, Wi-Fi, etc."
 
@@ -90,20 +98,16 @@ msgid ""
 "  </p>\n"
 msgstr ""
 "  <p class=\"code\">\n"
-"  Un problème s'est produit lors du premier démarrage de votre clé USB Tails "
-":<br>\n"
+"  Un problème s'est produit lors du premier démarrage de votre clé USB Tails :<br>\n"
 "  échec du redimensionnement de la partition système\n"
 "  <br><br>\n"
-"  Il sera impossible de créer un stockage persistant ou d'appliquer des "
-"mises à jour automatiques.\n"
+"  Il sera impossible de créer un stockage persistant ou d'appliquer des mises à jour automatiques.\n"
 "  </p>\n"
 
 #. type: Plain text
 #, no-wrap
 msgid "  Affected users can try to install Tails again or use a different USB stick.\n"
-msgstr ""
-"  Les personnes concernées peuvent essayer d'installer à nouveau Tails ou "
-"d'utiliser une autre clé USB.\n"
+msgstr "  Les personnes concernées peuvent essayer d'installer à nouveau Tails ou d'utiliser une autre clé USB.\n"
 
 #. type: Plain text
 #, no-wrap
@@ -154,20 +158,28 @@ msgstr ""
 msgid "Networking"
 msgstr "Réseau"
 
-#. type: Plain text
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid ""
+#| "- Fix connecting to the Tor network using default bridges. ([[!"
+#| "tails_ticket 20467]])"
 msgid ""
-"- Fix connecting to the Tor network using default bridges. ([[!tails_ticket "
+"Fix connecting to the Tor network using default bridges. ([[!tails_ticket "
 "20467]])"
 msgstr ""
 "- Correction de la connexion au réseau Tor en utilisant les ponts par "
 "défaut. ([[!tails_ticket 20467]])"
 
-#. type: Plain text
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid ""
+#| "- Allow enabling multiple network interfaces again. ([[!tails_ticket "
+#| "20128]])"
 msgid ""
-"- Allow enabling multiple network interfaces again. ([[!tails_ticket 20128]])"
+"Allow enabling multiple network interfaces again. ([[!tails_ticket 20128]])"
 msgstr ""
-"- Permettre à nouveau l'activation de plusieurs interfaces réseau. ([["
-"!tails_ticket 20128]])"
+"- Permettre à nouveau l'activation de plusieurs interfaces réseau. ([[!"
+"tails_ticket 20128]])"
 
 #. type: Title ###
 #, no-wrap
@@ -187,8 +199,8 @@ msgid ""
 "For more details, read our [[!tails_gitweb debian/changelog "
 "desc=\"changelog\"]]."
 msgstr ""
-"Pour plus de détails, lisez notre [[!tails_gitweb debian/changelog desc="
-"\"liste des changements\"]]."
+"Pour plus de détails, lisez notre [[!tails_gitweb debian/changelog "
+"desc=\"liste des changements\"]]."
 
 #. type: Plain text
 #, no-wrap
@@ -198,11 +210,12 @@ msgstr "<h1 id=\"get\">Obtenir Tails 6.6</h1>\n"
 #. type: Title ##
 #, no-wrap
 msgid "To upgrade your Tails USB stick and keep your Persistent Storage"
-msgstr ""
-"Pour mettre à jour votre clé USB Tails et conserver votre stockage persistant"
+msgstr "Pour mettre à jour votre clé USB Tails et conserver votre stockage persistant"
 
-#. type: Plain text
-msgid "- Automatic upgrades are available from Tails 6.0 or later to 6.6."
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid "- Automatic upgrades are available from Tails 6.0 or later to 6.6."
+msgid "Automatic upgrades are available from Tails 6.0 or later to 6.6."
 msgstr ""
 "- Mises à jour automatiques disponibles depuis Tails 6.0 ou plus récent vers "
 "la version 6.6."
@@ -225,21 +238,31 @@ msgstr "Pour installer Tails 6.6 sur une nouvelle clé USB"
 msgid "Follow our installation instructions:"
 msgstr "Suivez nos instructions d'installation :"
 
-#. type: Plain text
-msgid "- [[Install from Windows|install/windows]]"
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid "- [[Install from Windows|install/windows]]"
+msgid "[[Install from Windows|install/windows]]"
 msgstr "- [[Installer depuis Windows|install/windows]]"
 
-#. type: Plain text
-msgid "- [[Install from macOS|install/mac]]"
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid "- [[Install from macOS|install/mac]]"
+msgid "[[Install from macOS|install/mac]]"
 msgstr "- [[Installer depuis macOS|install/mac]]"
 
-#. type: Plain text
-msgid "- [[Install from Linux|install/linux]]"
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid "- [[Install from Linux|install/linux]]"
+msgid "[[Install from Linux|install/linux]]"
 msgstr "- [[Installer depuis Linux|install/linux]]"
 
-#. type: Plain text
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid ""
+#| "- [[Install from Debian or Ubuntu using the command line and GnuPG|"
+#| "install/expert]]"
 msgid ""
-"- [[Install from Debian or Ubuntu using the command line and GnuPG|install/"
+"[[Install from Debian or Ubuntu using the command line and GnuPG|install/"
 "expert]]"
 msgstr ""
 "- [[Installer depuis Debian ou Ubuntu en utilisant la ligne de commande et "
@@ -251,8 +274,7 @@ msgid ""
 "<div class=\"caution\"><p>The Persistent Storage on the USB stick will be lost if\n"
 "you install instead of upgrading.</p></div>\n"
 msgstr ""
-"<div class=\"caution\"><p>Le stockage persistant de la clé USB sera perdu "
-"si\n"
+"<div class=\"caution\"><p>Le stockage persistant de la clé USB sera perdu si\n"
 "vous faites une installation au lieu d'une mise à jour.</p></div>\n"
 
 #. type: Title ##
@@ -268,10 +290,14 @@ msgstr ""
 "Si vous n'avez pas besoin d'instructions d'installation ou de mise à jour, "
 "vous pouvez télécharger directement Tails 6.6 :"
 
-#. type: Plain text
-msgid "- [[For USB sticks (USB image)|install/download]]"
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid "- [[For USB sticks (USB image)|install/download]]"
+msgid "[[For USB sticks (USB image)|install/download]]"
 msgstr "- [[Pour clés USB (image USB)|install/download]]"
 
-#. type: Plain text
-msgid "- [[For DVDs and virtual machines (ISO image)|install/download-iso]]"
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid "- [[For DVDs and virtual machines (ISO image)|install/download-iso]]"
+msgid "[[For DVDs and virtual machines (ISO image)|install/download-iso]]"
 msgstr "- [[Pour DVD et machines virtuelles (image ISO)|install/download-iso]]"
