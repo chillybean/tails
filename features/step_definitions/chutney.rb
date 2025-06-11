@@ -46,13 +46,7 @@ def chutney_data_dir_cleanup
   end
 end
 
-# rubocop:disable Metrics/MethodLength
-def initialize_chutney
-  # Ensure that a fresh chutney instance is running, and that it will
-  # be cleaned upon exit. We only do it once, though, since the same
-  # setup can be used throughout the same test suite run.
-  return if $chutney_initialized
-
+def clean_up_old_chutney_processes
   # After an unclean shutdown of the test suite (e.g. Ctrl+C) the
   # tor processes are left running, listening on the same ports we
   # are about to use. If chutney's data dir also was removed, this
@@ -90,7 +84,15 @@ def initialize_chutney
       end
     end
   end
+end
 
+def initialize_chutney
+  # Ensure that a fresh chutney instance is running, and that it will
+  # be cleaned upon exit. We only do it once, though, since the same
+  # setup can be used throughout the same test suite run.
+  return if $chutney_initialized
+
+  clean_up_old_chutney_processes
   if KEEP_CHUTNEY
     # We sometimes look for strings in the Chutney nodes' logs so we
     # clear them so previous runs do not affect the current one.
@@ -132,7 +134,6 @@ want to delete Chutney's data directory and all test suite snapshots:
 
   $chutney_initialized = true
 end
-# rubocop:enable Metrics/MethodLength
 
 def wait_until_chutney_is_working
   return if $chutney_working
