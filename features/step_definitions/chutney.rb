@@ -89,8 +89,13 @@ def clean_up_old_chutney_processes
   # will prevent chutney from starting the network unless the tor
   # processes are killed manually.
   if File.directory?(chutney_env['CHUTNEY_DATA_DIR'])
-    chutney_cmd('stop_old')
-    return unless chutney_processes_running?
+    begin
+      chutney_cmd('stop_old')
+      return unless chutney_processes_running?
+    rescue CommandFailed
+      # Chutney raised an error while attempting to cleanly kill the
+      # old processes, so we fall back to our more abrupt approach.
+    end
   end
   chutney_status_log('kill')
   begin
