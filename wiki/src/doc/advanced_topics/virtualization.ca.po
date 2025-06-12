@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2024-05-02 21:23+0000\n"
+"POT-Creation-Date: 2025-06-12 00:14+0000\n"
 "PO-Revision-Date: 2025-06-03 00:29+0000\n"
 "Last-Translator: victor dargallo <victordargallo@disroot.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,16 +39,45 @@ msgstr ""
 "Màquina_virtual desc=\"màquines virtuals\"]]."
 
 #. type: Plain text
+#, fuzzy
+#| msgid ""
+#| "With virtual machines, it is possible to run Tails inside a *host* "
+#| "operating system (Linux, Windows, or macOS). A virtual machine emulates a "
+#| "real computer and its operating system, called a *guest*, which appears "
+#| "in a window on the *host* operating system."
 msgid ""
 "With virtual machines, it is possible to run Tails inside a *host* operating "
-"system (Linux, Windows, or macOS). A virtual machine emulates a real "
-"computer and its operating system, called a *guest*, which appears in a "
-"window on the *host* operating system."
+"system. A virtual machine emulates a real computer and its operating system, "
+"called a *guest*, which appears in a window on the *host* operating system."
 msgstr ""
 "Amb les màquines virtuals, és possible executar Tails dins d'un sistema "
 "operatiu *amfitrió* (Linux, Windows o macOS). Una màquina virtual emula un "
 "ordinador real i el seu sistema operatiu, anomenat *convidat*, que apareix "
 "en una finestra del sistema operatiu *amfitrió*."
+
+#. type: Plain text
+#, no-wrap
+msgid "<div class=\"bug\">\n"
+msgstr "<div class=\"bug\">\n"
+
+#. type: Plain text
+#, no-wrap
+msgid ""
+"<p>Because, <i>VirtualBox</i> works pretty badly with Tails, we stopped\n"
+"advertising solutions for using virtual machines in Windows or macOS.</p>\n"
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid ""
+"<p>We only present below 2 solutions for Linux: <i>GNOME Boxes</i> and\n"
+"<i>virt-manager</i>.</p>\n"
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid "</div>\n"
+msgstr "</div>\n"
 
 #. type: Plain text
 msgid ""
@@ -74,11 +103,6 @@ msgid ""
 msgstr ""
 "<p>Actualment no oferim cap solució per executar una màquina virtual\n"
 "dins d'un amfitrió de Tails.</p>\n"
-
-#. type: Plain text
-#, no-wrap
-msgid "</div>\n"
-msgstr "</div>\n"
 
 #. type: Plain text
 msgid "This is how Tails looks when run in a virtual machine on a Debian host."
@@ -160,6 +184,20 @@ msgid "    </div>\n"
 msgstr "    </div>\n"
 
 #. type: Plain text
+#, fuzzy, no-wrap
+#| msgid "    <div class=\"caution\">\n"
+msgid "    <div class=\"attack\">\n"
+msgstr "    <div class=\"caution\">\n"
+
+#. type: Plain text
+#, no-wrap
+msgid ""
+"    <p>For example, when using virtual machines in Windows, <a\n"
+"    href=\"https://support.microsoft.com/en-us/windows/retrace-your-steps-with-recall-aa03f8a0-a78b-4b3e-b0a1-2eb8ac48701c\"><i>Microsoft\n"
+"    Recall</i></a> might be taking regular screenshots of your activity.</p>\n"
+msgstr ""
+
+#. type: Plain text
 #, no-wrap
 msgid "<a id=\"traces\"></a>\n"
 msgstr "<a id=\"traces\"></a>\n"
@@ -211,10 +249,16 @@ msgid "Virtualization solutions"
 msgstr "Solucions de virtualització"
 
 #. type: Plain text
+#, fuzzy
+#| msgid ""
+#| "To run Tails inside a virtual machine, you need to have virtualization "
+#| "software installed on the host operating system.  Different "
+#| "virtualization software exists for Linux, Windows, and macOS."
 msgid ""
 "To run Tails inside a virtual machine, you need to have virtualization "
 "software installed on the host operating system.  Different virtualization "
-"software exists for Linux, Windows, and macOS."
+"software exists for Linux, Windows, and macOS.  Unfortunately, we only know "
+"of virtualization solutions for Linux that work well with Tails."
 msgstr ""
 "Per executar Tails dins d'una màquina virtual, cal que tingueu instal·lat el "
 "programari de virtualització al sistema operatiu amfitrió. Existeixen "
@@ -230,22 +274,6 @@ msgstr ""
 "<p>Només esmentem el Programari Lliure, perquè creiem que és\n"
 "una condició necessària per ser de confiança. Existeix programari de virtualització privatiu, com ara\n"
 "<i>VMWare</i>, però no apareix aquí a propòsit.</p>\n"
-
-#. type: Plain text
-#, no-wrap
-msgid "<div class=\"bug\">\n"
-msgstr "<div class=\"bug\">\n"
-
-#. type: Plain text
-#, no-wrap
-msgid ""
-"<p>We are not recommending <i>VirtualBox</i> anymore because only basic\n"
-"functionalities of Tails work in <i>VirtualBox</i>, for example, the display\n"
-"size is limited to 800×600 pixels.</p>\n"
-msgstr ""
-"<p>Hem deixat de recomanar <i>VirtualBox</i> perquè només algunes\n"
-"funcionalitats bàsiques de Tails funcionen a <i>VirtualBox</i>. Per exemple, la\n"
-"resolució de la pantalla està limitada a 800×600 pixels.</p>\n"
 
 #. type: Bullet: '  - '
 msgid ""
@@ -287,6 +315,16 @@ msgstr ""
 #, no-wrap
 msgid "    See [[running Tails in *virt-manager*|virt-manager]].\n"
 msgstr "    Consulteu com [[executar Tails a *virt-manager*|virt-manager]].\n"
+
+#, no-wrap
+#~ msgid ""
+#~ "<p>We are not recommending <i>VirtualBox</i> anymore because only basic\n"
+#~ "functionalities of Tails work in <i>VirtualBox</i>, for example, the display\n"
+#~ "size is limited to 800×600 pixels.</p>\n"
+#~ msgstr ""
+#~ "<p>Hem deixat de recomanar <i>VirtualBox</i> perquè només algunes\n"
+#~ "funcionalitats bàsiques de Tails funcionen a <i>VirtualBox</i>. Per exemple, la\n"
+#~ "resolució de la pantalla està limitada a 800×600 pixels.</p>\n"
 
 #, no-wrap
 #~ msgid "[[!img tails-in-vm.png class=\"screenshot\" alt=\"Tails desktop in a window on a Debian desktop\"]]\n"

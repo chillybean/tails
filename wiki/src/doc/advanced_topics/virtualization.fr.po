@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2024-05-02 21:23+0000\n"
+"POT-Creation-Date: 2025-06-12 00:14+0000\n"
 "PO-Revision-Date: 2024-05-14 20:16+0000\n"
 "Last-Translator: Chre <tor@renaudineau.org>\n"
 "Language-Team: \n"
@@ -39,17 +39,46 @@ msgstr ""
 "Machine_virtuelle desc=\"machines virtuelles\"]]."
 
 #. type: Plain text
+#, fuzzy
+#| msgid ""
+#| "With virtual machines, it is possible to run Tails inside a *host* "
+#| "operating system (Linux, Windows, or macOS). A virtual machine emulates a "
+#| "real computer and its operating system, called a *guest*, which appears "
+#| "in a window on the *host* operating system."
 msgid ""
 "With virtual machines, it is possible to run Tails inside a *host* operating "
-"system (Linux, Windows, or macOS). A virtual machine emulates a real "
-"computer and its operating system, called a *guest*, which appears in a "
-"window on the *host* operating system."
+"system. A virtual machine emulates a real computer and its operating system, "
+"called a *guest*, which appears in a window on the *host* operating system."
 msgstr ""
 "Grâce aux machines virtuelles, il est possible de faire tourner Tails à "
 "l'intérieur d'un système d'exploitation *hôte* (Linux, Windows, ou macOS).  "
 "Une machine virtuelle émule un vrai ordinateur et son système "
 "d’exploitation, appelé un *invité*, qui apparaît dans une fenêtre du système "
 "d'exploitation *hôte*."
+
+#. type: Plain text
+#, no-wrap
+msgid "<div class=\"bug\">\n"
+msgstr "<div class=\"bug\">\n"
+
+#. type: Plain text
+#, no-wrap
+msgid ""
+"<p>Because, <i>VirtualBox</i> works pretty badly with Tails, we stopped\n"
+"advertising solutions for using virtual machines in Windows or macOS.</p>\n"
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid ""
+"<p>We only present below 2 solutions for Linux: <i>GNOME Boxes</i> and\n"
+"<i>virt-manager</i>.</p>\n"
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid "</div>\n"
+msgstr "</div>\n"
 
 #. type: Plain text
 msgid ""
@@ -76,11 +105,6 @@ msgid ""
 msgstr ""
 "<p>Nous ne fournissons pas à l'heure actuelle de solution pour faire tourner\n"
 "une machine virtuelle dans un hôte Tails.</p>\n"
-
-#. type: Plain text
-#, no-wrap
-msgid "</div>\n"
-msgstr "</div>\n"
 
 #. type: Plain text
 msgid "This is how Tails looks when run in a virtual machine on a Debian host."
@@ -115,12 +139,9 @@ msgid ""
 "implications. Depending on the host operating system and your security\n"
 "needs, running Tails in a virtual machine might be dangerous.</p>\n"
 msgstr ""
-"<p>Faire tourner Tails dans une machine virtuelle a de nombreuses "
-"conséquences\n"
-"en terme de sécurité. En fonction du système d’exploitation hôte et de vos "
-"besoins\n"
-"en terme de sécurité, faire tourner Tails dans une machine virtuelle peut "
-"être dangereux.</p>\n"
+"<p>Faire tourner Tails dans une machine virtuelle a de nombreuses conséquences\n"
+"en terme de sécurité. En fonction du système d’exploitation hôte et de vos besoins\n"
+"en terme de sécurité, faire tourner Tails dans une machine virtuelle peut être dangereux.</p>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -158,14 +179,27 @@ msgid ""
 "    <p>Only run Tails in a virtual machine if both the host operating\n"
 "    system and the virtualization software are trustworthy.</p>\n"
 msgstr ""
-"    <p>N'utilisez Tails dans une machine virtuelle que si le système d’"
-"exploitation\n"
+"    <p>N'utilisez Tails dans une machine virtuelle que si le système d’exploitation\n"
 "    hôte et le logiciel de virtualisation sont de confiance.</p>\n"
 
 #. type: Plain text
 #, no-wrap
 msgid "    </div>\n"
 msgstr "    </div>\n"
+
+#. type: Plain text
+#, fuzzy, no-wrap
+#| msgid "    <div class=\"caution\">\n"
+msgid "    <div class=\"attack\">\n"
+msgstr "    <div class=\"caution\">\n"
+
+#. type: Plain text
+#, no-wrap
+msgid ""
+"    <p>For example, when using virtual machines in Windows, <a\n"
+"    href=\"https://support.microsoft.com/en-us/windows/retrace-your-steps-with-recall-aa03f8a0-a78b-4b3e-b0a1-2eb8ac48701c\"><i>Microsoft\n"
+"    Recall</i></a> might be taking regular screenshots of your activity.</p>\n"
+msgstr ""
 
 #. type: Plain text
 #, no-wrap
@@ -189,8 +223,7 @@ msgid ""
 "    <p>Only run Tails in a virtual machine if leaving traces on the hard disk\n"
 "    is not a concern for you.</p>\n"
 msgstr ""
-"    <p>N'utilisez Tails dans une machine virtuelle que si laisser des traces "
-"sur le\n"
+"    <p>N'utilisez Tails dans une machine virtuelle que si laisser des traces sur le\n"
 "    disque dur n'est pas un problème pour vous.</p>\n"
 
 #. type: Plain text
@@ -210,8 +243,7 @@ msgid ""
 "when run in a virtual machine.</p>\n"
 msgstr ""
 "<p>La machine virtuelle Tails ne modifie pas le comportement du système\n"
-"d'exploitation hôte et le trafic réseau de l'hôte n'est pas anonymisé. "
-"L'adresse MAC\n"
+"d'exploitation hôte et le trafic réseau de l'hôte n'est pas anonymisé. L'adresse MAC\n"
 "de l'ordinateur n'est pas modifiée par la fonctionnalité d'[[anonymisation\n"
 "d'adresse MAC|first_steps/welcome_screen/mac_spoofing]] de Tails si\n"
 "celui-ci est lancé dans une machine virtuelle.</p>\n"
@@ -227,10 +259,16 @@ msgid "Virtualization solutions"
 msgstr "Solutions de virtualisation"
 
 #. type: Plain text
+#, fuzzy
+#| msgid ""
+#| "To run Tails inside a virtual machine, you need to have virtualization "
+#| "software installed on the host operating system.  Different "
+#| "virtualization software exists for Linux, Windows, and macOS."
 msgid ""
 "To run Tails inside a virtual machine, you need to have virtualization "
 "software installed on the host operating system.  Different virtualization "
-"software exists for Linux, Windows, and macOS."
+"software exists for Linux, Windows, and macOS.  Unfortunately, we only know "
+"of virtualization solutions for Linux that work well with Tails."
 msgstr ""
 "Pour faire tourner Tails dans une machine virtuelle, vous avez besoin d'un "
 "logiciel de virtualisation installé sur le système d'exploitation hôte. "
@@ -244,29 +282,9 @@ msgid ""
 "condition to be trustworthy. Proprietary virtualization software exist, such as\n"
 "<i>VMWare</i>, but is not listed here on purpose.</p>\n"
 msgstr ""
-"<p>Nous mentionnons uniquement des logiciels libres, parce que nous pensons "
-"que c'est une condition\n"
-"nécessaire pour être digne de confiance. Des logiciels de virtualisation "
-"propriétaires existent, comme par exemple\n"
+"<p>Nous mentionnons uniquement des logiciels libres, parce que nous pensons que c'est une condition\n"
+"nécessaire pour être digne de confiance. Des logiciels de virtualisation propriétaires existent, comme par exemple\n"
 "<i>VMWare</i>, mais il n'est pas listé ici volontairement.</p>\n"
-
-#. type: Plain text
-#, no-wrap
-msgid "<div class=\"bug\">\n"
-msgstr "<div class=\"bug\">\n"
-
-#. type: Plain text
-#, no-wrap
-msgid ""
-"<p>We are not recommending <i>VirtualBox</i> anymore because only basic\n"
-"functionalities of Tails work in <i>VirtualBox</i>, for example, the display\n"
-"size is limited to 800×600 pixels.</p>\n"
-msgstr ""
-"<p>Nous ne recommandons plus <i>VirtualBox</i> car seules des "
-"fonctionnalités\n"
-"basiques de Tails fonctionnent dans <i>VirtualBox</i>, par exemple, la "
-"taille de\n"
-"l'affichage est limitée à 800×600 pixels.</p>\n"
 
 #. type: Bullet: '  - '
 msgid ""
@@ -308,6 +326,16 @@ msgstr ""
 #, no-wrap
 msgid "    See [[running Tails in *virt-manager*|virt-manager]].\n"
 msgstr "    Voir [[utiliser Tails dans *virt-manager*|virt-manager]].\n"
+
+#, no-wrap
+#~ msgid ""
+#~ "<p>We are not recommending <i>VirtualBox</i> anymore because only basic\n"
+#~ "functionalities of Tails work in <i>VirtualBox</i>, for example, the display\n"
+#~ "size is limited to 800×600 pixels.</p>\n"
+#~ msgstr ""
+#~ "<p>Nous ne recommandons plus <i>VirtualBox</i> car seules des fonctionnalités\n"
+#~ "basiques de Tails fonctionnent dans <i>VirtualBox</i>, par exemple, la taille de\n"
+#~ "l'affichage est limitée à 800×600 pixels.</p>\n"
 
 #, fuzzy
 #~| msgid ""
@@ -482,12 +510,12 @@ msgstr "    Voir [[utiliser Tails dans *virt-manager*|virt-manager]].\n"
 #~ "incognito-vmware-1.0.zip)  ([signature](http://files1.cjb.net/incognito/"
 #~ "incognito-vmware-1.0.zip.asc))  devised by the Tails developers. Simply "
 #~ "unzip the file and follow the provided instructions in `README.txt` which "
-#~ "is provided within the archive. The free ([as in beer](http://en."
-#~ "wikipedia.org/wiki/Gratis_versus_Libre)) [VMWare Player](http://www."
-#~ "vmware.com/products/player/) might be useful for this. In order to get "
-#~ "good performance you will probably need administrator privileges in the "
-#~ "computer when you install VMWare. Note that VMWare is closed source, so "
-#~ "it might be hard to determine if it does anything that is bad for "
+#~ "is provided within the archive. The free ([as in beer](http://"
+#~ "en.wikipedia.org/wiki/Gratis_versus_Libre)) [VMWare Player](http://"
+#~ "www.vmware.com/products/player/) might be useful for this. In order to "
+#~ "get good performance you will probably need administrator privileges in "
+#~ "the computer when you install VMWare. Note that VMWare is closed source, "
+#~ "so it might be hard to determine if it does anything that is bad for "
 #~ "anonymity, although it is unlikely."
 #~ msgstr ""
 #~ "Tails fonctionne très bien dans [VMWare](http://www.vmware.com/) avec "
