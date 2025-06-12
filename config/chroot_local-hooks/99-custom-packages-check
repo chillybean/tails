@@ -17,7 +17,7 @@ package_version() {
 }
 
 tails_package_installed() {
-    package_version "${1}" | grep -q --extended-regexp "[.]0tails|[+]tails[0-9]"
+    package_version "${1}" | grep -q --extended-regexp '([.]0|[+])tails[0-9]+$'
 }
 
 errors=
