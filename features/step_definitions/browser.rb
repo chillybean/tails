@@ -11,30 +11,25 @@ def desktop_portal_save_as(filename: nil, directory: nil, bookmark: false)
   # Enter the output filename in the initially focused text entry
   dialog.child('File Name', roleName: 'text').text = filename unless filename.nil?
   unless directory.nil?
-    # Enter the output directory in its text entry
-    @screen.press('ctrl', 'l')
-    # The keyboard shortcut focuses the text entry want to input
-    # directory into, but there's an annoying issue if we also
-    # inputted a filename in the other text entry above; if we did the
-    # other text entry is still focused for a short time, and it loses
-    # its "File Name" name and thus becomes very similar to the text
-    # entry we now want to interact with, making it difficult to
-    # distinguish the two. We do know that the entry we want is
-    # positioned pretty high up in the dialog, so we distinguish them
-    # like that.
-    try_for(10) { dialog.focused_child.position.last < 50 }
-    dialog.focused_child.text = directory
-    @screen.press('enter')
     if bookmark
-      # Unfortunately when using Dogtail to click a bookmark in the
-      # sidebar it clicks the element above it in the list, so instead
-      # of clicking it we always enter the directory via text and then
-      # verify that the corresponding GNOME bookmark becomes selected.
-      try_for(10) do
-        dialog.child('Sidebar', roleName: 'list')
-              .child(directory, roleName: 'list item')
-              .selected?
-      end
+      dialog.child('Sidebar', roleName: 'list')
+            .child(directory, roleName: 'list item')
+            .click
+    else
+      # Enter the output directory in its text entry
+      @screen.press('ctrl', 'l')
+      # The keyboard shortcut focuses the text entry want to input
+      # directory into, but there's an annoying issue if we also
+      # inputted a filename in the other text entry above; if we did the
+      # other text entry is still focused for a short time, and it loses
+      # its "File Name" name and thus becomes very similar to the text
+      # entry we now want to interact with, making it difficult to
+      # distinguish the two. We do know that the entry we want is
+      # positioned pretty high up in the dialog, so we distinguish them
+      # like that.
+      try_for(10) { dialog.focused_child.position.last < 50 }
+      dialog.focused_child.text = directory
+      @screen.press('enter')
     end
   end
   dialog.child('Save', roleName: 'button').click
