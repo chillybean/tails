@@ -449,6 +449,22 @@ Given /^the computer (?:re)?boots Tails$/ do
   post_vm_start_hook
   configure_simulated_Tor_network unless config_bool('DISABLE_CHUTNEY')
 
+  # Disable GTK4 shadows, required for Dogtail to accurately locate
+  # positions of elements in GTK4 applications.
+  [
+    [LIVE_USER, "/home/#{LIVE_USER}"],
+    ['Debian-gdm', '/var/lib/gdm3'],
+  ].each do |user, home_dir|
+    $vm.execute_successfully("mkdir -p '#{home_dir}/.config/gtk-4.0'")
+    $vm.file_overwrite(
+      "#{home_dir}/.config/gtk-4.0/gtk.css",
+      'window, .popover, .tooltip { box-shadow: none; }'
+    )
+    $vm.execute_successfully(
+      "chown -R #{user}:#{user} '#{home_dir}/.config'"
+    )
+  end
+
   @early_boot_hooks&.each(&:call)
   RemoteShell::SignalReady.new($vm)
 
