@@ -1,3 +1,6 @@
+class ChutneyBootstrapFailure < StandardError
+end
+
 def chutney_status_log(cmd)
   action = case cmd
            when 'start'
@@ -6,6 +9,8 @@ def chutney_status_log(cmd)
              'stopping'
            when 'stop_old'
              'cleaning up old instance'
+           when 'kill'
+             'killing leftover processes'
            when 'configure'
              'configuring'
            when 'wait_for_bootstrap'
@@ -25,20 +30,78 @@ def chutney_env
     # The default value (60s) is too short for "chutney wait_for_bootstrap"
     # to succeed reliably.
     'CHUTNEY_START_TIME'     => ENV['CHUTNEY_START_TIME'] || '600',
+    'CHUTNEY_TOR_SANDBOX'    => '0',
   }
 end
 
-def chutney_cmd(cmd)
+def chutney_cmd(cmd, **opts)
   chutney_script = "#{GIT_DIR}/features/scripts/chutney"
   network_definition = "#{GIT_DIR}/features/chutney/test-network"
   chutney_status_log(cmd)
   cmd = 'stop' if cmd == 'stop_old'
-  cmd_helper([chutney_script, cmd, network_definition], env: chutney_env)
+  cmd_helper([chutney_script, cmd, network_definition], env: chutney_env, **opts)
 end
 
 def chutney_data_dir_cleanup
   if File.directory?(chutney_env['CHUTNEY_DATA_DIR'])
     FileUtils.rm_r(chutney_env['CHUTNEY_DATA_DIR'])
+  end
+end
+
+def chutney_processes_match_args
+  [
+    '--full',
+    '--exact',
+    "tor -f #{chutney_env['CHUTNEY_DATA_DIR']}/nodes.*/.*/torrc (--quiet|--hush)",
+  ]
+end
+
+def chutney_processes_running?
+  cmd_helper(['pgrep', *chutney_processes_match_args])
+rescue CommandFailed
+  false
+else
+  true
+end
+
+def kill_chutney_processes(sigkill: false)
+  pkill_args = (sigkill ? ['-KILL'] : []) + chutney_processes_match_args
+  begin
+    cmd_helper(['pkill', *pkill_args])
+  rescue CommandFailed
+    # Either nothing matched, which means we're done, or the
+    # signalling failed, which means we're not done, so we're treating
+    # pkill failure and success the same.
+  end
+
+  try_for(30) do
+    assert_raise(CommandFailed) do
+      cmd_helper(['pgrep', *chutney_processes_match_args])
+    end
+    true
+  end
+end
+
+def clean_up_old_chutney_processes
+  # After an unclean shutdown of the test suite (e.g. Ctrl+C) the
+  # tor processes are left running, listening on the same ports we
+  # are about to use. If chutney's data dir also was removed, this
+  # will prevent chutney from starting the network unless the tor
+  # processes are killed manually.
+  if File.directory?(chutney_env['CHUTNEY_DATA_DIR'])
+    begin
+      chutney_cmd('stop_old')
+      return unless chutney_processes_running?
+    rescue CommandFailed
+      # Chutney raised an error while attempting to cleanly kill the
+      # old processes, so we fall back to our more abrupt approach.
+    end
+  end
+  chutney_status_log('kill')
+  begin
+    kill_chutney_processes
+  rescue StandardError
+    kill_chutney_processes(sigkill: true)
   end
 end
 
@@ -48,18 +111,7 @@ def initialize_chutney
   # setup can be used throughout the same test suite run.
   return if $chutney_initialized
 
-  # After an unclean shutdown of the test suite (e.g. Ctrl+C) the
-  # tor processes are left running, listening on the same ports we
-  # are about to use. If chutney's data dir also was removed, this
-  # will prevent chutney from starting the network unless the tor
-  # processes are killed manually.
-  begin
-    cmd_helper(['pkill', '--full', '--exact',
-                "tor -f #{chutney_env['CHUTNEY_DATA_DIR']}/nodes/.*/torrc --quiet",])
-  rescue StandardError
-    # Nothing to kill
-  end
-
+  clean_up_old_chutney_processes
   if KEEP_CHUTNEY
     # We sometimes look for strings in the Chutney nodes' logs so we
     # clear them so previous runs do not affect the current one.
@@ -68,7 +120,7 @@ def initialize_chutney
     end
     begin
       chutney_cmd('start')
-    rescue Test::Unit::AssertionFailedError => e
+    rescue CommandFailed => e
       if File.directory?(chutney_env['CHUTNEY_DATA_DIR'])
         raise e, %{#{e.message}
 
@@ -89,7 +141,6 @@ want to delete Chutney's data directory and all test suite snapshots:
       end
     end
   else
-    chutney_cmd('stop_old')
     chutney_data_dir_cleanup
     chutney_cmd('configure')
     chutney_cmd('start')
@@ -109,7 +160,14 @@ def wait_until_chutney_is_working
   initialize_chutney
 
   # Documentation: submodules/chutney/README, "Waiting for the network" section
-  chutney_cmd('wait_for_bootstrap')
+  begin
+    chutney_cmd('wait_for_bootstrap', suppress_output: true)
+  rescue CommandFailed => e
+    # The output from this command is massive, so let's just keep the
+    # last status report from the failed command's output.
+    message = "#{e.message}\n#{e.command_output[/^Bootstrap failed:.*/m]}"
+    raise ChutneyBootstrapFailure, message
+  end
 
   # We have to sanity check that all nodes are running because
   # `chutney start` will return success even if some nodes fail.
@@ -125,11 +183,14 @@ def wait_until_chutney_is_working
   # After bootstrapping it still takes time for bridges (especially
   # those with pluggable transports) to become usable.
   try_for(120) do
-    Dir.glob("#{$config['TMPDIR']}/chutney-data/nodes/*") do |node_dir|
-      torrc = File.read("#{node_dir}/torrc")
+    Dir.glob("#{$config['TMPDIR']}/chutney-data/nodes/*") do |node_path|
+      torrc_path = "#{node_path}/torrc"
+      next unless File.directory?(node_path) && File.exist?(torrc_path)
+
+      torrc = File.read(torrc_path)
       next unless torrc[/BridgeRelay 1/]
 
-      log = File.read("#{node_dir}/notice.log")
+      log = File.read("#{node_path}/notice.log")
       unless log[/Self-testing indicates your ORPort .* is reachable from the outside/]
         raise 'Chutney bridge: ORPort not reachable yet'
       end
