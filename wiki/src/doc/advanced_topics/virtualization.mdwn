@@ -7,9 +7,19 @@ restart your computer every time. This is possible using
 [[!wikipedia Virtual_machine desc="virtual machines"]].
 
 With virtual machines, it is possible to run Tails inside a *host*
-operating system (Linux, Windows, or macOS). A virtual machine
+operating system. A virtual machine
 emulates a real computer and its operating system, called a *guest*, which
 appears in a window on the *host* operating system.
+
+<div class="bug">
+
+<p>Because, <i>VirtualBox</i> works pretty badly with Tails, we stopped
+advertising solutions for using virtual machines in Windows or macOS.</p>
+
+<p>We only present below 2 solutions for Linux: <i>GNOME Boxes</i> and
+<i>virt-manager</i>.</p>
+
+</div>
 
 When running Tails in a virtual machine, you can use most features of
 Tails from your usual operating system, and you can use both Tails and your usual operating system in parallel,
@@ -89,20 +99,14 @@ Virtualization solutions
 To run Tails inside a virtual machine, you need to have
 virtualization software installed on the host operating system.
 Different virtualization software exists for Linux, Windows, and macOS.
+Unfortunately, we only know of virtualization solutions for Linux that work
+well with Tails.
 
 <div class="note">
 
 <p>We only mention Free Software, because we believe that it is a necessary
 condition to be trustworthy. Proprietary virtualization software exist, such as
 <i>VMWare</i>, but is not listed here on purpose.</p>
-
-</div>
-
-<div class="bug">
-
-<p>We are not recommending <i>VirtualBox</i> anymore because only basic
-functionalities of Tails work in <i>VirtualBox</i>, for example, the display
-size is limited to 800×600 pixels.</p>
 
 </div>
 
