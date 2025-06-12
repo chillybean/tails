@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2024-05-02 21:23+0000\n"
+"POT-Creation-Date: 2025-06-12 00:14+0000\n"
 "PO-Revision-Date: 2024-05-18 11:53+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,20 +36,49 @@ msgid ""
 "Virtual_machine desc=\"virtual machines\"]]."
 msgstr ""
 "Иногда бывает удобнее запустить Tails без необходимости перезагружать "
-"компьютер. Это возможно с помощью [[!wikipedia_ru Виртуальная_машина desc="
-"\"виртуальных машин\"]]."
+"компьютер. Это возможно с помощью [[!wikipedia_ru Виртуальная_машина "
+"desc=\"виртуальных машин\"]]."
 
 #. type: Plain text
+#, fuzzy
+#| msgid ""
+#| "With virtual machines, it is possible to run Tails inside a *host* "
+#| "operating system (Linux, Windows, or macOS). A virtual machine emulates a "
+#| "real computer and its operating system, called a *guest*, which appears "
+#| "in a window on the *host* operating system."
 msgid ""
 "With virtual machines, it is possible to run Tails inside a *host* operating "
-"system (Linux, Windows, or macOS). A virtual machine emulates a real "
-"computer and its operating system, called a *guest*, which appears in a "
-"window on the *host* operating system."
+"system. A virtual machine emulates a real computer and its operating system, "
+"called a *guest*, which appears in a window on the *host* operating system."
 msgstr ""
 "Таким образом нетрудно запустить Tails из другой, уже работающей "
 "операционной системы — *хоста* (Linux, Windows или macOS). Виртуальная "
 "машина имитирует реальный компьютер и его операционную систему, называемую "
 "*гостевой*. Она отображается в окне операционной системы *хоста*."
+
+#. type: Plain text
+#, no-wrap
+msgid "<div class=\"bug\">\n"
+msgstr "<div class=\"bug\">\n"
+
+#. type: Plain text
+#, no-wrap
+msgid ""
+"<p>Because, <i>VirtualBox</i> works pretty badly with Tails, we stopped\n"
+"advertising solutions for using virtual machines in Windows or macOS.</p>\n"
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid ""
+"<p>We only present below 2 solutions for Linux: <i>GNOME Boxes</i> and\n"
+"<i>virt-manager</i>.</p>\n"
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid "</div>\n"
+msgstr "</div>\n"
 
 #. type: Plain text
 msgid ""
@@ -75,11 +104,6 @@ msgid ""
 msgstr ""
 "<p> В настоящее время у нас нет решения для запуска виртуальной машины\n"
 "в Tails (как хост-системе).</p>\n"
-
-#. type: Plain text
-#, no-wrap
-msgid "</div>\n"
-msgstr "</div>\n"
 
 #. type: Plain text
 #, fuzzy
@@ -163,6 +187,20 @@ msgid "    </div>\n"
 msgstr "    </div>\n"
 
 #. type: Plain text
+#, fuzzy, no-wrap
+#| msgid "    <div class=\"caution\">\n"
+msgid "    <div class=\"attack\">\n"
+msgstr "    <div class=\"caution\">\n"
+
+#. type: Plain text
+#, no-wrap
+msgid ""
+"    <p>For example, when using virtual machines in Windows, <a\n"
+"    href=\"https://support.microsoft.com/en-us/windows/retrace-your-steps-with-recall-aa03f8a0-a78b-4b3e-b0a1-2eb8ac48701c\"><i>Microsoft\n"
+"    Recall</i></a> might be taking regular screenshots of your activity.</p>\n"
+msgstr ""
+
+#. type: Plain text
 #, no-wrap
 msgid "<a id=\"traces\"></a>\n"
 msgstr "<a id=\"traces\"></a>\n"
@@ -218,10 +256,16 @@ msgid "Virtualization solutions"
 msgstr "Решения для виртуализации"
 
 #. type: Plain text
+#, fuzzy
+#| msgid ""
+#| "To run Tails inside a virtual machine, you need to have virtualization "
+#| "software installed on the host operating system.  Different "
+#| "virtualization software exists for Linux, Windows, and macOS."
 msgid ""
 "To run Tails inside a virtual machine, you need to have virtualization "
 "software installed on the host operating system.  Different virtualization "
-"software exists for Linux, Windows, and macOS."
+"software exists for Linux, Windows, and macOS.  Unfortunately, we only know "
+"of virtualization solutions for Linux that work well with Tails."
 msgstr ""
 "Чтобы запустить Tails внутри виртуальной машины, вам необходимо установить "
 "программу виртуализации в операционной системе хоста. Есть разные программы "
@@ -233,19 +277,6 @@ msgid ""
 "<p>We only mention Free Software, because we believe that it is a necessary\n"
 "condition to be trustworthy. Proprietary virtualization software exist, such as\n"
 "<i>VMWare</i>, but is not listed here on purpose.</p>\n"
-msgstr ""
-
-#. type: Plain text
-#, no-wrap
-msgid "<div class=\"bug\">\n"
-msgstr "<div class=\"bug\">\n"
-
-#. type: Plain text
-#, no-wrap
-msgid ""
-"<p>We are not recommending <i>VirtualBox</i> anymore because only basic\n"
-"functionalities of Tails work in <i>VirtualBox</i>, for example, the display\n"
-"size is limited to 800×600 pixels.</p>\n"
 msgstr ""
 
 #. type: Bullet: '  - '
