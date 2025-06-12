@@ -277,7 +277,7 @@ class FilteredControlPortProxySession:
         self.allowed_commands = handler.allowed_commands
         self.allowed_events = handler.allowed_events
         self.client_address: tuple[str, int] = handler.client_address
-        self.client_pid: Optional[int] = handler.client_pid
+        self.client_pid: int | None = handler.client_pid
         self.controller = handler.controller
         self.debug_log = handler.debug_log
         self.filter_name = handler.filter_name
@@ -658,7 +658,7 @@ class FilteredControlPortProxySession:
                             # prefix to have it in circuit-status'
                             # format. They are already \r\n-terminated.
                             for c in circuits:
-                                new_lines += str(c._raw_content, "ascii").removeprefix(
+                                new_lines += str(c._raw_content, "ascii").removeprefix(  # noqa: SLF001
                                     "650 CIRC "
                                 )
                             # Multi-line responses are terminated with
@@ -731,9 +731,7 @@ class FilteredControlPortProxyHandler(socketserver.StreamRequestHandler):
                             filter_["name"] = name
                     self.filters += filters
             except (yaml.parser.ParserError, yaml.scanner.ScannerError) as err:
-                log(
-                    f"filter '{filter_file}' has bad YAML and was not loaded: {str(err)}"
-                )
+                log(f"filter '{filter_file}' has bad YAML and was not loaded: {err!s}")
 
     def add_allowed_commands(self, commands):
         for cmd in commands:
@@ -898,16 +896,16 @@ class FilteredControlPortProxyHandler(socketserver.StreamRequestHandler):
         ) not in ipaddress.ip_network(LOCAL_VETH_NETWORK)
         if self.tor_browser_mode and remote_connection:
             self.debug_log(
-                "filter '{}' has `tor-browser-mode` set "
-                "and we are remote so the option was disabled".format(self.filter_name)
+                f"filter '{self.filter_name}' has `tor-browser-mode` set "
+                "and we are remote so the option was disabled"
             )
             self.tor_browser_mode = False
 
         if len(self.filters) == 0:
             status = "no matching filter found, using an empty one"
         else:
-            status = "loaded filter: {}".format(self.filter_name)
-        log("{} connected: {}".format(self.client_desc, status))
+            status = f"loaded filter: {self.filter_name}"
+        log(f"{self.client_desc} connected: {status}")
         if GLOBAL_ARGS.debug:
             log("Final rules:")
             log(
@@ -930,7 +928,7 @@ class FilteredControlPortProxyHandler(socketserver.StreamRequestHandler):
         finally:
             if self.controller:
                 self.controller.close()
-            log("{} disconnected: {}".format(self.client_desc, disconnect_reason))
+            log(f"{self.client_desc} disconnected: {disconnect_reason}")
 
 
 class FilteredControlPortProxy(socketserver.ThreadingTCPServer):
@@ -953,16 +951,20 @@ def main():
         type=str,
         metavar="ADDR",
         default=DEFAULT_LISTEN_ADDRESS,
-        help="specifies the address on which the server listens "
-        + f"(default: {DEFAULT_LISTEN_ADDRESS})",
+        help=(
+            "specifies the address on which the server listens "
+            f"(default: {DEFAULT_LISTEN_ADDRESS})"
+        ),
     )
     parser.add_argument(
         "--listen-port",
         type=int,
         metavar="PORT",
         default=DEFAULT_LISTEN_PORT,
-        help="specifies the port on which the server listens "
-        + f"(default: {DEFAULT_LISTEN_PORT})",
+        help=(
+            "specifies the port on which the server listens "
+            f"(default: {DEFAULT_LISTEN_PORT})"
+        ),
     )
     parser.add_argument(
         "--listen-interface",
@@ -982,8 +984,9 @@ def main():
         "--complain",
         action="store_true",
         default=False,
-        help="disables all filtering and just prints the commands sent "
-        + "by the client",
+        help=(
+            "disables all filtering and just prints the commands sent by the client"
+        ),
     )
     parser.add_argument(
         "--debug",
