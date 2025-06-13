@@ -174,7 +174,6 @@ fi
 # Check if password is actually set
 if [ -z "${TAILS_USER_PASSWORD}" ] ; then
     rm -f "${POLKIT}" "${SUDOERS}"
-    deluser "${LIVE_USERNAME}" sudo
     passwd -d "${LIVE_USERNAME}"
     install -o root -g root -m 0440 /dev/null "${NO_PASSWORD_LECTURE}"
     echo "Defaults:amnesia lecture=always" > "${NO_PASSWORD_LECTURE}"
