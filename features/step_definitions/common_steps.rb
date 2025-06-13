@@ -591,7 +591,14 @@ Given /^I disable the Unsafe Browser$/ do
 end
 
 Given /^the Tails desktop is ready$/ do
-  @screen.wait(gnome_activities_overview_image, 180)
+  # GNOME normally starts with the Activities Overview open, but we
+  # enable the no-overview@fthx extension to exit to the normal
+  # desktop. Since Trixie the extension sometimes fail to exit the
+  # Activities Overview, and we detect that here by increasing the
+  # sensitivity so it only matches the Activities Overview button when
+  # it is unpressed and not showing the Activities Overview (with the
+  # default sensitivity it matches both states).
+  @screen.wait(gnome_activities_overview_image, 180, sensitivity: 0.95)
   # Disable screen blanking since we sometimes need to wait long
   # enough for it to activate, which can cause problems when we are
   # waiting for an image for a very long time.
