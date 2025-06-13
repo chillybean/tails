@@ -1137,6 +1137,7 @@ def launch_tor_browser(**opts)
   launch_app(
     'org.boum.tails.TorBrowser.desktop',
     'Firefox',
+    timeout: 60,
     **opts
   )
 end
