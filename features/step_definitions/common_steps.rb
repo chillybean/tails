@@ -562,13 +562,21 @@ Given /^I open Tails Greeter additional settings dialog$/ do
   open_greeter_additional_settings
 end
 
+def wait_for_welcome_screen_settings_to_vanish
+  try_for(10) do
+    assert_raise(Dogtail::Failure) do
+      greeter.child('Additional Settings', roleName: 'dialog', retry: false)
+    end
+    true
+  end
+end
+
 Given /^I disable networking in Tails Greeter$/ do
   dialog = open_greeter_additional_settings
-  dialog.child(description: 'Configure Offline Mode').grabFocus
-  @screen.press('Return')
-
-  dialog.child('Disable all networking').parent.parent.grabFocus
-  @screen.press('Return')
+  dialog.child('Offline Mode', roleName: 'label').click
+  dialog.child('Disable all networking').click
+  dialog.child('Add', roleName: 'button').click
+  wait_for_welcome_screen_settings_to_vanish
 end
 
 Given /^I set an administration password$/ do
