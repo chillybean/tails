@@ -589,10 +589,11 @@ Given /^I set an administration password$/ do
 end
 
 Given /^I disable the Unsafe Browser$/ do
-  open_greeter_additional_settings
-  @screen.wait('TailsGreeterUnsafeBrowser.png', 20).click
-  @screen.wait('TailsGreeterUnsafeBrowserDisable.png', 20).click
-  @screen.wait('TailsGreeterAdditionalSettingsAdd.png', 10).click
+  dialog = open_greeter_additional_settings
+  dialog.child('Unsafe Browser', roleName: 'label').click
+  dialog.child('Disable the Unsafe Browser').click
+  dialog.child('Add', roleName: 'button').click
+  wait_for_welcome_screen_settings_to_vanish
 end
 
 Given /^the Tails desktop is ready$/ do
