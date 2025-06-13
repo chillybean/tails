@@ -147,7 +147,7 @@ Given qr{^a non-existing web server$}, fun ($c) {
     1;
 };
 
-Given qr{^a HTTP server on (.*)$}, fun ($c) {
+Given qr{^an HTTP server on (.*)$}, fun ($c) {
     my $listen = $c->matches->[0];
 
     my $webroot
@@ -168,7 +168,7 @@ Given qr{^a HTTP server on (.*)$}, fun ($c) {
     like($pid, '/^-?\d+$/', 'PID is numeric');
 };
 
-Given qr{^a HTTPS server with (a valid|an invalid|an expired|a not-valid-yet) SSL certificate(?:, that redirects to ([^ ]+) over cleartext HTTP)?$}, fun ($c) {
+Given qr{^an HTTPS server with (a valid|an invalid|an expired|a not-valid-yet) SSL certificate(?:, that redirects to ([^ ]+) over cleartext HTTP)?$}, fun ($c) {
     my $type;
     if    ($c->matches->[0] eq q{a valid})         { $type = 'valid';         }
     elsif ($c->matches->[0] eq q{an invalid})      { $type = 'invalid';       }

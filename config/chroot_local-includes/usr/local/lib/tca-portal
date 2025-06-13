@@ -349,7 +349,7 @@ class Handler(socketserver.StreamRequestHandler):
         """
         This will handle bytes that we believe might form a valid request (i.e.: a not-too-long sequence of
         bytes with no newline in between; see Handler.reader) and check if they actually do.
-        If the bytes do not form a syntactically valid request, an Response is returned.
+        If the bytes do not form a syntactically valid request, a Response is returned.
 
         If `line` is indeed a syntactically valid request, job is passed to Handler.handle_request, which will
         perform additional validation and spawn a dedicated process to handle the request.

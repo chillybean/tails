@@ -54,7 +54,7 @@ sub done {
 }
 
 $SIG{__DIE__} = sub {
-    # Avoid the "done" file to be created by an caught exception.
+    # Avoid the "done" file to be created by a caught exception.
     # When a eval block is being run, e.g. for exception catching, $^S is true.
     # It is false otherwise.
     done unless $^S;

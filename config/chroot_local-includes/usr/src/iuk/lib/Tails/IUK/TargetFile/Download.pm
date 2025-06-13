@@ -114,7 +114,7 @@ method _build_ua () {
     my $ua;
     if ($ENV{HARNESS_ACTIVE} && $self->fail_n_times) {
         # When running under the test suite and we're expected to fail
-        # N >= 1 times, simulate a HTTP server that only sends the first
+        # N >= 1 times, simulate an HTTP server that only sends the first
         # byte of the requested file, for the N first download attempts:
         # this allows exercising this class' ability to resume an
         # interrupted download.
