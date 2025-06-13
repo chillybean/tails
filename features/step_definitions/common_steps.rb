@@ -882,7 +882,7 @@ Then /^Tails eventually (shuts down|restarts)$/ do |mode|
       # shutdown. To avoid the test failing in that case, we also check
       # here if we see the greeter and in that case force a shutdown of
       # the VM.
-      @screen.wait('TailsGreeter.png', 1)
+      @screen.find('TailsGreeter.png')
       $vm.power_off
     end
     true
