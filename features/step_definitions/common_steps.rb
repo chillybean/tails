@@ -508,18 +508,9 @@ Given /^I set the language to (.*) \((.*)\)$/ do |lang, lang_code|
 end
 
 Given /^I log in to a new session(?: in ([^ ]*) \(([^ ]*)\))?( without activating the Persistent Storage)?( after having activated the Persistent Storage| expecting no warning about the Persistent Storage not being activated)?$/ do |lang, lang_code, expect_warning, expect_no_warning|
-  # We'll record the location of the login button before changing
-  # language so we only need one (English) image for the button while
-  # still being able to click it in any language.
-  login_button = if RTL_LANGUAGES.include?(lang)
-                   # If we select a RTL language below, the
-                   # login and shutdown buttons will
-                   # swap place.
-                   ['TailsGreeterShutdownButton.png']
-                 else
-                   ['TailsGreeterLoginButton.png', 'TailsGreeterLoginButtonGerman.png']
-                 end
-  login_button_region = @screen.wait_any(login_button, 15)
+  # We find the login button before localizing it since it's easier to
+  # find then.
+  login_button = greeter.child('Start Tails', roleName: 'button')
   if lang && lang != 'English'
     step "I set the language to #{lang} (#{lang_code})"
     # After selecting options (language, administration password,
@@ -528,7 +519,7 @@ Given /^I log in to a new session(?: in ([^ ]*) \(([^ ]*)\))?( without activatin
     # button is honored.
     sleep(10)
   end
-  login_button_region.click
+  login_button.click
 
   begin
     @screen.wait('PersistentStorageNotUnlocked.png', 4)
