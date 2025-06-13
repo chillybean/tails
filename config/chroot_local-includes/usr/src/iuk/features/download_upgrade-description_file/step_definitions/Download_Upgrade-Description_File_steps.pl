@@ -49,7 +49,7 @@ Given qr{^a usable temporary directory$}, fun ($c) {
     ok(-d $tempdir);
 };
 
-Given qr{^a running "([^"]+)", version "([^"]+)", initially installed at version "([^"]+)", targetted at "([^"]+)", using channel "([^"]+)"$}, fun($c) {
+Given qr{^a running "([^"]+)", version "([^"]+)", initially installed at version "([^"]+)", targeted at "([^"]+)", using channel "([^"]+)"$}, fun($c) {
     for ((0..4)) {
         assert(exists  $c->matches->[$_]);
         assert(defined $c->matches->[$_]);
@@ -134,7 +134,7 @@ Given qr{^(a trusted|an untrusted) OpenPGP signing key pair$}, fun ($c) {
         = $c->{stash}->{scenario}->{$name}
         = path($c->{stash}->{scenario}->{tempdir}, "$name")->absolute;
 
-    # may be overriden by the signature steps,
+    # may be overridden by the signature steps,
     # but we have to initialize the default case somewhere
     $c->{stash}->{scenario}->{trusted_gnupg_homedir} = $c->{stash}->{scenario}->{dev_gnupg_homedir};
 

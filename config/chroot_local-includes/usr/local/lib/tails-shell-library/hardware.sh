@@ -66,8 +66,8 @@ get_name_of_nic() {
   echo "${vendor} ${device}"
 }
 
-# Auxillary function for mod_rev_dep(). It recurses over the graph of
-# kernel module depencies of $@ (note that it only works for loaded
+# Auxiliary function for mod_rev_dep(). It recurses over the graph of
+# kernel module dependencies of $@ (note that it only works for loaded
 # modules). To deal with circular dependencies a global variable
 # MOD_REV_DEP_VISITED keeps track of already visited nodes, and it
 # should be unset before the first call of this function.

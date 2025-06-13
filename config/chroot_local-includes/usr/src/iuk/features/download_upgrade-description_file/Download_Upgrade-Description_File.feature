@@ -5,7 +5,7 @@ Feature: download and verify an upgrade-description file
 
   Background:
     Given a usable temporary directory
-    And a running "Tails", version "0.12", initially installed at version "0.11", targetted at "s390x", using channel "stable"
+    And a running "Tails", version "0.12", initially installed at version "0.11", targeted at "s390x", using channel "stable"
     And a HTTP random port
     And a HTTPS random port
     And a trusted Certificate Authority
