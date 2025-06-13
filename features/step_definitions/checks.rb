@@ -86,10 +86,8 @@ def key_valid_for_n_months?(type, fingerprint, months)
   valid_subkeys = subkeys.filter do |subkey_line|
     if type == :APT && !get_subkey_use(subkey_line).include?('S')
       # we don't care about non-signing key
-      return false
-    end
-
-    if check_key_valid(subkey_line, months)
+      false
+    elsif check_key_valid(subkey_line, months)
       true
     else
       debug_log("subkey not valid: #{subkey_line}")
