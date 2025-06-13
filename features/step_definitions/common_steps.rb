@@ -496,8 +496,7 @@ Given /^I set the language to (.*) \((.*)\)$/ do |lang, lang_code|
   # so Dogtail is unable to click it directly. We let it grab focus
   # and activate it via the keyboard instead.
   try_for(30) do
-    greeter.child(description: 'Configure Language').grabFocus
-    @screen.press('Return')
+    greeter.child(description: 'Configure Language').click
     # Give Gtk some time to open the language popover
     sleep(1)
     # Check if the language popover is open
