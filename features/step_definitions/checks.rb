@@ -77,10 +77,9 @@ def key_valid_for_n_months?(type, fingerprint, months, gpg_home)
   assert([:OpenPGP, :APT].include?(type))
   assert(months.is_a?(Integer))
 
-  list_options = '--list-options show-unusable-subkeys'
-
   key_description = $vm.execute_successfully(
-    "gpg --homedir '#{gpg_home}' --batch  #{list_options} --list-key #{fingerprint}",
+    "gpg --homedir '#{gpg_home}' --batch --list-options show-unusable-subkeys " \
+    "--list-key #{fingerprint}",
     user: LIVE_USER
   ).stdout.split("\n")
 
