@@ -200,7 +200,7 @@ class UDD:
 
 def strip_tails_version(version: str) -> Version:
     """if we have a Tails own fork get the Debian version."""
-    match = re.match(r"^(.*)(\.0tails[0-9]+)$", version)
+    match = re.match(r"^(.*)(tails[0-9]+)$", version)
     if match:
         return Version(match[1])
     else:
