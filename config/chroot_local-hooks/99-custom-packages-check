@@ -36,6 +36,31 @@ tails_package_installed() {
     version_matches_new_re "$version"
 }
 
+installed_custom_packages_are_monitored() {
+    # Verify that all installed packages whose version match our
+    # custom packages versioning scheme are part of those this hook
+    # will verify in the future; so if we add a new custom package, we
+    # FTBFS until we update this hook. This avoids 1 of our custom
+    # package being silently superseded by a newer version from
+    # Debian, and us not noticing until we're doing manual QA as part
+    # of our release process.
+    dpkg-query --show --showformat='${Package} ${Version}' | while read -r LINE; do
+        package=${LINE% *}
+        version=${LINE#* }
+        if version_matches_old_re "$version"; then
+            echo "Installed custom package '$package' uses an obsolete versioning scheme: '$version'." >&2
+            return 1
+        fi
+        if version_matches_new_re "$version"; then
+            if ! echo "$TAILS_PACKAGES" | grep --line-regexp -q "$package"; then
+
+                echo "Installed custom package '$package' must be listed in the TAILS_PACKAGES variable." >&2
+                return 1
+            fi
+        fi
+    done
+}
+
 errors=
 for p in ${TAILS_PACKAGES}; do
     if ! tails_package_installed "${p}"; then
@@ -51,3 +76,5 @@ if [ -n "${errors}" ]; then
     done
     exit 1
 fi
+
+installed_custom_packages_are_monitored || exit 1
