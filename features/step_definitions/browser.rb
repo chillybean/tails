@@ -18,9 +18,9 @@ def desktop_portal_save_as(filename: nil, directory: nil, bookmark: false)
     else
       # Enter the output directory in its text entry
       @screen.press('ctrl', 'l')
-      # The keyboard shortcut focuses the text entry want to input
-      # directory into, but there's an annoying issue if we also
-      # inputted a filename in the other text entry above; if we did the
+      # The keyboard shortcut focuses the text entry we want to input
+      # the directory path into, but there's an annoying issue if we also
+      # inputted a filename in the other text entry earlier; if we did the
       # other text entry is still focused for a short time, and it loses
       # its "File Name" name and thus becomes very similar to the text
       # entry we now want to interact with, making it difficult to
