@@ -461,7 +461,10 @@ Given /^the computer (?:re)?boots Tails$/ do
       'window, .popover, .tooltip { box-shadow: none; }'
     )
     $vm.execute_successfully(
-      "chown -R #{user}:#{user} '#{home_dir}/.config'"
+      "chown #{user}:#{user} '#{home_dir}/.config'"
+    )
+    $vm.execute_successfully(
+      "chown -R #{user}:#{user} '#{home_dir}/.config/gtk-4.0'"
     )
   end
 
