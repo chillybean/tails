@@ -126,6 +126,11 @@ avoid-gtk-launch:
     - apt-get -qy install --no-install-recommends python3 git
     - ./bin/test-utils/gtk-launch
 
+codespell:
+  script:
+    - apt-get -qy install codespell
+    - codespell
+
 ruff-lint-changed-files:
   only:
     - merge_requests
