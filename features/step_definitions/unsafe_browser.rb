@@ -72,11 +72,12 @@ Then /^the Unsafe Browser has started$/ do
 end
 
 Then /^I see a warning about another instance already running$/ do
-  assert_not_nil(
+  try_for(30) do
     Dogtail::Application.new('zenity')
-    .child(roleName: 'label')
-    .text['Another Unsafe Browser is currently running']
-  )
+                        .child(roleName: 'label')
+                        .text['Another Unsafe Browser is currently running']
+    true
+  end
 end
 
 Then /^I can start the Unsafe Browser again$/ do

@@ -3,24 +3,33 @@ def browser
 end
 
 def desktop_portal_save_as(filename: nil, directory: nil, bookmark: false)
-  dialog = Dogtail::Application.new('org.gnome.Nautilus').child(roleName: 'frame')
+  dialog = nil
+  try_for(30) do
+    dialog = Dogtail::Application.new('org.gnome.Nautilus').child(roleName: 'frame')
+    true
+  end
   # Enter the output filename in the initially focused text entry
   dialog.child('File Name', roleName: 'text').text = filename unless filename.nil?
   unless directory.nil?
-    # Enter the output directory in its text entry
-    @screen.press('ctrl', 'l')
-    dialog.child('', roleName: 'text').text = directory
-    @screen.press('enter')
     if bookmark
-      # Unfortunately when using Dogtail to click a bookmark in the
-      # sidebar it clicks the element above it in the list, so instead
-      # of clicking it we always enter the directory via text and then
-      # verify that the corresponding GNOME bookmark becomes selected.
-      try_for(10) do
-        dialog.child('Sidebar', roleName: 'list')
-              .child(directory, roleName: 'list item')
-              .selected?
-      end
+      dialog.child('Sidebar', roleName: 'list')
+            .child(directory, roleName: 'list item')
+            .click
+    else
+      # Enter the output directory in its text entry
+      @screen.press('ctrl', 'l')
+      # The keyboard shortcut focuses the text entry we want to input
+      # the directory path into, but there's an annoying issue if we also
+      # inputted a filename in the other text entry earlier; if we did the
+      # other text entry is still focused for a short time, and it loses
+      # its "File Name" name and thus becomes very similar to the text
+      # entry we now want to interact with, making it difficult to
+      # distinguish the two. We do know that the entry we want is
+      # positioned pretty high up in the dialog, so we distinguish them
+      # like that.
+      try_for(10) { dialog.focused_child.position.last < 50 }
+      dialog.focused_child.text = directory
+      @screen.press('enter')
     end
   end
   dialog.child('Save', roleName: 'button').click
@@ -127,6 +136,7 @@ def tor_browser_application_info(defaults)
       browser_reload_button_image:     'TorBrowserReloadButton.png',
       browser_reload_button_image_rtl: 'TorBrowserReloadButtonRTL.png',
       browser_stop_button_image:       'TorBrowserStopButton.png',
+      flatpak:                         true,
     }
   )
 end
@@ -146,6 +156,7 @@ def unsafe_browser_application_info(defaults)
       new_tab_button_image:        'UnsafeBrowserNewTabButton.png',
       browser_reload_button_image: 'UnsafeBrowserReloadButton.png',
       browser_stop_button_image:   'UnsafeBrowserStopButton.png',
+      flatpak:                     false,
     }
   )
 end
@@ -235,7 +246,7 @@ Then /^"([^"]+)" has loaded in the Tor Browser$/ do |title|
   page_has_loaded_in_the_tor_browser(title)
 end
 
-def xul_app_shared_lib_check(pid, expected_absent_tbb_libs = [])
+def xul_app_shared_lib_check(pid, expected_absent_tbb_libs: [], flatpak: false)
   absent_tbb_libs = []
   unwanted_native_libs = []
   tbb_libs = $vm.execute_successfully('ls -1 ${TBB_INSTALL}/*.so',
@@ -246,10 +257,14 @@ def xul_app_shared_lib_check(pid, expected_absent_tbb_libs = [])
   ).stdout.split
   tbb_libs.each do |lib|
     lib_name = File.basename lib
+    # Since Trixie the `pmap --show-path` output omits "/usr" from the
+    # paths when running as a Flatpak.
+    lib.sub!(%r{^/usr}, '') if flatpak
     absent_tbb_libs << lib_name unless /\W#{lib}$/.match(firefox_pmap_info)
     native_libs.each do |native_lib|
       next unless native_lib.end_with?("/#{lib_name}")
 
+      native_lib.sub!(%r{^/usr}, '') if flatpak
       if /\W#{native_lib}$"/.match(firefox_pmap_info)
         unwanted_native_libs << lib_name
       end
@@ -270,7 +285,8 @@ Then /^the (.*) uses all expected TBB shared libraries$/ do |application|
   ).stdout.chomp
   pid = pid.scan(/\d+/).first
   assert_match(/\A\d+\z/, pid, "It seems like #{application} is not running")
-  xul_app_shared_lib_check(pid, info[:unused_tbb_libs])
+  xul_app_shared_lib_check(pid, expected_absent_tbb_libs: info[:unused_tbb_libs],
+                                flatpak:                  info[:flatpak])
 end
 
 Then /^the (.*) chroot is torn down$/ do |browser|
@@ -298,7 +314,7 @@ end
 When /^I download some file in the Tor Browser to the (.*) directory$/ do |target_dir|
   @some_file = 'tails-signing.key'
   some_url = "https://tails.net/#{@some_file}"
-  step "I open the address \"#{some_url}\" in the Tor Browser without waiting"
+  step "I open the address \"#{some_url}\" in the Tor Browser"
   # Note that the "Opening ..." dialog sometimes appear with roleName
   # "frame" and sometimes with "dialog", so we deliberately do not
   # specify the roleName.

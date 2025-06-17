@@ -423,6 +423,18 @@ def add_early_boot_hook(&block)
   @early_boot_hooks << block
 end
 
+def wait_for_ponytail(user: LIVE_USER, timeout: 60)
+  try_for(timeout) do
+    $vm.execute(
+      'dbus-send --session --print-reply ' \
+      '--dest=org.gnome.Shell.Introspect ' \
+      '/org/gnome/Shell/Introspect ' \
+      'org.gnome.Shell.Introspect.GetWindows',
+      user:
+    ).success?
+  end
+end
+
 Given /^the computer (?:re)?boots Tails$/ do
   enter_boot_menu_cmdline
   boot_key = @os_loader == 'UEFI' ? 'F10' : 'Return'
@@ -437,6 +449,25 @@ Given /^the computer (?:re)?boots Tails$/ do
   post_vm_start_hook
   configure_simulated_Tor_network unless config_bool('DISABLE_CHUTNEY')
 
+  # Disable GTK4 shadows, required for Dogtail to accurately locate
+  # positions of elements in GTK4 applications.
+  [
+    [LIVE_USER, "/home/#{LIVE_USER}"],
+    ['Debian-gdm', '/var/lib/gdm3'],
+  ].each do |user, home_dir|
+    $vm.execute_successfully("mkdir -p '#{home_dir}/.config/gtk-4.0'")
+    $vm.file_overwrite(
+      "#{home_dir}/.config/gtk-4.0/gtk.css",
+      'window, .popover, .tooltip { box-shadow: none; }'
+    )
+    $vm.execute_successfully(
+      "chown #{user}:#{user} '#{home_dir}/.config'"
+    )
+    $vm.execute_successfully(
+      "chown -R #{user}:#{user} '#{home_dir}/.config/gtk-4.0'"
+    )
+  end
+
   @early_boot_hooks&.each(&:call)
   RemoteShell::SignalReady.new($vm)
 
@@ -447,6 +478,10 @@ Given /^the computer (?:re)?boots Tails$/ do
     # Screen appears, so we wait for that to happen using image
     # matching.
     @screen.wait('TailsGreeter.png', 60)
+    # Enable GNOME introspection for Dogtail and Ponytail
+    $vm.execute_successfully('gnome-extensions enable automated-testing@tails.net',
+                             user: 'Debian-gdm')
+    wait_for_ponytail(user: 'Debian-gdm')
     # Close the notification which otherwise obscures parts of the
     # Welcome Screen window.
     Dogtail::Application.new('gnome-shell', user: 'Debian-gdm')
@@ -464,8 +499,7 @@ Given /^I set the language to (.*) \((.*)\)$/ do |lang, lang_code|
   # so Dogtail is unable to click it directly. We let it grab focus
   # and activate it via the keyboard instead.
   try_for(30) do
-    greeter.child(description: 'Configure Language').grabFocus
-    @screen.press('Return')
+    greeter.child(description: 'Configure Language').click
     # Give Gtk some time to open the language popover
     sleep(1)
     # Check if the language popover is open
@@ -477,18 +511,9 @@ Given /^I set the language to (.*) \((.*)\)$/ do |lang, lang_code|
 end
 
 Given /^I log in to a new session(?: in ([^ ]*) \(([^ ]*)\))?( without activating the Persistent Storage)?( after having activated the Persistent Storage| expecting no warning about the Persistent Storage not being activated)?$/ do |lang, lang_code, expect_warning, expect_no_warning|
-  # We'll record the location of the login button before changing
-  # language so we only need one (English) image for the button while
-  # still being able to click it in any language.
-  login_button = if RTL_LANGUAGES.include?(lang)
-                   # If we select a RTL language below, the
-                   # login and shutdown buttons will
-                   # swap place.
-                   ['TailsGreeterShutdownButton.png']
-                 else
-                   ['TailsGreeterLoginButton.png', 'TailsGreeterLoginButtonGerman.png']
-                 end
-  login_button_region = @screen.wait_any(login_button, 15)
+  # We find the login button before localizing it since it's easier to
+  # find then.
+  login_button = greeter.child('Start Tails', roleName: 'button')
   if lang && lang != 'English'
     step "I set the language to #{lang} (#{lang_code})"
     # After selecting options (language, administration password,
@@ -497,7 +522,7 @@ Given /^I log in to a new session(?: in ([^ ]*) \(([^ ]*)\))?( without activatin
     # button is honored.
     sleep(10)
   end
-  login_button_region.click
+  login_button.click
 
   begin
     @screen.wait('PersistentStorageNotUnlocked.png', 4)
@@ -530,36 +555,49 @@ Given /^I open Tails Greeter additional settings dialog$/ do
   open_greeter_additional_settings
 end
 
+def wait_for_welcome_screen_settings_to_vanish
+  try_for(10) do
+    assert_raise(Dogtail::Failure) do
+      greeter.child('Additional Settings', roleName: 'dialog', retry: false)
+    end
+    true
+  end
+end
+
 Given /^I disable networking in Tails Greeter$/ do
   dialog = open_greeter_additional_settings
-  dialog.child(description: 'Configure Offline Mode').grabFocus
-  @screen.press('Return')
-
-  dialog.child('Disable all networking').parent.parent.grabFocus
-  @screen.press('Return')
+  dialog.child('Offline Mode', roleName: 'label').click
+  dialog.child('Disable all networking').click
+  dialog.child('Add', roleName: 'button').click
+  wait_for_welcome_screen_settings_to_vanish
 end
 
 Given /^I set an administration password$/ do
-  open_greeter_additional_settings
-  @screen.wait('TailsGreeterAdminPassword.png', 20).click
-  @screen.wait('TailsGreeterAdminPasswordDialog.png', 10)
-  greeter.childLabelled('Administration Password').text = @sudo_password
-  greeter.childLabelled('Confirm').text = @sudo_password
-  greeter.child('Add', roleName: 'button').click
-  # Wait for the Administration Password dialog to be closed,
-  # otherwise the next step can fail.
-  @screen.wait('TailsGreeterLoginButton.png', 10)
+  dialog = open_greeter_additional_settings
+  dialog.child('Administration Password', roleName: 'label').click
+  dialog.childLabelled('Administration Password').text = @sudo_password
+  dialog.childLabelled('Confirm').text = @sudo_password
+  dialog.child('Add', roleName: 'button').click
+  wait_for_welcome_screen_settings_to_vanish
 end
 
 Given /^I disable the Unsafe Browser$/ do
-  open_greeter_additional_settings
-  @screen.wait('TailsGreeterUnsafeBrowser.png', 20).click
-  @screen.wait('TailsGreeterUnsafeBrowserDisable.png', 20).click
-  @screen.wait('TailsGreeterAdditionalSettingsAdd.png', 10).click
+  dialog = open_greeter_additional_settings
+  dialog.child('Unsafe Browser', roleName: 'label').click
+  dialog.child('Disable the Unsafe Browser').click
+  dialog.child('Add', roleName: 'button').click
+  wait_for_welcome_screen_settings_to_vanish
 end
 
 Given /^the Tails desktop is ready$/ do
-  @screen.wait(gnome_activities_overview_image, 180)
+  # GNOME normally starts with the Activities Overview open, but we
+  # enable the no-overview@fthx extension to exit to the normal
+  # desktop. Since Trixie the extension sometimes fail to exit the
+  # Activities Overview, and we detect that here by increasing the
+  # sensitivity so it only matches the Activities Overview button when
+  # it is unpressed and not showing the Activities Overview (with the
+  # default sensitivity it matches both states).
+  @screen.wait(gnome_activities_overview_image, 180, sensitivity: 0.95)
   # Disable screen blanking since we sometimes need to wait long
   # enough for it to activate, which can cause problems when we are
   # waiting for an image for a very long time.
@@ -584,6 +622,7 @@ Given /^the Tails desktop is ready$/ do
     '/usr/lib/systemd/user/tails-upgrade-frontend.service'
   )
   $vm.execute_successfully('systemctl --user daemon-reload', user: LIVE_USER)
+  wait_for_ponytail
 end
 
 When /^I see the "(.+)" notification(?: after at most (\d+) seconds)?$/ do |title, timeout|
@@ -846,7 +885,7 @@ Then /^Tails eventually (shuts down|restarts)$/ do |mode|
       # shutdown. To avoid the test failing in that case, we also check
       # here if we see the greeter and in that case force a shutdown of
       # the VM.
-      @screen.wait('TailsGreeter.png', 1)
+      @screen.find('TailsGreeter.png')
       $vm.power_off
     end
     true
@@ -884,8 +923,10 @@ When /^I request a (shutdown|reboot) using the system menu$/ do |action|
                    else
                      'Restart'
                    end
-  gnome_shell.child(menu_item_name, roleName: 'label').grabFocus
-  @screen.press('Return')
+  # If we .click() using Dogtail we risk losing the connection with
+  # the remote shell before it sends the response, leading to a
+  # time-consuming RemoteShell::Timeout.
+  @screen.click(*gnome_shell.child(menu_item_name, roleName: 'label').position)
 end
 
 When /^I warm reboot the computer$/ do
@@ -1095,6 +1136,7 @@ def launch_tor_browser(**opts)
   launch_app(
     'org.boum.tails.TorBrowser.desktop',
     'Firefox',
+    timeout: 60,
     **opts
   )
 end
@@ -1167,7 +1209,8 @@ When /^I close the "([^"]+)" window$/ do |app_name|
 
   close_button = case app_name
                  when 'zenity'
-                   app.button('Cancel')
+                   app.children(roleName: 'button')
+                      .find { |n| ['cancel', 'close', 'ok'].include?(n.name.downcase) }
                  else
                    app.child(
                      'Close',
