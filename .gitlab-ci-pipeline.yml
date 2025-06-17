@@ -113,15 +113,6 @@ lint-po:
     - /tmp/jenkins-tools/slaves/lint_po
 
 avoid-gtk-launch:
-  only:
-    - merge_requests
-
-  variables:
-    GIT_STRATEGY: clone
-    GIT_DEPTH: 0
-
-  image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:sid
-
   script:
     - apt-get -qy install --no-install-recommends python3 git
     - ./bin/test-utils/gtk-launch
