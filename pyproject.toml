@@ -1,7 +1,8 @@
 [tool.codespell]
-ignore-words-list = 'aNULL,bootup,debbug,discreet,FileTest,fpr,GIR,isnt,nd,NotIn,parm,otherways,Shotcut,Thi,TorK,trough'
+ignore-words-list = 'aNULL,bootup,debbug,discreet,FileTest,fpr,GIR,isnt,Musil,nd,NotIn,parm,otherways,Shotcut,Thi,TorK,trough'
 uri-ignore-words-list = 'bund,ned'
-skip = 'Changelog,changelog,./po/*,forge.sha256.js,./config/binary_rootfs/squashfs.sort,./config/chroot_local-includes/etc/apparmor.d/disable/usr.bin.man,./submodules/*,./tmp/*,./wiki/src/news/*,./wiki/src/torrents/files/*,wordlist_*.txt,*.key,*.gpg,*.pgp,*.po,*.pot,*.svg'
+skip = 'Changelog,changelog,./po/*,forge.sha256.js,./config/binary_rootfs/squashfs.sort,./config/chroot_local-includes/etc/apparmor.d/disable/usr.bin.man,./submodules/*,./tmp/*,./wiki/src/torrents/files/*,wordlist_*.txt,*.key,*.gpg,*.pgp,*.po,*.pot,*.svg'
+exclude-file = 'config/ci/codespell/exclude-lines'
 
 [tool.mypy]
 exclude = [
