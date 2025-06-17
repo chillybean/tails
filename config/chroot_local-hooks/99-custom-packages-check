@@ -54,7 +54,10 @@ installed_custom_packages_are_monitored() {
         if version_matches_new_re "$version"; then
             if ! echo "$TAILS_PACKAGES" | grep --line-regexp -q "$package"; then
 
-                echo "Installed custom package '$package' must be listed in the TAILS_PACKAGES variable." >&2
+                echo "Installed custom package '$package' must be listed" \
+                    "in the TAILS_PACKAGES variable. Also, please consider" \
+                    "adding an automated test to verify that Tails behaves" \
+                    "as expected thanks to this package customization." >&2
                 return 1
             fi
         fi
