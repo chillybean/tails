@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2024-04-05 11:23+0000\n"
+"POT-Creation-Date: 2025-06-11 22:18+0000\n"
 "PO-Revision-Date: 2025-01-14 17:57+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -46,9 +46,7 @@ msgstr "[[!meta stylesheet=\"inc/stylesheets/steps\" rel=\"stylesheet\" title=\"
 #. type: Plain text
 #, no-wrap
 msgid "[[!meta stylesheet=\"inc/stylesheets/expert\" rel=\"stylesheet\" title=\"\"]]\n"
-msgstr ""
-"[[!meta stylesheet=\"inc/stylesheets/expert\" rel=\"stylesheet\" title=\"\"]]"
-"\n"
+msgstr "[[!meta stylesheet=\"inc/stylesheets/expert\" rel=\"stylesheet\" title=\"\"]]\n"
 
 #. type: Plain text
 #, no-wrap
@@ -63,9 +61,7 @@ msgstr "[[!inline pages=\"install/inc/steps/warnings.inline.de\" raw=\"yes\" sor
 #. type: Plain text
 #, no-wrap
 msgid "<h1 id=\"verify-key\" class=\"step\">Verify the Tails signing key</h1>\n"
-msgstr ""
-"<h1 id=\"verify-key\" class=\"step\">Überprüfen Sie den Tails-"
-"Signierschlüssel</h1>\n"
+msgstr "<h1 id=\"verify-key\" class=\"step\">Überprüfen Sie den Tails-Signierschlüssel</h1>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -79,10 +75,8 @@ msgid ""
 "can skip this step and start [[downloading and verifying the USB\n"
 "image|expert#download]].</p>\n"
 msgstr ""
-"<p>Wenn Sie den Tails-Signaturschlüssel bereits mit Ihrem eigenen Schlüssel "
-"zertifiziert haben, \n"
-"können Sie diesen Schritt überspringen und mit [[dem Herunterladen und "
-"Überprüfen des \n"
+"<p>Wenn Sie den Tails-Signaturschlüssel bereits mit Ihrem eigenen Schlüssel zertifiziert haben, \n"
+"können Sie diesen Schritt überspringen und mit [[dem Herunterladen und Überprüfen des \n"
 "USB-Images|expert#download]] beginnen.</p>\n"
 
 #. type: Plain text
@@ -121,10 +115,8 @@ msgid ""
 "<a href=\"https://riseup.net/en/security/message-security/openpgp/gpg-keys\">Managing\n"
 "OpenPGP Keys</a> by <em>Riseup</em>.</p>\n"
 msgstr ""
-"<p>Um zu erfahren, wie Sie sich selbst einen OpenPGP-Schlüssel erstellen, "
-"siehe\n"
-"<a href=\"https://riseup.net/en/security/message-security/openpgp/gpg-keys\">"
-"Verwalten\n"
+"<p>Um zu erfahren, wie Sie sich selbst einen OpenPGP-Schlüssel erstellen, siehe\n"
+"<a href=\"https://riseup.net/en/security/message-security/openpgp/gpg-keys\">Verwalten\n"
 "von OpenPGP-Schlüsseln</a> von <em>Riseup</em>.</p>\n"
 
 #
@@ -143,8 +135,8 @@ msgid ""
 "Import the Tails signing key in your <span class=\"application\">GnuPG</"
 "span> keyring:"
 msgstr ""
-"Importieren Sie den Tails-Signaturschlüssel in Ihren <span class="
-"\"application\">GnuPG</span>-Schlüsselbund:"
+"Importieren Sie den Tails-Signaturschlüssel in Ihren <span "
+"class=\"application\">GnuPG</span>-Schlüsselbund:"
 
 #. type: Plain text
 #, no-wrap
@@ -168,9 +160,7 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "   <p class=\"command\">sudo apt update && sudo apt install debian-keyring</p>\n"
-msgstr ""
-"   <p class=\"command\">sudo apt update && sudo apt install debian-"
-"keyring</p>\n"
+msgstr "   <p class=\"command\">sudo apt update && sudo apt install debian-keyring</p>\n"
 
 #
 #. type: Bullet: '1. '
@@ -186,9 +176,7 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "   <p class=\"command\">gpg --keyring=/usr/share/keyrings/debian-keyring.gpg --export chris@chris-lamb.co.uk | gpg --import</p>\n"
-msgstr ""
-"   <p class=\"command\">gpg --keyring=/usr/share/keyrings/debian-keyring.gpg "
-"--export chris@chris-lamb.co.uk | gpg --import</p>\n"
+msgstr "   <p class=\"command\">gpg --keyring=/usr/share/keyrings/debian-keyring.gpg --export chris@chris-lamb.co.uk | gpg --import</p>\n"
 
 #
 #. type: Bullet: '1. '
@@ -198,9 +186,7 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "   <p class=\"command\">gpg --keyid-format 0xlong --check-sigs A490D0F4D311A4153E2BB7CADBB802B258ACD84F</p>\n"
-msgstr ""
-"   <p class=\"command\">gpg --keyid-format 0xlong --check-sigs "
-"A490D0F4D311A4153E2BB7CADBB802B258ACD84F</p>\n"
+msgstr "   <p class=\"command\">gpg --keyid-format 0xlong --check-sigs A490D0F4D311A4153E2BB7CADBB802B258ACD84F</p>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -210,9 +196,7 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "       sig!2        0x1E953E27D4311E58 2020-03-19  Chris Lamb <chris@chris-lamb.co.uk>\n"
-msgstr ""
-"       sig!2        0x1E953E27D4311E58 2020-03-19  Chris Lamb <chris@chris-"
-"lamb.co.uk>\n"
+msgstr "       sig!2        0x1E953E27D4311E58 2020-03-19  Chris Lamb <chris@chris-lamb.co.uk>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -258,9 +242,7 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "   <p class=\"command\">gpg --lsign-key A490D0F4D311A4153E2BB7CADBB802B258ACD84F</p>\n"
-msgstr ""
-"   <p class=\"command\">gpg --lsign-key "
-"A490D0F4D311A4153E2BB7CADBB802B258ACD84F</p>\n"
+msgstr "   <p class=\"command\">gpg --lsign-key A490D0F4D311A4153E2BB7CADBB802B258ACD84F</p>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -270,9 +252,7 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "<div class=\"step-image\">[[!img inc/infography/download.png link=\"no\" alt=\"\"]]</div>\n"
-msgstr ""
-"<div class=\"step-image\">[[!img inc/infography/download.png link=\"no\" alt="
-"\"\"]]</div>\n"
+msgstr "<div class=\"step-image\">[[!img inc/infography/download.png link=\"no\" alt=\"\"]]</div>\n"
 
 #
 #. type: Bullet: '1. '
@@ -282,9 +262,7 @@ msgstr "Laden Sie das USB-Image herunter:"
 #. type: Plain text
 #, no-wrap
 msgid "   <p class=\"command\">wget --continue [[!inline pages=\"inc/stable_amd64_img_url\" raw=\"yes\" sort=\"age\"]]</p>\n"
-msgstr ""
-"   <p class=\"command\">wget --continue [[!inline pages=\"inc/"
-"stable_amd64_img_url\" raw=\"yes\" sort=\"age\"]]</p>\n"
+msgstr "   <p class=\"command\">wget --continue [[!inline pages=\"inc/stable_amd64_img_url\" raw=\"yes\" sort=\"age\"]]</p>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -294,9 +272,7 @@ msgstr "<h1 id=\"verify\" class=\"step\">Überprüfen Sie Ihren Download</h1>\n"
 #. type: Plain text
 #, no-wrap
 msgid "<div class=\"step-image\">[[!img inc/infography/verify.png link=\"no\" alt=\"\"]]</div>\n"
-msgstr ""
-"<div class=\"step-image\">[[!img inc/infography/verify.png link=\"no\" alt=\""
-"\"]]</div>\n"
+msgstr "<div class=\"step-image\">[[!img inc/infography/verify.png link=\"no\" alt=\"\"]]</div>\n"
 
 #
 #. type: Plain text
@@ -314,9 +290,7 @@ msgstr "Laden Sie die Signatur des USB-Images herunter:"
 #. type: Plain text
 #, no-wrap
 msgid "   <p class=\"command\">wget [[!inline pages=\"inc/stable_amd64_img_sig_url\" raw=\"yes\" sort=\"age\"]]</p>\n"
-msgstr ""
-"   <p class=\"command\">wget [[!inline pages=\"inc/stable_amd64_img_sig_url\""
-" raw=\"yes\" sort=\"age\"]]</p>\n"
+msgstr "   <p class=\"command\">wget [[!inline pages=\"inc/stable_amd64_img_sig_url\" raw=\"yes\" sort=\"age\"]]</p>\n"
 
 #
 #. type: Bullet: '1. '
@@ -328,9 +302,7 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "   <p class=\"command\">[[!inline pages=\"inc/stable_amd64_img_gpg_verify\" raw=\"yes\" sort=\"age\"]]</p>\n"
-msgstr ""
-"   <p class=\"command\">[[!inline pages=\"inc/stable_amd64_img_gpg_verify\" "
-"raw=\"yes\" sort=\"age\"]]</p>\n"
+msgstr "   <p class=\"command\">[[!inline pages=\"inc/stable_amd64_img_gpg_verify\" raw=\"yes\" sort=\"age\"]]</p>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -340,9 +312,7 @@ msgstr "   Die Ausgabe dieses Befehls sollte wie folgt aussehen:\n"
 #. type: Plain text
 #, no-wrap
 msgid "   <p class=\"code\">[[!inline pages=\"inc/stable_amd64_img_gpg_signature_output\" raw=\"yes\" sort=\"age\"]]</p>\n"
-msgstr ""
-"   <p class=\"code\">[[!inline pages=\"inc/"
-"stable_amd64_img_gpg_signature_output\" raw=\"yes\" sort=\"age\"]]</p>\n"
+msgstr "   <p class=\"code\">[[!inline pages=\"inc/stable_amd64_img_gpg_signature_output\" raw=\"yes\" sort=\"age\"]]</p>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -363,16 +333,12 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "<h1 id=\"install\" class=\"step\">Install Tails using <code>dd</code></h1>\n"
-msgstr ""
-"<h1 id=\"install\" class=\"step\">Tails mit <code>dd</code> installieren</h1>"
-"\n"
+msgstr "<h1 id=\"install\" class=\"step\">Tails mit <code>dd</code> installieren</h1>\n"
 
 #. type: Plain text
 #, no-wrap
 msgid "<div class=\"step-image\">[[!img inc/infography/install-tails.png link=\"no\" alt=\"\"]]</div>\n"
-msgstr ""
-"<div class=\"step-image\">[[!img inc/infography/install-tails.png link=\"no\""
-" alt=\"\"]]</div>\n"
+msgstr "<div class=\"step-image\">[[!img inc/infography/install-tails.png link=\"no\" alt=\"\"]]</div>\n"
 
 #
 #. type: Bullet: '1. '
@@ -408,9 +374,26 @@ msgid "Plug in the USB stick on which you want to install Tails."
 msgstr "Stecken Sie den USB-Stick ein, auf dem Sie Tails installieren möchten."
 
 #. type: Plain text
-#, no-wrap
-msgid "   <div class=\"caution\"><p>All the data on this USB stick will be lost.</p></div>\n"
+#, fuzzy, no-wrap
+#| msgid "   <div class=\"note\">\n"
+msgid "   <div class=\"caution\">\n"
+msgstr "   <div class=\"note\">\n"
+
+#. type: Plain text
+#, fuzzy, no-wrap
+#| msgid "   <div class=\"caution\"><p>All the data on this USB stick will be lost.</p></div>\n"
+msgid "   <p>All the data on this USB stick will be lost.</p>\n"
 msgstr "   <div class=\"caution\"><p>Alle Daten auf diesem USB-Stick gehen verloren.</p></div>\n"
+
+#. type: Plain text
+#, no-wrap
+msgid "   <p>Some data might still be recovered using advanced forensics tools.</p>\n"
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid "   </div>\n"
+msgstr "   </div>\n"
 
 #
 #. type: Bullet: '1. '
@@ -441,9 +424,7 @@ msgstr "Notieren Sie sich den *Gerätenamen* Ihres USB-Sticks."
 msgid ""
 "   In this example, the device name of the USB stick is\n"
 "   `/dev/sdb`. Yours might be different.\n"
-msgstr ""
-"   In diesem Beispiel lautet der Gerätename des USB-Sticks `/dev/sdb`. Ihrer "
-"könnte anders sein.\n"
+msgstr "   In diesem Beispiel lautet der Gerätename des USB-Sticks `/dev/sdb`. Ihrer könnte anders sein.\n"
 
 #. type: Plain text
 #, no-wrap
@@ -493,10 +474,7 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "   <p class=\"command-template\">dd if=<span class=\"command-placeholder\">tails.img</span> of=<span class=\"command-placeholder\">device</span> bs=16M oflag=direct status=progress</p>\n"
-msgstr ""
-"   <p class=\"command-template\">dd if=<span class=\"command-placeholder\""
-">tails.img</span> of=<span class=\"command-placeholder\">device</span> "
-"bs=16M oflag=direct status=progress</p>\n"
+msgstr "   <p class=\"command-template\">dd if=<span class=\"command-placeholder\">tails.img</span> of=<span class=\"command-placeholder\">device</span> bs=16M oflag=direct status=progress</p>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -506,9 +484,7 @@ msgstr "   Sie sollten etwas wie folgt erhalten:\n"
 #. type: Plain text
 #, no-wrap
 msgid "   <p class=\"command-template\">dd if=/home/user/tails-amd64-3.12.img of=/dev/sdb bs=16M oflag=direct status=progress</p>\n"
-msgstr ""
-"   <p class=\"command-template\">dd if=/home/user/tails-amd64-3.12.img of=/"
-"dev/sdb bs=16M oflag=direct status=progress</p>\n"
+msgstr "   <p class=\"command-template\">dd if=/home/user/tails-amd64-3.12.img of=/dev/sdb bs=16M oflag=direct status=progress</p>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -530,19 +506,13 @@ msgid ""
 "   <p>If you get a <code>Permission denied</code> error, try\n"
 "   adding <code>sudo</code> at the beginning of the command:</p>\n"
 msgstr ""
-"   <p>Wenn Sie einen <code>Zugriff verweigert</code>-Fehler erhalten, "
-"versuchen Sie,\n"
+"   <p>Wenn Sie einen <code>Zugriff verweigert</code>-Fehler erhalten, versuchen Sie,\n"
 "   <code>sudo</code> am Anfang des Befehls hinzuzufügen:</p>\n"
 
 #. type: Plain text
 #, no-wrap
 msgid "   <p class=\"command-example\">sudo dd if=<span class=\"command-placeholder\">tails.img</span> of=<span class=\"command-placeholder\">device</span> bs=16M oflag=direct status=progress</p>\n"
 msgstr ""
-
-#. type: Plain text
-#, no-wrap
-msgid "   </div>\n"
-msgstr "   </div>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -557,6 +527,4 @@ msgstr "[[!inline pages=\"install/inc/steps/restart_first_time.inline.de\" raw=\
 #. type: Plain text
 #, no-wrap
 msgid "[[!inline pages=\"install/inc/steps/welcome.inline\" raw=\"yes\" sort=\"age\"]]\n"
-msgstr ""
-"[[!inline pages=\"install/inc/steps/welcome.inline.de\" raw=\"yes\" sort="
-"\"age\"]]\n"
+msgstr "[[!inline pages=\"install/inc/steps/welcome.inline.de\" raw=\"yes\" sort=\"age\"]]\n"
