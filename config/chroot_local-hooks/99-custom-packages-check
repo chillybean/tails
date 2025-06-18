@@ -4,17 +4,64 @@ set -e
 
 echo "Make sure we install the required custom Tails packages"
 
-# The following packages must be custom Tails versions, which currently is determined by ".0tails" being a substring of the version.
+# The following packages must be custom Tails versions: the tailsN
+# suffix, N being a positive integer, is appended as-is to the version
+# of the Debian package being forked, without any extra separator such
+# as "." or "+".
 TAILS_PACKAGES="
 flatpak
 "
+
+OLD_VERSION_RE='([.]0|[+])tails[0-9]*$'
+NEW_VERSION_RE='tails[0-9]+$'
 
 package_version() {
     dpkg-query --show --showformat='${Version}' "${1}" 2>/dev/null
 }
 
+version_matches_new_re() {
+    echo "$1" | grep --extended-regexp -q "$NEW_VERSION_RE"
+}
+
+version_matches_old_re() {
+    echo "$1" | grep --extended-regexp -q "$OLD_VERSION_RE"
+}
+
 tails_package_installed() {
-    package_version "${1}" | grep -q "\.0tails"
+    version=$(package_version "${1}")
+    if version_matches_old_re "$version"; then
+        echo "Package '$1' uses an obsolete versioning scheme: '$version'." >&2
+        exit 1
+    fi
+    version_matches_new_re "$version"
+}
+
+installed_custom_packages_are_monitored() {
+    # Verify that all installed packages whose version match our
+    # custom packages versioning scheme are part of those this hook
+    # will verify in the future; so if we add a new custom package, we
+    # FTBFS until we update this hook. This avoids 1 of our custom
+    # package being silently superseded by a newer version from
+    # Debian, and us not noticing until we're doing manual QA as part
+    # of our release process.
+    dpkg-query --show --showformat='${Package} ${Version}' | while read -r LINE; do
+        package=${LINE% *}
+        version=${LINE#* }
+        if version_matches_old_re "$version"; then
+            echo "Installed custom package '$package' uses an obsolete versioning scheme: '$version'." >&2
+            return 1
+        fi
+        if version_matches_new_re "$version"; then
+            if ! echo "$TAILS_PACKAGES" | grep --line-regexp -q "$package"; then
+
+                echo "Installed custom package '$package' must be listed" \
+                    "in the TAILS_PACKAGES variable. Also, please consider" \
+                    "adding an automated test to verify that Tails behaves" \
+                    "as expected thanks to this package customization." >&2
+                return 1
+            fi
+        fi
+    done
 }
 
 errors=
@@ -32,3 +79,5 @@ if [ -n "${errors}" ]; then
     done
     exit 1
 fi
+
+installed_custom_packages_are_monitored || exit 1
