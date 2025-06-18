@@ -227,7 +227,7 @@ class TimezonePopover:
             return True
 
         # Does the parent node match the search?
-        #   In theory that's important; but since we're matching agaisnt
+        #   In theory that's important; but since we're matching against
         #   the whole timezone, which includes
         #   the name of the parent, that's already covered
 

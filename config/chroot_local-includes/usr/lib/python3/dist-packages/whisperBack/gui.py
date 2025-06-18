@@ -152,7 +152,7 @@ class WhisperBackUI:
         return False
 
     def cb_enter_gpgkeyblock(self, widget, data=None):
-        """Callback function to show the gpg publick key block input dialog"""
+        """Callback function to show the gpg public key block input dialog"""
         self.show_gpg_dialog()
         return False
 
@@ -304,7 +304,7 @@ class WhisperBackUI:
         self.gpg_dialog.show()
 
     def cb_gpg_close_ok(self, widget, data=None):
-        """Callback function for the gpg publick key entry close and apply event"""
+        """Callback function for the gpg public key entry close and apply event"""
         try:
             # pylint: disable=C0301
             self.backend.contact_gpgkey = self.gpg_keyblock.get_buffer().get_text(

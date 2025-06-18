@@ -103,7 +103,7 @@ EOTEMPLATE
     );
 }
 
-Given qr{^a HTTP server that( supports Range requests and)?(| does not) serve[s]? "([^"]+)" in "([^"]+)"(?: with (content|size) "?([^"]*)"?)?}, fun ($c) {
+Given qr{^an HTTP server that( supports Range requests and)?(| does not) serve[s]? "([^"]+)" in "([^"]+)"(?: with (content|size) "?([^"]*)"?)?}, fun ($c) {
     my $range_req  = $c->matches->[0];
     my $present    = $c->matches->[1] ? 0 : 1;
     my $filename   = $c->matches->[2];
@@ -150,7 +150,7 @@ Given qr{^a HTTP server that( supports Range requests and)?(| does not) serve[s]
     }
 };
 
-Given qr{^a HTTP server that redirects to ([^ ]+) over HTTPS$}, fun ($c) {
+Given qr{^an HTTP server that redirects to ([^ ]+) over HTTPS$}, fun ($c) {
     my $target_hostname = $c->matches->[0];
 
     my $port  = $c->{stash}->{scenario}->{server}->{port};
@@ -167,7 +167,7 @@ Given qr{^a HTTP server that redirects to ([^ ]+) over HTTPS$}, fun ($c) {
     like($pid, '/^-?\d+$/', 'PID is numeric');
 };
 
-Given qr{^a HTTPS server (?:|on ([^ ]+)) that(| does not) serve[s]? "([^"]+)" in "([^"]+)"(?: with (content|size) "?([^"]*)"?)?}, fun ($c) {
+Given qr{^an HTTPS server (?:|on ([^ ]+)) that(| does not) serve[s]? "([^"]+)" in "([^"]+)"(?: with (content|size) "?([^"]*)"?)?}, fun ($c) {
     my $listen     = $c->matches->[0];
     my $present    = $c->matches->[1] ? 0 : 1;
     my $filename   = $c->matches->[2];

@@ -1,6 +1,6 @@
 // Tails-specific configuration below
 
-// Since the slider notification will be shown everytime at each Tails
+// Since the slider notification will be shown every time at each Tails
 // boot, which is bad (nagging) UX, we disable it.
 pref("extensions.torbutton.show_slider_notification", false);
 
