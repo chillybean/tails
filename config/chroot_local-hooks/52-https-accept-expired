@@ -18,7 +18,7 @@ DST="/usr/local/lib/https-get-expired"
 echo "go env: will give us some details in case this program does not build reproducibly"
 go env
 
-go build -v -ldflags=-buildid= -trimpath  -o "$DST" "$SRC"
+go build -v -ldflags=-buildid= -trimpath -o "$DST" "$SRC"
 strip --strip-all "$DST"
 rm -rf \
     /root/.cache/go-build/ \
