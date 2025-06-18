@@ -13,7 +13,7 @@ module Cucumber
   end
 
   # Add support for re-defining steps dynamically during a run. When
-  # code is reloaded all steps are instatiated as RbStepDefinition
+  # code is reloaded all steps are instantiated as RbStepDefinition
   # again, but we also have to modify existing instances or else
   # cucumber will use the old definitions since it already has
   # matched each step read from the .feature files to these old

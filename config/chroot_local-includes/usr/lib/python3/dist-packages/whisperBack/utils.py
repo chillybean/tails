@@ -30,7 +30,7 @@ import urllib.parse
 from textwrap import TextWrapper
 
 LOG = logging.getLogger(__name__)
-# Ugly pathes finder utilities
+# Ugly paths finder utilities
 
 
 def guess_prefix():
@@ -79,7 +79,7 @@ def get_pixmapdir():
         return "data"
 
 
-# Input validation fuctions
+# Input validation functions
 
 
 def is_valid_link(candidate):

@@ -15,7 +15,7 @@ def assert_allowed_args(args):
     vulnerable to any known security issue, because we don't run
     /usr/bin/whisperback with elevated privileges. However, we
     commonly use this very same sudo+wrapper setup to run a GUI
-    program with elevated priveleges, and we might end up doing the
+    program with elevated privileges, and we might end up doing the
     same for WhisperBack at some point, for whatever reason. If we
     ever do that, since we need to allow arbitrary arguments in the
     sudo configuration, if we still allowed passing --gtk-module, then

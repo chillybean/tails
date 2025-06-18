@@ -54,7 +54,7 @@ sub done {
 }
 
 $SIG{__DIE__} = sub {
-    # Avoid the "done" file to be created by an catched exception.
+    # Avoid the "done" file to be created by a caught exception.
     # When a eval block is being run, e.g. for exception catching, $^S is true.
     # It is false otherwise.
     done unless $^S;
@@ -174,7 +174,7 @@ giving up.
 $args->{code} is called with two arguments: the currently (randomly
 picked) considered element, and $args->{args}.
 
-Any exceptions thrown by $args->{code} is catched.
+Any exceptions thrown by $args->{code} is caught.
 
 =cut
 sub random_first_with_allowed_failure_ratio {
