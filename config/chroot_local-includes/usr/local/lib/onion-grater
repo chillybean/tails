@@ -203,9 +203,9 @@ import yaml
 
 from typing import Optional
 
-DEFAULT_LISTEN_ADDRESS = 'localhost'
+DEFAULT_LISTEN_ADDRESS = "localhost"
 DEFAULT_LISTEN_PORT = 951
-DEFAULT_COOKIE_PATH = '/run/tor/control.authcookie'
+DEFAULT_COOKIE_PATH = "/run/tor/control.authcookie"
 # How often (in seconds) we check whether we've lost the tor
 # controller connection.
 TOR_CONTROLLER_PING_INTERVAL = 1.0
@@ -225,8 +225,9 @@ def log(msg):
 
 def pid_of_laddr(address):
     try:
-        return next(conn for conn in psutil.net_connections()
-                    if conn.laddr == address).pid
+        return next(
+            conn for conn in psutil.net_connections() if conn.laddr == address
+        ).pid
     except StopIteration:
         return None
 
@@ -240,13 +241,10 @@ def apparmor_profile_of_pid(pid):
     # using one of its profiles. However, we fallback to /proc/pid/exe
     # in case there is no AppArmor profile, so the only unsupported
     # mode here is unconfined scripts.
-    enabled_aa_profile_re = r'^(.+) \((?:complain|enforce)\)$'
-    with open(f'/proc/{pid}/attr/current', "rb") as fh:
-        aa_profile_status = str(fh.read().strip(), 'UTF-8')
-        apparmor_profile_match = re.match(
-            enabled_aa_profile_re,
-            aa_profile_status
-        )
+    enabled_aa_profile_re = r"^(.+) \((?:complain|enforce)\)$"
+    with open(f"/proc/{pid}/attr/current", "rb") as fh:
+        aa_profile_status = str(fh.read().strip(), "UTF-8")
+        apparmor_profile_match = re.match(enabled_aa_profile_re, aa_profile_status)
         if apparmor_profile_match:
             return apparmor_profile_match.group(1)
         return psutil.Process(pid).exe()
@@ -254,11 +252,13 @@ def apparmor_profile_of_pid(pid):
 
 def get_ip_address(ifname):
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    return socket.inet_ntoa(fcntl.ioctl(
-        s.fileno(),
-        0x8915,  # SIOCGIFADDR
-        struct.pack('256s', bytes(ifname[:15], 'utf-8'))
-    )[20:24])
+    return socket.inet_ntoa(
+        fcntl.ioctl(
+            s.fileno(),
+            0x8915,  # SIOCGIFADDR
+            struct.pack("256s", bytes(ifname[:15], "utf-8")),
+        )[20:24]
+    )
 
 
 class FilteredControlPortProxySession:
@@ -271,13 +271,13 @@ class FilteredControlPortProxySession:
 
     # Limit the length of a line, to prevent DoS attacks trying to
     # crash this filter proxy by sending infinitely long lines.
-    MAX_LINESIZE = 10*1024
+    MAX_LINESIZE = 10 * 1024
 
     def __init__(self, handler):
         self.allowed_commands = handler.allowed_commands
         self.allowed_events = handler.allowed_events
         self.client_address: tuple[str, int] = handler.client_address
-        self.client_pid: Optional[int] = handler.client_pid
+        self.client_pid: int | None = handler.client_pid
         self.controller = handler.controller
         self.debug_log = handler.debug_log
         self.filter_name = handler.filter_name
@@ -291,42 +291,49 @@ class FilteredControlPortProxySession:
 
     def debug_log_send(self, line):
         if GLOBAL_ARGS.print_responses:
-            self.debug_log(line, format_multiline=True, sep=': <- ')
+            self.debug_log(line, format_multiline=True, sep=": <- ")
 
     def debug_log_recv(self, line):
         if GLOBAL_ARGS.print_requests:
-            self.debug_log(line, format_multiline=True, sep=': -> ')
+            self.debug_log(line, format_multiline=True, sep=": -> ")
 
     def debug_log_rewrite(self, kind, old, new):
-        if kind not in ['command', 'received event', 'response'] or \
-           (kind == 'command' and not GLOBAL_ARGS.print_responses) or \
-           (kind in ['received event', 'response']
-            and not GLOBAL_ARGS.print_requests):
+        if (
+            kind not in ["command", "received event", "response"]
+            or (kind == "command" and not GLOBAL_ARGS.print_responses)
+            or (
+                kind in ["received event", "response"]
+                and not GLOBAL_ARGS.print_requests
+            )
+        ):
             return
         if new != old:
-            old = textwrap.indent(old.strip(), ' '*4)
-            new = textwrap.indent(new.strip(), ' '*4)
-            self.debug_log(f"rewrote {kind}:\n{old}\nto:\n{new}",
-                           format_multiline=False)
+            old = textwrap.indent(old.strip(), " " * 4)
+            new = textwrap.indent(new.strip(), " " * 4)
+            self.debug_log(
+                f"rewrote {kind}:\n{old}\nto:\n{new}", format_multiline=False
+            )
 
     def respond(self, line, raw=False):
         if line.isspace():
             return
         self.debug_log_send(line)
-        self.wfile.write(bytes(line, 'ascii'))
         if not raw:
-            self.wfile.write(bytes("\r\n", 'ascii'))
+            line += "\r\n"
+        self.wfile.write(bytes(line, "ascii"))
         self.wfile.flush()
 
     def get_rule(self, cmd, arg_str):
         allowed_args = self.allowed_commands.get(cmd, [])
-        return next((rule for rule in allowed_args
-                     if re.match(rule['pattern'] + "$", arg_str)), None)
+        return next(
+            (rule for rule in allowed_args if re.match(rule["pattern"] + "$", arg_str)),
+            None,
+        )
 
     def proxy_line(self, line, args_rewriter=None, response_rewriter=None, retry=False):
         if args_rewriter:
             new_line = args_rewriter(line)
-            self.debug_log_rewrite('command', line, new_line)
+            self.debug_log_rewrite("command", line, new_line)
             line = new_line
         try:
             response = self.controller.msg(line.strip()).raw_content()
@@ -338,7 +345,7 @@ class FilteredControlPortProxySession:
             return
         if response_rewriter:
             new_response = response_rewriter(response)
-            self.debug_log_rewrite('response', response, new_response)
+            self.debug_log_rewrite("response", response, new_response)
             response = new_response
         self.respond(response, raw=True)
 
@@ -348,21 +355,22 @@ class FilteredControlPortProxySession:
 
     def rewrite_line(self, replacers, line):
         builtin_replacers = {
-            'client-address': self.client_address[0],
-            'client-port':    str(self.client_address[1]),
-            'server-address': self.server_address[0],
-            'server-port':    str(self.server_address[1]),
+            "client-address": self.client_address[0],
+            "client-port": str(self.client_address[1]),
+            "server-address": self.server_address[0],
+            "server-port": str(self.server_address[1]),
         }
-        terminator = ''
+        terminator = ""
         if line[-2:] == "\r\n":
             terminator = "\r\n"
             line = line[:-2]
         for r in replacers:
-            match = re.match(r['pattern'] + "$", line)
+            match = re.match(r["pattern"] + "$", line)
             if match:
-                return r['replacement'].format(
-                    *match.groups(), **builtin_replacers
-                ) + terminator
+                return (
+                    r["replacement"].format(*match.groups(), **builtin_replacers)
+                    + terminator
+                )
         raise NoRewriteMatch()
 
     def rewrite_matched_line(self, replacers, line):
@@ -373,8 +381,12 @@ class FilteredControlPortProxySession:
 
     def rewrite_matched_lines(self, replacers, lines):
         split_lines = lines.strip().split("\r\n")
-        return "\r\n".join([self.rewrite_matched_line(replacers, line)
-                            for line in split_lines]) + "\r\n"
+        return (
+            "\r\n".join(
+                [self.rewrite_matched_line(replacers, line) for line in split_lines]
+            )
+            + "\r\n"
+        )
 
     def is_my_stream(self, stream: stem.response.events.StreamEvent) -> bool:
         if self.client_pid is not None:
@@ -414,18 +426,24 @@ class FilteredControlPortProxySession:
         if self.tor_browser_mode and not GLOBAL_ARGS.disable_filtering:
             if isinstance(event, stem.response.events.StreamEvent):
                 if event.id not in self.client_streams:
-                    if event.status not in [stem.StreamStatus.NEW,
-                                            stem.StreamStatus.NEWRESOLVE]:
+                    if event.status not in [
+                        stem.StreamStatus.NEW,
+                        stem.StreamStatus.NEWRESOLVE,
+                    ]:
                         return
                     if self.is_my_stream(event):
                         self.client_streams.add(event.id)
                     else:
                         if GLOBAL_ARGS.debug:
-                            self.debug_log('dropped restricted stream event: ' +
-                                           event.raw_content())
+                            self.debug_log(
+                                "dropped restricted stream event: "
+                                + event.raw_content()
+                            )
                         return
-                elif event.status in [stem.StreamStatus.FAILED,
-                                      stem.StreamStatus.CLOSED]:
+                elif event.status in [
+                    stem.StreamStatus.FAILED,
+                    stem.StreamStatus.CLOSED,
+                ]:
                     self.client_streams.remove(event.id)
             elif isinstance(event, stem.response.events.CircuitEvent):
                 if event.status == stem.CircStatus.CLOSED:
@@ -437,23 +455,24 @@ class FilteredControlPortProxySession:
                     event = stem.response.events.CircuitEvent.from_str(
                         f"650 CIRC {event.id} {stem.CircStatus.CLOSED}\r\n"
                     )
-                    self.debug_log_rewrite('received event',
-                                           old_event_raw_content,
-                                           event.raw_content())
+                    self.debug_log_rewrite(
+                        "received event", old_event_raw_content, event.raw_content()
+                    )
                 else:
                     if GLOBAL_ARGS.debug:
-                        self.debug_log('dropped restricted circuit event: ' +
-                                       event.raw_content())
+                        self.debug_log(
+                            "dropped restricted circuit event: " + event.raw_content()
+                        )
                     return
 
         raw_event_content = event.raw_content()
         if event_rewriter:
             new_raw_event_content = event_rewriter(raw_event_content)
             self.debug_log_rewrite(
-                'received event', raw_event_content, new_raw_event_content
+                "received event", raw_event_content, new_raw_event_content
             )
             raw_event_content = new_raw_event_content
-            if raw_event_content.strip() == '':
+            if raw_event_content.strip() == "":
                 return
         self.respond(raw_event_content, raw=True)
 
@@ -479,14 +498,14 @@ class FilteredControlPortProxySession:
                     self.debug_log(f"already subscribed to event '{event}'")
                 continue
             rule = self.allowed_events.get(event, {}) or {}
-            if not rule.get('suppress', False) or \
-               GLOBAL_ARGS.disable_filtering:
+            if not rule.get("suppress", False) or GLOBAL_ARGS.disable_filtering:
                 event_rewriter = None
-                if 'response' in rule:
-                    replacers = rule['response']
+                if "response" in rule:
+                    replacers = rule["response"]
 
                     def _event_rewriter(line):
                         return self.rewrite_matched_line(replacers, line)
+
                     event_rewriter = _event_rewriter
 
                 def _event_cb(event):
@@ -507,9 +526,9 @@ class FilteredControlPortProxySession:
                     self.debug_log(f"suppressed subscription to event '{event}'")
 
     def recover_controller(self):
-        self.debug_log('lost connection to tor, reconnecting...')
+        self.debug_log("lost connection to tor, reconnecting...")
         self.controller = self.reconnect_controller()
-        self.debug_log('successfully recovered a tor connection!')
+        self.debug_log("successfully recovered a tor connection!")
         # The only state we carry is about event subscriptions, so we
         # have to set them up again for the new controller
         event_subs = [e for _, e in self.subscribed_event_listeners]
@@ -523,9 +542,8 @@ class FilteredControlPortProxySession:
                 # Some clients (e.g. Tor Browser) write their requests
                 # byte-by-byte, so we peek ahead and make sure we only
                 # read a single, full request.
-                peek_ahead = self.request.recv(self.MAX_LINESIZE,
-                                               socket.MSG_PEEK)
-                if peek_ahead == b'':
+                peek_ahead = self.request.recv(self.MAX_LINESIZE, socket.MSG_PEEK)
+                if peek_ahead == b"":
                     # The client disconnected
                     return peek_ahead
                 request_length = peek_ahead.find(b"\n")
@@ -540,27 +558,26 @@ class FilteredControlPortProxySession:
     def handle(self):
         while True:
             binary_line = self.get_client_request()
-            if binary_line == b'':
+            if binary_line == b"":
                 # Deal with clients that close the socket without a QUIT.
                 break
-            line = str(binary_line, 'ascii')
+            line = str(binary_line, "ascii")
             if line.isspace():
-                self.debug_log('ignoring received empty (or whitespace-only) '
-                               + 'line')
+                self.debug_log("ignoring received empty (or whitespace-only) " + "line")
                 continue
             match = re.match(
-                r'(?P<cmd>\S+)(?P<cmd_arg_sep>\s*)(?P<arg_str>[^\r\n]*)\r?\n$',
-                line
+                r"(?P<cmd>\S+)(?P<cmd_arg_sep>\s*)(?P<arg_str>[^\r\n]*)\r?\n$", line
             )
             if not match:
-                self.debug_log("received bad line (escapes made explicit): " +
-                               repr(line))
+                self.debug_log(
+                    "received bad line (escapes made explicit): " + repr(line)
+                )
                 # Hopefully the next line is ok...
                 continue
             self.debug_log_recv(line)
-            cmd = match.group('cmd')
-            cmd_arg_sep = match.group('cmd_arg_sep')
-            arg_str = match.group('arg_str')
+            cmd = match.group("cmd")
+            cmd_arg_sep = match.group("cmd_arg_sep")
+            arg_str = match.group("arg_str")
             args = arg_str.split()
             cmd = cmd.upper()
 
@@ -569,9 +586,7 @@ class FilteredControlPortProxySession:
                 # client that there is no authentication.
                 self.respond("250-PROTOCOLINFO 1")
                 self.respond("250-AUTH METHODS=NULL")
-                self.respond(
-                    f"250-VERSION Tor=\"{self.controller.get_version()}\""
-                )
+                self.respond(f'250-VERSION Tor="{self.controller.get_version()}"')
                 self.respond("250 OK")
 
             elif cmd == "AUTHENTICATE":
@@ -587,8 +602,9 @@ class FilteredControlPortProxySession:
                 # The control language doesn't care about case for
                 # the event type.
                 events = [event.upper() for event in args]
-                if not GLOBAL_ARGS.disable_filtering and \
-                   any(event not in self.allowed_events for event in events):
+                if not GLOBAL_ARGS.disable_filtering and any(
+                    event not in self.allowed_events for event in events
+                ):
                     self.filter_line(line)
                 else:
                     self.update_event_subscriptions(events)
@@ -602,13 +618,15 @@ class FilteredControlPortProxySession:
                     args_rewriter = None
                     response_rewriter = None
 
-                    if 'response' in rule:
+                    if "response" in rule:
+
                         def _response_rewriter(lines):
-                            return self.rewrite_matched_lines(rule['response'],
-                                                              lines)
+                            return self.rewrite_matched_lines(rule["response"], lines)
+
                         response_rewriter = _response_rewriter
 
-                    if 'replacement' in rule:
+                    if "replacement" in rule:
+
                         def _args_rewriter(line):
                             # We also want to match the command in `line`
                             # and add it back to the replacement string.
@@ -617,14 +635,20 @@ class FilteredControlPortProxySession:
                             # rewrite the line unnecessarily.
                             prefix = cmd + cmd_arg_sep
                             replacer = {
-                                'pattern':     prefix + rule['pattern'],
-                                'replacement': prefix + rule['replacement']
+                                "pattern": prefix + rule["pattern"],
+                                "replacement": prefix + rule["replacement"],
                             }
                             return self.rewrite_line([replacer], line)
+
                         args_rewriter = _args_rewriter
 
-                    if self.tor_browser_mode and cmd == 'GETINFO' and arg_str == 'circuit-status':
+                    if (
+                        self.tor_browser_mode
+                        and cmd == "GETINFO"
+                        and arg_str == "circuit-status"
+                    ):
                         old_response_rewriter = response_rewriter
+
                         def _response_rewriter(ignored):
                             new_lines = ""
                             circuits = self.my_circuits()
@@ -634,23 +658,31 @@ class FilteredControlPortProxySession:
                             # prefix to have it in circuit-status'
                             # format. They are already \r\n-terminated.
                             for c in circuits:
-                                new_lines += str(c._raw_content, 'ascii').removeprefix('650 CIRC ')
+                                new_lines += str(c._raw_content, "ascii").removeprefix(  # noqa: SLF001
+                                    "650 CIRC "
+                                )
                             # Multi-line responses are terminated with
                             # a dot (.), but an empty answer is
                             # considered a single-line response which
                             # need no such termination.
                             if len(circuits) > 0:
-                                new_lines = "250+circuit-status=\r\n" + new_lines + ".\r\n"
+                                new_lines = (
+                                    "250+circuit-status=\r\n" + new_lines + ".\r\n"
+                                )
                             else:
                                 new_lines = "250-circuit-status=\r\n"
                             new_lines += "250 OK\r\n"
                             if old_response_rewriter:
                                 new_lines = old_response_rewriter(new_lines)
                             return new_lines
+
                         response_rewriter = _response_rewriter
 
-                    self.proxy_line(line, args_rewriter=args_rewriter,
-                                    response_rewriter=response_rewriter)
+                    self.proxy_line(
+                        line,
+                        args_rewriter=args_rewriter,
+                        response_rewriter=response_rewriter,
+                    )
                 else:
                     self.filter_line(line)
 
@@ -663,11 +695,11 @@ class FilteredControlPortProxyHandler(socketserver.StreamRequestHandler):
     FilteredControlPortProxySession object.
     """
 
-    def debug_log(self, line, format_multiline=False, sep=': '):
+    def debug_log(self, line, format_multiline=False, sep=": "):
         line = line.strip()
         if format_multiline and "\n" in line:
             sep += "(multi-line)\n"
-            line = textwrap.indent(line, ' '*4)
+            line = textwrap.indent(line, " " * 4)
         log(self.client_desc + sep + line)
 
     def setup(self):
@@ -689,17 +721,17 @@ class FilteredControlPortProxyHandler(socketserver.StreamRequestHandler):
         self.tor_browser_mode = False
         self.server_address = self.server.server_address
         self.subscribed_event_listeners = []
-        for filter_file in glob.glob('/etc/onion-grater.d/*.yml'):
+        for filter_file in glob.glob("/etc/onion-grater.d/*.yml"):
             try:
                 with open(filter_file, "rb") as fh:
                     filters = yaml.safe_load(fh.read())
-                    name = re.sub(r'\.yml$', '', os.path.basename(filter_file))
+                    name = re.sub(r"\.yml$", "", os.path.basename(filter_file))
                     for filter_ in filters:
                         if name not in filter_:
-                            filter_['name'] = name
+                            filter_["name"] = name
                     self.filters += filters
             except (yaml.parser.ParserError, yaml.scanner.ScannerError) as err:
-                log(f"filter '{filter_file}' has bad YAML and was not loaded: {str(err)}")
+                log(f"filter '{filter_file}' has bad YAML and was not loaded: {err!s}")
 
     def add_allowed_commands(self, commands):
         for cmd in commands:
@@ -711,35 +743,44 @@ class FilteredControlPortProxyHandler(socketserver.StreamRequestHandler):
                 allowed_args = []
             for i in range(len(allowed_args)):
                 if isinstance(allowed_args[i], str):
-                    allowed_args[i] = {'pattern': allowed_args[i]}
+                    allowed_args[i] = {"pattern": allowed_args[i]}
             self.allowed_commands[cmd.upper()] = allowed_args
 
     def case_insensitive_regex(self, s):
-        return ''.join(['[' + c.upper() + c.lower() + ']' for c in s])
+        return "".join(["[" + c.upper() + c.lower() + "]" for c in s])
 
     def add_allowed_confs_commands(self, confs):
-        combined_getconf_rule = {'pattern': "(" + "|".join([
-            self.case_insensitive_regex(key) for key in confs]) + ")"}
-        setconf_reset_part = "\s*|\s*".join([
-            self.case_insensitive_regex(key) for key in confs
-            if isinstance(confs[key], list) and '' in confs[key]]
+        combined_getconf_rule = {
+            "pattern": "("
+            + "|".join([self.case_insensitive_regex(key) for key in confs])
+            + ")"
+        }
+        setconf_reset_part = "\s*|\s*".join(
+            [
+                self.case_insensitive_regex(key)
+                for key in confs
+                if isinstance(confs[key], list) and "" in confs[key]
+            ]
         )
-        setconf_assignment_part = "\s*|\s*".join([
-            "{}=({})".format(
-                self.case_insensitive_regex(key), "|".join(confs[key])
-            )
-            for key in confs
-            if isinstance(confs[key], list) and len(confs[key]) > 0])
+        setconf_assignment_part = "\s*|\s*".join(
+            [
+                "{}=({})".format(self.case_insensitive_regex(key), "|".join(confs[key]))
+                for key in confs
+                if isinstance(confs[key], list) and len(confs[key]) > 0
+            ]
+        )
         setconf_parts = []
         for part in [setconf_reset_part, setconf_assignment_part]:
-            if part and part != '':
+            if part and part != "":
                 setconf_parts.append(part)
         combined_setconf_rule = {
-            'pattern': "({})+".format("\s*|\s*".join(setconf_parts))
+            "pattern": "({})+".format("\s*|\s*".join(setconf_parts))
         }
-        for cmd, rule in [('GETCONF', combined_getconf_rule),
-                          ('SETCONF', combined_setconf_rule)]:
-            if rule['pattern'] != "()+":
+        for cmd, rule in [
+            ("GETCONF", combined_getconf_rule),
+            ("SETCONF", combined_setconf_rule),
+        ]:
+            if rule["pattern"] != "()+":
                 if cmd not in self.allowed_commands:
                     self.allowed_commands[cmd] = []
                 self.allowed_commands[cmd].append(rule)
@@ -754,26 +795,29 @@ class FilteredControlPortProxyHandler(socketserver.StreamRequestHandler):
             self.allowed_events[event.upper()] = opts
 
     def match_and_parse_filter(self, matchers):
-        matched_filters = [filter_ for filter_ in self.filters
-                           if all(any(val == expected_val or val == '*'
-                                      for val in filter_.get(key, []))
-                                  for key, expected_val in matchers)]
+        matched_filters = [
+            filter_
+            for filter_ in self.filters
+            if all(
+                any(val == expected_val or val == "*" for val in filter_.get(key, []))
+                for key, expected_val in matchers
+            )
+        ]
         if len(matched_filters) == 0:
             return
         elif len(matched_filters) > 1:
-            raise RuntimeError('multiple filters matched: ' +
-                               ', '.join(matched_filters))
+            raise RuntimeError(
+                "multiple filters matched: " + ", ".join(matched_filters)
+            )
         matched_filter = matched_filters[0]
-        self.filter_name = matched_filter['name']
-        commands = matched_filter.get('commands', {}) or {}
+        self.filter_name = matched_filter["name"]
+        commands = matched_filter.get("commands", {}) or {}
         self.add_allowed_commands(commands)
-        confs = matched_filter.get('confs', {}) or {}
+        confs = matched_filter.get("confs", {}) or {}
         self.add_allowed_confs_commands(confs)
-        events = matched_filter.get('events', {}) or {}
+        events = matched_filter.get("events", {}) or {}
         self.add_allowed_events(events)
-        self.tor_browser_mode = bool(matched_filter.get(
-            'tor-browser-mode', False
-        ))
+        self.tor_browser_mode = bool(matched_filter.get("tor-browser-mode", False))
 
     def connect_to_real_control_port(self):
         controller = None
@@ -803,10 +847,12 @@ class FilteredControlPortProxyHandler(socketserver.StreamRequestHandler):
             # It remains to see if Controller.from_socket() is also
             # affected.
             controller = stem.connection.connect(
-                control_port=('127.0.0.1', '9052'), control_socket=None
+                control_port=("127.0.0.1", "9052"), control_socket=None
             )
             tries += 1
-        stem.connection.authenticate_cookie(controller, cookie_path=GLOBAL_ARGS.control_cookie_path)
+        stem.connection.authenticate_cookie(
+            controller, cookie_path=GLOBAL_ARGS.control_cookie_path
+        )
         return controller
 
     def handle(self):
@@ -821,26 +867,28 @@ class FilteredControlPortProxyHandler(socketserver.StreamRequestHandler):
             client_apparmor_profile = apparmor_profile_of_pid(self.client_pid)
             client_user = psutil.Process(self.client_pid).username()
             matchers = [
-                ('apparmor-profiles', client_apparmor_profile),
-                ('users',             client_user),
+                ("apparmor-profiles", client_apparmor_profile),
+                ("users", client_user),
             ]
         else:
             self.client_pid = None
             matchers = [
-                ('hosts', client_host),
+                ("hosts", client_host),
             ]
         self.match_and_parse_filter(matchers)
         if pid_based_connection:
-            self.client_desc = '{aa_profile} (pid: {pid}, user: {user}, ' \
-                               'port: {port}, filter: {filter_name})'.format(
-                                   aa_profile=client_apparmor_profile,
-                                   pid=self.client_pid,
-                                   user=client_user,
-                                   port=self.client_address[1],
-                                   filter_name=self.filter_name
-                               )
+            self.client_desc = (
+                "{aa_profile} (pid: {pid}, user: {user}, "
+                "port: {port}, filter: {filter_name})".format(
+                    aa_profile=client_apparmor_profile,
+                    pid=self.client_pid,
+                    user=client_user,
+                    port=self.client_address[1],
+                    filter_name=self.filter_name,
+                )
+            )
         else:
-            self.client_desc = '{1}:{2} (filter: {0})'.format(
+            self.client_desc = "{1}:{2} (filter: {0})".format(
                 self.filter_name, *self.client_address
             )
         remote_connection = not pid_based_connection and ipaddress.ip_address(
@@ -848,24 +896,27 @@ class FilteredControlPortProxyHandler(socketserver.StreamRequestHandler):
         ) not in ipaddress.ip_network(LOCAL_VETH_NETWORK)
         if self.tor_browser_mode and remote_connection:
             self.debug_log(
-                "filter '{}' has `tor-browser-mode` set "
+                f"filter '{self.filter_name}' has `tor-browser-mode` set "
                 "and we are remote so the option was disabled"
-                .format(self.filter_name)
             )
             self.tor_browser_mode = False
 
         if len(self.filters) == 0:
-            status = 'no matching filter found, using an empty one'
+            status = "no matching filter found, using an empty one"
         else:
-            status = 'loaded filter: {}'.format(self.filter_name)
-        log('{} connected: {}'.format(self.client_desc, status))
+            status = f"loaded filter: {self.filter_name}"
+        log(f"{self.client_desc} connected: {status}")
         if GLOBAL_ARGS.debug:
-            log('Final rules:')
-            log(yaml.dump({
-                'commands': self.allowed_commands,
-                'events': self.allowed_events,
-                'tor-browser-mode': self.tor_browser_mode,
-            }))
+            log("Final rules:")
+            log(
+                yaml.dump(
+                    {
+                        "commands": self.allowed_commands,
+                        "events": self.allowed_events,
+                        "tor-browser-mode": self.tor_browser_mode,
+                    }
+                )
+            )
         disconnect_reason = "client quit"
         try:
             self.controller = self.connect_to_real_control_port()
@@ -877,8 +928,7 @@ class FilteredControlPortProxyHandler(socketserver.StreamRequestHandler):
         finally:
             if self.controller:
                 self.controller.close()
-            log('{} disconnected: {}'.format(self.client_desc,
-                                             disconnect_reason))
+            log(f"{self.client_desc} disconnected: {disconnect_reason}")
 
 
 class FilteredControlPortProxy(socketserver.ThreadingTCPServer):
@@ -898,39 +948,51 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--listen-address",
-        type=str, metavar='ADDR', default=DEFAULT_LISTEN_ADDRESS,
-        help="specifies the address on which the server listens " +
-             f"(default: {DEFAULT_LISTEN_ADDRESS})"
+        type=str,
+        metavar="ADDR",
+        default=DEFAULT_LISTEN_ADDRESS,
+        help=(
+            "specifies the address on which the server listens "
+            f"(default: {DEFAULT_LISTEN_ADDRESS})"
+        ),
     )
     parser.add_argument(
         "--listen-port",
-        type=int, metavar='PORT', default=DEFAULT_LISTEN_PORT,
-        help="specifies the port on which the server listens " +
-             f"(default: {DEFAULT_LISTEN_PORT})"
+        type=int,
+        metavar="PORT",
+        default=DEFAULT_LISTEN_PORT,
+        help=(
+            "specifies the port on which the server listens "
+            f"(default: {DEFAULT_LISTEN_PORT})"
+        ),
     )
     parser.add_argument(
         "--listen-interface",
-        type=str, metavar='INTERFACE',
-        help="specifies the interface on which the server listens " +
-             "(default: NULL)"
+        type=str,
+        metavar="INTERFACE",
+        help="specifies the interface on which the server listens " + "(default: NULL)",
     )
     parser.add_argument(
         "--control-cookie-path",
-        type=str, metavar='PATH', default=DEFAULT_COOKIE_PATH,
-        help="specifies the path to Tor's control authentication cookie " +
-             f"(default: {DEFAULT_COOKIE_PATH})"
+        type=str,
+        metavar="PATH",
+        default=DEFAULT_COOKIE_PATH,
+        help="specifies the path to Tor's control authentication cookie "
+        + f"(default: {DEFAULT_COOKIE_PATH})",
     )
     parser.add_argument(
         "--complain",
-        action='store_true', default=False,
-        help="disables all filtering and just prints the commands sent " +
-             "by the client"
+        action="store_true",
+        default=False,
+        help=(
+            "disables all filtering and just prints the commands sent by the client"
+        ),
     )
     parser.add_argument(
         "--debug",
-        action='store_true',
-        default='debug' in open('/proc/cmdline').read().split(),
-        help="prints all requests and responses"
+        action="store_true",
+        default="debug" in open("/proc/cmdline").read().split(),
+        help="prints all requests and responses",
     )
     # We put the argparse results in the global scope since it's
     # awkward to extend socketserver so additional data can be sent to
@@ -938,15 +1000,16 @@ def main():
     global GLOBAL_ARGS
     GLOBAL_ARGS = parser.parse_args()
     # Deal with overlapping functionality between arguments
-    GLOBAL_ARGS.__dict__['disable_filtering'] = GLOBAL_ARGS.complain
-    GLOBAL_ARGS.__dict__['print_requests'] = GLOBAL_ARGS.complain or \
-        GLOBAL_ARGS.debug
-    GLOBAL_ARGS.__dict__['print_responses'] = GLOBAL_ARGS.debug
+    GLOBAL_ARGS.__dict__["disable_filtering"] = GLOBAL_ARGS.complain
+    GLOBAL_ARGS.__dict__["print_requests"] = GLOBAL_ARGS.complain or GLOBAL_ARGS.debug
+    GLOBAL_ARGS.__dict__["print_responses"] = GLOBAL_ARGS.debug
     if GLOBAL_ARGS.listen_interface:
         ip_address = get_ip_address(GLOBAL_ARGS.listen_interface)
         if GLOBAL_ARGS.debug:
-            log(f"IP address for interface {GLOBAL_ARGS.listen_interface} : " +
-                ip_address)
+            log(
+                f"IP address for interface {GLOBAL_ARGS.listen_interface} : "
+                + ip_address
+            )
     else:
         ip_address = GLOBAL_ARGS.listen_address
     address = (ip_address, GLOBAL_ARGS.listen_port)
