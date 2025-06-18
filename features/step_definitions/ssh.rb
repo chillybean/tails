@@ -117,7 +117,7 @@ When /^I connect to an SSH server on the (Internet|LAN)$/ do |location|
   end
 end
 
-Then /^I have sucessfully logged into the SSH server$/ do
+Then /^I have successfully logged into the SSH server$/ do
   try_for(60) do
     @ssh_prompt_re.match(
       Dogtail::Application.new('org.gnome.Terminal')

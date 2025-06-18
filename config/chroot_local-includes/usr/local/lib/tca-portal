@@ -98,7 +98,7 @@ class BaseCommand:
 
     def validate_request(self, request: Request) -> None:
         """
-        raise if it's not valid
+        Raise if it's not valid.
         """
         self.full_command(request)
 
@@ -106,9 +106,9 @@ class BaseCommand:
         """
         Validate and update the command arguments.
 
-        Raise an InvalidMessageError if the arguments are not valid
+        Raise an InvalidMessageError if the arguments are not valid.
 
-        This method is meant to be overridden, so that you can easily add validation to your Command
+        This method is meant to be overridden, so that you can easily add validation to your Command.
         """
         if not self.arguments and args:
             raise InvalidArgsError("Arguments are not accepted for this command")
@@ -270,7 +270,7 @@ class Handler(socketserver.StreamRequestHandler):
 
     The protocol is basically JSON-RPC with some more restrictions:
      - requests are in a single line
-     - response are in a single line
+     - responses are in a single line
 
     This is not supported at the moment, but could:
      - server-initiated messages (ie: signals)
@@ -349,7 +349,7 @@ class Handler(socketserver.StreamRequestHandler):
         """
         This will handle bytes that we believe might form a valid request (i.e.: a not-too-long sequence of
         bytes with no newline in between; see Handler.reader) and check if they actually do.
-        If the bytes do not form a syntactically valid request, an Response is returned.
+        If the bytes do not form a syntactically valid request, a Response is returned.
 
         If `line` is indeed a syntactically valid request, job is passed to Handler.handle_request, which will
         perform additional validation and spawn a dedicated process to handle the request.
@@ -397,9 +397,9 @@ class Handler(socketserver.StreamRequestHandler):
 
     def run(self, cmd, req):
         """
-        Spawn the intended cmd, then wait for it and put the appropriate response in the outgoing_q
+        Spawn the intended cmd, then wait for it and put the appropriate response in the outgoing_q.
 
-        this method is intended to be run in a dedicated Process
+        This method is intended to be run in a dedicated Process.
         """
         process = cmd.run(req)
         # stdout and stderr from the process
@@ -424,8 +424,8 @@ class Handler(socketserver.StreamRequestHandler):
         """
         Read from the socket. This method is intended to be run as a dedicated process.
 
-        It reads from the socket, process the data accordingly, and pass it to handle_line (which will deal
-        with parsing, validating, and spawning dedicated processes for it).
+        It reads from the socket, processes the data accordingly, and passes it to handle_line
+        (which will deal with parsing, validating, and spawning dedicated processes for it).
         """
         log = getLogger("traffic")
         while True:

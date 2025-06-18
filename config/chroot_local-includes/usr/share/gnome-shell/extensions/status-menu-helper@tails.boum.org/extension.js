@@ -88,7 +88,7 @@ export default class StatusMenuHelperExtension {
     }
 
     disable() {
-        // We want to keep the extention enabled on the lock screen
+        // We want to keep the extension enabled on the lock screen
         if (Main.sessionMode.isLocked) return;
         if (!this._isEnabled) return;
         this._isEnabled = false;

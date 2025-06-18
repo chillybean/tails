@@ -1568,7 +1568,7 @@ def reload_code(path_glob)
   # identical pattern. So we enable cucumber's --guess option which
   # we have monkeypatched to use the last (loaded) definition.
   $cucumber_options[:guess] = true
-  # This will enable the monkeypatch handling step redifinitions
+  # This will enable the monkeypatch handling step redefinitions
   $cucumber_options[:redefine_steps] = true
   # Some tests (e.g. those tagged @source) change the current working
   # directory so the glob below finds nothing unless we restore it to
