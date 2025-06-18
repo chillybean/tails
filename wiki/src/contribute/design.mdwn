@@ -1082,7 +1082,7 @@ is generated and installed at build time.
 But this is actually just a "pseudo" Flatpak in the sense that it
 doesn't contain the application files or runtime as usual, which would
 use a lot of disk space (i.e. increase the Tails image size) and add a
-lot of redundancy unless it can be shared with the [[Unsafe
+lot of redundancy unless it can be shared with the [[design/Unsafe
 Browser]]. Since the application files are installed in the usual
 Tails filesystem, as described above, we create an overlay filesystem
 with the required bits for the Flatpak runtime:
