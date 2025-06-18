@@ -293,7 +293,18 @@ def convert_from_bytes(size, unit)
   size.to_f / convert_bytes_mod(unit)
 end
 
-def cmd_helper(cmd, env: {})
+# Raised when cmd_helper() ran a command that exited with non-zero
+# status
+class CommandFailed < StandardError
+  attr_reader :command_output
+
+  def initialize(message, command_output)
+    super(message)
+    @command_output = command_output
+  end
+end
+
+def cmd_helper(cmd, env: {}, suppress_output: false)
   if cmd.instance_of?(Array)
     cmd << { err: [:child, :out] }
   elsif cmd.instance_of?(String)
@@ -304,7 +315,11 @@ def cmd_helper(cmd, env: {})
     out = p.read
     Process.wait(p.pid)
     ret = $CHILD_STATUS
-    assert_equal(0, ret, "Command failed (returned #{ret}): #{cmd}:\n#{out}")
+    if ret.exitstatus != 0
+      message = "Command failed (#{ret}): #{cmd}"
+      message += ":\n#{out}" unless suppress_output
+      raise CommandFailed.new(message, out)
+    end
     return out
   end
 end
@@ -317,7 +332,8 @@ def all_tor_hosts
   chutney_torrcs.each do |torrc|
     File.open(torrc) do |f|
       nodes += f.grep(/^(Or|Dir)Port\b/).map do |line|
-        { address: $vmnet.bridge_ip_address.to_s, port: line.split.last.to_i }
+        { address: $vmnet.bridge_ip_address.to_s,
+          port:    line.split.last.split(':').last.to_i, }
       end
     end
   end
