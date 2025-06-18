@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2024-04-05 11:23+0000\n"
+"POT-Creation-Date: 2025-06-11 22:18+0000\n"
 "PO-Revision-Date: 2025-06-03 00:30+0000\n"
 "Last-Translator: victor dargallo <victordargallo@disroot.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -268,9 +268,7 @@ msgstr "Baixeu la imatge USB:"
 #. type: Plain text
 #, no-wrap
 msgid "   <p class=\"command\">wget --continue [[!inline pages=\"inc/stable_amd64_img_url\" raw=\"yes\" sort=\"age\"]]</p>\n"
-msgstr ""
-"   <p class=\"command\">wget --continue [[!inline pages=\"inc/"
-"stable_amd64_img_url\" raw=\"yes\" sort=\"age\"]]</p>\n"
+msgstr "   <p class=\"command\">wget --continue [[!inline pages=\"inc/stable_amd64_img_url\" raw=\"yes\" sort=\"age\"]]</p>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -378,9 +376,26 @@ msgid "Plug in the USB stick on which you want to install Tails."
 msgstr "Connecteu el llapis USB on voleu instal·lar Tails."
 
 #. type: Plain text
-#, no-wrap
-msgid "   <div class=\"caution\"><p>All the data on this USB stick will be lost.</p></div>\n"
+#, fuzzy, no-wrap
+#| msgid "   <div class=\"note\">\n"
+msgid "   <div class=\"caution\">\n"
+msgstr "   <div class=\"note\">\n"
+
+#. type: Plain text
+#, fuzzy, no-wrap
+#| msgid "   <div class=\"caution\"><p>All the data on this USB stick will be lost.</p></div>\n"
+msgid "   <p>All the data on this USB stick will be lost.</p>\n"
 msgstr "   <div class=\"caution\"><p>Totes les dades d'aquest llapis USB es perdran.</p></div>\n"
+
+#. type: Plain text
+#, no-wrap
+msgid "   <p>Some data might still be recovered using advanced forensics tools.</p>\n"
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid "   </div>\n"
+msgstr "   </div>\n"
 
 #. type: Bullet: '1. '
 msgid "Execute again the same command:"
@@ -497,11 +512,6 @@ msgstr ""
 #, no-wrap
 msgid "   <p class=\"command-example\">sudo dd if=<span class=\"command-placeholder\">tails.img</span> of=<span class=\"command-placeholder\">device</span> bs=16M oflag=direct status=progress</p>\n"
 msgstr "   <p class=\"command-example\">dd if=<span class=\"command-placeholder\">tails.img</span> of=<span class=\"command-placeholder\">dispositiu</span> bs=16M oflag=direct status=progress</p>\n"
-
-#. type: Plain text
-#, no-wrap
-msgid "   </div>\n"
-msgstr "   </div>\n"
 
 #. type: Plain text
 #, no-wrap
