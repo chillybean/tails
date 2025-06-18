@@ -118,6 +118,7 @@ avoid-gtk-launch:
     - ./bin/test-utils/gtk-launch
 
 codespell:
+  image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:trixie
   script:
     - apt-get -qy install codespell
     - codespell --version
