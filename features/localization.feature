@@ -54,3 +54,11 @@ Feature: Localization
       | Russian    | ru     | ru         | ru    |
       | Spanish    | es     | us         | es    |
       | Turkish    | tr     | us         | tr    |
+
+  Scenario: Tails stores localization preferences in cleartext
+    Given I have started Tails without network from a USB drive without a persistent partition and stopped at Tails Greeter's login screen
+    And I set the language to Italian (it)
+    Then the language has been saved in cleartext storage
+    When I shutdown Tails and wait for the computer to power off
+    And I start Tails from USB drive "__internal" with network unplugged
+    Then the Greeter's language is set to Italian

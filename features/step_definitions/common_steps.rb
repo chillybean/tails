@@ -1768,3 +1768,22 @@ Then /^WhisperBack is prefilled for (.*) with summary: "(.*)"$/ do |app, summary
   assert_equal("Bug-specific app: #{app}\nBug-specific summary: #{summary}\n",
                prefilled_text)
 end
+
+Then /^the language has been saved in cleartext storage$/ do
+  try_for(10) do
+    $vm.file_exist?('/usr/lib/live/mount/medium/storage/language') && \
+      $vm.file_exist?('/usr/lib/live/mount/medium/storage/keyboard')
+  end
+  language = JSON.parse($vm.file_content('/usr/lib/live/mount/medium/storage/language'))
+  keyboard = JSON.parse($vm.file_content('/usr/lib/live/mount/medium/storage/keyboard'))
+  assert_equal(language['TAILS_LOCALE_NAME'], 'it_IT')
+  assert_equal(keyboard['TAILS_XKBLAYOUT'], 'it')
+end
+
+Then(/^the Greeter's language is set to (.*)$/) do |lang|
+  language_row = greeter.children(roleName: 'list item')
+                        .first
+                        .children(roleName: 'label')
+                        .find { |node| node.name.include?("(#{lang} - ") }
+  assert_not_nil(language_row)
+end
