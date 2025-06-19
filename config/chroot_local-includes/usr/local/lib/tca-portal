@@ -12,6 +12,7 @@ import logging
 import multiprocessing
 import os
 import re
+import signal
 import socket
 import socketserver
 import stat
@@ -400,7 +401,11 @@ class Handler(socketserver.StreamRequestHandler):
         Spawn the intended cmd, then wait for it and put the appropriate response in the outgoing_q.
 
         This method is intended to be run in a dedicated Process.
+
+        Reset the SIGCHLD signal handler to default. Ignoring signals would be inherited by spawned
+        processes and we do not want to manipulate their way of signal processing.
         """
+        signal.signal(signal.SIGCHLD, signal.SIG_DFL)
         process = cmd.run(req)
         # stdout and stderr from the process
         stdout, _ = process.communicate(cmd.stdin)
@@ -426,8 +431,12 @@ class Handler(socketserver.StreamRequestHandler):
 
         It reads from the socket, processes the data accordingly, and passes it to handle_line
         (which will deal with parsing, validating, and spawning dedicated processes for it).
+
+        Ignore SIGCHLD signals to avoid creation of zombie processes. Spawned processes are not
+        waited for and their status is not important.
         """
         log = getLogger("traffic")
+        signal.signal(signal.SIGCHLD, signal.SIG_IGN)
         try:
             while True:
                 peek_ahead = self.request.recv(self.MAX_LINESIZE, socket.MSG_PEEK)
