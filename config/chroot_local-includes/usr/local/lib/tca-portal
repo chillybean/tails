@@ -428,21 +428,26 @@ class Handler(socketserver.StreamRequestHandler):
         (which will deal with parsing, validating, and spawning dedicated processes for it).
         """
         log = getLogger("traffic")
-        while True:
-            peek_ahead = self.request.recv(self.MAX_LINESIZE, socket.MSG_PEEK)
-            if not peek_ahead:
-                return
-            if b"\n" not in peek_ahead:
-                time.sleep(0.1)
-                continue
-            request_length = peek_ahead.find(b"\n")
-            line_in = self.request.recv(request_length + 1).rstrip(b"\n").decode("utf8")
-            if not line_in:
-                continue
-            log.debug("<- %s", line_in)
-            response = self.handle_line(line_in.lstrip())
-            if response is not None:
-                self.outgoing_q.put(response)
+        try:
+            while True:
+                peek_ahead = self.request.recv(self.MAX_LINESIZE, socket.MSG_PEEK)
+                if not peek_ahead:
+                    return
+                if b"\n" not in peek_ahead:
+                    time.sleep(0.1)
+                    continue
+                request_length = peek_ahead.find(b"\n")
+                line_in = self.request.recv(request_length + 1).rstrip(b"\n").decode("utf8")
+                if not line_in:
+                    continue
+                log.debug("<- %s", line_in)
+                response = self.handle_line(line_in.lstrip())
+                if response is not None:
+                    self.outgoing_q.put(response)
+        except ConnectionResetError:
+            log.error("Connection reset by peer")
+        finally:
+            self.outgoing_q.put(None)
 
     def handle(self):
         self.pid = os.getpid()
@@ -453,7 +458,11 @@ class Handler(socketserver.StreamRequestHandler):
 
         while True:
             response = self.outgoing_q.get()
+            if response is None:
+                break
             self.send(response)
+
+        self.reader_process.join()
 
 
 def main():
