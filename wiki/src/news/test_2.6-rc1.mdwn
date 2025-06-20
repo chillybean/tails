@@ -45,19 +45,15 @@ Upgrade from 2.5
 1. Start Tails 2.5 on a USB stick installed using *Tails Installer* and
    [[set an administration password|doc/first_steps/welcome_screen/administration_password]].
 
-1. Run this command in a <span class="application">Root
-   Terminal</span> to select the "alpha" upgrade channel
+1. Run this command in a <span class="application">Root Terminal</span>
+   to select the "alpha" upgrade channel
    and start the upgrade:
 
        echo TAILS_CHANNEL=\"alpha\" >> /etc/os-release && \
             tails-upgrade-frontend-wrapper
 
 1. After the upgrade is installed, restart Tails and choose
-   <span class="menuchoice">
-     <span class="guimenu">Applications</span>&nbsp;▸
-     <span class="guisubmenu">Tails</span>&nbsp;▸
-     <span class="guimenuitem">About Tails</span>
-   </span>
+   <span class="menuchoice"><span class="guimenu">Applications</span>&nbsp;▸ <span class="guisubmenu">Tails</span>&nbsp;▸ <span class="guimenuitem">About Tails</span></span>
    to verify that you are running Tails 2.6~rc1.
 
 What's new since 2.5?

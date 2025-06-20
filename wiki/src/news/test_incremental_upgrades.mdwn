@@ -24,8 +24,8 @@ These instructions allow you to incrementally upgrade from Tails
 incremental upgrades**. It might have undiscovered issues.
 
 Below, we assume that you have installed [[Tails
-0.22~rc1|news/test_0.22-rc1]] **with <span class="application">Tails
-Installer</span>** onto a USB stick or SD card.
+0.22~rc1|news/test_0.22-rc1]] **with <span class="application">Tails Installer</span>**
+onto a USB stick or SD card.
 
 If you have applied the incremental upgrade to Tails 0.22~rc2, skip to
 [[the instructions for RC2
@@ -39,8 +39,8 @@ Tails 0.22.
 1. Start Tails 0.22~rc1 and [[set an administration
    password|doc/first_steps/welcome_screen/administration_password]].
 
-1. Run this command in a <span class="application">Root
-   Terminal</span> to correct the firewall:
+1. Run this command in a <span class="application">Root Terminal</span>
+   to correct the firewall:
 
        sed -i -e \
           's/tails-iuk-get-target-file/(tails-iuk-get-target-file tails-upgrade-frontend)/' \
@@ -55,11 +55,7 @@ Tails 0.22.
 ## From Tails 0.22~rc1 or 0.22~rc2
 
 1. Choose
-   <span class="menuchoice">
-     <span class="guimenu">Applications</span>&nbsp;▸
-     <span class="guisubmenu">Tails</span>&nbsp;▸
-     <span class="guimenuitem">Tails Upgrader</span>
-   </span>
+   <span class="menuchoice"><span class="guimenu">Applications</span>&nbsp;▸ <span class="guisubmenu">Tails</span>&nbsp;▸ <span class="guimenuitem">Tails Upgrader</span></span>
    to start <span class="application">Tails Upgrader</span>.
 
 1. Accept <span class="application">Tails Upgrader</span>'s proposal
@@ -70,10 +66,7 @@ Tails 0.22.
 1. Restart the system when advised to do so.
 
 1. Once the system is restarted, choose
-   <span class="menuchoice">
-     <span class="guimenu">System</span>&nbsp;▸
-     <span class="guimenuitem">About Tails</span>
-   </span>
+   <span class="menuchoice"><span class="guimenu">System</span>&nbsp;▸ <span class="guimenuitem">About Tails</span></span>
    to confirm that the running system is now Tails 0.22.
 
 If you find anything that is not working as it should, please [[report

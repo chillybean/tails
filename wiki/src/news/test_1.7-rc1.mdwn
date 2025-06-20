@@ -40,26 +40,22 @@ us|doc/first_steps/whisperback]]! Bonus points if you first check if it is a
 How to automatically upgrade from 1.6?
 ========================================
 
-These steps allow you to automatically upgrade a device installed with <span
-class="application">Tails Installer</span> from Tails 1.6 to Tails 1.7~rc1.
+These steps allow you to automatically upgrade a device installed with
+<span class="application">Tails Installer</span> from Tails 1.6 to Tails 1.7~rc1.
 
 1. Start Tails 1.6 from a USB stick or SD card (installed by the
    Tails Installer), and
    [[set an administration password|doc/first_steps/welcome_screen/administration_password]].
 
-1. Run this command in a <span class="application">Root
-   Terminal</span> to select the "alpha" upgrade channel
+1. Run this command in a <span class="application">Root Terminal</span>
+   to select the "alpha" upgrade channel
    and start the upgrade:
 
        echo TAILS_CHANNEL=\"alpha\" >> /etc/os-release && \
             tails-upgrade-frontend-wrapper
 
 1. Once the upgrade has been installed, restart Tails and look at
-   <span class="menuchoice">
-     <span class="guimenu">Applications</span>&nbsp;▸
-     <span class="guisubmenu">Tails</span>&nbsp;▸
-     <span class="guimenuitem">About Tails</span>
-   </span>
+   <span class="menuchoice"><span class="guimenu">Applications</span>&nbsp;▸ <span class="guisubmenu">Tails</span>&nbsp;▸ <span class="guimenuitem">About Tails</span></span>
    to confirm that the running system is Tails 1.7~rc1.
 
 What's new since 1.6?
