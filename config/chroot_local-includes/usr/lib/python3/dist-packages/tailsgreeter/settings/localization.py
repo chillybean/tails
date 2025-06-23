@@ -27,6 +27,8 @@ from gi.repository import GObject
 
 import tailsgreeter.utils
 from tailsgreeter.settings import SettingNotFoundError
+from tailsgreeter.settings.utils import write_settings
+
 
 if TYPE_CHECKING:
     from gi.repository import Gtk
@@ -68,10 +70,12 @@ class CleartextStorageMixin:
         return tailsgreeter.utils.get_cleartext_storage(self.SETTINGS_KEY)
 
     def save(self, *args, **kwargs):
+        data = self.serialize(*args, **kwargs)
+        write_settings(f"/var/lib/gdm3/settings/transient/tails.{self.SETTINGS_KEY}", data)
         if not self.cleartext_loaded:
             return
         logging.debug(f"{self.__class__.__name__} save")
-        return tailsgreeter.utils.set_cleartext_storage(self.SETTINGS_KEY, self.serialize(*args, **kwargs))
+        tailsgreeter.utils.set_cleartext_storage(self.SETTINGS_KEY, data)
 
 
 
