@@ -1,3 +1,4 @@
+import contextlib
 import json
 import subprocess
 
@@ -19,7 +20,7 @@ def glib_idle_add_once(function: callable, *args, **kwargs):
     return GLib.idle_add(wrapper, *args, **kwargs)
 
 
-def get_cleartext_storage(key: str) -> str | None:
+def get_cleartext_storage(key: str):
     if not is_tails_media_writable():
         return {}
 
@@ -34,13 +35,11 @@ def get_cleartext_storage(key: str) -> str | None:
                 ) from exc
 
 
-def set_cleartext_storage(key: str, value) -> str | None:
+def set_cleartext_storage(key: str, value):
     if not is_tails_media_writable():
-        return ""
+        return
     cmd = ['/usr/bin/sudo', '-n', '/usr/local/bin/tails-cleartext-storage', 'save', key]
     print(f"Running {cmd}")
     content = json.dumps(value)
-    try:
-        return subprocess.check_output(cmd, text=True, input=content)
-    except subprocess.CalledProcessError:
-        return None
+    with contextlib.suppress(subprocess.CalledProcessError):
+        subprocess.check_call(cmd, input=content)
