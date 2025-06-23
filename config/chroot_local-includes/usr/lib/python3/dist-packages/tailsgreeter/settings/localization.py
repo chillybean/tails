@@ -39,6 +39,7 @@ class LocalizationSetting(GObject.Object, object):
         GObject.Object.__init__(self)
         self.value: str = ""
         self.value_changed_by_user = False
+        self.log = logging.getLogger(self.__class__.__name__)
 
     def get_value(self) -> str:
         return self.value
@@ -63,9 +64,9 @@ class CleartextStorageMixin:
 
     def load(self):
         if not self.cleartext_loaded:
-            logging.debug(f"{self.__class__.__name__} first load")
+            self.log.debug("first load")
         else:
-            logging.debug(f"{self.__class__.__name__} reload")
+            self.log.debug("reload")
         self.cleartext_loaded = True
         return tailsgreeter.utils.get_cleartext_storage(self.SETTINGS_KEY)
 
@@ -74,7 +75,7 @@ class CleartextStorageMixin:
         write_settings(f"/var/lib/gdm3/settings/transient/tails.{self.SETTINGS_KEY}", data)
         if not self.cleartext_loaded:
             return
-        logging.debug(f"{self.__class__.__name__} save")
+        self.log.debug("save")
         tailsgreeter.utils.set_cleartext_storage(self.SETTINGS_KEY, data)
 
 
