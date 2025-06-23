@@ -5,6 +5,7 @@ import gi
 from gi.repository import GLib
 
 from tailsgreeter.settings import SettingNotFoundError
+from tailslib.persistence import is_tails_media_writable
 
 # GLib has idle_add_once(), but it is not exposed, so here we
 # implement it ourselves.
@@ -19,6 +20,9 @@ def glib_idle_add_once(function: callable, *args, **kwargs):
 
 
 def get_cleartext_storage(key: str) -> str | None:
+    if not is_tails_media_writable():
+        return {}
+
     cmd = ['/usr/bin/sudo', '-n', '/usr/local/bin/tails-cleartext-storage', 'load', key]
     print(f"Running {cmd}")
     try:
@@ -31,6 +35,8 @@ def get_cleartext_storage(key: str) -> str | None:
 
 
 def set_cleartext_storage(key: str, value) -> str | None:
+    if not is_tails_media_writable():
+        return ""
     cmd = ['/usr/bin/sudo', '-n', '/usr/local/bin/tails-cleartext-storage', 'save', key]
     print(f"Running {cmd}")
     content = json.dumps(value)
