@@ -72,10 +72,11 @@ class CleartextStorageMixin:
 
     def save(self, *args, **kwargs):
         data = self.serialize(*args, **kwargs)
+        self.log.debug("set transient value")
         write_settings(f"/var/lib/gdm3/settings/transient/tails.{self.SETTINGS_KEY}", data)
         if not self.cleartext_loaded:
             return
-        self.log.debug("save")
+        self.log.debug("save to disk")
         tailsgreeter.utils.set_cleartext_storage(self.SETTINGS_KEY, data)
 
 
