@@ -59,6 +59,7 @@ class CleartextStorageMixin:
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.cleartext_loaded = False
+        self.save_enabled = False
 
     def load(self):
         if not self.cleartext_loaded:
@@ -77,7 +78,9 @@ class CleartextStorageMixin:
         if not self.cleartext_loaded:
             return
         self.log.debug("save to disk")
-        tailsgreeter.utils.set_cleartext_storage(self.SETTINGS_KEY, data)
+
+        if self.save_enabled:
+            tailsgreeter.utils.set_cleartext_storage(self.SETTINGS_KEY, data)
 
 
 def ln_iso639_tri(ln_CC):

@@ -715,8 +715,14 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
         setting.apply()
 
     def cb_save_language_keyboard_switch_changed(self, widget, user_data=None):
+        settings = [
+                self.greeter.localisationsettings.keyboard,
+                self.greeter.localisationsettings.language,
+                ]
         if not widget.get_active():
             widget.set_state(False)
+            for setting in settings:
+                setting.save_enabled = False
             return True
 
         logging.info("Widget save active=%s state=%s",
@@ -739,6 +745,9 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
             dialog.destroy()
             if response == Gtk.ResponseType.OK:
                 widget.set_state(True)
+                for setting in settings:
+                    setting.save_enabled = True
+                    setting.save()
                 return
             widget.set_active(False)
         dialog.connect("response", on_save_language_dialog_response)
