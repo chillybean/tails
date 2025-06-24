@@ -1,5 +1,3 @@
-#!/usr/bin/python3 -I
-
 """
 This module implements wiki/src/contribute/design/greeter_storage.mdwn
 """

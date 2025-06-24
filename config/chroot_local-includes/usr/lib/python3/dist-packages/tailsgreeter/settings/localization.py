@@ -22,11 +22,10 @@ import pycountry
 from typing import TYPE_CHECKING
 
 gi.require_version("GObject", "2.0")
-from gi.repository import GObject
+from gi.repository import GObject  # noqa: E402
 
-import tailsgreeter.utils
-from tailsgreeter.settings import SettingNotFoundError
-from tailsgreeter.settings.utils import write_settings
+import tailsgreeter.utils  # noqa: E402
+from tailsgreeter.settings.utils import write_settings  # noqa: E402
 
 
 if TYPE_CHECKING:
@@ -112,7 +111,7 @@ def countries_from_locales(locales) -> list[str]:
     """Obtain a country code list from a locale code list
 
     example: [fr_FR, en_GB] -> [FR, GB]"""
-    return list({country_from_locale(l) for l in locales})
+    return list({country_from_locale(locale) for locale in locales})
 
 
 def add_encoding(locale_code: str) -> str:

@@ -81,8 +81,8 @@ gettext = _gettext_orig.gettext
 
 
 def set_current_language(lang: str):
-    global current_language
-    global gettext
+    global current_language  # noqa: PLW0603
+    global gettext  # noqa: PLW0603
     current_language = lang
     gettext = _gettext_orig.translation(
         TRANSLATION_DOMAIN,
