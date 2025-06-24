@@ -714,6 +714,39 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
 
         setting.apply()
 
+    def cb_save_language_keyboard_switch_changed(self, widget, user_data=None):
+        if not widget.get_active():
+            widget.set_state(False)
+            return True
+
+        logging.info("Widget save active=%s state=%s",
+                     widget.get_active(),
+                     widget.get_state())
+        dialog = MessageDialog(
+            message_type=Gtk.MessageType.QUESTION,
+            title=_("Language and Keyboard layout"),
+            text=_(
+                "Your language and keyboard layout will be saved unencrypted "
+                "on your Tails USB stick and applied automatically in the future.\n\n"
+                "Someone who finds your Tails USB stick can see your language and keyboard layout."
+            ),
+            cancel_label=_("Cancel"),
+            ok_label=_("Save Unencrypted"),
+            destructive=False,
+        )
+        dialog.set_transient_for(self)
+        def on_save_language_dialog_response(dialog, response):
+            dialog.destroy()
+            if response == Gtk.ResponseType.OK:
+                widget.set_state(True)
+                return
+            widget.set_active(False)
+        dialog.connect("response", on_save_language_dialog_response)
+        dialog.show_all()
+
+        # Returning TRUE prevents the default handler from running
+        return True
+
     def cb_listbox_settings_row_activated(self, listbox, row, user_data=None):
         setting = self.settings[self.settings.id_from_row(row)]
         if not setting.popover.is_open():
