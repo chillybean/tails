@@ -1783,13 +1783,7 @@ Then /^WhisperBack is prefilled for (.*) with summary: "(.*)"$/ do |app, summary
 end
 
 Then /^the language has (not |)been saved in cleartext storage$/ do |not_saved|
-  if not_saved
-    # Give it some time, otherwise the subsequent tests could pass just because
-    # the file hasn't been created *yet*
-    sleep 2
-    assert_false($vm.file_exist?('/usr/lib/live/mount/medium/storage/language'))
-    assert_false($vm.file_exist?('/usr/lib/live/mount/medium/storage/keyboard'))
-  else
+  if not_saved.empty? # has been saved
     try_for(10) do
       $vm.file_exist?('/usr/lib/live/mount/medium/storage/language') && \
         $vm.file_exist?('/usr/lib/live/mount/medium/storage/keyboard')
@@ -1802,6 +1796,12 @@ Then /^the language has (not |)been saved in cleartext storage$/ do |not_saved|
     )
     assert_equal(language['TAILS_LOCALE_NAME'], 'it_IT')
     assert_equal(keyboard['TAILS_XKBLAYOUT'], 'it')
+  else # has not been saved
+    # Give it some time, otherwise the subsequent tests could pass just because
+    # the file hasn't been created *yet*
+    sleep 2
+    assert_false($vm.file_exist?('/usr/lib/live/mount/medium/storage/language'))
+    assert_false($vm.file_exist?('/usr/lib/live/mount/medium/storage/keyboard'))
   end
 end
 
