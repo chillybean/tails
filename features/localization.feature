@@ -55,10 +55,21 @@ Feature: Localization
       | Spanish    | es     | us         | es    |
       | Turkish    | tr     | us         | tr    |
 
-  Scenario: Tails stores localization preferences in cleartext
+  Scenario: Tails doesn't store localization preferences in cleartext unless it's asked to
     Given I have started Tails without network from a USB drive without a persistent partition and stopped at Tails Greeter's login screen
-    And I set the language to Italian (it)
-    Then the language has been saved in cleartext storage
+    When I set the language to Italian (it)
+    Then the language has not been saved in cleartext storage
     When I shutdown Tails and wait for the computer to power off
     And I start Tails from USB drive "__internal" with network unplugged
-    Then the Greeter's language is set to Italian
+    Then the Greeter's language is set to English
+
+  Scenario: Tails stores localization preferences when it's asked to
+    Given I have started Tails without network from a USB drive without a persistent partition and stopped at Tails Greeter's login screen
+    When I set the language to Italian (it)
+    And I save the language and keyboard options
+    Then the language has been saved in cleartext storage
+    When I set the language to French (fr)
+    And I shutdown Tails and wait for the computer to power off
+    And I start Tails from USB drive "__internal" with network unplugged
+    Then the language has been saved in cleartext storage
+    Then the Greeter's language is set to French

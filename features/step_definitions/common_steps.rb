@@ -468,6 +468,19 @@ Given /^I set the language to (.*) \((.*)\)$/ do |lang, lang_code|
   greeter.child('Search', roleName: 'text').activate
 end
 
+When /^I save the language and keyboard options$/ do
+  greeter
+    .child(translate('Save'), roleName: 'label')
+    .parent
+    .child(roleName: 'toggle button')
+    .toggle
+
+  greeter
+    .child('Question', roleName: 'alert')
+    .child(translate('Save Unencrypted'), roleName: 'push button')
+    .click
+end
+
 Given /^I log in to a new session(?: in ([^ ]*) \(([^ ]*)\))?( without activating the Persistent Storage)?( after having activated the Persistent Storage| expecting no warning about the Persistent Storage not being activated)?$/ do |lang, lang_code, expect_warning, expect_no_warning|
   # We find the login button before localizing it since it's easier to
   # find then.
@@ -1769,15 +1782,27 @@ Then /^WhisperBack is prefilled for (.*) with summary: "(.*)"$/ do |app, summary
                prefilled_text)
 end
 
-Then /^the language has been saved in cleartext storage$/ do
-  try_for(10) do
-    $vm.file_exist?('/usr/lib/live/mount/medium/storage/language') && \
-      $vm.file_exist?('/usr/lib/live/mount/medium/storage/keyboard')
+Then /^the language has (not |)been saved in cleartext storage$/ do |not_saved|
+  if not_saved
+    # Give it some time, otherwise the subsequent tests could pass just because
+    # the file hasn't been created *yet*
+    sleep 2
+    assert_false($vm.file_exist?('/usr/lib/live/mount/medium/storage/language'))
+    assert_false($vm.file_exist?('/usr/lib/live/mount/medium/storage/keyboard'))
+  else
+    try_for(10) do
+      $vm.file_exist?('/usr/lib/live/mount/medium/storage/language') && \
+        $vm.file_exist?('/usr/lib/live/mount/medium/storage/keyboard')
+    end
+    language = JSON.parse(
+      $vm.file_content('/usr/lib/live/mount/medium/storage/language')
+    )
+    keyboard = JSON.parse(
+      $vm.file_content('/usr/lib/live/mount/medium/storage/keyboard')
+    )
+    assert_equal(language['TAILS_LOCALE_NAME'], 'it_IT')
+    assert_equal(keyboard['TAILS_XKBLAYOUT'], 'it')
   end
-  language = JSON.parse($vm.file_content('/usr/lib/live/mount/medium/storage/language'))
-  keyboard = JSON.parse($vm.file_content('/usr/lib/live/mount/medium/storage/keyboard'))
-  assert_equal(language['TAILS_LOCALE_NAME'], 'it_IT')
-  assert_equal(keyboard['TAILS_XKBLAYOUT'], 'it')
 end
 
 Then(/^the Greeter's language is set to (.*)$/) do |lang|
