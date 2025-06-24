@@ -42,3 +42,11 @@ def set_cleartext_storage(key: str, value):
     content = json.dumps(value)
     with contextlib.suppress(subprocess.CalledProcessError):
         subprocess.check_call(cmd, input=content)
+
+def unset_cleartext_storage(key: str):
+    if not is_tails_media_writable():
+        return
+    cmd = ["/usr/bin/sudo", "-n", "/usr/local/bin/tails-cleartext-storage", "delete", key]
+    print(f"Running {cmd}")
+    with contextlib.suppress(subprocess.CalledProcessError):
+        subprocess.check_call(cmd)

@@ -13,6 +13,11 @@ args = ["save", "keyboard"]
 [[commands]]
 allowed_user = "Debian-gdm"
 executable = "/usr/local/bin/tails-cleartext-storage"
+args = ["delete", "keyboard"]
+
+[[commands]]
+allowed_user = "Debian-gdm"
+executable = "/usr/local/bin/tails-cleartext-storage"
 args = ["load", "language"]
 
 [[commands]]
@@ -23,9 +28,5 @@ args = ["save", "language"]
 [[commands]]
 allowed_user = "Debian-gdm"
 executable = "/usr/local/bin/tails-cleartext-storage"
-args = ["load", "formats"]
+args = ["delete", "language"]
 
-[[commands]]
-allowed_user = "Debian-gdm"
-executable = "/usr/local/bin/tails-cleartext-storage"
-args = ["save", "formats"]

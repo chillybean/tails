@@ -2,6 +2,7 @@
 This module implements wiki/src/contribute/design/greeter_storage.mdwn
 """
 
+import contextlib
 from pathlib import Path
 from subprocess import run
 
@@ -19,14 +20,23 @@ class CleartextStorage:
         with (self.basedir / key).open(mode) as buf:
             return buf.read()
 
+    def delete(self, key: str):
+        with mount_rw(self.mountpoint):
+            (self.basedir / key).unlink(missing_ok=True)
+
     def save(self, key: str, value, text=True):
-        run(["/usr/bin/mount", "-o", "remount,rw", str(self.mountpoint)], check=True)
-        try:
+        with mount_rw(self.mountpoint):
             self.basedir.mkdir(exist_ok=True)
             mode = "w" if text else "wb"
             with (self.basedir / key).open(mode) as buf:
                 buf.write(value)
-        finally:
+
+@contextlib.contextmanager
+def mount_rw(mountpoint: str | Path):
+    run(["/usr/bin/mount", "-o", "remount,rw", str(mountpoint)], check=True)
+    try:
+        yield
+    finally:
             run(
-                ["/usr/bin/mount", "-o", "remount,ro", str(self.mountpoint)], check=True
+                ["/usr/bin/mount", "-o", "remount,ro", str(mountpoint)], check=True,
             )
