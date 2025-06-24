@@ -1,6 +1,6 @@
 import gi
 import logging
-from typing import Optional
+from typing import Optional, ClassVar
 
 from tailsgreeter.settings import SettingNotFoundError
 from tailsgreeter.settings.localization import (
@@ -22,6 +22,13 @@ from gi.repository import Gio, GLib, GnomeDesktop, GObject, Gtk  # noqa: E402
 
 class KeyboardSetting(CleartextStorageMixin, LocalizationSetting):
     SETTINGS_KEY = "keyboard"
+    # This should really belong to CleartextStorageMixin, but for some reason that
+    # will not work.
+    # See also KeyboardSetting
+    __gproperties__: ClassVar[dict] = {
+            "saveEnabled": (bool, "saveEnabled", "Whether data can be written to disk", False,
+                       GObject.ParamFlags.READWRITE),
+            }
 
     def __init__(self):
         super().__init__()

@@ -25,6 +25,7 @@ gi.require_version("GObject", "2.0")
 from gi.repository import GObject  # noqa: E402
 
 import tailsgreeter.utils  # noqa: E402
+from tailsgreeter.settings import SettingNotFoundError
 from tailsgreeter.settings.utils import write_settings  # noqa: E402
 
 
@@ -63,9 +64,15 @@ class CleartextStorageMixin:
 
     def load(self):
         self.log.debug("load")
-        # TODO: self.save_enabled = True if configuration read
-        # TODO: and then the Save switch must be set to True
-        return tailsgreeter.utils.get_cleartext_storage(self.SETTINGS_KEY)
+        try:
+            value = tailsgreeter.utils.get_cleartext_storage(self.SETTINGS_KEY)
+        except SettingNotFoundError:
+            return {}
+        else:
+            self.log.info("Successfully loaded... emitting?")  # TODO: removeme
+            self.set_property('saveEnabled', True)
+
+        return value
 
     def save(self, *args, **kwargs):
         data = self.serialize(*args, **kwargs)
@@ -77,6 +84,21 @@ class CleartextStorageMixin:
         if self.save_enabled:
             self.log.debug("save to disk")
             self.save_to_disk()
+
+    def do_get_property(self, prop):
+        if prop.name == 'saveEnabled':
+            return self.save_enabled
+        raise AttributeError('unknown property %s' % prop.name)
+
+    def do_set_property(self, prop, value):
+        if prop.name == 'saveEnabled':
+            self.save_enabled = value
+            if value:
+                self.save_to_disk()
+            else:
+                self.delete_from_disk()
+        else:
+            raise AttributeError(f'unknown property {prop.name} in {self.__class__.__name__}')
 
     def save_to_disk(self):
         tailsgreeter.utils.set_cleartext_storage(self.SETTINGS_KEY,

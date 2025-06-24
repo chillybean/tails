@@ -135,6 +135,7 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
         self.toolbutton_settings_add = builder.get_object("toolbutton_settings_add")
         self.listbox_settings = builder.get_object("listbox_settings")
         self.listbox_region = builder.get_object("listbox_region")
+        self.region_save_switch = builder.get_object('save_language_keyboard_switch')
         self.button_start = builder.get_object("button_start")
         self.headerbar = builder.get_object("headerbar")
 
@@ -184,6 +185,15 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
         self._build_accelerators()
 
         self.store_translations(self)
+
+        # Region
+
+        for setting in [
+                self.greeter.localisationsettings.keyboard,
+                self.greeter.localisationsettings.language,
+                ]:
+            setting.connect("notify::saveEnabled", self.cb_language_or_keyboard_loaded_changed)
+            self.cb_language_or_keyboard_loaded_changed(setting, None, user_data="__init__")
 
         # Persistent Storage
         self.tps_upgrade_failed = False
@@ -714,16 +724,21 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
 
         setting.apply()
 
+    def cb_language_or_keyboard_loaded_changed(self, setting, paramspec, user_data=None):
+        # This callbacks keep the UI in sync with the save state
+        logging.info("Region settings loaded (from %s)", user_data)
+        save_enabled = setting.get_property('saveEnabled')
+        self.region_save_switch.set_state(save_enabled)
+        self.region_save_switch.set_active(save_enabled)
+
     def cb_save_language_keyboard_switch_changed(self, widget, user_data=None):
         settings = [
                 self.greeter.localisationsettings.keyboard,
                 self.greeter.localisationsettings.language,
                 ]
         if not widget.get_active():
-            widget.set_state(False)
             for setting in settings:
-                setting.save_enabled = False
-                setting.delete_from_disk()
+                setting.set_property('saveEnabled', False)
             return True
 
         logging.info("Widget save active=%s state=%s",
@@ -745,10 +760,8 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
         def on_save_language_dialog_response(dialog, response):
             dialog.destroy()
             if response == Gtk.ResponseType.OK:
-                widget.set_state(True)
                 for setting in settings:
-                    setting.save_enabled = True
-                    setting.save_to_disk()
+                    setting.set_property('saveEnabled', True)
                 return
             widget.set_active(False)
         dialog.connect("response", on_save_language_dialog_response)
