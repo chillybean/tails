@@ -54,6 +54,7 @@ from gi.repository import Gdk, GdkPixbuf, Gio, GLib, Gtk, Handy  # noqa: E402
 Handy.init()
 
 if TYPE_CHECKING:
+    from tailsgreeter.greeter import GreeterApplication
     from tailsgreeter.settings.persistence import PersistentStorageSettings
     from tailsgreeter.ui.settings_collection import GreeterSettingsCollection
 
@@ -68,7 +69,7 @@ PREFERRED_HEIGHT = 470
 class GreeterMainWindow(Gtk.Window, TranslatableWindow):
     def __init__(
         self,
-        greeter,
+        greeter: "GreeterApplication",
         persistence_setting: "PersistentStorageSettings",
         settings: "GreeterSettingsCollection",
     ):
