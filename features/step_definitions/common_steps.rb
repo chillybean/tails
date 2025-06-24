@@ -1809,6 +1809,6 @@ Then(/^the Greeter's language is set to (.*)$/) do |lang|
   language_row = greeter.children(roleName: 'list item')
                         .first
                         .children(roleName: 'label')
-                        .find { |node| node.name.include?("(#{lang} - ") }
+                        .find { |node| node.name.include?("#{lang} - ") }
   assert_not_nil(language_row)
 end
