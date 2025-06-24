@@ -723,6 +723,7 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
             widget.set_state(False)
             for setting in settings:
                 setting.save_enabled = False
+                setting.delete_from_disk()
             return True
 
         logging.info("Widget save active=%s state=%s",
@@ -747,7 +748,7 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
                 widget.set_state(True)
                 for setting in settings:
                     setting.save_enabled = True
-                    setting.save()
+                    setting.save_to_disk()
                 return
             widget.set_active(False)
         dialog.connect("response", on_save_language_dialog_response)

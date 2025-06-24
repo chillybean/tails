@@ -58,29 +58,32 @@ class LocalizationSetting(GObject.Object):
 class CleartextStorageMixin:
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.cleartext_loaded = False
         self.save_enabled = False
+        self.last_saved_value = None  # if any value has been saved, this will be non-None, allowing us to force a save_to_disk
 
     def load(self):
-        if not self.cleartext_loaded:
-            self.log.debug("first load")
-        else:
-            self.log.debug("reload")
-        self.cleartext_loaded = True
+        self.log.debug("load")
+        # TODO: self.save_enabled = True if configuration read
+        # TODO: and then the Save switch must be set to True
         return tailsgreeter.utils.get_cleartext_storage(self.SETTINGS_KEY)
 
     def save(self, *args, **kwargs):
         data = self.serialize(*args, **kwargs)
+        self.last_saved_value = data
         self.log.debug("set transient value")
         write_settings(
             f"/var/lib/gdm3/settings/transient/tails.{self.SETTINGS_KEY}", data
         )
-        if not self.cleartext_loaded:
-            return
-        self.log.debug("save to disk")
-
         if self.save_enabled:
-            tailsgreeter.utils.set_cleartext_storage(self.SETTINGS_KEY, data)
+            self.log.debug("save to disk")
+            self.save_to_disk()
+
+    def save_to_disk(self):
+        tailsgreeter.utils.set_cleartext_storage(self.SETTINGS_KEY,
+                                                 self.last_saved_value)
+
+    def delete_from_disk(self):
+        tailsgreeter.utils.unset_cleartext_storage(self.SETTINGS_KEY)
 
 
 def ln_iso639_tri(ln_CC):
