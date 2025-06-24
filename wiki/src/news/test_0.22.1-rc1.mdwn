@@ -41,18 +41,18 @@ How automatically upgrade from 0.22?
 ====================================
 
 These steps allow you to automatically upgrade a device installed with
-<span class="application">Tails Installer</span> from Tails 0.22 to Tails 0.22.1~rc1.
+*Tails Installer* from Tails 0.22 to Tails 0.22.1~rc1.
 
 1. Start Tails 0.22 and [[set an administration
    password|doc/first_steps/welcome_screen/administration_password]].
 
-2. Run this command in a <span class="application">Root Terminal</span>
+2. Run this command in a *Root Terminal*
    to select the "alpha" upgrade channel:
    <pre><code>echo TAILS_CHANNEL=\"alpha\" >> /etc/os-release</code></pre>
 
-3. Run this command in a <span class="application">Root Terminal</span>
+3. Run this command in a *Root Terminal*
    to install the latest version of
-   <span class="application">Tails Upgrader</span>:
+   *Tails Upgrader*:
 
        echo "deb http://deb.tails.boum.org/ 0.22.1-rc1 main" \
            > /etc/apt/sources.list.d/tails-0.22-rc1.list && \
@@ -61,10 +61,10 @@ These steps allow you to automatically upgrade a device installed with
            apt-get update && \
            apt-get install tails-iuk
 
-4. Choose <span class="menuchoice">Applications&nbsp;&#x25B8; Tails&nbsp;&#x25B8; Tails Upgrader</span>
-   to start <span class="application">Tails Upgrader</span>.
+4. Choose **Applications&nbsp;&#x25B8; Tails&nbsp;&#x25B8; Tails Upgrader**
+   to start *Tails Upgrader*.
 
-5. Accept <span class="application">Tails Upgrader</span>&#39;s proposal
+5. Accept *Tails Upgrader*&#39;s proposal
 to upgrade to Tails 0.22.1~rc1.
 
 6. Wait while the upgrade is downloaded and applied.
@@ -72,7 +72,7 @@ to upgrade to Tails 0.22.1~rc1.
 7. Restart the system when advised to do so.
 
 8. Once the system is restarted, choose
-   <span class="menuchoice">System&nbsp;&#x25B8; About Tails</span>
+   **System&nbsp;&#x25B8; About Tails**
    to confirm that the running system is now Tails 0.22.1~rc1.
 
 What's new since 0.22?

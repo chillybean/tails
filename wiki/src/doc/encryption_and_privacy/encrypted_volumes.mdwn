@@ -13,9 +13,9 @@ Storage|persistent_storage]].</p>
 </div>
 
 You can create other encrypted volumes using
-<span class="application">LUKS</span> to encrypt, for example, another
+*LUKS* to encrypt, for example, another
 USB stick or an external hard disk.
-<span class="application">LUKS</span> is the standard for disk
+*LUKS* is the standard for disk
 encryption in Linux.
 
 - The *Disks* utility allows you to create encrypted volumes.
@@ -24,10 +24,10 @@ encryption in Linux.
 
 <h2 id="comparison">Comparison between <i>LUKS</i> and <i>VeraCrypt</i></h2>
 
-You can also open <span class="application">VeraCrypt</span> encrypted
-volumes in Tails. <span class="application">VeraCrypt</span> is a disk
+You can also open *VeraCrypt* encrypted
+volumes in Tails. *VeraCrypt* is a disk
 encryption tool for Windows, macOS, and Linux. [[See our documentation
-about <span class="application">VeraCrypt</span>.|veracrypt]]
+about *VeraCrypt*.|veracrypt]]
 
 [[!inline pages="doc/encryption_and_privacy/luks_vs_veracrypt.inline" raw="yes" sort="age"]]
 
@@ -86,15 +86,15 @@ device:
 
 [[!img empty_device.png link=no alt="Free Space 123 GB"]]
 
-  1. Click on the <span class="guimenu">[[!img lib/list-add.png alt="Create partition" class="symbolic" link="no"]]</span>
+  1. Click on the **[[!img lib/list-add.png alt="Create partition" class="symbolic" link="no"]]**
      button to create a new partition on the device.
 
   1. Configure the various settings of your new partition in the
   partition creation assistant:
 
-     - In the <span class="guilabel">Create Partition</span> screen:
+     - In the **Create Partition** screen:
 
-       - <span class="guilabel">Partition Size</span>: you can create a partition
+       - **Partition Size**: you can create a partition
          on the whole device or only on part of it.
 
          In the example below, we are creating a partition of 4.0 GB on a device of 8.1 GB.
@@ -125,9 +125,9 @@ device:
          Choose **Internal disk for use with Linux systems
          only (Ext4)** and **Password protect volume (LUKS)**.
 
-     - In the <span class="guilabel">Set Password</span> screen:
+     - In the **Set Password** screen:
 
-       - <span class="guilabel">Password</span>: type a passphrase for the
+       - **Password**: type a passphrase for the
          encrypted partition and repeat it to confirm.
 
          <div class="tip">
@@ -146,7 +146,7 @@ device:
          you know it well.</p>
          </div>
 
-       Then click <span class="bold">Create</span>.
+       Then click **Create**.
 
   1. Creating the partition takes from a few seconds to a few minutes. After
      that, the new encrypted partition appears in the volumes on the device:
@@ -155,7 +155,7 @@ device:
 
   1. If you want to create another partition in the free space on the
      device, click on the free space and then click on the
-     <span class="guimenu">[[!img lib/list-add.png alt="Create partition" class="symbolic" link="no"]]</span>
+     **[[!img lib/list-add.png alt="Create partition" class="symbolic" link="no"]]**
      button again.
 
 <h2 id="using">Using the new partition</h2>
@@ -164,7 +164,7 @@ You can open this new partition from the sidebar of the file browser with the
 name you gave it.
 
 After opening the partition with the file browser, you can also access it
-from the <span class="guimenu">Places</span> menu.
+from the **Places** menu.
 
 <h1 id="opening">Opening an existing encrypted partition</h1>
 
