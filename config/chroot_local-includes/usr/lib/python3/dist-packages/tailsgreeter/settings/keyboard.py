@@ -21,7 +21,8 @@ from gi.repository import Gio, GLib, GnomeDesktop, GObject, Gtk  # noqa: E402
 
 
 class KeyboardSetting(CleartextStorageMixin, LocalizationSetting):
-    SETTINGS_KEY = 'keyboard'
+    SETTINGS_KEY = "keyboard"
+
     def __init__(self):
         super().__init__()
         self.xkbinfo = GnomeDesktop.XkbInfo()
@@ -34,12 +35,12 @@ class KeyboardSetting(CleartextStorageMixin, LocalizationSetting):
             variant = ""
 
         return {
-                # The default value from /etc/default/keyboard
-                "TAILS_XKBMODEL": "pc105",
-                "TAILS_XKBLAYOUT": layout,
-                "TAILS_XKBVARIANT": variant,
-                "IS_DEFAULT": is_default,
-            }
+            # The default value from /etc/default/keyboard
+            "TAILS_XKBMODEL": "pc105",
+            "TAILS_XKBLAYOUT": layout,
+            "TAILS_XKBVARIANT": variant,
+            "IS_DEFAULT": is_default,
+        }
 
     def load(self) -> tuple[str, bool]:
         settings = super().load()
@@ -65,7 +66,8 @@ class KeyboardSetting(CleartextStorageMixin, LocalizationSetting):
             layout_codes = self.get_all()
 
         treestore = Gtk.TreeStore(
-            GObject.TYPE_STRING, GObject.TYPE_STRING  # id
+            GObject.TYPE_STRING,
+            GObject.TYPE_STRING,  # id
         )  # name
         layouts = self._layouts_split_names(layout_codes)
         for group_name in sorted(layouts.keys()):
@@ -161,7 +163,7 @@ class KeyboardSetting(CleartextStorageMixin, LocalizationSetting):
         return layouts
 
     @staticmethod
-    def _split_variant(layout_code: str) -> tuple[str, Optional[str]]:
+    def _split_variant(layout_code: str) -> tuple[str, str | None]:
         if "+" in layout_code:
             components = layout_code.split("+")
             return components[0], components[1]

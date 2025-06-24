@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 #
 # Copyright 2012-2019 Tails developers <tails@boum.org>
 # Copyright 2011 Max <govnototalitarizm@gmail.com>
@@ -34,7 +33,7 @@ if TYPE_CHECKING:
     from gi.repository import Gtk
 
 
-class LocalizationSetting(GObject.Object, object):
+class LocalizationSetting(GObject.Object):
     def __init__(self) -> None:
         GObject.Object.__init__(self)
         self.value: str = ""
@@ -73,12 +72,13 @@ class CleartextStorageMixin:
     def save(self, *args, **kwargs):
         data = self.serialize(*args, **kwargs)
         self.log.debug("set transient value")
-        write_settings(f"/var/lib/gdm3/settings/transient/tails.{self.SETTINGS_KEY}", data)
+        write_settings(
+            f"/var/lib/gdm3/settings/transient/tails.{self.SETTINGS_KEY}", data
+        )
         if not self.cleartext_loaded:
             return
         self.log.debug("save to disk")
         tailsgreeter.utils.set_cleartext_storage(self.SETTINGS_KEY, data)
-
 
 
 def ln_iso639_tri(ln_CC):

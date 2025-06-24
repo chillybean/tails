@@ -40,7 +40,8 @@ from gi.repository import GLib, GObject, GnomeDesktop, Gtk  # NOQA: E402
 
 
 class LanguageSetting(CleartextStorageMixin, LocalizationSetting):
-    SETTINGS_KEY = 'language'
+    SETTINGS_KEY = "language"
+
     def __init__(self, locales: list[str]):
         super().__init__()
         self.locales = locales
@@ -54,18 +55,16 @@ class LanguageSetting(CleartextStorageMixin, LocalizationSetting):
 
     def serialize(self, language: str, is_default: bool):
         return {
-                "TAILS_LOCALE_NAME": language,
-                "IS_DEFAULT": is_default,
-            }
+            "TAILS_LOCALE_NAME": language,
+            "IS_DEFAULT": is_default,
+        }
 
     def load(self) -> tuple[str, bool]:
         settings = super().load()
 
         language = settings.get("TAILS_LOCALE_NAME")
         if language is None:
-            raise SettingNotFoundError(
-                "No language setting found"
-            )
+            raise SettingNotFoundError("No language setting found")
 
         is_default = settings.get("IS_DEFAULT") == "true"
         logging.debug(

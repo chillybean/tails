@@ -14,12 +14,12 @@ def get_parser():
     sub = p.add_subparsers()
 
     load = sub.add_parser("load")
-    load.add_argument('key')
-    load.set_defaults(mode='load')
+    load.add_argument("key")
+    load.set_defaults(mode="load")
 
     save = sub.add_parser("save")
-    save.add_argument('key')
-    save.set_defaults(mode='save')
+    save.add_argument("key")
+    save.set_defaults(mode="save")
 
     return p
 
@@ -31,20 +31,19 @@ def main():
         return
 
     cs = CleartextStorage()
-    if args.mode == 'load':
+    if args.mode == "load":
         try:
             content = cs.load(args.key)
         except FileNotFoundError:
             print("File not found", file=sys.stderr)
             sys.exit(1)
         sys.stdout.write(content)
-    if args.mode == 'save':
+    if args.mode == "save":
         content = sys.stdin.read()
         cs.save(args.key, content)
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     if os.getuid() != 0:
         print("This program needs to run as root", file=sys.stderr)
         sys.exit(1)

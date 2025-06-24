@@ -97,8 +97,8 @@ class GreeterApplication:
         self.unsafe_browser_setting = UnsafeBrowserSetting()
 
         language_settings_ui = LanguageSettingUI(
-                self.localisationsettings.language, self.on_language_changed
-            )
+            self.localisationsettings.language, self.on_language_changed
+        )
         keyboard_settings_ui = KeyboardSettingUI(self.localisationsettings.keyboard)
         # Initialize the settings
         self.settings = GreeterSettingsCollection(
@@ -115,11 +115,11 @@ class GreeterApplication:
         self.mainwindow = GreeterMainWindow(self, persistence, self.settings)
 
         # Apply the default settings
-        logging.info('Applying default settings')
+        logging.info("Applying default settings")
         for setting in self.settings:
             setting.apply()
 
-        logging.info('Now loading...')
+        logging.info("Now loading...")
         with contextlib.suppress(SettingNotFoundError):
             language_settings_ui.load()
         with contextlib.suppress(SettingNotFoundError):
