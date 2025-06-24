@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-06-24 15:31-0600\n"
+"POT-Creation-Date: 2025-06-24 16:26-0600\n"
 "PO-Revision-Date: 2024-12-04 17:08+0000\n"
 "Last-Translator: _ignifugo <ignifugo@insicuri.net>\n"
 "Language-Team: \n"
@@ -27,10 +27,12 @@ msgstr "[[!meta title=\"Utilizzare i volumi cifrati VeraCrypt\"]]\n"
 msgid "[[!toc levels=2]]\n"
 msgstr "[[!toc levels=2]]\n"
 
-#. type: Title =
+#. type: Plain text
 #, no-wrap
-msgid "Introduction to *VeraCrypt*"
-msgstr "Introduzione a *VeraCrypt*"
+msgid ""
+"Introduction to *VeraCrypt*\n"
+"==========================================================\n"
+msgstr ""
 
 #. type: Plain text
 #, no-wrap
@@ -41,22 +43,20 @@ msgstr ""
 "*[VeraCrypt](https://www.veracrypt.fr/)* è uno\n"
 "strumento di crittografia del disco che funziona su Windows, macOS e Linux.\n"
 
-#. type: Title -
-#, no-wrap
+#. type: Plain text
 msgid "Comparison between *LUKS* and *VeraCrypt*"
 msgstr "Confronto tra *LUKS* e *VeraCrypt*"
 
 #. type: Plain text
-#, no-wrap
 msgid ""
-"You can also create and open *LUKS*\n"
-"encrypted volumes in Tails. *LUKS* is the\n"
-"standard for disk encryption in Linux. [[See our documentation about\n"
-"*LUKS*.|encrypted_volumes]]\n"
+"You can also create and open *LUKS* encrypted volumes in Tails. *LUKS* is "
+"the standard for disk encryption in Linux. [[See our documentation about "
+"*LUKS*.|encrypted_volumes]]"
 msgstr ""
 "E' possibile creare ed aprire volumi criptati *LUKS*\n"
 "in Tails. *LUKS* è lo\n"
-"standard per la crittografia del disco in Linux. [[Guardate la nostra documentazione su\n"
+"standard per la crittografia del disco in Linux. [[Guardate la nostra "
+"documentazione su\n"
 "*LUKS*.|encrypted_volumes]]\n"
 
 #. type: Plain text
@@ -65,14 +65,14 @@ msgid "[[!inline pages=\"doc/encryption_and_privacy/luks_vs_veracrypt.inline\" r
 msgstr "[[!inline pages=\"doc/encryption_and_privacy/luks_vs_veracrypt.inline.it\" raw=\"yes\" sort=\"age\"]]\n"
 
 #. type: Plain text
-#, fuzzy, no-wrap
+#, fuzzy
 #| msgid ""
 #| "To create new *VeraCrypt* volumes, do so\n"
 #| "outside of Tails. See the step-by-step guides by Security-in-a-Box:\n"
 msgid ""
-"To create new *VeraCrypt* volumes, do so\n"
-"outside of Tails. See the step-by-step guides by Security-in-a-Box on\n"
-"[VeraCrypt for Windows](https://securityinabox.org/en/tools/veracrypt/).\n"
+"To create new *VeraCrypt* volumes, do so outside of Tails. See the step-by-"
+"step guides by Security-in-a-Box on [VeraCrypt for Windows](https://"
+"securityinabox.org/en/tools/veracrypt/)."
 msgstr ""
 "E' possibile creare nuovi volumi *VeraCrypt*\n"
 "all'infuori di Tails. Seguite la guida passo-passo di Security-in-a-Box:\n"
@@ -88,10 +88,9 @@ msgid "Difference between file containers and partitions"
 msgstr "Differenza tra file container e partizioni"
 
 #. type: Plain text
-#, no-wrap
 msgid ""
-"With *VeraCrypt* you can store your files\n"
-"encrypted in two different kinds of *volumes*:\n"
+"With *VeraCrypt* you can store your files encrypted in two different kinds "
+"of *volumes*:"
 msgstr ""
 "Con *VeraCrypt* puoi salvare i tuoi files\n"
 "criptati in due differenti tipi di *volumi*:\n"
@@ -164,14 +163,13 @@ msgid "Unlocking parameters"
 msgstr "Parametri di sblocco"
 
 #. type: Plain text
-#, no-wrap
 msgid ""
-"To unlock a *VeraCrypt* volume, you might need\n"
-"the following parameters, depending on the options that were selected when the\n"
-"volume was created:\n"
+"To unlock a *VeraCrypt* volume, you might need the following parameters, "
+"depending on the options that were selected when the volume was created:"
 msgstr ""
 "Per sbloccare un volume *VeraCrypt*, potrebbero essere necessari\n"
-"i seguenti parametri, secondo le opzioni che avete selezionato quando avete creato\n"
+"i seguenti parametri, secondo le opzioni che avete selezionato quando avete "
+"creato\n"
 "il volume:\n"
 
 #. type: Bullet: '- '
@@ -182,9 +180,8 @@ msgstr "- **Password**"
 
 #. type: Bullet: '- '
 msgid ""
-"**Keyfiles**: instead of or in addition to the passphrase, a <span "
-"class=\"application\">VeraCrypt</span> volume can be unlocked using a "
-"particular file or set of files."
+"**Keyfiles**: instead of or in addition to the passphrase, a *VeraCrypt* "
+"volume can be unlocked using a particular file or set of files."
 msgstr ""
 "**Keyfiles**: Invece o in aggiunta ad una password, un volume <span "
 "class=\"application\">VeraCrypt</span> potrebbe essere sbloccato utilizzando "
@@ -201,8 +198,8 @@ msgstr ""
 
 #. type: Bullet: '- '
 msgid ""
-"**PIM**: a number that is needed if it was specified when creating the <span "
-"class=\"application\">VeraCrypt</span> volume."
+"**PIM**: a number that is needed if it was specified when creating the "
+"*VeraCrypt* volume."
 msgstr ""
 "**PIM**: Un numero necessario se è stato specificato durante la creazione "
 "del volume *VeraCrypt*."
@@ -218,8 +215,8 @@ msgstr ""
 
 #. type: Bullet: '- '
 msgid ""
-"**Hidden volume**: if you want to unlock the hidden volume inside the <span "
-"class=\"application\">VeraCrypt</span> volume."
+"**Hidden volume**: if you want to unlock the hidden volume inside the "
+"*VeraCrypt* volume."
 msgstr ""
 "**Volume nascosto**: Se volete sbloccare il volume nascosto all'interno del "
 "volume *VeraCrypt*."
@@ -284,8 +281,7 @@ msgstr "Sbloccare un file container senza keyfiles"
 #| "     <span class=\"guisubmenuitem\">Unlock VeraCrypt Volumes</span></"
 #| "span>.\n"
 msgid ""
-"Choose <span class=\"menuchoice\">Applications&nbsp;▸ Utilities&nbsp;▸ "
-"Unlock VeraCrypt Volumes</span>."
+"Choose **Applications&nbsp;▸ Utilities&nbsp;▸ Unlock VeraCrypt Volumes**."
 msgstr ""
 "1. Selezionare\n"
 "   <span class=\"menuchoice\">\n"
@@ -295,12 +291,9 @@ msgstr ""
 "span>.\n"
 
 #. type: Bullet: '1. '
-msgid ""
-"Click **Add** and choose the file container that you "
-"want to unlock."
+msgid "Click **Add** and choose the file container that you want to unlock."
 msgstr ""
-"Cliccate su **Aggiungi** e scegliete il file "
-"container che volete sbloccare."
+"Cliccate su **Aggiungi** e scegliete il file container che volete sbloccare."
 
 #. type: Bullet: '1. '
 msgid ""
@@ -332,12 +325,8 @@ msgstr ""
 "   a sbloccarlo di nuovo.\n"
 
 #. type: Bullet: '1. '
-msgid ""
-"Click **Open** to open the volume in the <span "
-"class=\"application\">Files</span> browser."
-msgstr ""
-"Clicca **Open** per aprire il volume nel gestore dei "
-"*Files*."
+msgid "Click **Open** to open the volume in the *Files* browser."
+msgstr "Clicca **Open** per aprire il volume nel gestore dei *Files*."
 
 #. type: Plain text
 #, no-wrap
@@ -352,22 +341,14 @@ msgstr "Sbloccare un file container con keyfiles"
 #. type: Bullet: '1. '
 #, fuzzy
 #| msgid ""
-#| "1. Choose\n"
-#| "   <span class=\"menuchoice\">\n"
-#| "     **Applications**&nbsp;▸\n"
-#| "     **Utilities**&nbsp;▸\n"
-#| "     <span class=\"guisubmenuitem\">Disks</span></span>\n"
-#| "   to start the *Disks* utility.\n"
+#| "Choose **Applications**&nbsp;▸ **Utilities**&nbsp;▸ **Disks** to start "
+#| "the *Disks* utility."
 msgid ""
-"Choose <span class=\"menuchoice\">Applications&nbsp;▸ Utilities&nbsp;▸ "
-"Disks</span> to start the *Disks* utility."
+"Choose **Applications&nbsp;▸ Utilities&nbsp;▸ Disks** to start the *Disks* "
+"utility."
 msgstr ""
-"1. Selezionare\n"
-"   <span class=\"menuchoice\">\n"
-"     **Applicazioni**&nbsp;▸\n"
-"     **Utilità**&nbsp;▸\n"
-"     <span class=\"guisubmenuitem\">Dischi</span></span>\n"
-"   per avviare l'applicazione *Dischi*.\n"
+"Scegli **Applicazioni**&nbsp;▸ **Utilità**&nbsp;▸ **Dischi** per avviare "
+"l'utilità *Dischi*."
 
 #. type: Bullet: '1. '
 msgid ""
@@ -383,9 +364,8 @@ msgstr ""
 
 #. type: Bullet: '   - '
 msgid ""
-"Unselect the **Set up read-only loop device** "
-"check box in the bottom-left corner if you want to modify the content of the "
-"file container."
+"Unselect the **Set up read-only loop device** check box in the bottom-left "
+"corner if you want to modify the content of the file container."
 msgstr ""
 "Togliete la spunta al box <span class=\"guilabel\">Set up read-only loop "
 "device</span> che si trova nell'angolo sinistro se intendete modificare il "
@@ -397,12 +377,10 @@ msgid "     [[!img read-only.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
 msgstr "     [[!img read-only.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
 
 #. type: Bullet: '   - '
-msgid ""
-"Choose **All Files** in the file filter in the "
-"bottom-right corner."
+msgid "Choose **All Files** in the file filter in the bottom-right corner."
 msgstr ""
-"Selezionate **Tutti i file** nel menù posto a "
-"lato in basso a destra della finestra."
+"Selezionate **Tutti i file** nel menù posto a lato in basso a destra della "
+"finestra."
 
 #. type: Plain text
 #, no-wrap
@@ -546,16 +524,14 @@ msgstr ""
 #. type: Bullet: '1. '
 #, fuzzy
 #| msgid ""
-#| "Click on the **/media/amnesia/** link in "
-#| "the right pane to open the volume in the <span "
-#| "class=\"application\">Files</span> browser."
+#| "Click on the **/media/amnesia/** link in the right pane to open the "
+#| "volume in the <span class=\"application\">Files</span> browser."
 msgid ""
 "Click on the */media/amnesia/* link in the right pane to open the volume in "
 "the *Files* browser."
 msgstr ""
-"Cliccate sul link **/media/amnesia/** nel lato "
-"destro per aprire il volume nel gestore dei <span "
-"class=\"application\">Files</span> ."
+"Cliccate sul link **/media/amnesia/** nel lato destro per aprire il volume "
+"nel gestore dei <span class=\"application\">Files</span> ."
 
 #. type: Plain text
 #, no-wrap
@@ -569,10 +545,10 @@ msgstr ""
 #. type: Bullet: '1. '
 #, fuzzy
 #| msgid ""
-#| "In the sidebar of the *Files* browser, "
-#| "click on the <span class=\"bold\">[[!img lib/media-eject.png "
-#| "alt=\"Eject\" class=\"symbolic\" link=\"no\"]]</span> button on the label "
-#| "of the volume corresponding to your partition."
+#| "In the sidebar of the *Files* browser, click on the <span "
+#| "class=\"bold\">[[!img lib/media-eject.png alt=\"Eject\" "
+#| "class=\"symbolic\" link=\"no\"]]</span> button on the label of the volume "
+#| "corresponding to your partition."
 msgid ""
 "In the sidebar of the *Files* browser, click on the [[!img lib/media-eject."
 "png alt=\"Eject\" class=\"symbolic\" link=\"no\"]] button on the label of "
@@ -583,6 +559,29 @@ msgstr ""
 "class=\"bold\">[[!img lib/media-eject.png alt=\"Eject\" class=\"symbolic\" "
 "link=\"no\"]]</span> sull'etichetta del volume corrispondente alla vostra "
 "partizione."
+
+#, no-wrap
+#~ msgid "Introduction to *VeraCrypt*"
+#~ msgstr "Introduzione a *VeraCrypt*"
+
+#, fuzzy
+#~| msgid ""
+#~| "1. Choose\n"
+#~| "   <span class=\"menuchoice\">\n"
+#~| "     **Applications**&nbsp;▸\n"
+#~| "     **Utilities**&nbsp;▸\n"
+#~| "     <span class=\"guisubmenuitem\">Disks</span></span>\n"
+#~| "   to start the *Disks* utility.\n"
+#~ msgid ""
+#~ "Choose <span class=\"menuchoice\">Applications&nbsp;▸ Utilities&nbsp;▸ "
+#~ "Disks</span> to start the *Disks* utility."
+#~ msgstr ""
+#~ "1. Selezionare\n"
+#~ "   <span class=\"menuchoice\">\n"
+#~ "     **Applicazioni**&nbsp;▸\n"
+#~ "     **Utilità**&nbsp;▸\n"
+#~ "     <span class=\"guisubmenuitem\">Dischi</span></span>\n"
+#~ "   per avviare l'applicazione *Dischi*.\n"
 
 #, no-wrap
 #~ msgid "   [[!img unlock-veracrypt-volumes.png link=\"no\" alt=\"\"]]\n"
@@ -613,12 +612,10 @@ msgstr ""
 
 #~ msgid ""
 #~ "Select the file system that appears below the unlocked volume. It "
-#~ "probably has a **FAT** or <span "
-#~ "class=\"guilabel\">NTFS</span> content."
+#~ "probably has a **FAT** or <span class=\"guilabel\">NTFS</span> content."
 #~ msgstr ""
 #~ "Selezionate il filesystem che appare sotto il volume sbloccato. "
-#~ "Probabilmente sarà un **FAT** o un <span "
-#~ "class=\"guilabel\">NTFS</span> ."
+#~ "Probabilmente sarà un **FAT** o un <span class=\"guilabel\">NTFS</span> ."
 
 #, no-wrap
 #~ msgid "Closing a file container"
@@ -628,10 +625,10 @@ msgstr ""
 #~ msgstr "Potete:"
 
 #~ msgid ""
-#~ "In the sidebar of the *Files* browser, "
-#~ "click on the <span class=\"bold\">[[!img lib/media-eject.png "
-#~ "alt=\"Eject\" class=\"symbolic\" link=\"no\"]]</span> button on the label "
-#~ "of the volume corresponding to your file container."
+#~ "In the sidebar of the *Files* browser, click on the <span "
+#~ "class=\"bold\">[[!img lib/media-eject.png alt=\"Eject\" "
+#~ "class=\"symbolic\" link=\"no\"]]</span> button on the label of the volume "
+#~ "corresponding to your file container."
 #~ msgstr ""
 #~ "Nella barra laterale di navigazione del gestore dei <span "
 #~ "class=\"application\">Files</span>, cliccate sul bottone <span "
@@ -645,15 +642,13 @@ msgstr ""
 #~ msgstr "  [[!img eject-container.png link=\"no\" alt=\"\"]]\n"
 
 #~ msgid ""
-#~ "In *Unlock VeraCrypt Volumes*, click on "
-#~ "the <span class=\"bold\">[[!img lib/window-close.png class=\"symbolic\" "
-#~ "link=\"no\" alt=\"\"]]</span> button in the line that corresponds to your "
-#~ "file container."
+#~ "In *Unlock VeraCrypt Volumes*, click on the <span class=\"bold\">[[!img "
+#~ "lib/window-close.png class=\"symbolic\" link=\"no\" alt=\"\"]]</span> "
+#~ "button in the line that corresponds to your file container."
 #~ msgstr ""
-#~ "In *Sblocca i Volumi VeraCrypt*, "
-#~ "cliccate sul bottone <span class=\"bold\">[[!img lib/window-close.png "
-#~ "class=\"symbolic\" link=\"no\" alt=\"\"]]</span> nella linea che "
-#~ "corrisponde al vostro file container."
+#~ "In *Sblocca i Volumi VeraCrypt*, cliccate sul bottone <span "
+#~ "class=\"bold\">[[!img lib/window-close.png class=\"symbolic\" link=\"no\" "
+#~ "alt=\"\"]]</span> nella linea che corrisponde al vostro file container."
 
 #, no-wrap
 #~ msgid "<a id=\"partition-files\"></a>\n"
@@ -664,8 +659,8 @@ msgstr ""
 #~ msgstr "Sbloccare una partizione o drive senza keyfiles"
 
 #~ msgid ""
-#~ "In the list of partitions, click **Unlock** in "
-#~ "the line that corresponds to your USB stick or hard disk."
+#~ "In the list of partitions, click **Unlock** in the line that corresponds "
+#~ "to your USB stick or hard disk."
 #~ msgstr ""
 #~ "Nella lista delle partizioni, cliccate <span class=\"bold\">Sblocca</"
 #~ "span> nella linea che corrisponde alla vostra chiavetta USB o al vostro "
@@ -692,15 +687,14 @@ msgstr ""
 #~ msgstr "Chiudere una partizione o drive"
 
 #~ msgid ""
-#~ "In *Unlock VeraCrypt Volumes*, click on "
-#~ "the <span class=\"bold\">[[!img lib/window-close.png class=\"symbolic\" "
-#~ "link=\"no\" alt=\"\"]]</span> button in the line that corresponds to your "
-#~ "USB stick or hard disk."
+#~ "In *Unlock VeraCrypt Volumes*, click on the <span class=\"bold\">[[!img "
+#~ "lib/window-close.png class=\"symbolic\" link=\"no\" alt=\"\"]]</span> "
+#~ "button in the line that corresponds to your USB stick or hard disk."
 #~ msgstr ""
-#~ "In *Sblocca i Volumi VeraCrypt*, "
-#~ "cliccate sul bottone <span class=\"bold\">[[!img lib/window-close.png "
-#~ "class=\"symbolic\" link=\"no\" alt=\"\"]]</span> nella linea che "
-#~ "corrisponde alla vostra chiavetta USB o al vostro hard disk."
+#~ "In *Sblocca i Volumi VeraCrypt*, cliccate sul bottone <span "
+#~ "class=\"bold\">[[!img lib/window-close.png class=\"symbolic\" link=\"no\" "
+#~ "alt=\"\"]]</span> nella linea che corrisponde alla vostra chiavetta USB o "
+#~ "al vostro hard disk."
 
 #, no-wrap
 #~ msgid "  [[!img eject-partition.png link=\"no\" alt=\"\"]]\n"
