@@ -6,13 +6,14 @@
 # Ephraim Raj <ephraimraj11299@gmail.com>, 2016
 # Morpheus Aurelius, 2022
 # Khaleel Jageer <jskcse4@gmail.com>, 2014
+# தமிழ்நேரம் <anishprabu.t@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-28 10:55+0200\n"
-"PO-Revision-Date: 2025-03-31 20:55+0000\n"
-"Last-Translator: emma peel <emma.peel@riseup.net>\n"
+"PO-Revision-Date: 2025-06-14 02:02+0000\n"
+"Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/tor/tails-gui/ta/"
 ">\n"
 "Language: ta\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -203,9 +204,9 @@ msgstr ""
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
-"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
+"To add more, install some software using <a href=\"synaptic."
+"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
+"desktop\">APT on the command line</a>."
 msgstr ""
 "மேலும் சேர்க்க, <a href = \"synaptic.desktop\"> சினாப்டிக் தொகுப்பு மேலாளர் </a> "
 "அல்லது <a href = \"org.gnome.terminal.desktop\"> கட்டளை வரியில் பொருத்தமாக </a> "
@@ -216,7 +217,6 @@ msgid "_Create persistent storage"
 msgstr "_ஒரேநிலை சேமிப்பகத்தை உருவாக்கு"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:69
-#, fuzzy
 msgid ""
 "Tails needs donations to keep everybody free and safe online.\n"
 "\n"
@@ -226,11 +226,8 @@ msgstr ""
 "அனைவரையும் இலவசமாகவும் பாதுகாப்பாகவும் ஆன்லைனில் வைத்திருக்க வால்களுக்கு நன்கொடைகள் "
 "தேவை.\n"
 "\n"
-" கண்காணிப்பு மற்றும் தணிக்கைக்கு எதிரான எங்கள் போராட்டத்திற்கு ஒவ்வொரு பிட்டும் "
-"உதவுகிறது!\n"
+"கண்காணிப்பு மற்றும் தணிக்கைக்கு எதிரான எங்கள் போராட்டத்திற்கு ஒவ்வொரு பிட்டும் உதவுகிறது!\n"
 "\n"
-" <a href = \"கோப்பு: ///usr/share/doc/tails/website/"
-"donate.en.html#expenses\"> எங்கள் பணத்தை எவ்வாறு செலவிடுகிறோம். </a>"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:79
 msgid ""
@@ -341,9 +338,11 @@ msgstr[1] "{count} கள்"
 #. Translators: don't translate {time}, {downloaded}, {size}
 #. and {speed}, they are placeholders and will be replaced.
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/DownloadProgress.pm:139
-#, fuzzy, perl-brace-format
+#, perl-brace-format
 msgid "#{time} left — {downloaded} of {size} ({speed}/sec)\n"
-msgstr "#{time} இடது - {downloaded} ({size}/நொடி) பதிவிறக்கம் செய்யப்பட்டுள்ளது\n"
+msgstr ""
+"#{time} மீதம் - {downloaded} இதில் {size} ({speed}/நொடி) பதிவிறக்கம் "
+"செய்யப்பட்டுள்ளது\n"
 
 #. Translators: KB is the short form for kilobyte
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Role/FormatByte.pm:32
@@ -365,17 +364,15 @@ msgid "bytes"
 msgstr "எண்ணுன்மிகள்"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:296
-#, fuzzy
 msgid ""
 "<b>An error occurred while updating the signing key.</b>\\n\\n<b>This "
 "prevents determining whether an upgrade is available from our website.</"
 "b>\\n\\nCheck your network connection and restart Tails.\\n\\nIf the problem "
 "persists, try doing a manual upgrade."
 msgstr ""
-"<b> கையொப்பமிடும் விசையைப் புதுப்பிக்கும்போது பிழை ஏற்பட்டது. </b> \\ n \\ n <b> இது "
-"எங்கள் வலைத்தளத்திலிருந்து மேம்படுத்தல் கிடைக்குமா என்பதை தீர்மானிப்பதைத் தடுக்கிறது. மீண்டும் "
-"மேம்படுத்த முயற்சிக்க. \\ n \\ nif சிக்கல் தொடர்ந்தது, கோப்புக்குச் செல்லவும்: ///usr/"
-"share/doc/tails/website/doc/upgrade/error/check.en.html"
+"<b>கையொப்பமிடும் விசையைப் புதுப்பிக்கும்போது பிழை ஏற்பட்டது. </b>\\n\\n <b> இது எங்கள் "
+"வலைத்தளத்திலிருந்து மேம்படுத்தல் கிடைக்குமா என்பதை தீர்மானிப்பதைத் தடுக்கிறது. மீண்டும் "
+"மேம்படுத்த முயற்சிக்க. </b>\\n\\nசிக்கல் தொடர்ந்தால், கோப்புக்குச் செல்லவும்"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:310
 msgid "Error while downloading the signing key"
@@ -1632,19 +1629,18 @@ msgid ""
 "a> or <a href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "அவ்வாறு செய்ய, வால்களைத் தொடங்கும்போது உங்கள் தொடர்ச்சியான சேமிப்பிடத்தைத் திறந்து <a href "
-"= \"synaptic.desktop\"> சினாப்டிக் தொகுப்பு மேலாளர் </a> அல்லது <a href = "
-"\"org.gnome.terminal.desktop\"> apt on கட்டளை வரி </a>."
+"= \"synaptic.desktop\"> சினாப்டிக் தொகுப்பு மேலாளர் </a> அல்லது <a href = \"org."
+"gnome.terminal.desktop\"> apt on கட்டளை வரி </a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:240
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
-"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
+"gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
-"அவ்வாறு செய்ய, ஒரு தொடர்ச்சியான சேமிப்பிடத்தை உருவாக்கி, <a href = "
-"\"synaptic.desktop\"> சினாப்டிக் தொகுப்பு மேலாளர் </a> அல்லது <a href = "
-"\"org.gnome.terminal.desktop\"> கட்டளை வரியில் பொருத்தமாக சில மென்பொருளை "
-"நிறுவவும் </a>."
+"அவ்வாறு செய்ய, ஒரு தொடர்ச்சியான சேமிப்பிடத்தை உருவாக்கி, <a href = \"synaptic."
+"desktop\"> சினாப்டிக் தொகுப்பு மேலாளர் </a> அல்லது <a href = \"org.gnome.terminal."
+"desktop\"> கட்டளை வரியில் பொருத்தமாக சில மென்பொருளை நிறுவவும் </a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:258
 msgid "To do so, install Tails on a USB stick and create a Persistent Storage."
@@ -1858,8 +1854,8 @@ msgid ""
 "To save your bridge, <a href=\"doc/persistent_storage\">create a Persistent "
 "Storage</a> on your Tails USB stick."
 msgstr ""
-"உங்கள் பாலத்தை சேமிக்க, <a href = \"doc/persistent_storage\"> உங்கள் வால்கள் "
-"யூ.எச்.பி ச்டிக்கில் ஒரு தொடர்ச்சியான சேமிப்பிடத்தை உருவாக்கவும் </a>."
+"உங்கள் பாலத்தை சேமிக்க, <a href = \"doc/persistent_storage\"> உங்கள் வால்கள் யூ.எச்."
+"பி ச்டிக்கில் ஒரு தொடர்ச்சியான சேமிப்பிடத்தை உருவாக்கவும் </a>."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:269
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:792
@@ -4066,15 +4062,15 @@ msgstr "கடிகை"
 #~ "\n"
 #~ "Help us keep your bitcoins safe!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/"
-#~ "donate.en.html#expenses\">How we spend our money.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
+#~ "html#expenses\">How we spend our money.</a>"
 #~ msgstr ""
 #~ "வால்கள் உங்கள் பணப்பையை பாதுகாக்கின்றன.\n"
 #~ "\n"
 #~ " உங்கள் பிட்காயின்களை பாதுகாப்பாக வைத்திருக்க எங்களுக்கு உதவுங்கள்!\n"
 #~ "\n"
-#~ " <a href = \"கோப்பு: ///usr/share/doc/tails/website/"
-#~ "donate.en.html#expenses\"> எங்கள் பணத்தை எவ்வாறு செலவிடுகிறோம். </a>"
+#~ " <a href = \"கோப்பு: ///usr/share/doc/tails/website/donate.en."
+#~ "html#expenses\"> எங்கள் பணத்தை எவ்வாறு செலவிடுகிறோம். </a>"
 
 #~ msgid "Create Backup"
 #~ msgstr "காப்புப்பிரதியை உருவாக்கவும்"
