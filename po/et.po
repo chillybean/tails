@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-28 10:55+0200\n"
+"POT-Creation-Date: 2025-06-25 11:02+0200\n"
 "PO-Revision-Date: 2025-04-03 14:14+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/tor/tails-gui/"
@@ -125,7 +125,7 @@ msgstr "Eemalda"
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:483
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:834
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:728
-#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:119
+#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:126
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:376
 msgid "Cancel"
 msgstr "Katkesta"
@@ -198,13 +198,13 @@ msgstr ""
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
-"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
+"To add more, install some software using <a href=\"synaptic."
+"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
+"desktop\">APT on the command line</a>."
 msgstr ""
-"Juurde lisamiseks paigalda tarkvara kasutades <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager'i</a> või <a "
-"href=\"org.gnome.Terminal.desktop\">Käsureal APT-i</a>."
+"Juurde lisamiseks paigalda tarkvara kasutades <a href=\"synaptic."
+"desktop\">Synaptic Package Manager'i</a> või <a href=\"org.gnome.Terminal."
+"desktop\">Käsureal APT-i</a>."
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:154
 msgid "_Create persistent storage"
@@ -456,10 +456,13 @@ msgstr ""
 "{free_memory} on saadaval."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:474
+#, fuzzy
 msgid ""
-"An error ocurred while detecting available upgrades.\n"
+"An error occurred while detecting available upgrades.\n"
 "This should not happen. Please report a bug."
 msgstr ""
+"Astmeline uuendus on saadaval, kuid täielikku uuendust ei ole.\n"
+"Seda ei tohiks juhtuda. Palun teata veast."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:477
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:496
@@ -1485,7 +1488,7 @@ msgstr ""
 "parameetrit 'toram'?"
 
 #: config/chroot_local-includes/usr/share/gnome-shell/extensions/status-menu-helper@tails.boum.org/extension.js:86
-#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:110
+#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:118
 msgid "Lock Screen"
 msgstr "Lukusta ekraan"
 
@@ -1568,20 +1571,20 @@ msgid ""
 "some software using <a href=\"synaptic.desktop\">Synaptic Package Manager</"
 "a> or <a href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
-"Juurde lisamiseks paigalda tarkvara kasutades <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager'i</a> või <a "
-"href=\"org.gnome.Terminal.desktop\">Käsureal APT-i</a>."
+"Juurde lisamiseks paigalda tarkvara kasutades <a href=\"synaptic."
+"desktop\">Synaptic Package Manager'i</a> või <a href=\"org.gnome.Terminal."
+"desktop\">Käsureal APT-i</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:240
 #, fuzzy
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
-"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
+"gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
-"Juurde lisamiseks paigalda tarkvara kasutades <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager'i</a> või <a "
-"href=\"org.gnome.Terminal.desktop\">Käsureal APT-i</a>."
+"Juurde lisamiseks paigalda tarkvara kasutades <a href=\"synaptic."
+"desktop\">Synaptic Package Manager'i</a> või <a href=\"org.gnome.Terminal."
+"desktop\">Käsureal APT-i</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:258
 msgid "To do so, install Tails on a USB stick and create a Persistent Storage."
@@ -1601,11 +1604,11 @@ msgstr "[pakett pole saadaval]"
 msgid "Failed to synchronize the clock!"
 msgstr "Kella sünkroniseerimine ebaõnnestus"
 
-#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:125
+#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:130
 msgid "Screen Locker"
 msgstr "Ekraanilukustaja"
 
-#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:131
+#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:136
 msgid "Set up a password to unlock the screen."
 msgstr "Seadista ekraani avamiseks parool."
 
