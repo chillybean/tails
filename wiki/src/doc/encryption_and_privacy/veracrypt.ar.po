@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-06-10 12:51+0200\n"
+"POT-Creation-Date: 2025-06-24 16:26-0600\n"
 "PO-Revision-Date: 2022-12-19 19:07+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,9 +29,11 @@ msgstr ""
 msgid "[[!toc levels=2]]\n"
 msgstr "[[!toc levels=2]]\n"
 
-#. type: Title =
+#. type: Plain text
 #, no-wrap
-msgid "Introduction to *VeraCrypt*"
+msgid ""
+"Introduction to *VeraCrypt*\n"
+"==========================================================\n"
 msgstr ""
 
 #. type: Plain text
@@ -41,18 +43,15 @@ msgid ""
 "disk encryption tool that works on Windows, macOS, and Linux.\n"
 msgstr ""
 
-#. type: Title -
-#, no-wrap
+#. type: Plain text
 msgid "Comparison between *LUKS* and *VeraCrypt*"
 msgstr ""
 
 #. type: Plain text
-#, no-wrap
 msgid ""
-"You can also create and open *LUKS*\n"
-"encrypted volumes in Tails. *LUKS* is the\n"
-"standard for disk encryption in Linux. [[See our documentation about\n"
-"*LUKS*.|encrypted_volumes]]\n"
+"You can also create and open *LUKS* encrypted volumes in Tails. *LUKS* is "
+"the standard for disk encryption in Linux. [[See our documentation about "
+"*LUKS*.|encrypted_volumes]]"
 msgstr ""
 
 #. type: Plain text
@@ -61,11 +60,10 @@ msgid "[[!inline pages=\"doc/encryption_and_privacy/luks_vs_veracrypt.inline\" r
 msgstr ""
 
 #. type: Plain text
-#, no-wrap
 msgid ""
-"To create new *VeraCrypt* volumes, do so\n"
-"outside of Tails. See the step-by-step guides by Security-in-a-Box on\n"
-"[VeraCrypt for Windows](https://securityinabox.org/en/tools/veracrypt/).\n"
+"To create new *VeraCrypt* volumes, do so outside of Tails. See the step-by-"
+"step guides by Security-in-a-Box on [VeraCrypt for Windows](https://"
+"securityinabox.org/en/tools/veracrypt/)."
 msgstr ""
 
 #. type: Plain text
@@ -79,10 +77,9 @@ msgid "Difference between file containers and partitions"
 msgstr ""
 
 #. type: Plain text
-#, no-wrap
 msgid ""
-"With *VeraCrypt* you can store your files\n"
-"encrypted in two different kinds of *volumes*:\n"
+"With *VeraCrypt* you can store your files encrypted in two different kinds "
+"of *volumes*:"
 msgstr ""
 
 #. type: Plain text
@@ -142,11 +139,9 @@ msgid "Unlocking parameters"
 msgstr ""
 
 #. type: Plain text
-#, no-wrap
 msgid ""
-"To unlock a *VeraCrypt* volume, you might need\n"
-"the following parameters, depending on the options that were selected when the\n"
-"volume was created:\n"
+"To unlock a *VeraCrypt* volume, you might need the following parameters, "
+"depending on the options that were selected when the volume was created:"
 msgstr ""
 
 #. type: Bullet: '- '
@@ -155,9 +150,8 @@ msgstr ""
 
 #. type: Bullet: '- '
 msgid ""
-"**Keyfiles**: instead of or in addition to the passphrase, a <span "
-"class=\"application\">VeraCrypt</span> volume can be unlocked using a "
-"particular file or set of files."
+"**Keyfiles**: instead of or in addition to the passphrase, a *VeraCrypt* "
+"volume can be unlocked using a particular file or set of files."
 msgstr ""
 
 #. type: Plain text
@@ -169,8 +163,8 @@ msgstr ""
 
 #. type: Bullet: '- '
 msgid ""
-"**PIM**: a number that is needed if it was specified when creating the <span "
-"class=\"application\">VeraCrypt</span> volume."
+"**PIM**: a number that is needed if it was specified when creating the "
+"*VeraCrypt* volume."
 msgstr ""
 
 #. type: Plain text
@@ -182,8 +176,8 @@ msgstr ""
 
 #. type: Bullet: '- '
 msgid ""
-"**Hidden volume**: if you want to unlock the hidden volume inside the <span "
-"class=\"application\">VeraCrypt</span> volume."
+"**Hidden volume**: if you want to unlock the hidden volume inside the "
+"*VeraCrypt* volume."
 msgstr ""
 
 #. type: Plain text
@@ -226,20 +220,13 @@ msgstr ""
 msgid "Unlocking a file container without keyfiles"
 msgstr ""
 
-#. type: Plain text
-#, no-wrap
+#. type: Bullet: '1. '
 msgid ""
-"1. Choose\n"
-"   <span class=\"menuchoice\">\n"
-"     **Applications**&nbsp;▸\n"
-"     **Utilities**&nbsp;▸\n"
-"     <span class=\"guisubmenuitem\">Unlock VeraCrypt Volumes</span></span>.\n"
+"Choose **Applications&nbsp;▸ Utilities&nbsp;▸ Unlock VeraCrypt Volumes**."
 msgstr ""
 
 #. type: Bullet: '1. '
-msgid ""
-"Click **Add** and choose the file container that you "
-"want to unlock."
+msgid "Click **Add** and choose the file container that you want to unlock."
 msgstr ""
 
 #. type: Bullet: '1. '
@@ -266,9 +253,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '1. '
-msgid ""
-"Click **Open** to open the volume in the <span "
-"class=\"application\">Files</span> browser."
+msgid "Click **Open** to open the volume in the *Files* browser."
 msgstr ""
 
 #. type: Plain text
@@ -281,15 +266,10 @@ msgstr ""
 msgid "Unlocking a file container with keyfiles"
 msgstr ""
 
-#. type: Plain text
-#, no-wrap
+#. type: Bullet: '1. '
 msgid ""
-"1. Choose\n"
-"   <span class=\"menuchoice\">\n"
-"     **Applications**&nbsp;▸\n"
-"     **Utilities**&nbsp;▸\n"
-"     <span class=\"guisubmenuitem\">Disks</span></span>\n"
-"   to start the *Disks* utility.\n"
+"Choose **Applications&nbsp;▸ Utilities&nbsp;▸ Disks** to start the *Disks* "
+"utility."
 msgstr ""
 
 #. type: Bullet: '1. '
@@ -304,9 +284,8 @@ msgstr ""
 
 #. type: Bullet: '   - '
 msgid ""
-"Unselect the **Set up read-only loop device** "
-"check box in the bottom-left corner if you want to modify the content of the "
-"file container."
+"Unselect the **Set up read-only loop device** check box in the bottom-left "
+"corner if you want to modify the content of the file container."
 msgstr ""
 
 #. type: Plain text
@@ -315,9 +294,7 @@ msgid "     [[!img read-only.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
 msgstr "     [[!img read-only.png link=\"no\" alt=\"\"]]\n"
 
 #. type: Bullet: '   - '
-msgid ""
-"Choose **All Files** in the file filter in the "
-"bottom-right corner."
+msgid "Choose **All Files** in the file filter in the bottom-right corner."
 msgstr ""
 
 #. type: Plain text
