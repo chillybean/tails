@@ -49,7 +49,7 @@ Given qr{^a usable temporary directory$}, fun ($c) {
     ok(-d $tempdir);
 };
 
-Given qr{^a running "([^"]+)", version "([^"]+)", initially installed at version "([^"]+)", targetted at "([^"]+)", using channel "([^"]+)"$}, fun($c) {
+Given qr{^a running "([^"]+)", version "([^"]+)", initially installed at version "([^"]+)", targeted at "([^"]+)", using channel "([^"]+)"$}, fun($c) {
     for ((0..4)) {
         assert(exists  $c->matches->[$_]);
         assert(defined $c->matches->[$_]);
@@ -134,7 +134,7 @@ Given qr{^(a trusted|an untrusted) OpenPGP signing key pair$}, fun ($c) {
         = $c->{stash}->{scenario}->{$name}
         = path($c->{stash}->{scenario}->{tempdir}, "$name")->absolute;
 
-    # may be overriden by the signature steps,
+    # may be overridden by the signature steps,
     # but we have to initialize the default case somewhere
     $c->{stash}->{scenario}->{trusted_gnupg_homedir} = $c->{stash}->{scenario}->{dev_gnupg_homedir};
 
@@ -147,7 +147,7 @@ Given qr{^a non-existing web server$}, fun ($c) {
     1;
 };
 
-Given qr{^a HTTP server on (.*)$}, fun ($c) {
+Given qr{^an HTTP server on (.*)$}, fun ($c) {
     my $listen = $c->matches->[0];
 
     my $webroot
@@ -168,7 +168,7 @@ Given qr{^a HTTP server on (.*)$}, fun ($c) {
     like($pid, '/^-?\d+$/', 'PID is numeric');
 };
 
-Given qr{^a HTTPS server with (a valid|an invalid|an expired|a not-valid-yet) SSL certificate(?:, that redirects to ([^ ]+) over cleartext HTTP)?$}, fun ($c) {
+Given qr{^an HTTPS server with (a valid|an invalid|an expired|a not-valid-yet) SSL certificate(?:, that redirects to ([^ ]+) over cleartext HTTP)?$}, fun ($c) {
     my $type;
     if    ($c->matches->[0] eq q{a valid})         { $type = 'valid';         }
     elsif ($c->matches->[0] eq q{an invalid})      { $type = 'invalid';       }

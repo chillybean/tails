@@ -24,13 +24,14 @@
 # Roman Ondráček <ondracek.roman@centrum.cz>, 2016
 # 789a65649261a6c6e79de75af5171cc5_5587230, 2015
 # 21efbac3a9def20c26f4869b16e85d8e_941b4b7 <039a9b1b0494d7365f3495af265a9a6d_318499>, 2015
+# nureonp <nureonp@users.noreply.hosted.weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-28 10:55+0200\n"
-"PO-Revision-Date: 2025-03-31 20:56+0000\n"
-"Last-Translator: slrslr <adm@prnet.info>\n"
+"POT-Creation-Date: 2025-06-25 11:02+0200\n"
+"PO-Revision-Date: 2025-06-03 15:08+0000\n"
+"Last-Translator: nureonp <nureonp@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/tor/tails-gui/cs/"
 ">\n"
 "Language: cs\n"
@@ -39,7 +40,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n "
 "<= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -148,7 +149,7 @@ msgstr "Odstranit"
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:483
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:834
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:728
-#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:119
+#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:126
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:376
 msgid "Cancel"
 msgstr "Zrušit"
@@ -222,20 +223,19 @@ msgstr ""
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
-"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
+"To add more, install some software using <a href=\"synaptic."
+"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
+"desktop\">APT on the command line</a>."
 msgstr ""
 "Pro přidání dalších, nainstalujte software prostřednictvím <a "
-"href=\"synaptic.desktop\">Správce balíčků Synaptic</a> nebo <a "
-"href=\"org.gnome.Terminal.desktop\">APT v příkazové řádce</a>."
+"href=\"synaptic.desktop\">Správce balíčků Synaptic</a> nebo <a href=\"org."
+"gnome.Terminal.desktop\">APT v příkazové řádce</a>."
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:154
 msgid "_Create persistent storage"
 msgstr "Vytvořit _trvalé úložiště"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:69
-#, fuzzy
 msgid ""
 "Tails needs donations to keep everybody free and safe online.\n"
 "\n"
@@ -248,8 +248,6 @@ msgstr ""
 "I drobné dary pomohou v našem boji proti cenzuře a šmírování internetového "
 "provozu!\n"
 "\n"
-"<a href=\"file:///usr/share/doc/tails/website/donate.en.html#expenses\">Jak "
-"utrácíme vaše peníze</a>"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:79
 msgid ""
@@ -258,6 +256,10 @@ msgid ""
 "Help us keep your bitcoins safe!\n"
 "\n"
 msgstr ""
+"Tails chrání vaši peněženku.\n"
+"\n"
+"Pomozte nám udržet vaše bitcoiny v bezpečí!\n"
+"\n"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:156
 msgid "Donate Now"
@@ -394,7 +396,6 @@ msgid "bytes"
 msgstr "bajtů"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:296
-#, fuzzy
 msgid ""
 "<b>An error occurred while updating the signing key.</b>\\n\\n<b>This "
 "prevents determining whether an upgrade is available from our website.</"
@@ -404,8 +405,8 @@ msgstr ""
 "<b>Při aktualizaci podpisového klíče došlo k chybě.</b>\\n\\n<b>To z "
 "znemožňuje zjistit z našeho webu, zda je k dostupná aktualizace.</"
 "b>\\n\\nZkontrolujte své připojení k síti, restartujte Tails a pak se o "
-"aktualizaci pokuste znovu.\\n\\nPokud problém přetrvá, přejděte na file:///"
-"usr/share/doc/tails/website/doc/upgrade/error/check.en.html"
+"aktualizaci pokuste znovu.\\n\\nPokud problém přetrvá, zkuste provést ruční "
+"aktualizaci."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:310
 msgid "Error while downloading the signing key"
@@ -416,7 +417,6 @@ msgid "Error while checking for upgrades"
 msgstr "Chyba při kontrole aktualizací"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:345
-#, fuzzy
 msgid ""
 "<b>Could not determine whether an upgrade is available from our website.</"
 "b>\n"
@@ -431,8 +431,7 @@ msgstr ""
 "Zkontrolujte připojení k síti, restartujte Tails a vyzkoušejte aktualizaci "
 "znovu. \n"
 "\n"
-"Pokud problém přetrvává, navštivte adresu file:///usr/share/doc/tails/"
-"website/doc/upgrade/error/check.en.html"
+"Pokud problém přetrvává, zkuste provést ruční aktualizaci."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:360
 msgid "no automatic upgrade is available from our website for this version"
@@ -471,9 +470,9 @@ msgid ""
 "You are currently running the latest version. There is no upgrade "
 "available.\n"
 msgstr ""
+"Aktuálně používáte nejnovější verzi. Žádná aktualizace není k dispozici.\n"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:415
-#, fuzzy
 msgid "Tails is up to date"
 msgstr "Systém je aktuální"
 
@@ -500,8 +499,9 @@ msgstr ""
 "volné paměti je pouze {free_memory}."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:474
+#, fuzzy
 msgid ""
-"An error ocurred while detecting available upgrades.\n"
+"An error occurred while detecting available upgrades.\n"
 "This should not happen. Please report a bug."
 msgstr ""
 "Při zjišťování dostupných aktualizací došlo k chybě.\n"
@@ -593,15 +593,12 @@ msgid "Downloading the upgrade to {name} {version}..."
 msgstr "Stahuje se aktualizace na {name} {version}..."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:712
-#, fuzzy
 msgid ""
 "<b>The upgrade could not be downloaded.</b>\\n\\nCheck your network "
 "connection, and restart Tails to try upgrading again."
 msgstr ""
 "<b>Aktualizace nemohla být stažena.</b>\\n\\nZkontrolujte připojení k "
-"internetu, restartujte Tails a pokuste se o aktualizaci znovu. .\\n\\nPokud "
-"problém přetrvává, navštivte adresu file:///usr/share/doc/tails/website/doc/"
-"upgrade/error/download.en.html"
+"internetu, restartujte Tails a pokuste se o aktualizaci znovu."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:715
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:730
@@ -714,17 +711,16 @@ msgstr ""
 "Z důvodu bezpečnosti je nyní síťové připojení vypnuto."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:856
-#, fuzzy
 msgid ""
 "<b>An error occurred while installing the upgrade.</b>\\n\\nYour Tails "
 "device needs to be repaired and might be unable to restart.\\n\\nPlease "
 "follow the instructions at file:///usr/share/doc/tails/website/doc/upgrade/"
 "error/install.en.html"
 msgstr ""
-"<b>Pri instalování aktualizace došlo k chybě.</b>\\n\\nVaše Tails zařízení "
-"je potřeba opravit a nemusí být možné ho spustit. \\n\\nPokračujte podle "
-"instrukcí na adrese file:///usr/share/doc/tails/website/doc/upgrade/error/"
-"install.en.html"
+"<b>Nastala chyba při instalaci aktualizace.</b>\\n\\nVaše zařízení Tails "
+"potřebuje opravu a nemusí být schopno se restartovat.\\n\\nProsím, "
+"postupujte podle pokynů na adrese file:///usr/share/doc/tails/website/doc/"
+"upgrade/error/install.en.html."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:861
 msgid "Error while installing the upgrade"
@@ -1570,7 +1566,7 @@ msgstr ""
 "Disk, na kterém běží Tails, nelze najít. Možná jste použili volbu 'toram''?"
 
 #: config/chroot_local-includes/usr/share/gnome-shell/extensions/status-menu-helper@tails.boum.org/extension.js:86
-#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:110
+#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:118
 msgid "Lock Screen"
 msgstr "Zamknout obrazovku"
 
@@ -1597,9 +1593,8 @@ msgid "About Tails"
 msgstr "O Tails"
 
 #: config/chroot_local-includes/usr/local/bin/tails-about:34
-#, fuzzy
 msgid "Check for Upgrades"
-msgstr "Chyba při kontrole aktualizací"
+msgstr "Zkontrolovat aktualizace"
 
 #: config/chroot_local-includes/usr/local/bin/tails-about:57
 msgid "UNRELEASED"
@@ -1646,8 +1641,8 @@ msgid ""
 "command line</a>."
 msgstr ""
 "To provedete tak, že nainstalujete software prostřednictvím <a "
-"href=\"synaptic.desktop\">Správce balíčků Synaptic</a> nebo <a "
-"href=\"org.gnome.Terminal.desktop\">APT v příkazové řádce</a>."
+"href=\"synaptic.desktop\">Správce balíčků Synaptic</a> nebo <a href=\"org."
+"gnome.Terminal.desktop\">APT v příkazové řádce</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:227
 msgid ""
@@ -1663,8 +1658,8 @@ msgstr ""
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:240
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
-"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
+"gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "To provedete tak, že vytvoříte Trvalé Úložiště a nainstalujete software "
 "prostřednictvím <a href=\"synaptic.desktop\">Správce balíčků Synaptic</a> "
@@ -1688,11 +1683,11 @@ msgstr "[popis není dostupný]"
 msgid "Failed to synchronize the clock!"
 msgstr "Synchronizace času se nezdařila!"
 
-#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:125
+#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:130
 msgid "Screen Locker"
 msgstr "Zámek obrazovky"
 
-#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:131
+#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:136
 msgid "Set up a password to unlock the screen."
 msgstr "Nastavte heslo pro odemčení obrazovky."
 
@@ -2619,8 +2614,8 @@ msgid ""
 "The %s variable was not found in the configuration file: /etc/whisperback/"
 "config.py"
 msgstr ""
-"Proměnná %s nebyla nalezena v konfiguračním souboru: /etc/whisperback/"
-"config.py"
+"Proměnná %s nebyla nalezena v konfiguračním souboru: /etc/whisperback/config."
+"py"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:136
 msgid "Unable to load a valid configuration."
@@ -2673,7 +2668,6 @@ msgid "Your message has been sent."
 msgstr "Vaše zpráva byla úspěšně odeslána."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:248
-#, fuzzy
 msgid "An error occurred during encryption."
 msgstr "Během šifrování došlo k chybě."
 
@@ -3682,9 +3676,9 @@ msgid ""
 "a Gmail or Riseup email address with your phone and scan the QR code that is "
 "attached to the automatic reply."
 msgstr ""
-"Abyste získali most, pošlete prázdný e-mail na adresu "
-"<tt>bridges@torproject.org</tt> z e-mailové adresy Gmail nebo Riseup, pomocí "
-"telefonu a pak oskenujte QR kód připojený k automatické odpovědi."
+"Abyste získali most, pošlete prázdný e-mail na adresu <tt>bridges@torproject."
+"org</tt> z e-mailové adresy Gmail nebo Riseup, pomocí telefonu a pak "
+"oskenujte QR kód připojený k automatické odpovědi."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1014
 msgid "Scan QR Code"
@@ -3806,7 +3800,7 @@ msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1634
 msgid "No Wi-Fi hardware detected"
-msgstr ""
+msgstr "Žádný Wi-Fi hardware nebyl detekován"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1652
 msgid ""
@@ -3822,9 +3816,19 @@ msgid ""
 " • Buy a USB Wi-Fi adapter that works in Tails.\n"
 "                "
 msgstr ""
+"Tails nemohl najít žádné Wi-Fi rozhraní na vašem počítači. Pokud váš počítač "
+"má Wi-Fi rozhraní, nemusí fungovat na Tails.\n"
+"\n"
+"Pro připojení k internetu můžete zkusit:\n"
+"\n"
+"• Použít Ethernetový kabel místo Wi-Fi. Drátová rozhraní fungují v Tails "
+"mnohem spolehlivěji než Wi-Fi.\n"
+"• Použít USB tethering k sdílení Wi-Fi nebo mobilního datového připojení "
+"vašeho telefonu pomocí kabelu.\n"
+"• Koupit USB Wi-Fi adaptér, který funguje v Tails.\n"
+"                "
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1676
-#, fuzzy
 msgid ""
 "\n"
 "<a href=\"doc/anonymous_internet/no-wifi\">\n"
@@ -3832,8 +3836,11 @@ msgid ""
 "</a>\n"
 "                "
 msgstr ""
-"<a href=\"doc/anonymous_internet/tor\">Zjistit více o tom, jak se Tails "
-"připojujjí k Toru</a>"
+"\n"
+"<a href=\"doc/anonymous_internet/no-wifi\">\n"
+"Zjistit více o řešení problémů s nefungující Wi-Fi.\n"
+"</a>\n"
+"                "
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1704
 msgid "Connect to a local network"
@@ -3848,7 +3855,6 @@ msgstr ""
 "musíte se nejprve připojit k síti Wi-Fi, kabelové nebo mobilní síti."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1735
-#, fuzzy
 msgid "Open Wi-Fi Settings"
 msgstr "Otevřít nastavení Wi-Fi"
 
@@ -4067,15 +4073,15 @@ msgstr "Hodiny"
 #~ "\n"
 #~ "Help us keep your bitcoins safe!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/"
-#~ "donate.en.html#expenses\">How we spend our money.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
+#~ "html#expenses\">How we spend our money.</a>"
 #~ msgstr ""
 #~ "Tails zabespečuje vaši peněženku.\n"
 #~ "\n"
 #~ "Pomocte nám udržet vaše bitcoiny v bezpečí!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/"
-#~ "donate.en.html#expenses\">Jak utrácíme vaše peníze</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
+#~ "html#expenses\">Jak utrácíme vaše peníze</a>"
 
 #~ msgid "Create Backup"
 #~ msgstr "Vytvořit zálohu"
@@ -4219,8 +4225,8 @@ msgstr "Hodiny"
 #~| "\n"
 #~| "Every bit helps in our fight against surveillance and censorship!\n"
 #~| "\n"
-#~| "<a href=\"file:///usr/share/doc/tails/website/"
-#~| "donate.en.html#expenses\">How we spend our money.</a>"
+#~| "<a href=\"file:///usr/share/doc/tails/website/donate.en."
+#~| "html#expenses\">How we spend our money.</a>"
 #~ msgid ""
 #~ "Our annual fundraiser is live!\n"
 #~ "\n"
@@ -4233,8 +4239,8 @@ msgstr "Hodiny"
 #~ "\n"
 #~ "Každá pomoc pomůže bojovat proti sledování a cenzuře.\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/"
-#~ "donate.en.html#expenses\">Jak utrácíme vaše peníze</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
+#~ "html#expenses\">Jak utrácíme vaše peníze</a>"
 
 #~ msgid "Name of the affected software"
 #~ msgstr "Název postiženého softwaru"

@@ -471,7 +471,7 @@ method run () {
     } catch {
         $self->fatal(
             __(
-                "An error ocurred while detecting available upgrades.\n".
+                "An error occurred while detecting available upgrades.\n".
                 "This should not happen. Please report a bug.",
             ),
             title => __(q{Error while detecting available upgrades}),

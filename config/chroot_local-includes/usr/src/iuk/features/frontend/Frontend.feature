@@ -5,7 +5,7 @@ Feature: upgrade frontend
   Background:
     Given a Tails boot device
     And a trusted OpenPGP signing key pair
-    And a HTTPS server with a valid SSL certificate
+    And an HTTPS server with a valid SSL certificate
 
   Scenario: manually installed USB: no upgrade is available
     Given Tails is running from a manually installed USB thumb drive

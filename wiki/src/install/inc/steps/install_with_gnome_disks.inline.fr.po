@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2025-06-24 16:26-0600\n"
-"PO-Revision-Date: 2024-05-05 16:52+0000\n"
+"POT-Creation-Date: 2025-06-25 11:32+0200\n"
+"PO-Revision-Date: 2025-06-24 00:57+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -23,8 +23,12 @@ msgid "[[!meta robots=\"noindex\"]]\n"
 msgstr "[[!meta robots=\"noindex\"]]\n"
 
 #. type: Bullet: '1. '
-msgid "Start *GNOME Disks* (also called *Disks*)."
-msgstr "Démarrez *GNOME Disques* (également appelé *Disques*)."
+msgid ""
+"Start <span class=\"application\">GNOME Disks</span> (also called <span "
+"class=\"application\">Disks</span>)."
+msgstr ""
+"Démarrez <span class=\"application\">GNOME Disques</span> (également appelé "
+"<span class=\"application\">Disques</span>)."
 
 #. type: Plain text
 #, no-wrap
@@ -34,8 +38,10 @@ msgid ""
 "     then type <code>disks</code> and choose <b>Disks</b>.\n"
 "   </div>\n"
 "   <div class=\"upgrade\">\n"
-"   Choose\n"
-"   <b>Applications&nbsp;▸ Utilities&nbsp;▸ Disks</b>.\n"
+"   Choose <span class=\"menuchoice\">\n"
+"     <span class=\"guimenu\">Applications</span>&nbsp;▸\n"
+"     <span class=\"guisubmenu\">Utilities</span>&nbsp;▸\n"
+"     <span class=\"guimenuitem\">Disks</span></span>.\n"
 "   </div>\n"
 msgstr ""
 "   <div class=\"linux\">\n"
@@ -43,7 +49,10 @@ msgstr ""
 "     puis taper <code>disques</code> et choisir <b>Disques</b>.\n"
 "   </div>\n"
 "   <div class=\"upgrade\">\n"
-"   Choisissez <b>Applications&nbsp;▸ Utilitaires**&nbsp;▸ Disques</b>.\n"
+"   Choisissez <span class=\"menuchoice\">\n"
+"     <span class=\"guimenu\">Applications</span>&nbsp;▸\n"
+"     <span class=\"guisubmenu\">Utilitaires</span>&nbsp;▸\n"
+"     <span class=\"guimenuitem\">Disques</span></span>.\n"
 "   </div>\n"
 
 #. type: Plain text
@@ -60,16 +69,14 @@ msgstr ""
 "class=\"linux\">sur laquelle vous voulez installer Tails.</span>"
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid "   <div class=\"step-image\">\n"
+#, no-wrap
 msgid "   <div class=\"caution\">\n"
-msgstr "   <div class=\"step-image\">\n"
+msgstr "   <div class=\"caution\">\n"
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid "   <div class=\"caution\"><p>All the data on this USB stick will be lost.</p></div>\n"
+#, no-wrap
 msgid "   <p>All the data on this USB stick will be lost.</p>\n"
-msgstr "   <div class=\"caution\"><p>Toutes les données sur cette clé USB seront perdues.</p></div>\n"
+msgstr "   <p>Toutes les données sur cette clé USB seront perdues.</p>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -117,10 +124,11 @@ msgstr "   [[!img install/inc/screenshots/gnome_disks_menu.png link=\"no\" class
 
 #. type: Bullet: '1. '
 msgid ""
-"In the **Restore Disk Image** dialog, click on the file selector button."
+"In the <span class=\"guilabel\">Restore Disk Image</span> dialog, click on "
+"the file selector button."
 msgstr ""
-"Dans la fenêtre **Restaurer l'image disque**, cliquez sur le bouton de "
-"sélection de fichier."
+"Dans la fenêtre <span class=\"guilabel\">Restaurer l'image disque</span>, "
+"cliquez sur le bouton de sélection de fichier."
 
 #. type: Plain text
 #, no-wrap
@@ -139,13 +147,20 @@ msgstr ""
 "   extension de fichier <i>.img</i>.</p>\n"
 
 #. type: Plain text
-#, no-wrap
+#, fuzzy, no-wrap
+#| msgid ""
+#| "   <p>If the image has an <i>.iso</i> file\n"
+#| "   extension, it is the wrong image. Please go back to the\n"
+#| "   <span class=\"linux\">[[download step|linux#download]].</span>\n"
+#| "   <span class=\"upgrade-tails\">[[download step|upgrade/tails#download]].</span>\n"
+#| "   <span class=\"upgrade-linux\">[[download step|upgrade/linux#download]].</span></p>\n"
+#| "   </div>\n"
 msgid ""
 "   <p>If the image has an <i>.iso</i> file\n"
 "   extension, it is the wrong image. Please go back to the\n"
 "   <span class=\"linux\">[[download step|linux#download]].</span>\n"
-"   <span class=\"upgrade-tails\">[[download step|upgrade/tails#download]].</span>\n"
-"   <span class=\"upgrade-linux\">[[download step|upgrade/linux#download]].</span></p>\n"
+"   <span class=\"upgrade-tails\">[[download step|doc/upgrade/tails#download]].</span>\n"
+"   <span class=\"upgrade-linux\">[[download step|doc/upgrade/linux#download]].</span></p>\n"
 "   </div>\n"
 msgstr ""
 "   <p>Si l'image a une extension de fichier <i>.iso</i>,\n"
@@ -160,7 +175,7 @@ msgid "Click the **Start Restoring** button."
 msgstr "Cliquez sur le bouton **Démarrer la restauration**."
 
 #. type: Bullet: '1. '
-msgid "In the confirmation dialog click **Restore**."
+msgid "In the confirmation dialog click <span class=\"bold\">Restore</span>."
 msgstr ""
 "Dans la fenêtre de confirmation cliquez sur <span class=\"bold\">Restaurer</"
 "span>."
@@ -212,10 +227,11 @@ msgstr ""
 #~ msgstr "     [[!img install/inc/infography/install-upgrade-usb-only.png link=\"no\" class=\"upgrade-linux\" alt=\"Image USB installée sur la clé USB sur la gauche\"]]\n"
 
 #~ msgid ""
-#~ "   If your version of *GNOME Disks* is\n"
+#~ "   If your version of <span class=\"application\">GNOME Disks</span> is\n"
 #~ "   old it might have a\n"
 #~ msgstr ""
-#~ "   Si votre version de *GNOME Disks* est\n"
+#~ "   Si votre version de <span class=\"application\">GNOME Disks</span> "
+#~ "est\n"
 #~ "   ancienne il pourrait y avoir un bouton\n"
 
 #~ msgid ""
@@ -230,10 +246,10 @@ msgstr ""
 
 #~ msgid ""
 #~ "   button and choose\n"
-#~ "   **Restore Disk Image&hellip;**.\n"
+#~ "   <span class=\"guimenuitem\">Restore Disk Image&hellip;</span>.\n"
 #~ msgstr ""
 #~ "   et choisissez\n"
-#~ "   **Restaurer l'image disque&hellip;**.\n"
+#~ "   <span class=\"guimenuitem\">Restaurer l'image disque&hellip;</span>.\n"
 
 #~ msgid ""
 #~ "   <!-- Note for technical writers:\n"

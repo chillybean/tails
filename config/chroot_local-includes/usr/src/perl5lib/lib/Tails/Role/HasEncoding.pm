@@ -1,6 +1,6 @@
 =head1 NAME
 
-Tails::Role::HasEncoding - role to provide an Encode::Encoding objet for the codeset being used
+Tails::Role::HasEncoding - role to provide an Encode::Encoding object for the codeset being used
 
 =head1 SYNOPSIS
 

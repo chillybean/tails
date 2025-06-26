@@ -33,7 +33,7 @@ class WhisperbackException(Exception):
 
 
 class MisconfigurationException(WhisperbackException):
-    """This exception is raised when the configuartion can't be properly
+    """This exception is raised when the configuration can't be properly
     loaded
 
     """

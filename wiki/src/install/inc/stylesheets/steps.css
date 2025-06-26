@@ -16,7 +16,7 @@ h1.step, span.next-counter {
 
 h1.step:before {
   position: relative;
-  font-size: 0.75em;
+  font-size: var(--font-size-h3);
   display: inline-block;
   width: 60px;
 }
@@ -51,9 +51,9 @@ div.success video {
 }
 
 div.success p.big {
-  font-size: 36px;
+  font-size: var(--font-size-h1);
   color: var(--medium-purple);
-  font-weight: bold;
+  font-weight: var(--font-weight-bold);
   line-height: 42px;
   margin-top: 10px;
   margin-bottom: 30px;
@@ -83,7 +83,7 @@ div.toggleable .hide {
   body {
     width: auto !important;
     margin: auto !important;
-    font-size: 12pt;
+    font-size: var(--font-size-small);
     background-color: white !important;
     color: black !important;
   }
@@ -107,7 +107,7 @@ div.toggleable .hide {
   }
 
   h1 {
-    font-size: 25px;
+    font-size: var(--font-size-h2);
     margin-left: 50px !important;
   }
 

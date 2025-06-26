@@ -250,7 +250,7 @@ Style and usage
 
   You can combine these different classes.
 
-  Explain how to replace the placeholders before giving out the full comman line.
+  Explain how to replace the placeholders before giving out the full command line.
 
   *For example:*
 
@@ -334,7 +334,7 @@ Style and usage
 
     * Result: Click **Save**.
 
-    In documentation, do not a not add the elipsis of the button label to
+    In documentation, do not a not add the ellipsis of the button label to
     indicate that a dialog box will appear.
 
     *For example:*
@@ -441,6 +441,43 @@ Style and usage
 
   And not *graphics adapters*, *graphics*, *graphical hardware*, or
   *video card*.
+
+<a id="headings"></a>
+
+- **headings**
+
+  We use 4 levels of headings on a Major Third scale.
+
+  The page title uses the content of the `!meta title` directive and is added
+  by the ikiwiki template as an `<h1>` header.
+
+  Despite the page title being a `<h1>` heading, we use `<h1>` as well for main
+  sections of the page content [[!tails_ticket 7506 desc="for historical
+  reasons"]] and not to break accessibility.
+
+  <br>
+
+  <div id="page-title"><h1>Lorem ipsum dolor sit amet (page title)</h1></div>
+
+  <br>
+
+  Praesent a augue ut lorem cursus tempus cursus sit amet neque. Etiam tempus molestie arcu.
+
+  # Vestibulum aliquam ultricies auctor (h1)
+
+  Aliquam consequat iaculis est quis ornare. Nulla faucibus suscipit turpis,
+  eget euismod orci. Nulla scelerisque sed massa nec congue. Sed pharetra nisi
+  ipsum, vel rutrum odio faucibus ac. Suspendisse nec tortor vitae tellus
+  consequat convallis. Integer dignissim dapibus condimentum.
+
+  ## Duis congue fermentum dictum (h2)
+
+  ### Duis ac iaculis erat (h3)
+
+  Cras nec dignissim libero. Ut cursus, ligula et gravida scelerisque, lectus
+  erat iaculis libero, vel elementum leo ipsum eget dolor. Proin pharetra
+  commodo risus non eleifend. Phasellus massa dui, porttitor eu interdum vitae,
+  maximus vel arcu. Suspendisse et imperdiet justo.
 
 <a id="compress-image"></a>
 
@@ -694,7 +731,7 @@ Style and usage
   help distinguish them from the actual application. Omit `link="no"` to create
   a link that opens the screenshot in full resolution.
 
-      \[[!img screenshot-good.png class="screenshot" alt=""]]
+      \[[!img screenshot_good.png class="screenshot" alt=""]]
 
   Most often, screenshots are not necessary to follow instructions and can have
   an empty `alt` tag. Screenshots that describe new features, usually benefit
@@ -718,11 +755,11 @@ Style and usage
 
   Good:
 
-  [[!img screenshot-good.png class="screenshot" alt=""]]
+  [[!img screenshot_good.png class="screenshot" alt=""]]
 
   Bad:
 
-  [[!img screenshot-bad.png class="screenshot" alt=""]]
+  [[!img screenshot_bad.png class="screenshot" alt=""]]
 
   If the full size screenshot is too big, in the
   [img directive](https://ikiwiki.info/ikiwiki/directive/img/):
@@ -888,13 +925,13 @@ Style and usage
 
         <div class="attack">
 
-        <p>This note decribes a security attack and its likelihood.</p>
+        <p>This note describes a security attack and its likelihood.</p>
 
         </div>
 
     <div class="attack">
 
-    <p>This note decribes a security attack and its likelihood.</p>
+    <p>This note describes a security attack and its likelihood.</p>
 
     </div>
 

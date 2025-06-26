@@ -1,3 +1,281 @@
+tails (6.17) unstable; urgency=medium
+
+  * Resolve "Upgrade the Tor Browser for 6.17" (tails/tails!2252)
+
+    Closes issues:
+      - Upgrade the Tor Browser for 6.17 (tails/tails#21023)
+
+    Commits:
+      - Fetch Tor Browser from our own archive
+      - Upgrade Tor Browser to 14.5.4-build1 (refs: tails#21023)
+
+  * Unsafe Browser: don't display the contents of about:tor on new tabs
+    (tails/tails!2214)
+
+    Closes issues:
+      - Unsafe Browser homepage for new tabs is the Tor Browser's (tails/tails#21004)
+
+    Commits:
+      - Unsafe Browser: don't display the contents of about:tor on new tabs
+
+  * Update uBlock origin (tails/tails!2254)
+
+    Closes issues:
+      - uBlock is not up-to-date (tails/tails#21036)
+
+    Commits:
+      - Bump debian snapshot
+
+  * Don't include a useless copy of CPU microcode in the SquashFS (refs:
+    tails#21001) (tails/tails!2232)
+
+    Closes issues:
+      - Remove useless CPU microcodes from SquashFS (tails/tails#21001)
+
+    Commits:
+      - Don't include CPU microcode in the SquashFS (refs: tails#21001)
+
+  * Fix typos (tails/tails!2230)
+
+    Commits:
+      - Fix typo in filename
+      - Fix typos and style
+      - Fix a/an typos
+      - Fix typos
+
+  * onion-grater: Write 250 OK in the same syscall as its \r\n (tails/tails!2228)
+
+    Commits:
+      - more ruff fixes
+      - ruff format
+      - Write 250 OK in the same syscall as its \r\n
+
+  * Migrate the tails-dev chat room from XMPP to Matrix (tails/tails!2224)
+
+    Commits:
+      - Migrate the tails-dev chat room from XMPP to Matrix
+
+  * Ensure we install custom packages for flatpak, gnome-settings-daemon, and
+    gnome-shell (tails/tails!2223)
+
+    Commits:
+      - Make regexp stricter
+      - shfmt
+      - Ensure we install custom packages for flatpak, gnome-settings-daemon, and
+        gnome-shell
+
+  * Merge branch 'master' into 'stable' (tails/tails!2222)
+
+    Closes issues:
+      - Virtualization doc: take into account Microsoft Recall (tails/tails#21000)
+      - Document better the lack of support for Apple chips (tails/tails#20807)
+      - Clarify that data is not securely erased from the USB stick when installing
+        (tails/tails#20749)
+
+    Commits:
+      - Translated using Weblate (Spanish)
+      - Weblate commit
+      - Weblate commit
+      - Weblate commit
+      - updated PO files
+      - Use Microsoft Recall as an example
+      - Warn earlier that we only have solutions for Linux
+      - updated PO files
+      - Document better the lack of support for Apple chips
+      - Apple is at M4 already
+      - updated PO files
+      - Data is not securely erased when installing
+      - Translated using Weblate (Catalan)
+      - Migrate the tails-dev chat room from XMPP to Matrix
+      - Overwrite style.css
+      - Translated using Weblate (Portuguese)
+
+  * Vagrant: upgrade to po4a/bookworm and ikiwiki/trixie (tails/tails!2220)
+
+    Commits:
+      - shfmt
+      - Drop obsolete variable
+      - Vagrant: upgrade to po4a/bookworm and ikiwiki/trixie
+
+  * Release process, website build: require ikiwiki from Trixie and po4a 0.69 from
+    Bookworm (tails/tails!2219)
+
+    Commits:
+      - GitLab CI: use ikiwiki:trixie container image
+      - Refresh PO files with ikiwiki/trixie and po4a/bookworm
+      - Fix typos
+      - Release process, website build: require ikiwiki from Trixie and po4a 0.69 from
+        Bookworm
+
+  * Refresh org.boum.tails.TorBrowser Flatpak manifest (tails/tails!2208)
+
+    Commits:
+      - shfmt
+      - Document why we can't remove this
+      - Refresh org.boum.tails.TorBrowser flatpak manifest
+
+  * CI: ignore flatpak 1.16.1-1~bpo12+1 (tails/tails!2206)
+
+    Closes issues:
+      - neede-package-updates: flatpak 1.16.1-1~bpo12+1 (tails/tails#20999)
+
+    Commits:
+      - CI: ignore flatpak 1.16.1-1~bpo12+1
+
+  * screen-locker: Add "Show Password" checkbox (tails/tails!2201)
+
+    Closes issues:
+      - "Show password" checkbox for tails-screen-locker dialog (tails/tails#20965)
+
+    Commits:
+      - Appease ruff check
+      - Appease ruff format
+      - screen-locker: Add "Show Password" checkbox
+
+  * htpdate pool: replace unreliable www.gnu.org with mullvad.net
+    (tails/tails!2200)
+
+    Closes issues:
+      - www.gnu.org is unreliable in htpdate pool (tails/tails#20992)
+
+    Commits:
+      - htpdate pool: replace unreliable www.gnu.org with mullvad.net
+
+  * Improve website navigation: 2025 edition (tails/tails!2046)
+
+    Closes issues:
+      - Have a secondary navigation in our documentation (tails/tails#20393)
+      - Consider using a hamburger menu to navigate the website on mobile
+        (tails/tails#20065)
+      - Use a bigger font everywhere on our website (tails/tails#17665)
+      - H1 and H2 headings are hard to differentiate (tails/tails#20805)
+      - Use a variable font on our website (tails/tails#16188)
+      - Add H1 heading at the beginning of page content (tails/tails#7506)
+      - Add WCAG "skip to main content" quick link (tails/tails#7507)
+      - Move Contribute from our top navigation to the footer only (tails/tails#20835)
+      - Start integrating our doc for contributors with Tor's, identifying other
+        problems in this section along the way (tails/tails#20768)
+
+    Commits:
+      - shfmt
+      - Fix link to contact page
+      - Fix link to upgrade doc
+      - Fix link to upgrade doc
+      - Remove stray PO files
+      - Avoid having different widths for each element in smaller screens
+      - Don't shring doc index on smaller screen
+      - Improve right padding
+      - Simplify HTML
+      - Improve vertical rhythm
+      - Add back feed links
+      - Remove artificial category
+      - Don't translate /upgrade anymore
+      - Animate caret
+      - Allow collapsing accordions
+      - Add authoritative reference
+      - Add timestamp
+      - Add license information for fonts
+      - Remove dead CSS
+      - Remove unused images
+      - Tails is now made by TPI
+      - Apply 1 suggestion(s) to 1 file(s)
+      - Update core pages
+      - Update PO files
+      - Fix broken links
+      - Document headings
+      - Prevent too much vertical space between page title and first heading
+      - Remove dead page
+      - Use consistent headings in inline news
+      - Update PO files
+      - Update PO files
+      - Redesign the headings scale
+      - Fix headings level
+      - Add back custom CSS
+      - Fix navigation for the section "Download, installation, and upgrade"
+      - Display pointer on caret
+      - Prevent jump to top of the page
+      - Separate the click on the caret from the click to open the page
+      - Fix vertical rhythm
+      - Force margin between doc index and footer
+      - Remove dead pages from po_translatable_pages
+      - Remove useless template
+      - Remove dead CSS
+      - Adapt custom CSS to navigation and font changes
+      - Add back 'meta' directives
+      - Simplify
+      - Remove deprecated reporting mechanism
+      - Update PO files
+      - Add all navigation elements to core pages
+      - Rescue translations
+      - Remove duplicated aria-label
+      - Rename PO files
+      - Add <h1> at the beginning of page content
+      - Add a skip navigation link
+      - Improve the underlining of links in footer
+      - Remove /contribute from our main navigation
+      - Display display on mobile
+      - Improve page structure for accessibility
+      - Improve scanability of doc index
+      - Use a variable font size
+      - Add caret to identify parent topics
+      - Add padding on top of page title
+      - Fix vertical alignment of crumbs and language switcher
+      - Prevent language switcher from wrapping below the crumbs
+      - Add bottom padding
+      - Use float instead of flex
+      - Add horizontal scroll to long commands instead of overflowing
+      - Improve compatibility with different page width
+      - Move doc index to a better place
+      - Fix alignment of languages in RTL
+      - Make the doc index responsive
+      - Give more space to long commands
+      - Remove dead code
+      - Use a bigger font everywhere on our website (#17665)
+      - Use Source Sans everywhere
+      - Rework the basic HTML structure of pages
+      - Indent templates
+      - Remove noise from Ikiwiki templates
+      - Display language switcher below breadcrumbs when they wrap
+      - Prototype documentation index
+      - Remove cruft
+      - Use consistent tree style
+      - Add missing subpage
+      - Move /about/contact under /doc/about
+      - Remove external link from doc index
+      - Improve index
+      - Avoid linking to subtrees
+      - Move all navigation elements to a dedicated folder
+      - Expand banner and footer on entire width
+      - Remove striped background
+
+  * Update Chutney (2025Q2 edition) (tails/tails!2033)
+
+    Closes issues:
+      - Upgrade Chutney (2025Q2 edition) (tails/tails#18215)
+      - chutney: `ModuleNotFoundError: No module named 'cgitb'` (tails/tails#20761)
+
+    Commits:
+      - Test suite: fallback to kill approach when chutney stop fails
+      - Test suite: log when resorting to kill leftover Chutney processes
+      - Test suite: adapt pgrep/pkill regex vs newer Chutney
+      - Test suite: refactor again
+      - Test suite: refactor
+      - Test suite: only keep the last Chutney data dir as artifact on failure
+      - Test suite: bump the number of Chutney dirauths to 4
+      - Chutney: drop usage of typeguard.check_type()
+      - Test suite: disable info-level logging for Chutney nodes
+      - Test suite: don't repeat scenario name and exception with --interactive-
+        debugging
+      - Test suite: improve handling of leftover tor processes from previous runs
+      - Test suite: make the output on Chutney bootstrap failure more manageble
+      - Test suite: add option to make cmd_helper() less verbose on error
+      - Test suite: also save the Chutney data directory as artifact on Chutney
+        bootstrap failure
+      - Test suite: raise new CommandFailed exception on cmd_helper() failure
+      - Reset Chutney to most recent revision (refs: tails#18215)
+
+ -- Tails developers <tails@boum.org>  Wed, 25 Jun 2025 12:31:50 +0200
+
 tails (6.16) unstable; urgency=medium
 
   * Upgrade Linux to 6.1.140-1

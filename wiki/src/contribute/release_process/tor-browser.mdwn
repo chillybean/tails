@@ -117,7 +117,7 @@ Check out the new branch:
     git checkout -b ${TBB_IMPORT_BRANCH:?} origin/stable
 
 Set `TBB_SIGNER_SUFFIX` to the nickname of the Tor Browser developer who signed
-the `sha256sums-unsigned-build.txt` file, preceeded by a dash; the detached
+the `sha256sums-unsigned-build.txt` file, preceded by a dash; the detached
 signature at `$TBB_DIST_URL` is named
 `sha256sums-unsigned-build.txt.asc${TBB_SIGNER_SUFFIX}`:
 
@@ -378,14 +378,39 @@ Clean up
 Update the Tor Browser Flatpak metadata
 ---------------------------------------
 
-We should regularly update the Tor Browser Flatpak metadata to check if
-the upstream version from the Tor Browser Launcher Flatpak app added any
-new permissions that we should allow or deny.
+We should regularly update the Tor Browser Flatpak metadata by
+importing relevant changes from the upstream version of the Tor
+Browser Launcher Flatpak and Mozilla's official Firefox Flatpak. An
+appropriate time to do this is when we are migrating to new Tor
+Browser major versions, especially those that bump the Firefox ESR
+since that is more likely to introduce new functionality that is
+relevant for the Flatpak.
 
-The Tor Browser Launcher Flatpak app is updated independently from the
-Tor Browser, so it doesn't necessarily have to be done at the same time
-as the Tor Browser update, but like the Tor Browser update, it should be
-done once per release cycle, so we just do it at the same time.
+Here are some general guidelines for what to look for when importing
+changes from either upstream:
+
+* `[Applications]` section: leave it as-is unless you know what you're
+  doing.
+* `[Build]` section: since we do not build a real Flatpak anything in
+  this section is irrelevant but we still should import changes there
+  just to keep those changes out from future comparisons.
+* `[Context]` section: this is about access/permissions of system
+  resources, which we already heavily override. Changes here are most
+  likely due to Flatpak introducing permissions for a new resource, of
+  Firefox starting to use a new resource.
+* `[Environment]`, `[Session Bus Policy]` and `[System Bus Policy]`
+  sections: these sections are the most likely to be interesting to
+  us, and can be about enabling new features introduced by (primarily)
+  Firefox.
+* `[Extension NAME]` sections: due to our pseudo-flatpak approach we
+  are very unlikely to use Flatpak extensions; since our runtime is
+  the full Tails filesystem so whatever is in the extension is likely
+  available already.
+
+Note that we document why we skip some of the settings in
+`config/chroot_local-includes/var/lib/flatpak/overrides/org.boum.tails.TorBrowser`.
+
+### Import changes from the Tor Browser Launcher Flatpak
 
 1. Update the Tor Browser Launcher Flatpak app:
 
@@ -393,14 +418,14 @@ done once per release cycle, so we just do it at the same time.
         ./config/chroot_local-includes/usr/share/tails/build/flatpak/org.boum.tails.TorBrowser/update-manifest
 
 2. Check if the commit that was created by the previous step added any
-   new permissions that we should allow or deny in the override config
-   file at
+   new permissions and consider each of them: those that make sense
+   for Tails we keep by doing nothing, but for those we don't want we
+   need to add suitable rules in the override config file at
    `config/chroot_local-includes/var/lib/flatpak/overrides/org.boum.tails.TorBrowser`.
 
-3. If the commit added any new permissions, update the override config
-   file accordingly, and commit the changes.
+3. Commit the changes and push the updated branch.
 
-4. Push the updated branch.
+### Import changes from the official Mozilla Firefox Flatpak
 
 It is at least as important to check for changes in the
 `org.mozilla.firefox` flatpak, given that upstream Firefox
@@ -422,4 +447,6 @@ For changes that also makes sense for the
 [org.torproject.torbrowser-launcher flathub
 upstream](https://github.com/flathub/org.torproject.torbrowser-launcher/)
 we should submit a PR, but to get the changes into Tails quickly we
-can use the override as described above.
+can use the override as described above. Once we upstream something we
+can drop it from our overrides and thus decrease our delta, which is
+nice.

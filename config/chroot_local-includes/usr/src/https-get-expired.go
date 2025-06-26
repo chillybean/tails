@@ -112,7 +112,7 @@ func main() {
 	urlString := flag.Args()[0]
 	urlRequest, err := url.Parse(urlString)
 	if err != nil {
-		fmt.Fprintln(os.Stderr, "invlid url")
+		fmt.Fprintln(os.Stderr, "invalid url")
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(2)
 	}
