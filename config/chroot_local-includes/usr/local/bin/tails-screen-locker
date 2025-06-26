@@ -5,19 +5,19 @@ import socket
 import sys
 import gettext
 import subprocess
-from pydbus import SessionBus, SystemBus
 import os
-from pam import pam
 import time
 import pwd
+from pydbus import SessionBus, SystemBus
+from pam import pam
 
 import gi
-gi.require_version('Gtk', '3.0')
-from gi.repository import Gtk, GLib
-gi.require_version('Gdk', '3.0')
-from gi.repository import Gdk
 
-from tailslib.adminpassword import is_password_set
+gi.require_version("Gtk", "3.0")
+gi.require_version("Gdk", "3.0")
+from gi.repository import Gdk, Gtk, GLib  # noqa: E402
+
+from tailslib.adminpassword import is_password_set  # noqa: E402
 
 _ = gettext.gettext
 gettext.textdomain("tails")
@@ -37,8 +37,7 @@ def lock_screen():
         sys.exit()
 
 
-class PasswordDialog(object):
-
+class PasswordDialog:
     def on_cancel_clicked(self, button, data=None):
         sys.exit(1)
 
@@ -54,13 +53,17 @@ class PasswordDialog(object):
             self.ok_button.set_sensitive(False)
             self.entry2.set_icon_from_stock(1, "gtk-dialog-warning")
 
+    def on_show_checkbox_toggled(self, checkbutton, data=None):
+        self.entry1.set_visibility(self.show_checkbox.get_active())
+        self.entry2.set_visibility(self.show_checkbox.get_active())
+
     def on_ok_clicked(self, button, data=None):
         pw1 = self.entry1.get_text()
         pw2 = self.entry2.get_text()
         if not pw1 == pw2:
             return
 
-        self.pw = pw1.encode('utf8')
+        self.pw = pw1.encode("utf8")
 
         bus = SystemBus()
         object_path = bus.get("org.freedesktop.Accounts").FindUserById(os.getuid())
@@ -68,7 +71,12 @@ class PasswordDialog(object):
         # lock the screen once the 'Changed' signal was received
         user_object.Changed.connect(self.wait_until_password_set_and_lock_screen)
 
-        p = subprocess.Popen("passwd", stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        p = subprocess.Popen(
+            ["/usr/bin/passwd"],
+            stdin=subprocess.PIPE,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+        )
         p.stdin.write(self.pw + b"\n")
         p.stdin.write(self.pw)
         p.stdin.flush()
@@ -110,15 +118,12 @@ class PasswordDialog(object):
             label=_("Lock Screen"),
             receives_default=True,
             sensitive=False,
-            width_request=86
+            width_request=86,
         )
         self.ok_button.connect("clicked", self.on_ok_clicked)
-        self.ok_button.get_style_context().add_class('suggested-action')
+        self.ok_button.get_style_context().add_class("suggested-action")
 
-        cancel_button = Gtk.Button(
-            label=_("Cancel"),
-            width_request=86
-        )
+        cancel_button = Gtk.Button(label=_("Cancel"), width_request=86)
         cancel_button.connect("clicked", self.on_cancel_clicked)
 
         headerbar = Gtk.HeaderBar(
@@ -131,25 +136,21 @@ class PasswordDialog(object):
             label=_("Set up a password to unlock the screen."),
         )
 
-        self.entry1 = Gtk.Entry(
-            can_focus=True,
-            visibility=False,
-            width_request=200
-        )
+        self.entry1 = Gtk.Entry(can_focus=True, visibility=False, width_request=200)
         self.entry1.connect("changed", self.on_entry_changed)
 
-        self.entry2 = Gtk.Entry(
-            can_focus=True,
-            visibility=False,
-            width_request=200
-        )
+        self.entry2 = Gtk.Entry(can_focus=True, visibility=False, width_request=200)
         self.entry2.connect("changed", self.on_entry_changed)
+
+        self.show_checkbox = Gtk.CheckButton(label="Show Password")
+        self.show_checkbox.connect("toggled", self.on_show_checkbox_toggled)
 
         grid = Gtk.Grid(row_spacing=2, column_spacing=10)
         grid.attach(Gtk.Label(label=_("Password"), xalign=1), 0, 0, 1, 1)
         grid.attach(Gtk.Label(label=_("Confirm"), xalign=1), 0, 1, 1, 1)
         grid.attach(self.entry1, 1, 0, 1, 1)
         grid.attach(self.entry2, 1, 1, 1, 1)
+        grid.attach(self.show_checkbox, 1, 2, 1, 1)
 
         content_box = Gtk.Box(Gtk.Orientation.HORIZONTAL)
         content_box.pack_start(Gtk.Box(hexpand=True), False, False, 0)
@@ -162,7 +163,7 @@ class PasswordDialog(object):
             margin_bottom=18,
             margin_left=18,
             margin_right=18,
-            spacing=18
+            spacing=18,
         )
         box.add(label_subtitle)
         box.add(content_box)
@@ -181,8 +182,8 @@ def get_lock():
     # Original author: https://stackoverflow.com/users/639295/aychedee
     # Without holding a reference to our socket somewhere it gets garbage
     # collected when the function exits
-    get_lock._lock_socket = socket.socket(socket.AF_UNIX, socket.SOCK_DGRAM)
-    get_lock._lock_socket.bind('\0' + 'tails-screen-locker')
+    get_lock.lock_socket = socket.socket(socket.AF_UNIX, socket.SOCK_DGRAM)
+    get_lock.lock_socket.bind("\0" + "tails-screen-locker")
 
 
 def main():

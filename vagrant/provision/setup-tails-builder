@@ -32,7 +32,7 @@ already_provisioned() {
 
 if [ "${TAILS_PROXY_TYPE}" = "vmproxy" ]; then
     echo "I: Configuring HTTP proxy..."
-    # Ensure that the apt-cacher-ng cache disk is formated and mounted
+    # Ensure that the apt-cacher-ng cache disk is formatted and mounted
     if [ ! -b /dev/vdb1 ]; then
         echo '1,,83' | sfdisk /dev/vdb
         mkfs.ext4 -m 0 /dev/vdb1

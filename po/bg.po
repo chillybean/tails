@@ -16,13 +16,15 @@
 # Mal Malakov <dev@epsilon-labs.com>, 2015
 # Maxi <kutia0001@gmail.com>, 2015
 # Tsvetan Nikolov <slakware@gmail.com>, 2015-2016
+# 109247019824 <109247019824@users.noreply.hosted.weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-28 10:55+0200\n"
-"PO-Revision-Date: 2025-03-31 20:56+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"POT-Creation-Date: 2025-06-25 11:02+0200\n"
+"PO-Revision-Date: 2025-05-30 14:01+0000\n"
+"Last-Translator: 109247019824 <109247019824@users.noreply.hosted.weblate."
+"org>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/tor/tails-gui/"
 "bg/>\n"
 "Language: bg\n"
@@ -30,7 +32,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -139,7 +141,7 @@ msgstr "Премахване"
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:483
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:834
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:728
-#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:119
+#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:126
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:376
 msgid "Cancel"
 msgstr "Отказ"
@@ -213,20 +215,19 @@ msgstr ""
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
-"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
+"To add more, install some software using <a href=\"synaptic."
+"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
+"desktop\">APT on the command line</a>."
 msgstr ""
-"Допълнителен софтуер се инсталира с помощта на <a "
-"href=\"synaptic.desktop\">приложението за пакети Synaptic</a> или <a "
-"href=\"org.gnome.Terminal.desktop\">чрез APT в команден ред</a>."
+"Допълнителен софтуер се инсталира с помощта на <a href=\"synaptic."
+"desktop\">приложението за пакети Synaptic</a> или <a href=\"org.gnome."
+"Terminal.desktop\">чрез APT в команден ред</a>."
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:154
 msgid "_Create persistent storage"
 msgstr "_Създаване на постоянно хранилище"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:69
-#, fuzzy
 msgid ""
 "Tails needs donations to keep everybody free and safe online.\n"
 "\n"
@@ -238,8 +239,6 @@ msgstr ""
 "\n"
 "Всяка сума помага в борбата ни срещу наблюдението и цензурата!\n"
 "\n"
-"<a href=\"file:///usr/share/doc/tails/website/donate.en.html#expenses\">Как "
-"разходваме парите ви.</a>"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:79
 msgid ""
@@ -248,6 +247,10 @@ msgid ""
 "Help us keep your bitcoins safe!\n"
 "\n"
 msgstr ""
+"Tails защитава портфейла ви.\n"
+"\n"
+"Помогнете ни да държим криптовалутата ви в безопасност.\n"
+"\n"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:156
 msgid "Donate Now"
@@ -374,7 +377,6 @@ msgid "bytes"
 msgstr "байта"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:296
-#, fuzzy
 msgid ""
 "<b>An error occurred while updating the signing key.</b>\\n\\n<b>This "
 "prevents determining whether an upgrade is available from our website.</"
@@ -383,9 +385,8 @@ msgid ""
 msgstr ""
 "<b>По време на обновяването на ключа за подписване е възникнала грешка.</"
 "b>\\n\\n<b>Това пречи да бъде определено дали е налично обновяване от "
-"страницата.</b>\\n\\nПроверете връзката и рестартирайте Tails, за да опитате "
-"да обновите отново.\\n\\nАко проблемът остане отворете: file:///usr/share/"
-"doc/tails/website/doc/upgrade/error/check.en.html"
+"страницата.</b>\\n\\nПроверете дали има връзка с интернет и рестартирайте "
+"Tails.\\n\\nАко проблемът остане опитайте ръчно обновяване."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:310
 msgid "Error while downloading the signing key"
@@ -396,7 +397,6 @@ msgid "Error while checking for upgrades"
 msgstr "Грешка при проверка за обновяване"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:345
-#, fuzzy
 msgid ""
 "<b>Could not determine whether an upgrade is available from our website.</"
 "b>\n"
@@ -408,10 +408,9 @@ msgstr ""
 "<b>Не може да бъде определено, дали е налично обновяване от страницата. </"
 "b>\n"
 "\n"
-"Проверете връзката и рестартирайте Tails, за да опитате да обновите отново.\n"
+"Проверете дали има връзка с интернет и рестартирайте Tails.\n"
 "\n"
-"Ако проблемът остане отворете: file:///usr/share/doc/tails/website/doc/"
-"upgrade/error/check.en.html"
+"Ако проблемът остане опитайте ръчно обновяване."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:360
 msgid "no automatic upgrade is available from our website for this version"
@@ -447,12 +446,11 @@ msgstr "Системата е обновена"
 msgid ""
 "You are currently running the latest version. There is no upgrade "
 "available.\n"
-msgstr ""
+msgstr "Използвате последното издание. Няма обновяване.\n"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:415
-#, fuzzy
 msgid "Tails is up to date"
-msgstr "Системата е обновена"
+msgstr "Системата на Tails е обновена"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:421
 msgid "This version of Tails is outdated, and may have security issues."
@@ -477,8 +475,9 @@ msgstr ""
 "само {free_memory} е свободна."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:474
+#, fuzzy
 msgid ""
-"An error ocurred while detecting available upgrades.\n"
+"An error occurred while detecting available upgrades.\n"
 "This should not happen. Please report a bug."
 msgstr ""
 "Възникна грешка при търсене на обновявания.\n"
@@ -572,15 +571,13 @@ msgid "Downloading the upgrade to {name} {version}..."
 msgstr "Изтегляне на обновяване до {name} {version}…"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:712
-#, fuzzy
 msgid ""
 "<b>The upgrade could not be downloaded.</b>\\n\\nCheck your network "
 "connection, and restart Tails to try upgrading again."
 msgstr ""
-"<b>Обновяването не може да бъде изтеглено.</b>\\n\\nПроверете връзката и "
-"рестартирайте Tails, за да опитате да обновите отново.\\n\\nАко проблемът "
-"остане отворете: file:///usr/share/doc/tails/website/doc/upgrade/error/"
-"download.en.html"
+"<b>Обновяването не може да бъде изтеглено.</b>\\n\\nПроверете дали има "
+"връзка с интернет и рестартирайте Tails, за да бъде направен нов опит за "
+"обновяване."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:715
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:730
@@ -693,7 +690,6 @@ msgstr ""
 "От съображения за сигурност връзката е изключена."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:856
-#, fuzzy
 msgid ""
 "<b>An error occurred while installing the upgrade.</b>\\n\\nYour Tails "
 "device needs to be repaired and might be unable to restart.\\n\\nPlease "
@@ -1568,7 +1564,7 @@ msgstr ""
 "настройката „toram“?"
 
 #: config/chroot_local-includes/usr/share/gnome-shell/extensions/status-menu-helper@tails.boum.org/extension.js:86
-#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:110
+#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:118
 msgid "Lock Screen"
 msgstr "Заключване на екрана"
 
@@ -1595,9 +1591,8 @@ msgid "About Tails"
 msgstr "Относно Tails"
 
 #: config/chroot_local-includes/usr/local/bin/tails-about:34
-#, fuzzy
 msgid "Check for Upgrades"
-msgstr "Грешка при проверка за обновяване"
+msgstr "Проверяване за обновяване"
 
 #: config/chroot_local-includes/usr/local/bin/tails-about:57
 msgid "UNRELEASED"
@@ -1643,9 +1638,9 @@ msgid ""
 "Package Manager</a> or <a href=\"org.gnome.Terminal.desktop\">APT on the "
 "command line</a>."
 msgstr ""
-"За да се случи, инсталирайте някакъв софтуер с помощта на <a "
-"href=\"synaptic.desktop\">приложението за управление на пакети на Synaptic</"
-"a> или <a href=\"org.gnome.Terminal.desktop\">APT от команден ред</a>."
+"За да се случи, инсталирайте някакъв софтуер с помощта на <a href=\"synaptic."
+"desktop\">приложението за управление на пакети на Synaptic</a> или <a "
+"href=\"org.gnome.Terminal.desktop\">APT от команден ред</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:227
 msgid ""
@@ -1654,15 +1649,15 @@ msgid ""
 "a> or <a href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "За да се случи, отключете постоянното хранилище при стартиране на Tails и "
-"инсталирайте някакъв софтуер с помощта на <a "
-"href=\"synaptic.desktop\">приложението за управление на пакети на Synaptic</"
-"a> или <a href=\"org.gnome.Terminal.desktop\">APT от команден ред</a>."
+"инсталирайте някакъв софтуер с помощта на <a href=\"synaptic."
+"desktop\">приложението за управление на пакети на Synaptic</a> или <a "
+"href=\"org.gnome.Terminal.desktop\">APT от команден ред</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:240
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
-"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
+"gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "За да се случи, създайте постоянно хранилище и инсталирайте някакъв софтуер "
 "с помощта на <a href=\"synaptic.desktop\">приложението за управление на "
@@ -1687,11 +1682,11 @@ msgstr "[описанието е недостъпно]"
 msgid "Failed to synchronize the clock!"
 msgstr "Часовникът не може да бъде сверен!"
 
-#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:125
+#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:130
 msgid "Screen Locker"
 msgstr "Заключване на екрана"
 
-#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:131
+#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:136
 msgid "Set up a password to unlock the screen."
 msgstr "Задайте парола за отключване на екрана."
 
@@ -2627,8 +2622,8 @@ msgid ""
 "The %s variable was not found in the configuration file: /etc/whisperback/"
 "config.py"
 msgstr ""
-"Променливата %s не е намерена във файла с настройки: /etc/whisperback/"
-"config.py"
+"Променливата %s не е намерена във файла с настройки: /etc/whisperback/config."
+"py"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:136
 msgid "Unable to load a valid configuration."
@@ -2681,7 +2676,6 @@ msgid "Your message has been sent."
 msgstr "Съобщението е изпратено."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:248
-#, fuzzy
 msgid "An error occurred during encryption."
 msgstr "Грешка при шифроване."
 
@@ -3833,7 +3827,7 @@ msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1634
 msgid "No Wi-Fi hardware detected"
-msgstr ""
+msgstr "Не е налично безжично оборудване"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1652
 msgid ""
@@ -3849,9 +3843,19 @@ msgid ""
 " • Buy a USB Wi-Fi adapter that works in Tails.\n"
 "                "
 msgstr ""
+"Tails не можа да открие безжичен интерфейс на устройството. Ако такъв има, "
+"значи Tails не може да работи с него.\n"
+"\n"
+"За да се свържете с интернет, можете да опитате да:\n"
+"\n"
+" • Вместо безжична мрежа използвайте кабел . Кабелните интерфейси работят в "
+"Tails много по-надеждно от безжичните.\n"
+" • Използвайте USB tethering, за да споделите безжична или мобилната връзка "
+"за данни от телефона си с помощта на кабел.\n"
+" • Купете безжичен USB адаптер, който работи в Tails.\n"
+"                "
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1676
-#, fuzzy
 msgid ""
 "\n"
 "<a href=\"doc/anonymous_internet/no-wifi\">\n"
@@ -3859,8 +3863,10 @@ msgid ""
 "</a>\n"
 "                "
 msgstr ""
-"<a href=\"doc/anonymous_internet/tor\">Научете повече за това как Tails се "
-"свързва с Tor</a>"
+"\n"
+"<a href=\"doc/anonymous_internet/no-wifi\">Научете за отстраняването на "
+"проблеми с безжичната мрежа.</a>\n"
+"                "
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1704
 msgid "Connect to a local network"
@@ -3875,7 +3881,6 @@ msgstr ""
 "Tor, трябва да сте свързани към безжична, кабелна или мобилна мрежа."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1735
-#, fuzzy
 msgid "Open Wi-Fi Settings"
 msgstr "Настройки на безжична мрежа"
 
@@ -4116,15 +4121,15 @@ msgstr "Часовник"
 #~ "\n"
 #~ "Help us keep your bitcoins safe!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/"
-#~ "donate.en.html#expenses\">How we spend our money.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
+#~ "html#expenses\">How we spend our money.</a>"
 #~ msgstr ""
 #~ "Tails предпазва портфейла ви.\n"
 #~ "\n"
 #~ "Помогнете ни да защитим вашите биткоини!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/"
-#~ "donate.en.html#expenses\">Как разходваме парите ви.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
+#~ "html#expenses\">Как разходваме парите ви.</a>"
 
 #~ msgid "Create Backup"
 #~ msgstr "Създаване на резервно копие"
