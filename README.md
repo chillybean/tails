@@ -2,7 +2,7 @@
 
 [**Tails**](https://tails.net/) is a portable operating system that protects your privacy and helps you avoid censorship.
 
-[![Drawing of a Tails stick that is marked to be pluged into a labtop](https://tails.net/index/laptop.svg)](https://tails.net/)
+[![Drawing of a Tails stick that is marked to be plugged into a labtop](https://tails.net/index/laptop.svg)](https://tails.net/)
 - Tails uses the Tor network to protect your privacy online and help you avoid censorship. Enjoy the Internet like it should be.
 - Shut down the computer and start on your Tails USB stick instead of starting on Windows, macOS, or Linux. Tails leaves no trace on the computer when shut down.
 - Tails includes a selection of applications to work on sensitive documents and communicate securely. Everything in Tails is ready-to-use and has safe defaults.
@@ -37,7 +37,7 @@ However, Tails includes non-free firmware in order to work on as much hardware a
 
 ### Contact
 
-email and mailing lists: https://tails.net/about/contact
+email and mailing lists: https://tails.net/doc/about/contact
 
 https://matrix.to/#/#tails-dev:matrix.org
 

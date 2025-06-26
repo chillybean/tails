@@ -530,6 +530,7 @@ When(/^I look at the hide mode but then I go back$/) do
   end
 end
 
+# rubocop:disable Metrics/AbcSize
 def chutney_bridges(bridge_type, chutney_tag: nil)
   chutney_tag = bridge_type if chutney_tag.nil?
   bridge_dirs = Dir.glob(
@@ -543,7 +544,7 @@ def chutney_bridges(bridge_type, chutney_tag: nil)
     extra = nil
     if bridge_type == 'bridge'
       File.open("#{bridge_dir}/torrc") do |f|
-        port = f.grep(/^OrPort\b/).first.split.last
+        port = f.grep(/^OrPort\b/).first.split.last.split(':').last
       end
     else
       pt_re = /^ServerTransportListenAddr .*:(\d+)$/
@@ -573,6 +574,7 @@ def chutney_bridges(bridge_type, chutney_tag: nil)
     }
   end
 end
+# rubocop:enable Metrics/AbcSize
 
 def feed_qr_code_video_to_virtual_webcam(qrcode_image)
   white_image = '/usr/share/tails/test_suite/white.jpg'
@@ -970,7 +972,7 @@ Given /^the Tor network( and default bridges)? (?:is|are) (un)?blocked$/ do |def
       torrc = f.readlines
       [
         torrc.grep(/^Address\b/).first.split.last,
-        torrc.grep(/^OrPort\b/).first.split.last,
+        torrc.grep(/^OrPort\b/).first.split.last.split(':').last.to_i,
       ]
     end
   end
