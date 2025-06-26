@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tails\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-06-25 11:32+0200\n"
+"POT-Creation-Date: 2025-06-26 18:01+0000\n"
 "PO-Revision-Date: 2025-06-10 17:58+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: Tails translators <tails@boum.org>\n"
@@ -487,8 +487,9 @@ msgid "<!-- We might move some of this content to the Tor Browser documentation.
 msgstr "<!-- We might move some of this content to the Tor Browser documentation. See #19122. -->\n"
 
 #. type: Plain text
-#, no-wrap
-msgid "<h2 id=\"javascript\">Why is JavaScript enabled by default in <span class=\"application\">Tor Browser</span>?</h2>\n"
+#, fuzzy, no-wrap
+#| msgid "<h2 id=\"javascript\">Why is JavaScript enabled by default in <span class=\"application\">Tor Browser</span>?</h2>\n"
+msgid "<h2 id=\"javascript\">Why is JavaScript enabled by default in <i>Tor Browser</i>?</h2>\n"
 msgstr "<h2 id=\"javascript\">Pourquoi est-ce que JavaScript est autorisé par défaut dans le <span class=\"application\">Navigateur Tor</span> ?</h2>\n"
 
 #. type: Plain text
@@ -536,14 +537,20 @@ msgid "<p>We have plans to allow storing the security level in the Persistent St
 msgstr "<p>Nous avons pour projet de permettre le stockage du niveau de sécurité dans le stockage persistant. ([[!tails_ticket 9700]])</p>\n"
 
 #. type: Plain text
-#, no-wrap
-msgid "<h2 id=\"add-ons\">Can I install other add-ons in <span class=\"application\">Tor Browser</span>?</h2>\n"
+#, fuzzy, no-wrap
+#| msgid "<h2 id=\"add-ons\">Can I install other add-ons in <span class=\"application\">Tor Browser</span>?</h2>\n"
+msgid "<h2 id=\"add-ons\">Can I install other add-ons in <i>Tor Browser</i>?</h2>\n"
 msgstr "<h2 id=\"add-ons\">Puis-je installer d'autres extensions dans le <span class=\"application\">Navigateur Tor</span> ?</h2>\n"
 
 #. type: Plain text
-#, no-wrap
-msgid "Installing add-ons in <span class=\"application\">Tor Browser</span> might break the security built in Tails.\n"
-msgstr "Installer des extensions dans le <span class=\"application\">Navigateur Tor</span> pourrait briser la sécurité de Tails.\n"
+#, fuzzy
+#| msgid ""
+#| "Updating add-ons in *Tor Browser* might break the security built in Tails."
+msgid ""
+"Installing add-ons in *Tor Browser* might break the security built in Tails."
+msgstr ""
+"Mettre à jour les extensions dans le *Navigateur Tor* pourrait briser la "
+"sécurité de Tails."
 
 #. type: Plain text
 msgid ""
@@ -605,11 +612,17 @@ msgstr ""
 "contexte."
 
 #. type: Plain text
-#, no-wrap
+#, fuzzy, no-wrap
+#| msgid ""
+#| "<div class=\"next\">\n"
+#| "  <ul>\n"
+#| "    <li>[[Browsing the web with <span class=\"application\">Tor Browser</span>|doc/anonymous_internet/Tor_browser]]</li>\n"
+#| "  </ul>\n"
+#| "</div>\n"
 msgid ""
 "<div class=\"next\">\n"
 "  <ul>\n"
-"    <li>[[Browsing the web with <span class=\"application\">Tor Browser</span>|doc/anonymous_internet/Tor_browser]]</li>\n"
+"    <li>[[Browsing the web with <i>Tor Browser</i>|doc/anonymous_internet/Tor_browser]]</li>\n"
 "  </ul>\n"
 "</div>\n"
 msgstr ""
@@ -633,8 +646,9 @@ msgstr ""
 "-->\n"
 
 #. type: Plain text
-#, no-wrap
-msgid "<h2 id=\"update-add-ons\">Should I manually update add-ons included in <span class=\"application\">Tor Browser</span>?</h2>\n"
+#, fuzzy, no-wrap
+#| msgid "<h2 id=\"update-add-ons\">Should I manually update add-ons included in <span class=\"application\">Tor Browser</span>?</h2>\n"
+msgid "<h2 id=\"update-add-ons\">Should I manually update add-ons included in <i>Tor Browser</i>?</h2>\n"
 msgstr "<h2 id=\"update-add-ons\">Puis-je mettre à jour manuellement les extensions dans le <span class=\"application\">Navigateur Tor</span> ?</h2>\n"
 
 #. type: Plain text
@@ -659,39 +673,66 @@ msgid ""
 "retrieve as much information as possible from your browser to see if it can "
 "be used to identify you."
 msgstr ""
-"Les sites web d'analyse d'empreinte, tels que <https://coveryourtracks.eff."
-"org/>, essayent de récupérer le plus d'information possible de votre "
-"navigateur pour voir si cela peut être utilisé pour vous identifier."
+"Les sites web d'analyse d'empreinte, tels que <https://"
+"coveryourtracks.eff.org/>, essayent de récupérer le plus d'information "
+"possible de votre navigateur pour voir si cela peut être utilisé pour vous "
+"identifier."
 
 #. type: Plain text
-#, no-wrap
+#, fuzzy
+#| msgid ""
+#| "As explained in our documentation about\n"
+#| "[[the fingerprint of *Tor Browser* in Tails|doc/anonymous_internet/"
+#| "Tor_Browser#fingerprint]], Tails provides anonymity by\n"
+#| "making it difficult to distinguish a particular user amongst all the "
+#| "users of\n"
+#| "<span class=\"application\">Tor Browser</span> (either in Tails or on "
+#| "other operating systems).\n"
 msgid ""
-"As explained in our documentation about\n"
-"[[the fingerprint of *Tor Browser* in Tails|doc/anonymous_internet/Tor_Browser#fingerprint]], Tails provides anonymity by\n"
-"making it difficult to distinguish a particular user amongst all the users of\n"
-"<span class=\"application\">Tor Browser</span> (either in Tails or on other operating systems).\n"
+"As explained in our documentation about [[the fingerprint of *Tor Browser* "
+"in Tails|doc/anonymous_internet/Tor_Browser#fingerprint]], Tails provides "
+"anonymity by making it difficult to distinguish a particular user amongst "
+"all the users of *Tor Browser* (either in Tails or on other operating "
+"systems)."
 msgstr ""
 "Comme expliqué dans notre documentation à propos\n"
-"de [[l'empreinte du *Navigateur Tor* dans Tails|doc/anonymous_internet/Tor_Browser#fingerprint]], Tails assure l'anonymat en\n"
-"rendant difficile de distinguer une personne en particulier parmi toutes celles qui utilisent le\n"
-"<span class=\"application\">Navigateur Tor</span> (que ce soit dans Tails ou dans un autre système d'exploitation).\n"
+"de [[l'empreinte du *Navigateur Tor* dans Tails|doc/anonymous_internet/"
+"Tor_Browser#fingerprint]], Tails assure l'anonymat en\n"
+"rendant difficile de distinguer une personne en particulier parmi toutes "
+"celles qui utilisent le\n"
+"<span class=\"application\">Navigateur Tor</span> (que ce soit dans Tails ou "
+"dans un autre système d'exploitation).\n"
 
 #. type: Plain text
-#, no-wrap
+#, fuzzy
+#| msgid ""
+#| "So, the information retrieved by such fingerprinting websites is not "
+#| "harmful for\n"
+#| "anonymity in itself, as long as it is the same for all users of <span "
+#| "class=\"application\">Tor Browser</span>.\n"
 msgid ""
-"So, the information retrieved by such fingerprinting websites is not harmful for\n"
-"anonymity in itself, as long as it is the same for all users of <span class=\"application\">Tor Browser</span>.\n"
+"So, the information retrieved by such fingerprinting websites is not harmful "
+"for anonymity in itself, as long as it is the same for all users of *Tor "
+"Browser*."
 msgstr ""
-"Donc, les informations récupérées par de tels sites web d'analyse d'empreinte ne sont\n"
-"pas dangereuses pour l'anonymat en soi, tant que ce sont les mêmes pour tous les utilisateurs du <span class=\"application\">Navigateur Tor</span>.\n"
+"Donc, les informations récupérées par de tels sites web d'analyse "
+"d'empreinte ne sont\n"
+"pas dangereuses pour l'anonymat en soi, tant que ce sont les mêmes pour tous "
+"les utilisateurs du <span class=\"application\">Navigateur Tor</span>.\n"
 
 #. type: Plain text
-#, no-wrap
+#, fuzzy, no-wrap
+#| msgid ""
+#| "For example, the user-agent string of <span class=\"application\">Tor Browser</span> includes\n"
+#| "<em>Windows NT</em> but this value preserves your anonymity even if\n"
+#| "you run Windows NT. On the other hand, changing this value makes you distinguishable from\n"
+#| "other users of <span class=\"application\">Tor Browser</span> and, as a\n"
+#| "consequence, weakens your anonymity.\n"
 msgid ""
-"For example, the user-agent string of <span class=\"application\">Tor Browser</span> includes\n"
+"For example, the user-agent string of *Tor Browser* includes\n"
 "<em>Windows NT</em> but this value preserves your anonymity even if\n"
 "you run Windows NT. On the other hand, changing this value makes you distinguishable from\n"
-"other users of <span class=\"application\">Tor Browser</span> and, as a\n"
+"other users of *Tor Browser* and, as a\n"
 "consequence, weakens your anonymity.\n"
 msgstr ""
 "Par exemple, la chaîne user-agent du <span class=\"application\">Navigateur Tor</span> contient\n"
@@ -999,9 +1040,9 @@ msgstr ""
 
 #. type: Plain text
 msgid ""
-"To check whether a software is in Debian, search for it on <https://packages."
-"debian.org/>. If it is not yet available in Debian, you should ask its "
-"developers why it is not the case yet."
+"To check whether a software is in Debian, search for it on <https://"
+"packages.debian.org/>. If it is not yet available in Debian, you should ask "
+"its developers why it is not the case yet."
 msgstr ""
 "Pour vérifier si un logiciel est dans Debian, cherchez-le sur <https://"
 "packages.debian.org/>. S'il n'est pas encore inclus dans Debian, vous "
@@ -1311,13 +1352,18 @@ msgid "<p class=\"command\">torsocks youtube-dl \"https://www.youtube.com/watch?
 msgstr "<p class=\"command\">torsocks youtube-dl \"https://www.youtube.com/watch?v=Mnrn3y-Qbyk\"</p>\n"
 
 #. type: Plain text
-#, no-wrap
+#, fuzzy
+#| msgid ""
+#| "For more information, refer to the official\n"
+#| "[<span class=\"application\">youtube-dl</span> website](https://ytdl-"
+#| "org.github.io/youtube-dl/index.html).\n"
 msgid ""
-"For more information, refer to the official\n"
-"[<span class=\"application\">youtube-dl</span> website](https://ytdl-org.github.io/youtube-dl/index.html).\n"
+"For more information, refer to the official [*youtube-dl* website](https://"
+"ytdl-org.github.io/youtube-dl/index.html)."
 msgstr ""
 "Pour plus d'information, consultez le [site web\n"
-"officiel de <span class=\"application\">youtube-dl</span>](https://ytdl-org.github.io/youtube-dl/index.html) (en anglais).\n"
+"officiel de <span class=\"application\">youtube-dl</span>](https://ytdl-"
+"org.github.io/youtube-dl/index.html) (en anglais).\n"
 
 #. type: Plain text
 #, no-wrap
@@ -1414,6 +1460,10 @@ msgid ""
 msgstr ""
 "Vous pouvez voir quelle version d'un paquet logiciel est disponible dans "
 "chaque version de Debian sur <https://packages.debian.org/>."
+
+#, no-wrap
+#~ msgid "Installing add-ons in <span class=\"application\">Tor Browser</span> might break the security built in Tails.\n"
+#~ msgstr "Installer des extensions dans le <span class=\"application\">Navigateur Tor</span> pourrait briser la sécurité de Tails.\n"
 
 #, no-wrap
 #~ msgid ""
@@ -1960,14 +2010,15 @@ msgstr ""
 #~ msgid ""
 #~ "For example, as mentioned in the <span class=\"application\">Tor Browser</"
 #~ "span>\n"
-#~ "[FAQ](https://2019.www.torproject.org/docs/torbutton/torbutton-faq.html."
-#~ "en#recommendedextensions),\n"
+#~ "[FAQ](https://2019.www.torproject.org/docs/torbutton/torbutton-"
+#~ "faq.html.en#recommendedextensions),\n"
 #~ "using `ExcludeExitNodes` is not recommended because \"overriding the\n"
 #~ "exit nodes can mess up your anonymity in ways we don't\n"
 #~ "understand\".\n"
 #~ msgstr ""
-#~ "Par exemple, comme mentionné dans la [FAQ](https://2019.www.torproject."
-#~ "org/docs/torbutton/torbutton-faq.html.en#recommendedextensions)\n"
+#~ "Par exemple, comme mentionné dans la [FAQ](https://"
+#~ "2019.www.torproject.org/docs/torbutton/torbutton-"
+#~ "faq.html.en#recommendedextensions)\n"
 #~ "du <span class=\"application\">Navigateur Tor</span> (en anglais), "
 #~ "utiliser\n"
 #~ "`ExcludeExitNodes` n'est pas recommandé car \"passer outre les nœuds de "
@@ -2363,8 +2414,8 @@ msgstr ""
 #~ msgstr "Autres ressources utiles\n"
 
 #~ msgid ""
-#~ "[The Tor Project: Stack Exchange, question & answer site](https://tor."
-#~ "stackexchange.com/)"
+#~ "[The Tor Project: Stack Exchange, question & answer site](https://"
+#~ "tor.stackexchange.com/)"
 #~ msgstr ""
 #~ "[Le projet Tor sur Stack Exchange, site de questions/réponses](https://"
 #~ "tor.stackexchange.com/)"
@@ -2425,15 +2476,15 @@ msgstr ""
 #~ "licence, voir [[!debbug 814352]]"
 
 #~ msgid ""
-#~ "Furthermore, [TrueCrypt is now discontinued](http://truecrypt.sourceforge."
-#~ "net/)  and its development team recommends against using it. We recommend "
-#~ "using other [[encryption tools|doc/encryption_and_privacy/"
-#~ "encrypted_volumes]] such as [[LUKS|faq#luks]]."
+#~ "Furthermore, [TrueCrypt is now discontinued](http://"
+#~ "truecrypt.sourceforge.net/)  and its development team recommends against "
+#~ "using it. We recommend using other [[encryption tools|doc/"
+#~ "encryption_and_privacy/encrypted_volumes]] such as [[LUKS|faq#luks]]."
 #~ msgstr ""
-#~ "De plus, [TrueCrypt n'est plus développé](http://truecrypt.sourceforge."
-#~ "net/) et l'équipe de développement ne recommande pas son usage. Nous "
-#~ "recommandons l'usage d'autres [[outils de chiffrement|doc/"
-#~ "encryption_and_privacy/encrypted_volumes]] tels que [[LUKS|faq#luks]]."
+#~ "De plus, [TrueCrypt n'est plus développé](http://"
+#~ "truecrypt.sourceforge.net/) et l'équipe de développement ne recommande "
+#~ "pas son usage. Nous recommandons l'usage d'autres [[outils de chiffrement|"
+#~ "doc/encryption_and_privacy/encrypted_volumes]] tels que [[LUKS|faq#luks]]."
 
 #, fuzzy
 #~| msgid ""
@@ -2662,5 +2713,5 @@ msgstr ""
 #~ "addon/betterprivacy/?)."
 #~ msgstr ""
 #~ "Il est connu pour favoriser les technologie invasives pour la vie privée "
-#~ "comme les [Flash cookies](XXX Add link to Flash cookies, https://addons."
-#~ "mozilla.org/en-US/firefox/addon/betterprivacy/?)."
+#~ "comme les [Flash cookies](XXX Add link to Flash cookies, https://"
+#~ "addons.mozilla.org/en-US/firefox/addon/betterprivacy/?)."
