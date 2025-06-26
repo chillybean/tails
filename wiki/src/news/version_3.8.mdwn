@@ -30,14 +30,14 @@ For more details, read our [[!tails_gitweb debian/changelog desc="changelog"]].
 # Known issues
 
 After upgrading to Tails 3.8, you have to go through the
-<span class="application">Enigmail Setup Wizard</span> again every time you
+*Enigmail Setup Wizard* again every time you
 restart Tails.
 
 Your OpenPGP keys and your per-recipient rules are preserved.
 
-To avoid going through the <span class="application">Enigmail Setup
-Wizard</span>, you can execute the following command in a terminal
-before starting <span class="application">Thunderbird</span>:
+To avoid going through the *Enigmail Setup Wizard*,
+you can execute the following command in a terminal
+before starting *Thunderbird*:
 
 <pre>echo 'pref("extensions.enigmail.configuredVersion", "2.0.7");' >> ~/.thunderbird/profile.default/preferences/0000tails.js</pre>
 
