@@ -54,10 +54,10 @@ authentication (2FA) for your GitLab account.
 
 <p>GitLab supports time-based one-time passwords (TOTPs) for two-factor
 authentication. You can
-[[use <span class="application">KeePassXC</span> in Tails|/doc/encryption_and_privacy/manage_passwords]]
+[[use <i>KeePassXC</i> in Tails|/doc/encryption_and_privacy/manage_passwords]]
 to generate TOTPs.</p>
 
-<p>To use <span class="application">KeePassXC</span> in Tails to generate TOTPs:</p>
+<p>To use <i>KeePassXC</i> in Tails to generate TOTPs:</p>
 
 <ol>
   <li>[[Create a password database|/doc/encryption_and_privacy/manage_passwords#create]]
@@ -67,14 +67,11 @@ to generate TOTPs.</p>
   </li>
   <li>Add a new password entry for the account that you want to generate TOTPs for.</li>
   <li>Choose
-    <span class="menuchoice">
-    <span class="guimenu">Entries</span>&nbsp;▸
-    <span class="guimenuitem">TOTP…</span>&nbsp;▸
-    <span class="guimenuitem">Set up TOTP</span></span>.
+    <b>Entries&nbsp;▸ TOTP…&nbsp;▸ Set up TOTP</b>.
   </li>
   <li>Enter your secret key for generating TOTPs. Do not include any spaces.</li>
   <li>If you are setting up TOTPs for GitLab, choose
-    <span class="guilabel">Default RFC 6238 token settings</span>.
+    <b>Default RFC 6238 token settings</b>.
   </li>
 </ol>
 
