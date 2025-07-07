@@ -5,13 +5,15 @@
 # Translators:
 # Ojars Balcers <ojars.balcers@gmail.com>, 2016-2018
 # Ojars Balcers <ojars.balcers@gmail.com>, 2013-2015
+# "ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)" <coool@mail.lv>, 2025.
+# Weblate <noreply-mt-weblate@weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-28 10:55+0200\n"
-"PO-Revision-Date: 2025-04-03 14:13+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"POT-Creation-Date: 2025-06-25 11:02+0200\n"
+"PO-Revision-Date: 2025-06-20 10:01+0000\n"
+"Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/tor/tails-gui/lv/"
 ">\n"
 "Language: lv\n"
@@ -19,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -83,9 +85,8 @@ msgid "Create Persistent Storage"
 msgstr ""
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:90
-#, fuzzy
 msgid "Creating your Persistent Storage failed."
-msgstr "Šifrēta _Pastāvīgā uzglabāšana"
+msgstr "Neizdevās izveidot pastāvīgo datu krātuvi."
 
 #. Translators: Don't translate {packages}, it's a placeholder and
 #. will be replaced.
@@ -123,7 +124,7 @@ msgstr "Noņemt"
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:483
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:834
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:728
-#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:119
+#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:126
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:376
 msgid "Cancel"
 msgstr "Atcelt"
@@ -137,7 +138,7 @@ msgstr ""
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:187
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:37
 msgid "The check for upgrades of your additional software failed"
@@ -191,9 +192,9 @@ msgstr ""
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
-"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
+"To add more, install some software using <a href=\"synaptic."
+"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
+"desktop\">APT on the command line</a>."
 msgstr ""
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:154
@@ -249,14 +250,12 @@ msgid "Do you want to start Electrum anyway?"
 msgstr "Vai vienalga vēlaties startēt Electrum?"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:218
-#, fuzzy
 msgid "_Launch"
-msgstr "_Launch"
+msgstr "Pa_laist"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:219
-#, fuzzy
 msgid "_Exit"
-msgstr "_Exit"
+msgstr "Izi_et"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/DownloadProgress.pm:59
 msgid "Unknown time"
@@ -386,11 +385,10 @@ msgstr ""
 "upgrade/error/check.en.html"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:360
-#, fuzzy
 msgid "no automatic upgrade is available from our website for this version"
 msgstr ""
-"šai versijai mūsu mājaslapā nav pieejams automātisks jauninājums jeb "
-"uzlabojums."
+"šai versijai nav pieejams automātisks atjauninājums jeb uzlabojums mūsu "
+"mājaslapā"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:366
 msgid "your device was not created using a USB image or Tails Cloner"
@@ -447,10 +445,13 @@ msgid ""
 msgstr ""
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:474
+#, fuzzy
 msgid ""
-"An error ocurred while detecting available upgrades.\n"
+"An error occurred while detecting available upgrades.\n"
 "This should not happen. Please report a bug."
 msgstr ""
+"Pieejams inkrementāls jauninājums, taču nav pieejams pilns jauninājums.\n"
+"Tā tam nevajadzētu būt. Lūdzu, ziņojiet par kļūdu."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:477
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:496
@@ -528,15 +529,12 @@ msgid "Downloading the upgrade to {name} {version}..."
 msgstr ""
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:712
-#, fuzzy
 msgid ""
 "<b>The upgrade could not be downloaded.</b>\\n\\nCheck your network "
 "connection, and restart Tails to try upgrading again."
 msgstr ""
-"<b>Nevarēja lejuplādēt jauninājumu.</b>\\n\\nPārbaudiet savu tīkla "
-"savienojumu un pārstartējiet Tails , lai vēlreiz mēģinātu jaunināt.\\n\\nJa "
-"problēma turpinās, ejiet uz file:///usr/share/doc/tails/website/doc/upgrade/"
-"error/download.en.html"
+"<b>Nevarēja lejuplādēt atjauninājumu.</b>\\n\\nLūdzu, pārbaudiet tīkla "
+"savienojumu un palaidiet pa jaunu Tails, lai atkal mēģinātu atjaunināt."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:715
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:730
@@ -731,12 +729,10 @@ msgid "Persistent Storage Still Locked"
 msgstr "Šifrēta Pastāvīgā uzglabāšana"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:176
-#, fuzzy
 msgid ""
 "Do you really want to start Tails without unlocking your Persistent Storage?"
 msgstr ""
-"Do you really want to restart Tails now?\\n\\nAll your current work will be "
-"lost."
+"Vai tiešām vēlaties palaist Tails, neatbloķējot Pastāvīgo datu krātuvi?"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:179
 #, fuzzy
@@ -755,14 +751,12 @@ msgid "Unlocking…"
 msgstr "Atslēdz…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:448
-#, fuzzy
 msgid "Checking the file system…"
-msgstr "Verificē datņu sistēmu..."
+msgstr "Pārbauda datņsistēmu…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:481
-#, fuzzy
 msgid "Repairing the File System"
-msgstr "Verificē datņu sistēmu..."
+msgstr "Labo datņsistēmu"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:482
 #, fuzzy
@@ -770,9 +764,8 @@ msgid "This might take a long time..."
 msgstr "Tas varētu aizņemt kādu brītiņu..."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:500
-#, fuzzy
 msgid "Failed to repair the file system of your Persistent Storage."
-msgstr "Šifrēta _Pastāvīgā uzglabāšana"
+msgstr "Neizdevās salabot jūsu pastāvīgās datu krātuves datņsistēmu."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:502
 msgid "Start Tails to send an error report and learn how to recover your data."
@@ -862,9 +855,8 @@ msgid ""
 msgstr "Šifrēta _Pastāvīgā uzglabāšana"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:856
-#, fuzzy
 msgid "Failed to unlock the Persistent Storage due to file system errors."
-msgstr "Šifrēta _Pastāvīgā uzglabāšana"
+msgstr "Datņsistēmas kļūdu dēļ neizdevās atbloķēt pastāvīgo datu krātuvi."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:865
 msgid ""
@@ -890,14 +882,12 @@ msgid "Upgrading the Persistent Storage. This might take a while…"
 msgstr "Šifrēta _Pastāvīgā uzglabāšana"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/settings/persistence.py:125
-#, fuzzy
 msgid "Error unlocking Persistent Storage: {}"
-msgstr "Šifrēta _Pastāvīgā uzglabāšana"
+msgstr "Atbloķējot pastāvīgo datu krātuvi, radās kļūda: {}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/settings/persistence.py:150
-#, fuzzy
 msgid "Error upgrading Persistent Storage: {}"
-msgstr "Šifrēta _Pastāvīgā uzglabāšana"
+msgstr "Atjauninot pastāvīgo datu krātuvi, radās kļūda: {}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/settings/persistence.py:176
 #, python-brace-format
@@ -905,14 +895,14 @@ msgid "Failed to activate some features of the Persistent Storage: {features}."
 msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/settings/persistence.py:181
-#, fuzzy
 msgid "Error activating Persistent Storage: {}"
-msgstr "Šifrēta _Pastāvīgā uzglabāšana"
+msgstr "Aktivizējot pastāvīgo datu krātuvi, radās kļūda: {}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/settings/persistence.py:202
-#, fuzzy
 msgid "Failed to abort when repairing Persistent Storage filesystem: {}"
-msgstr "Neizdevās pārstartēt sistēmu"
+msgstr ""
+"Neizdevās priekšlaicīgi pārtraukt pastāvīgās datu krātuves datņsistēmas "
+"labošanu: {}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/region_settings.py:191
 msgid "_Language"
@@ -1014,9 +1004,8 @@ msgid "No mount points found"
 msgstr "Montēšanas punkti netika atrasti"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:805
-#, fuzzy
 msgid "Target device has opened files"
-msgstr "Ieraksts ierīcē tika veikts ar ātrumu %(speed)d MB/sec"
+msgstr "Mērķa ierīcē ir atvērtas datnes"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:833
 #, python-format
@@ -1056,9 +1045,8 @@ msgid "Removing %(file)s"
 msgstr "Noņem %(file)s"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1086
-#, fuzzy
 msgid "Cloning Persistent Storage..."
-msgstr "Šifrēta _Pastāvīgā uzglabāšana"
+msgstr "Klonē pastāvīgo datu krātuvi…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1169
 #, python-format
@@ -1248,12 +1236,14 @@ msgid "%(parent_size)s %(vendor)s %(model)s device (%(device)s)"
 msgstr "%(parent_size)s %(vendor)s %(model)s ierīce (%(device)s)"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:770
-#, fuzzy
 msgid ""
 "\n"
 "\n"
 "The Persistent Storage on this USB stick will be lost."
-msgstr "Jūsu pastāvīgie dati tiks dzēsti"
+msgstr ""
+"\n"
+"\n"
+"Pastāvīgā datu krātuve šajā USB zibatmiņā tiks zaudēta."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:772
 msgid "Delete Persistent Storage and Reinstall"
@@ -1273,12 +1263,11 @@ msgstr ""
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:776
 #, python-format
 msgid "%(description)s%(delete_message)s"
-msgstr ""
+msgstr "%(description)s%(delete_message)s"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:781
-#, fuzzy
 msgid "Confirm the target USB stick"
-msgstr "Apstipriniet mērķa USB zibi."
+msgstr "Apstiprināt atlasīto USB zibatmiņas ierīci"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:811
 msgid "Unable to mount device"
@@ -1462,7 +1451,7 @@ msgid ""
 msgstr ""
 
 #: config/chroot_local-includes/usr/share/gnome-shell/extensions/status-menu-helper@tails.boum.org/extension.js:86
-#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:110
+#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:118
 msgid "Lock Screen"
 msgstr ""
 
@@ -1546,8 +1535,8 @@ msgstr ""
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:240
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
-"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
+"gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:258
@@ -1567,11 +1556,11 @@ msgstr "nav pieejams"
 msgid "Failed to synchronize the clock!"
 msgstr "Pulksteņa sinhronizācija bija nesekmīga!"
 
-#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:125
+#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:130
 msgid "Screen Locker"
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:131
+#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:136
 msgid "Set up a password to unlock the screen."
 msgstr ""
 
@@ -1642,9 +1631,9 @@ msgid ""
 msgstr ""
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:74
-#, fuzzy, sh-format
+#, sh-format
 msgid "Network Interface Disabled"
-msgstr "Tīkla karte ${nic} ir atspējota"
+msgstr "Tīkla ierīce atspējota"
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:75
 #, sh-format
@@ -1783,9 +1772,8 @@ msgid "Connecting to Tor with a custom bridge…"
 msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:642
-#, fuzzy
 msgid "Connected to Tor successfully with bridges"
-msgstr "Connected to Tor successfully with bridges"
+msgstr "Veiksmīgi izveidots savienojums ar Tor, izmantojot tiltus"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:644
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2037
@@ -1965,7 +1953,7 @@ msgstr ""
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:94
 #, fuzzy
 msgid "Delete Data…"
-msgstr "Delete"
+msgstr "Dzēst datus…"
 
 #. Translators: Don't translate {feature}, it's a placeholder
 #. and will be replaced.
@@ -1993,9 +1981,8 @@ msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:289
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:296
-#, fuzzy
 msgid "Error activating feature {}"
-msgstr "Šifrēta _Pastāvīgā uzglabāšana"
+msgstr "Aktivizējot funkciju, radās kļūda {}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:297
 #, fuzzy
@@ -2013,9 +2000,8 @@ msgstr "Vairāk"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:338
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:345
-#, fuzzy
 msgid "Error deactivating feature {}"
-msgstr "Šifrēta _Pastāvīgā uzglabāšana"
+msgstr "Deaktivizējot funkciju, radās kļūda {}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:346
 #, fuzzy
@@ -2051,7 +2037,7 @@ msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:516
 msgid " and "
-msgstr ""
+msgstr " un "
 
 #. Translators: Don't translate {app} and {pid}, they
 #. are placeholders.
@@ -2091,7 +2077,7 @@ msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/passphrase_strength_hint.py:44
 msgid "Weak"
-msgstr ""
+msgstr "Vāja"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/passphrase_strength_hint.py:47
 msgid "Fair"
@@ -2103,7 +2089,7 @@ msgstr "Labs"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/passphrase_strength_hint.py:53
 msgid "Strong"
-msgstr ""
+msgstr "Spēcīga"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/error_dialog.py:54
 msgid "You can send an error report to help solve the issue."
@@ -2612,7 +2598,7 @@ msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/whisperback.desktop.in.h:3
 msgid "feedback;bug;report;tails;error;"
-msgstr ""
+msgstr "atsauksme;kļūda;atskaite;tails;kļūda;"
 
 #: ../config/chroot_local-includes/usr/share/desktop-directories/Tails.directory.in.h:2
 msgid "Tails specific tools"
@@ -2778,7 +2764,7 @@ msgstr "Parādīt paroles frāzi"
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:421
 #, fuzzy
 msgid "Enter your passphrase"
-msgstr "Verificēt ieejas frāzi:"
+msgstr "Ievadiet savu ieejas frāzi"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:436
 msgid "Unlock Encryption"
@@ -2827,7 +2813,7 @@ msgstr ""
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:95
 #, fuzzy
 msgid "Current _Passphrase"
-msgstr "Ieejas frāze:"
+msgstr "_Pašreizējā ieejas frāze"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:131
 #, fuzzy
@@ -2853,7 +2839,7 @@ msgstr "Ieejas frāzes nesakrīt"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:317
 msgid "Ch_ange"
-msgstr ""
+msgstr "Nom_ainīt"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/deleted_view.ui.in:21
 #, fuzzy
@@ -2969,7 +2955,7 @@ msgstr "Startēt Pārlūku Tor"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:401
 msgid "Applications"
-msgstr ""
+msgstr "Lietotnes"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:429
 #, fuzzy
@@ -3108,9 +3094,8 @@ msgstr "Ieejas frāze:"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:205
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:65
-#, fuzzy
 msgid "Confirm:"
-msgstr "Apstiprināt"
+msgstr "Apstiprināt:"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:325
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:185
@@ -3119,9 +3104,8 @@ msgid "_Show Passphrase"
 msgstr "Parādīt paroles frāzi"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:375
-#, fuzzy
 msgid "_Back"
-msgstr "Atpakaļ"
+msgstr "_Atpakaļ"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:391
 #, fuzzy
@@ -3155,17 +3139,16 @@ msgstr ""
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:137
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:232
 msgid "Co_ntinue"
-msgstr ""
+msgstr "Turpi_nāt"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:29
-#, fuzzy
 msgid "_Delete…"
-msgstr "Delete"
+msgstr "_Dzēst…"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:49
 #, fuzzy
 msgid "_Change Passphrase…"
-msgstr "Parādīt paroles frāzi"
+msgstr "_Mainīt ieejas frāzi…"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:66
 #, fuzzy
@@ -3204,7 +3187,7 @@ msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/unlock-veracrypt-volumes/volume.ui.in:52
 msgid "_Unlock"
-msgstr ""
+msgstr "_Atbloķēt"
 
 #: ../config/chroot_local-includes/usr/share/tails/unlock-veracrypt-volumes/volume.ui.in:61
 msgid "Detach this volume"
@@ -3275,7 +3258,7 @@ msgstr ""
 #: ../config/chroot_local-includes/usr/share/whisperback/whisperback.ui.in:480
 #, fuzzy
 msgid "Optional PGP Key…"
-msgstr "neobligāta PGP atslēga"
+msgstr "Neobligāta PGP atslēga…"
 
 #: ../config/chroot_local-includes/usr/share/whisperback/whisperback.ui.in:505
 msgid ""
@@ -3370,9 +3353,8 @@ msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:399
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1040
-#, fuzzy
 msgid "Bridge"
-msgstr "Bridge"
+msgstr "Tilts"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:412
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1053
@@ -3483,9 +3465,8 @@ msgid ""
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1241
-#, fuzzy
 msgid "<b>Connect to Tor _automatically</b>"
-msgstr "<b>Connect to Tor _automatically</b>"
+msgstr "<b>_Automātiski pieslēgties Tor</b>"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1291
 msgid ""

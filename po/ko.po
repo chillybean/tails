@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-28 10:55+0200\n"
+"POT-Creation-Date: 2025-06-25 11:02+0200\n"
 "PO-Revision-Date: 2025-03-31 20:58+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
@@ -140,7 +140,7 @@ msgstr "제거"
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:483
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:834
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:728
-#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:119
+#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:126
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:376
 msgid "Cancel"
 msgstr "취소"
@@ -212,9 +212,9 @@ msgstr "Tails가 시작될 때 영구 저장소에서 다음 소프트웨어가 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
-"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
+"To add more, install some software using <a href=\"synaptic."
+"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
+"desktop\">APT on the command line</a>."
 msgstr ""
 "소프트웨어를 더 추가하려면 <a href=\"synaptic.desktop\">시냅틱 패키지 관리자"
 "</a> 또는 <a href=\"org.gnome.Terminal.desktop\">터미널에서 APT</a>를 사용하"
@@ -468,8 +468,9 @@ msgstr ""
 "{free_memory}만 있어요."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:474
+#, fuzzy
 msgid ""
-"An error ocurred while detecting available upgrades.\n"
+"An error occurred while detecting available upgrades.\n"
 "This should not happen. Please report a bug."
 msgstr ""
 "업그레이드 확인 중에 오류가 발생했어요.\n"
@@ -1519,7 +1520,7 @@ msgstr ""
 "Tails가 실행되는 드라이브를 찾을 수 없어요. 혹시 'toram' 옵션을 사용하셨나요?"
 
 #: config/chroot_local-includes/usr/share/gnome-shell/extensions/status-menu-helper@tails.boum.org/extension.js:86
-#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:110
+#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:118
 msgid "Lock Screen"
 msgstr "잠금 화면"
 
@@ -1594,9 +1595,9 @@ msgid ""
 "Package Manager</a> or <a href=\"org.gnome.Terminal.desktop\">APT on the "
 "command line</a>."
 msgstr ""
-"<a href=\"synaptic.desktop\">Synaptic 패키지 관리자</a> 또는 <a "
-"href=\"org.gnome.Terminal.desktop\">터미널에서 APT</a>를 사용하여 소프트웨어"
-"를 설치해보세요."
+"<a href=\"synaptic.desktop\">Synaptic 패키지 관리자</a> 또는 <a href=\"org."
+"gnome.Terminal.desktop\">터미널에서 APT</a>를 사용하여 소프트웨어를 설치해보"
+"세요."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:227
 msgid ""
@@ -1604,16 +1605,15 @@ msgid ""
 "some software using <a href=\"synaptic.desktop\">Synaptic Package Manager</"
 "a> or <a href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
-"Tails 시작 시 영구 저장소의 잠금을 해제하고 <a "
-"href=\"synaptic.desktop\">Synaptic 패키지 관리자</a> 또는 <a "
-"href=\"org.gnome.Terminal.desktop\">터미널에서 APT</a>를 사용하여 소프트웨어"
-"를 설치해보세요."
+"Tails 시작 시 영구 저장소의 잠금을 해제하고 <a href=\"synaptic."
+"desktop\">Synaptic 패키지 관리자</a> 또는 <a href=\"org.gnome.Terminal."
+"desktop\">터미널에서 APT</a>를 사용하여 소프트웨어를 설치해보세요."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:240
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
-"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
+"gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "영구 저장소를 생성하고 <a href=\"synaptic.desktop\">Synaptic 패키지 관리자</"
 "a> 또는 <a href=\"org.gnome.Terminal.desktop\">터미널에서 APT</a>를 사용하여 "
@@ -1635,11 +1635,11 @@ msgstr "[세부 설명 없음]"
 msgid "Failed to synchronize the clock!"
 msgstr "시각 동기화 실패!"
 
-#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:125
+#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:130
 msgid "Screen Locker"
 msgstr "화면 잠금"
 
-#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:131
+#: config/chroot_local-includes/usr/local/bin/tails-screen-locker:136
 msgid "Set up a password to unlock the screen."
 msgstr "비밀번호를 설정하여 화면 잠금을 해제하세요."
 
@@ -3981,8 +3981,8 @@ msgstr "시계"
 #~ "\n"
 #~ "Help us keep your bitcoins safe!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/"
-#~ "donate.en.html#expenses\">How we spend our money.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
+#~ "html#expenses\">How we spend our money.</a>"
 #~ msgstr ""
 #~ "Tails가 지갑을 보호해드릴게요.\n"
 #~ "\n"
@@ -4128,8 +4128,8 @@ msgstr "시계"
 #~| "\n"
 #~| "Every bit helps in our fight against surveillance and censorship!\n"
 #~| "\n"
-#~| "<a href=\"file:///usr/share/doc/tails/website/"
-#~| "donate.en.html#expenses\">How we spend our money.</a>"
+#~| "<a href=\"file:///usr/share/doc/tails/website/donate.en."
+#~| "html#expenses\">How we spend our money.</a>"
 #~ msgid ""
 #~ "Our annual fundraiser is live!\n"
 #~ "\n"
