@@ -1782,27 +1782,29 @@ Then /^WhisperBack is prefilled for (.*) with summary: "(.*)"$/ do |app, summary
                prefilled_text)
 end
 
-Then /^the language has (not |)been saved in cleartext storage$/ do |not_saved|
-  if not_saved.empty? # has been saved
-    try_for(10) do
-      $vm.file_exist?('/usr/lib/live/mount/medium/storage/language') && \
-        $vm.file_exist?('/usr/lib/live/mount/medium/storage/keyboard')
-    end
-    language = JSON.parse(
-      $vm.file_content('/usr/lib/live/mount/medium/storage/language')
-    )
-    keyboard = JSON.parse(
-      $vm.file_content('/usr/lib/live/mount/medium/storage/keyboard')
-    )
-    assert_equal(language['TAILS_LOCALE_NAME'], 'it_IT')
-    assert_equal(keyboard['TAILS_XKBLAYOUT'], 'it')
-  else # has not been saved
-    # Give it some time, otherwise the subsequent tests could pass just because
-    # the file hasn't been created *yet*
-    sleep 2
-    assert_false($vm.file_exist?('/usr/lib/live/mount/medium/storage/language'))
-    assert_false($vm.file_exist?('/usr/lib/live/mount/medium/storage/keyboard'))
+Then /^the language has not been saved in cleartext storage$/ do
+  # Give it some time, otherwise the subsequent tests could pass just because
+  # the file hasn't been created *yet*
+  sleep 2
+  assert_false($vm.file_exist?('/usr/lib/live/mount/medium/storage/language'))
+  assert_false($vm.file_exist?('/usr/lib/live/mount/medium/storage/keyboard'))
+end
+
+Then /^the "(\w\w)" language has been saved in cleartext storage$/ do |lang|
+  expected_keyboard = lang
+  expected_locale = { 'it' => 'it_IT', 'fr' => 'fr_FR' }[lang]
+  try_for(10) do
+    $vm.file_exist?('/usr/lib/live/mount/medium/storage/language') && \
+      $vm.file_exist?('/usr/lib/live/mount/medium/storage/keyboard')
   end
+  language = JSON.parse(
+    $vm.file_content('/usr/lib/live/mount/medium/storage/language')
+  )
+  keyboard = JSON.parse(
+    $vm.file_content('/usr/lib/live/mount/medium/storage/keyboard')
+  )
+  assert_equal(expected_locale, language['TAILS_LOCALE_NAME'])
+  assert_equal(expected_keyboard, keyboard['TAILS_XKBLAYOUT'])
 end
 
 Then(/^the Greeter's language is set to (.*)$/) do |lang|
