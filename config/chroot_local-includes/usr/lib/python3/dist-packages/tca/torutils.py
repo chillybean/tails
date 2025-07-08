@@ -462,7 +462,7 @@ class TorLauncherUtils:
         self.read_config_fn = read_config_fn
         self.write_config_fn = write_config_fn
         self.state_buf = state_buf
-        self.tor_connection_config = None
+        self.tor_connection_config: TorConnectionConfig | None = None
         self.set_tor_sandbox_fn = set_tor_sandbox_fn
 
     def load_conf_from_tor(self):
