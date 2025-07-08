@@ -518,7 +518,7 @@ class StepConnectProgressMixin:
                 )
             elif self.state["bridge"].get("kind", "") == "default":
                 self.app.configurator.tor_connection_config.enable_default_bridges(
-                    only_type=self.state["bridge"]["default_method"]
+                    valid_types=[self.state["bridge"]["default_method"]]
                 )
                 self.get_object("label_status").set_text(
                     _("Connecting to Tor with default bridges…")
@@ -542,7 +542,7 @@ class StepConnectProgressMixin:
 
         def do_tor_connect_default_bridges():
             self.app.configurator.tor_connection_config.enable_default_bridges(
-                only_type="obfs4"
+                valid_types=["obfs4", "webtunnel"]
             )
             self.get_object("label_status").set_text(
                 _("Connecting to Tor with default bridges…")

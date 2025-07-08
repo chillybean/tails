@@ -333,7 +333,7 @@ class TorConnectionConfig:
         return cls.parse_bridge_lines(lines)
 
     @classmethod
-    def get_default_bridges(cls, only_type: str | None = None) -> list[str]:
+    def get_default_bridges(cls, valid_types: list[str] | None = None) -> list[str]:
         """Get default bridges from a txt file."""
         bridges = []
         with open(os.path.join(tca.config.data_path, "default_bridges.txt")) as buf:
@@ -344,7 +344,7 @@ class TorConnectionConfig:
                     continue
                 if not parsed:
                     continue
-                if only_type and parsed.split()[0] != only_type:
+                if valid_types and parsed.split()[0] not in valid_types:
                     continue
                 bridges.append(parsed)
         return bridges
@@ -356,13 +356,15 @@ class TorConnectionConfig:
         bridges = self.__class__.parse_bridge_lines(bridges)
         self.bridges.extend(bridges)
 
-    def enable_default_bridges(self, only_type: str | None = None):
+    def enable_default_bridges(self, valid_types: list[str] | None = None):
         """
         Set default bridges.
 
         useful for Tor blocking, not for unnoticed-mode
         """
-        bridges = self.__class__.get_default_bridges(only_type)
+        if valid_types:
+            valid_types = [bridge_type for bridge_type in valid_types if bridge_type]
+        bridges = self.__class__.get_default_bridges(valid_types)
         self.enable_bridges(bridges)
 
     @classmethod
