@@ -22,6 +22,8 @@ import json
 import os
 import subprocess
 
+from tailslib.persistence import is_tails_media_writable
+
 import tailsgreeter  # NOQA: E402
 from tailsgreeter import config  # NOQA: E402
 from tailsgreeter.config import persistent_settings_dir
@@ -195,6 +197,10 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
                 ]:
             setting.connect("notify::saveEnabled", self.cb_language_or_keyboard_loaded_changed)
             self.cb_language_or_keyboard_loaded_changed(setting, None, user_data="__init__")
+
+        if not is_tails_media_writable():
+            self.region_save_switch.set_sensitive(False)
+
 
         # Persistent Storage
         self.tps_upgrade_failed = False

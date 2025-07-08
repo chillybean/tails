@@ -24,6 +24,8 @@ import logging
 import os
 from pathlib import Path
 
+from tailslib.persistence import is_tails_media_writable
+
 from tailsgreeter import config
 from tailsgreeter.config import persistent_settings_dir, transient_settings_dir
 from tailsgreeter.gdmclient import GdmClient
@@ -119,11 +121,12 @@ class GreeterApplication:
         for setting in self.settings:
             setting.apply()
 
-        logging.info("Now loading...")
-        with contextlib.suppress(SettingNotFoundError):
-            language_settings_ui.load()
-        with contextlib.suppress(SettingNotFoundError):
-            keyboard_settings_ui.load()
+        if is_tails_media_writable():
+            logging.info("Loading cleartext settings...")
+            with contextlib.suppress(SettingNotFoundError):
+                language_settings_ui.load()
+            with contextlib.suppress(SettingNotFoundError):
+                keyboard_settings_ui.load()
 
         # Inhibit the session being marked as idle
         self.inhibit_idle()
