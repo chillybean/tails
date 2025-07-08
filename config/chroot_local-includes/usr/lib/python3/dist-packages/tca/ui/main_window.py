@@ -176,9 +176,6 @@ class StepChooseBridgeMixin:
         self.get_object("radio_default").set_sensitive(not hide_mode)
 
         self.builder.get_object("step_bridge_radio_scan").set_active(hide_mode)
-        self.get_object(
-            "combo"
-        ).hide()  # we are forcing that to obfs4 until we support meek
         self.get_object("box_warning").hide()
         self._step_bridge_init_from_tor_config()
         self._step_bridge_set_actives()
@@ -278,7 +275,7 @@ class StepChooseBridgeMixin:
                 if br.split()[0] not in (VALID_BRIDGE_TYPES - {"bridge"}):
                     set_warning(
                         _(
-                            "You need to configure an obfs4 bridge to hide that you are using Tor"
+                            "You need to configure a Webtunnel or an obfs4 bridge to hide that you are using Tor"
                         )
                     )
                     return False
@@ -802,7 +799,7 @@ class StepErrorMixin:
                     if br.split()[0] not in (VALID_BRIDGE_TYPES - {"bridge"}):
                         set_warning(
                             _(
-                                "You need to configure an obfs4 bridge to hide that you are using Tor"
+                                "You need to configure a Webtunnel or an obfs4 bridge to hide that you are using Tor"
                             )
                         )
                         return False
