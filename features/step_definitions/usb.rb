@@ -1568,6 +1568,27 @@ Given /^I install a Tails USB image to the (\d+) MiB disk with GNOME Disks$/ do 
   end
 end
 
+When(/^I manually store legacy localization settings in Persistent Storage$/) do
+  base = '/live/persistence/TailsData_unlocked/greeter-settings/'
+  $vm.execute_successfully("mkdir -p #{base}")
+  settings = { 'language' => [
+                 'TAILS_LOCALE_NAME=de_DE',
+                 'IS_DEFAULT=false',
+               ],
+               'formats'  => 'TAILS_FORMATS=de_DE',
+               'keyboard' => [
+                 'TAILS_XKBLAYOUT=de',
+                 'TAILS_XKBMODEL=pc105',
+                 'TAILS_XKBVARIANT=',
+                 'IS_DEFAULT=false',
+               ], }
+  settings.each do |section, contents|
+    fpath = "#{base}tails.#{section}"
+    $vm.file_overwrite(fpath, contents)
+    $vm.execute_successfully("chown Debian-gdm: #{fpath}")
+  end
+end
+
 Given /^I set all Greeter options to non-default values$/ do
   # We sleep between each option to give the UI time to update,
   # otherwise we might detect the + button or language entry before it
