@@ -733,8 +733,10 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
 
     def cb_language_or_keyboard_loaded_changed(self, setting, paramspec, user_data=None):
         # This callbacks keep the UI in sync with the save state
-        logging.info("Region settings loaded (from %s)", user_data)
         save_enabled = setting.get_property('saveEnabled')
+        logging.info("Region settings loaded (from %s) %s saving",
+                     user_data,
+                     "" if save_enabled else "not")
         self.region_save_switch.set_state(save_enabled)
         self.region_save_switch.set_active(save_enabled)
 

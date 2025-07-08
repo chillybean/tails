@@ -69,10 +69,9 @@ class CleartextStorageMixin:
         except SettingNotFoundError:
             return {}
         else:
-            self.log.info("Successfully loaded... emitting?")  # TODO: removeme
+            self.log.info("Successfully loaded %s (%s)", self.SETTINGS_KEY, value)
             self.set_property('saveEnabled', True)
-
-        return value
+            return value
 
     def save(self, *args, **kwargs):
         data = self.serialize(*args, **kwargs)
