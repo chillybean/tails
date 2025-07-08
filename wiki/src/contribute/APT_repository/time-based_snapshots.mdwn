@@ -167,7 +167,8 @@ reproducibility verification.
           | awk '{print $1}' \
           | sort -u \
           | xargs -n 1 reprepro _removereferences && \
-        reprepro deleteunreferenced
+        reprepro deleteunreferenced \
+        reprepro --delete createsymlinks
 
 5. Delete `dists/$codename/` in the directory of each repository.
 
