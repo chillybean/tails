@@ -52,8 +52,8 @@ little value.
 
 # Source code
 
-* `tails::reprepro::snapshots::time_based` class in
-  [[!tails_gitweb_puppet_tails]]
+* `profile::tails::reprepro::snapshots::time_based` class in
+  [[!tails_gitlab tails/puppet-code desc="the puppet-code repo"]]
 
 * bits scattered in the main Tails Git repository (details below)
 
@@ -145,12 +145,13 @@ cleaning up that distribution would prevent independent build
 reproducibility verification.
 </div>
 
-1. In `puppet-tails`, remove the bits about the distribution you want to
+1. In `puppet-code`, remove the bits about the distribution you want to
    stop tracking from the reprepro configuration templates:
-   `templates/reprepro/snapshots/time_based/*/*`.
+   `site/profile/templates/tails/reprepro/snapshots/time_based/*/*`.
 
 2. In `puppet-tails`, remove references to the distribution you want to
-   stop tracking from the `tails::reprepro::params` class.
+   stop tracking from the `profile::tails::reprepro::params` class (or
+   the corresponding node's data file in hiera).
 
 3. Commit, push and deploy on the system that hosts our time-based
    APT snapshots.
@@ -166,7 +167,8 @@ reproducibility verification.
           | awk '{print $1}' \
           | sort -u \
           | xargs -n 1 reprepro _removereferences && \
-        reprepro deleteunreferenced
+        reprepro deleteunreferenced \
+        reprepro --delete createsymlinks
 
 5. Delete `dists/$codename/` in the directory of each repository.
 
@@ -250,12 +252,12 @@ The counterpart of using snapshots created with `gensnapshot` is that:
 
  * garbage collecting expired snapshots is a bit more involved, i.e.
    we have to
-   [[!tails_gitweb_puppet_tails files/reprepro/snapshots/time_based/tails-delete-expired-apt-snapshots desc="do it ourselves"]];
+   [[!tails_gitweb_puppet_code site/profile/files/tails/reprepro/snapshots/time_based/tails-delete-expired-apt-snapshots desc="do it ourselves"]];
 
  * bumping `Valid-Until` for a given time-based snapshot has to be
    done directly in `dist`, without any help from reprepro; so here
    again, we
-   [[!tails_gitweb_puppet_tails files/reprepro/snapshots/time_based/tails-bump-apt-snapshot-valid-until desc="do it ourselves"]]
+   [[!tails_gitweb_puppet_code site/profile/files/tails/reprepro/snapshots/time_based/tails-bump-apt-snapshot-valid-until desc="do it ourselves"]]
 
 None of these problems warrant going back to the other option... and
 having to deal with 80GB+ Berkeley DB databases.
@@ -344,7 +346,7 @@ one reprepro instance per mirrored archive) are:
 
 To have the above HTTP requests translate to access to these files,
 we use
-[[!tails_gitweb_puppet_tails templates/reprepro/snapshots/time_based/nginx_site.erb desc="a set of HTTP rewrite rules"]].
+[[!tails_gitweb_puppet_code site/profile/manifests/tails/reprepro/snapshots/time_based/nginx.pp desc="a set of HTTP rewrite rules"]].
 
 Note: this works because APT only warns when the codename in the
 `Release` file doesn't match the one requested in `sources.list`.
