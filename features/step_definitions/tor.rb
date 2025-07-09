@@ -638,7 +638,7 @@ When /^I configure (?:some|the) (persistent )?(\w+) bridges (from a QR code )?in
     if bridge_type == 'default'
       assert_equal(:easy, config_mode)
 
-      @bridge_hosts = if config_bool('DISABLE_CHUTNEY')
+      @bridge_hosts = if @real_tor
                         bridges_to_ipport(
                           $vm.file_content('/usr/share/tails/tca/default_bridges.txt')
                         )
@@ -652,10 +652,19 @@ When /^I configure (?:some|the) (persistent )?(\w+) bridges (from a QR code )?in
                                      roleName: 'radio button')
                               .click
     else
+      bridges = if @real_tor
+                  default_bridges_path = '/usr/share/tails/tca/default_bridges.txt'
+                  all_bridges = $vm.file_content(default_bridges_path).lines
+                  matching = all_bridges.find { |b| b.start_with? bridge_type }&.rstrip
+                  # XXX: for webtunnel, this is not accurate: the reported IP is fake,
+                  # what we want is the IP associated with the url
+                  [{ line: matching }.merge(bridges_to_ipport(matching).first)]
+                else
+                  [chutney_bridges(bridge_type).first]
+                end
       if qr_code
         # We currently support only 1 bridge
-        qr_code_bridges = chutney_bridges(bridge_type).slice(0, 1)
-        setup_qrcode_bridges_on_webcam(qr_code_bridges)
+        setup_qrcode_bridges_on_webcam(bridges)
         tor_connection_assistant.child('_Ask for a Tor bridge by email',
                                        roleName: 'radio button')
                                 .click
@@ -681,22 +690,11 @@ When /^I configure (?:some|the) (persistent )?(\w+) bridges (from a QR code )?in
         # in main.ui.in, aka. "Label For" and "Labeled By" in Glade)
         # however, this doesn't seem to work anymore
         bridge_entry = tor_connection_assistant.child(roleName: 'text')
-        # XXX: re-enable when we support more than 1 bridge
-        # rubocop:disable Lint/UnreachableLoop
-        chutney_bridges(bridge_type).each do |bridge|
-          bridge_entry.text = bridge[:line]
-          break # We currently support only 1 bridge
-        end
-        # rubocop:enable Lint/UnreachableLoop
+        bridge_entry.text = bridges.first[:line]
       end
-      @bridge_hosts = []
-      # XXX: re-enable when we support more than 1 bridge
-      # rubocop:disable Lint/UnreachableLoop
-      chutney_bridges(bridge_type).each do |bridge|
-        @bridge_hosts << { address: bridge[:address], port: bridge[:port] }
-        break # We currently support only 1 bridge
+      @bridge_hosts = bridges.map do |bridge|
+        { address: bridge[:address], port: bridge[:port] }
       end
-      # rubocop:enable Lint/UnreachableLoop
       begin
         step 'the Tor Connection Assistant complains ' \
              'that normal bridges are not allowed'
@@ -893,7 +891,7 @@ def bridges_to_ipport(file_content)
   file_content
     .chomp
     .split("\n")
-    .filter { |l| l.start_with?('obfs4') }
+    .filter { |l| ['obfs4', 'webtunnel'].include?(l.split.first) }
     .map { |l| / [0-9.]+:\d+ /.match(l) }
     .reject(&:nil?)
     .map { |m| m[0].chomp.strip }
@@ -907,7 +905,7 @@ Then /^all Internet traffic has only flowed through (Tor|the \w+ bridges)( or (?
   when 'Tor'
     allowed_hosts = allowed_hosts_under_tor_enforcement
   when 'the default bridges'
-    allowed_hosts = if config_bool('DISABLE_CHUTNEY')
+    allowed_hosts = if @real_tor
                       bridges_to_ipport(
                         $vm.file_content('/usr/share/tails/tca/default_bridges.txt')
                       )
