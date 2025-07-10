@@ -41,4 +41,4 @@ email and mailing lists: https://tails.net/doc/about/contact
 
 https://matrix.to/#/#tails-dev:matrix.org
 
-[![Tails](https://tails.net/contribute/how/promote/material/logo/tails-logo-flat.svg)](https://tails.net)
+[![Tails](https://tails.net/contribute/how/promote/logo/tails-logo-flat.svg)](https://tails.net)
