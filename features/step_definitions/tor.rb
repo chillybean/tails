@@ -654,7 +654,9 @@ When /^I configure (?:some|the) (persistent )?(\w+) bridges (from a QR code )?in
     else
       bridges = if @real_tor
                   default_bridges_path = '/usr/share/tails/tca/default_bridges.txt'
-                  all_bridges = $vm.file_content(default_bridges_path).lines
+                  all_bridges = $vm.file_content(default_bridges_path).lines + [
+                    'webtunnel 1.1.1.1:66 770EA6412C8D3997ABFFF7173A3E53F1D3660167 url=https://shallotfarm.org/jcHgyp7m90iQr9QaVSprq1wP',
+                  ]
                   matching = all_bridges.find { |b| b.start_with? bridge_type }&.rstrip
                   # XXX: for webtunnel, this is not accurate: the reported IP is fake,
                   # what we want is the IP associated with the url
