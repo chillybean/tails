@@ -273,8 +273,9 @@ def finalize_simulated_Tor_network_configuration # rubocop:disable Naming/Method
   # Since we use a simulated Tor network (via Chutney) we have to
   # switch to its default bridges.
   default_bridges_path = '/usr/share/tails/tca/default_bridges.txt'
-  $vm.file_overwrite(default_bridges_path, '')
-  chutney_bridges('obfs4', chutney_tag: 'defbr').each do |bridge|
-    $vm.file_append(default_bridges_path, bridge[:line])
-  end
+  bridges = chutney_bridges('obfs4', chutney_tag: 'defbr')
+  $vm.file_overwrite(
+    default_bridges_path,
+    bridges.map { |l| l[:line] }.join("\n")
+  )
 end
