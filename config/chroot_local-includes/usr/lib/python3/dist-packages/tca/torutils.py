@@ -216,10 +216,12 @@ class TorConnectionConfig:
 
         WebTunnel with IPv4 works
         >>> TorConnectionConfig.parse_bridge_line("webtunnel 1.2.3.4:443 2Q2QQ2222Q22Q2QQQ22Q222Q2Q222QQQQ2222222 url=https://example.net/path ver=0.0.1")
-        'webtunnel [2001:aaaa:bbbb:cccc:dddd:eeee:ffff:5555]:443 2Q2QQ2222Q22Q2QQQ22Q222Q2Q222QQQQ2222222 url=https://example.net/path ver=0.0.1'
+        'webtunnel 1.2.3.4:443 2Q2QQ2222Q22Q2QQQ22Q222Q2Q222QQQQ2222222 url=https://example.net/path ver=0.0.1'
+
         WebTunnel with IPv6 works
         >>> TorConnectionConfig.parse_bridge_line("webtunnel [2001:aaaa:bbbb:cccc:dddd:eeee:ffff:5555]:443 2Q2QQ2222Q22Q2QQQ22Q222Q2Q222QQQQ2222222 url=https://example.net/path ver=0.0.1")
         'webtunnel [2001:aaaa:bbbb:cccc:dddd:eeee:ffff:5555]:443 2Q2QQ2222Q22Q2QQQ22Q222Q2Q222QQQQ2222222 url=https://example.net/path ver=0.0.1'
+
         An error is raised if the IP is not valid
         >>> TorConnectionConfig.parse_bridge_line("1.2.3:25")
         Traceback (most recent call last):
