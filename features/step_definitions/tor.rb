@@ -843,8 +843,14 @@ When /^(?:I click "Connect to Tor"|I retry connecting to Tor)$/ do
   click_connect_to_tor
 end
 
-Then /^I cannot click the "Connect to Tor" button$/ do
-  assert !tor_connection_assistant.child('_Connect to Tor').sensitive?
+Then /^I can(not|) click the "Connect to Tor" button$/ do |cannot|
+  cannot = !cannot.empty?
+  clickable = tor_connection_assistant.child('_Connect to Tor').sensitive?
+  if cannot
+    assert_false(clickable)
+  else
+    assert clickable
+  end
 end
 
 When /^I set the time zone in Tor Connection to "([^"]*)"$/ do |timezone|

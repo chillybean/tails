@@ -14,5 +14,9 @@ Feature: Using Webtunnel Tor bridges
     Then the Tor Connection Assistant autostarts
 
   @supports_real_tor @check_tor_leaks
-  Scenario: Using webtunnel pluggable transports
-    When I configure some webtunnel bridges in the Tor Connection Assistant in hide mode
+  Scenario: Configuring webtunnel with QR code
+        When I configure some webtunnel bridges from a QR code in the Tor Connection Assistant in hide mode
+
+  Scenario: Typing webtunnel pluggable transports directly
+    When I configure some webtunnel bridges in the Tor Connection Assistant in hide mode without connecting
+    Then I can click the "Connect to Tor" button
