@@ -652,15 +652,18 @@ When /^I configure (?:some|the) (persistent )?(\w+) bridges (from a QR code )?in
                                      roleName: 'radio button')
                               .click
     else
+      add_dns_to_extra_allowed_host if bridge_type == 'webtunnel'
       bridges = if @real_tor
                   default_bridges_path = '/usr/share/tails/tca/default_bridges.txt'
                   all_bridges = $vm.file_content(default_bridges_path).lines + [
                     'webtunnel 1.1.1.1:66 770EA6412C8D3997ABFFF7173A3E53F1D3660167 url=https://shallotfarm.org/jcHgyp7m90iQr9QaVSprq1wP',
                   ]
                   matching = all_bridges.find { |b| b.start_with? bridge_type }&.rstrip
-                  # XXX: for webtunnel, this is not accurate: the reported IP is fake,
-                  # what we want is the IP associated with the url
-                  [{ line: matching }.merge(bridges_to_ipport(matching).first)]
+                  @allowed_dns_queries ||= []
+                  @allowed_dns_queries += bridge_expected_dns_queries(matching)
+                  bridges_to_ipport(matching).map do |addressport|
+                    { line: matching }.merge(addressport)
+                  end
                 else
                   [chutney_bridges(bridge_type).first]
                 end
@@ -887,6 +890,37 @@ When /^I set the time zone in Tor Connection to "([^"]*)"$/ do |timezone|
   end
 end
 
+def bridge_expected_dns_queries(line)
+  return [] if line.split.first == 'obfs4'
+
+  m = Regexp.new('\burl=https://([^/]+)(:\d+|)[/]').match(line)
+  return [] if m.nil?
+
+  ["#{m[1]}."]
+end
+
+def bridge_line_to_ipports(line)
+  if line.split.first == 'obfs4'
+    addresses = [/ [0-9.]+:\d+ /.match(line)]
+  else # webtunnel
+    m = Regexp.new('\burl=https://([^/]+)(:\d+|)[/]').match(line)
+    return [] if m.nil?
+
+    domain = m[1]
+    port = m[2].empty? ? '443' : m.captures[1]
+    resolver = Resolv::DNS.new
+    addresses = resolver.getaddresses(domain).map { |ip| "#{ip}:#{port}" }
+  end
+  addresses
+    .reject(&:nil?)
+    .map { |l| l.chomp.strip }
+    .reject(&:empty?)
+    .map do |address|
+      ip, port = address.split(':')
+      { address: ip, port: port.to_i }
+    end
+end
+
 def bridges_to_ipport(file_content)
   # given the content of a default_bridges.txt, extract all IPs:Port,
   # returning an array of hashes; only IPv4 are considered
@@ -894,12 +928,8 @@ def bridges_to_ipport(file_content)
     .chomp
     .split("\n")
     .filter { |l| ['obfs4', 'webtunnel'].include?(l.split.first) }
-    .map { |l| / [0-9.]+:\d+ /.match(l) }
-    .reject(&:nil?)
-    .map { |m| m[0].chomp.strip }
-    .reject(&:empty?)
-    .map { |l| l.split(':') }
-    .map { |ip, port| { address: ip, port: port.to_i } }
+    .map { |l| bridge_line_to_ipports(l) }
+    .flatten
 end
 
 Then /^all Internet traffic has only flowed through (Tor|the \w+ bridges)( or (?:fake )?connectivity check service|)$/ do |flow_target, connectivity_check|

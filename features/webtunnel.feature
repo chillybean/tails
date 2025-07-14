@@ -13,6 +13,6 @@ Feature: Using Webtunnel Tor bridges
     When the network is plugged
     Then the Tor Connection Assistant autostarts
 
-  @supports_real_tor
+  @supports_real_tor @check_tor_leaks
   Scenario: Using webtunnel pluggable transports
     When I configure some webtunnel bridges in the Tor Connection Assistant in hide mode
