@@ -161,7 +161,7 @@ def wait_until_chutney_is_working
 
   # Documentation: submodules/chutney/README, "Waiting for the network" section
   begin
-    chutney_cmd('wait_for_bootstrap', suppress_output: true)
+    chutney_cmd('wait_for_bootstrap', output_in_exception: false)
   rescue CommandFailed => e
     # The output from this command is massive, so let's just keep the
     # last status report from the failed command's output.
