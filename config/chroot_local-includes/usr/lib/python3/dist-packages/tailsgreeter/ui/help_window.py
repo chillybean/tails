@@ -7,7 +7,7 @@ from tailsgreeter.ui import _
 
 gi.require_version("Gtk", "3.0")
 gi.require_version("WebKit2", "4.0")
-from gi.repository import Gtk, WebKit2
+from gi.repository import Gtk, WebKit2  # noqa: E402
 
 PREFERRED_WIDTH = 800
 
@@ -65,7 +65,7 @@ class GreeterHelpWindow(Gtk.Window, TranslatableWindow):
         )
         self.present()
 
-    def cb_load_started(self, web_view, ressource, request):
+    def cb_load_started(self, web_view, resource, request):
         if not request.get_uri().startswith("file://"):
             webbrowser.open_new(request.get_uri())
             request.set_uri(web_view.get_uri())
