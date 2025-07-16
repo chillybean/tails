@@ -14,6 +14,7 @@ flatpak
 
 OLD_VERSION_RE='([.]0|[+])tails[0-9]*$'
 NEW_VERSION_RE='tails[0-9]+$'
+BACKPORTS_VERSION_RE='~tails[0-9]*$'
 
 package_version() {
     dpkg-query --show --showformat='${Version}' "${1}" 2>/dev/null
@@ -21,6 +22,10 @@ package_version() {
 
 version_matches_new_re() {
     echo "$1" | grep --extended-regexp -q "$NEW_VERSION_RE"
+}
+
+version_matches_backports_re() {
+    echo "$1" | grep --extended-regexp -q "$BACKPORTS_VERSION_RE"
 }
 
 version_matches_old_re() {
@@ -33,7 +38,7 @@ tails_package_installed() {
         echo "Package '$1' uses an obsolete versioning scheme: '$version'." >&2
         exit 1
     fi
-    version_matches_new_re "$version"
+    version_matches_new_re "$version" && ! version_matches_backports_re "$version"
 }
 
 installed_custom_packages_are_monitored() {
@@ -50,6 +55,13 @@ installed_custom_packages_are_monitored() {
         if version_matches_old_re "$version"; then
             echo "Installed custom package '$package' uses an obsolete versioning scheme: '$version'." >&2
             return 1
+        fi
+        # We don't monitor our in-house private backports: in most
+        # cases, it's OK, and even desirable, if these packages are
+        # superseded by a newer version from Debian, as this means we
+        # don't need to maintain our own backport anymore.
+        if version_matches_backports_re; then
+            continue
         fi
         if version_matches_new_re "$version"; then
             if ! echo "$TAILS_PACKAGES" | grep --line-regexp -q "$package"; then
