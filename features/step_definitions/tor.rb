@@ -901,9 +901,10 @@ def bridge_expected_dns_queries(line)
 end
 
 def bridge_line_to_ipports(line)
-  if line.split.first == 'obfs4'
+  case line.split.first
+  when 'obfs4'
     addresses = [/ [0-9.]+:\d+ /.match(line)]
-  else # webtunnel
+  when 'webtunnel'
     m = Regexp.new('\burl=https://([^/]+)(:\d+|)[/]').match(line)
     return [] if m.nil?
 
@@ -911,6 +912,8 @@ def bridge_line_to_ipports(line)
     port = m[2].empty? ? '443' : m.captures[1]
     resolver = Resolv::DNS.new
     addresses = resolver.getaddresses(domain).map { |ip| "#{ip}:#{port}" }
+  else
+    raise "Unsupported bridge type '#{line.split.first}'"
   end
   addresses
     .reject(&:nil?)
