@@ -304,6 +304,7 @@ Before('@product') do |scenario|
             else
               Screen.new
             end
+  @real_tor = config_bool('DISABLE_CHUTNEY')
   # English will be assumed if this is not overridden
   $language = ''
   $lang_code = ''

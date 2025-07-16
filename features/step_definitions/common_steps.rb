@@ -134,7 +134,6 @@ end
 Given /^a computer$/ do
   $vm&.destroy_and_undefine
   $vm = VM.new($virt, VM_XML_PATH, $vmnet, $vmstorage, DISPLAY)
-  @real_tor = config_bool('DISABLE_CHUTNEY')
 end
 
 Given /^the computer is set to boot from the Tails DVD$/ do
