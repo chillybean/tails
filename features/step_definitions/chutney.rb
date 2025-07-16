@@ -276,6 +276,6 @@ def finalize_simulated_Tor_network_configuration # rubocop:disable Naming/Method
   bridges = chutney_bridges('obfs4', chutney_tag: 'defbr')
   $vm.file_overwrite(
     default_bridges_path,
-    bridges.map { |l| l[:line] }.join("\n")
+    bridges.map { |l| l[:line] }
   )
 end
