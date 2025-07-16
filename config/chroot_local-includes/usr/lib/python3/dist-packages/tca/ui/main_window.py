@@ -176,7 +176,27 @@ class StepChooseBridgeMixin:
         self.get_object("radio_default").set_sensitive(not hide_mode)
 
         self.builder.get_object("step_bridge_radio_scan").set_active(hide_mode)
-        self.get_object("box_warning").hide()
+        combo = self.builder.get_object("step_bridge_combo")
+        combo.show_all()
+        combo_model = combo.get_model()
+        types_supported_by_ui = [
+            combo_model.get_value(row.iter, 1) for row in combo_model
+        ]
+        types_available = {
+            line.split()[0] for line in TorConnectionConfig.get_default_bridges()
+        }
+        for position, row in enumerate(combo_model):
+            if combo_model.get_value(row.iter, 1) not in types_available:
+                combo.remove(position)
+        if len(types_available & set(types_supported_by_ui)) < 2:  # noqa: PLR2004
+            combo.hide()
+        else:
+            for bridge_type in types_supported_by_ui:
+                print(bridge_type, types_available)
+                if bridge_type in types_available:
+                    combo.set_active_id(bridge_type)
+                    break
+            combo.show_all()
         self._step_bridge_init_from_tor_config()
         self._step_bridge_set_actives()
         self._step_bridge_update_persistence_ui()
