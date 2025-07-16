@@ -1,7 +1,7 @@
 @product
-Feature: Using Webtunnel Tor bridges
+Feature: Using WebTunnel Tor bridges
   As a Tails user
-  I want to circumvent censorship of Tor by using Webtunnel bridges
+  I want to circumvent censorship of Tor by using WebTunnel bridges
   And avoid connecting directly to the Tor Network
 
   Background:

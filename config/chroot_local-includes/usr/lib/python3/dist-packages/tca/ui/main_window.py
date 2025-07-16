@@ -275,7 +275,7 @@ class StepChooseBridgeMixin:
                 if br.split()[0] not in (VALID_BRIDGE_TYPES - {"bridge"}):
                     set_warning(
                         _(
-                            "You need to configure a Webtunnel or an obfs4 bridge to hide that you are using Tor"
+                            "You need to configure a WebTunnel or an obfs4 bridge to hide that you are using Tor"
                         )
                     )
                     return False
@@ -799,7 +799,7 @@ class StepErrorMixin:
                     if br.split()[0] not in (VALID_BRIDGE_TYPES - {"bridge"}):
                         set_warning(
                             _(
-                                "You need to configure a Webtunnel or an obfs4 bridge to hide that you are using Tor"
+                                "You need to configure a WebTunnel or an obfs4 bridge to hide that you are using Tor"
                             )
                         )
                         return False
