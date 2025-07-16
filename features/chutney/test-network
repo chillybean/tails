@@ -2,7 +2,6 @@ Authority = Node(
     tag="auth",
     authority=1,
     relay=1,
-    info_log=0,
 )
 
 BridgeAuthority = Node(
@@ -10,33 +9,28 @@ BridgeAuthority = Node(
     authority=1,
     bridgeauthority=1,
     relay=1,
-    info_log=0,
 )
 
 NonExitRelay = Node(
     tag="relay",
     relay=1,
-    info_log=0,
 )
 
 ExitRelay = Node(
     tag="relay",
     relay=1,
     exit=1,
-    info_log=0,
 )
 
 Client = Node(
     tag="client",
     client=1,
-    info_log=0,
 )
 
 Bridge = Node(
     tag="bridge",
     bridge=1,
     relay=1,
-    info_log=0,
 )
 
 BridgeObfs4 = Node(
@@ -45,7 +39,6 @@ BridgeObfs4 = Node(
     pt_bridge=1,
     relay=1,
     pt_transport="obfs4",
-    info_log=0,
 )
 
 BridgeDefault = Node(
@@ -54,7 +47,6 @@ BridgeDefault = Node(
     pt_bridge=1,
     relay=1,
     pt_transport="obfs4",
-    info_log=0,
 )
 
 NODES = Authority.getN(4) + \

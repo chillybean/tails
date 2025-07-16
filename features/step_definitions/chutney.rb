@@ -34,12 +34,20 @@ def chutney_env
   }
 end
 
+def chutney_disable_info_level_logging
+  Dir.glob("#{chutney_env['CHUTNEY_DATA_DIR']}/nodes/*/torrc") do |torrc_path|
+    File.write(torrc_path, File.read(torrc_path).gsub(/^Log info .*$/, ''))
+  end
+end
+
 def chutney_cmd(cmd, **opts)
   chutney_script = "#{GIT_DIR}/features/scripts/chutney"
   network_definition = "#{GIT_DIR}/features/chutney/test-network"
   chutney_status_log(cmd)
   cmd = 'stop' if cmd == 'stop_old'
-  cmd_helper([chutney_script, cmd, network_definition], env: chutney_env, **opts)
+  ret = cmd_helper([chutney_script, cmd, network_definition], env: chutney_env, **opts)
+  chutney_disable_info_level_logging if cmd == 'configure'
+  ret
 end
 
 def chutney_data_dir_cleanup
