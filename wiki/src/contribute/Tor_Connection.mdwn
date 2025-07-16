@@ -81,7 +81,7 @@ yes, gtk has css ;)
 
 TCA style file is in `/usr/share/tails/tca/tca.css`.
 
-To try real-time changes, you can edit `/usr/local/bin/tca`: change `/usr/lib/python3/dist-packages/tca/application.py` in `env GTK_DEBUG=interactive /usr/lib/python3/dist-packages/tca/application.py`.
+To try real-time changes, you can edit `/usr/local/bin/tca`: replace `/usr/lib/python3/dist-packages/tca/application.py` with `env GTK_DEBUG=interactive /usr/lib/python3/dist-packages/tca/application.py`.
 Now start `tca` again and you will have gtk inspector running!
 
 
