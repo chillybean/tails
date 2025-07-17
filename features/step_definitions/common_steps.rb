@@ -517,7 +517,7 @@ end
 Given /^I log in to a new session(?: in ([^ ]*) \(([^ ]*)\))?( without activating the Persistent Storage)?( after having activated the Persistent Storage| expecting no warning about the Persistent Storage not being activated)?$/ do |lang, lang_code, expect_warning, expect_no_warning|
   # We find the login button before localizing it since it's easier to
   # find then.
-  login_button = greeter.child('Start Tails', roleName: 'button')
+  login_button = greeter.child('_Start Tails', roleName: 'button')
   if lang && lang != 'English'
     step "I set the language to #{lang} (#{lang_code})"
     # After selecting options (language, administration password,
