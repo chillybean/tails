@@ -662,6 +662,10 @@ When /^I configure (?:some|the) (persistent )?(\w+) bridges (from a QR code )?in
                       '770EA6412C8D3997ABFFF7173A3E53F1D3660167',
                       'url=https://shallotfarm.org/jcHgyp7m90iQr9QaVSprq1wP',
                     ].join(' '),
+                    [
+                      'bridge',
+                      '[2001:db8:d6b7:10ae:b5cf:811a:7f22:bbbb]:443',
+                    ].join(' '),
                   ]
                   matching = all_bridges.find { |b| b.start_with? bridge_type }&.rstrip
                   @allowed_dns_queries ||= []
@@ -897,7 +901,7 @@ When /^I set the time zone in Tor Connection to "([^"]*)"$/ do |timezone|
 end
 
 def bridge_expected_dns_queries(line)
-  return [] if line.split.first == 'obfs4'
+  return [] if ['obfs4', 'bridge'].include?(line&.split&.first)
 
   m = Regexp.new('\burl=https://([^/]+)(:\d+|)[/]').match(line)
   return [] if m.nil?
@@ -907,8 +911,8 @@ end
 
 def bridge_line_to_ipports(line)
   case line.split.first
-  when 'obfs4'
-    addresses = [/ [0-9.]+:\d+ /.match(line)]
+  when 'obfs4', 'bridge'
+    addresses = [/\s[a-f0-9.:\[\]]+:\d+\b/.match(line)[0]]
   when 'webtunnel'
     m = Regexp.new('\burl=https://([^/]+)(:\d+|)[/]').match(line)
     return [] if m.nil?
@@ -925,7 +929,7 @@ def bridge_line_to_ipports(line)
     .map { |l| l.chomp.strip }
     .reject(&:empty?)
     .map do |address|
-      ip, port = address.split(':')
+      ip, _colon, port = address.rpartition(':')
       { address: ip, port: port.to_i }
     end
 end
@@ -936,7 +940,7 @@ def bridges_to_ipport(file_content)
   file_content
     .chomp
     .split("\n")
-    .filter { |l| ['obfs4', 'webtunnel'].include?(l.split.first) }
+    .filter { |l| ['obfs4', 'webtunnel', 'bridge'].include?(l.split.first) }
     .map { |l| bridge_line_to_ipports(l) }
     .flatten
 end
