@@ -42,3 +42,7 @@ touch "${FILES_DIR}/.ref"
 
 flatpak --installation=tails remote-delete --force platform-origin
 rm -r /usr/share/tails/build/flatpak/
+
+# Work around tails#21060
+mkdir -p /var/lib/flatpak/overrides
+ln -s /var/lib/flatpak-tails/overrides/org.boum.tails.TorBrowser /var/lib/flatpak/overrides
