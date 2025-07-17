@@ -840,7 +840,7 @@ def click_connect_to_tor
     )
     btn.sensitive?
   end
-  assert !btn.nil?
+  assert_not_nil(btn)
   btn.click
 end
 
@@ -849,7 +849,7 @@ When /^(?:I click "Connect to Tor"|I retry connecting to Tor)$/ do
 end
 
 Then /^I can(not)? click the "Connect to Tor" button$/ do |cannot|
-  can = !cannot.nil?
+  can = cannot.nil?
   assert_equal(can, tor_connection_assistant.child('_Connect to Tor').sensitive?)
 end
 
