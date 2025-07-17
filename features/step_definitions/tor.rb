@@ -825,7 +825,7 @@ end
 
 Then /^the Tor Connection Assistant complains that normal bridges are not allowed$/ do
   tor_connection_assistant.child(
-    'You need to configure an obfs4 bridge to hide that you are using Tor',
+    'You need to configure a WebTunnel or an obfs4 bridge to hide that you are using Tor',
     roleName: 'label',
     retry:    false
   )
