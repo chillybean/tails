@@ -146,17 +146,17 @@ end
 def listening_services
   $vm.execute_successfully('ss --no-header -ltupn')
      .stdout.chomp.split("\n").filter_map do |line|
-    splitted = line.split(/[[:blank:]]+/)
-    proto = splitted[0]
+    words = line.split(/[[:blank:]]+/)
+    proto = words[0]
     next unless ['tcp', 'udp'].include?(proto)
 
-    addr, port = splitted[4].split(':')
-    users = splitted[6].match(
+    addr, port = words[4].split(':')
+    users = words[6].match(
       /users:\(\("(?<proc>[^"]+)",pid=(?<pid>\d+),fd=(?<fd>\d+)\)\)/
     )
     {
       proto:,
-      state: splitted[1],
+      state: words[1],
       addr:  IPAddr.new(addr),
       port:  port.to_i,
       proc:  users[:proc],
