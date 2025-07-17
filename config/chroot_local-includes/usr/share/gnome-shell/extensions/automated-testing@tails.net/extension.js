@@ -14,7 +14,7 @@ export default class AutomatedTestingExtension {
     global.backend.get_remote_access_controller().uninhibit_remote_access();
     if (this.orig !== undefined) return;
     this.orig = global.backend.get_remote_access_controller().inhibit_remote_access;
-    // For completness, let's make it impossible to inhibit remote
+    // For completeness, let's make it impossible to inhibit remote
     // access by overriding the corresponding method.
     global.backend.get_remote_access_controller().inhibit_remote_access = () => {};
   }
