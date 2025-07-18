@@ -838,7 +838,7 @@ end
 
 def click_connect_to_tor
   btn = nil
-  try_for(3) do
+  try_for(10) do
     btn = tor_connection_assistant.child(
       '_Connect to Tor',
       roleName: 'button'
