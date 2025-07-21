@@ -8,7 +8,7 @@ import json
 import socket
 from stem.control import Controller
 import stem.socket
-from typing import Optional, Any, cast
+from typing import Sequence, Any, cast
 import tca.config
 
 from tca.ui.asyncutils import AsyncCallback
@@ -335,7 +335,7 @@ class TorConnectionConfig:
         return cls.parse_bridge_lines(lines)
 
     @classmethod
-    def get_default_bridges(cls, valid_types: list[str] | None = None) -> list[str]:
+    def get_default_bridges(cls, valid_types: Sequence[str] = ()) -> list[str]:
         """Get default bridges from a txt file."""
         bridges = []
         with open(os.path.join(tca.config.data_path, "default_bridges.txt")) as buf:
@@ -358,7 +358,7 @@ class TorConnectionConfig:
         bridges = self.__class__.parse_bridge_lines(bridges)
         self.bridges.extend(bridges)
 
-    def enable_default_bridges(self, valid_types: list[str] | None = None):
+    def enable_default_bridges(self, valid_types: Sequence[str] = ()):
         """
         Set default bridges.
 
