@@ -8,7 +8,8 @@ import json
 import socket
 from stem.control import Controller
 import stem.socket
-from typing import Sequence, Any, cast
+from typing import Any, cast
+from collections.abc import Sequence
 import tca.config
 
 from tca.ui.asyncutils import AsyncCallback
