@@ -68,11 +68,15 @@ Try with [[another bridge|troubleshoot#bridge]].
 
 <h2 id="incorrect">You did not enter the bridge correctly</h2>
 
-Only *obfs4* bridges can be used in Tails currently.
+You can use *obfs4* and *WebTunnel* bridges in Tails right now.
 
-An *obfs4* bridge looks like:
+- An *obfs4* bridge looks like:
 
-    obfs4 1.2.3.4:1234 B0E566C9031657EA7ED3FC9D248E8AC4F37635A4 cert=OYWq67L7MDApdJCctUAF7rX8LHvMxvIBPHOoAp0+YXzlQdsxhw6EapaMNwbbGICkpY8CPQ iat-mode=0
+      obfs4 1.2.3.4:1234 B0E566C9031657EA7ED3FC9D248E8AC4F37635A4 cert=OYWq67L7MDApdJCctUAF7rX8LHvMxvIBPHOoAp0+YXzlQdsxhw6EapaMNwbbGICkpY8CPQ iat-mode=0
+
+- A *WebTunnel* bridge looks like:
+
+      webtunnel [1234:567:890a:bcde:f123:4567:890a:bcde]:443 5F55B60FF2AEA996B5109BC338FC5F2BCA696F52 url=https://example.com/webtunnel ver=0.0.1
 
 You need to enter the entire line, not just the IP address and port
 combination.
