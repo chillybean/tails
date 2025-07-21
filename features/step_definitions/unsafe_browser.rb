@@ -142,3 +142,10 @@ Then /^the Unsafe Browser has (|not )sent packets out to the Internet$/ do |sent
     assert_equal(0, pkts, 'Packets have gone out to the internet.')
   end
 end
+
+Then /^the Tails homepage loads in the Unsafe Browser$/ do
+  page_has_heading(
+    @unsafe_browser, 'Tails', 'Tails is a portable operating system that protects ' \
+                              'against surveillance and censorship.'
+  )
+end

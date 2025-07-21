@@ -341,10 +341,6 @@ When /^I open the Tails homepage in the (.+)$/ do |browser|
   step "I open the address \"https://tails.net\" in the #{browser}"
 end
 
-Then /^the Tails homepage loads in the Unsafe Browser$/ do
-  @screen.wait('TailsHomepage.png', 60)
-end
-
 def headings_in_page(browser, page_title)
   browser.child(page_title, roleName: 'document web').children(roleName: 'heading')
 end

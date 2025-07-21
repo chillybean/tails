@@ -1,5 +1,8 @@
-# This file overrides the runtime permissions specified by the application
-# to put us in control of what the application can access.
+# This file should reside in /var/lib/flatpak-tails/overrides but due
+# to a bug in Flatpak (https://github.com/flatpak/flatpak/issues/6256)
+# overrides do not respect the --installation option that we use to
+# separate Tails internal Flatpaks from this default Flatpak
+# directory. Please ignore it!
 
 [Context]
 
