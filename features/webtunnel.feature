@@ -9,6 +9,8 @@ Feature: Using WebTunnel Tor bridges
     And I set Tails to run with real Tor network
     And I start the computer
     And the computer boots Tails
+    # Let's be sure WebTunnel bridges work with a clock East of UTC
+    And I bump the system time with "+8 hours +15 minutes"
     And I log in to a new session
     When the network is plugged
     Then the Tor Connection Assistant autostarts
