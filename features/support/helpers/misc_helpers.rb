@@ -304,20 +304,31 @@ class CommandFailed < StandardError
   end
 end
 
-def cmd_helper(cmd, env: {}, suppress_output: false)
+def cmd_helper(cmd, env: {}, print_output: false, output_in_exception: true)
+  # print_output will print the output *as it arrives*; which implies it will be printed
+  # also for successful commands. Setting this to true might be useful if you want to
+  # debug a long-running command which prints useful information as it runs
+  # output_in_exception will include the command output in the exception
   if cmd.instance_of?(Array)
     cmd << { err: [:child, :out] }
   elsif cmd.instance_of?(String)
     cmd += ' 2>&1'
   end
   env = ENV.to_h.merge(env)
+  out = ''
   IO.popen(env, cmd) do |p|
-    out = p.read
+    loop do
+      line = p.readline
+      out += line
+      print(line) if print_output
+    rescue EOFError
+      break
+    end
     Process.wait(p.pid)
     ret = $CHILD_STATUS
     if ret.exitstatus != 0
       message = "Command failed (#{ret}): #{cmd}"
-      message += ":\n#{out}" unless suppress_output
+      message += ":\n#{out}" if output_in_exception
       raise CommandFailed.new(message, out)
     end
     return out
