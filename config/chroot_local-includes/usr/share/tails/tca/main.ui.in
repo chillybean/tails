@@ -103,7 +103,11 @@
         <property name="visible">True</property>
         <property name="can-focus">False</property>
         <property name="halign">start</property>
-        <property name="label" translatable="yes">Bridges are secret Tor relays. Use a bridge as your first Tor relay if accessing Tor is blocked from where you are.</property>
+        <property name="label" translatable="yes">Bridges are secret Tor relays. Use a bridge as your first Tor relay if accessing Tor is blocked from where you are.
+
+You can use &lt;i&gt;obfs4&lt;/i&gt; and &lt;i&gt;WebTunnel&lt;/i&gt; bridges in Tails.
+</property>
+        <property name="use-markup">True</property>
         <property name="wrap">True</property>
         <property name="xalign">0</property>
       </object>
@@ -178,7 +182,7 @@
                     <property name="button-sensitivity">on</property>
                     <items>
                       <item id="obfs4" translatable="yes">obfs4 (recommended)</item>
-                      <item id="meek_lite" translatable="yes">meek</item>
+                      <item id="webtunnel" translatable="yes">WebTunnel</item>
                     </items>
                     <accessibility>
                       <relation type="labelled-by" target="step_bridge_default_label"/>
@@ -409,7 +413,7 @@
                     <property name="visible">True</property>
                     <property name="sensitive">False</property>
                     <property name="can-focus">True</property>
-                    <property name="placeholder-text" translatable="yes">obfs4 ...</property>
+                    <property name="placeholder-text" translatable="yes">obfs4 or webtunnel…</property>
                     <property name="input-hints">GTK_INPUT_HINT_NO_SPELLCHECK | GTK_INPUT_HINT_NO_EMOJI | GTK_INPUT_HINT_NONE</property>
                     <signal name="backspace" handler="cb_step_bridge_text_changed" swapped="no"/>
                     <accessibility>
@@ -1050,7 +1054,7 @@
                         <property name="name">step_error_text</property>
                         <property name="visible">True</property>
                         <property name="can-focus">True</property>
-                        <property name="placeholder-text" translatable="yes">obfs4 ...</property>
+                        <property name="placeholder-text" translatable="yes">obfs4 or webtunnel…</property>
                         <property name="input-hints">GTK_INPUT_HINT_NO_SPELLCHECK | GTK_INPUT_HINT_NO_EMOJI | GTK_INPUT_HINT_NONE</property>
                         <signal name="backspace" handler="cb_step_error_text_changed" swapped="no"/>
                         <accessibility>
