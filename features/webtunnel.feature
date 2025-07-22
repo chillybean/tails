@@ -18,6 +18,8 @@ Feature: Using WebTunnel Tor bridges
   @supports_real_tor @check_tor_leaks
   Scenario: Configuring WebTunnel with QR code
     When I configure some webtunnel bridges from a QR code in the Tor Connection Assistant in hide mode
+    Then I wait until Tor is ready
+    And available upgrades have been checked
 
   Scenario: Typing WebTunnel pluggable transports directly
     When I configure some webtunnel bridges in the Tor Connection Assistant in hide mode without connecting
