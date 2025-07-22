@@ -23,4 +23,8 @@ Feature: Using WebTunnel Tor bridges
 
   Scenario: Typing WebTunnel pluggable transports directly
     When I configure some webtunnel bridges in the Tor Connection Assistant in hide mode without connecting
+    # We could actually click to Connect to Tor, which would exercise a slightly different code path, but:
+    #  - this would use the real tor network, on which we expect more problems, so let's avoid
+    #  - "Configuring WebTunnel with QR code" is already testing webtunnel bridges
+    # So let's not
     Then I can click the "Connect to Tor" button
