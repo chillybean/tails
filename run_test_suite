@@ -73,6 +73,8 @@ Options for '@product' features:
   --capture-all      Keep videos for all scenarios, including those that
                      succeed (implies --capture).
   --collect-always   Keep artifacts (logs, videos) even for successful scenarios
+  --extra-boot-options OPTIONS
+                     Add OPTIONS to the kernel cmdline
   --interactive-debugging
                      On failure, pause test suite until pressing Enter. Also
                      offer the option to open an interactive Ruby shell (pry)
@@ -115,7 +117,7 @@ Options for '@product' features:
                      failure screenshots, pcap files and disk images
                      (default is TMPDIR in the environment, and if unset,
                      /tmp/TailsToaster).
-  --view             Shows the test session in a windows. Requires x11vnc
+  --(no-)view        Shows the test session in a windows. Requires x11vnc
                      and tigervnc-viewer.
   --view-interact    The test session can be \"touched\". For debugging purposes
                      only.
@@ -267,7 +269,7 @@ EARLY_PATCH=${EARLY_PATCH-}
 EXTRA_BOOT_OPTIONS=${EXTRA_BOOT_OPTIONS-}
 ALL_TESTS=${ALL_TESTS-}
 
-LONGOPTS="allow-non-root,artifacts-base-uri:,view,view-interact,vnc-server-only,capture,capture-all,collect-always,help,tmpdir:,keep-chutney,keep-snapshots,disable-chutney,late-patch::,early-patch,extra-boot-options:,all-tests,iso:,old-iso:,interactive-debugging,image-bumping-mode"
+LONGOPTS="allow-non-root,artifacts-base-uri:,view,no-view,view-interact,vnc-server-only,capture,capture-all,collect-always,help,tmpdir:,keep-chutney,keep-snapshots,disable-chutney,late-patch::,early-patch,extra-boot-options:,all-tests,iso:,old-iso:,interactive-debugging,image-bumping-mode"
 OPTS=$(getopt -o "" --longoptions $LONGOPTS -n "${NAME}" -- "$@")
 eval set -- "$OPTS"
 while [ $# -gt 0 ]; do
@@ -286,6 +288,11 @@ while [ $# -gt 0 ]; do
         VNC_VIEWER=yes
         VNC_VIEWER_VIEWONLY=yes
         VNC_SERVER=yes
+        ;;
+    --no-view)
+        VNC_VIEWER=
+        VNC_VIEWER_VIEWONLY=
+        VNC_SERVER=
         ;;
     --view-interact)
         VNC_VIEWER=yes
