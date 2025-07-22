@@ -236,9 +236,9 @@ extract_default_bridges() {
             exit 1
         fi
 
-        # We currently only support obfs4 default bridges (only_type="obfs4")
+        # We currently only support obfs4 or webtunnel default bridges
         # so let's ensure we have enough of those.
-        if [ "$(grep --extended-regexp --count '^obfs4\s+' /usr/share/tails/tca/default_bridges.txt)" -lt 4 ]; then
+        if [ "$(grep --extended-regexp --count '^(obfs4|webtunnel)\s+' /usr/share/tails/tca/default_bridges.txt)" -lt 4 ]; then
             echo "Extracted fewer obfs4 bridges than expected:" >&2
             cat /usr/share/tails/tca/default_bridges.txt >&2
             exit 1

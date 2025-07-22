@@ -74,6 +74,7 @@ Feature: Using Tor bridges and pluggable transports
     And available upgrades have been checked
     And all Internet traffic has only flowed through Tor or connectivity check service
 
+  @supports_real_tor
   Scenario: Normal bridges are not allowed in "Hide" mode
     When I try to configure some normal bridges in the Tor Connection Assistant in hide mode
     Then the Tor Connection Assistant complains that normal bridges are not allowed
