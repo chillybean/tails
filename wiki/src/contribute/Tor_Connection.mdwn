@@ -29,6 +29,13 @@ If you want to test tor-not-working-but-default-bridges-are-working, you can use
         iptables -I OUTPUT 1 -m owner --uid-owner debian-tor -d $BRIDGE_IP -j ACCEPT
     done
 
+If you want to reach the *Error connecting to Tor* screen with all available
+options to fix the problem:
+
+ - Choose "hide" mode
+ - Enter a valid bridge address that points to a non-existent bridge,
+   e.g. `obfs4 1.1.1.1:11 asd`
+
 Reset TCA state
 -------------
 
