@@ -18,7 +18,7 @@ end
 # Please note that we aren't even trying to make this accurate for anything other
 # than our Jenkins instance. If you're building from RAM, we assume you are setting
 # $TAILS_BUILD_MEMORY in your environment.
-def vm_memory_for_ram_builds(_cpus)
+def vm_memory_for_ram_builds
   15207
 end
 
