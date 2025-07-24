@@ -723,7 +723,9 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
     def on_additional_setting_popover_closed(
         self, popover: Popover, setting: AdditionalSetting
     ):
-        logging.debug("'%s' popover closed. response: %s", setting.name, popover.response)
+        logging.debug(
+            "'%s' popover closed. response: %s", setting.name, popover.response
+        )
         # Unselect the listbox row
         self.listbox_settings.unselect_all()
         if popover.response == Gtk.ResponseType.YES:
