@@ -5,12 +5,12 @@ from tailsgreeter.ui.region_settings import LocalizationSettingUI
 from tailsgreeter.ui.additional_settings import AdditionalSetting
 
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk
+from gi.repository import Gtk  # NOQA: E402
 
 
 class GreeterSettingsCollection:
     def __init__(self, *settings: GreeterSetting, no_subclassification=False):
-        self.settings = {setting.id: setting for setting in settings}
+        self.settings = {setting.name: setting for setting in settings}
 
         if no_subclassification:
             return
@@ -37,4 +37,4 @@ class GreeterSettingsCollection:
     def id_from_row(self, row: Gtk.ListBoxRow):
         for setting in self.settings.values():
             if setting.listboxrow == row:
-                return setting.id
+                return setting.name
