@@ -15,6 +15,7 @@ from tps_frontend import (
     DBUS_FEATURES_PATH,
     DBUS_SERVICE_NAME,
     DBUS_FEATURE_INTERFACE,
+    ICON_DIR,
 )
 from tps_frontend.view import View
 from tps_frontend.feature import Feature, CustomFeatureRow
@@ -111,6 +112,7 @@ class FeaturesView(View):
         # paths
         # noinspection PyArgumentList
         icon_theme = Gtk.IconTheme.get_default()  # type: Gtk.IconTheme
+        icon_theme.append_search_path(ICON_DIR)
         icon_theme.append_search_path("/usr/share/pixmaps/cryptui/48x48")
 
         # Set listbox header functions. This is required to add
