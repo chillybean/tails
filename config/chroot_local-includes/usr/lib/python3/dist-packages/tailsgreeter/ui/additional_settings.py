@@ -80,7 +80,7 @@ class AdminSettingUI(AdditionalSetting):
         if not password_verify:
             icon = None
         elif password_verify == password:
-            icon = "emblem-ok-symbolic"
+            icon = "object-select-symbolic"
         else:
             icon = "dialog-warning-symbolic"
         self.password_verify_entry.set_icon_from_icon_name(
