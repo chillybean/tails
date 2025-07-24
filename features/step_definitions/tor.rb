@@ -638,7 +638,7 @@ When /^I configure (?:some|the) (persistent )?(\w+) bridges (from a QR code )?in
     if bridge_type == 'default'
       assert_equal(:easy, config_mode)
 
-      @bridge_hosts = if config_bool('DISABLE_CHUTNEY')
+      @bridge_hosts = if @real_tor
                         bridges_to_ipport(
                           $vm.file_content('/usr/share/tails/tca/default_bridges.txt')
                         )
@@ -652,10 +652,33 @@ When /^I configure (?:some|the) (persistent )?(\w+) bridges (from a QR code )?in
                                      roleName: 'radio button')
                               .click
     else
+      add_dns_to_extra_allowed_host if bridge_type == 'webtunnel'
+      bridges = if @real_tor
+                  default_bridges_path = '/usr/share/tails/tca/default_bridges.txt'
+                  all_bridges = $vm.file_content(default_bridges_path).lines + [
+                    [
+                      'webtunnel',
+                      '[2001:db8:d6b7:10ae:b5cf:811a:7f22:4596]:443',
+                      '770EA6412C8D3997ABFFF7173A3E53F1D3660167',
+                      'url=https://shallotfarm.org/jcHgyp7m90iQr9QaVSprq1wP',
+                    ].join(' '),
+                    [
+                      'bridge',
+                      '[2001:db8:d6b7:10ae:b5cf:811a:7f22:bbbb]:443',
+                    ].join(' '),
+                  ]
+                  matching = all_bridges.find { |b| b.start_with? bridge_type }&.rstrip
+                  @allowed_dns_queries ||= []
+                  @allowed_dns_queries += bridge_expected_dns_queries(matching)
+                  bridges_to_ipport(matching).map do |addressport|
+                    { line: matching }.merge(addressport)
+                  end
+                else
+                  [chutney_bridges(bridge_type).first]
+                end
       if qr_code
         # We currently support only 1 bridge
-        qr_code_bridges = chutney_bridges(bridge_type).slice(0, 1)
-        setup_qrcode_bridges_on_webcam(qr_code_bridges)
+        setup_qrcode_bridges_on_webcam(bridges)
         tor_connection_assistant.child('_Ask for a Tor bridge by email',
                                        roleName: 'radio button')
                                 .click
@@ -681,22 +704,11 @@ When /^I configure (?:some|the) (persistent )?(\w+) bridges (from a QR code )?in
         # in main.ui.in, aka. "Label For" and "Labeled By" in Glade)
         # however, this doesn't seem to work anymore
         bridge_entry = tor_connection_assistant.child(roleName: 'text')
-        # XXX: re-enable when we support more than 1 bridge
-        # rubocop:disable Lint/UnreachableLoop
-        chutney_bridges(bridge_type).each do |bridge|
-          bridge_entry.text = bridge[:line]
-          break # We currently support only 1 bridge
-        end
-        # rubocop:enable Lint/UnreachableLoop
+        bridge_entry.text = bridges.first[:line]
       end
-      @bridge_hosts = []
-      # XXX: re-enable when we support more than 1 bridge
-      # rubocop:disable Lint/UnreachableLoop
-      chutney_bridges(bridge_type).each do |bridge|
-        @bridge_hosts << { address: bridge[:address], port: bridge[:port] }
-        break # We currently support only 1 bridge
+      @bridge_hosts = bridges.map do |bridge|
+        { address: bridge[:address], port: bridge[:port] }
       end
-      # rubocop:enable Lint/UnreachableLoop
       begin
         step 'the Tor Connection Assistant complains ' \
              'that normal bridges are not allowed'
@@ -817,7 +829,8 @@ end
 
 Then /^the Tor Connection Assistant complains that normal bridges are not allowed$/ do
   tor_connection_assistant.child(
-    'You need to configure an obfs4 bridge to hide that you are using Tor',
+    'You need to configure a WebTunnel or an obfs4 bridge ' \
+    'to hide that you are using Tor',
     roleName: 'label',
     retry:    false
   )
@@ -832,7 +845,7 @@ def click_connect_to_tor
     )
     btn.sensitive?
   end
-  assert !btn.nil?
+  assert_not_nil(btn)
   btn.click
 end
 
@@ -840,8 +853,9 @@ When /^(?:I click "Connect to Tor"|I retry connecting to Tor)$/ do
   click_connect_to_tor
 end
 
-Then /^I cannot click the "Connect to Tor" button$/ do
-  assert !tor_connection_assistant.child('_Connect to Tor').sensitive?
+Then /^I can(not)? click the "Connect to Tor" button$/ do |cannot|
+  can = cannot.nil?
+  assert_equal(can, tor_connection_assistant.child('_Connect to Tor').sensitive?)
 end
 
 When /^I set the time zone in Tor Connection to "([^"]*)"$/ do |timezone|
@@ -887,19 +901,49 @@ When /^I set the time zone in Tor Connection to "([^"]*)"$/ do |timezone|
   end
 end
 
+def bridge_expected_dns_queries(line)
+  return [] if ['obfs4', 'bridge'].include?(line&.split&.first)
+
+  m = Regexp.new('\burl=https://([^/]+)(:\d+|)[/]').match(line)
+  return [] if m.nil?
+
+  ["#{m[1]}."]
+end
+
+def bridge_line_to_ipports(line)
+  case line.split.first
+  when 'obfs4', 'bridge'
+    addresses = [/\s[a-f0-9.:\[\]]+:\d+\b/.match(line)[0]]
+  when 'webtunnel'
+    m = Regexp.new('\burl=https://([^/]+)(:\d+|)[/]').match(line)
+    return [] if m.nil?
+
+    domain = m[1]
+    port = m[2].empty? ? '443' : m.captures[1]
+    resolver = Resolv::DNS.new
+    addresses = resolver.getaddresses(domain).map { |ip| "#{ip}:#{port}" }
+  else
+    raise "Unsupported bridge type '#{line.split.first}'"
+  end
+  addresses
+    .reject(&:nil?)
+    .map { |l| l.chomp.strip }
+    .reject(&:empty?)
+    .map do |address|
+      ip, _colon, port = address.rpartition(':')
+      { address: ip, port: port.to_i }
+    end
+end
+
 def bridges_to_ipport(file_content)
   # given the content of a default_bridges.txt, extract all IPs:Port,
   # returning an array of hashes; only IPv4 are considered
   file_content
     .chomp
     .split("\n")
-    .filter { |l| l.start_with?('obfs4') }
-    .map { |l| / [0-9.]+:\d+ /.match(l) }
-    .reject(&:nil?)
-    .map { |m| m[0].chomp.strip }
-    .reject(&:empty?)
-    .map { |l| l.split(':') }
-    .map { |ip, port| { address: ip, port: port.to_i } }
+    .filter { |l| ['obfs4', 'webtunnel', 'bridge'].include?(l.split.first) }
+    .map { |l| bridge_line_to_ipports(l) }
+    .flatten
 end
 
 Then /^all Internet traffic has only flowed through (Tor|the \w+ bridges)( or (?:fake )?connectivity check service|)$/ do |flow_target, connectivity_check|
@@ -907,7 +951,7 @@ Then /^all Internet traffic has only flowed through (Tor|the \w+ bridges)( or (?
   when 'Tor'
     allowed_hosts = allowed_hosts_under_tor_enforcement
   when 'the default bridges'
-    allowed_hosts = if config_bool('DISABLE_CHUTNEY')
+    allowed_hosts = if @real_tor
                       bridges_to_ipport(
                         $vm.file_content('/usr/share/tails/tca/default_bridges.txt')
                       )

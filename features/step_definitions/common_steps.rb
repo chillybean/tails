@@ -133,7 +133,7 @@ def post_snapshot_restore_hook(snapshot_name, num_try)
     $vm.execute('systemctl stop tor@default.service')
     $vm.host_to_guest_time_sync
     already_synced_time_host_to_guest = true
-    wait_until_chutney_is_working unless config_bool('DISABLE_CHUTNEY')
+    wait_until_chutney_is_working unless @real_tor
     $vm.execute('systemctl start tor@default.service')
     wait_until_tor_is_working
   end
@@ -180,7 +180,7 @@ Then /^drive "([^"]+)" is detected by Tails$/ do |name|
 end
 
 Given /^the network is plugged$/ do
-  unless config_bool('DISABLE_CHUTNEY')
+  unless @real_tor
     wait_until_chutney_is_working
     begin
       finalize_simulated_Tor_network_configuration
@@ -238,6 +238,10 @@ end
 
 Given /^I set Tails to boot with options "([^"]*)"$/ do |options|
   @boot_options = options
+end
+
+Given /^I set Tails to run with real Tor network$/ do
+  @real_tor = true
 end
 
 When /^I start the computer$/ do
@@ -447,7 +451,7 @@ Given /^the computer (?:re)?boots Tails$/ do
   $vm.wait_until_remote_shell_is_up(5 * 60)
 
   post_vm_start_hook
-  configure_simulated_Tor_network unless config_bool('DISABLE_CHUTNEY')
+  configure_simulated_Tor_network unless @real_tor
 
   # Disable GTK4 shadows, required for Dogtail to accurately locate
   # positions of elements in GTK4 applications.
