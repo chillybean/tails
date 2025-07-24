@@ -50,7 +50,7 @@ class AdditionalSetting(GreeterSetting):
 
     def cb_listbox_button_press(self, widget, event, user_data=None):
         # On double-click: Close the window and apply chosen setting
-        if event.type == Gdk.EventType._2BUTTON_PRESS:
+        if event.type == Gdk.EventType._2BUTTON_PRESS:  # NOQA: SLF001
             self.close_window(Gtk.ResponseType.YES)
         return False
 
