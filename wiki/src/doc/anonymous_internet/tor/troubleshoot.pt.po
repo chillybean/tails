@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2025-06-10 12:51+0200\n"
+"POT-Creation-Date: 2025-07-24 11:24+0200\n"
 "PO-Revision-Date: 2025-02-12 15:54+0000\n"
 "Last-Translator: drebs <drebs@riseup.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -107,8 +107,13 @@ msgid "<h2 id=\"stuck\">The progress bar gets stuck around 50%</h2>\n"
 msgstr "<h2 id=\"stuck\">A barra de progresso fica parada ao redor de 50%</h2>\n"
 
 #. type: Plain text
+#, fuzzy
+#| msgid ""
+#| "When using a custom Tor obfs4 bridge, the progress bar of *Tor "
+#| "Connection* sometimes gets stuck halfway through and becomes extremely "
+#| "slow."
 msgid ""
-"When using a custom Tor obfs4 bridge, the progress bar of *Tor Connection* "
+"When using a custom Tor *obfs4* bridge, the progress bar of *Tor Connection* "
 "sometimes gets stuck halfway through and becomes extremely slow."
 msgstr ""
 "Ao usar uma ponte Tor obfs4 customizada, a barra de progresso da *Conexão à "
@@ -153,10 +158,13 @@ msgstr ""
 "-->\n"
 
 #. type: Plain text
-#, no-wrap
+#, fuzzy, no-wrap
+#| msgid ""
+#| "<p>This issue only affects outdated obfs4 bridges and does not happen with\n"
+#| "obfs4 bridges that run version 0.0.12 or later.</p>\n"
 msgid ""
-"<p>This issue only affects outdated obfs4 bridges and does not happen with\n"
-"obfs4 bridges that run version 0.0.12 or later.</p>\n"
+"<p>This issue only affects outdated <i>obfs4</i> bridges and does not happen with\n"
+"<i>obfs4</i> bridges that run version 0.0.12 or later.</p>\n"
 msgstr ""
 "<p>Esse problema afeta apenas pontes obfs4 desatualizadas e não ocorre com\n"
 "pontes obfs4 que rodam a versão 0.0.12 ou mais recentes.</p>\n"
@@ -191,17 +199,31 @@ msgid "<h2 id=\"incorrect\">You did not enter the bridge correctly</h2>\n"
 msgstr "<h2 id=\"incorrect\">Você não inseriu a ponte de forma correta</h2>\n"
 
 #. type: Plain text
-msgid "Only obfs4 bridges can be used in Tails currently."
-msgstr "Atualmente, apenas pontes obfs4 podem ser usadas no Tails."
+msgid "You can use *obfs4* and *WebTunnel* bridges in Tails right now."
+msgstr ""
+
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid "An obfs4 bridge looks like:"
+msgid "An *obfs4* bridge looks like:"
+msgstr "Uma ponte obfs4 se parece com isso:"
 
 #. type: Plain text
-msgid "An obfs4 bridge looks like:"
+#, fuzzy, no-wrap
+#| msgid "    obfs4 1.2.3.4:1234 B0E566C9031657EA7ED3FC9D248E8AC4F37635A4 cert=OYWq67L7MDApdJCctUAF7rX8LHvMxvIBPHOoAp0+YXzlQdsxhw6EapaMNwbbGICkpY8CPQ iat-mode=0\n"
+msgid "      obfs4 1.2.3.4:1234 B0E566C9031657EA7ED3FC9D248E8AC4F37635A4 cert=OYWq67L7MDApdJCctUAF7rX8LHvMxvIBPHOoAp0+YXzlQdsxhw6EapaMNwbbGICkpY8CPQ iat-mode=0\n"
+msgstr "    obfs4 1.2.3.4:1234 B0E566C9031657EA7ED3FC9D248E8AC4F37635A4 cert=OYWq67L7MDApdJCctUAF7rX8LHvMxvIBPHOoAp0+YXzlQdsxhw6EapaMNwbbGICkpY8CPQ iat-mode=0\n"
+
+#. type: Bullet: '- '
+#, fuzzy
+#| msgid "An obfs4 bridge looks like:"
+msgid "A *WebTunnel* bridge looks like:"
 msgstr "Uma ponte obfs4 se parece com isso:"
 
 #. type: Plain text
 #, no-wrap
-msgid "    obfs4 1.2.3.4:1234 B0E566C9031657EA7ED3FC9D248E8AC4F37635A4 cert=OYWq67L7MDApdJCctUAF7rX8LHvMxvIBPHOoAp0+YXzlQdsxhw6EapaMNwbbGICkpY8CPQ iat-mode=0\n"
-msgstr "    obfs4 1.2.3.4:1234 B0E566C9031657EA7ED3FC9D248E8AC4F37635A4 cert=OYWq67L7MDApdJCctUAF7rX8LHvMxvIBPHOoAp0+YXzlQdsxhw6EapaMNwbbGICkpY8CPQ iat-mode=0\n"
+msgid "      webtunnel [1234:567:890a:bcde:f123:4567:890a:bcde]:443 5F55B60FF2AEA996B5109BC338FC5F2BCA696F52 url=https://example.com/webtunnel ver=0.0.1\n"
+msgstr ""
 
 #. type: Plain text
 msgid ""
@@ -210,6 +232,9 @@ msgid ""
 msgstr ""
 "Você deve inserir a linha inteira, não apenas o endereço IP e a combinação "
 "de portas."
+
+#~ msgid "Only obfs4 bridges can be used in Tails currently."
+#~ msgstr "Atualmente, apenas pontes obfs4 podem ser usadas no Tails."
 
 #~ msgid "- Try with [[another bridge|troubleshoot#bridge]]."
 #~ msgstr "- Tente com [[outra ponte |troubleshoot#bridge]]."
