@@ -14,7 +14,7 @@ To Do
 
 - [ ] Set milestone to the upcoming release
   - We can fine-tune this later once we have assessed severity.
-- [ ] Fill the *Summary*, *Impact*, "and *Availability* sections, so that:
+- [ ] Fill the *Summary*, *Impact*, and *Availability* sections, so that:
   - We can assess the severity of this issue.
   - Our technical writers have the information they need to write release notes.
 - [ ] Assess the severity of this issue according to our [Security issue response policy](https://tails.net/contribute/security_policy/)
