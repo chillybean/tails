@@ -2150,7 +2150,7 @@ Check that you are indeed preparing a final release:
 1. If you just released a new stable release, remove the previous
    stable release from our rsync server:
 
-         ssh rsync.lizard sudo rm -rf /srv/rsync/tails/tails/stable/tails-amd64-${PREVIOUS_STABLE_VERSION:?}/`
+         ssh rsync.lizard sudo rm -rf /srv/rsync/tails/tails/stable/tails-amd64-${PREVIOUS_STABLE_VERSION:?}/
 
 1. Remove any remaining RC for the just-published release from
    `rsync.lizard:/srv/rsync/tails/tails/alpha/`.
