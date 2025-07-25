@@ -176,10 +176,27 @@ class StepChooseBridgeMixin:
         self.get_object("radio_default").set_sensitive(not hide_mode)
 
         self.builder.get_object("step_bridge_radio_scan").set_active(hide_mode)
-        self.get_object(
-            "combo"
-        ).hide()  # we are forcing that to obfs4 until we support meek
-        self.get_object("box_warning").hide()
+        combo = self.builder.get_object("step_bridge_combo")
+        combo.show_all()
+        combo_model = combo.get_model()
+        types_supported_by_ui = [
+            combo_model.get_value(row.iter, 1) for row in combo_model
+        ]
+        types_available = {
+            line.split()[0] for line in TorConnectionConfig.get_default_bridges()
+        }
+        for position, row in enumerate(combo_model):
+            if combo_model.get_value(row.iter, 1) not in types_available:
+                combo.remove(position)
+        if len(types_available & set(types_supported_by_ui)) < 2:  # noqa: PLR2004
+            combo.hide()
+        else:
+            for bridge_type in types_supported_by_ui:
+                print(bridge_type, types_available)
+                if bridge_type in types_available:
+                    combo.set_active_id(bridge_type)
+                    break
+            combo.show_all()
         self._step_bridge_init_from_tor_config()
         self._step_bridge_set_actives()
         self._step_bridge_update_persistence_ui()
@@ -278,7 +295,7 @@ class StepChooseBridgeMixin:
                 if br.split()[0] not in (VALID_BRIDGE_TYPES - {"bridge"}):
                     set_warning(
                         _(
-                            "You need to configure an obfs4 bridge to hide that you are using Tor"
+                            "You need to configure a WebTunnel or an obfs4 bridge to hide that you are using Tor"
                         )
                     )
                     return False
@@ -521,7 +538,7 @@ class StepConnectProgressMixin:
                 )
             elif self.state["bridge"].get("kind", "") == "default":
                 self.app.configurator.tor_connection_config.enable_default_bridges(
-                    only_type=self.state["bridge"]["default_method"]
+                    valid_types=[self.state["bridge"]["default_method"]]
                 )
                 self.get_object("label_status").set_text(
                     _("Connecting to Tor with default bridges…")
@@ -545,7 +562,7 @@ class StepConnectProgressMixin:
 
         def do_tor_connect_default_bridges():
             self.app.configurator.tor_connection_config.enable_default_bridges(
-                only_type="obfs4"
+                valid_types=["obfs4", "webtunnel"]
             )
             self.get_object("label_status").set_text(
                 _("Connecting to Tor with default bridges…")
@@ -802,7 +819,7 @@ class StepErrorMixin:
                     if br.split()[0] not in (VALID_BRIDGE_TYPES - {"bridge"}):
                         set_warning(
                             _(
-                                "You need to configure an obfs4 bridge to hide that you are using Tor"
+                                "You need to configure a WebTunnel or an obfs4 bridge to hide that you are using Tor"
                             )
                         )
                         return False
