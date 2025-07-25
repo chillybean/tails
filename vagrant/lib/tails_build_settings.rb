@@ -14,7 +14,7 @@ def vm_memory_base(cpus)
 end
 
 # Approximate amount of extra space needed for builds
-BUILD_SPACE_REQUIREMENT = 13.3 * 1024
+BUILD_SPACE_REQUIREMENT = 14 * 1024
 
 # Virtual machine memory size for on-disk builds
 def vm_memory_for_disk_builds(cpus)
