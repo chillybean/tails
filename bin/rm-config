@@ -151,22 +151,30 @@ class Config:
         iuk_source_versions = subprocess.check_output(
             [git_repo_root() / "bin/iuk-source-versions", version],
             encoding="utf8",
-        ).rstrip("\n")
-        # We always test the upgrade path from the last stable version
-        test_iuk_source_versions = self.data["previous_stable_version"]
-        # ... but also from the last of any alphas/betas/RCs. Given Tails
-        # versioning scheme we trivially have that it can only be the
-        # previous version, but only if it isn't the same as the previous
-        # stable release (alpha/beta/RC is not stable by definition).
-        if self.data["previous_stable_version"] != self.data["previous_version"]:
-            test_iuk_source_versions += " " + self.data["previous_version"]
+        ).rstrip("\n").split()
+        major_version_bump = int(self.data['version'].split('.')[0]) > \
+                             int(self.data['previous_stable_version'].split('.')[0])
+        # We don't provide upgrades from the previous stable release
+        # only when bumping the major version.
+        test_iuk_source_versions = []
+        if not major_version_bump and \
+           self.data['previous_stable_version'] in iuk_source_versions:
+            test_iuk_source_versions.append(self.data['previous_stable_version'])
+        # We test the upgrade path from the last alpha/beta/RC, if
+        # any. Given Tails' versioning scheme we trivially have that
+        # it can only be the previous version, but only if it isn't
+        # the same as the previous stable release since alpha/beta/RC
+        # cannot be stable by definition.
+        if self.data['previous_stable_version'] != self.data['previous_version'] and \
+           self.data['previous_version'] in iuk_source_versions:
+            test_iuk_source_versions.append(self.data['previous_version'])
         generated_config = {
             "release_branch": release_branch,
             "tag": tag,
             "previous_tag": self.data["previous_version"].replace("~", "-"),
             "website_release_branch": "web/release-%s" % tag,
-            "iuk_source_versions": iuk_source_versions,
-            "test_iuk_source_versions": test_iuk_source_versions,
+            "iuk_source_versions": " ".join(iuk_source_versions),
+            "test_iuk_source_versions": " ".join(test_iuk_source_versions),
             "iuks_dir": str(iuks_dir),
             "iuks_hashes": str(iuk_hashes),
             "milestone": re.sub("~.*", "", self.data["version"]),
