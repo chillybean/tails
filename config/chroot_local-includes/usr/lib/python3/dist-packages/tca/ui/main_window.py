@@ -176,6 +176,7 @@ class StepChooseBridgeMixin:
         self.get_object("radio_default").set_sensitive(not hide_mode)
 
         self.builder.get_object("step_bridge_radio_scan").set_active(hide_mode)
+        self.get_object("box_warning").hide()
         combo = self.builder.get_object("step_bridge_combo")
         combo.show_all()
         combo_model = combo.get_model()
