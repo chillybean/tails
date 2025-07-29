@@ -17,6 +17,7 @@ DBUS_FEATURE_INTERFACE = "org.boum.tails.PersistentStorage.Feature"
 DBUS_JOB_INTERFACE = "org.boum.tails.PersistentStorage.Job"
 
 DATA_DIR = "/usr/share/tails/persistent-storage"
+ICON_DIR = path.join(DATA_DIR, "icons")
 
 CSS_FILE = path.join(DATA_DIR, "style.css")
 
