@@ -148,26 +148,33 @@ class Config:
         release_branch = "testing" if self.data["major_release"] == 1 else "stable"
         iuks_dir = Path(self.data["isos"]) / "iuks/v2"
         iuk_hashes = Path(iuks_dir) / ("to_%s.sha256sum" % version)
-        iuk_source_versions = subprocess.check_output(
-            [git_repo_root() / "bin/iuk-source-versions", version],
-            encoding="utf8",
-        ).rstrip("\n").split()
-        major_version_bump = int(self.data['version'].split('.')[0]) > \
-                             int(self.data['previous_stable_version'].split('.')[0])
+        iuk_source_versions = (
+            subprocess.check_output(
+                [git_repo_root() / "bin/iuk-source-versions", version],
+                encoding="utf8",
+            )
+            .rstrip("\n")
+            .split()
+        )
+        major_version_bump = int(self.data["version"].split(".")[0]) > int(
+            self.data["previous_stable_version"].split(".")[0]
+        )
         # We provide upgrades from the previous stable release
         # except for Debian major version bumps.
         test_iuk_source_versions = set()
-        if not major_version_bump and \
-           self.data['previous_stable_version'] in iuk_source_versions:
-            test_iuk_source_versions.add(self.data['previous_stable_version'])
+        if (
+            not major_version_bump
+            and self.data["previous_stable_version"] in iuk_source_versions
+        ):
+            test_iuk_source_versions.add(self.data["previous_stable_version"])
         # Additionally, we test the upgrade path from the last alpha/beta/RC,
         # if any, unless it is in IGNORED_TAGS.
         # Given Tails' versioning scheme we trivially have that
         # it can only be the previous version, but only if it isn't
         # the same as the previous stable release since alpha/beta/RC
         # cannot be stable by definition.
-        if self.data['previous_version'] in iuk_source_versions:
-            test_iuk_source_versions.add(self.data['previous_version'])
+        if self.data["previous_version"] in iuk_source_versions:
+            test_iuk_source_versions.add(self.data["previous_version"])
         generated_config = {
             "release_branch": release_branch,
             "tag": tag,
