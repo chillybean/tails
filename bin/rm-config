@@ -156,18 +156,18 @@ class Config:
                              int(self.data['previous_stable_version'].split('.')[0])
         # We provide upgrades from the previous stable release
         # except for Debian major version bumps.
-        test_iuk_source_versions = []
+        test_iuk_source_versions = set()
         if not major_version_bump and \
            self.data['previous_stable_version'] in iuk_source_versions:
-            test_iuk_source_versions.append(self.data['previous_stable_version'])
+            test_iuk_source_versions.add(self.data['previous_stable_version'])
         # Additionally, we test the upgrade path from the last alpha/beta/RC,
-        # if any. Given Tails' versioning scheme we trivially have that
+        # if any, unless it is in IGNORED_TAGS.
+        # Given Tails' versioning scheme we trivially have that
         # it can only be the previous version, but only if it isn't
         # the same as the previous stable release since alpha/beta/RC
         # cannot be stable by definition.
-        if self.data['previous_stable_version'] != self.data['previous_version'] and \
-           self.data['previous_version'] in iuk_source_versions:
-            test_iuk_source_versions.append(self.data['previous_version'])
+        if self.data['previous_version'] in iuk_source_versions:
+            test_iuk_source_versions.add(self.data['previous_version'])
         generated_config = {
             "release_branch": release_branch,
             "tag": tag,
