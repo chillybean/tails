@@ -39,12 +39,12 @@ else
 fi
 
 all_files() {
-	# changed_files
-	git diff --name-only "${REF}"...
-	# uncommitted_files
-	git diff HEAD --name-only
-	# untracked_files
-	git ls-files --others --exclude-standard
+    # changed_files
+    git diff --name-only "${REF}"...
+    # uncommitted_files
+    git diff HEAD --name-only
+    # untracked_files
+    git ls-files --others --exclude-standard
 }
 
 files_to_check=$(all_files | "$(dirname "$0")/is-file-type" filter python)
