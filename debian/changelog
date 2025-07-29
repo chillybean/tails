@@ -1,8 +1,159 @@
-tails (6.18) UNRELEASED; urgency=medium
+tails (6.19) UNRELEASED; urgency=medium
 
   * Dummy entry for next release.
 
- -- boyska <boyska@riseup.net>  Thu, 26 Jun 2025 12:07:17 +0200
+ -- anonym <anonym@riseup.net>  Fri, 25 Jul 2025 12:02:07 +0200
+
+tails (6.18) unstable; urgency=medium
+
+  * Upgrade to Thunderbird 1:128.12.0esr-1~deb12u1
+
+  * Upgrade Tor Browser to 14.5.5 (tails/tails!2316)
+
+    Closes issues:
+      - Upgrade to Tor Browser 14.5.5 based on Firefox 128.13 (tails/tails#21054)
+
+    Commits:
+      - Upgrade Tor Browser to 14.5.5-build1 (refs: tails#21054)
+
+  * Install b43 firmware from our tails-workarounds Git submodule
+    (tails/tails!2304)
+
+    Closes issues:
+      - All branches FTBFS: download URL used by firmware-b43-installer is broken
+        (tails/tails#21048)
+      - Attempts to rebuild reproducibly fail: firmware-b43-installer postinst fails
+        (tails/tails#21057)
+
+    Commits:
+      - Point workarounds submodule to its master after tails/workarounds!2 was merged
+      - CI: workaround overly eager adoption of new package versioning scheme
+      - Install b43 firmware from our tails-workarounds Git submodule
+
+  * Don't include /root/.wget-hsts in the SquashFS (tails/tails!2303)
+
+    Closes issues:
+      - stable and devel fail to build reproducibly since at least 2025-07-18
+        (tails/tails#21063)
+
+    Commits:
+      - Don't include /root/.wget-hsts in the SquashFS
+
+  * CI: ignore Trixie's b43-fwcutter (tails/tails!2318)
+
+    Commits:
+      - CI: ignore Trixie's b43-fwcutter
+
+  * Import b43 firmware tarball (tails/workarounds!2)
+
+    Commits:
+      - Import tarball
+
+  * Test suite: rewrite step using Dogtail (tails/tails!2298)
+
+    Commits:
+      - Test suite: rewrite step using Dogtail
+
+  * Move the Tails Flatpak runtime and fake Flatpaks to its own installation
+    (tails/tails!2292)
+
+    Closes issues:
+      - Tor Browser fake flatpak does not play well with persistent
+        /var/lib/flatpak/app (tails/tails#21016)
+
+    Commits:
+      - Anticipate the fix for flatpak#6256
+      - Explain Flatpak overrides vs --installation bug
+      - Drop pointless comment
+      - Move the Tails Flatpak runtime and fake Flatpaks to its own installation
+
+  * Fix logo URL in README (tails/tails!2278)
+
+    Commits:
+      - Edit README.md
+
+  * Add WebTunnel support (tails/tails!2271)
+
+    Closes issues:
+      - Add WebTunnel support (tails/tails#20267)
+      - Explain which pluggable transports are supported in Tor Connection
+        (tails/tails#21052)
+
+    Commits:
+      - Clarify why scenario is not connecting
+      - Let's check that Tor is actually functional
+      - Simplify
+      - Mention WebTunnel
+      - There is no CAPTCHA anymore
+      - Apply style guide consistently
+      - Clarify style guide for pluggable transports
+      - Improve structure
+      - ruff: improve typing imports
+      - remove broken configuration for meek
+      - Simplify code
+      - Revert "enable obfs4proxy debug logging"
+      - Fix inconsistent spacing
+      - fix spelling of WebTunnel
+      - Test webtunnel with clock East of UTC
+      - rubocop format
+      - one more scenario supports real_tor
+      - FIX test suite logic
+      - Update test suite after changing error message
+      - use IPv6 as fake-IP
+      - Hide combobox when there is only one option
+      - include webtunnel in placeholder
+      - Improve text explaining what bridges are
+      - move variable definition to Before hook
+      - simplify code
+      - explicitly fail for new bridge types
+      - change regexp to align with more common style
+      - refactor assertion
+      - fix grammar
+      - fix WebTunnel spelling
+      - fix doctests
+      - Test webtunnel QR codes
+      - check tor leaks for webtunnel bridges
+      - add a fallback webtunnel bridge
+      - write default_bridges.txt in a single call
+      - support bridges with real Tor
+      - Tails scenarios can use the real Tor network
+      - fix contributor's doc: interactive gtk debug for tca
+      - draft automated test suite
+      - more bridge types can be attempted
+      - more typing
+      - trivially extend most obfs4 code to webtunnel
+      - Add @doc to scenarios impacted by changes to the website
+
+  * Configure codespell, run it in GitLab CI, and fix typos (tails/tails!2236)
+
+    Commits:
+      - GitLab CI: use Trixie for the new codespell job
+      - GitLab CI: output codespell version
+      - Remove stray char
+      - Lint
+      - Fix spelling errors in wiki/src/news and make this folder covered by codespell
+      - Ignore irrelevant file instead of ignoring words it contains
+      - Be more specific
+      - Ignore irrelevant files instead of ignoring words from them
+      - Be more specific
+      - Prefer the more common "advertise" over "advertize"
+      - Fix typos and remove them from the codespell ignore-words-list
+      - avoid-gtk-launch GitLab CI job: remove useless cargo-culted tweaks
+      - GitLab CI: add codespell job
+      - Configure codespell
+
+  * Test suite: add back debugging context to the debugging REPL with
+    --interactive-debugging (refs: tails#21027) (tails/tails!2231)
+
+    Closes issues:
+      - Test suite: --interactive-debugging lost its exception binding to pause()
+        (tails/tails#21027)
+
+    Commits:
+      - Test suite: add back debugging context to --interactive-debugging (refs:
+        tails#21027)
+
+ -- Tails developers <tails@boum.org>  Thu, 24 Jul 2025 12:26:03 +0200
 
 tails (6.17) unstable; urgency=medium
 
