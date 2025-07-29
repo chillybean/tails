@@ -169,10 +169,6 @@ class Config:
             test_iuk_source_versions.add(self.data["previous_stable_version"])
         # Additionally, we test the upgrade path from the last alpha/beta/RC,
         # if any, unless it is in IGNORED_TAGS.
-        # Given Tails' versioning scheme we trivially have that
-        # it can only be the previous version, but only if it isn't
-        # the same as the previous stable release since alpha/beta/RC
-        # cannot be stable by definition.
         if self.data["previous_version"] in iuk_source_versions:
             test_iuk_source_versions.add(self.data["previous_version"])
         generated_config = {
