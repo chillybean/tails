@@ -39,11 +39,11 @@ else
 fi
 
 all_files() {
-	#changed_files
+	# changed_files
 	git diff --name-only "${REF}"...
-	#uncommitted_files
+	# uncommitted_files
 	git diff HEAD --name-only
-	#untracked_files
+	# untracked_files
 	git ls-files --others --exclude-standard
 }
 
