@@ -79,7 +79,7 @@ class ProgressThread(threading.Thread):
     def __init__(self, parent: "TailsInstallerWindow"):
         threading.Thread.__init__(self)
         self.parent = parent
-        self.terminate = False
+        self.terminate = threading.Event()
 
     def set_data(self, size, drive, freebytes):
         self.totalsize = size / 1024
@@ -92,7 +92,7 @@ class ProgressThread(threading.Thread):
     def run(self):
         value = 0
         tps_value = 0
-        while not self.terminate:
+        while not self.terminate.is_set():
             if os.path.ismount("/media/amnesia/Tails/"):
                 free = self.get_free_bytes()
                 value = (self.orig_free - free) / 1024
@@ -105,7 +105,7 @@ class ProgressThread(threading.Thread):
             sleep(0.1)
 
     def stop(self):
-        self.terminate = True
+        self.terminate.set()
 
 
 class TailsInstallerThread(threading.Thread):
