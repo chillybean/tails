@@ -169,6 +169,12 @@ class Config:
             test_iuk_source_versions.add(self.data["previous_stable_version"])
         # Additionally, we test the upgrade path from the last alpha/beta/RC,
         # if any, unless it is in IGNORED_TAGS.
+        #
+        # If `previous_version` is a final release, it'll be equal to
+        # `previous_stable_version`, and then this operation will be
+        # a no-op (thanks to using a set), which is what we want.
+        # So we don't need to check whether `previous_version` is
+        # a alpha/beta/RC or a final release.
         if self.data["previous_version"] in iuk_source_versions:
             test_iuk_source_versions.add(self.data["previous_version"])
         generated_config = {
