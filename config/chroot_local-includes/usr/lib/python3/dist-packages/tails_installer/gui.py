@@ -854,7 +854,7 @@ class TailsInstallerWindow(Gtk.ApplicationWindow):
                 _(
                     "Unable to use the selected file.  "
                     "You may have better luck if you move your ISO "
-                    "to the root of your drive (ie: C:\)"
+                    "to the root of your drive (ie: C:\\)"
                 )
             )
             self.live.log.exception(ex.args[0])
