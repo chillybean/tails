@@ -76,7 +76,7 @@ class ProgressThread(threading.Thread):
     drive = None
     get_free_bytes = None
 
-    def __init__(self, parent):
+    def __init__(self, parent: "TailsInstallerWindow"):
         threading.Thread.__init__(self)
         self.parent = parent
         self.terminate = False
@@ -109,7 +109,12 @@ class ProgressThread(threading.Thread):
 
 
 class TailsInstallerThread(threading.Thread):
-    def __init__(self, live, progress, parent):
+    def __init__(
+        self,
+        live: TailsInstallerCreator,
+        progress: ProgressThread,
+        parent: "TailsInstallerWindow",
+    ):
         threading.Thread.__init__(self)
         self.progress = progress
         self.live = live

@@ -1092,7 +1092,7 @@ class TailsInstallerCreator:
             cancellable=None,
         )
 
-    def get_free_bytes(self, device=None):
+    def get_free_bytes(self, device=None) -> int | None:
         """Return the number of available bytes on our device"""
         device = device and device or self.dest
         if device is None:
