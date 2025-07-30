@@ -10,6 +10,19 @@
 set -e
 set -u
 
+PREREQ=""
+
+prereqs() {
+    echo "${PREREQ}"
+}
+
+case "${1:-}" in
+prereqs)
+    prereqs
+    exit 0
+    ;;
+esac
+
 . /usr/share/initramfs-tools/hook-functions
 
 # As of initramfs-tools 0.147, MODULES=most would pass these arguments:
