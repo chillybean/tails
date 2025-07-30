@@ -84,7 +84,7 @@ deploy-website:
   parallel:
     matrix:
       - SSH_SERVER: www.lizard
-        SSH_PORT: 3009
+        SSH_PORT: 22
       - SSH_SERVER: www2.chameleon
         SSH_PORT: 22
   script:
