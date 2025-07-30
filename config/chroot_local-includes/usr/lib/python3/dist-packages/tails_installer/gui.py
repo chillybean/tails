@@ -93,9 +93,13 @@ class ProgressThread(threading.Thread):
         value = 0
         tps_value = 0
         while not self.terminate.is_set():
-            if os.path.ismount("/media/amnesia/Tails/"):
+            try:
                 free = self.get_free_bytes()
-                value = (self.orig_free - free) / 1024
+            except FileNotFoundError:  # not mounted
+                pass
+            else:
+                if free is not None:
+                    value = (self.orig_free - free) / 1024
             if os.path.ismount("/media/amnesia/TailsData"):
                 tps_value = psutil.disk_usage("/media/amnesia/TailsData").used / 1024
             GLib.idle_add(
