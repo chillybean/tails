@@ -970,17 +970,17 @@ Given /^I switch to the "([^"]+)" NetworkManager connection$/ do |con_name|
   end
 end
 
-When /^I run "([^"]+)" in GNOME Terminal$/ do |command|
-  app = if $vm.process_running?('gnome-terminal-server')
-          Dogtail::Application.new('org.gnome.Terminal')
+When /^I run "([^"]+)" in Console$/ do |command|
+  app = if $vm.process_running?('kgx')
+          Dogtail::Application.new('kgx')
         else
-          launch_gnome_terminal
+          launch_console
         end
   terminal = app.child('Terminal', roleName: 'terminal')
   try_for(5) { !terminal.text.strip.split("\n").last['amnesia@amnesia:'].nil? }
   terminal.grabFocus
   try_for(20) do
-    @screen.paste(command, app: :terminal)
+    @screen.paste(command, app: :console)
     if terminal.text.strip.split("\n").last[command]
       # The command was pasted successfully
       true
@@ -989,7 +989,7 @@ When /^I run "([^"]+)" in GNOME Terminal$/ do |command|
       # The command was not pasted successfully. Close the terminal and
       # open a new one.
       app.child('Close', roleName: 'button').click
-      app = launch_gnome_terminal
+      app = launch_console
       terminal = app.child('Terminal', roleName: 'terminal')
       try_for(5) { !terminal.text.strip.split("\n").last['amnesia@amnesia:'].nil? }
       false
@@ -1096,10 +1096,10 @@ def launch_gnome_disks(**opts)
   )
 end
 
-def launch_gnome_terminal(**opts)
+def launch_console(**opts)
   launch_app(
-    'org.gnome.Terminal.desktop',
-    'org.gnome.Terminal',
+    'org.gnome.Console.desktop',
+    'kgx',
     **opts
   )
 end
@@ -1168,10 +1168,10 @@ Given /^I start "([^"]+)" via GNOME Activities Overview$/ do |app_name|
   # non-deterministic choice (at least under load). To make the life
   # easier for users of this step, let's collect workarounds here.
   case app_name
-  when 'GNOME Terminal'
-    # "GNOME Terminal" and "Terminal" shows both the (non-Root)
-    # "Terminal" and "Root Terminal" search results, so let's use a
-    # keyword only found in the former's .desktop file.
+  when 'Console'
+    # "Console" shows both the (non-Root) "Console" and "Root Console"
+    # search results, so let's use a keyword only found in the
+    # former's .desktop file.
     app_name = 'commandline'
   when 'Persistent Storage'
     # "Persistent Storage" also matches "Back Up Persistent Storage"

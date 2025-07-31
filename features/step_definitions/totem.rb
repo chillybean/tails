@@ -28,7 +28,7 @@ Given /^I copy the sample videos to "([^"]+)" as user "([^"]+)"$/ do |destinatio
 end
 
 When /^I(?:| try to) open "([^"]+)" with Totem$/ do |filename|
-  step "I run \"totem #{filename}\" in GNOME Terminal"
+  step "I run \"totem #{filename}\" in Console"
 end
 
 When /^I close Totem$/ do

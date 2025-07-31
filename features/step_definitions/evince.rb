@@ -1,5 +1,5 @@
 When /^I(?:| try to) open "([^"]+)" with Evince$/ do |filename|
-  step "I run \"evince #{filename}\" in GNOME Terminal"
+  step "I run \"evince #{filename}\" in Console"
 end
 
 Then /^I can print the current document to "([^"]+)"$/ do |output_file|

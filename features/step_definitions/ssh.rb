@@ -65,7 +65,7 @@ end
 
 Given /^I (?:am prompted to )?verify the SSH fingerprint for the (?:Git|SSH) (?:repository|server)$/ do
   try_for(60) do
-    Dogtail::Application.new('org.gnome.Terminal')
+    Dogtail::Application.new('kgx')
                         .child('Terminal', roleName: 'terminal')
                         .text['Are you sure you want to continue connecting']
   end
@@ -107,11 +107,11 @@ When /^I connect to an SSH server on the (Internet|LAN)$/ do |location|
 
   recovery_proc = proc do
     ensure_process_is_terminated('ssh')
-    step 'I run "clear" in GNOME Terminal'
+    step 'I run "clear" in Console'
   end
 
   retry_tor(recovery_proc) do
-    step "I run \"#{cmd}\" in GNOME Terminal"
+    step "I run \"#{cmd}\" in Console"
     step 'process "ssh" is running within 10 seconds'
     step 'I verify the SSH fingerprint for the SSH server'
   end
@@ -120,7 +120,7 @@ end
 Then /^I have successfully logged into the SSH server$/ do
   try_for(60) do
     @ssh_prompt_re.match(
-      Dogtail::Application.new('org.gnome.Terminal')
+      Dogtail::Application.new('kgx')
                           .child('Terminal', roleName: 'terminal')
                           .text
     )
