@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
 "POT-Creation-Date: 2025-06-10 12:51+0200\n"
-"PO-Revision-Date: 2025-07-12 15:56+0000\n"
-"Last-Translator: xin <xin@riseup.net>\n"
+"PO-Revision-Date: 2025-07-30 12:23+0000\n"
+"Last-Translator: Chre <tor@renaudineau.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -59,6 +59,9 @@ msgid ""
 "soon as they were discovered and reported to us, without waiting for the "
 "audit to be complete and public."
 msgstr ""
+"Pour mieux protéger les personnes utilisant Tails, nous avons traité les "
+"failles de sécurité dès qu'elles ont été découvertes et qu'elles nous sont "
+"parvenues, sans attendre que l'audit soit terminé et rendu public."
 
 #. type: Plain text
 msgid ""
@@ -72,7 +75,7 @@ msgstr ""
 
 #. type: Plain text
 msgid "The auditors concluded that:"
-msgstr ""
+msgstr "Les personnes ayant fait l'audit ont conclu que :"
 
 #. type: Plain text
 #, no-wrap
@@ -86,6 +89,21 @@ msgid ""
 "> developers have made significant progress, demonstrating expertise and a\n"
 "> serious commitment to security.\n"
 msgstr ""
+"> Le système d'exploitation Tails donne une forte impression de sécurité, "
+"réglant\n"
+"> la majorité des préoccupations liées à l'anonymat. Nous n'avons pas trouvé "
+"de\n"
+"> vulnérabilités d’exécution à distance de code, et tous les problèmes "
+"identifiés\n"
+"> exigeaient un compte d'utilisation à faible privilège `amnesia` compromis "
+"&ndash;\n"
+"> le compte d'utilisation par défaut de Tails.\n"
+">\n"
+"> En regardant [[l'audit précédent|audit_by_ROS]], nous pouvons remarquer "
+"que\n"
+"> les personnes développant Tails ont fait des progrès significatifs, "
+"démontrant une\n"
+"> expertise et un investissement sérieux sur la sécurité.\n"
 
 #. type: Title #
 #, no-wrap
@@ -95,6 +113,7 @@ msgstr "Constatations"
 #. type: Plain text
 msgid "The auditors did not identify any vulnerability in:"
 msgstr ""
+"Les personnes ayant fait l'audit n'ont pas identifié de vulnérabilités dans :"
 
 #. type: Bullet: '- '
 msgid ""
@@ -121,7 +140,7 @@ msgstr ""
 
 #. type: Plain text
 msgid "The auditors found 4 issues in:"
-msgstr ""
+msgstr "Les personnes ayant fait l'audit ont trouvé quatre problèmes dans :"
 
 #. type: Bullet: '- '
 msgid "The automatic upgrade mechanism"
@@ -150,7 +169,7 @@ msgstr ""
 #. type: Title #
 #, no-wrap
 msgid "Postmortem"
-msgstr "Postmortem"
+msgstr "Post-mortem"
 
 #. type: Plain text
 msgid ""
@@ -159,6 +178,11 @@ msgid ""
 "releases and *what* we could do to avoid similar vulnerabilities in the "
 "future.  This analysis led to technical, policy, and culture changes."
 msgstr ""
+"Notre équipe n'a pas seulement résolu ces problèmes. Nous avons créé un "
+"*post-mortem* pour comprendre *comment* nous avons introduit ces "
+"vulnérabilités dans nos versions et *comment* empêcher des vulnérabilités "
+"similaires dans le futur. Cette analyse a amené des changements techniques, "
+"culturels et politiques."
 
 #. type: Plain text
 msgid ""
@@ -166,6 +190,10 @@ msgid ""
 "again after future audits. It might also be useful for other projects to "
 "understand how we worked on these long-lasting improvements."
 msgstr ""
+"Cette analyse a été utile et nous allons définitivement considérer faire "
+"plus de post-mortems dans le futur. Il serait aussi intéressant pour "
+"d'autres projets de comprendre comment nous avons travaillé sur ces "
+"améliorations durables."
 
 #. type: Title ##
 #, no-wrap
@@ -174,7 +202,7 @@ msgstr "Améliorations techniques"
 
 #. type: Bullet: ' - '
 msgid "Postmortem of OTF-001"
-msgstr "Postmortem de OTF-001"
+msgstr "Post-mortem de OTF-001"
 
 #. type: Plain text
 #, no-wrap
@@ -183,6 +211,10 @@ msgid ""
 "   we will look for Perl code included in Tails\n"
 "   that modifies `@INC` in a dangerous way. ([[!tails_ticket 19627]])\n"
 msgstr ""
+"   Durant la préparation d'une mise à jour majeur de Tails se basant sur une "
+"nouvelle version de Debian, par exemple, Tails 7.0,\n"
+"   nous regarderons le code Perl inclus dans Tails\n"
+"   qui modifie `@INC` de façon dangereuse. ([[!tails_ticket 19627]])\n"
 
 #. type: Plain text
 #, no-wrap
@@ -200,10 +232,12 @@ msgstr ""
 #, no-wrap
 msgid "   for potentially vulnerable Mite code and fail the build if we find any.\n"
 msgstr ""
+"   la présence de potentielles vulnérabilités de code Mite et nous faisons "
+"échouer la construction si nous en trouvons un.\n"
 
 #. type: Bullet: ' - '
 msgid "Postmortem of OTF-002 ([[!tails_ticket 20719]] and [[!tails_mr 1911]])"
-msgstr "Postmortem de OTF-002 ([[!tails_ticket 20719]] et [[!tails_mr 1911]])"
+msgstr "Post-mortem de OTF-002 ([[!tails_ticket 20719]] et [[!tails_mr 1911]])"
 
 #. type: Plain text
 #, no-wrap
@@ -211,10 +245,13 @@ msgid ""
 "   Our CI now ensures that all our custom Python software runs in\n"
 "   isolated mode.\n"
 msgstr ""
+"   Notre intégration continue assure maintenant que notre logiciel Python "
+"personnalisé\n"
+"   s’exécute dans un mode isolé.\n"
 
 #. type: Bullet: ' - '
 msgid "Postmortem of OTF-003 ([[!tails_ticket 20711]] and [[!tails_mr 1979]])"
-msgstr "Postmortem de OTF-003 ([[!tails_ticket 20711]] et [[!tails_mr 1979]])"
+msgstr "Post-mortem de OTF-003 ([[!tails_ticket 20711]] et [[!tails_mr 1979]])"
 
 #. type: Plain text
 #, no-wrap
@@ -223,10 +260,15 @@ msgid ""
 "   which has safer defaults and demands explanations when diverging\n"
 "   from them.\n"
 msgstr ""
+"   Notre configuration `sudo` est maintenant générée depuis une description "
+"haut niveau,\n"
+"   qui a des valeurs par défauts plus sûres et demande des explications "
+"quand elle diverge\n"
+"   de ces dernières.\n"
 
 #. type: Bullet: ' - '
 msgid "Postmortem of OTF-004 ([[!tails_ticket 20817]] and [[!tails_mr 2040]])"
-msgstr "Postmortem de OTF-004 ([[!tails_ticket 20817]] et [[!tails_mr 2040]])"
+msgstr "Post-mortem de OTF-004 ([[!tails_ticket 20817]] et [[!tails_mr 2040]])"
 
 #. type: Plain text
 #, no-wrap
@@ -234,6 +276,9 @@ msgid ""
 "   Our CI now ensures that we don't write software that does unsafe `.desktop`\n"
 "   file lookup.\n"
 msgstr ""
+"   Notre intégration continue s'assure désormais que nous n'écrivions pas de "
+"logiciel effectuant\n"
+"   une recherche de fichiers `.desktop`non sécurisée.\n"
 
 #. type: Plain text
 #, no-wrap
@@ -241,26 +286,30 @@ msgid ""
 "   We will also periodically audit the configuration of `onion-grater`, our\n"
 "   firewall for the Tor control port. ([[!tails_ticket 20821]])\n"
 msgstr ""
+"   Nous auditerons aussi périodiquement la configuration de `onion-grater`,\n"
+"   notre pare-feu pour le port de contrôle Tor. ([[!tails_ticket 20821]])\n"
 
 #. type: Title ##
 #, no-wrap
 msgid "Policy and culture improvements"
-msgstr ""
+msgstr "Améliorations en matière de politique et de culture"
 
 #. type: Bullet: ' - '
 msgid ""
 "During the audit, we noticed that we lacked a policy about when we should "
 "make confidential security issues public."
 msgstr ""
+"Durant l'audit, nous avons constaté un manque de règle sur quand nous "
+"devrions rendre publics les problèmes de sécurité confidentiels."
 
 #. type: Plain text
 #, no-wrap
 msgid "   This was problematic because:\n"
-msgstr ""
+msgstr "   Ceci est problématique car :\n"
 
 #. type: Bullet: '   - '
 msgid "We have sometimes been too secretive."
-msgstr ""
+msgstr "Nous avons parfois fait preuve de trop de discrétion."
 
 #. type: Plain text
 #, no-wrap
@@ -269,12 +318,19 @@ msgid ""
 "     side.  But, without a disclosure process, we were not meeting our own\n"
 "     standards for transparency and openness to third-party reviews.\n"
 msgstr ""
+"     Comme mesure temporaire, cela protégeait les personnes utilisant Tails "
+"en jouant la carte de la\n"
+"     prudence.  Mais, sans processus de publication, nous n'atteignions pas "
+"nos propres\n"
+"     standards de transparence et d'ouverture aux revues par des tiers.\n"
 
 #. type: Bullet: '   - '
 msgid ""
 "Different team members were working with different assumptions, which caused "
 "communication issues."
 msgstr ""
+"Différents membres de l'équipe travaillaient avec des présomptions "
+"différentes, ce qui a causé des problèmes de communication."
 
 #. type: Plain text
 #, no-wrap
@@ -283,13 +339,18 @@ msgid ""
 "   policy|contribute/security_policy]], based on the policy of the Tor\n"
 "   Project's Network Team.\n"
 msgstr ""
+"   Afin d'avoir de meilleures lignes directrices concernant la "
+"confidentialité et la divulgation, nous avons\n"
+"   créé notre [[politique de réponse aux problèmes de sécurité|contribute/"
+"security_policy]], basée sur la\n"
+"   politique de l'équipe réseau du projet Tor.\n"
 
 #. type: Bullet: ' - '
 msgid ""
 "We will be more intentional about when it's worth the effort and risk to do "
 "large code refactoring."
 msgstr ""
-"Nous serons plus explicite sur le ratio risque/effort lié à un remaniement "
+"Nous ferons plus attention au ratio risque/effort lié à un remaniement "
 "profond du code."
 
 #. type: Plain text
@@ -299,10 +360,11 @@ msgid ""
 "   development process, this postmortem showed that large refactoring can\n"
 "   also introduce security vulnerabilities.\n"
 msgstr ""
-"   Si un remaniement du code est nécessaire pour un bon développement\n"
-"   logiciel, ce postmortem a démontré qu'un remaniement important peut aussi "
-"\n"
-"   entraîner des failles de sécurité.\n"
+"   Si un remaniement du code est nécessaire pour un processus de "
+"développement\n"
+"   logiciel sain, ce post-mortem a démontré qu'un remaniement important peut "
+"aussi \n"
+"   introduire des failles de sécurité.\n"
 
 #. type: Bullet: ' - '
 msgid ""
