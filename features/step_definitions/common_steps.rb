@@ -977,11 +977,11 @@ When /^I run "([^"]+)" in GNOME Terminal$/ do |command|
           launch_gnome_terminal
         end
   terminal = app.child('Terminal', roleName: 'terminal')
-  try_for(5) { !terminal.text['amnesia@amnesia:'].nil? }
+  try_for(5) { !terminal.text.strip.split("\n").last['amnesia@amnesia:'].nil? }
   terminal.grabFocus
   try_for(20) do
     @screen.paste(command, app: :terminal)
-    if terminal.text[command]
+    if terminal.text.strip.split("\n").last[command]
       # The command was pasted successfully
       true
     else
