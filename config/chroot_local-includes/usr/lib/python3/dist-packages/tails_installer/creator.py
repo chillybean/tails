@@ -195,7 +195,7 @@ class TailsInstallerCreator:
     @retry
     def _get_udisks_object_data(
         self, obj: UDisks.Object, force_partitions=False
-    ) -> Optional[dict]:
+    ) -> dict | None:
         """
         Returns a dictionary containing our own description of a udisk object
         """
@@ -853,7 +853,7 @@ class TailsInstallerCreator:
         return system_partition
 
     @retry
-    def partition_device(self) -> Optional[str]:
+    def partition_device(self) -> str | None:
         """
         returns a UDI representing the new partition
         """
@@ -1092,7 +1092,7 @@ class TailsInstallerCreator:
             cancellable=None,
         )
 
-    def get_free_bytes(self, device=None):
+    def get_free_bytes(self, device=None) -> int | None:
         """Return the number of available bytes on our device"""
         device = device and device or self.dest
         if device is None:
