@@ -1,7 +1,6 @@
 #!/usr/bin/python3 -I
 
 import atexit
-import os.path
 import re
 import sys
 from signal import SIGTERM, signal
@@ -13,7 +12,6 @@ from pyinotify import (
     IN_OPEN,
     Notifier,
     ProcessEvent,
-    ThreadedNotifier,
     WatchManager,
 )
 
