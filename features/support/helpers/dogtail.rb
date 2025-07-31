@@ -14,11 +14,11 @@ module Dogtail
   # left intact when doing new (proxied) method calls.  This way we
   # can support stuff like:
   #
-  #     app = Dogtail::Application.new('evince')
-  #     menu = app.menu('Menu')
-  #     menu.click()
-  #     menu.something_else()
-  #     menu.click()
+  #     app = Dogtail::Application.new('org.gnome.Evince')
+  #     button = app.child('File options', roleName: 'toggle button')
+  #     button.click()
+  #     button.something_else()
+  #     button.click()
   #
   # i.e. the object referenced by `menu` is never modified by method
   # calls and can be used as expected.

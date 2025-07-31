@@ -3,7 +3,7 @@ When /^I(?:| try to) open "([^"]+)" with Evince$/ do |filename|
 end
 
 Then /^I can print the current document to "([^"]+)"$/ do |output_file|
-  evince = Dogtail::Application.new('evince')
+  evince = Dogtail::Application.new('org.gnome.Evince')
   @screen.press('ctrl', 'p')
   print_dialog = evince.dialog('Print')
   print_dialog.child('Print to File', roleName: 'table cell').grabFocus
@@ -35,7 +35,7 @@ When /^I close Evince$/ do
 end
 
 Then /^Evince tells me it cannot open "([^"]+)"$/ do |filename|
-  assert(Dogtail::Application.new('evince')
+  assert(Dogtail::Application.new('org.gnome.Evince')
                              .child?(
                                "Unable to open document “file://#{filename}”.",
                                roleName: 'label'

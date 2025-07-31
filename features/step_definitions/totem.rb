@@ -56,7 +56,7 @@ end
 
 Then /^Totem tells me it is not allowed to open this file$/ do
   assert(
-    Dogtail::Application.new('totem')
+    Dogtail::Application.new('org.gnome.Totem')
                         .child?(
                           'You are not allowed to open this file.',
                           roleName: 'label'
