@@ -21,7 +21,7 @@ from pyinotify import (
 IGNORE_RE = "^/(tmp|sys|proc|dev|live/cow)"
 
 # Remove the following prefix (except the last /) from all paths
-IGNORE_PREFIX = "/lib/live/mount/rootfs/filesystem.squashfs/"
+IGNORE_PREFIX = "/usr/lib/live/mount/rootfs/filesystem.squashfs/"
 
 
 class ProfileProcessor(ProcessEvent):
