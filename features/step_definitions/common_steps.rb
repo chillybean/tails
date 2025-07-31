@@ -978,7 +978,6 @@ When /^I run "([^"]+)" in Console$/ do |command|
         end
   terminal = app.child('Terminal', roleName: 'terminal')
   try_for(5) { !terminal.text.strip.split("\n").last['amnesia@amnesia:'].nil? }
-  terminal.grabFocus
   try_for(20) do
     @screen.paste(command, app: :console)
     if terminal.text.strip.split("\n").last[command]
