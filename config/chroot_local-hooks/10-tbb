@@ -126,27 +126,27 @@ embed_extensions_in_omni_ja() {
         7z x -tzip "${tbb_install}/browser/omni.ja"
         # Any $ in the below in-line patch must be escaped!
         patch --no-backup-if-mismatch -p1 <<'EOF'
---- browser-omni.orig/modules/BrowserGlue.sys.mjs	2025-04-24 14:18:00.000000000 +0200
-+++ browser-omni/modules/BrowserGlue.sys.mjs	2025-05-02 14:23:37.178002586 +0200
-@@ -37,6 +37,7 @@
+--- browser-omni.orig/modules/BrowserGlue.sys.mjs	2025-07-24 20:16:00.000000000 +0200
++++ browser-omni/modules/BrowserGlue.sys.mjs	2025-07-31 12:42:13.271851005 +0200
+@@ -33,6 +33,7 @@
+     "resource:///modules/DownloadsViewableInternally.sys.mjs",
    DragDropFilter: "resource://gre/modules/DragDropFilter.sys.mjs",
-   E10SUtils: "resource://gre/modules/E10SUtils.sys.mjs",
    ExtensionsUI: "resource:///modules/ExtensionsUI.sys.mjs",
 +  ExtensionData: "resource://gre/modules/Extension.sys.mjs",
-   FeatureGate: "resource://featuregates/FeatureGate.sys.mjs",
-   FirefoxBridgeExtensionUtils:
-     "resource:///modules/FirefoxBridgeExtensionUtils.sys.mjs",
-@@ -132,6 +133,7 @@
+   // FilePickerCrashed is used by the `listeners` object below.
+   // eslint-disable-next-line mozilla/valid-lazy
+   FilePickerCrashed: "resource:///modules/FilePickerCrashed.sys.mjs",
+@@ -90,6 +91,7 @@
  XPCOMUtils.defineLazyServiceGetters(lazy, {
    BrowserHandler: ["@mozilla.org/browser/clh;1", "nsIBrowserHandler"],
    PushService: ["@mozilla.org/push/Service;1", "nsIPushService"],
 +  resProto: ["@mozilla.org/network/protocol;1?name=resource", "nsISubstitutingProtocolHandler"],
  });
  
- ChromeUtils.defineLazyGetter(
-@@ -1627,6 +1629,29 @@
+ if (AppConstants.ENABLE_WEBDRIVER) {
+@@ -628,6 +630,29 @@
  
-     lazy.BuiltInThemes.maybeInstallActiveBuiltInTheme();
+     listeners.init();
  
 +    (async () => {
 +      const UBLOCK_ORIGIN_ID = "uBlock0@raymondhill.net";
@@ -171,9 +171,9 @@ embed_extensions_in_omni_ja() {
 +      }
 +    })();
 +
-     if (AppConstants.MOZ_NORMANDY) {
-       lazy.Normandy.init();
-     }
+     lazy.BrowserUtils.callModulesFromCategory({
+       categoryName: "browser-before-ui-startup",
+     });
 EOF
         touch --date="@${tbb_timestamp}" modules/BrowserGlue.sys.mjs
         rm "${tbb_install}/browser/omni.ja"
