@@ -977,7 +977,7 @@ When /^I run "([^"]+)" in GNOME Terminal$/ do |command|
           launch_gnome_terminal
         end
   terminal = app.child('Terminal', roleName: 'terminal')
-  terminal.text['amnesia@amnesia:']
+  try_for(5) { !terminal.text['amnesia@amnesia:'].nil? }
   terminal.grabFocus
   try_for(20) do
     @screen.paste(command, app: :terminal)
