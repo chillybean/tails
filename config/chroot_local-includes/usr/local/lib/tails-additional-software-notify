@@ -11,10 +11,11 @@ import gi
 
 from gi.repository import GLib
 
-gi.require_version('Notify', '0.7')
-from gi.repository import Notify                                # NOQA: E402
+gi.require_version("Notify", "0.7")
+from gi.repository import Notify  # NOQA: E402
 
 _ = gettext.gettext
+
 
 def get_parser():
     p = argparse.ArgumentParser(usage=get_help())
@@ -51,19 +52,25 @@ class ASPNotifier:
         # We need to hold a reference to the notification until the callbacks
         # are called. That's why we use an instance variable.
         self.notification: Notify.Notification = Notify.Notification.new(
-                args.title, args.body, icon="package-x-generic")
+            args.title, args.body, icon="package-x-generic"
+        )
         if args.urgent:
             self.notification.set_urgency(Notify.Urgency.CRITICAL)
         if args.documentation_target:
-            self.notification.add_action("documentation", _("Documentation"),
-                                         self.cb_notification_clicked,
-                                         args.documentation_target)
+            self.notification.add_action(
+                "documentation",
+                _("Documentation"),
+                self.cb_notification_clicked,
+                args.documentation_target,
+            )
         if args.deny_label:
-            self.notification.add_action("deny", args.deny_label,
-                                         self.cb_notification_clicked, None)
+            self.notification.add_action(
+                "deny", args.deny_label, self.cb_notification_clicked, None
+            )
         if args.accept_label:
-            self.notification.add_action("accept", args.accept_label,
-                                         self.cb_notification_clicked, None)
+            self.notification.add_action(
+                "accept", args.accept_label, self.cb_notification_clicked, None
+            )
         self.notification.connect("closed", self.cb_notification_closed)
         self.notification.show()
         sys.stdout.write("id=%i" % self.notification.props.id)
