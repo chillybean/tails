@@ -4,7 +4,7 @@ set -eu
 set -x
 
 perl -ni \
-     -E 'chomp;
+    -E 'chomp;
          last if m{\Ausr/local/lib/kill-boot-profile\s}xms;
          say unless m{(?:
               [.]pyc\s+\d+\z
@@ -33,4 +33,4 @@ perl -ni \
            | \Avar/log/htpdate.log\s
            | \Avar/log/journal/.*/system.journal\s
          )}xms' \
-     "$1"
+    "$1"
