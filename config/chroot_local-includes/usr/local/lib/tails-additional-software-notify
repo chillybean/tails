@@ -36,7 +36,17 @@ class ASPNotifier:
 
         If there are no buttons, exit straight away with a meaningful code.
         """
-        Notify.init("org.boum.tails.AdditionalSoftware")
+        wait = args.accept_label or args.deny_label or args.documentation_target
+        if not wait:
+            # For some reason, providing an "invalid" app_name makes the notification
+            # behave better: we want the notification to survive our command, so that we
+            # can exit immediately.
+            # If we were to use our correct app_name, that would not work.
+            # Using any other string works fine. But this string is visible to the user,
+            # so we should still use something meaningful.
+            Notify.init("AdditionalSoftware")
+        else:
+            Notify.init("org.boum.tails.AdditionalSoftware")
 
         # We need to hold a reference to the notification until the callbacks
         # are called. That's why we use an instance variable.
@@ -57,7 +67,7 @@ class ASPNotifier:
         self.notification.connect("closed", self.cb_notification_closed)
         self.notification.show()
         sys.stdout.write("id=%i" % self.notification.props.id)
-        if not (accept_label or deny_label or documentation_target):
+        if not wait:
             sys.exit(0)
 
     def cb_notification_clicked(self, notification, action, user_data=None):
