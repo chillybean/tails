@@ -1,4 +1,4 @@
 #!/bin/sh
 UNIT="root-console-$(cat /proc/sys/kernel/random/uuid)"
 systemd-run --user --quiet --scope --unit="${UNIT}" \
-  -- pkexec /usr/bin/kgx "${@}"
+    -- pkexec /usr/bin/kgx "${@}"
