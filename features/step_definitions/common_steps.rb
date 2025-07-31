@@ -991,7 +991,7 @@ When /^I run "([^"]+)" in GNOME Terminal$/ do |command|
       app.child('Close', roleName: 'button').click
       app = launch_gnome_terminal
       terminal = app.child('Terminal', roleName: 'terminal')
-      terminal.text['amnesia@amnesia:']
+      try_for(5) { !terminal.text.strip.split("\n").last['amnesia@amnesia:'].nil? }
       false
     end
   end
