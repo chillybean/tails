@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
 "POT-Creation-Date: 2025-07-08 08:27+0000\n"
-"PO-Revision-Date: 2025-07-30 19:56+0000\n"
+"PO-Revision-Date: 2025-07-31 13:56+0000\n"
 "Last-Translator: Chre <tor@renaudineau.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fr\n"
@@ -439,9 +439,8 @@ msgstr ""
 "volumes, correspondants aux 2 partitions sur la clé USB."
 
 #. type: Bullet: '   - '
-#, fuzzy
 msgid "1 volume with a **TAILS** label and **FAT** content."
-msgstr "Un volume avec l'étiquette **TAILS** et un contenu **FAT**."
+msgstr "1 volume avec l'étiquette **TAILS** et un contenu **FAT**."
 
 #. type: Plain text
 #, no-wrap
@@ -450,7 +449,7 @@ msgstr "     Ce volume correspond à la partition système de votre Tails.\n"
 
 #. type: Bullet: '   - '
 msgid "1 volume with a **TailsData** label and **LUKS** content."
-msgstr ""
+msgstr "1 volume avec une étiquette **TailsData** et un contenu **LUKS**."
 
 #. type: Plain text
 #, no-wrap
@@ -534,6 +533,11 @@ msgid ""
 "   that decryption is impossible, making all your data completely\n"
 "   unrecoverable.</p>\n"
 msgstr ""
+"   <p>Si le déverrouillage échoue à cette étape, votre stockage persistant "
+"et si endommagé\n"
+"   que le déchiffrement est impossible, rendant toutes vos données "
+"complètement\n"
+"   irrécupérables.</p>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -545,69 +549,82 @@ msgid ""
 "In the right pane, click on the new volume that appears below the **LUKS** "
 "volume."
 msgstr ""
+"Dans le panneau de droite, cliquez sur le nouveau volume qui apparaît en "
+"dessous du volume **LUKS**."
 
 #. type: Plain text
 #, no-wrap
 msgid "   Verify that the content of the new volume is of type **Ext4**.\n"
-msgstr ""
+msgstr "   Vérifiez que le contenu du nouveau volume est du type **Ext4**.\n"
 
 #. type: Plain text
 #, no-wrap
 msgid "   This volume corresponds to the decrypted version of your Persistent Storage.\n"
 msgstr ""
+"   Ce volume correspond à la version déchiffrée de votre stockage persistant."
+"\n"
 
 #. type: Bullet: '1. '
 msgid ""
 "Verify that the size of your decrypted Persistent Storage is smaller than "
 "the available free space in the external hard disk."
 msgstr ""
+"Vérifiez que la taille de votre stockage persistant déchiffré est plus "
+"petite que l'espace libre disponible sur le disque dur externe."
 
 #. type: Bullet: '1. '
 msgid "Take note of the device name of your Persistent Storage."
-msgstr ""
+msgstr "Notez le nom de périphérique de votre stockage persistant."
 
 #. type: Plain text
 #, no-wrap
 msgid "   The device name is composed of `/dev/mapper/luks`, followed by letters and numbers.\n"
 msgstr ""
+"   Le nom de périphérique est composé de `/dev/mapper/luks`, suivi par des "
+"lettres et des chiffres.\n"
 
 #. type: Plain text
 #, no-wrap
 msgid "<h3 id=\"create\">Creating the partition image</h3>\n"
-msgstr ""
+msgstr "<h3 id=\"create\">Création de l'image de partition</h3>\n"
 
 #. type: Bullet: '1. '
 msgid ""
 "Choose **[[!img lib/system-run.png alt=\"Additional partition options\" "
 "class=symbolic link=\"no\"]]&nbsp;▸ Create Partition Image**."
 msgstr ""
+"Choisissez **[[!img lib/system-run.png alt=\"Options de partition "
+"supplémentaires\" class=symbolic link=\"no\"]]&nbsp;▸ Créer une image de la "
+"partition**."
 
 #. type: Bullet: '1. '
 msgid "In the **Create Disk Image** dialog:"
-msgstr ""
+msgstr "Dans la fenêtre **Créer une image disque** :"
 
 #. type: Bullet: '   - '
 msgid "In the **Name** field, specify *persistent-storage.img*."
-msgstr ""
+msgstr "Dans le champ **Nom**, indiquez *stockage-persistant.img*."
 
 #. type: Bullet: '   - '
 msgid ""
 "In the **Save in Folder** menu, choose the external disk to which you want "
 "to save the partition image."
 msgstr ""
+"Dans le menu **Enregistrer dans le dossier**, choisissez le disque externe "
+"dans lequel vous voulez enregistrer l'image de partition."
 
 #. type: Plain text
 #, no-wrap
 msgid "   Click the **Start Creating** button.\n"
-msgstr ""
+msgstr "   Cliquez sur le bouton **Démarrer la création**.\n"
 
 #. type: Bullet: '1. '
 msgid "After the creation of the partition image finishes:"
-msgstr ""
+msgstr "Une fois la création de l'image de partition terminée :"
 
 #. type: Bullet: '   - '
 msgid "If the creation succeeded, shutdown Tails."
-msgstr ""
+msgstr "Si la création a réussi, éteignez Tails."
 
 #. type: Plain text
 #, no-wrap
@@ -615,6 +632,9 @@ msgid ""
 "     You can now safely start [[recovering data from the Persistent\n"
 "     Storage|fsck#welcome]].\n"
 msgstr ""
+"     Vous pouvez maintenant en toute sécurité démarrer la [[récupération de "
+"données depuis le stockage\n"
+"     persistant|fsck#welcome]].\n"
 
 #. type: Bullet: '   - '
 msgid ""
@@ -622,6 +642,9 @@ msgid ""
 "a partition image using `ddrescue` on the command line|fsck#ddrescue]] "
 "instead."
 msgstr ""
+"Si la création a échoué, essayez la deuxième technique décrite ci-dessous "
+"pour à la place [[créer une image de partition en utilisant `ddrescue` en "
+"ligne de commande|fsck#ddrescue]]."
 
 #. type: Plain text
 #, no-wrap
@@ -636,6 +659,9 @@ msgid ""
 "this second technique using `ddrescue`, which can be more resilient to "
 "hardware failures."
 msgstr ""
+"Si la création d'une image de partition en utilisant l'utilitaire *Disques* "
+"échoue, vous pouvez essayer cette deuxième technique en utilisant `ddrescue`"
+", qui peut être plus résistant aux pannes matérielles."
 
 #. type: Plain text
 msgid ""
@@ -644,23 +670,32 @@ msgid ""
 "After that, you can run `ddrescue` again to try to copy the parts that "
 "failed the first time."
 msgstr ""
+"L'utilitaire `ddrescue` tente d'abord de copier les parties du stockage "
+"persistant qui ne sont pas défaillantes et ignore celles qui le sont. "
+"Ensuite, vous pouvez relancer `ddrescue` pour essayer de copier les parties "
+"qui n'ont pas pu être copiées la première fois."
 
 #. type: Bullet: '1. '
 msgid ""
 "In the *Files* browser, navigate to the folder of the external hard where "
 "you want to save the partition image of your Persistent Storage."
 msgstr ""
+"Dans le navigateur de *Fichiers*, naviguez jusqu'au dossier du disque dur "
+"externe où vous voulez sauvegarder l'image de partition de votre stockage "
+"persistant."
 
 #. type: Bullet: '1. '
 msgid ""
 "Right-click in the empty space of the right pane and choose **Open in "
 "Terminal** in the shortcut menu."
 msgstr ""
+"Faites un clic droit sur un espace vide du panneau de droite et choisissez **"
+"Ouvrir dans un terminal** dans le menu de raccourci."
 
 #. type: Plain text
 #, no-wrap
 msgid "   Doing so opens a terminal that is configured to operate in this folder.\n"
-msgstr ""
+msgstr "   Cela ouvre un terminal configuré pour fonctionner dans ce dossier.\n"
 
 #. type: Bullet: '1. '
 msgid ""
@@ -669,16 +704,22 @@ msgid ""
 "name found when [[identifying your *Persistent Storage* in the *Disks* "
 "utility|fsck#identify]]."
 msgstr ""
+"Dans le terminal, exécutez la commande suivante. Remplacez <span class"
+"=\"command-placeholder\">/dev/mapper/luks-xyz</span> par le nom de "
+"périphérique trouvé lors de l'[[identification de votre *stockage persistant*"
+" dans l'utilitaire *Disques*|fsck#identify]]."
 
 #. type: Plain text
 #, no-wrap
 msgid "   <p class=\"command-template\">ddrescue <span class=\"command-placeholder\">/dev/mapper/luks-xyz</span> persistent-storage.img ddrescue.log</p>\n"
-msgstr "   <p class=\"command-template\">ddrescue <span class=\"command-placeholder\">/dev/mapper/luks-xyz</span> persistent-storage.img ddrescue.log</p>\n"
+msgstr ""
+"   <p class=\"command-template\">ddrescue <span class=\"command-placeholder\""
+">/dev/mapper/luks-xyz</span> stockage-persistant.img ddrescue.log</p>\n"
 
 #. type: Plain text
 #, no-wrap
 msgid "   The output of `ddrescue` looks like this:\n"
-msgstr ""
+msgstr "   La sortie de `ddrescue` ressemble à ceci :\n"
 
 #. type: Plain text
 #, no-wrap
@@ -694,6 +735,23 @@ msgid ""
 "                                     time since last successful read:          0s\n"
 "       Copying non-tried blocks... Pass 1 (forwards)\n"
 msgstr ""
+"       GNU ddrescue 1.27\n"
+"       Press Ctrl-C to interrupt\n"
+"            ipos:  749404 kB, non-trimmed:        0 B,  current rate:  34996 "
+"kB/s\n"
+"            ipos:    1446 MB, non-trimmed:        0 B,  current rate:  24772 "
+"kB/s\n"
+"            opos:    1446 MB, non-scraped:        0 B,  average rate:  33629 "
+"kB/s\n"
+"       non-tried:    9290 MB,  bad-sector:        0 B,    error rate:       "
+"0 B/s\n"
+"         rescued:    1446 MB,   bad areas:        0,        run time:"
+"         43s\n"
+"       pct rescued:   13.46%, read errors:        0,  remaining time:      "
+"1m 31s\n"
+"                                     time since last successful read:"
+"          0s\n"
+"       Copying non-tried blocks... Pass 1 (forwards)\n"
 
 #. type: Plain text
 #, no-wrap
@@ -701,16 +759,22 @@ msgid ""
 "   The section about **bad areas** refers to errors reading the data of your\n"
 "   Persistent Storage, most likely because of hardware failures.\n"
 msgstr ""
+"   La section à propos des **bad areas** (zones défectueuses) fait référence "
+"à des erreurs de lecture des données de votre\n"
+"   stockage persistant, probablement dues à des défaillances matérielles.\n"
 
 #. type: Bullet: '1. '
 msgid "After `ddrescue` finishes:"
-msgstr ""
+msgstr "Une fois que `ddrescue` a terminé :"
 
 #. type: Bullet: '   - '
 msgid ""
 "If bad areas were reported, try leaving your USB stick to rest for some "
 "minutes and executing the same `ddrescue` command again to copy more data."
 msgstr ""
+"Si des zones défectueuses sont signalées, essayez de débrancher votre clé "
+"USB quelques minutes pour la laisser se reposer et exécutez la même commande "
+"`ddrescue`une nouvelle fois pour copier plus de données."
 
 #. type: Plain text
 #, no-wrap
@@ -718,6 +782,10 @@ msgid ""
 "     We recommend that you replace your USB stick and [[copy the partition image\n"
 "     to a new USB stick|fsck#copy]] after you execute `ddrescue` several times.\n"
 msgstr ""
+"     Nous vous recommandons de remplacer votre clé USB et de [[copier "
+"l'image de partition\n"
+"     sur une nouvelle clé USB|fsck#copy]] après avoir exécuté `ddrescue` "
+"plusieurs fois.\n"
 
 #. type: Bullet: '   - '
 msgid ""
@@ -725,10 +793,14 @@ msgid ""
 "several executions of the `ddrescue` command, it means that all the data "
 "that could be rescued was copied to the partition image."
 msgstr ""
+"Si aucune zone défectueuse n'est signalée ou si les mêmes zones défectueuses "
+"sont signalées après plusieurs exécutions de la commande `ddrescue`, cela "
+"signifie que toutes les données pouvant être récupérées ont été copiées dans "
+"l'image de partition."
 
 #. type: Bullet: '1. '
 msgid "Shut down Tails."
-msgstr ""
+msgstr "Éteignez Tails."
 
 #. type: Plain text
 #, no-wrap
@@ -736,11 +808,16 @@ msgid ""
 "   You can now safely start [[recovering data from the Persistent\n"
 "   Storage|fsck#welcome]].\n"
 msgstr ""
+"   Vous pouvez maintenant en toute sécurité démarrer la [[récupération de "
+"données depuis le stockage\n"
+"   persistant|fsck#welcome]].\n"
 
 #. type: Plain text
 #, no-wrap
 msgid "<h1 id=\"recover\">Recovering data from the Persistent Storage</h1>\n"
 msgstr ""
+"<h1 id=\"recover\">Récupération de données depuis le stockage persistant</h1>"
+"\n"
 
 #. type: Plain text
 msgid ""
@@ -760,6 +837,8 @@ msgstr ""
 #. type: Bullet: '1. '
 msgid "[[Repairing the file system from the Welcome Screen|fsck#welcome]]"
 msgstr ""
+"[[Réparation du système de fichiers depuis l'Écran de "
+"bienvenue|fsck#welcome]]"
 
 #. type: Plain text
 #, no-wrap
@@ -767,10 +846,14 @@ msgid ""
 "   If the hardware of your USB stick is not failing, repairing the file system\n"
 "   from the Welcome Screen is likely the easiest technique.\n"
 msgstr ""
+"   Si le matériel de votre clé USB n'est pas défaillant, la réparation du "
+"système de fichiers\n"
+"   depuis l'Écran de bienvenue est probablement la technique la plus simple."
+"\n"
 
 #. type: Bullet: '1. '
 msgid "[[Copying the partition image to a new USB stick|fsck#copy]]"
-msgstr ""
+msgstr "[[Copie de l'image de partition sur une nouvelle clé USB|fsck#copy]]"
 
 #. type: Plain text
 #, no-wrap
@@ -779,10 +862,14 @@ msgid ""
 "   repair the file system of your Persistent Storage after copying the\n"
 "   partition image to a new USB stick.\n"
 msgstr ""
+"   Si le matériel de votre clé USB est défaillant, vous devriez encore "
+"pouvoir\n"
+"   réparer le système de fichiers de votre stockage persistant en copiant\n"
+"   l'image de partition sur une nouvelle clé USB.\n"
 
 #. type: Bullet: '1. '
 msgid "[[Analyzing the partition image using *Autopsy*|fsck#autopsy]]"
-msgstr ""
+msgstr "[[Analyser l'image de partition en utilisant *Autopsy*|fsck#autopsy]]"
 
 #. type: Plain text
 #, no-wrap
@@ -790,11 +877,17 @@ msgid ""
 "   [*Autopsy*](https://www.autopsy.com/) is an advanced digital forensics tool\n"
 "   that allows recovering files, even from broken file systems.\n"
 msgstr ""
+"   [*Autopsy*](https://www.autopsy.com/) est un outil avancé "
+"d'investigations numériques\n"
+"   qui permet de récupérer des fichiers, même depuis un système de fichiers "
+"endommagé.\n"
 
 #. type: Plain text
 #, no-wrap
 msgid "<h2 id=\"welcome\">Repairing the file system from the Welcome Screen</h2>\n"
 msgstr ""
+"<h2 id=\"welcome\">Réparation du système de fichiers depuis l'Écran de "
+"bienvenue</h2>\n"
 
 #. type: Plain text
 msgid ""
@@ -804,11 +897,12 @@ msgstr ""
 
 #. type: Bullet: '1. '
 msgid "Start on the Tails USB stick that has file system errors."
-msgstr ""
+msgstr "Démarrez sur la clé USB Tails qui a des erreurs de système de fichiers."
 
 #. type: Bullet: '1. '
 msgid "In the Welcome Screen, try to unlock the Persistent Storage."
 msgstr ""
+"Dans l'Écran de bienvenue, essayez de déverrouiller le stockage persistant."
 
 #. type: Bullet: '1. '
 msgid ""
