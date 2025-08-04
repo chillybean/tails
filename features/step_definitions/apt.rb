@@ -140,12 +140,7 @@ end
 When /^I start Synaptic$/ do
   step 'I start "Synaptic Package Manager" via GNOME Activities Overview'
   deal_with_polkit_prompt(@sudo_password)
-  @synaptic = Dogtail::Application.new('synaptic', user: 'root')
-  # The seemingly spurious space is needed because that is how this
-  # frame is named...
-  @synaptic.child(
-    'Synaptic Package Manager ', roleName: 'frame', recursive: false
-  )
+  @screen.wait('SynapticReload.png', 30)
 end
 
 When /^I update APT using Synaptic$/ do
@@ -154,14 +149,15 @@ When /^I update APT using Synaptic$/ do
     step 'I start Synaptic'
   end
   retry_tor(recovery_proc) do
-    @synaptic.button('Reload').click
+    @screen.click('SynapticReload.png')
     sleep 10 # It might take some time before APT starts downloading
     try_for(15 * 60, msg: 'Took too much time to download the APT data') do
       !$vm.process_running?('/usr/lib/apt/methods/tor+http')
     end
+    synaptic = Dogtail::Application.new('synaptic', user: 'root')
     assert_raise(Dogtail::Failure) do
-      @synaptic.child(roleName: 'dialog', recursive: false)
-               .child('Error', roleName: 'icon', retry: false)
+      synaptic.child(roleName: 'dialog', recursive: false)
+              .child('Error', roleName: 'icon', retry: false)
     end
     unless $vm.process_running?('synaptic')
       raise 'Synaptic process vanished, did it segfault again?'
@@ -170,6 +166,9 @@ When /^I update APT using Synaptic$/ do
 end
 
 Then /^I install "(.+)" using Synaptic$/ do |package_name|
+  assert_equal('cowsay', package_name,
+               "We moved to images, so we don't support arbitrary package names." \
+               ' See SynapticPackageName.png')
   recovery_proc = proc do
     ensure_process_is_terminated('synaptic')
     # We can't use execute_successfully here: the package might not be
@@ -178,30 +177,21 @@ Then /^I install "(.+)" using Synaptic$/ do |package_name|
     step 'I start Synaptic'
   end
   retry_tor(recovery_proc) do
-    @synaptic.button('Search').click
-    find_dialog = @synaptic.child('Find', roleName: 'dialog', recursive: false)
-    find_dialog.child(roleName: 'text').grabFocus
+    @screen.click('SynapticSearch.png')
+    @screen.wait('SynapticDialogFind.png')
     @screen.type(package_name)
-    find_dialog.button('Search').click
-    package_list = @synaptic.child('Installed Version',
-                                   roleName: 'table column header').parent
-    # We need to wait for the synaptic UI to get responsive after the
-    # search has completed.
-    package_list.child(package_name, roleName: 'table cell').click
+    @screen.type(['Return'])
+    @screen.wait('SynapticPackageName.png', 30) # hardcoded!
+    @screen.click('SynapticPackageName.png')
+    @screen.type(['Return'])
     # Now we have marked the package for installation and we have to
     # wait for the Apply button to become available
-    try_for(10) { @synaptic.button('Apply').sensitive? }
-    @synaptic.button('Apply').click
-    apply_prompt = nil
-    try_for(60) do
-      apply_prompt = @synaptic.child('Summary', roleName: 'dialog', recursive: true)
-      true
-    end
-    apply_prompt.button('Apply').click
-    try_for(4 * 60) do
-      @synaptic.child('Changes applied', roleName: 'frame', recursive: false)
-      true
-    end
+    @screen.wait('SynapticListApply.png', 20)
+    @screen.click('SynapticListApply.png')
+    @screen.wait('SynapticDialogApply.png', 10)
+    @screen.click('SynapticDialogApply.png')
+    @screen.wait('SynapticClose.png', 4 * 60)
+    @screen.click('SynapticClose.png')
     ensure_process_is_terminated('synaptic')
   end
 end
