@@ -179,7 +179,7 @@ Then /^I install "(.+)" using Synaptic$/ do |package_name|
   end
   retry_tor(recovery_proc) do
     @synaptic.button('Search').click
-    find_dialog = @synaptic.dialog('Find')
+    find_dialog = @synaptic.child('Find', roleName: 'dialog', recursive: false)
     find_dialog.child(roleName: 'text').grabFocus
     @screen.type(package_name)
     find_dialog.button('Search').click
@@ -194,7 +194,7 @@ Then /^I install "(.+)" using Synaptic$/ do |package_name|
     @synaptic.button('Apply').click
     apply_prompt = nil
     try_for(60) do
-      apply_prompt = @synaptic.dialog('Summary')
+      apply_prompt = @synaptic.child('Summary', roleName: 'dialog', recursive: true)
       true
     end
     apply_prompt.button('Apply').click
