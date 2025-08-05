@@ -123,7 +123,7 @@ When /^I create my XMPP account$/ do
   @screen.wait('PidginAddAccountWindow.png', 20)
   @screen.wait('PidginAddAccountProtocolLabel.png', 20)
   click_mid_right_edge('PidginAddAccountProtocolLabel.png')
-  @screen.click('PidginAddAccountProtocolXMPP.png')
+  @screen.wait('PidginAddAccountProtocolXMPP.png', 20).click
   # We first wait for some field that is shown for XMPP but not the
   # default (IRC) since we otherwise may decide where we click before
   # the GUI has updated after switching protocol.
