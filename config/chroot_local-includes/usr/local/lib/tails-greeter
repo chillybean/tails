@@ -8,11 +8,9 @@ fi
 
 if grep -qw "debug=greeter" /proc/cmdline && [ -z "${DEBUG_GREETER:-}" ]; then
     # Export DEBUG_GREETER=1 so that when this file is executed again
-    # from the gnome-terminal, we actually start the greeter and not
-    # another terminal.
+    # from Console we actually start the greeter and not another
+    # instance of Console.
     export DEBUG_GREETER=1
-    /usr/libexec/gnome-terminal-server &
-    sleep 1
 
     text="To start the greeter, run:
 
@@ -22,12 +20,12 @@ To start the greeter with GtkInspector, run:
 
   GTK_DEBUG=interactive /usr/local/lib/tails-greeter
 
-To spawn more terminals, run:
+To spawn more consoles, run:
 
-  gnome-terminal -- /bin/bash
+  kgx -- /bin/bash
 "
 
-    gnome-terminal -- /bin/bash -c "echo '${text}'; /bin/bash"
+    /usr/bin/kgx -- /bin/bash -c "echo '${text}'; /bin/bash"
 else
     cd /usr/share/tails/greeter/
     /usr/share/tails/greeter/set-cursor.py watch

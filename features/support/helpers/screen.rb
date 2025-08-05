@@ -342,7 +342,7 @@ class Screen
     case app
     when nil
       press('ctrl', 'v')
-    when :terminal
+    when :console
       sleep 0.5
       press('ctrl', 'shift', 'v')
     when :gtk_file_chooser

@@ -144,12 +144,12 @@ When /^I start Tails Installer$/ do
   @installer_log_path = '/tmp/tails-installer.log'
   command = '/usr/local/bin/tails-installer --verbose  2>&1 ' \
             "| tee #{@installer_log_path} | logger -t tails-installer"
-  step "I run \"#{command}\" in GNOME Terminal"
+  step "I run \"#{command}\" in Console"
   @installer = Dogtail::Application.new('tails-installer')
   @installer.child('Tails Cloner', roleName: 'frame')
   # Sometimes Dogtail will find the Installer and click its window
   # before it is shown (searchShowingOnly is not perfect) which
-  # generally means clicking somewhere on the Terminal => the click is
+  # generally means clicking somewhere in Console => the click is
   # lost *and* the installer does not go to the foreground. So let's
   # wait a bit extra.
   sleep 3
