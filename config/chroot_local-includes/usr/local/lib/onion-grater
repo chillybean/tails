@@ -183,6 +183,7 @@
 #    circuit n
 
 import argparse
+import contextlib
 import fcntl
 import glob
 import ipaddress
@@ -197,11 +198,9 @@ import time
 
 import psutil
 import stem
-import stem.control
 import stem.connection
+import stem.control
 import yaml
-
-from typing import Optional
 
 DEFAULT_LISTEN_ADDRESS = "localhost"
 DEFAULT_LISTEN_PORT = 951
@@ -244,7 +243,10 @@ def apparmor_profile_of_pid(pid):
     enabled_aa_profile_re = r"^(.+) \((?:complain|enforce)\)$"
     with open(f"/proc/{pid}/attr/current", "rb") as fh:
         aa_profile_status = str(fh.read().strip(), "UTF-8")
-        apparmor_profile_match = re.match(enabled_aa_profile_re, aa_profile_status)
+        apparmor_profile_match = re.match(
+            enabled_aa_profile_re,
+            aa_profile_status,
+        )
         if apparmor_profile_match:
             return apparmor_profile_match.group(1)
         return psutil.Process(pid).exe()
@@ -368,7 +370,10 @@ class FilteredControlPortProxySession:
             match = re.match(r["pattern"] + "$", line)
             if match:
                 return (
-                    r["replacement"].format(*match.groups(), **builtin_replacers)
+                    r["replacement"].format(
+                        *match.groups(),
+                        **builtin_replacers,
+                    )
                     + terminator
                 )
         raise NoRewriteMatch()
@@ -410,7 +415,7 @@ class FilteredControlPortProxySession:
         # We de-duplicate the circuit IDs because get_circuit(id) will
         # return a new object each call.
         my_circuit_ids = {s.circ_id for s in self.my_streams() if s.circ_id is not None}
-        my_circuits = list()
+        my_circuits = []
         for i in my_circuit_ids:
             try:
                 my_circuits.append(self.controller.get_circuit(i))
@@ -453,7 +458,7 @@ class FilteredControlPortProxySession:
                     # info about this circuit, but we strip all
                     # information to prevent potential leaks.
                     event = stem.response.events.CircuitEvent.from_str(
-                        f"650 CIRC {event.id} {stem.CircStatus.CLOSED}\r\n"
+                        f"650 CIRC {event.id} {stem.CircStatus.CLOSED}\r\n",
                     )
                     self.debug_log_rewrite(
                         "received event", old_event_raw_content, event.raw_content()
@@ -469,7 +474,9 @@ class FilteredControlPortProxySession:
         if event_rewriter:
             new_raw_event_content = event_rewriter(raw_event_content)
             self.debug_log_rewrite(
-                "received event", raw_event_content, new_raw_event_content
+                "received event",
+                raw_event_content,
+                new_raw_event_content,
             )
             raw_event_content = new_raw_event_content
             if raw_event_content.strip() == "":
@@ -503,12 +510,12 @@ class FilteredControlPortProxySession:
                 if "response" in rule:
                     replacers = rule["response"]
 
-                    def _event_rewriter(line):
+                    def _event_rewriter(line, replacers=replacers):
                         return self.rewrite_matched_line(replacers, line)
 
                     event_rewriter = _event_rewriter
 
-                def _event_cb(event):
+                def _event_cb(event, event_rewriter=event_rewriter):
                     self.event_cb(event, event_rewriter=event_rewriter)
 
                 self.subscribed_event_listeners.append((_event_cb, event))
@@ -516,7 +523,8 @@ class FilteredControlPortProxySession:
                     self.debug_log(f"subscribed to event '{event}'")
                 try:
                     self.controller.add_event_listener(
-                        _event_cb, getattr(stem.control.EventType, event)
+                        _event_cb,
+                        getattr(stem.control.EventType, event),
                     )
                 except (stem.SocketClosed, stem.SocketError):
                     # See comment above for failed unsubscriptions.
@@ -563,10 +571,11 @@ class FilteredControlPortProxySession:
                 break
             line = str(binary_line, "ascii")
             if line.isspace():
-                self.debug_log("ignoring received empty (or whitespace-only) " + "line")
+                self.debug_log("ignoring received empty (or whitespace-only) line")
                 continue
             match = re.match(
-                r"(?P<cmd>\S+)(?P<cmd_arg_sep>\s*)(?P<arg_str>[^\r\n]*)\r?\n$", line
+                r"(?P<cmd>\S+)(?P<cmd_arg_sep>\s*)(?P<arg_str>[^\r\n]*)\r?\n$",
+                line,
             )
             if not match:
                 self.debug_log(
@@ -586,7 +595,9 @@ class FilteredControlPortProxySession:
                 # client that there is no authentication.
                 self.respond("250-PROTOCOLINFO 1")
                 self.respond("250-AUTH METHODS=NULL")
-                self.respond(f'250-VERSION Tor="{self.controller.get_version()}"')
+                self.respond(
+                    f'250-VERSION Tor="{self.controller.get_version()}"',
+                )
                 self.respond("250 OK")
 
             elif cmd == "AUTHENTICATE":
@@ -620,14 +631,16 @@ class FilteredControlPortProxySession:
 
                     if "response" in rule:
 
-                        def _response_rewriter(lines):
+                        def _response_rewriter(lines, rule=rule):
                             return self.rewrite_matched_lines(rule["response"], lines)
 
                         response_rewriter = _response_rewriter
 
                     if "replacement" in rule:
 
-                        def _args_rewriter(line):
+                        def _args_rewriter(
+                            line, cmd=cmd, rule=rule, cmd_arg_sep=cmd_arg_sep
+                        ):
                             # We also want to match the command in `line`
                             # and add it back to the replacement string.
                             # We make sure to keep the exact white spaces
@@ -649,7 +662,9 @@ class FilteredControlPortProxySession:
                     ):
                         old_response_rewriter = response_rewriter
 
-                        def _response_rewriter(ignored):
+                        def _response_rewriter(
+                            ignored, old_response_rewriter=old_response_rewriter
+                        ):
                             new_lines = ""
                             circuits = self.my_circuits()
                             # The _raw_content is the last raw CIRC
@@ -659,7 +674,7 @@ class FilteredControlPortProxySession:
                             # format. They are already \r\n-terminated.
                             for c in circuits:
                                 new_lines += str(c._raw_content, "ascii").removeprefix(  # noqa: SLF001
-                                    "650 CIRC "
+                                    "650 CIRC ",
                                 )
                             # Multi-line responses are terminated with
                             # a dot (.), but an empty answer is
@@ -755,16 +770,19 @@ class FilteredControlPortProxyHandler(socketserver.StreamRequestHandler):
             + "|".join([self.case_insensitive_regex(key) for key in confs])
             + ")"
         }
-        setconf_reset_part = "\s*|\s*".join(
+        setconf_reset_part = r"\s*|\s*".join(
             [
                 self.case_insensitive_regex(key)
                 for key in confs
                 if isinstance(confs[key], list) and "" in confs[key]
-            ]
+            ],
         )
-        setconf_assignment_part = "\s*|\s*".join(
+        setconf_assignment_part = r"\s*|\s*".join(
             [
-                "{}=({})".format(self.case_insensitive_regex(key), "|".join(confs[key]))
+                "{}=({})".format(
+                    self.case_insensitive_regex(key),
+                    "|".join(confs[key]),
+                )
                 for key in confs
                 if isinstance(confs[key], list) and len(confs[key]) > 0
             ]
@@ -774,7 +792,7 @@ class FilteredControlPortProxyHandler(socketserver.StreamRequestHandler):
             if part and part != "":
                 setconf_parts.append(part)
         combined_setconf_rule = {
-            "pattern": "({})+".format("\s*|\s*".join(setconf_parts))
+            "pattern": "({})+".format(r"\s*|\s*".join(setconf_parts)),
         }
         for cmd, rule in [
             ("GETCONF", combined_getconf_rule),
@@ -817,7 +835,12 @@ class FilteredControlPortProxyHandler(socketserver.StreamRequestHandler):
         self.add_allowed_confs_commands(confs)
         events = matched_filter.get("events", {}) or {}
         self.add_allowed_events(events)
-        self.tor_browser_mode = bool(matched_filter.get("tor-browser-mode", False))
+        self.tor_browser_mode = bool(
+            matched_filter.get(
+                "tor-browser-mode",
+                False,
+            )
+        )
 
     def connect_to_real_control_port(self):
         controller = None
@@ -847,7 +870,8 @@ class FilteredControlPortProxyHandler(socketserver.StreamRequestHandler):
             # It remains to see if Controller.from_socket() is also
             # affected.
             controller = stem.connection.connect(
-                control_port=("127.0.0.1", "9052"), control_socket=None
+                control_port=("127.0.0.1", "9052"),
+                control_socket=None,
             )
             tries += 1
         stem.connection.authenticate_cookie(
@@ -889,15 +913,16 @@ class FilteredControlPortProxyHandler(socketserver.StreamRequestHandler):
             )
         else:
             self.client_desc = "{1}:{2} (filter: {0})".format(
-                self.filter_name, *self.client_address
+                self.filter_name,
+                *self.client_address,
             )
         remote_connection = not pid_based_connection and ipaddress.ip_address(
-            client_host
+            client_host,
         ) not in ipaddress.ip_network(LOCAL_VETH_NETWORK)
         if self.tor_browser_mode and remote_connection:
             self.debug_log(
                 f"filter '{self.filter_name}' has `tor-browser-mode` set "
-                "and we are remote so the option was disabled"
+                "and we are remote so the option was disabled",
             )
             self.tor_browser_mode = False
 
@@ -970,23 +995,23 @@ def main():
         "--listen-interface",
         type=str,
         metavar="INTERFACE",
-        help="specifies the interface on which the server listens " + "(default: NULL)",
+        help="specifies the interface on which the server listens (default: NULL)",
     )
     parser.add_argument(
         "--control-cookie-path",
         type=str,
         metavar="PATH",
         default=DEFAULT_COOKIE_PATH,
-        help="specifies the path to Tor's control authentication cookie "
-        + f"(default: {DEFAULT_COOKIE_PATH})",
+        help=(
+            "specifies the path to Tor's control authentication cookie "
+            f"(default: {DEFAULT_COOKIE_PATH})"
+        ),
     )
     parser.add_argument(
         "--complain",
         action="store_true",
         default=False,
-        help=(
-            "disables all filtering and just prints the commands sent by the client"
-        ),
+        help=("disables all filtering and just prints the commands sent by the client"),
     )
     parser.add_argument(
         "--debug",
@@ -997,7 +1022,7 @@ def main():
     # We put the argparse results in the global scope since it's
     # awkward to extend socketserver so additional data can be sent to
     # the request handler, where we need access to the arguments.
-    global GLOBAL_ARGS
+    global GLOBAL_ARGS  # noqa: PLW0603
     GLOBAL_ARGS = parser.parse_args()
     # Deal with overlapping functionality between arguments
     GLOBAL_ARGS.__dict__["disable_filtering"] = GLOBAL_ARGS.complain
@@ -1017,10 +1042,8 @@ def main():
     log("Tor control port filter started, listening on {}:{}".format(*address))
     if GLOBAL_ARGS.debug:
         log("debug on")
-    try:
+    with contextlib.suppress(KeyboardInterrupt):
         server.serve_forever()
-    except KeyboardInterrupt:
-        pass
 
 
 if __name__ == "__main__":

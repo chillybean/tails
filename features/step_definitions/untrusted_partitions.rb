@@ -39,7 +39,7 @@ Then /^Tails Greeter has( not)? detected a persistence partition$/ do |no_persis
   expecting_persistence = no_persistence.nil?
   assert !greeter.nil?
   found_persistence = greeter
-                      .child?('Unlock', roleName: 'push button')
+                      .child?('Unlock', roleName: 'button')
   assert_equal(expecting_persistence, found_persistence,
                "Persistence is unexpectedly#{no_persistence} enabled")
 end

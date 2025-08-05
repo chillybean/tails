@@ -1,23 +1,25 @@
 #!/usr/bin/python3 -I
 
-import logging
-import socket
-import sys
 import gettext
-import subprocess
+import logging
 import os
-import time
 import pwd
-from pydbus import SessionBus, SystemBus
-from pam import pam
+import socket
+import subprocess
+import sys
+import time
 
 import gi
+from pam import pam
+from pydbus import SessionBus, SystemBus
 
 gi.require_version("Gtk", "3.0")
-gi.require_version("Gdk", "3.0")
-from gi.repository import Gdk, Gtk, GLib  # noqa: E402
+from gi.repository import Gtk, GLib  # NOQA: E402
 
-from tailslib.adminpassword import is_password_set  # noqa: E402
+gi.require_version("Gdk", "3.0")
+from gi.repository import Gdk  # NOQA: E402
+
+from tailslib.adminpassword import is_password_set  # NOQA: E402
 
 _ = gettext.gettext
 gettext.textdomain("tails")
@@ -72,7 +74,7 @@ class PasswordDialog:
         user_object.Changed.connect(self.wait_until_password_set_and_lock_screen)
 
         p = subprocess.Popen(
-            ["/usr/bin/passwd"],
+            "/bin/passwd",
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
@@ -98,7 +100,7 @@ class PasswordDialog:
             self.ok_button.clicked()
 
     def wait_until_password_set_and_lock_screen(self):
-        # TODO: Remove this once this is fixed: https://bugzilla.gnome.org/show_bug.cgi?id=761969
+        # TODO: Remove this once this is fixed: https://gitlab.gnome.org/GNOME/gdm/-/issues/251
         p = pam()
         while not p.authenticate(pwd.getpwuid(os.getuid()).pw_name, self.pw):
             logging.debug("PAM not updated yet...")
@@ -182,8 +184,8 @@ def get_lock():
     # Original author: https://stackoverflow.com/users/639295/aychedee
     # Without holding a reference to our socket somewhere it gets garbage
     # collected when the function exits
-    get_lock.lock_socket = socket.socket(socket.AF_UNIX, socket.SOCK_DGRAM)
-    get_lock.lock_socket.bind("\0" + "tails-screen-locker")
+    get_lock._lock_socket = socket.socket(socket.AF_UNIX, socket.SOCK_DGRAM)  # noqa: SLF001
+    get_lock._lock_socket.bind("\0" + "tails-screen-locker")  # noqa: SLF001
 
 
 def main():

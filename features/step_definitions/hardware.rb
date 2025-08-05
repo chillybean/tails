@@ -82,15 +82,14 @@ end
 Then /^I am recommended to migrate to a new USB stick due to partitioning errors$/ do
   warning = Dogtail::Application.new('zenity').dialog('Partitioning Error')
   assert_not_nil(
-    warning.children(roleName: 'label')
-           .last
+    warning.children(roleName: 'label')[1]
            .text['We recommend that you create a backup of your Tails']
   )
 end
 
 Then /^I am recommended to reinstall Tails due to partitioning errors$/ do
   warning = Dogtail::Application.new('zenity').dialog('Partitioning Error')
-  text = warning.children(roleName: 'label').last.text
+  text = warning.children(roleName: 'label')[1].text
   assert_include(text, 'Creation of Persistent Storage has been disabled')
   assert_include(text, 'We recommend that you reinstall Tails')
 end
@@ -103,7 +102,7 @@ end
 
 Then /^the Greeter forbids starting Tails$/ do
   assert_false(
-    greeter.child('Start Tails', roleName: 'push button').sensitive?
+    greeter.child('Start Tails', roleName: 'button').sensitive?
   )
 end
 

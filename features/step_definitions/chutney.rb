@@ -192,11 +192,11 @@ def wait_until_chutney_is_working
 
       log = File.read("#{node_path}/notice.log")
       unless log[/Self-testing indicates your ORPort .* is reachable from the outside/]
-        raise
+        raise 'Chutney bridge: ORPort not reachable yet'
       end
 
       if torrc[/^ServerTransportListenAddr/] && !log['Registered server transport']
-        raise
+        raise 'Chutney bridge: server transport not registered yet'
       end
     end
     true

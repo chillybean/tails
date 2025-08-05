@@ -65,7 +65,7 @@ end
 
 Given /^I (?:am prompted to )?verify the SSH fingerprint for the (?:Git|SSH) (?:repository|server)$/ do
   try_for(60) do
-    Dogtail::Application.new('gnome-terminal-server')
+    Dogtail::Application.new('kgx')
                         .child('Terminal', roleName: 'terminal')
                         .text['Are you sure you want to continue connecting']
   end
@@ -107,11 +107,11 @@ When /^I connect to an SSH server on the (Internet|LAN)$/ do |location|
 
   recovery_proc = proc do
     ensure_process_is_terminated('ssh')
-    step 'I run "clear" in GNOME Terminal'
+    step 'I run "clear" in Console'
   end
 
   retry_tor(recovery_proc) do
-    step "I run \"#{cmd}\" in GNOME Terminal"
+    step "I run \"#{cmd}\" in Console"
     step 'process "ssh" is running within 10 seconds'
     step 'I verify the SSH fingerprint for the SSH server'
   end
@@ -120,7 +120,7 @@ end
 Then /^I have successfully logged into the SSH server$/ do
   try_for(60) do
     @ssh_prompt_re.match(
-      Dogtail::Application.new('gnome-terminal-server')
+      Dogtail::Application.new('kgx')
                           .child('Terminal', roleName: 'terminal')
                           .text
     )
@@ -139,23 +139,15 @@ Then /^I connect to an SFTP server on the Internet$/ do
   end
 
   retry_tor(recovery_proc) do
-    nautilus = launch_nautilus
-    nautilus.child(roleName: 'frame')
-    # "Other Locations", its relevant parents, and relevant sibling,
-    # have no a11y action, so Dogtail cannot interact with them.
-    # They don't react to #grabFocus either.
-    @screen.click('NautilusOtherLocations.png')
-    # Since Bookworm Nautilus behaves odd with our default showingOnly
-    # == true, it just lists a single frame as the only child.
-    connect_bar = nautilus.child('Connect to Server',
-                                 roleName:    'label',
-                                 showingOnly: false)
-                          .parent.parent
-    connect_bar.child('Connect to Server',
-                      roleName:    'text',
-                      showingOnly: false).text =
+    open_gnome_menu('Places')
+    gnome_shell = Dogtail::Application.new('gnome-shell')
+    gnome_shell.child('Network', roleName: 'label').click
+    nautilus = Dogtail::Application.new('org.gnome.Nautilus')
+    connect_button = nautilus.child('Connect', roleName: 'button')
+    connect_entry = connect_button.parent.child(roleName: 'text')
+    connect_entry.text =
       "sftp://#{@sftp_username}@#{@sftp_host}:#{@sftp_port}"
-    connect_bar.childLabelled('Connect', showingOnly: false).click
+    connect_button.click
     step 'I verify the SSH fingerprint for the SFTP server'
   end
 end
@@ -163,7 +155,7 @@ end
 Then /^I verify the SSH fingerprint for the SFTP server$/ do
   try_for(30) do
     Dogtail::Application.new('gnome-shell').child?('Log In Anyway',
-                                                   roleName: 'push button')
+                                                   roleName: 'button')
   end
   # Here we'd like to click on the button using Dogtail, but something
   # is buggy so let's just use the keyboard.
@@ -171,11 +163,8 @@ Then /^I verify the SSH fingerprint for the SFTP server$/ do
 end
 
 Then /^I successfully connect to the SFTP server$/ do
-  # Since Bookworm Nautilus behaves odd with our default showingOnly
-  # == true, it just lists a single frame as the only child.
   try_for(60) do
     Dogtail::Application.new('org.gnome.Nautilus')
-                        .child?("#{@sftp_username} on #{@sftp_host}",
-                                showingOnly: false)
+                        .child?("#{@sftp_username} on #{@sftp_host}")
   end
 end

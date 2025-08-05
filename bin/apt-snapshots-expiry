@@ -6,7 +6,7 @@ FAILURE=no
 for dir in config/APT_snapshots.d vagrant/definitions/tails-builder/config/APT_snapshots.d; do
     echo "${dir:?}:"
     cd "$(git rev-parse --show-toplevel)/${dir:?}"
-    for ARCHIVE in * ; do
+    for ARCHIVE in *; do
         SERIAL="$(cat "${ARCHIVE:?}/serial")"
         if [ "${SERIAL:?}" = 'latest' ]; then
             EXPIRY='never'
@@ -15,15 +15,15 @@ for dir in config/APT_snapshots.d vagrant/definitions/tails-builder/config/APT_s
             fi
         else
             case "${ARCHIVE:?}" in
-                'debian-security')
-                    DIST='bookworm-security'
-                    ;;
-                'torproject')
-                    DIST='bookworm'
-                    ;;
-                *)
-                    DIST='stable'
-                    ;;
+            'debian-security')
+                DIST='trixie-security'
+                ;;
+            'torproject')
+                DIST='trixie'
+                ;;
+            *)
+                DIST='stable'
+                ;;
             esac
             EXPIRY="$(curl --silent "https://time-based.snapshots.deb.tails.boum.org/${ARCHIVE:?}/dists/${DIST:?}/snapshots/${SERIAL:?}/Release" | sed -n 's/^Valid-Until:\s\+\(.*\)$/\1/p')"
             if [ -z "${EXPIRY:-}" ]; then
@@ -33,8 +33,8 @@ for dir in config/APT_snapshots.d vagrant/definitions/tails-builder/config/APT_s
             fi
         fi
         STATUS="archive '${ARCHIVE:?}' uses snapshot '${SERIAL:?}' which expires on: ${EXPIRY:?}"
-        if [ "${EXPIRY}" = 'never' ] || \
-           [ "$(date -d "${EXPIRY}" +%s)" -ge "$(date -d "now + 1 month" +%s)" ]; then
+        if [ "${EXPIRY}" = 'never' ] ||
+            [ "$(date -d "${EXPIRY}" +%s)" -ge "$(date -d "now + 1 month" +%s)" ]; then
             echo "OK:   ${STATUS}"
         else
             FAILURE=yes

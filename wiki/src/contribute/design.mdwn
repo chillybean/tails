@@ -1266,10 +1266,10 @@ restart actions, as well as screen locking.
 
 ### 3.6.23 DHCP hostname leaks
 
-We patch NetworkManager so its DHCP client does not send the
-hostname in DHCP requests, until [[!gnomebug 768076]] is fixed.
+We configure NetworkManager so its DHCP client does not send the
+hostname in DHCP requests.
 
-* [[!tails_gitweb_repo network-manager]]
+* [[!tails_gitweb config/chroot_local-includes/etc/NetworkManager/conf.d/dhcp-send-hostname.conf]]
 
 ### 3.6.25 Application isolation
 

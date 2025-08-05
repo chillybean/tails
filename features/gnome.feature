@@ -29,13 +29,13 @@ Feature: GNOME is well-integrated into Tails
     When I start "Disks" via GNOME Activities Overview
     # The close button of GNOME Disks is not accessible
     And I close the "gnome-disks" window via Alt+F4
-    When I start "GNOME Terminal" via GNOME Activities Overview
-    And I close the "gnome-terminal-server" window
+    When I start "Console" via GNOME Activities Overview
+    And I close the "kgx" window
     When I start "Files" via GNOME Activities Overview
     And I close the "org.gnome.Nautilus" window
     When I start "Persistent Storage" via GNOME Activities Overview
     And I close the "tps-frontend" window
-    When I start "Persistent Storage Backup" via GNOME Activities Overview
+    When I start "Back Up Persistent Storage" via GNOME Activities Overview
     And I close the "zenity" window
     When I start "Pidgin" via GNOME Activities Overview
     And I close the "Pidgin" window via Alt+F4

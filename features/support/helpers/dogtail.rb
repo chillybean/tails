@@ -14,11 +14,11 @@ module Dogtail
   # left intact when doing new (proxied) method calls.  This way we
   # can support stuff like:
   #
-  #     app = Dogtail::Application.new('evince')
-  #     menu = app.menu('Menu')
-  #     menu.click()
-  #     menu.something_else()
-  #     menu.click()
+  #     app = Dogtail::Application.new('org.gnome.Evince')
+  #     button = app.child('File options', roleName: 'toggle button')
+  #     button.click()
+  #     button.something_else()
+  #     button.click()
   #
   # i.e. the object referenced by `menu` is never modified by method
   # calls and can be used as expected.
@@ -210,7 +210,7 @@ module Dogtail
     end
 
     def actions
-      get_field('actions')
+      get_field('actions').scan(/['"]([^'"]+)['"]/).flatten
     end
 
     def combovalue
@@ -346,6 +346,20 @@ module Dogtail
       run("#{@var}.#{method_call}")
     end
 
+    def click(force_tree_api: false)
+      # The tree API doesn't always work, so we first try any of the
+      # actions that a click would trigger.
+      unless force_tree_api
+        preferred_actions = ['click', 'activate', 'open', 'press', 'select', 'toggle']
+        actions.each do |action|
+          if preferred_actions.include?(action)
+            return doActionNamed(action)
+          end
+        end
+      end
+      call_tree_api_method('click')
+    end
+
     def doActionNamed(action_name)
       call_tree_node_method('doActionNamed', action_name)
     end
@@ -362,10 +376,6 @@ module Dogtail
 
     def activate
       doActionNamed('activate')
-    end
-
-    def click
-      doActionNamed('click')
     end
 
     def open
@@ -386,6 +396,21 @@ module Dogtail
 
     def position
       get_field('position')[1...-1].split(', ').map(&:to_i)
+    end
+
+    def print_parents
+      nodes = []
+      current = self
+      until current.roleName == 'desktop frame'
+        nodes << current
+        current = current.parent
+      end
+      max_roleName_length = nodes.map { |n| n.roleName.length }.max
+      warn(
+        nodes.reverse
+             .map { |n| "  #{n.roleName.rjust(max_roleName_length)}: '#{n.name}'" }
+             .join("\n")
+      )
     end
   end
 end

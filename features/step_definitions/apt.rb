@@ -178,12 +178,7 @@ Then /^I install "(.+)" using Synaptic$/ do |package_name|
     step 'I start Synaptic'
   end
   retry_tor(recovery_proc) do
-    # We can't use the click action here because this button causes a
-    # modal dialog to be run via gtk_dialog_run() which causes the
-    # application to hang when triggered via a ATSPI action. See
-    # https://gitlab.gnome.org/GNOME/gtk/-/issues/1281
-    @synaptic.button('Search').grabFocus
-    @screen.press('Return')
+    @synaptic.button('Search').click
     find_dialog = @synaptic.dialog('Find')
     find_dialog.child(roleName: 'text').grabFocus
     @screen.type(package_name)
@@ -192,14 +187,11 @@ Then /^I install "(.+)" using Synaptic$/ do |package_name|
                                    roleName: 'table column header').parent
     # We need to wait for the synaptic UI to get responsive after the
     # search has completed.
-    package_list.child(package_name, roleName: 'table cell').grabFocus
-    @screen.press('Return')
+    package_list.child(package_name, roleName: 'table cell').click
     # Now we have marked the package for installation and we have to
     # wait for the Apply button to become available
     try_for(10) { @synaptic.button('Apply').sensitive? }
-    # This button is also problematic when clicking with Dogtail
-    @synaptic.button('Apply').grabFocus
-    @screen.press('Return')
+    @synaptic.button('Apply').click
     apply_prompt = nil
     try_for(60) do
       apply_prompt = @synaptic.dialog('Summary')
