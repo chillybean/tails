@@ -177,21 +177,18 @@ Then /^I install "(.+)" using Synaptic$/ do |package_name|
     step 'I start Synaptic'
   end
   retry_tor(recovery_proc) do
+    @screen.hide_cursor
     @screen.click('SynapticSearch.png')
-    @screen.wait('SynapticDialogFind.png')
+    @screen.wait('SynapticDialogFind.png', 10)
     @screen.type(package_name)
-    @screen.type(['Return'])
-    @screen.wait('SynapticPackageName.png', 30) # hardcoded!
-    @screen.click('SynapticPackageName.png')
-    @screen.type(['Return'])
+    @screen.press('Return')
+    @screen.wait('SynapticPackageName.png', 30).click
+    @screen.press('Return')
     # Now we have marked the package for installation and we have to
     # wait for the Apply button to become available
-    @screen.wait('SynapticListApply.png', 20)
-    @screen.click('SynapticListApply.png')
-    @screen.wait('SynapticDialogApply.png', 10)
-    @screen.click('SynapticDialogApply.png')
-    @screen.wait('SynapticClose.png', 4 * 60)
-    @screen.click('SynapticClose.png')
+    @screen.wait('SynapticListApply.png', 20).click
+    @screen.wait('SynapticDialogApply.png', 10).click
+    @screen.wait('SynapticClose.png', 4 * 60).click
     ensure_process_is_terminated('synaptic')
   end
 end
