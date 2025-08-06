@@ -58,7 +58,7 @@ echo "Doing git annex things"
 ssh misc.lizard << EOF
    ( [ -d isos ] || git clone gitolite@puppet-git.lizard:isos.git ) && \
    (
-    set -eu
+    set -eux
     cd isos
     git annex init
     git annex sync --no-content
