@@ -44,6 +44,9 @@ for archive in $(ssh "$TIME_BASED_SNAPSHOTS_USER_AT_HOST" \
    echo "I: - $archive"
    ssh "$TIME_BASED_SNAPSHOTS_USER_AT_HOST" \
        reprepro --basedir "${REMOTE_DEST_DIR}/${archive}" update
+   # Ensure all index files are created, even for empty suites (#20009)
+   ssh "$TIME_BASED_SNAPSHOTS_USER_AT_HOST" \
+       reprepro --basedir "${REMOTE_DEST_DIR}/${archive}" export
 done
 
 echo "I: Publishing the tagged APT snapshot"
