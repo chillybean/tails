@@ -177,7 +177,6 @@ BUILD_USB_IMAGE_FILENAME="${BUILD_BASENAME}.img"
 (
     echo "Mirrors:"
     apt-mirror debian
-    apt-mirror debian-security
     apt-mirror torproject
     echo "Additional sources:"
     cat config/chroot_sources/*.chroot
