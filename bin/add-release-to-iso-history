@@ -37,6 +37,8 @@ scp "${ISOS:?}/tails-amd64-${VERSION:?}/tails-amd64-${VERSION:?}."{apt-sources,b
 
 ssh misc.lizard gpg --import < "wiki/src/tails-signing.key"
 
+echo "Downloading"
+
 # shellcheck disable=SC2087
 ssh misc.lizard << EOF
    (
@@ -49,6 +51,8 @@ ssh misc.lizard << EOF
     gpg --verify tails-amd64-${VERSION:?}.img{.sig,}
    )
 EOF
+
+echo "Doing git annex things"
 
 # shellcheck disable=SC2087
 ssh misc.lizard << EOF
