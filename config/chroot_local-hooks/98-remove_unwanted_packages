@@ -74,10 +74,8 @@ fi
 
 ### Deinstall some other unwanted packages.
 apt-get --yes purge \
-    '^aptitude*' \
     live-build \
     localepurge \
-    tasksel \
     tasksel-data
 
 ### Deinstall some other unwanted packages whose regexp might not be match
