@@ -40,7 +40,7 @@ msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-24 10:46+0200\n"
-"PO-Revision-Date: 2025-07-01 16:22+0000\n"
+"PO-Revision-Date: 2025-07-25 23:43+0000\n"
 "Last-Translator: jonnysemon <jonnysemon@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/tor/tails-gui/ar/"
 ">\n"
@@ -232,9 +232,9 @@ msgstr ""
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
-"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
+"To add more, install some software using <a href=\"synaptic."
+"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
+"desktop\">APT on the command line</a>."
 msgstr ""
 "لإضافة المزيد، ثبت بعض البرمجيات باستخدام <a href=\"synaptic.desktop\">مدير "
 "الحزم سينابتك</a> أو <a href=\"org.gnome.Terminal.desktop\">APT من سطر "
@@ -1634,9 +1634,9 @@ msgid ""
 "Package Manager</a> or <a href=\"org.gnome.Terminal.desktop\">APT on the "
 "command line</a>."
 msgstr ""
-"للقيام بذلك, قم بتثبيت البرنامج باستخدام <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> ال <a "
-"href=\"org.gnome.Terminal.desktop\">APT على سطر الأوامر</a>."
+"للقيام بذلك, قم بتثبيت البرنامج باستخدام <a href=\"synaptic."
+"desktop\">Synaptic Package Manager</a> ال <a href=\"org.gnome.Terminal."
+"desktop\">APT على سطر الأوامر</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:227
 msgid ""
@@ -1651,12 +1651,12 @@ msgstr ""
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:240
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
-"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
+"gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "للقيام بذلك، قم بإنشاء تخزين دائم وتثبيت بعض البرامج باستخدام <a "
-"href=\"synaptic.desktop\"> Synaptic Package Manager </a> أو <a "
-"href=\"org.gnome.Terminal.desktop\"> APT في سطر الأوامر </a>."
+"href=\"synaptic.desktop\"> Synaptic Package Manager </a> أو <a href=\"org."
+"gnome.Terminal.desktop\"> APT في سطر الأوامر </a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:258
 msgid "To do so, install Tails on a USB stick and create a Persistent Storage."
@@ -1874,11 +1874,10 @@ msgstr "غير صالح: {exception}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:298
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:822
-#, fuzzy
 msgid ""
 "You need to configure a WebTunnel or an obfs4 bridge to hide that you are "
 "using Tor"
-msgstr "تحتاج إلى تكوين جسر obfs4 لإخفاء أنك تستخدم Tor"
+msgstr "تحتاج إلى تكوين جسر obfs4 أو WebTunnel لإخفاء أنك تستخدم تور"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:353
 msgid "Failed to configure your Persistent Storage"
@@ -3498,15 +3497,16 @@ msgid "Configure a Tor bridge"
 msgstr "تكوين جسر Tor"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:106
-#, fuzzy
 msgid ""
 "Bridges are secret Tor relays. Use a bridge as your first Tor relay if "
 "accessing Tor is blocked from where you are.\n"
 "\n"
 "You can use <i>obfs4</i> and <i>WebTunnel</i> bridges in Tails.\n"
 msgstr ""
-"الجسور هي مرحلات Tor سرية. استخدم جسرًا كأول مرحل Tor إذا تم حظر الوصول إلى "
-"Tor من مكانك."
+"الجسور هي مُرحلات تور سرية. استخدم جسرًا كأول مُرحل تور حُظر الوصول إلى تور من "
+"مكانك.\n"
+"\n"
+"يمكنك استخدام جسور <i>obfs4</i> و <i>WebTunnel</i> في Tails\n"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:126
 msgid "<a href=\"doc/anonymous_internet/tor\">Learn more about Tor bridges</a>"
@@ -3523,7 +3523,7 @@ msgstr "obfs4 (موصى به)"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:185
 msgid "WebTunnel"
-msgstr ""
+msgstr "WebTunnel"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:208
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1522
@@ -3559,7 +3559,7 @@ msgstr "جسر"
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:416
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1057
 msgid "obfs4 or webtunnel…"
-msgstr ""
+msgstr "obfs4 أو webtunnel…"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:489
 msgid "Save bridge to _Persistent Storage"
@@ -4055,8 +4055,8 @@ msgstr "ساعة"
 #~ "\n"
 #~ "Help us keep your bitcoins safe!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/"
-#~ "donate.en.html#expenses\">How we spend our money.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
+#~ "html#expenses\">How we spend our money.</a>"
 #~ msgstr ""
 #~ "Tails يحمي محفظتك.\n"
 #~ "\n"
