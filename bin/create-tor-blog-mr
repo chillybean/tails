@@ -11,7 +11,7 @@ cd "${TOR_BLOG_CHECKOUT}"
 git checkout main
 git pull
 git checkout -b "Tails-${TAG}"
-TOR_BLOG_DIR="content/blog/new-release-tails-${VERSION//./_}"
+TOR_BLOG_DIR="content/blog/new-release-tails-${TAG//./_}"
 mkdir -p "${TOR_BLOG_DIR}"
 cd "${TOR_BLOG_DIR}"
 mv "${TOR_BLOG_FILE}" contents.lr
