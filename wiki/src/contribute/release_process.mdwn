@@ -1755,7 +1755,7 @@ Lead the internal manual testing to conclusion
    1. Wait until the IUKs are available:
 
           for old in ${TEST_IUK_SOURCE_VERSIONS:?}; do
-              while ! curl --silent --head --location --fail "https://download.tails.net/tails/stable/iuk/v2/Tails_amd64_${old}_to_${VERSION:?}.iuk"
+              while ! curl --silent --head --location --fail "https://download.tails.net/tails/${DIST:?}/iuk/v2/Tails_amd64_${old}_to_${VERSION:?}.iuk"
               do
                   sleep 30
               done
