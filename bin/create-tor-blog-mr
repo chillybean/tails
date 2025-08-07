@@ -10,7 +10,7 @@ TOR_BLOG_FILE="$3"
 cd "${TOR_BLOG_CHECKOUT}"
 git checkout main
 git pull
-git checkout -b "Tails-${VERSION}"
+git checkout -b "Tails-${TAG}"
 TOR_BLOG_DIR="content/blog/new-release-tails-${VERSION//./_}"
 mkdir -p "${TOR_BLOG_DIR}"
 cd "${TOR_BLOG_DIR}"
