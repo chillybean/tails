@@ -1392,6 +1392,10 @@ Prepare upgrade-description files
 
        To do so, pass this previous version to `--previous_version`.
 
+   If you are releasing a RC (ie: `X.Y~rcN`), you need to manually tweak
+   this to create the UDF for the next RC (even if you are not 100% sure that there
+   will be a new RC), ie: `--next_version X.Y~rcN+1`.
+
    Run this command, after adjusting it if needed as explained above:
 
         ${RELEASE_CHECKOUT:?}/config/chroot_local-includes/usr/src/iuk/bin/tails-iuk-generate-upgrade-description-files \
