@@ -1415,7 +1415,7 @@ Prepare upgrade-description files
             ) \
                 --next_version "$((${VERSION%%.*}+1)).0~{beta,rc}{1,2,3}" \
             $( \
-                for version in $(echo ${IUK_SOURCE_VERSIONS:?}); do
+                for version in $(echo ${IUK_SOURCE_VERSIONS?}); do
                    echo "--previous_version ${version:?}"
                 done \
             ) \
