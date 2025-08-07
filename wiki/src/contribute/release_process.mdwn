@@ -71,7 +71,7 @@ Prepare your checklist
 
 5. Remove useless sections. Some sections of this checklist only apply to specific release types (RC, Major,
    Bugfix, etc.). While you can skip them just-in-time, it's easier and less error-prone to do that now that
-   you have a fresh mind. You can search for `^##* If`.
+   you have a fresh mind. You can search for `^##* If you`.
 
 TRAP: whenever you go AFK for long times
 ===========================================
@@ -309,7 +309,7 @@ Freeze
 This section ensures freezing is done. Freezing is relevant for Release Candidates and for bugfix releases.
 You can skip this if you're releasing a final major version.
 
-## If preparing a RC
+## If you are preparing a RC
 
 
 Check that you are indeed preparing a RC:
@@ -352,7 +352,7 @@ Follow this part ONLY if you are preparing the release candidate for a major rel
         git checkout "$RELEASE_BRANCH" && \
         ./bin/bump-APT-snapshots-expiration-date 183
 
-## If preparing a Bugfix release
+## If you are preparing a Bugfix release
 
 
 Check that you are indeed preparing a Bugfix:
@@ -478,12 +478,12 @@ Commit the changes (if any):
 
     git commit -m "Refresh localization list" config/chroot_local-includes/usr/share/tails/browser-localization/descriptions || :
 
-# If preparing a final release
+# If you are preparing a final release
 
 If we're about to prepare the images for a final (non-RC) release, then
 follow these instructions:
 
-## If preparing a Major release
+## If you are preparing a Major release
 
 Check that you are indeed preparing a major release:
 
@@ -494,7 +494,7 @@ Merge each APT overlay suite listed in the `testing` branch's
 
         ./bin/merge-APT-overlays testing
 
-## If preparing a Bugfix release
+## If you are preparing a Bugfix release
 
 Check that you are indeed preparing a bugfix release:
 
@@ -566,14 +566,14 @@ Update the Changelog entry for the release you're preparing:
 	git checkout "${RELEASE_BRANCH:?}" && \
 	./bin/update-changelog --version "${MILESTONE:?}"
 
-### If you're preparing a release candidate:
+### If you are preparing a release candidate:
 
  - `[ "${DIST:?}" = alpha ]`
 
  - Set the version for the new entry in `debian/changelog` to `$VERSION`: the
    above code has incorrectly set it to `$MILESTONE`.
 
-### If you're preparing a release candidate or a major release:
+### If you are preparing a release candidate or a major release:
 
  - `[ "${DIST:?}" = alpha ] || [ "${MAJOR_RELEASE:?}" -eq 1 ]`
 
@@ -1712,7 +1712,7 @@ export VERSION ISOS PREVIOUS_STABLE_VERSION
 Public testing
 ==============
 
-## If you're publishing a RC
+## If you are publishing a RC
 
 1. Verify that the image has been propagated to at least 3 mirrors:
 
@@ -1814,7 +1814,7 @@ Make sure to:
 
 The technical writers will update the release notes after the release.
 
-## If preparing a final release
+## If you are preparing a final release
 
 Skip this part if preparing a RC.
 
@@ -1852,7 +1852,7 @@ Remove obsolete bits from `wiki/src/home/testing.html`. For example,
 remove any text that's specific to a release candidate we may have
 published for the version you are preparing.
 
-## If preparing a RC
+## If you are preparing a RC
 
 Skip this part if preparing a final release:
 
@@ -2064,7 +2064,7 @@ fully refreshed. To do so, first wait for the
 [[!tails_gitlab tails/tails/-/pipelines/?ref=master desc="GitLab CI pipeline"]]
 triggered by your last push to build and deploy the website. And then:
 
-### If you're publishing a final release
+### If you are publishing a final release
 
 Check:
 
@@ -2076,7 +2076,7 @@ wait until all these conditions are met:
  - <https://tails.net/torrents/files/> includes the files
    for the new release
 
-### If you're publishing a RC
+### If you are publishing a RC
 
 Check:
 
