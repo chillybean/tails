@@ -483,7 +483,7 @@ Commit the changes (if any):
 If we're about to prepare the images for a final (non-RC) release, then
 follow these instructions:
 
-## If you are preparing a Major release
+## If you are preparing a Major final release
 
 Check that you are indeed preparing a major release:
 
@@ -573,7 +573,7 @@ Update the Changelog entry for the release you're preparing:
  - Set the version for the new entry in `debian/changelog` to `$VERSION`: the
    above code has incorrectly set it to `$MILESTONE`.
 
-### If you are preparing a release candidate or a major release:
+### If you are preparing a major release (final or RC)
 
  - `[ "${DIST:?}" = alpha ] || [ "${MAJOR_RELEASE:?}" -eq 1 ]`
 
