@@ -1473,7 +1473,7 @@ Update the image description file (IDF) used by the verification JavaScript:
        --img "${IMG_PATH:?}" \
        > wiki/src/install/v2/Tails/amd64/stable/latest.json && \
     git add wiki/src/install/v2/Tails/amd64/stable/latest.json && \
-    git commit -m "Update IDF for download verification" && \
+    git commit -m "Update image description file for download verification" && \
     git push origin "${WEBSITE_RELEASE_BRANCH:?}"
 
 Check that incremental upgrades are working
