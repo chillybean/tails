@@ -907,14 +907,6 @@ def open_gnome_menu(name)
                       .click
 end
 
-def open_gnome_places_menu
-  if $language == 'German'
-    open_gnome_menu('Orte')
-  else
-    open_gnome_menu('Places')
-  end
-end
-
 def toggle_gnome_system_menu
   open_gnome_menu('System')
 end
