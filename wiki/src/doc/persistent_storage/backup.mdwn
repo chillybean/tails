@@ -78,9 +78,9 @@ replace it immediately with your backup Tails.
    For detailed instructions, see how to [[manually upgrade from another
    Tails|upgrade/clone#upgrade]].
 
-<h1 id="terminal">Updating your backup Tails from a terminal</h1>
+<h1 id="console">Updating your backup Tails from a <i>Console</i></h1>
 
-If you prefer updating your backup Tails from a terminal:
+If you prefer updating your backup Tails from a *Console*:
 
 1. Start on your current Tails.
 
@@ -94,7 +94,7 @@ If you prefer updating your backup Tails from a terminal:
    *Files* browser. Click on it and enter the
    passphrase of your backup Tails to unlock the volume.
 
-1. Execute the following command in a *Root Terminal*:
+1. Execute the following command in a *Root Console*.
 
        rsync -PaSHAXv --del /live/persistence/TailsData_unlocked/ /media/amnesia/TailsData
 
