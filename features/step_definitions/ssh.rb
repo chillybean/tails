@@ -31,15 +31,10 @@ def read_and_validate_ssh_config(srv_type)
     @ssh_username    = conf['username']
     @ssh_prompt_re   = /^#{@ssh_username}@[a-z]+[:space:]+.*[$]/
     assert_not_ipaddr(@ssh_host)
-  when 'SFTP'
-    @sftp_host       = conf['hostname']
-    @sftp_port       = conf['port'].to_i if conf['port']
-    @sftp_username   = conf['username']
-    assert_not_ipaddr(@sftp_host)
   end
 end
 
-Given /^I have the SSH key pair for an? (Git|SSH|SFTP) (?:repository|server)( on the LAN)?$/ do |server_type, lan|
+Given /^I have the SSH key pair for an? (Git|SSH) (?:repository|server)( on the LAN)?$/ do |server_type, lan|
   $vm.execute_successfully("install -m 0700 -d '/home/#{LIVE_USER}/.ssh/'",
                            user: LIVE_USER)
   if server_type == 'Git' || lan
@@ -124,47 +119,5 @@ Then /^I have successfully logged into the SSH server$/ do
                           .child('Terminal', roleName: 'terminal')
                           .text
     )
-  end
-end
-
-Then /^I connect to an SFTP server on the Internet$/ do
-  read_and_validate_ssh_config 'SFTP'
-
-  @sftp_port ||= 22
-  @sftp_port = @sftp_port.to_s
-
-  recovery_proc = proc do
-    ensure_process_is_terminated('ssh')
-    ensure_process_is_terminated('nautilus')
-  end
-
-  retry_tor(recovery_proc) do
-    open_gnome_menu('Places')
-    gnome_shell = Dogtail::Application.new('gnome-shell')
-    gnome_shell.child('Network', roleName: 'label').click
-    nautilus = Dogtail::Application.new('org.gnome.Nautilus')
-    connect_button = nautilus.child('Connect', roleName: 'button')
-    connect_entry = connect_button.parent.child(roleName: 'text')
-    connect_entry.text =
-      "sftp://#{@sftp_username}@#{@sftp_host}:#{@sftp_port}"
-    connect_button.click
-    step 'I verify the SSH fingerprint for the SFTP server'
-  end
-end
-
-Then /^I verify the SSH fingerprint for the SFTP server$/ do
-  try_for(30) do
-    Dogtail::Application.new('gnome-shell').child?('Log In Anyway',
-                                                   roleName: 'button')
-  end
-  # Here we'd like to click on the button using Dogtail, but something
-  # is buggy so let's just use the keyboard.
-  @screen.type(['Tab'], ['Return'])
-end
-
-Then /^I successfully connect to the SFTP server$/ do
-  try_for(60) do
-    Dogtail::Application.new('org.gnome.Nautilus')
-                        .child?("#{@sftp_username} on #{@sftp_host}")
   end
 end
