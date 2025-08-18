@@ -90,6 +90,10 @@ class WhisperbackParts:
         return self["/bin/df --human-readable --print-type --exclude-type=fuse.portal"]
 
     @property
+    def free(self) -> str:
+        return self["/usr/bin/free --mega --wide"]
+
+    @property
     def lsblk(self) -> dict:
         key = "/usr/local/sbin/tails-block-device-info"
         try:
@@ -184,6 +188,15 @@ class WhisperbackReport:
         ):
             return False
         return True
+
+    @property
+    def memory_size(self) -> int:
+        """This returns the size, in bytes, of the memory."""
+        memory_regexp = re.compile(r"Mem:\s+([0-9]+)\s")
+        m = memory_regexp.search(self.parts.free)
+        if m is None:
+            raise Unknown
+        return int(m.group(1)) * 10**6
 
     @property
     def install_version(self) -> str:
