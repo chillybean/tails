@@ -67,7 +67,10 @@ class LowRamNotifier:
 
 
 if __name__ == "__main__":
-    required_ram = 3 * 2**30
+    # Tails requires 3 GB of RAM, however, we allow some slack since
+    # all RAM often isn't fully available (e.g. due to being used as
+    # video memory for integrated graphics).
+    required_ram = 3 * 2**30 - 256 * 2**20
     if required_ram < psutil.virtual_memory().total:
         sys.exit(0)
     dont_ask_status = (
