@@ -210,7 +210,7 @@ class WhisperbackReport:
 
         This might be different from the running version.
         """
-        version = re.compile(r'''VERSION="([0-9.]+)"''')
+        version = re.compile(r'''VERSION="([0-9a-z.~]+)"''')
         m = version.search(
             self.parts["/lib/live/mount/rootfs/filesystem.squashfs/etc/os-release"]
         )
@@ -222,7 +222,7 @@ class WhisperbackReport:
     def version(self) -> str:
         """returns the running version"""
         m = re.search(
-            r'''^VERSION="([0-9.~-]+)"''',
+            r'''^VERSION="([0-9a-z.~-]+)"''',
             self.parts["preamble"],
             flags=re.MULTILINE,
         )
