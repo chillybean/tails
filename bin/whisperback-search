@@ -65,6 +65,11 @@ class WhisperbackParts:
         raise Unknown
 
     @property
+    def has_debugging_info(self) -> bool:
+        """returns False iff the message only includes the preamble"""
+        return not (len(self.parts) == 1 and "preamble" in self.parts)
+
+    @property
     def questions(self) -> list[tuple[str, str]]:
         q_a = user_questions.split(self.parts["preamble"])
         firstpart = q_a.pop(0)  # this is before questions are asked
