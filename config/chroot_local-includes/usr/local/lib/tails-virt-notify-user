@@ -51,7 +51,8 @@ class VirtNotifier:
                     "/usr/local/bin/tails-ask-again",
                     "--dont-ask-again",
                     DONT_ASK_IDENTIFIER,
-                ]
+                ],
+                check=False,
             )
         elif action == "documentation":
             subprocess.run(
@@ -60,7 +61,8 @@ class VirtNotifier:
                     "tails-documentation",
                     "doc/advanced_topics/virtualization",
                     "security",
-                ]
+                ],
+                check=False,
             )
         sys.exit(0)
 
@@ -83,7 +85,9 @@ if __name__ == "__main__":
     #  - 1 means that we're not running in a virtualized environment
     #  - anything else means there is a problem, and we'll exit with
     #    an exception
-    c = subprocess.run(["/usr/bin/systemd-detect-virt", "--vm"], stdout=subprocess.PIPE)
+    c = subprocess.run(
+        ["/usr/bin/systemd-detect-virt", "--vm"], check=False, stdout=subprocess.PIPE
+    )
     if c.returncode == 1:
         sys.exit(0)
     vm_name = c.stdout.decode().strip()
