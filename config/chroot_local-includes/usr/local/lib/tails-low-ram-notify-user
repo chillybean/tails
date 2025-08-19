@@ -71,7 +71,7 @@ if __name__ == "__main__":
     # all RAM often isn't fully available (e.g. due to being used as
     # video memory for integrated graphics).
     required_ram = 3 * 2**30 - 256 * 2**20
-    if required_ram < psutil.virtual_memory().total:
+    if required_ram <= psutil.virtual_memory().total:
         sys.exit(0)
     dont_ask_status = (
         subprocess.check_output(
