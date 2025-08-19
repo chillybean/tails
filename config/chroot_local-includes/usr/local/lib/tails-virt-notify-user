@@ -14,7 +14,7 @@ from gi.repository import Notify  # NOQA: E402
 DONT_ASK_IDENTIFIER = "virt-notify-user"
 
 
-class VirtNotifier(object):
+class VirtNotifier:
     def __init__(self, free_vm=False, show_suppress_button=False):
         if free_vm:
             self.title = _("Warning: virtual machine detected!")
