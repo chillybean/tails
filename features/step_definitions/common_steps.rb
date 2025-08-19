@@ -596,7 +596,7 @@ end
 Given /^the Tails desktop is ready$/ do
   # GNOME normally starts with the Activities Overview open, but we
   # enable the no-overview@fthx extension to exit to the normal
-  # desktop. Since Trixie the extension sometimes fail to exit the
+  # desktop. Since Trixie the extension sometimes fails to exit the
   # Activities Overview, and we detect that here by increasing the
   # sensitivity so it only matches the Activities Overview button when
   # it is unpressed and not showing the Activities Overview (with the
@@ -1162,7 +1162,7 @@ def launch_unsafe_browser(**opts)
 end
 
 Given /^I start "([^"]+)" via GNOME Activities Overview$/ do |app_name|
-  # Search disambiguations: below we assume that there is only one
+  # Search disambiguation: below we assume that there is only one
   # result, since multiple results introduces a race that leads to a
   # non-deterministic choice (at least under load). To make the life
   # easier for users of this step, let's collect workarounds here.
