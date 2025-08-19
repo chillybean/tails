@@ -20,12 +20,15 @@ _ = gettext.gettext
 
 
 class LowRamNotifier:
-    def __init__(self, show_suppress_button=False):
+    def __init__(self, required_ram, free_ram, show_suppress_button=False):
+        free_ram_gb = round(free_ram / 2**30, 1)
+        required_ram_gb = round(required_ram / 2**30, 1)
         self.title = _("Insufficient Memory Detected")
         self.body = _(
-            "Tails requires 3 GB of RAM. "
-            "You might experience reduced performance, instability, or crashes."
-        )
+            "Tails requires {required_ram_gb} GB of RAM, but this computer only "
+            "has {free_ram_gb} GB. You might experience reduced performance, "
+            "instability, or crashes."
+        ).format(required_ram_gb=required_ram_gb, free_ram_gb=free_ram_gb)
 
         Notify.init("org.boum.tails.low-ram-notify-user")
         # We need to hold a reference to the notification until the callbacks
@@ -67,11 +70,12 @@ class LowRamNotifier:
 
 
 if __name__ == "__main__":
+    free_ram = psutil.virtual_memory().total
+    required_ram = 3 * 2**30
     # Tails requires 3 GB of RAM, however, we allow some slack since
     # all RAM often isn't fully available (e.g. due to being used as
     # video memory for integrated graphics).
-    required_ram = 3 * 2**30 - 256 * 2**20
-    if required_ram <= psutil.virtual_memory().total:
+    if required_ram - 256 * 2**20 <= free_ram:
         sys.exit(0)
     dont_ask_status = (
         subprocess.check_output(
@@ -84,5 +88,7 @@ if __name__ == "__main__":
         sys.exit(0)
 
     mainloop = GLib.MainLoop.new(None, False)
-    LowRamNotifier(show_suppress_button=(dont_ask_status != "unavailable"))
+    LowRamNotifier(
+        required_ram, free_ram, show_suppress_button=(dont_ask_status != "unavailable")
+    )
     mainloop.run()
