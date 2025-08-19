@@ -211,21 +211,23 @@ so [[be careful with what you install|additional_software#warning]].</p>
 
 When the Dotfiles feature is turned on:
 
+- The *Files* browser has a shortcut to the *Dotfiles* folder in the sidebar.
+
+  The absolute path of the *Dotfiles* folder is
+  */live/persistence/TailsData_unlocked/dotfiles*.
+
 - All the files in the
-  */live/persistence/TailsData_unlocked/dotfiles* folder
+  *Dotfiles* folder
   are linked in the *Home* folder using Linux symbolic links.
 
-- All the files in subfolders of
-  */live/persistence/TailsData_unlocked/dotfiles* are also linked in the
+- All the files in subfolders of the
+  *Dotfiles* folder are also linked in the
   corresponding subfolder of the *Home* folder using Linux symbolic links.
 
-- A shortcut is provided in the sidebar of the *Files* browser
-  to access the */live/persistence/TailsData_unlocked/dotfiles* folder.
-
 For example, having the following files in
-*/live/persistence/TailsData_unlocked/dotfiles*:
+the *Dotfiles* folder:
 
-    /live/persistence/TailsData_unlocked/dotfiles
+    Dotfiles
     ├── file_a
     ├── folder
     │   ├── file_b
@@ -233,9 +235,9 @@ For example, having the following files in
     │       └── file_c
     └── emptyfolder
 
-Produces the following result in */home/amnesia*:
+Produces the following result in the *Home* folder:
 
-    /home/amnesia
+    Home
     ├── file_a → /live/persistence/TailsData_unlocked/dotfiles/file_a
     └── folder
         ├── file_b → /live/persistence/TailsData_unlocked/dotfiles/folder/file_b
