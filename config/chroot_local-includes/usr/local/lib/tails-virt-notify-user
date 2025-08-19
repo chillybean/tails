@@ -14,6 +14,7 @@ from gi.repository import Notify  # NOQA: E402
 DONT_ASK_IDENTIFIER = "virt-notify-user"
 
 
+gettext.install("tails")
 _ = gettext.gettext
 
 
@@ -71,8 +72,6 @@ class VirtNotifier:
 
 
 if __name__ == "__main__":
-    gettext.install("tails")
-
     dont_ask_status = (
         subprocess.check_output(
             ["/usr/local/bin/tails-ask-again", "--timeout", "30", DONT_ASK_IDENTIFIER]
