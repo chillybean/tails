@@ -89,6 +89,8 @@ if __name__ == "__main__":
 
     mainloop = GLib.MainLoop.new(None, False)
     LowRamNotifier(
-        required_ram, installed_ram, show_suppress_button=(dont_ask_status != "unavailable")
+        required_ram,
+        installed_ram,
+        show_suppress_button=(dont_ask_status != "unavailable"),
     )
     mainloop.run()
