@@ -26,7 +26,7 @@ this requirement slightly for practical purposes. :)
 
 6. The attacker has write access to rsync.lizard
 
-7. An attacker publishing a compromised Tails needs to update the IDF,
+7. An attacker publishing a compromised Tails needs to update the image description file,
    UDFs and/or detached signatures to our website, and possibly replace
    a Git tag. If this is done through Git, there's a much greater
    chance we notice it after of our release process than during it. (If
@@ -71,7 +71,7 @@ We do two reproducibility checks:
   - [[IUKs|contribute/release_process#reproducibility-sanity-check-iuk]]
     (not very useful at the moment since Jenkins doesn't build IUKs)
 
-* For Goal 2, we consistently monitor that IDFs and UDFs are legitimate:
+* For Goal 2, we consistently monitor that image description files and UDFs are legitimate:
 
   - via automatic montitoring ([[!tails_ticket 20825 desc="not implemented yet"]])
   - manually checking [[on a monthly basis|contribute/release_process/test]]
