@@ -9,7 +9,7 @@ export default class AutomatedTestingExtension {
     // Enable the D-Bus Introspect API, required by Ponytail.
     global.context.unsafe_mode = true;
     // Ponytail will fail to initialize if it cannot open a new
-    // session, which it cannot ehilw remote access is inhibited. GDM
+    // session, which it cannot while remote access is inhibited. GDM
     // sessions start with remote access inhibited.
     global.backend.get_remote_access_controller().uninhibit_remote_access();
     if (this.orig !== undefined) return;
