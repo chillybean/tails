@@ -129,18 +129,6 @@ if [ -z "${TAILS_LOCALE_NAME}" ]; then
     log_n_exit "Locale variable not found."
 fi
 
-# Set the keyboard mapping for X11 and the console
-localectl set-x11-keymap "$TAILS_XKBLAYOUT" "$TAILS_XKBMODEL" "$TAILS_XKBVARIANT" "$TAILS_XKBOPTIONS"
-
-# Set the system locale and formats
-localectl set-locale \
-    "LANG=${TAILS_LOCALE_NAME}.UTF-8" \
-    "LC_TIME=${TAILS_FORMATS}.UTF-8" \
-    "LC_NUMERIC=${TAILS_FORMATS}.UTF-8" \
-    "LC_MONETARY=${TAILS_FORMATS}.UTF-8" \
-    "LC_MEASUREMENT=${TAILS_FORMATS}.UTF-8" \
-    "LC_PAPER=${TAILS_FORMATS}.UTF-8"
-
 # Set the system locale GSetting (#16806)
 cat >/etc/dconf/db/local.d/01_Tails_settings <<EOF
 [system/locale]

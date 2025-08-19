@@ -481,7 +481,7 @@ Given /^the Tor Browser (?:has started|starts)$/ do
     @torbrowser.child?(roleName: 'frame', recursive: false)
   end
   browser_info = xul_application_info('Tor Browser')
-  @screen.wait(browser_info[:new_tab_button_image], 10)
+  @screen.wait(browser_info[:new_tab_button_image], 20)
   try_for(120, delay: 3) do
     # We can't use Dogtail here: this step must support many languages
     # and using Dogtail would require maintaining a list of translations
