@@ -25,11 +25,11 @@ To compare the to-be-released source code with previous version's one:
 
          git diff --find-renames "${OLD_IMAGE_COMMIT:?}".."${CANDIDATE_IMAGE_COMMIT:?}" -- '*' ':!config/binary_rootfs/squashfs.sort' ':!po' ':!wiki'
 
-Changes to IDF and UDFs
+Changes to image description file and UDFs
 ------------------------
 
 The purpose of this check is to monitor if, during the _last_ development cycle,
-in particular outside of the release process, an attacker modified the IDF or
+in particular outside of the release process, an attacker modified the image description file or
 UDFs in order to serve malicious images.
 
     git log --pretty=medium --shortstat ${PREVIOUS_VERSION}..${VERSION} -- wiki/src/install/v2/Tails/amd64/stable/latest.json wiki/src/upgrade/v2/
@@ -39,7 +39,7 @@ of `${PREVIOUS_VERSION}` (i.e.: shortly after the tag).
 
 In a typical scenario, exactly 4 commits are present:
  - Remove UDFs for versions we'll never release
- - Update IDF for download verification
+ - Update image description file for download verification
  - Add incremental upgrades on the test channel for Tails `${PREVIOUS_VERSION}`
  - Update upgrade-description files.
 
