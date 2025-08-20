@@ -27,7 +27,7 @@ msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-24 10:46+0200\n"
-"PO-Revision-Date: 2025-07-11 20:03+0000\n"
+"PO-Revision-Date: 2025-08-14 04:02+0000\n"
 "Last-Translator: Nick Wick <NickWick@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/tor/tails-gui/sv/"
 ">\n"
@@ -1887,11 +1887,12 @@ msgstr "Ogiltig: {exception}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:298
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:822
-#, fuzzy
 msgid ""
 "You need to configure a WebTunnel or an obfs4 bridge to hide that you are "
 "using Tor"
-msgstr "Du måste konfigurera en obfs4-bro för att dölja att du använder Tor"
+msgstr ""
+"Du behöver konfigurera en WebTunnel eller en obfs4-bro för att dölja att du "
+"använder Tor"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:353
 msgid "Failed to configure your Persistent Storage"
@@ -2721,9 +2722,9 @@ msgid "Root Terminal"
 msgstr "Root-terminal"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-terminal.desktop.in.h:2
+#, fuzzy
 msgid "Opens a terminal as the root user, using gksu to ask for the password"
-msgstr ""
-"Öppnar en terminal som root-användare med gksu för att be om lösenordet"
+msgstr "Öppnar en terminal som root-användare"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:1
 msgid "Tails Documentation"
@@ -3218,7 +3219,7 @@ msgstr "Aktivera GnuPG"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:546
 msgid "Pidgin Internet Messenger"
-msgstr "Pidgin Internet Messenger"
+msgstr "Pidgin-internetmeddelandetjänst"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:562
 msgid "Activate Pidgin Internet Messenger"
@@ -3551,15 +3552,16 @@ msgid "Configure a Tor bridge"
 msgstr "Konfigurera en Tor-bro"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:106
-#, fuzzy
 msgid ""
 "Bridges are secret Tor relays. Use a bridge as your first Tor relay if "
 "accessing Tor is blocked from where you are.\n"
 "\n"
 "You can use <i>obfs4</i> and <i>WebTunnel</i> bridges in Tails.\n"
 msgstr ""
-"Broar är hemliga Tor-reläer. Använd en bro som din första Tor-relä om "
-"åtkomst till Tor är blockerad där du är."
+"Broar är hemliga Tor-reläer. Använd en bro som ditt första Tor-relä om "
+"åtkomst till Tor är blockerad från där du befinner dig.\n"
+"\n"
+"Du kan använda <i>obfs4</i>- och <i>WebTunnel</i>-broar i Tails.\n"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:126
 msgid "<a href=\"doc/anonymous_internet/tor\">Learn more about Tor bridges</a>"
@@ -4038,6 +4040,21 @@ msgstr "December"
 msgid "Clock"
 msgstr "Klocka"
 
+#~ msgid "configuration;saved"
+#~ msgstr "konfiguration;sparad"
+
+#~ msgid "install;clone;upgrade;manual"
+#~ msgstr "installera;klona;uppgradera;manual"
+
+#~ msgid "connect;tor;network"
+#~ msgstr "anslut;tor;nätverk"
+
+#~ msgid "web;tor;browser"
+#~ msgstr "webb;tor;browser"
+
+#~ msgid "persistent;storage;package;install"
+#~ msgstr "beständig;lagring;paket;installera"
+
 #~ msgid "meek"
 #~ msgstr "meek"
 
@@ -4490,9 +4507,6 @@ msgstr "Klocka"
 
 #~ msgid "Software installed when starting Tails"
 #~ msgstr "Programvara installerad när du startar Tails"
-
-#~ msgid "Printers configuration"
-#~ msgstr "Konfiguration av skrivare"
 
 #~ msgid "Thunderbird emails, feeds, and OpenPGP keys"
 #~ msgstr "Thunderbird-e-post, flöden och OpenPGP-nycklar"
