@@ -910,8 +910,10 @@ Jenkins workers.
 
 1. Manually start a build of the release branch on Jenkins, removing
    other builds from the _Build Queue_ if needed so it can start
-   immediately. Take note of which job number was used for later (see
-   `matching_jenkins_images_build_id` below).
+   immediately.
+
+   Set the `MATCHING_JENKINS_IMAGES_BUILD_ID` environment variable to the ID of
+   this build.
 
    Note that Jenkins automatically started a build earlier when you
    pushed the tag, but since the versioned APT suite wasn't finished
@@ -945,7 +947,7 @@ Verify that Jenkins reproduced your images:
     (
      set -eu
      cd "${ARTIFACTS:?}"
-     url="https://nightly.tails.boum.org/build_Tails_ISO_${RELEASE_BRANCH:?}/lastSuccessful/archive/build-artifacts/tails-build-artifacts.shasum"
+     url="https://nightly.tails.boum.org/build_Tails_ISO_${RELEASE_BRANCH:?}/builds/${MATCHING_JENKINS_IMAGES_BUILD_ID:?}/archive/build-artifacts/tails-build-artifacts.shasum"
      curl "$url" > SHA512SUMS-jenkins.txt
      grep --perl-regexp '[.]img|iso' SHA512SUMS-jenkins.txt | sha512sum -c -
     )
@@ -964,7 +966,7 @@ Then:
 
 2. Edit `~/.config/tails/release_management/current.yml`
    and set the `matching_jenkins_images_build_id` value
-   to the ID of this job (an integer):
+   to the value of `$MATCHING_JENKINS_IMAGES_BUILD_ID`:
 
        "${EDITOR:?}" ~/.config/tails/release_management/current.yml
 
