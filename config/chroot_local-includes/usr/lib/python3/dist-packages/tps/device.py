@@ -47,7 +47,7 @@ MEMORY_LEFT_TO_SYSTEM_KIB = 200 * 1024
 MINIMUM_PBKDF_MEMORY_KIB = 256 * 1024
 
 # This is the maximum value that's chosen by cryptsetup by default and
-# it's low enough that even the lowest-end devices we support (2 GiB
+# it's low enough that even the lowest-end devices we support (3 GiB
 # RAM) can still unlock the Persistent Storage at the Welcome Screen.
 DESIRED_PBKDF_MEMORY_KIB = 1 * 1024 * 1024
 
@@ -395,8 +395,10 @@ class TPSPartition:
             # lower than what is_upgraded() requires, so an upgrade
             # might be triggered next boot. This is intentional as
             # the upgrade will fixup the memory cost to the desired
-            # amount. This should only happen on the lowest-end
-            # devices we support (2 GiB RAM).
+            # amount. This probably shouldn't happen even on the
+            # lowest-end devices we support (3 GiB RAM), but it is
+            # relevant for the lowest-end devices we used to support
+            # prior to migrating to Debian Trixie (2 GiB RAM).
             *cls.pbkdf_parameters(memory_cost=mem_cost_kib),
             partition.device_path,
         ]
