@@ -26,8 +26,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-06 10:51+0200\n"
-"PO-Revision-Date: 2025-07-11 20:03+0000\n"
+"POT-Creation-Date: 2025-08-20 11:52+0200\n"
+"PO-Revision-Date: 2025-08-14 04:02+0000\n"
 "Last-Translator: Nick Wick <NickWick@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/tor/tails-gui/sv/"
 ">\n"
@@ -221,13 +221,13 @@ msgstr ""
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
-"desktop\">APT on the command line</a>."
+"To add more, install some software using <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
-"För att lägga till mer, installera lite program med <a href=\"synaptic."
-"desktop\">Synaptic-pakethanterarne</a> eller <a href=\"org.gnome.Terminal."
-"desktop\">APT på kommandoraden</a>."
+"För att lägga till mer, installera lite program med <a "
+"href=\"synaptic.desktop\">Synaptic-pakethanterarne</a> eller <a "
+"href=\"org.gnome.Terminal.desktop\">APT på kommandoraden</a>."
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:154
 msgid "_Create persistent storage"
@@ -1502,7 +1502,8 @@ msgid "Dismiss"
 msgstr "Avfärda"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:11
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:40
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:44
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:45
 msgid "Learn More"
 msgstr "Läs mer"
 
@@ -1640,9 +1641,9 @@ msgid ""
 "Package Manager</a> or <a href=\"org.gnome.Terminal.desktop\">APT on the "
 "command line</a>."
 msgstr ""
-"För att göra det, installera något program med <a href=\"synaptic."
-"desktop\">Synaptic-pakethanteraren</a> eller <a href=\"org.gnome.Terminal."
-"desktop\">APT på kommandoraden</a>."
+"För att göra det, installera något program med <a "
+"href=\"synaptic.desktop\">Synaptic-pakethanteraren</a> eller <a "
+"href=\"org.gnome.Terminal.desktop\">APT på kommandoraden</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:227
 msgid ""
@@ -1658,8 +1659,8 @@ msgstr ""
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:240
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
-"gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "För att göra det, skapa en bestående lagring och installera viss programvara "
 "med <a href=\"synaptic.desktop\">Synaptic-pakethanteraren</a> eller <a "
@@ -1682,6 +1683,23 @@ msgstr "[beskrivning är inte tillgänglig]"
 #: config/chroot_local-includes/usr/local/lib/tails-htp-notify-user:68
 msgid "Failed to synchronize the clock!"
 msgstr "Det gick inte att synkronisera klockan!"
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:26
+msgid "Insufficient Memory Detected"
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:28
+#, python-brace-format
+msgid ""
+"Tails requires {required_ram_gb} GB of RAM, but this computer only has "
+"{installed_ram_gb} GB. You might experience reduced performance, "
+"instability, or crashes."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:41
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:42
+msgid "Don't Show Again"
+msgstr "Visa inte igen"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:132
 msgid "Screen Locker"
@@ -1830,15 +1848,15 @@ msgstr ""
 msgid "error:"
 msgstr "fel:"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:21
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:24
 msgid "Warning: virtual machine detected!"
 msgstr "Varning: Virtuell maskin upptäcktes!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:23
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:26
 msgid "Warning: non-free virtual machine detected!"
 msgstr "Varning: virtuell maskin som inte är fri upptäcktes!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:25
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:28
 msgid ""
 "Both the host operating system and the virtualization software are able to "
 "monitor what you are doing in Tails. Only free software can be considered "
@@ -1848,10 +1866,6 @@ msgstr ""
 "Både värdsystemet och virtualiseringsmjukvaran kan övervaka det du gör i "
 "Tails. Bara fri mjukvara kan räknas som pålitlig, för både värdsystemet och "
 "virtualiseringsmjukvaran."
-
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:38
-msgid "Don't Show Again"
-msgstr "Visa inte igen"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/config.py:9
 #: config/chroot_local-includes/usr/local/bin/tca:10
@@ -1887,11 +1901,12 @@ msgstr "Ogiltig: {exception}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:299
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:823
-#, fuzzy
 msgid ""
 "You need to configure a WebTunnel or an obfs4 bridge to hide that you are "
 "using Tor"
-msgstr "Du måste konfigurera en obfs4-bro för att dölja att du använder Tor"
+msgstr ""
+"Du behöver konfigurera en WebTunnel eller en obfs4-bro för att dölja att du "
+"använder Tor"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:354
 msgid "Failed to configure your Persistent Storage"
@@ -2061,23 +2076,23 @@ msgid ""
 msgstr ""
 "Initierar LUKS-krypteringen... Datorn kan sluta svara under några sekunder."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:413
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:415
 msgid "Unlocking the encryption..."
 msgstr "Låser upp krypteringen..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:421
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:423
 msgid "Formatting the file system..."
 msgstr "Formaterar filsystemet..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:439
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:441
 msgid "Activating the Persistent Storage..."
 msgstr "Aktiverar bestående lagring..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:444
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:446
 msgid "Finishing setting up the Persistent Storage..."
 msgstr "Slutför konfigurationen av bestående lagring..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:697
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:699
 msgid ""
 "Can't unmount Persistent Storage, some process is still using it. Please "
 "close all applications that could be accessing it and try again. If that "
@@ -2089,7 +2104,7 @@ msgstr ""
 "inte fungerar, starta om Tails och prova att ta bort bestående lagring utan "
 "att låsa upp den."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:730
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:732
 msgid ""
 "Not enough memory to change the passphrase of the Persistent Storage. Try "
 "again after closing some applications or rebooting."
@@ -2717,19 +2732,16 @@ msgstr ""
 "arbetssessioner"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:3
-#, fuzzy
 msgid "configuration;saved"
-msgstr "Konfiguration av skrivare"
+msgstr "konfiguration;sparad"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:1
-msgid "Root Terminal"
-msgstr "Root-terminal"
+msgid "Root Console"
+msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:2
-#, fuzzy
-msgid "Opens a terminal as the root user"
+msgid "Opens a console as the root user"
 msgstr ""
-"Öppnar en terminal som root-användare med gksu för att be om lösenordet"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:3
 msgid "admin"
@@ -2771,18 +2783,16 @@ msgid "Install, clone, upgrade Tails"
 msgstr "Installera, klona, uppgradera Tails"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-installer.desktop.in.h:3
-#, fuzzy
 msgid "install;clone;upgrade;manual"
-msgstr "Installera, klona, uppgradera Tails"
+msgstr "installera;klona;uppgradera;manual"
 
 #: ../config/chroot_local-includes/usr/share/applications/tca.desktop.in.h:2
 msgid "Connect Tails to the Tor network"
 msgstr "Anslut Tails till Tor-nätverket"
 
 #: ../config/chroot_local-includes/usr/share/applications/tca.desktop.in.h:3
-#, fuzzy
 msgid "connect;tor;network"
-msgstr "Anslut till ett lokalt nätverk"
+msgstr "anslut;tor;nätverk"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:1
 msgid "Tor Browser"
@@ -2793,9 +2803,8 @@ msgid "Anonymous Web Browser"
 msgstr "Anonym webbläsare"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:3
-#, fuzzy
 msgid "web;tor;browser"
-msgstr "Tor Browser"
+msgstr "webb;tor;browser"
 
 #: ../config/chroot_local-includes/usr/share/applications/unsafe-browser.desktop.in.h:2
 msgid "Browse the World Wide Web without anonymity"
@@ -2826,9 +2835,8 @@ msgstr ""
 "bestående lagring när du startar Tails"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop.in.h:3
-#, fuzzy
 msgid "persistent;storage;package;install"
-msgstr "Ta bort bestående lagring och installera om"
+msgstr "beständig;lagring;paket;installera"
 
 #: ../config/chroot_local-includes/usr/share/applications/whisperback.desktop.in.h:1
 msgid "WhisperBack Error Reporting"
@@ -2847,7 +2855,8 @@ msgid "Tails specific tools"
 msgstr "Tails-specifika verktyg"
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
-msgid "To start a Root Terminal, you need to authenticate."
+#, fuzzy
+msgid "To start a Root Console, you need to authenticate."
 msgstr "För att starta en root-terminalen måste du verifiera."
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.AdditionalSoftware.policy.in.h:1
@@ -2859,8 +2868,8 @@ msgid ""
 "Authentication is required to remove a package from your additional software "
 "($(command_line))"
 msgstr ""
-"Autentisering krävs för att ta bort ett paket från dina extra program "
-"($(command_line))"
+"Autentisering krävs för att ta bort ett paket från dina extra program ($"
+"(command_line))"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:18
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:56
@@ -3264,7 +3273,7 @@ msgstr "Aktivera GnuPG"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:546
 msgid "Pidgin Internet Messenger"
-msgstr "Pidgin Internet Messenger"
+msgstr "Pidgin-internetmeddelandetjänst"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:562
 msgid "Activate Pidgin Internet Messenger"
@@ -3597,15 +3606,16 @@ msgid "Configure a Tor bridge"
 msgstr "Konfigurera en Tor-bro"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:106
-#, fuzzy
 msgid ""
 "Bridges are secret Tor relays. Use a bridge as your first Tor relay if "
 "accessing Tor is blocked from where you are.\n"
 "\n"
 "You can use <i>obfs4</i> and <i>WebTunnel</i> bridges in Tails.\n"
 msgstr ""
-"Broar är hemliga Tor-reläer. Använd en bro som din första Tor-relä om "
-"åtkomst till Tor är blockerad där du är."
+"Broar är hemliga Tor-reläer. Använd en bro som ditt första Tor-relä om "
+"åtkomst till Tor är blockerad från där du befinner dig.\n"
+"\n"
+"Du kan använda <i>obfs4</i>- och <i>WebTunnel</i>-broar i Tails.\n"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:126
 msgid "<a href=\"doc/anonymous_internet/tor\">Learn more about Tor bridges</a>"
@@ -4083,6 +4093,14 @@ msgstr "December"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "Klocka"
+
+#~ msgid "Root Terminal"
+#~ msgstr "Root-terminal"
+
+#, fuzzy
+#~ msgid ""
+#~ "Opens a terminal as the root user, using gksu to ask for the password"
+#~ msgstr "Öppnar en terminal som root-användare"
 
 #~ msgid "meek"
 #~ msgstr "meek"

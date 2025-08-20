@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-06 10:51+0200\n"
+"POT-Creation-Date: 2025-08-20 11:52+0200\n"
 "PO-Revision-Date: 2025-06-20 10:01+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/tor/tails-gui/lv/"
@@ -192,9 +192,9 @@ msgstr ""
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
-"desktop\">APT on the command line</a>."
+"To add more, install some software using <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:154
@@ -1393,7 +1393,8 @@ msgid "Dismiss"
 msgstr "Atcelt"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:11
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:40
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:44
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:45
 msgid "Learn More"
 msgstr "Uzzināt vairāk"
 
@@ -1535,8 +1536,8 @@ msgstr ""
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:240
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
-"gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:258
@@ -1555,6 +1556,23 @@ msgstr "nav pieejams"
 #: config/chroot_local-includes/usr/local/lib/tails-htp-notify-user:68
 msgid "Failed to synchronize the clock!"
 msgstr "Pulksteņa sinhronizācija bija nesekmīga!"
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:26
+msgid "Insufficient Memory Detected"
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:28
+#, python-brace-format
+msgid ""
+"Tails requires {required_ram_gb} GB of RAM, but this computer only has "
+"{installed_ram_gb} GB. You might experience reduced performance, "
+"instability, or crashes."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:41
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:42
+msgid "Don't Show Again"
+msgstr ""
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:132
 msgid "Screen Locker"
@@ -1680,15 +1698,15 @@ msgstr ""
 msgid "error:"
 msgstr "kļūda:"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:21
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:24
 msgid "Warning: virtual machine detected!"
 msgstr "Brīdinājums: konstatēta virtuāla mašīna!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:23
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:26
 msgid "Warning: non-free virtual machine detected!"
 msgstr "Brīdinājums: konstatēta virtuāla mašīna, kas nav brīva!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:25
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:28
 msgid ""
 "Both the host operating system and the virtualization software are able to "
 "monitor what you are doing in Tails. Only free software can be considered "
@@ -1699,10 +1717,6 @@ msgstr ""
 "monitorēt to, ko Jūs darāt Tails. Par uzticamu var uzskatīt vienīgi "
 "bezmaksas programmatūru - gan viesotāja operētājsistēmai, gan "
 "virtualizācijas programmatūrai."
-
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:38
-msgid "Don't Show Again"
-msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/config.py:9
 #: config/chroot_local-includes/usr/local/bin/tca:10
@@ -1895,26 +1909,26 @@ msgid ""
 "few seconds."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:413
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:415
 msgid "Unlocking the encryption..."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:421
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:423
 #, fuzzy
 msgid "Formatting the file system..."
 msgstr "Verificē datņu sistēmu..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:439
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:441
 #, fuzzy
 msgid "Activating the Persistent Storage..."
 msgstr "Šifrēta _Pastāvīgā uzglabāšana"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:444
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:446
 #, fuzzy
 msgid "Finishing setting up the Persistent Storage..."
 msgstr "Šifrēta _Pastāvīgā uzglabāšana"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:697
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:699
 msgid ""
 "Can't unmount Persistent Storage, some process is still using it. Please "
 "close all applications that could be accessing it and try again. If that "
@@ -1922,7 +1936,7 @@ msgid ""
 "unlocking it."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:730
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:732
 msgid ""
 "Not enough memory to change the passphrase of the Persistent Storage. Try "
 "again after closing some applications or rebooting."
@@ -2530,11 +2544,11 @@ msgid "configuration;saved"
 msgstr "Printeru konfigurēšana"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:1
-msgid "Root Terminal"
+msgid "Root Console"
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:2
-msgid "Opens a terminal as the root user"
+msgid "Opens a console as the root user"
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:3
@@ -2649,7 +2663,8 @@ msgid "Tails specific tools"
 msgstr "Tails īpašie rīki"
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
-msgid "To start a Root Terminal, you need to authenticate."
+#, fuzzy
+msgid "To start a Root Console, you need to authenticate."
 msgstr "Lai startētu Root Terminal, Jums jāautentificējas."
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.AdditionalSoftware.policy.in.h:1

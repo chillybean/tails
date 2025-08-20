@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-06 10:51+0200\n"
-"PO-Revision-Date: 2025-04-03 14:14+0000\n"
+"POT-Creation-Date: 2025-08-20 11:52+0200\n"
+"PO-Revision-Date: 2025-08-07 15:02+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Swahili <https://hosted.weblate.org/projects/tor/tails-gui/sw/"
 ">\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -204,13 +204,13 @@ msgstr ""
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
-"desktop\">APT on the command line</a>."
+"To add more, install some software using <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
-"Kuongeza zaidi, sakini baadhi ya programu kwa kutumia <a href=\"synaptic."
-"desktop\">mfumo wa picha</a> au<a href=\"org.gnome.Terminal.desktop\">APT "
-"katika mfumo wa kufuata amri</a>."
+"Kuongeza zaidi, sakini baadhi ya programu kwa kutumia <a "
+"href=\"synaptic.desktop\">mfumo wa picha</a> au<a "
+"href=\"org.gnome.Terminal.desktop\">APT katika mfumo wa kufuata amri</a>."
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:154
 msgid "_Create persistent storage"
@@ -1479,7 +1479,8 @@ msgid "Dismiss"
 msgstr "Ondoa"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:11
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:40
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:44
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:45
 msgid "Learn More"
 msgstr "Jifunze Zaidi"
 
@@ -1618,9 +1619,9 @@ msgid ""
 "Package Manager</a> or <a href=\"org.gnome.Terminal.desktop\">APT on the "
 "command line</a>."
 msgstr ""
-"Kufanya hivyo,sanikisha baadhi ya programu kwa kutumia <a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a> au<a href=\"org.gnome.Terminal."
-"desktop\">APT on the command line</a>."
+"Kufanya hivyo,sanikisha baadhi ya programu kwa kutumia <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> au<a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:227
 msgid ""
@@ -1637,8 +1638,8 @@ msgstr ""
 #, fuzzy
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
-"gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "Kufanya hivyo, Tengeneza persistent storage kisha sanikisha baadhi ya "
 "programu kwa kutumia <a href=\"synaptic.desktop\">Synaptic Package Manager</"
@@ -1662,6 +1663,23 @@ msgstr "[Kifurushi hakipo]"
 #: config/chroot_local-includes/usr/local/lib/tails-htp-notify-user:68
 msgid "Failed to synchronize the clock!"
 msgstr "Kushindwa kuoanisha na saa!"
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:26
+msgid "Insufficient Memory Detected"
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:28
+#, python-brace-format
+msgid ""
+"Tails requires {required_ram_gb} GB of RAM, but this computer only has "
+"{installed_ram_gb} GB. You might experience reduced performance, "
+"instability, or crashes."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:41
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:42
+msgid "Don't Show Again"
+msgstr "Usionyeshe tena"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:132
 msgid "Screen Locker"
@@ -1804,15 +1822,15 @@ msgstr ""
 msgid "error:"
 msgstr "Dosari:"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:21
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:24
 msgid "Warning: virtual machine detected!"
 msgstr "Onyo: kuna kifaa kati ya mawasiliano kimeonekana!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:23
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:26
 msgid "Warning: non-free virtual machine detected!"
 msgstr "Onyo: kifaa cha mawasiliano cha kati cha bure kimeonekana!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:25
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:28
 msgid ""
 "Both the host operating system and the virtualization software are able to "
 "monitor what you are doing in Tails. Only free software can be considered "
@@ -1822,10 +1840,6 @@ msgstr ""
 "Mfumo unaosimamia na ule unaoingilia mawasiliano wanauwezo wa kufuatilia "
 "unachofanya katika Tails. Programu huru pekee zinaweza kuaminika, kwa mfumo "
 "wa usimamizi na ule unaoingilia mawasiliano."
-
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:38
-msgid "Don't Show Again"
-msgstr "Usionyeshe tena"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/config.py:9
 #: config/chroot_local-includes/usr/local/bin/tca:10
@@ -2033,26 +2047,26 @@ msgid ""
 "few seconds."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:413
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:415
 msgid "Unlocking the encryption..."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:421
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:423
 #, fuzzy
 msgid "Formatting the file system..."
 msgstr "Inahakikisha mfumo wa faili..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:439
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:441
 #, fuzzy
 msgid "Activating the Persistent Storage..."
 msgstr "Dosari katika kuhifadhi Persistent Storage: {}"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:444
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:446
 #, fuzzy
 msgid "Finishing setting up the Persistent Storage..."
 msgstr "Endelea bila Persistent Storage"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:697
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:699
 msgid ""
 "Can't unmount Persistent Storage, some process is still using it. Please "
 "close all applications that could be accessing it and try again. If that "
@@ -2060,7 +2074,7 @@ msgid ""
 "unlocking it."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:730
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:732
 msgid ""
 "Not enough memory to change the passphrase of the Persistent Storage. Try "
 "again after closing some applications or rebooting."
@@ -2077,6 +2091,7 @@ msgstr ""
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:49
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:1
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:25
+#, fuzzy
 msgid "Persistent Storage"
 msgstr "Persistent Storage"
 
@@ -2681,13 +2696,12 @@ msgid "configuration;saved"
 msgstr "Usanidi wa printa"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:1
-msgid "Root Terminal"
-msgstr "Root Terminal"
+msgid "Root Console"
+msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:2
-#, fuzzy
-msgid "Opens a terminal as the root user"
-msgstr "Fungua termianal kama mtumiaji mkuu, kwa kutumia gksu kupata nenosiri"
+msgid "Opens a console as the root user"
+msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:3
 msgid "admin"
@@ -2809,7 +2823,8 @@ msgid "Tails specific tools"
 msgstr "Vifaa maalum vya Tails"
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
-msgid "To start a Root Terminal, you need to authenticate."
+#, fuzzy
+msgid "To start a Root Console, you need to authenticate."
 msgstr "Kuanza terminal kuu, inahitaji uthibitisho."
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.AdditionalSoftware.policy.in.h:1
@@ -3628,6 +3643,7 @@ msgstr "_Ingiza bridge ambayo unaijua tayari"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:403
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1044
+#, fuzzy
 msgid "Bridge"
 msgstr "Bridge"
 
@@ -4045,6 +4061,15 @@ msgstr "Disemba"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "Saa"
+
+#~ msgid "Root Terminal"
+#~ msgstr "Root Terminal"
+
+#, fuzzy
+#~ msgid ""
+#~ "Opens a terminal as the root user, using gksu to ask for the password"
+#~ msgstr ""
+#~ "Fungua termianal kama mtumiaji mkuu, kwa kutumia gksu kupata nenosiri"
 
 #~ msgid "meek"
 #~ msgstr "meek"

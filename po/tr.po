@@ -30,13 +30,17 @@
 # Ümit Türk <zucchinitr@gmail.com>, 2013
 # Volkan Gezer <volkangezer@gmail.com>, 2013-2016
 # Yasin Özel <iletisim@yasinozel.com.tr>, 2013
+# emma peel <emma.peel@riseup.net>, 2025.
+# Poyraz <zynoxyer@proton.me>, 2025.
+# Zynox <zynoxyer@proton.me>, 2025.
+# Weblate <noreply-mt-weblate@weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-06 10:51+0200\n"
-"PO-Revision-Date: 2025-05-31 19:03+0000\n"
-"Last-Translator: Kaya Zeren <kayazeren@gmail.com>\n"
+"POT-Creation-Date: 2025-08-20 11:52+0200\n"
+"PO-Revision-Date: 2025-08-11 12:01+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/tor/tails-gui/tr/"
 ">\n"
 "Language: tr\n"
@@ -44,7 +48,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -228,9 +232,9 @@ msgstr ""
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
-"desktop\">APT on the command line</a>."
+"To add more, install some software using <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "Başka uygulamalar eklemek için <a href=\"synaptic.desktop\">Synaptic paket "
 "yöneticisi</a> ya da <a href=\"org.gnome.Terminal.desktop\">komut satırından "
@@ -489,13 +493,12 @@ msgstr ""
 "ancak yalnızca {free_memory} var."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:474
-#, fuzzy
 msgid ""
 "An error occurred while detecting available upgrades.\n"
 "This should not happen. Please report a bug."
 msgstr ""
-"Yayınlanmış güncellemeler belirlenirken bir sorun çıktı.\n"
-"Bu olmamalıydı. Lütfen bu sorunu bildirin."
+"Mevcut yükseltmeler algılanırken bir hata oluştu.\n"
+"Böyle bir şey olmamalı. Lütfen bir hata bildirin."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:477
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:496
@@ -763,7 +766,7 @@ msgstr "Kullanımdan kaldırılmış"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/additional_settings.py:362
 msgid "_Unsafe Browser"
-msgstr "_Unsafe Browser"
+msgstr "_Güvenli olmayan Tarayıcı"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/additional_settings.py:371
 msgid "Enabled (default)"
@@ -1510,7 +1513,8 @@ msgid "Dismiss"
 msgstr "Yok say"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:11
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:40
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:44
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:45
 msgid "Learn More"
 msgstr "Ayrıntılı bilgi alın"
 
@@ -1666,12 +1670,13 @@ msgstr ""
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:240
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
-"gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
-"Bunun için, bir kalıcı depolama birimi ekleyin ve <a href=\"synaptic."
-"desktop\">Synaptic Paket Yöneticisi</a> ya da <a href=\"org.gnome.Terminal."
-"desktop\">komut satırından APT kullanarak</a> diğer uygulamaları kurun."
+"Bunun için, bir kalıcı depolama birimi ekleyin ve <a "
+"href=\"synaptic.desktop\">Synaptic Paket Yöneticisi</a> ya da <a "
+"href=\"org.gnome.Terminal.desktop\">komut satırından APT kullanarak</a> "
+"diğer uygulamaları kurun."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:258
 msgid "To do so, install Tails on a USB stick and create a Persistent Storage."
@@ -1690,6 +1695,23 @@ msgstr "[açıklama yok]"
 #: config/chroot_local-includes/usr/local/lib/tails-htp-notify-user:68
 msgid "Failed to synchronize the clock!"
 msgstr "Saat eşitlenemedi!"
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:26
+msgid "Insufficient Memory Detected"
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:28
+#, python-brace-format
+msgid ""
+"Tails requires {required_ram_gb} GB of RAM, but this computer only has "
+"{installed_ram_gb} GB. You might experience reduced performance, "
+"instability, or crashes."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:41
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:42
+msgid "Don't Show Again"
+msgstr "Bir daha gösterme"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:132
 msgid "Screen Locker"
@@ -1825,8 +1847,8 @@ msgstr ""
 "<b>Güncellemeleri denetlemek için yeterli bellek yok.</b>\n"
 "\n"
 "Bu sistemin Tails yazılımının gereksinimlerini karşıladığına emin olun.\n"
-"Bilgiler: file:///usr/share/doc/tails/website/doc/about/requirements.tr."
-"html\n"
+"Bilgiler: file:///usr/share/doc/tails/website/doc/about/"
+"requirements.tr.html\n"
 "\n"
 "Güncellemeleri denetlemek için Tails yazılımını yeniden başlatmayı deneyin.\n"
 "\n"
@@ -1838,15 +1860,15 @@ msgstr ""
 msgid "error:"
 msgstr "hata:"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:21
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:24
 msgid "Warning: virtual machine detected!"
 msgstr "Uyarı: Sanal makine algılandı!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:23
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:26
 msgid "Warning: non-free virtual machine detected!"
 msgstr "Uyarı: Özgür olmayan sanal makine algılandı!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:25
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:28
 msgid ""
 "Both the host operating system and the virtualization software are able to "
 "monitor what you are doing in Tails. Only free software can be considered "
@@ -1856,10 +1878,6 @@ msgstr ""
 "Sunucu işletim sistemi ve sanallaştırma uygulaması Tails üzerinde yaptığınız "
 "işlemleri izler. Sunucu işletim sistemi ve sanallaştırma uygulaması için "
 "yalnızca özgür yazılımlar güvenilir olarak düşünülebilir."
-
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:38
-msgid "Don't Show Again"
-msgstr "Bir daha gösterme"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/config.py:9
 #: config/chroot_local-includes/usr/local/bin/tca:10
@@ -1895,11 +1913,12 @@ msgstr "Geçersiz: {exception}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:299
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:823
-#, fuzzy
 msgid ""
 "You need to configure a WebTunnel or an obfs4 bridge to hide that you are "
 "using Tor"
-msgstr "Tor kullandığınızı gizlemek için bir obfs4 köprüsü yapılandırmalısınız"
+msgstr ""
+"Tor kullandığınızı gizlemek için bir WebTunnel veya obfs4 köprüsü "
+"yapılandırmanız gerekir."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:354
 msgid "Failed to configure your Persistent Storage"
@@ -2073,23 +2092,23 @@ msgstr ""
 "LUKS şifrelemesi başlatılıyor... Bilgisayar bir kaç saniye yanıt vermeyi "
 "durdurabilir."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:413
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:415
 msgid "Unlocking the encryption..."
 msgstr "Şifreleme kilidi açılıyor..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:421
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:423
 msgid "Formatting the file system..."
 msgstr "Dosya sistemi biçimlendiriliyor..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:439
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:441
 msgid "Activating the Persistent Storage..."
 msgstr "Kalıcı depolama birimi etkinleştiriliyor..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:444
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:446
 msgid "Finishing setting up the Persistent Storage..."
 msgstr "Kalıcı depolama biriminin kurulumu tamamlanıyor..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:697
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:699
 msgid ""
 "Can't unmount Persistent Storage, some process is still using it. Please "
 "close all applications that could be accessing it and try again. If that "
@@ -2101,7 +2120,7 @@ msgstr ""
 "yaramazsaTails sistemini yeniden başlatıp kilidini açmadan kalıcı depolama "
 "birimini silmeyi deneyin."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:730
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:732
 msgid ""
 "Not enough memory to change the passphrase of the Persistent Storage. Try "
 "again after closing some applications or rebooting."
@@ -2634,8 +2653,8 @@ msgid ""
 "The %s variable was not found in the configuration file: /etc/whisperback/"
 "config.py"
 msgstr ""
-"Şu yapılandırma dosyasında %s değişkeni bulunamadı: /etc/whisperback/config."
-"py"
+"Şu yapılandırma dosyasında %s değişkeni bulunamadı: /etc/whisperback/"
+"config.py"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:136
 msgid "Unable to load a valid configuration."
@@ -2729,22 +2748,20 @@ msgstr ""
 "yapılandırır"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:3
-#, fuzzy
 msgid "configuration;saved"
-msgstr "Yazıcı ayarları"
+msgstr "yapılandırma;kaydedildi"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:1
-msgid "Root Terminal"
-msgstr "Root uçbirimi"
+msgid "Root Console"
+msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:2
-#, fuzzy
-msgid "Opens a terminal as the root user"
-msgstr "Uçbirimi root kullanıcı ile açar. Parola sormak için gksu kullanır"
+msgid "Opens a console as the root user"
+msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:3
 msgid "admin"
-msgstr ""
+msgstr "yönetici"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:1
 msgid "Tails Documentation"
@@ -2756,7 +2773,7 @@ msgstr "Tails sistemini nasıl kullanacağınızı öğrenin"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:3
 msgid "learn"
-msgstr ""
+msgstr "öğren"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-about.desktop.in.h:2
 msgid "Learn more about Tails"
@@ -2773,25 +2790,23 @@ msgstr "Tails kalıcı depolama birimini başka bir Tails USB belleğine yedekle
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-backup.desktop.in.h:3
 msgid "backup"
-msgstr ""
+msgstr "yedek"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-installer.desktop.in.h:2
 msgid "Install, clone, upgrade Tails"
 msgstr "Tails sistemini kur, kopyala, yükselt"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-installer.desktop.in.h:3
-#, fuzzy
 msgid "install;clone;upgrade;manual"
-msgstr "Tails sistemini kur, kopyala, yükselt"
+msgstr "yükle;klonla;yükselt;manuel"
 
 #: ../config/chroot_local-includes/usr/share/applications/tca.desktop.in.h:2
 msgid "Connect Tails to the Tor network"
 msgstr "Tails ile Tor ağı bağlantısını kur"
 
 #: ../config/chroot_local-includes/usr/share/applications/tca.desktop.in.h:3
-#, fuzzy
 msgid "connect;tor;network"
-msgstr "Bir yerel ağ bağlantısı kur"
+msgstr "bağlan;tor;ağ"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:1
 msgid "Tor Browser"
@@ -2802,9 +2817,8 @@ msgid "Anonymous Web Browser"
 msgstr "Anonim tarayıcı"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:3
-#, fuzzy
 msgid "web;tor;browser"
-msgstr "Tor Browser"
+msgstr "web;tor;tarayıcı"
 
 #: ../config/chroot_local-includes/usr/share/applications/unsafe-browser.desktop.in.h:2
 msgid "Browse the World Wide Web without anonymity"
@@ -2816,7 +2830,7 @@ msgstr "Güvenli olmayan tarayıcı"
 
 #: ../config/chroot_local-includes/usr/share/applications/unsafe-browser.desktop.in.h:4
 msgid "web;captive;portal"
-msgstr ""
+msgstr "web;kaptif;portal"
 
 #: ../config/chroot_local-includes/usr/share/applications/unlock-veracrypt-volumes.desktop.in.h:2
 msgid "Mount VeraCrypt encrypted file containers and devices"
@@ -2824,7 +2838,7 @@ msgstr "VeraCrypt ile şifrelenmiş dosya kapsayıcı ve aygıtlarını bağla"
 
 #: ../config/chroot_local-includes/usr/share/applications/unlock-veracrypt-volumes.desktop.in.h:3
 msgid "mount;encrypted;container;truecryt"
-msgstr ""
+msgstr "montaj;şifrelenmiş;konteyner;truecryt"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop.in.h:2
 msgid ""
@@ -2835,9 +2849,8 @@ msgstr ""
 "yapılandırın"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop.in.h:3
-#, fuzzy
 msgid "persistent;storage;package;install"
-msgstr "Kalıcı depolama birimini sil ve yeniden kur"
+msgstr "kalıcı; depolama; paket; yükleme"
 
 #: ../config/chroot_local-includes/usr/share/applications/whisperback.desktop.in.h:1
 msgid "WhisperBack Error Reporting"
@@ -2856,7 +2869,8 @@ msgid "Tails specific tools"
 msgstr "Özel Tails araçları"
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
-msgid "To start a Root Terminal, you need to authenticate."
+#, fuzzy
+msgid "To start a Root Console, you need to authenticate."
 msgstr "Bir Root uçbirimi başlatmak için kimliğinizi doğrulamalısınız."
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.AdditionalSoftware.policy.in.h:1
@@ -2868,8 +2882,8 @@ msgid ""
 "Authentication is required to remove a package from your additional software "
 "($(command_line))"
 msgstr ""
-"Ek uygulamalarınızdan bir paket kaldırmak için kimlik doğrulaması gerekir "
-"($(command_line))"
+"Ek uygulamalarınızdan bir paket kaldırmak için kimlik doğrulaması gerekir ($"
+"(command_line))"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:18
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:56
@@ -3276,7 +3290,7 @@ msgstr "GnuPG kullanılsın"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:546
 msgid "Pidgin Internet Messenger"
-msgstr "Pidgin Internet Messenger"
+msgstr "Pidgin İnternet Mesajlaşma Programı"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:562
 msgid "Activate Pidgin Internet Messenger"
@@ -3614,15 +3628,18 @@ msgid "Configure a Tor bridge"
 msgstr "Bir Tor köprüsü yapılandırın"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:106
-#, fuzzy
 msgid ""
 "Bridges are secret Tor relays. Use a bridge as your first Tor relay if "
 "accessing Tor is blocked from where you are.\n"
 "\n"
 "You can use <i>obfs4</i> and <i>WebTunnel</i> bridges in Tails.\n"
 msgstr ""
-"Köprüler gizli Tor aktarıcılarıdır. Bulunduğunuz yerde Tor ağı ile bağlantı "
-"kurulması engelleniyorsa ilk Tor aktarıcınız olarak bir köprü kullanın."
+"Bridges gizli Tor aktarıcılarıdır. Eğer bulunduğunuz yerde Tor’a erişim "
+"engellenmişse, ilk Tor aktarıcınız olarak bir bridge (köprü) "
+"kullanabilirsiniz.\n"
+"\n"
+"Tails içinde <i>obfs4</i> ve <i>WebTunnel</i> bridge’lerini "
+"kullanabilirsiniz.\n"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:126
 msgid "<a href=\"doc/anonymous_internet/tor\">Learn more about Tor bridges</a>"
@@ -3640,7 +3657,7 @@ msgstr "obfs4 (önerilir)"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:185
 msgid "WebTunnel"
-msgstr ""
+msgstr "Web Tüneli"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:208
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1522
@@ -3677,7 +3694,7 @@ msgstr "Köprü"
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:416
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1057
 msgid "obfs4 or webtunnel…"
-msgstr ""
+msgstr "obfs4 veya webtunnel…"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:489
 msgid "Save bridge to _Persistent Storage"
@@ -4105,6 +4122,14 @@ msgstr "Aralık"
 msgid "Clock"
 msgstr "Saat"
 
+#~ msgid "Root Terminal"
+#~ msgstr "Root uçbirimi"
+
+#, fuzzy
+#~ msgid ""
+#~ "Opens a terminal as the root user, using gksu to ask for the password"
+#~ msgstr "Yönetici olarak bir terminal açar."
+
 #~ msgid "meek"
 #~ msgstr "meek"
 
@@ -4189,15 +4214,15 @@ msgstr "Saat"
 #~ "\n"
 #~ "Help us keep your bitcoins safe!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~ "html#expenses\">How we spend our money.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/"
+#~ "donate.en.html#expenses\">How we spend our money.</a>"
 #~ msgstr ""
 #~ "Tails cüzdanınızı korur.\n"
 #~ "\n"
 #~ "Bitcoinlerinizi güvende tutmamıza yardımcı olun!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~ "html#expenses\">Paramızı nasıl harcıyoruz.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/"
+#~ "donate.en.html#expenses\">Paramızı nasıl harcıyoruz.</a>"
 
 #~ msgid "Create Backup"
 #~ msgstr "Yedek oluştur"
@@ -4337,8 +4362,8 @@ msgstr "Saat"
 #~| "\n"
 #~| "Every bit helps in our fight against surveillance and censorship!\n"
 #~| "\n"
-#~| "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~| "html#expenses\">How we spend our money.</a>"
+#~| "<a href=\"file:///usr/share/doc/tails/website/"
+#~| "donate.en.html#expenses\">How we spend our money.</a>"
 #~ msgid ""
 #~ "Our annual fundraiser is live!\n"
 #~ "\n"
@@ -4352,8 +4377,8 @@ msgstr "Saat"
 #~ "\n"
 #~ "İzleme ve sansüre karşı mücadelemizde her şeyin yardımı oluyor!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~ "html#expenses\">Paramızı nasıl harcıyoruz.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/"
+#~ "donate.en.html#expenses\">Paramızı nasıl harcıyoruz.</a>"
 
 #~ msgid "Name of the affected software"
 #~ msgstr "Etkilenen uygulamanın adı"

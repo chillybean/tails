@@ -45,14 +45,14 @@
 # Smiled <codeyro@users.noreply.hosted.weblate.org>, 2025.
 # Maksim_220 Кабанов <law820314@gmail.com>, 2025.
 # "Bucket B. Bucketman" <healtheries_deceptions@simplelogin.com>, 2025.
+# Abduloh Raupov <abdulohraupov@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-06 10:51+0200\n"
-"PO-Revision-Date: 2025-07-31 18:02+0000\n"
-"Last-Translator: \"Bucket B. Bucketman\" <healtheries_deceptions@simplelogin."
-"com>\n"
+"POT-Creation-Date: 2025-08-20 11:52+0200\n"
+"PO-Revision-Date: 2025-08-11 10:02+0000\n"
+"Last-Translator: Abduloh Raupov <abdulohraupov@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/tor/tails-gui/ru/"
 ">\n"
 "Language: ru\n"
@@ -249,9 +249,9 @@ msgstr ""
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
-"desktop\">APT on the command line</a>."
+"To add more, install some software using <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "Другое ПО устанавливается с помощью <a href=\"synaptic.desktop\">менеджера "
 "пакетов Synaptic</a> или <a href=\"org.gnome.Terminal.desktop\">команды APT "
@@ -1540,7 +1540,8 @@ msgid "Dismiss"
 msgstr "Отказаться"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:11
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:40
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:44
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:45
 msgid "Learn More"
 msgstr "Подробнее"
 
@@ -1678,9 +1679,9 @@ msgid ""
 "Package Manager</a> or <a href=\"org.gnome.Terminal.desktop\">APT on the "
 "command line</a>."
 msgstr ""
-"Для этого установите программное обеспечение при помощи <a href=\"synaptic."
-"desktop\">менеджера пакетов Synaptic</a> или <a href=\"org.gnome.Terminal."
-"desktop\">APT в командной строке</a>."
+"Для этого установите программное обеспечение при помощи <a "
+"href=\"synaptic.desktop\">менеджера пакетов Synaptic</a> или <a "
+"href=\"org.gnome.Terminal.desktop\">APT в командной строке</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:227
 msgid ""
@@ -1689,15 +1690,15 @@ msgid ""
 "a> or <a href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "Для этого разблокируйте ваше Постоянное хранилище при запуске Tails и "
-"установите программное обеспечение при помощи <a href=\"synaptic."
-"desktop\">менеджера пакетов Synaptic</a> или <a href=\"org.gnome.Terminal."
-"desktop\">APT в командной строке</a>."
+"установите программное обеспечение при помощи <a "
+"href=\"synaptic.desktop\">менеджера пакетов Synaptic</a> или <a "
+"href=\"org.gnome.Terminal.desktop\">APT в командной строке</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:240
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
-"gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "Для этого создайте Постоянное хранилище и установите программное обеспечение "
 "при помощи <a href=\"synaptic.desktop\">менеджера пакетов Synaptic</a> или "
@@ -1720,6 +1721,23 @@ msgstr "[описание недоступно]"
 #: config/chroot_local-includes/usr/local/lib/tails-htp-notify-user:68
 msgid "Failed to synchronize the clock!"
 msgstr "Синхронизация системного времени не удалась!"
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:26
+msgid "Insufficient Memory Detected"
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:28
+#, python-brace-format
+msgid ""
+"Tails requires {required_ram_gb} GB of RAM, but this computer only has "
+"{installed_ram_gb} GB. You might experience reduced performance, "
+"instability, or crashes."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:41
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:42
+msgid "Don't Show Again"
+msgstr "Не показывать это снова"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:132
 msgid "Screen Locker"
@@ -1856,8 +1874,8 @@ msgstr ""
 "<b>Недостаточно памяти для проверки обновлений.</b>\n"
 "\n"
 "Убедитесь, что система соответствует требованиям для запуска Tails.\n"
-"Подробнее file:///usr/share/doc/tails/website/doc/about/requirements.en."
-"html\n"
+"Подробнее file:///usr/share/doc/tails/website/doc/about/"
+"requirements.en.html\n"
 "\n"
 "Попробуйте перезапустить Tails для повторной проверки доступных обновлений.\n"
 "\n"
@@ -1869,15 +1887,15 @@ msgstr ""
 msgid "error:"
 msgstr "ошибка:"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:21
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:24
 msgid "Warning: virtual machine detected!"
 msgstr "Внимание: обнаружена виртуальная машина!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:23
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:26
 msgid "Warning: non-free virtual machine detected!"
 msgstr "Внимание: обнаружена несвободная виртуальная машина!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:25
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:28
 msgid ""
 "Both the host operating system and the virtualization software are able to "
 "monitor what you are doing in Tails. Only free software can be considered "
@@ -1888,10 +1906,6 @@ msgstr ""
 "машину, могут отслеживать вашу работу в Tails. Только свободное программное "
 "обеспечение можно считать надежным, как для принимающей операционной "
 "системы, тaк и программного обеспечения для виртуализации."
-
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:38
-msgid "Don't Show Again"
-msgstr "Не показывать это снова"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/config.py:9
 #: config/chroot_local-includes/usr/local/bin/tca:10
@@ -2107,23 +2121,23 @@ msgstr ""
 "Инициализация LUKS шифрования… Ваш компьютер может перестать отвечать на "
 "некоторое время."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:413
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:415
 msgid "Unlocking the encryption..."
 msgstr "Разблокировка шифрования…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:421
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:423
 msgid "Formatting the file system..."
 msgstr "Форматирование файловой системы…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:439
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:441
 msgid "Activating the Persistent Storage..."
 msgstr "Активирование Постоянного хранилища…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:444
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:446
 msgid "Finishing setting up the Persistent Storage..."
 msgstr "Завершение настройки Постоянного хранилища…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:697
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:699
 msgid ""
 "Can't unmount Persistent Storage, some process is still using it. Please "
 "close all applications that could be accessing it and try again. If that "
@@ -2135,7 +2149,7 @@ msgstr ""
 "его использовать и попробуйте вновь. Если это не сработает, перезапустите "
 "Tails и попробуйте удалить Постоянное хранилище, не разблокируя его."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:730
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:732
 msgid ""
 "Not enough memory to change the passphrase of the Persistent Storage. Try "
 "again after closing some applications or rebooting."
@@ -2669,8 +2683,8 @@ msgid ""
 "The %s variable was not found in the configuration file: /etc/whisperback/"
 "config.py"
 msgstr ""
-"Переменная %s не была найдена в файле конфигурации: /etc/whisperback/config."
-"py"
+"Переменная %s не была найдена в файле конфигурации: /etc/whisperback/"
+"config.py"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:136
 msgid "Unable to load a valid configuration."
@@ -2764,23 +2778,20 @@ msgstr ""
 "рабочими сессиями"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:3
-#, fuzzy
 msgid "configuration;saved"
-msgstr "Настройка принтеров"
+msgstr "Конфигурация сохранена"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:1
-msgid "Root Terminal"
-msgstr "Root-терминал"
+msgid "Root Console"
+msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:2
-#, fuzzy
-msgid "Opens a terminal as the root user"
+msgid "Opens a console as the root user"
 msgstr ""
-"Открывает терминал как пользователь root, используя gksu для запроса пароля"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:3
 msgid "admin"
-msgstr ""
+msgstr "админ"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:1
 msgid "Tails Documentation"
@@ -2792,7 +2803,7 @@ msgstr "Научитесь пользоваться Tails"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:3
 msgid "learn"
-msgstr ""
+msgstr "научиться"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-about.desktop.in.h:2
 msgid "Learn more about Tails"
@@ -2894,7 +2905,8 @@ msgid "Tails specific tools"
 msgstr "Специальные инструменты Tails"
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
-msgid "To start a Root Terminal, you need to authenticate."
+#, fuzzy
+msgid "To start a Root Console, you need to authenticate."
 msgstr "Чтобы запустить root-терминал, необходимо пройти аутентификацию."
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.AdditionalSoftware.policy.in.h:1
@@ -2906,8 +2918,8 @@ msgid ""
 "Authentication is required to remove a package from your additional software "
 "($(command_line))"
 msgstr ""
-"Для удаления пакета из вашего дополнительного ПО требуется аутентификация "
-"($(command_line))"
+"Для удаления пакета из вашего дополнительного ПО требуется аутентификация ($"
+"(command_line))"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:18
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:56
@@ -4139,6 +4151,14 @@ msgstr "Декабрь"
 msgid "Clock"
 msgstr "Часы"
 
+#~ msgid "Root Terminal"
+#~ msgstr "Root-терминал"
+
+#, fuzzy
+#~ msgid ""
+#~ "Opens a terminal as the root user, using gksu to ask for the password"
+#~ msgstr "Открывает терминал как root пользователь"
+
 #~ msgid "meek"
 #~ msgstr "meek"
 
@@ -4224,15 +4244,15 @@ msgstr "Часы"
 #~ "\n"
 #~ "Help us keep your bitcoins safe!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~ "html#expenses\">How we spend our money.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/"
+#~ "donate.en.html#expenses\">How we spend our money.</a>"
 #~ msgstr ""
 #~ "Tails защищает ваш кошелёк.\n"
 #~ "\n"
 #~ "Помогите нам в защите ваших биткойнов!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~ "html#expenses\">Как мы распределяем наши доходы.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/"
+#~ "donate.en.html#expenses\">Как мы распределяем наши доходы.</a>"
 
 #~ msgid "Create Backup"
 #~ msgstr "Создать резервную копию"

@@ -38,12 +38,13 @@
 # try once, 2015,2019
 # u <u@451f.org>, 2014
 # Will Smith <info@belvenservices.com>, 2018
+# Weblate <noreply-mt-weblate@weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-06 10:51+0200\n"
-"PO-Revision-Date: 2025-07-27 12:05+0000\n"
+"POT-Creation-Date: 2025-08-20 11:52+0200\n"
+"PO-Revision-Date: 2025-08-10 11:02+0000\n"
 "Last-Translator: curtisb <curtisbaltimore@protonmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/tor/tails-gui/de/"
 ">\n"
@@ -241,13 +242,13 @@ msgstr ""
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
-"desktop\">APT on the command line</a>."
+"To add more, install some software using <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
-"Um mehr hinzufügen, installiere Software mit dem <a href=\"synaptic."
-"desktop\">Synaptic-Paketmanager</a> oder <a href=\"org.gnome.Terminal."
-"desktop\">APT in der Kommandozeile</a>."
+"Um mehr hinzufügen, installiere Software mit dem <a "
+"href=\"synaptic.desktop\">Synaptic-Paketmanager</a> oder <a "
+"href=\"org.gnome.Terminal.desktop\">APT in der Kommandozeile</a>."
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:154
 msgid "_Create persistent storage"
@@ -1435,8 +1436,8 @@ msgid ""
 "ISO to the root of your drive (ie: C:\\)"
 msgstr ""
 "Die ausgewählte Datei kann nicht verwendet werden. Vielleicht hast du mehr "
-"Glück, wenn du das ISO-Abbild in das Wurzelverzeichnis deines Laufwerkes (z."
-"B. C:\\) verschiebst"
+"Glück, wenn du das ISO-Abbild in das Wurzelverzeichnis deines Laufwerkes "
+"(z.B. C:\\) verschiebst"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:868
 #, python-format
@@ -1553,7 +1554,8 @@ msgid "Dismiss"
 msgstr "Verwerfen"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:11
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:40
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:44
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:45
 msgid "Learn More"
 msgstr "Mehr erfahren"
 
@@ -1704,15 +1706,15 @@ msgid ""
 "a> or <a href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "Entsperre dazu deinen beständigen Datenspeicher beim Start von Tails und "
-"installiere dazu gewünschte Software mit der <a href=\"synaptic."
-"desktop\">Synaptic-Paketverwaltung</a> oder <a href=\"org.gnome.Terminal."
-"desktop\">APT auf der Kommandozeile</a>."
+"installiere dazu gewünschte Software mit der <a "
+"href=\"synaptic.desktop\">Synaptic-Paketverwaltung</a> oder <a "
+"href=\"org.gnome.Terminal.desktop\">APT auf der Kommandozeile</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:240
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
-"gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "Erstelle dazu einen beständigen Datenspeicher und installiere gewünschte "
 "Software mit der <a href=\"synaptic.desktop\">Synaptic-Paketverwaltung</a> "
@@ -1735,6 +1737,23 @@ msgstr "[Beschreibung nicht verfügbar]"
 #: config/chroot_local-includes/usr/local/lib/tails-htp-notify-user:68
 msgid "Failed to synchronize the clock!"
 msgstr "Fehler beim Synchronisieren der Systemuhr!"
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:26
+msgid "Insufficient Memory Detected"
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:28
+#, python-brace-format
+msgid ""
+"Tails requires {required_ram_gb} GB of RAM, but this computer only has "
+"{installed_ram_gb} GB. You might experience reduced performance, "
+"instability, or crashes."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:41
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:42
+msgid "Don't Show Again"
+msgstr "Nicht erneut anzeigen"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:132
 msgid "Screen Locker"
@@ -1887,15 +1906,15 @@ msgstr ""
 msgid "error:"
 msgstr "Fehler:"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:21
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:24
 msgid "Warning: virtual machine detected!"
 msgstr "Warnung: Virtuelle Maschine erkannt!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:23
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:26
 msgid "Warning: non-free virtual machine detected!"
 msgstr "Warnung: nicht-freie virtuelle Maschine erkannt!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:25
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:28
 msgid ""
 "Both the host operating system and the virtualization software are able to "
 "monitor what you are doing in Tails. Only free software can be considered "
@@ -1906,10 +1925,6 @@ msgstr ""
 "können überwachen, was du in Tails tust. Nur Freie Software kann sowohl für "
 "das Wirts-Betriebssystem als auch für die Virtualisierungs-Anwendung als "
 "vertrauenswürdig gelten."
-
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:38
-msgid "Don't Show Again"
-msgstr "Nicht erneut anzeigen"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/config.py:9
 #: config/chroot_local-includes/usr/local/bin/tca:10
@@ -2125,23 +2140,23 @@ msgstr ""
 "Initialisiere LUKS-Verschlüsselung... Der Computer könnte für einige "
 "Sekunden nicht reagieren."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:413
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:415
 msgid "Unlocking the encryption..."
 msgstr "Verschlüsselung wird entsperrt..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:421
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:423
 msgid "Formatting the file system..."
 msgstr "Dateisystem wird formatiert…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:439
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:441
 msgid "Activating the Persistent Storage..."
 msgstr "Beständiger Datenspeicher wird aktiviert..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:444
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:446
 msgid "Finishing setting up the Persistent Storage..."
 msgstr "Einrichtung des beständigen Datenspeichers wird abgeschlossen..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:697
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:699
 msgid ""
 "Can't unmount Persistent Storage, some process is still using it. Please "
 "close all applications that could be accessing it and try again. If that "
@@ -2154,7 +2169,7 @@ msgstr ""
 "starte Tails neu und versuche, den beständigen Datenspeicher zu löschen, "
 "ohne ihn zu entsperren."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:730
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:732
 msgid ""
 "Not enough memory to change the passphrase of the Persistent Storage. Try "
 "again after closing some applications or rebooting."
@@ -2699,8 +2714,8 @@ msgid ""
 "The %s variable was not found in the configuration file: /etc/whisperback/"
 "config.py"
 msgstr ""
-"Die Variable %s konnte in der Konfigurationsdatei (/etc/whisperback/config."
-"py) nicht gefunden werden"
+"Die Variable %s konnte in der Konfigurationsdatei (/etc/whisperback/"
+"config.py) nicht gefunden werden"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:136
 msgid "Unable to load a valid configuration."
@@ -2796,24 +2811,20 @@ msgstr ""
 "Arbeitssitzungen gespeichert werden"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:3
-#, fuzzy
 msgid "configuration;saved"
-msgstr "Druckereinstellungen"
+msgstr "Konfiguration;gespeichert"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:1
-msgid "Root Terminal"
-msgstr "Als Systemverwalter im Terminal öffnen"
+msgid "Root Console"
+msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:2
-#, fuzzy
-msgid "Opens a terminal as the root user"
+msgid "Opens a console as the root user"
 msgstr ""
-"Öffnet ein Terminal als Systemverwalter und benutzt gksu, um nach dem "
-"Passwort zu fragen"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:3
 msgid "admin"
-msgstr ""
+msgstr "Admin"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:1
 msgid "Tails Documentation"
@@ -2825,7 +2836,7 @@ msgstr "Lerne Tails zu nutzen"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:3
 msgid "learn"
-msgstr ""
+msgstr "lernen"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-about.desktop.in.h:2
 msgid "Learn more about Tails"
@@ -2844,25 +2855,23 @@ msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-backup.desktop.in.h:3
 msgid "backup"
-msgstr ""
+msgstr "backup"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-installer.desktop.in.h:2
 msgid "Install, clone, upgrade Tails"
 msgstr "Installiere, klone, aktualisiere Tails"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-installer.desktop.in.h:3
-#, fuzzy
 msgid "install;clone;upgrade;manual"
-msgstr "Installiere, klone, aktualisiere Tails"
+msgstr "installiere;klone;aktualisiere;Handbuch"
 
 #: ../config/chroot_local-includes/usr/share/applications/tca.desktop.in.h:2
 msgid "Connect Tails to the Tor network"
 msgstr "Verbinde Tails mit dem Tor-Netzwerk"
 
 #: ../config/chroot_local-includes/usr/share/applications/tca.desktop.in.h:3
-#, fuzzy
 msgid "connect;tor;network"
-msgstr "Mit dem lokalen Netzwerk verbinden"
+msgstr "verbinde;tor;netzwerk"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:1
 msgid "Tor Browser"
@@ -2873,9 +2882,8 @@ msgid "Anonymous Web Browser"
 msgstr "Anonymer Internet-Browser"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:3
-#, fuzzy
 msgid "web;tor;browser"
-msgstr "Tor-Browser"
+msgstr "web;tor;browser"
 
 #: ../config/chroot_local-includes/usr/share/applications/unsafe-browser.desktop.in.h:2
 msgid "Browse the World Wide Web without anonymity"
@@ -2887,7 +2895,7 @@ msgstr "Unsicherer Internet-Browser"
 
 #: ../config/chroot_local-includes/usr/share/applications/unsafe-browser.desktop.in.h:4
 msgid "web;captive;portal"
-msgstr ""
+msgstr "web;gefangen;portal"
 
 #: ../config/chroot_local-includes/usr/share/applications/unlock-veracrypt-volumes.desktop.in.h:2
 msgid "Mount VeraCrypt encrypted file containers and devices"
@@ -2895,7 +2903,7 @@ msgstr "VeraCrypt-Container und -Geräte entsperren und einhängen"
 
 #: ../config/chroot_local-includes/usr/share/applications/unlock-veracrypt-volumes.desktop.in.h:3
 msgid "mount;encrypted;container;truecryt"
-msgstr ""
+msgstr "einbinden;verschlüsselt;container;truecryt"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop.in.h:2
 msgid ""
@@ -2906,9 +2914,8 @@ msgstr ""
 "beständigen Datenspeicher installiert wird"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop.in.h:3
-#, fuzzy
 msgid "persistent;storage;package;install"
-msgstr "Lösche den beständigen Datenspeicher und installiere neu"
+msgstr "beständiger;Datenspeicher;paket;installieren"
 
 #: ../config/chroot_local-includes/usr/share/applications/whisperback.desktop.in.h:1
 msgid "WhisperBack Error Reporting"
@@ -2927,7 +2934,8 @@ msgid "Tails specific tools"
 msgstr "Tails-spezifische Werkzeuge"
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
-msgid "To start a Root Terminal, you need to authenticate."
+#, fuzzy
+msgid "To start a Root Console, you need to authenticate."
 msgstr ""
 "Du musst dich authentifizieren, um ein Root-Terminal starten zu können."
 
@@ -3452,7 +3460,7 @@ msgstr " Zum Beispiel:"
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:186
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:46
 msgid "Passphrase:"
-msgstr "Passphrase:"
+msgstr "Passwort:"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:205
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:65
@@ -4189,6 +4197,14 @@ msgstr "Dezember"
 msgid "Clock"
 msgstr "Uhr"
 
+#~ msgid "Root Terminal"
+#~ msgstr "Als Systemverwalter im Terminal öffnen"
+
+#, fuzzy
+#~ msgid ""
+#~ "Opens a terminal as the root user, using gksu to ask for the password"
+#~ msgstr "Öffnet ein Terminal als Systemverwalter"
+
 #~ msgid "meek"
 #~ msgstr "meek"
 
@@ -4274,15 +4290,15 @@ msgstr "Uhr"
 #~ "\n"
 #~ "Help us keep your bitcoins safe!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~ "html#expenses\">How we spend our money.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/"
+#~ "donate.en.html#expenses\">How we spend our money.</a>"
 #~ msgstr ""
 #~ "Tails schützt deinen Wallet.\n"
 #~ "\n"
 #~ "Helfen Sie uns, Ihre Bitcoins zu schützen!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~ "html#expenses\">Wir wir dein Geld verwenden.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/"
+#~ "donate.en.html#expenses\">Wir wir dein Geld verwenden.</a>"
 
 #~ msgid "Create Backup"
 #~ msgstr "Datensicherung erstellen"
@@ -4845,10 +4861,10 @@ msgstr "Uhr"
 #~ "Verwende den Unsafe Browser nur, um dich bei einem Netzwerk anzumelden, "
 #~ "dann schliesse ihn wieder.\\n\\nDer Unsafe Browser ist aus "
 #~ "Sicherheitsgründen standardmässig deaktiviert.\\n\\nUm <a href='file:///"
-#~ "usr/share/doc/tails/website/doc/anonymous_internet/unsafe_browser.en."
-#~ "html#use'>den unsicheren Browser zu verwenden</a>, starte Tails neu und "
-#~ "aktiviere den unsicheren Browser in den Einstellungen auf dem "
-#~ "Willkommensbildschirm."
+#~ "usr/share/doc/tails/website/doc/anonymous_internet/"
+#~ "unsafe_browser.en.html#use'>den unsicheren Browser zu verwenden</a>, "
+#~ "starte Tails neu und aktiviere den unsicheren Browser in den "
+#~ "Einstellungen auf dem Willkommensbildschirm."
 
 #~ msgid ""
 #~ "\\n\\nTo always enable the Unsafe Browser, turn on the Welcome Screen "

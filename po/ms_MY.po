@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-06 10:51+0200\n"
+"POT-Creation-Date: 2025-08-20 11:52+0200\n"
 "PO-Revision-Date: 2025-06-21 18:01+0000\n"
 "Last-Translator: miiyuh <itsazripp2@gmail.com>\n"
 "Language-Team: Malay <https://hosted.weblate.org/projects/tor/tails-gui/ms/"
@@ -210,13 +210,13 @@ msgstr ""
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
-"desktop\">APT on the command line</a>."
+"To add more, install some software using <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
-"Untuk menambah lagi, pasang beberapa perisian menggunakan <a href=\"synaptic."
-"desktop\">Pengurus Pakej Synaptic</a> atau <a href=\"org.gnome.Terminal."
-"desktop\">APT dalam baris perintah</a>."
+"Untuk menambah lagi, pasang beberapa perisian menggunakan <a "
+"href=\"synaptic.desktop\">Pengurus Pakej Synaptic</a> atau <a "
+"href=\"org.gnome.Terminal.desktop\">APT dalam baris perintah</a>."
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:154
 msgid "_Create persistent storage"
@@ -1455,7 +1455,8 @@ msgid "Dismiss"
 msgstr "Buangkan"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:11
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:40
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:44
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:45
 msgid "Learn More"
 msgstr "Ketahui Lebih Lanjut"
 
@@ -1593,9 +1594,9 @@ msgid ""
 "Package Manager</a> or <a href=\"org.gnome.Terminal.desktop\">APT on the "
 "command line</a>."
 msgstr ""
-"Untuk membuatnya, pasang beberapa perisian menggunakan <a href=\"synaptic."
-"desktop\">Pengurus Pakej Synaptic</a> atau <a href=\"org.gnome.Terminal."
-"desktop\">APT dalam baris perintah</a>."
+"Untuk membuatnya, pasang beberapa perisian menggunakan <a "
+"href=\"synaptic.desktop\">Pengurus Pakej Synaptic</a> atau <a "
+"href=\"org.gnome.Terminal.desktop\">APT dalam baris perintah</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:227
 #, fuzzy
@@ -1613,8 +1614,8 @@ msgstr ""
 #, fuzzy
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
-"gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "Untuk membuatnya, cipta satu storan berterusan dan pasang beberapa perisian "
 "menggunakan <a href=\"synaptic.desktop\">Pengurus Pakej Synaptic</a> atau <a "
@@ -1636,6 +1637,23 @@ msgstr "[pakej tidak tersedia]"
 #: config/chroot_local-includes/usr/local/lib/tails-htp-notify-user:68
 msgid "Failed to synchronize the clock!"
 msgstr "Gagal menyegerakkan jam!"
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:26
+msgid "Insufficient Memory Detected"
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:28
+#, python-brace-format
+msgid ""
+"Tails requires {required_ram_gb} GB of RAM, but this computer only has "
+"{installed_ram_gb} GB. You might experience reduced performance, "
+"instability, or crashes."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:41
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:42
+msgid "Don't Show Again"
+msgstr ""
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:132
 msgid "Screen Locker"
@@ -1761,15 +1779,15 @@ msgstr ""
 msgid "error:"
 msgstr "ralat:"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:21
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:24
 msgid "Warning: virtual machine detected!"
 msgstr "Amaran: komputer maya dikesan!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:23
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:26
 msgid "Warning: non-free virtual machine detected!"
 msgstr "Amaran: komputer maya bukan-bebas dikesan!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:25
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:28
 msgid ""
 "Both the host operating system and the virtualization software are able to "
 "monitor what you are doing in Tails. Only free software can be considered "
@@ -1779,10 +1797,6 @@ msgstr ""
 "Kedua-dua sistem pengoperasian hos dan perisian pemayaan dapat memantau apa "
 "yang anda buat di dalam Tails. Hanya perisian bebas boleh dipercayai, bagi "
 "kedua-dua jenis sistem pengoperasian hos dan perisian pemayaan."
-
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:38
-msgid "Don't Show Again"
-msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/config.py:9
 #: config/chroot_local-includes/usr/local/bin/tca:10
@@ -1973,26 +1987,26 @@ msgid ""
 "few seconds."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:413
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:415
 msgid "Unlocking the encryption..."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:421
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:423
 #, fuzzy
 msgid "Formatting the file system..."
 msgstr "Mengesahkan sistem fail..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:439
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:441
 #, fuzzy
 msgid "Activating the Persistent Storage..."
 msgstr "Cipta Storan Berterusan"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:444
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:446
 #, fuzzy
 msgid "Finishing setting up the Persistent Storage..."
 msgstr "Cipta Storan Berterusan"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:697
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:699
 msgid ""
 "Can't unmount Persistent Storage, some process is still using it. Please "
 "close all applications that could be accessing it and try again. If that "
@@ -2000,7 +2014,7 @@ msgid ""
 "unlocking it."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:730
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:732
 msgid ""
 "Not enough memory to change the passphrase of the Persistent Storage. Try "
 "again after closing some applications or rebooting."
@@ -2613,11 +2627,11 @@ msgid "configuration;saved"
 msgstr "Konfigurasi pencetak"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:1
-msgid "Root Terminal"
+msgid "Root Console"
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:2
-msgid "Opens a terminal as the root user"
+msgid "Opens a console as the root user"
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:3
@@ -2734,7 +2748,8 @@ msgid "Tails specific tools"
 msgstr "Alatan khusus Tails"
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
-msgid "To start a Root Terminal, you need to authenticate."
+#, fuzzy
+msgid "To start a Root Console, you need to authenticate."
 msgstr "Untuk memulakan Terminal Root, anda perlu disahihkan."
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.AdditionalSoftware.policy.in.h:1
@@ -3900,15 +3915,15 @@ msgstr ""
 #~ "\n"
 #~ "Help us keep your bitcoins safe!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~ "html#expenses\">How we spend our money.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/"
+#~ "donate.en.html#expenses\">How we spend our money.</a>"
 #~ msgstr ""
 #~ "Tails melindungi dompet anda.\n"
 #~ "\n"
 #~ "Bantu kami memastikan bitcoin anda selamat!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~ "html#expenses\">Cara kita membelanjakan wang kita.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/"
+#~ "donate.en.html#expenses\">Cara kita membelanjakan wang kita.</a>"
 
 #, fuzzy
 #~| msgid "Create"
@@ -4007,8 +4022,8 @@ msgstr ""
 #~| "\n"
 #~| "Every bit helps in our fight against surveillance and censorship!\n"
 #~| "\n"
-#~| "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~| "html#expenses\">How we spend our money.</a>"
+#~| "<a href=\"file:///usr/share/doc/tails/website/"
+#~| "donate.en.html#expenses\">How we spend our money.</a>"
 #~ msgid ""
 #~ "Our annual fundraiser is live!\n"
 #~ "\n"
@@ -4023,8 +4038,8 @@ msgstr ""
 #~ "Setiap perkara membantu dalam perjuangan kami menentang pengawasan dan "
 #~ "penapisan!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~ "html#expenses\">Cara kita membelanjakan wang kita.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/"
+#~ "donate.en.html#expenses\">Cara kita membelanjakan wang kita.</a>"
 
 #~ msgid "Name of the affected software"
 #~ msgstr "Nama perisian yang terjejas"

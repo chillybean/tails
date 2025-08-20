@@ -30,13 +30,14 @@
 # c7a0a66e0476db158663636124cfb54f_370a183, 2018
 # 藤前　甲 <m1440809437@hiru-dea.com>, 2014
 # Himmel <himmel@users.noreply.hosted.weblate.org>, 2025.
+# Weblate <noreply-mt-weblate@weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-06 10:51+0200\n"
-"PO-Revision-Date: 2025-07-26 06:04+0000\n"
-"Last-Translator: Himmel <himmel@users.noreply.hosted.weblate.org>\n"
+"POT-Creation-Date: 2025-08-20 11:52+0200\n"
+"PO-Revision-Date: 2025-08-18 07:02+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/tor/tails-gui/"
 "ja/>\n"
 "Language: ja\n"
@@ -44,7 +45,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.13\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -226,9 +227,9 @@ msgstr ""
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
-"desktop\">APT on the command line</a>."
+"To add more, install some software using <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "さらに追加するには、<a href=\"synaptic.desktop\">Synaptic パッケージ マネー"
 "ジャー</a>または<a href=\"org.gnome.Terminal.desktop\">コマンドライン上の "
@@ -1495,7 +1496,8 @@ msgid "Dismiss"
 msgstr "無視"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:11
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:40
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:44
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:45
 msgid "Learn More"
 msgstr "詳細情報"
 
@@ -1651,8 +1653,8 @@ msgstr ""
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:240
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
-"gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "そのためには、永続ストレージを作成し、<a href=\"synaptic.desktop\">Synaptic "
 "パッケージマネージャー</a>または<a href=\"org.gnome.Terminal.desktop\">コマン"
@@ -1676,6 +1678,23 @@ msgstr "[説明がありません]"
 #: config/chroot_local-includes/usr/local/lib/tails-htp-notify-user:68
 msgid "Failed to synchronize the clock!"
 msgstr "時刻の同期に失敗しました！"
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:26
+msgid "Insufficient Memory Detected"
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:28
+#, python-brace-format
+msgid ""
+"Tails requires {required_ram_gb} GB of RAM, but this computer only has "
+"{installed_ram_gb} GB. You might experience reduced performance, "
+"instability, or crashes."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:41
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:42
+msgid "Don't Show Again"
+msgstr "今後表示しない"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:132
 msgid "Screen Locker"
@@ -1826,15 +1845,15 @@ msgstr ""
 msgid "error:"
 msgstr "エラー:"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:21
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:24
 msgid "Warning: virtual machine detected!"
 msgstr "警告: 仮想マシンを検出しました！"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:23
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:26
 msgid "Warning: non-free virtual machine detected!"
 msgstr "警告: フリーソフトではない仮想マシンを検出しました！"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:25
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:28
 msgid ""
 "Both the host operating system and the virtualization software are able to "
 "monitor what you are doing in Tails. Only free software can be considered "
@@ -1844,10 +1863,6 @@ msgstr ""
 "ホストオペレーティングシステムと仮想化ソフトウェアのどちらも、Tails で行って"
 "いることを監視できます。ホストオペレーティングシステムと仮想化ソフトウェアに"
 "は、フリーソフトのみが信頼されます。"
-
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:38
-msgid "Don't Show Again"
-msgstr "今後表示しない"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/config.py:9
 #: config/chroot_local-includes/usr/local/bin/tca:10
@@ -2059,23 +2074,23 @@ msgid ""
 msgstr ""
 "LUKS 暗号化の初期化中... コンピューターが数秒間応答しなくなる場合があります。"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:413
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:415
 msgid "Unlocking the encryption..."
 msgstr "暗号化の解除中..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:421
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:423
 msgid "Formatting the file system..."
 msgstr "ファイルシステムのフォーマット中..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:439
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:441
 msgid "Activating the Persistent Storage..."
 msgstr "永続ストレージを有効にしています..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:444
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:446
 msgid "Finishing setting up the Persistent Storage..."
 msgstr "永続ストレージのセットアップを終了中..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:697
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:699
 msgid ""
 "Can't unmount Persistent Storage, some process is still using it. Please "
 "close all applications that could be accessing it and try again. If that "
@@ -2087,7 +2102,7 @@ msgstr ""
 "合は、Tails を再起動し、ロックを解除せずに永続ストレージを削除してみてくださ"
 "い。"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:730
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:732
 msgid ""
 "Not enough memory to change the passphrase of the Persistent Storage. Try "
 "again after closing some applications or rebooting."
@@ -2709,23 +2724,20 @@ msgid ""
 msgstr "作業セッション間で保持するファイルとアプリケーションの構成の設定を行う"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:3
-#, fuzzy
 msgid "configuration;saved"
-msgstr "プリンターの設定"
+msgstr "構成;保存済み"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:1
-msgid "Root Terminal"
-msgstr "Root ターミナル"
+msgid "Root Console"
+msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:2
-#, fuzzy
-msgid "Opens a terminal as the root user"
+msgid "Opens a console as the root user"
 msgstr ""
-"root ユーザーとしてターミナルを開き、gksu を使用してパスワードを要求する"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:3
 msgid "admin"
-msgstr ""
+msgstr "管理者"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:1
 msgid "Tails Documentation"
@@ -2737,7 +2749,7 @@ msgstr "Tails の使い方"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:3
 msgid "learn"
-msgstr ""
+msgstr "詳細"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-about.desktop.in.h:2
 msgid "Learn more about Tails"
@@ -2755,25 +2767,23 @@ msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-backup.desktop.in.h:3
 msgid "backup"
-msgstr ""
+msgstr "バックアップ"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-installer.desktop.in.h:2
 msgid "Install, clone, upgrade Tails"
 msgstr "Tails をインストール、複製、アップグレード"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-installer.desktop.in.h:3
-#, fuzzy
 msgid "install;clone;upgrade;manual"
-msgstr "Tails をインストール、複製、アップグレード"
+msgstr "インストール;クローン;アップグレード;マニュアル"
 
 #: ../config/chroot_local-includes/usr/share/applications/tca.desktop.in.h:2
 msgid "Connect Tails to the Tor network"
 msgstr "Tails から Tor ネットワークに接続"
 
 #: ../config/chroot_local-includes/usr/share/applications/tca.desktop.in.h:3
-#, fuzzy
 msgid "connect;tor;network"
-msgstr "ローカルネットワークに接続"
+msgstr "接続;tor;ネットワーク"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:1
 msgid "Tor Browser"
@@ -2784,9 +2794,8 @@ msgid "Anonymous Web Browser"
 msgstr "匿名ウェブブラウザー"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:3
-#, fuzzy
 msgid "web;tor;browser"
-msgstr "Tor Browser"
+msgstr "ウェブ;tor;ブラウザー"
 
 #: ../config/chroot_local-includes/usr/share/applications/unsafe-browser.desktop.in.h:2
 msgid "Browse the World Wide Web without anonymity"
@@ -2798,7 +2807,7 @@ msgstr "安全でないウェブブラウザー"
 
 #: ../config/chroot_local-includes/usr/share/applications/unsafe-browser.desktop.in.h:4
 msgid "web;captive;portal"
-msgstr ""
+msgstr "ウェブ;キャプティブ;ポータル"
 
 #: ../config/chroot_local-includes/usr/share/applications/unlock-veracrypt-volumes.desktop.in.h:2
 msgid "Mount VeraCrypt encrypted file containers and devices"
@@ -2806,7 +2815,7 @@ msgstr "VeraCrypt で暗号化されたファイルコンテナーとデバイ�
 
 #: ../config/chroot_local-includes/usr/share/applications/unlock-veracrypt-volumes.desktop.in.h:3
 msgid "mount;encrypted;container;truecryt"
-msgstr ""
+msgstr "マウント;暗号化;コンテナー;truecryt"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop.in.h:2
 msgid ""
@@ -2816,9 +2825,8 @@ msgstr ""
 "Tails 起動時に永続ストレージからインストールされた追加ソフトウェアを構成する"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop.in.h:3
-#, fuzzy
 msgid "persistent;storage;package;install"
-msgstr "永続ストレージを削除して再インストール"
+msgstr "永続;ストレージ;パッケージ;インストール"
 
 #: ../config/chroot_local-includes/usr/share/applications/whisperback.desktop.in.h:1
 msgid "WhisperBack Error Reporting"
@@ -2837,7 +2845,8 @@ msgid "Tails specific tools"
 msgstr "Tails 専用ツール"
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
-msgid "To start a Root Terminal, you need to authenticate."
+#, fuzzy
+msgid "To start a Root Console, you need to authenticate."
 msgstr "Root ターミナルを開始するには認証する必要があります。"
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.AdditionalSoftware.policy.in.h:1
@@ -4070,6 +4079,14 @@ msgstr "12月"
 msgid "Clock"
 msgstr "時刻"
 
+#~ msgid "Root Terminal"
+#~ msgstr "Root ターミナル"
+
+#, fuzzy
+#~ msgid ""
+#~ "Opens a terminal as the root user, using gksu to ask for the password"
+#~ msgstr "root ユーザーとしてターミナルを開きます"
+
 #~ msgid "meek"
 #~ msgstr "meek"
 
@@ -4150,8 +4167,8 @@ msgstr "時刻"
 #~ "\n"
 #~ "Help us keep your bitcoins safe!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~ "html#expenses\">How we spend our money.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/"
+#~ "donate.en.html#expenses\">How we spend our money.</a>"
 #~ msgstr ""
 #~ "Tails はあなたのウォレットを守ります。\n"
 #~ "\n"

@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-06 10:51+0200\n"
+"POT-Creation-Date: 2025-08-20 11:52+0200\n"
 "PO-Revision-Date: 2025-06-04 22:02+0000\n"
 "Last-Translator: Valtteri Vaajakoski <gruhzwjt9exp@protonmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/tor/tails-gui/fi/"
@@ -218,13 +218,13 @@ msgstr ""
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
-"desktop\">APT on the command line</a>."
+"To add more, install some software using <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
-"Jos haluat asentaa lisää, asenna ohjelmistoja käyttäen <a href=\"synaptic."
-"desktop\">Synaptic Package Manageria</a> tai <a href=\"org.gnome.Terminal."
-"desktop\">APTta komentorivillä</a>."
+"Jos haluat asentaa lisää, asenna ohjelmistoja käyttäen <a "
+"href=\"synaptic.desktop\">Synaptic Package Manageria</a> tai <a "
+"href=\"org.gnome.Terminal.desktop\">APTta komentorivillä</a>."
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:154
 msgid "_Create persistent storage"
@@ -703,8 +703,8 @@ msgid ""
 msgstr ""
 "<b>Tapahtui virhe päivityksen asennuksen aikana.</b>\\n\\nTails-laitteesi "
 "tarvitsee korjausta ja sen uudelleenkäynnistys ei ehkä onnistu.\\n\\nNoudata "
-"osoitteen file:///usr/share/doc/tails/website/doc/upgrade/error/install.en."
-"html ohjeita"
+"osoitteen file:///usr/share/doc/tails/website/doc/upgrade/error/"
+"install.en.html ohjeita"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:861
 msgid "Error while installing the upgrade"
@@ -1017,8 +1017,8 @@ msgid ""
 "%(iso_size)dMB ISO + %(overlay_size)dMB overlay > %(free_space)dMB free space"
 msgstr ""
 "Laitteella ei ole tarpeeksi vapaata tilaa.\n"
-"%(iso_size)dMt:n ISO + %(overlay_size)dMt:n tallennustila > %(free_space)dMt:"
-"a vapaata tilaa"
+"%(iso_size)dMt:n ISO + %(overlay_size)dMt:n tallennustila > "
+"%(free_space)dMt:a vapaata tilaa"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:509
 #, python-format
@@ -1486,7 +1486,8 @@ msgid "Dismiss"
 msgstr "Hylkää"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:11
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:40
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:44
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:45
 msgid "Learn More"
 msgstr "Opi lisää"
 
@@ -1623,9 +1624,9 @@ msgid ""
 "Package Manager</a> or <a href=\"org.gnome.Terminal.desktop\">APT on the "
 "command line</a>."
 msgstr ""
-"Jos haluat tehdä niin, asenna ohjelmistoja käyttäen <a href=\"synaptic."
-"desktop\">Synaptic Package Manageria</a> tai <a href=\"org.gnome.Terminal."
-"desktop\">APTta komentorivillä</a>."
+"Jos haluat tehdä niin, asenna ohjelmistoja käyttäen <a "
+"href=\"synaptic.desktop\">Synaptic Package Manageria</a> tai <a "
+"href=\"org.gnome.Terminal.desktop\">APTta komentorivillä</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:227
 msgid ""
@@ -1641,8 +1642,8 @@ msgstr ""
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:240
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
-"gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "Jos haluat tehdä niin, luo pysyvä tallennustila ja asenna ohjelmistoja "
 "käyttämällä <a href=\"synaptic.desktop\">Synaptic Package Manageria</a> tai "
@@ -1663,6 +1664,23 @@ msgstr "[kuvaus ei saatavilla]"
 #: config/chroot_local-includes/usr/local/lib/tails-htp-notify-user:68
 msgid "Failed to synchronize the clock!"
 msgstr "Kellon synkronointi epäonnistui!"
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:26
+msgid "Insufficient Memory Detected"
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:28
+#, python-brace-format
+msgid ""
+"Tails requires {required_ram_gb} GB of RAM, but this computer only has "
+"{installed_ram_gb} GB. You might experience reduced performance, "
+"instability, or crashes."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:41
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:42
+msgid "Don't Show Again"
+msgstr "Älä näytä enään"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:132
 msgid "Screen Locker"
@@ -1802,15 +1820,15 @@ msgstr ""
 msgid "error:"
 msgstr "virhe:"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:21
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:24
 msgid "Warning: virtual machine detected!"
 msgstr "Varoitus: virtuaalikone havaittu!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:23
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:26
 msgid "Warning: non-free virtual machine detected!"
 msgstr "Varoitus: epävapaa virtuaalikone havaittu!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:25
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:28
 msgid ""
 "Both the host operating system and the virtualization software are able to "
 "monitor what you are doing in Tails. Only free software can be considered "
@@ -1821,10 +1839,6 @@ msgstr ""
 "valvomaan, mitä teet Tails-ohjelmassa. Vain vapaata ohjelmistoa voidaan "
 "pitää luotettavana sekä isäntäkäyttöjärjestelmän että "
 "virtualisointiohjelmiston osalta."
-
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:38
-msgid "Don't Show Again"
-msgstr "Älä näytä enään"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/config.py:9
 #: config/chroot_local-includes/usr/local/bin/tca:10
@@ -2037,23 +2051,23 @@ msgstr ""
 "Alustetaan LUKS-salausta... Tietokone voi lakata vastaamasta muutamiksi "
 "sekunneiksi."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:413
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:415
 msgid "Unlocking the encryption..."
 msgstr "Avataan salausta..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:421
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:423
 msgid "Formatting the file system..."
 msgstr "Alustetaan tiedostojärjestelmää..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:439
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:441
 msgid "Activating the Persistent Storage..."
 msgstr "Aktivoidaan pysyvää tallennustilaa..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:444
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:446
 msgid "Finishing setting up the Persistent Storage..."
 msgstr "Viimeistellään pysyvän tallennustilan määritystä..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:697
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:699
 msgid ""
 "Can't unmount Persistent Storage, some process is still using it. Please "
 "close all applications that could be accessing it and try again. If that "
@@ -2065,7 +2079,7 @@ msgstr ""
 "uudelleen. Jollei tämä auta, käynnistä Tails uudelleen ja yritä poistaa "
 "pysyvä tallennustila avaamatta sitä."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:730
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:732
 msgid ""
 "Not enough memory to change the passphrase of the Persistent Storage. Try "
 "again after closing some applications or rebooting."
@@ -2697,14 +2711,12 @@ msgid "configuration;saved"
 msgstr "Tulostimien asetukset"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:1
-msgid "Root Terminal"
-msgstr "Root-pääte"
+msgid "Root Console"
+msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:2
-#, fuzzy
-msgid "Opens a terminal as the root user"
+msgid "Opens a console as the root user"
 msgstr ""
-"Avaa päätteen korkeimpana käyttäjänä käyttäen gksua salasanan kysymiseen"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:3
 msgid "admin"
@@ -2820,7 +2832,8 @@ msgid "Tails specific tools"
 msgstr "Tails-kohtaiset työkalut"
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
-msgid "To start a Root Terminal, you need to authenticate."
+#, fuzzy
+msgid "To start a Root Console, you need to authenticate."
 msgstr "Käynnistääksesi pääkäyttäjän terminaalin, sinun täytyy tunnistautua."
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.AdditionalSoftware.policy.in.h:1
@@ -4051,6 +4064,15 @@ msgstr "Joulukuu"
 msgid "Clock"
 msgstr "Kello"
 
+#~ msgid "Root Terminal"
+#~ msgstr "Root-pääte"
+
+#, fuzzy
+#~ msgid ""
+#~ "Opens a terminal as the root user, using gksu to ask for the password"
+#~ msgstr ""
+#~ "Avaa päätteen korkeimpana käyttäjänä käyttäen gksua salasanan kysymiseen"
+
 #~ msgid "meek"
 #~ msgstr "meek"
 
@@ -4137,15 +4159,15 @@ msgstr "Kello"
 #~ "\n"
 #~ "Help us keep your bitcoins safe!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~ "html#expenses\">How we spend our money.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/"
+#~ "donate.en.html#expenses\">How we spend our money.</a>"
 #~ msgstr ""
 #~ "Tails suojaa lompakkoasi.\n"
 #~ "\n"
 #~ "Auta meitä pitämään bitcoinisi turvassa!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~ "html#expenses\">Näin käytämme rahamme</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/"
+#~ "donate.en.html#expenses\">Näin käytämme rahamme</a>"
 
 #, fuzzy
 #~| msgid "Create"
@@ -4285,8 +4307,8 @@ msgstr "Kello"
 #~| "\n"
 #~| "Every bit helps in our fight against surveillance and censorship!\n"
 #~| "\n"
-#~| "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~| "html#expenses\">How we spend our money.</a>"
+#~| "<a href=\"file:///usr/share/doc/tails/website/"
+#~| "donate.en.html#expenses\">How we spend our money.</a>"
 #~ msgid ""
 #~ "Our annual fundraiser is live!\n"
 #~ "\n"
@@ -4300,8 +4322,8 @@ msgstr "Kello"
 #~ "\n"
 #~ "Jokainen avustus tukee valvonnan ja sensuroinnin vastaista taisteluamme!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~ "html#expenses\">Näin käytämme rahamme</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/"
+#~ "donate.en.html#expenses\">Näin käytämme rahamme</a>"
 
 #~ msgid "Name of the affected software"
 #~ msgstr "Vaikutetun ohjelmiston nimi"
@@ -4351,8 +4373,8 @@ msgstr "Kello"
 #~ "Tekijänoikeus © 2009-2018 Tails-kehittäjät <tails@boum.org>\n"
 #~ "\n"
 #~ "Tämä on ilmainen ohjelmisto, ohjelma, jota saa levittää ja/tai muuttaa\n"
-#~ "Free Software Foundationin julkaiseman GNU General Public (GPL) -"
-#~ "lisenssin\n"
+#~ "Free Software Foundationin julkaiseman GNU General Public (GPL) "
+#~ "-lisenssin\n"
 #~ "version 3 tai (valintasi mukaan) myöhemmän version ehtojen mukaisesti.\n"
 #~ "\n"
 #~ "Ohjelmistoa levitetään siinä toivossa, että se olisi hyödyllinen, mutta "
@@ -4362,8 +4384,8 @@ msgstr "Kello"
 #~ "laadusta tai soveltuvuudesta tiettyyn tarkoitukseen.\n"
 #~ "Lisätietoja löydät GPL-lisenssistä.\n"
 #~ "\n"
-#~ "Ohjelmiston mukana pitäisi olla kopio GNU General Public (GPL) -"
-#~ "lisenssistä.\n"
+#~ "Ohjelmiston mukana pitäisi olla kopio GNU General Public (GPL) "
+#~ "-lisenssistä.\n"
 #~ "Jos näin ei ole, katso <http://www.gnu.org/licenses/>.\n"
 
 #~ msgid "Help:"

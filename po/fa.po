@@ -42,7 +42,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-06 10:51+0200\n"
+"POT-Creation-Date: 2025-08-20 11:52+0200\n"
 "PO-Revision-Date: 2025-08-02 10:01+0000\n"
 "Last-Translator: Hamed <hamed.abdollahi@outlook.com>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/tor/tails-gui/fa/"
@@ -235,13 +235,13 @@ msgstr ""
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
-"desktop\">APT on the command line</a>."
+"To add more, install some software using <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
-"برای افزودن بیشتر، برخی از نرم‌افزارها را با استفاده از <a href=\"synaptic."
-"desktop\"> </a>Synaptic Package Manager یا APT<a href=\"org.gnome.Terminal."
-"desktop\"> روی خط فرمان</a> نصب کنید."
+"برای افزودن بیشتر، برخی از نرم‌افزارها را با استفاده از <a "
+"href=\"synaptic.desktop\"> </a>Synaptic Package Manager یا APT<a "
+"href=\"org.gnome.Terminal.desktop\"> روی خط فرمان</a> نصب کنید."
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:154
 msgid "_Create persistent storage"
@@ -1526,7 +1526,8 @@ msgid "Dismiss"
 msgstr "رد‌کردن"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:11
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:40
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:44
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:45
 msgid "Learn More"
 msgstr "بیشتر بدانید"
 
@@ -1669,9 +1670,9 @@ msgid ""
 "Package Manager</a> or <a href=\"org.gnome.Terminal.desktop\">APT on the "
 "command line</a>."
 msgstr ""
-"برای انجام این کار، برخی از نرم‌افزار‌ها را با استفاده از <a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a> یا <a href=\"org.gnome.Terminal."
-"desktop\">APT روی خط فرمان</a> نصب کنید."
+"برای انجام این کار، برخی از نرم‌افزار‌ها را با استفاده از <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> یا <a "
+"href=\"org.gnome.Terminal.desktop\">APT روی خط فرمان</a> نصب کنید."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:227
 msgid ""
@@ -1680,15 +1681,15 @@ msgid ""
 "a> or <a href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "برای انجام این کار، هنگام شروع Tails، قفل ذخیره‌سازی ماندگار خود را باز کرده "
-"و برخی از نرم‌افزار‌ها را با استفاده از یک <a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a> یا <a href=\"org.gnome.Terminal."
-"desktop\">APT روی خط فرمان</a> نصب کنید."
+"و برخی از نرم‌افزار‌ها را با استفاده از یک <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> یا <a "
+"href=\"org.gnome.Terminal.desktop\">APT روی خط فرمان</a> نصب کنید."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:240
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
-"gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "برای این کار، یک ذخیره‌سازی ماندگار ایجاد کرده و چند نرم‌افزار را با استفاده "
 "از <a href=\"synaptic.desktop\">Synaptic Package Manager</a> یا <a "
@@ -1712,6 +1713,23 @@ msgstr "بسته در دسترس نیست"
 #: config/chroot_local-includes/usr/local/lib/tails-htp-notify-user:68
 msgid "Failed to synchronize the clock!"
 msgstr "هم‌گام‌سازی ساعت ناموفق بود!"
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:26
+msgid "Insufficient Memory Detected"
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:28
+#, python-brace-format
+msgid ""
+"Tails requires {required_ram_gb} GB of RAM, but this computer only has "
+"{installed_ram_gb} GB. You might experience reduced performance, "
+"instability, or crashes."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:41
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:42
+msgid "Don't Show Again"
+msgstr "دیگر نمایش داده نشود"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:132
 msgid "Screen Locker"
@@ -1860,15 +1878,15 @@ msgstr ""
 msgid "error:"
 msgstr "خطا:"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:21
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:24
 msgid "Warning: virtual machine detected!"
 msgstr "هشدار: ماشین مجازی شناسایی شد!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:23
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:26
 msgid "Warning: non-free virtual machine detected!"
 msgstr "هشدار: ماشین مجازی غیرآزاد شناسایی شد!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:25
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:28
 msgid ""
 "Both the host operating system and the virtualization software are able to "
 "monitor what you are doing in Tails. Only free software can be considered "
@@ -1878,10 +1896,6 @@ msgstr ""
 "هر دو سیستم‌عامل میزبان و نرم‌افزار مجازی‌سازی می‌توانند هرآنچه شما در Tails "
 "انجام می‌دهید را پایش کنند. تنها نرم‌افزارهای آزاد می‌توانند برای سیستم‌عامل "
 "میزبان و نرم‌افزار مجازی‌سازی قابل‌اعتماد باشند."
-
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:38
-msgid "Don't Show Again"
-msgstr "دیگر نمایش داده نشود"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/config.py:9
 #: config/chroot_local-includes/usr/local/bin/tca:10
@@ -2096,24 +2110,24 @@ msgstr ""
 "درحال آغاز فرایند رمزگذاری LUKS... ممکن است رایانه برای چند ثانیه "
 "پاسخ‌گو‌نباشد."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:413
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:415
 msgid "Unlocking the encryption..."
 msgstr "درحال باز‌کردن قفل رمزگذاری..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:421
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:423
 #, fuzzy
 msgid "Formatting the file system..."
 msgstr "تایید فایل سیستم..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:439
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:441
 msgid "Activating the Persistent Storage..."
 msgstr "درحال فعال‌سازی ذخیره‌سازی ماندگار…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:444
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:446
 msgid "Finishing setting up the Persistent Storage..."
 msgstr "درحال به‌اتمام‌رساندن فرایند برپایی ذخیره‌سازی ماندگار…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:697
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:699
 msgid ""
 "Can't unmount Persistent Storage, some process is still using it. Please "
 "close all applications that could be accessing it and try again. If that "
@@ -2125,7 +2139,7 @@ msgstr ""
 "دوباره تلاش کنید. اگر کارساز نبود، Tails را راه‌اندازیِ مجدد کنید و بدون "
 "باز‌گشایی قفل آن، ذخیره‌سازی ماندگار را حذف کنید."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:730
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:732
 msgid ""
 "Not enough memory to change the passphrase of the Persistent Storage. Try "
 "again after closing some applications or rebooting."
@@ -2759,15 +2773,12 @@ msgid "configuration;saved"
 msgstr "پیکربندی چاپگر‌ها"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:1
-msgid "Root Terminal"
-msgstr "ترمینال با دسترسی ریشه"
+msgid "Root Console"
+msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:2
-#, fuzzy
-msgid "Opens a terminal as the root user"
+msgid "Opens a console as the root user"
 msgstr ""
-"ترمینال را به‌عنوان کاربر با دسترسی ریشه باز کرده، و گذرواژه را با استفاده از "
-"gksu درخواست می‌کند"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:3
 msgid "admin"
@@ -2887,7 +2898,8 @@ msgid "Tails specific tools"
 msgstr "ابزارهای ویژهٔ Tails"
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
-msgid "To start a Root Terminal, you need to authenticate."
+#, fuzzy
+msgid "To start a Root Console, you need to authenticate."
 msgstr "برای شروع Root Terminal، نیاز به اصالت‌سنجی دارید."
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.AdditionalSoftware.policy.in.h:1
@@ -4142,6 +4154,16 @@ msgstr "دسامبر"
 msgid "Clock"
 msgstr "ساعت"
 
+#~ msgid "Root Terminal"
+#~ msgstr "ترمینال با دسترسی ریشه"
+
+#, fuzzy
+#~ msgid ""
+#~ "Opens a terminal as the root user, using gksu to ask for the password"
+#~ msgstr ""
+#~ "ترمینال را به‌عنوان کاربر با دسترسی ریشه باز کرده، و گذرواژه را با استفاده "
+#~ "از gksu درخواست می‌کند"
+
 #~ msgid "meek"
 #~ msgstr "meek"
 
@@ -4187,8 +4209,8 @@ msgstr "ساعت"
 #~ "\n"
 #~ "\n"
 #~ "گزارش باگ\"خطا نرم افزار\" فرستاده نشد. به نظر میرسد که این اشکال از شبکه "
-#~ "باشد. لطفا سعی کنید دوباره به شبکه متصل شوید و روی گزینه ارسال کلیک کنید."
-#~ "⏎\n"
+#~ "باشد. لطفا سعی کنید دوباره به شبکه متصل شوید و روی گزینه ارسال کلیک "
+#~ "کنید.⏎\n"
 #~ "⏎\n"
 #~ "اگرموارد ذکر شده در بالا کار نکرد، به شما پیشنهاد داده خواهد شد تا گزارش "
 #~ "باگ \"خطا نرم افزار\" را ذخیره کنید."

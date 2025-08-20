@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-06 10:51+0200\n"
+"POT-Creation-Date: 2025-08-20 11:52+0200\n"
 "PO-Revision-Date: 2025-06-23 14:01+0000\n"
 "Last-Translator: emma peel <emma.peel@riseup.net>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/tor/tails-gui/bn/"
@@ -206,9 +206,9 @@ msgstr ""
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
-"desktop\">APT on the command line</a>."
+"To add more, install some software using <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "আরও জুড়তে, <a href=\"synaptic.desktop\">Synaptic প্যাকেজ ব্যবস্থাপক</a> বা <a "
 "href=\"org.gnome.Terminal.desktop\">APT</a> ব্যবহার করে কিছু সফ্টওয়্যার ইনস্টল "
@@ -663,8 +663,8 @@ msgid ""
 msgstr ""
 "<b> আপগ্রেড ইনস্টল করার সময় একটি ত্রুটি ঘটেছে।</b> \\n\\n আপনার টালি ডিভাইস "
 "মেরামত করা প্রয়োজন এবং পুনর্সূচনা করতে অক্ষম হতে পারে। \\n\\n ফাইলের নির্দেশাবলী "
-"অনুসরণ করুন file:///usr/share/doc/tails/website/doc/upgrade/error/install.en."
-"html"
+"অনুসরণ করুন file:///usr/share/doc/tails/website/doc/upgrade/error/"
+"install.en.html"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:861
 msgid "Error while installing the upgrade"
@@ -1408,7 +1408,8 @@ msgid "Dismiss"
 msgstr "সরিয়ে দাউ"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:11
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:40
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:44
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:45
 msgid "Learn More"
 msgstr "আরও জানুন"
 
@@ -1557,19 +1558,20 @@ msgid ""
 "a> or <a href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "তা করতে, Tails শুরু করার সময় আপনার একরোখা স্টোরেজ আনলক করুন এবং <a "
-"href=\"synaptic.desktop\">Synaptic প্যাকেজ ম্যানেজার</a> বা <a href=\"org."
-"gnome.Terminal.desktop\">APT কমান্ড লাইন</a> ব্যবহার করে কিছু সফটওয়্যার ইনস্টল "
-"করে নিন ।"
+"href=\"synaptic.desktop\">Synaptic প্যাকেজ ম্যানেজার</a> বা <a "
+"href=\"org.gnome.Terminal.desktop\">APT কমান্ড লাইন</a> ব্যবহার করে কিছু "
+"সফটওয়্যার ইনস্টল করে নিন ।"
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:240
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
-"gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
-"তাই করতে, একটি একরোখা স্টোরেজ তৈরি করুন এবং <a href=\"synaptic."
-"desktop\">Synaptic প্যাকেজ ম্যানেজার</a> বা <a href=\"org.gnome.Terminal."
-"desktop\">APT কমান্ড লাইন</a> ব্যবহার করে কিছু সফটওয়্যার ইন্সটল করতে হবে ।"
+"তাই করতে, একটি একরোখা স্টোরেজ তৈরি করুন এবং <a "
+"href=\"synaptic.desktop\">Synaptic প্যাকেজ ম্যানেজার</a> বা <a "
+"href=\"org.gnome.Terminal.desktop\">APT কমান্ড লাইন</a> ব্যবহার করে কিছু "
+"সফটওয়্যার ইন্সটল করতে হবে ।"
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:258
 msgid "To do so, install Tails on a USB stick and create a Persistent Storage."
@@ -1587,6 +1589,23 @@ msgstr "[প্যাকেজ সুপ্রাপ্য নয়]"
 #: config/chroot_local-includes/usr/local/lib/tails-htp-notify-user:68
 msgid "Failed to synchronize the clock!"
 msgstr "ঘড়ি সিঙ্ক্রোনাইজ করতে ব্যর্থ!"
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:26
+msgid "Insufficient Memory Detected"
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:28
+#, python-brace-format
+msgid ""
+"Tails requires {required_ram_gb} GB of RAM, but this computer only has "
+"{installed_ram_gb} GB. You might experience reduced performance, "
+"instability, or crashes."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:41
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:42
+msgid "Don't Show Again"
+msgstr ""
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:132
 msgid "Screen Locker"
@@ -1712,15 +1731,15 @@ msgstr ""
 msgid "error:"
 msgstr "ত্রুটি:"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:21
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:24
 msgid "Warning: virtual machine detected!"
 msgstr "সতর্কতা: ভার্চুয়াল মেশিন সনাক্ত!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:23
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:26
 msgid "Warning: non-free virtual machine detected!"
 msgstr "সতর্কতা: অ-মুক্ত ভার্চুয়াল মেশিন সনাক্ত!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:25
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:28
 msgid ""
 "Both the host operating system and the virtualization software are able to "
 "monitor what you are doing in Tails. Only free software can be considered "
@@ -1730,10 +1749,6 @@ msgstr ""
 "উভয় হোস্ট অপারেটিং সিস্টেম এবং ভার্চুয়ালাইজেশন সফটওয়্যারটি আপনি কি টাইলগুলিতে "
 "করছেন তা নিরীক্ষণ করতে সক্ষম। হোস্ট অপারেটিং সিস্টেম এবং ভার্চুয়ালাইজেশন সফ্টওয়্যার "
 "উভয়ের জন্য শুধুমাত্র ফ্রি সফ্টওয়্যার নির্ভরযোগ্য বলে মনে করা যেতে পারে।"
-
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:38
-msgid "Don't Show Again"
-msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/config.py:9
 #: config/chroot_local-includes/usr/local/bin/tca:10
@@ -1924,26 +1939,26 @@ msgid ""
 "few seconds."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:413
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:415
 msgid "Unlocking the encryption..."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:421
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:423
 #, fuzzy
 msgid "Formatting the file system..."
 msgstr "ফাইল সিস্টেম যাচাই করা হচ্ছে ..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:439
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:441
 #, fuzzy
 msgid "Activating the Persistent Storage..."
 msgstr "অবিরাম স্টোরেজ তৈরি করুন"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:444
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:446
 #, fuzzy
 msgid "Finishing setting up the Persistent Storage..."
 msgstr "অবিরাম স্টোরেজ তৈরি করুন"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:697
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:699
 msgid ""
 "Can't unmount Persistent Storage, some process is still using it. Please "
 "close all applications that could be accessing it and try again. If that "
@@ -1951,7 +1966,7 @@ msgid ""
 "unlocking it."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:730
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:732
 msgid ""
 "Not enough memory to change the passphrase of the Persistent Storage. Try "
 "again after closing some applications or rebooting."
@@ -2571,14 +2586,12 @@ msgid "configuration;saved"
 msgstr "প্রিন্টার কনফিগারেশন"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:1
-msgid "Root Terminal"
-msgstr "রুট টার্মিনাল"
+msgid "Root Console"
+msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:2
-#, fuzzy
-msgid "Opens a terminal as the root user"
+msgid "Opens a console as the root user"
 msgstr ""
-"পাসওয়ার্ড জিজ্ঞাসা করতে gksu ব্যবহার করে মূল ব্যবহারকারী হিসাবে একটি টার্মিনাল খুলুন"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:3
 msgid "admin"
@@ -2693,7 +2706,8 @@ msgid "Tails specific tools"
 msgstr "টাইলস নির্দিষ্ট সরঞ্জাম"
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
-msgid "To start a Root Terminal, you need to authenticate."
+#, fuzzy
+msgid "To start a Root Console, you need to authenticate."
 msgstr "একটি রুট টার্মিনাল শুরু করার জন্য, আপনি প্রমাণীকরণ প্রয়োজন।"
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.AdditionalSoftware.policy.in.h:1
@@ -2705,8 +2719,8 @@ msgid ""
 "Authentication is required to remove a package from your additional software "
 "($(command_line))"
 msgstr ""
-"আপনার অতিরিক্ত সফ্টওয়্যার থেকে একটি প্যাকেজ অপসারণ করতে প্রত্যয়ন আবশ্যক "
-"($(command_line))"
+"আপনার অতিরিক্ত সফ্টওয়্যার থেকে একটি প্যাকেজ অপসারণ করতে প্রত্যয়ন আবশ্যক ($"
+"(command_line))"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:18
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:56
@@ -3831,6 +3845,16 @@ msgstr ""
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr ""
+
+#~ msgid "Root Terminal"
+#~ msgstr "রুট টার্মিনাল"
+
+#, fuzzy
+#~ msgid ""
+#~ "Opens a terminal as the root user, using gksu to ask for the password"
+#~ msgstr ""
+#~ "পাসওয়ার্ড জিজ্ঞাসা করতে gksu ব্যবহার করে মূল ব্যবহারকারী হিসাবে একটি টার্মিনাল "
+#~ "খুলুন"
 
 #~ msgid "meek"
 #~ msgstr "meek"

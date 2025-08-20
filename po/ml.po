@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-06 10:51+0200\n"
+"POT-Creation-Date: 2025-08-20 11:52+0200\n"
 "PO-Revision-Date: 2025-04-03 14:14+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Malayalam <https://hosted.weblate.org/projects/tor/tails-gui/"
@@ -206,9 +206,9 @@ msgstr ""
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
-"desktop\">APT on the command line</a>."
+"To add more, install some software using <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "കൂടുതൽ ചേർക്കാൻ, കമാൻഡ് ലൈനിൽ <a href=\"synaptic.desktop\">സിനാപ്റ്റിക് പാക്കേജ് "
 "മാനേജർ </a>അല്ലെങ്കിൽ <a href=\"org.gnome.Terminal.desktop\">എപിടി </"
@@ -1414,7 +1414,8 @@ msgid "Dismiss"
 msgstr "പിരിച്ചുവിടുക"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:11
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:40
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:44
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:45
 msgid "Learn More"
 msgstr "കൂടുതൽ അറിയു"
 
@@ -1573,12 +1574,13 @@ msgstr ""
 #, fuzzy
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
-"gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
-"അങ്ങനെ ചെയ്യുന്നതിന്, സ്ഥിരമായ ഒരു സംഭരണം സൃഷ്ടിച്ച് കമാൻഡ് ലൈനിൽ <a href=\"synaptic."
-"desktop\">സിനാപ്റ്റിക് പാക്കേജ് മാനേജർ </a>അല്ലെങ്കിൽ <a href=\"org.gnome.Terminal."
-"desktop\">എപിടി </a>ഉപയോഗിച്ച് കുറച്ച് സോഫ്റ്റ്വെയർ ഇൻസ്റ്റാൾ ചെയ്യുക."
+"അങ്ങനെ ചെയ്യുന്നതിന്, സ്ഥിരമായ ഒരു സംഭരണം സൃഷ്ടിച്ച് കമാൻഡ് ലൈനിൽ <a "
+"href=\"synaptic.desktop\">സിനാപ്റ്റിക് പാക്കേജ് മാനേജർ </a>അല്ലെങ്കിൽ <a "
+"href=\"org.gnome.Terminal.desktop\">എപിടി </a>ഉപയോഗിച്ച് കുറച്ച് സോഫ്റ്റ്വെയർ "
+"ഇൻസ്റ്റാൾ ചെയ്യുക."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:258
 #, fuzzy
@@ -1599,6 +1601,23 @@ msgstr "[പാക്കേജ് ലഭ്യമല്ല ]"
 #: config/chroot_local-includes/usr/local/lib/tails-htp-notify-user:68
 msgid "Failed to synchronize the clock!"
 msgstr "ക്ലോക്ക് സമന്വയിപ്പിക്കുന്നതിൽ പരാജയപ്പെട്ടു!"
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:26
+msgid "Insufficient Memory Detected"
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:28
+#, python-brace-format
+msgid ""
+"Tails requires {required_ram_gb} GB of RAM, but this computer only has "
+"{installed_ram_gb} GB. You might experience reduced performance, "
+"instability, or crashes."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:41
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:42
+msgid "Don't Show Again"
+msgstr ""
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:132
 msgid "Screen Locker"
@@ -1724,15 +1743,15 @@ msgstr ""
 msgid "error:"
 msgstr "പിശക്:"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:21
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:24
 msgid "Warning: virtual machine detected!"
 msgstr "മുന്നറിയിപ്പ്: വെർച്വൽ മെഷീൻ കണ്ടെത്തി!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:23
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:26
 msgid "Warning: non-free virtual machine detected!"
 msgstr "മുന്നറിയിപ്പ്: സൗജന്യമല്ലാത്ത വെർച്വൽ മെഷീൻ കണ്ടെത്തി!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:25
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:28
 msgid ""
 "Both the host operating system and the virtualization software are able to "
 "monitor what you are doing in Tails. Only free software can be considered "
@@ -1742,10 +1761,6 @@ msgstr ""
 "ടെയിൽസിൽ നിങ്ങൾ എന്താണ് ചെയ്യുന്നതെന്ന് നിരീക്ഷിക്കാൻ ഹോസ്റ്റ് ഓപ്പറേറ്റിംഗ് സിസ്റ്റത്തിനും "
 "വിർച്വലൈസേഷൻ സോഫ്റ്റ്വെയറിനും കഴിയും. ഹോസ്റ്റ് ഓപ്പറേറ്റിംഗ് സിസ്റ്റത്തിനും വിർച്വലൈസേഷൻ "
 "സോഫ്റ്റ്വെയറിനും സൗജന്യ സോഫ്റ്റ്വെയർ മാത്രമേ വിശ്വസനീയമെന്ന് കണക്കാക്കാൻ കഴിയൂ."
-
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:38
-msgid "Don't Show Again"
-msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/config.py:9
 #: config/chroot_local-includes/usr/local/bin/tca:10
@@ -1936,26 +1951,26 @@ msgid ""
 "few seconds."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:413
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:415
 msgid "Unlocking the encryption..."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:421
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:423
 #, fuzzy
 msgid "Formatting the file system..."
 msgstr "ഫയൽസിസ്റ്റം പരിശോധിക്കുന്നു ..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:439
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:441
 #, fuzzy
 msgid "Activating the Persistent Storage..."
 msgstr "സ്ഥിരമായ സംഭരണം സൃഷ്ടിക്കുക"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:444
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:446
 #, fuzzy
 msgid "Finishing setting up the Persistent Storage..."
 msgstr "സ്ഥിരമായ സംഭരണം സൃഷ്ടിക്കുക"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:697
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:699
 msgid ""
 "Can't unmount Persistent Storage, some process is still using it. Please "
 "close all applications that could be accessing it and try again. If that "
@@ -1963,7 +1978,7 @@ msgid ""
 "unlocking it."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:730
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:732
 msgid ""
 "Not enough memory to change the passphrase of the Persistent Storage. Try "
 "again after closing some applications or rebooting."
@@ -2582,13 +2597,12 @@ msgid "configuration;saved"
 msgstr "പ്രിന്റേർ സജ്ജീകരണങ്ങൾ"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:1
-msgid "Root Terminal"
-msgstr "റൂട്ട് ടെർമിനൽ"
+msgid "Root Console"
+msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:2
-#, fuzzy
-msgid "Opens a terminal as the root user"
-msgstr "പാസ്‌വേഡ് ചോദിക്കാൻ gksu ഉപയോഗിച്ച് റൂട്ട് ഉപയോക്താവായി ഒരു ടെർമിനൽ തുറക്കുന്നു"
+msgid "Opens a console as the root user"
+msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:3
 msgid "admin"
@@ -2704,7 +2718,8 @@ msgid "Tails specific tools"
 msgstr "ടെയിൽസ് നിർദ്ദിഷ്ട ഉപകരണങ്ങൾ"
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
-msgid "To start a Root Terminal, you need to authenticate."
+#, fuzzy
+msgid "To start a Root Console, you need to authenticate."
 msgstr "ഒരു റൂട്ട് ടെർമിനൽ ആരംഭിക്കാൻ, നിങ്ങൾ ഓതെന്റിക്കേറ്റ് ചെയ്യേണ്ടതുണ്ട് ."
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.AdditionalSoftware.policy.in.h:1
@@ -2716,8 +2731,8 @@ msgid ""
 "Authentication is required to remove a package from your additional software "
 "($(command_line))"
 msgstr ""
-"നിങ്ങളുടെ അധിക സോഫ്റ്റ്വെയറിൽ നിന്ന് ഒരു പാക്കേജ് നീക്കംചെയ്യുന്നതിന് ഓതെന്റിക്കേറ്റ് ആവശ്യമാണ് "
-"($(command_line))"
+"നിങ്ങളുടെ അധിക സോഫ്റ്റ്വെയറിൽ നിന്ന് ഒരു പാക്കേജ് നീക്കംചെയ്യുന്നതിന് ഓതെന്റിക്കേറ്റ് ആവശ്യമാണ് ($"
+"(command_line))"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:18
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:56
@@ -3843,6 +3858,14 @@ msgstr "ഡിസംബര്‍"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "ക്ലോക്ക്"
+
+#~ msgid "Root Terminal"
+#~ msgstr "റൂട്ട് ടെർമിനൽ"
+
+#, fuzzy
+#~ msgid ""
+#~ "Opens a terminal as the root user, using gksu to ask for the password"
+#~ msgstr "പാസ്‌വേഡ് ചോദിക്കാൻ gksu ഉപയോഗിച്ച് റൂട്ട് ഉപയോക്താവായി ഒരു ടെർമിനൽ തുറക്കുന്നു"
 
 #~ msgid "meek"
 #~ msgstr "meek"

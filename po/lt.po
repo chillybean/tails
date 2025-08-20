@@ -8,13 +8,14 @@
 # Moo, 2015-2022
 # Tautvydas Ž., 2019
 # Weblate <noreply-mt-weblate@weblate.org>, 2025.
+# emma peel <emma.peel@riseup.net>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-06 10:51+0200\n"
-"PO-Revision-Date: 2025-07-02 08:01+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"POT-Creation-Date: 2025-08-20 11:52+0200\n"
+"PO-Revision-Date: 2025-08-14 12:02+0000\n"
+"Last-Translator: emma peel <emma.peel@riseup.net>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/tor/tails-gui/"
 "lt/>\n"
 "Language: lt\n"
@@ -213,13 +214,13 @@ msgstr ""
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
-"desktop\">APT on the command line</a>."
+"To add more, install some software using <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "Norėdami pridėti daugiau, įdiekite programinę įrangą naudodami <a "
-"href=\"synaptic.desktop\">Synaptic paketų tvarkytuvę</a> ar <a href=\"org."
-"gnome.Terminal.desktop\">APT komandų eilutėje</a>."
+"href=\"synaptic.desktop\">Synaptic paketų tvarkytuvę</a> ar <a "
+"href=\"org.gnome.Terminal.desktop\">APT komandų eilutėje</a>."
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:154
 msgid "_Create persistent storage"
@@ -1072,9 +1073,8 @@ msgid "No mount points found"
 msgstr "Nerasta jokių prijungimo taškų"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:805
-#, fuzzy
 msgid "Target device has opened files"
-msgstr "Įrašyta į įrenginį %(speed)d MB/sek. greičiu"
+msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:833
 #, python-format
@@ -1468,7 +1468,8 @@ msgid "Dismiss"
 msgstr "Atmesti"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:11
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:40
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:44
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:45
 msgid "Learn More"
 msgstr "Sužinokite daugiau"
 
@@ -1610,8 +1611,8 @@ msgid ""
 "command line</a>."
 msgstr ""
 "Norėdami tai atlikti, įdiekite programinę įrangą naudodami <a "
-"href=\"synaptic.desktop\">Synaptic paketų tvarkytuvę</a> ar <a href=\"org."
-"gnome.Terminal.desktop\">APT komandų eilutėje</a>."
+"href=\"synaptic.desktop\">Synaptic paketų tvarkytuvę</a> ar <a "
+"href=\"org.gnome.Terminal.desktop\">APT komandų eilutėje</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:227
 msgid ""
@@ -1620,16 +1621,16 @@ msgid ""
 "a> or <a href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "Norėdami tai atlikti, paleisdami Tails, atrakinkite savo ilgalaikį kaupiklį "
-"ir įdiekite programinę įrangą naudodami <a href=\"synaptic."
-"desktop\">Synaptic paketų tvarkytuvę</a> ar <a href=\"org.gnome.Terminal."
-"desktop\">APT komandų eilutėje</a>."
+"ir įdiekite programinę įrangą naudodami <a "
+"href=\"synaptic.desktop\">Synaptic paketų tvarkytuvę</a> ar <a "
+"href=\"org.gnome.Terminal.desktop\">APT komandų eilutėje</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:240
 #, fuzzy
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
-"gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "Norėdami tai atlikti, sukurkite ilgalaikį kaupiklį ir įdiekite programinę "
 "įrangą naudodami <a href=\"synaptic.desktop\">Synaptic paketų tvarkytuvę</a> "
@@ -1653,6 +1654,23 @@ msgstr "[aprašas neprieinamas]"
 #: config/chroot_local-includes/usr/local/lib/tails-htp-notify-user:68
 msgid "Failed to synchronize the clock!"
 msgstr "Nepavyko sinchronizuoti laikrodžio!"
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:26
+msgid "Insufficient Memory Detected"
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:28
+#, python-brace-format
+msgid ""
+"Tails requires {required_ram_gb} GB of RAM, but this computer only has "
+"{installed_ram_gb} GB. You might experience reduced performance, "
+"instability, or crashes."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:41
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:42
+msgid "Don't Show Again"
+msgstr "Daugiau neberodyti"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:132
 msgid "Screen Locker"
@@ -1778,16 +1796,16 @@ msgstr ""
 msgid "error:"
 msgstr "klaida:"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:21
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:24
 msgid "Warning: virtual machine detected!"
 msgstr "Įspėjimas: aptikta virtualioji mašina!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:23
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:26
 msgid "Warning: non-free virtual machine detected!"
 msgstr ""
 "Įspėjimas: aptikta ne laisvosios programinės įrangos virtualioji mašina!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:25
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:28
 msgid ""
 "Both the host operating system and the virtualization software are able to "
 "monitor what you are doing in Tails. Only free software can be considered "
@@ -1799,10 +1817,6 @@ msgstr ""
 "programinė įranga, naudojama tiek pagrindinio kompiuterio operacinėje "
 "sistemoje, tiek virtualizacijos programinėje įrangoje, gali būti laikoma "
 "patikima."
-
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:38
-msgid "Don't Show Again"
-msgstr "Daugiau neberodyti"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/config.py:9
 #: config/chroot_local-includes/usr/local/bin/tca:10
@@ -1996,25 +2010,25 @@ msgid ""
 msgstr ""
 "Inicijuojamas LUKS šifravimas... Kompiuteris gali kelias sekundes nereaguoti."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:413
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:415
 msgid "Unlocking the encryption..."
 msgstr "Atrakinamas šifravimas..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:421
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:423
 msgid "Formatting the file system..."
 msgstr "Formatuojama failų sistema..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:439
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:441
 #, fuzzy
 msgid "Activating the Persistent Storage..."
 msgstr "Sukurti ilgalaikį kaupiklį"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:444
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:446
 #, fuzzy
 msgid "Finishing setting up the Persistent Storage..."
 msgstr "Sukurti ilgalaikį kaupiklį"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:697
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:699
 msgid ""
 "Can't unmount Persistent Storage, some process is still using it. Please "
 "close all applications that could be accessing it and try again. If that "
@@ -2022,7 +2036,7 @@ msgid ""
 "unlocking it."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:730
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:732
 msgid ""
 "Not enough memory to change the passphrase of the Persistent Storage. Try "
 "again after closing some applications or rebooting."
@@ -2637,15 +2651,12 @@ msgid "configuration;saved"
 msgstr "Spausdintuvų konfigūracija"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:1
-msgid "Root Terminal"
-msgstr "Šakninis terminalas"
+msgid "Root Console"
+msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:2
-#, fuzzy
-msgid "Opens a terminal as the root user"
+msgid "Opens a console as the root user"
 msgstr ""
-"Atidaro terminalą kaip šakninis naudotojas, naudojant gksu slaptažodžio "
-"užklausai."
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:3
 msgid "admin"
@@ -2762,7 +2773,8 @@ msgid "Tails specific tools"
 msgstr "Tails specifiniai įrankiai"
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
-msgid "To start a Root Terminal, you need to authenticate."
+#, fuzzy
+msgid "To start a Root Console, you need to authenticate."
 msgstr "Norint paleisti šaknies terminalą, jums reikia nustatyti tapatybę."
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.AdditionalSoftware.policy.in.h:1
@@ -3881,6 +3893,16 @@ msgstr "Gruodis"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "Laikrodis"
+
+#~ msgid "Root Terminal"
+#~ msgstr "Šakninis terminalas"
+
+#, fuzzy
+#~ msgid ""
+#~ "Opens a terminal as the root user, using gksu to ask for the password"
+#~ msgstr ""
+#~ "Atidaro terminalą kaip šakninis naudotojas, naudojant gksu slaptažodžio "
+#~ "užklausai."
 
 #~ msgid "meek"
 #~ msgstr "meek"

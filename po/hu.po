@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-06 10:51+0200\n"
+"POT-Creation-Date: 2025-08-20 11:52+0200\n"
 "PO-Revision-Date: 2025-06-01 15:01+0000\n"
 "Last-Translator: Daniel <weblate@raffdich.ru>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/tor/tails-gui/"
@@ -215,13 +215,13 @@ msgstr ""
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
-"desktop\">APT on the command line</a>."
+"To add more, install some software using <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
-"Továbbiak hozzáadásához telepítsen néhány szoftvert a <a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a> segítségével vagy az <a href=\"org."
-"gnome.Terminal.desktop\">APT-vel parancssorban</a>."
+"Továbbiak hozzáadásához telepítsen néhány szoftvert a <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> segítségével vagy az "
+"<a href=\"org.gnome.Terminal.desktop\">APT-vel parancssorban</a>."
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:154
 msgid "_Create persistent storage"
@@ -1473,7 +1473,8 @@ msgid "Dismiss"
 msgstr "Elvetés"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:11
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:40
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:44
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:45
 msgid "Learn More"
 msgstr "Tudjon meg többet"
 
@@ -1615,9 +1616,9 @@ msgid ""
 "Package Manager</a> or <a href=\"org.gnome.Terminal.desktop\">APT on the "
 "command line</a>."
 msgstr ""
-"További szoftverek hozzáadásához használja a<a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a>-t vagy telepítsen <a href=\"org.gnome."
-"Terminal.desktop\">APT-vel parancssorban</a>."
+"További szoftverek hozzáadásához használja a<a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a>-t vagy telepítsen <a "
+"href=\"org.gnome.Terminal.desktop\">APT-vel parancssorban</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:227
 msgid ""
@@ -1627,15 +1628,15 @@ msgid ""
 msgstr ""
 "Hogy így tehessen, oldja fel tartós tárolóját a Tails indításakor, és "
 "telepítsen további szoftvereket a <a href=\"synaptic.desktop\">Synaptic "
-"Package Manager</a> segítségével vagy <a href=\"org.gnome.Terminal."
-"desktop\">APT-vel parancssorban</a>."
+"Package Manager</a> segítségével vagy <a "
+"href=\"org.gnome.Terminal.desktop\">APT-vel parancssorban</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:240
 #, fuzzy
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
-"gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "Hogy így tehessen, hozzon létre egy tartós tárolót és telepítsen további "
 "szoftvereket a <a href=\"synaptic.desktop\">Synaptic Package Manager</a> "
@@ -1661,6 +1662,23 @@ msgstr "[csomag nem elérhető]"
 #: config/chroot_local-includes/usr/local/lib/tails-htp-notify-user:68
 msgid "Failed to synchronize the clock!"
 msgstr "Az óra szinkronizálása nem sikerült!"
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:26
+msgid "Insufficient Memory Detected"
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:28
+#, python-brace-format
+msgid ""
+"Tails requires {required_ram_gb} GB of RAM, but this computer only has "
+"{installed_ram_gb} GB. You might experience reduced performance, "
+"instability, or crashes."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:41
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:42
+msgid "Don't Show Again"
+msgstr "Ne mutassa megint"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:132
 msgid "Screen Locker"
@@ -1802,15 +1820,15 @@ msgstr ""
 msgid "error:"
 msgstr "hiba:"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:21
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:24
 msgid "Warning: virtual machine detected!"
 msgstr "Figyelem: virtualizált gép /VM/ érzékelve!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:23
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:26
 msgid "Warning: non-free virtual machine detected!"
 msgstr "Figyelem: nem ingyenes virtualizációs szoftver /VM/ érzékelve!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:25
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:28
 msgid ""
 "Both the host operating system and the virtualization software are able to "
 "monitor what you are doing in Tails. Only free software can be considered "
@@ -1821,10 +1839,6 @@ msgstr ""
 "amit a Tails-ben csinál! Általában csak az ingyenes szoftverek megbízhatóak, "
 "ezért ajánljuk hogy használjon ingyenes operációs rendszert és "
 "virtualizációs szoftvert."
-
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:38
-msgid "Don't Show Again"
-msgstr "Ne mutassa megint"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/config.py:9
 #: config/chroot_local-includes/usr/local/bin/tca:10
@@ -2032,26 +2046,26 @@ msgid ""
 "few seconds."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:413
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:415
 msgid "Unlocking the encryption..."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:421
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:423
 #, fuzzy
 msgid "Formatting the file system..."
 msgstr "Fájlrendszer ellenőrzése…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:439
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:441
 #, fuzzy
 msgid "Activating the Persistent Storage..."
 msgstr "Tartós tároló létrehozása"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:444
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:446
 #, fuzzy
 msgid "Finishing setting up the Persistent Storage..."
 msgstr "Tartós tároló létrehozása"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:697
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:699
 msgid ""
 "Can't unmount Persistent Storage, some process is still using it. Please "
 "close all applications that could be accessing it and try again. If that "
@@ -2059,7 +2073,7 @@ msgid ""
 "unlocking it."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:730
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:732
 msgid ""
 "Not enough memory to change the passphrase of the Persistent Storage. Try "
 "again after closing some applications or rebooting."
@@ -2680,13 +2694,12 @@ msgid "configuration;saved"
 msgstr "Nyomtatók konfigurálása"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:1
-msgid "Root Terminal"
-msgstr "Root Terminal"
+msgid "Root Console"
+msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:2
-#, fuzzy
-msgid "Opens a terminal as the root user"
-msgstr "Indít egy terminált root felhasználóként, a gsku-val kérve a jelszót"
+msgid "Opens a console as the root user"
+msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:3
 msgid "admin"
@@ -2807,7 +2820,8 @@ msgid "Tails specific tools"
 msgstr "Tails-specifikus eszközök"
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
-msgid "To start a Root Terminal, you need to authenticate."
+#, fuzzy
+msgid "To start a Root Console, you need to authenticate."
 msgstr "A Root terminálhoz azonosítania kell magát."
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.AdditionalSoftware.policy.in.h:1
@@ -2819,8 +2833,8 @@ msgid ""
 "Authentication is required to remove a package from your additional software "
 "($(command_line))"
 msgstr ""
-"Azonosítás szükséges a további szoftverei közül egy csomag eltávolításához "
-"($(command_line))"
+"Azonosítás szükséges a további szoftverei közül egy csomag eltávolításához ($"
+"(command_line))"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:18
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:56
@@ -4044,6 +4058,15 @@ msgstr "December"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "Óra"
+
+#~ msgid "Root Terminal"
+#~ msgstr "Root Terminal"
+
+#, fuzzy
+#~ msgid ""
+#~ "Opens a terminal as the root user, using gksu to ask for the password"
+#~ msgstr ""
+#~ "Indít egy terminált root felhasználóként, a gsku-val kérve a jelszót"
 
 #~ msgid "meek"
 #~ msgstr "meek"

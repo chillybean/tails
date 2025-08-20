@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-06 10:51+0200\n"
+"POT-Creation-Date: 2025-08-20 11:52+0200\n"
 "PO-Revision-Date: 2025-03-31 20:55+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Irish <https://hosted.weblate.org/projects/tor/tails-gui/ga/"
@@ -207,13 +207,13 @@ msgstr ""
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
-"desktop\">APT on the command line</a>."
+"To add more, install some software using <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
-"Is féidir leat tuilleadh bogearraí a shuiteáil le <a href=\"synaptic."
-"desktop\">Bainisteoir Pacáistí Synaptic</a> nó le <a href=\"org.gnome."
-"Terminal.desktop\">APT ar líne na n-orduithe</a>."
+"Is féidir leat tuilleadh bogearraí a shuiteáil le <a "
+"href=\"synaptic.desktop\">Bainisteoir Pacáistí Synaptic</a> nó le <a "
+"href=\"org.gnome.Terminal.desktop\">APT ar líne na n-orduithe</a>."
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:154
 msgid "_Create persistent storage"
@@ -233,8 +233,8 @@ msgstr ""
 "Cuidíonn gach beagán lenár gcomhrac in aghaidh faireachais agus "
 "cinsireachta!\n"
 "\n"
-"<a href=\"file:///usr/share/doc/tails/website/donate.en."
-"html#expenses\">Conas a chaithimid ár gcuid airgid.</a>"
+"<a href=\"file:///usr/share/doc/tails/website/"
+"donate.en.html#expenses\">Conas a chaithimid ár gcuid airgid.</a>"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:72
 msgid ""
@@ -1522,7 +1522,8 @@ msgid "Dismiss"
 msgstr "Dún"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:11
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:40
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:44
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:45
 msgid "Learn More"
 msgstr "Tuilleadh Eolais"
 
@@ -1661,9 +1662,9 @@ msgid ""
 "Package Manager</a> or <a href=\"org.gnome.Terminal.desktop\">APT on the "
 "command line</a>."
 msgstr ""
-"Len é seo a dhéanamh, suiteáil bogearraí trí <a href=\"synaptic."
-"desktop\">Bhainisteoir Pacáistí Synaptic</a> nó le <a href=\"org.gnome."
-"Terminal.desktop\">APT ar líne na n-orduithe</a>."
+"Len é seo a dhéanamh, suiteáil bogearraí trí <a "
+"href=\"synaptic.desktop\">Bhainisteoir Pacáistí Synaptic</a> nó le <a "
+"href=\"org.gnome.Terminal.desktop\">APT ar líne na n-orduithe</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:227
 msgid ""
@@ -1679,8 +1680,8 @@ msgstr ""
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:240
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
-"gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "Chun é sin a dhéanamh, cruthaigh Stór Marthanach agus suiteáil roinnt "
 "bogearraí ag úsáid <a href=\"synaptic.desktop\">Synaptic Package Manager</a> "
@@ -1703,6 +1704,23 @@ msgstr "[Níl an cur síos ar fáil]"
 #: config/chroot_local-includes/usr/local/lib/tails-htp-notify-user:68
 msgid "Failed to synchronize the clock!"
 msgstr "Níorbh fhéidir an clog a shioncronú!"
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:26
+msgid "Insufficient Memory Detected"
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:28
+#, python-brace-format
+msgid ""
+"Tails requires {required_ram_gb} GB of RAM, but this computer only has "
+"{installed_ram_gb} GB. You might experience reduced performance, "
+"instability, or crashes."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:41
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:42
+msgid "Don't Show Again"
+msgstr "Ná Taispeáin Arís"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:132
 msgid "Screen Locker"
@@ -1838,8 +1856,8 @@ msgstr ""
 "<b>Níl go leor cuimhne ar fáil chun uasghráduithe a sheiceáil.</b>\n"
 "\n"
 "Déan cinnte go sásaíonn an córas seo na ceanglais maidir le Tails a rith.\n"
-"Féach an comhad::///usr/share/doc/tails/website/doc/about/requirements.en."
-"html\n"
+"Féach an comhad::///usr/share/doc/tails/website/doc/about/"
+"requirements.en.html\n"
 "\n"
 "Déan iarracht Tails a atosú chun seiceáil le haghaidh uasghráduithe arís.\n"
 "\n"
@@ -1851,15 +1869,15 @@ msgstr ""
 msgid "error:"
 msgstr "earráid:"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:21
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:24
 msgid "Warning: virtual machine detected!"
 msgstr "Rabhadh: braitheadh meaisín fíorúil!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:23
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:26
 msgid "Warning: non-free virtual machine detected!"
 msgstr "Rabhadh: braitheadh meaisín fíorúil neamhshaor!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:25
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:28
 msgid ""
 "Both the host operating system and the virtualization software are able to "
 "monitor what you are doing in Tails. Only free software can be considered "
@@ -1870,10 +1888,6 @@ msgstr ""
 "ann monatóireacht a dhéanamh ar na rudaí a dhéanann tú in Tails. Ní féidir "
 "muinín a chur i gcóras oibriúcháin ná i mbogearra fíorúlaithe nach bhfuil "
 "saor."
-
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:38
-msgid "Don't Show Again"
-msgstr "Ná Taispeáin Arís"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/config.py:9
 #: config/chroot_local-includes/usr/local/bin/tca:10
@@ -2094,23 +2108,23 @@ msgstr ""
 "Criptiú LUKS á thúsú... Seans go stopfaidh an ríomhaire ag freagairt ar "
 "feadh cúpla soicind."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:413
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:415
 msgid "Unlocking the encryption..."
 msgstr "An criptiúchán á dhíghlasáil..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:421
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:423
 msgid "Formatting the file system..."
 msgstr "Formáidiú an chórais comhad..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:439
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:441
 msgid "Activating the Persistent Storage..."
 msgstr "Stóráil Marthanach á ghníomhachtú..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:444
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:446
 msgid "Finishing setting up the Persistent Storage..."
 msgstr "Críochnú an Stór Marthanach a shocrú..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:697
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:699
 msgid ""
 "Can't unmount Persistent Storage, some process is still using it. Please "
 "close all applications that could be accessing it and try again. If that "
@@ -2122,7 +2136,7 @@ msgstr ""
 "eile as. Mura n-oibríonn sin, atosaigh Tails agus bain triail as an Stór "
 "Seasmhach a scriosadh gan é a dhíghlasáil."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:730
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:732
 msgid ""
 "Not enough memory to change the passphrase of the Persistent Storage. Try "
 "again after closing some applications or rebooting."
@@ -2758,15 +2772,12 @@ msgid "configuration;saved"
 msgstr "Cumraíocht priontála"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:1
-msgid "Root Terminal"
-msgstr "Fréamhtheirminéal"
+msgid "Root Console"
+msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:2
-#, fuzzy
-msgid "Opens a terminal as the root user"
+msgid "Opens a console as the root user"
 msgstr ""
-"Osclaíonn sé seo teirminéal mar fhorúsáideoir, agus úsáideann sé gksu chun "
-"an focal faire a fháil"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:3
 msgid "admin"
@@ -2882,7 +2893,8 @@ msgid "Tails specific tools"
 msgstr "Uirlisí sainiúla do Tails"
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
-msgid "To start a Root Terminal, you need to authenticate."
+#, fuzzy
+msgid "To start a Root Console, you need to authenticate."
 msgstr "Caithfidh tú logáil isteach chun teirminéal a thosú mar fhorúsáideoir."
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.AdditionalSoftware.policy.in.h:1
@@ -3782,9 +3794,9 @@ msgid ""
 "a Gmail or Riseup email address with your phone and scan the QR code that is "
 "attached to the automatic reply."
 msgstr ""
-"Chun droichead a fháil, seol ríomhphost folamh chuig <tt>bridges@torproject."
-"org</tt> ó sheoladh ríomhphoist Gmail nó Riseup le do ghuthán agus scanadh "
-"an cód QR atá ceangailte leis an bhfreagra uathoibríoch."
+"Chun droichead a fháil, seol ríomhphost folamh chuig "
+"<tt>bridges@torproject.org</tt> ó sheoladh ríomhphoist Gmail nó Riseup le do "
+"ghuthán agus scanadh an cód QR atá ceangailte leis an bhfreagra uathoibríoch."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1018
 msgid "Scan QR Code"
@@ -4114,6 +4126,16 @@ msgstr "Nollaig"
 msgid "Clock"
 msgstr "Clog"
 
+#~ msgid "Root Terminal"
+#~ msgstr "Fréamhtheirminéal"
+
+#, fuzzy
+#~ msgid ""
+#~ "Opens a terminal as the root user, using gksu to ask for the password"
+#~ msgstr ""
+#~ "Osclaíonn sé seo teirminéal mar fhorúsáideoir, agus úsáideann sé gksu "
+#~ "chun an focal faire a fháil"
+
 #~ msgid "meek"
 #~ msgstr "meek"
 
@@ -4199,15 +4221,15 @@ msgstr "Clog"
 #~ "\n"
 #~ "Help us keep your bitcoins safe!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~ "html#expenses\">How we spend our money.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/"
+#~ "donate.en.html#expenses\">How we spend our money.</a>"
 #~ msgstr ""
 #~ "Cosnaíonn eireabaill do sparán.\n"
 #~ "\n"
 #~ "Cabhraigh linn do bitcoins a choinneáil slán!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~ "html#expenses\">Conas a chaithimid ár gcuid airgid.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/"
+#~ "donate.en.html#expenses\">Conas a chaithimid ár gcuid airgid.</a>"
 
 #~ msgid "Create Backup"
 #~ msgstr "Cruthaigh Cúltaca"
@@ -4368,8 +4390,8 @@ msgstr "Clog"
 #~ "sonraí a fháil.\n"
 #~ "\n"
 #~ "Ba chóir go mbeifeá tar éis cóip den GNU General Public License a fháil "
-#~ "in éineacht leis an ríomhchlár seo; mura bhfuair, féach <http://www.gnu."
-#~ "org/licenses/>.\n"
+#~ "in éineacht leis an ríomhchlár seo; mura bhfuair, féach <http://"
+#~ "www.gnu.org/licenses/>.\n"
 
 #~ msgid "Help:"
 #~ msgstr "Cabhair:"

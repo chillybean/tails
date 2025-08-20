@@ -26,7 +26,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-06 10:51+0200\n"
+"POT-Creation-Date: 2025-08-20 11:52+0200\n"
 "PO-Revision-Date: 2025-03-31 20:56+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/tor/tails-gui/ca/"
@@ -226,13 +226,13 @@ msgstr ""
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
-"desktop\">APT on the command line</a>."
+"To add more, install some software using <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
-"Per afegir-ne més, instal·leu programari mitjançant el <a href=\"synaptic."
-"desktop\">Gestor de paquets Synaptic</a> o l'<a href=\"org.gnome.Terminal."
-"desktop\">APT a la línia d'ordres</a>."
+"Per afegir-ne més, instal·leu programari mitjançant el <a "
+"href=\"synaptic.desktop\">Gestor de paquets Synaptic</a> o l'<a "
+"href=\"org.gnome.Terminal.desktop\">APT a la línia d'ordres</a>."
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:154
 msgid "_Create persistent storage"
@@ -1538,7 +1538,8 @@ msgid "Dismiss"
 msgstr "Descarta"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:11
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:40
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:44
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:45
 msgid "Learn More"
 msgstr "Aprèn més"
 
@@ -1677,9 +1678,9 @@ msgid ""
 "Package Manager</a> or <a href=\"org.gnome.Terminal.desktop\">APT on the "
 "command line</a>."
 msgstr ""
-"Per fer-ho, instal·leu algun programari utilitzant <a href=\"synaptic."
-"desktop\">el Gestor de paquets Synaptic</a> o l'<a href=\"org.gnome.Terminal."
-"desktop\">APT a la línia d'ordres</a>."
+"Per fer-ho, instal·leu algun programari utilitzant <a "
+"href=\"synaptic.desktop\">el Gestor de paquets Synaptic</a> o l'<a "
+"href=\"org.gnome.Terminal.desktop\">APT a la línia d'ordres</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:227
 msgid ""
@@ -1688,15 +1689,15 @@ msgid ""
 "a> or <a href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "Per fer-ho, desbloquegeu l'Emmagatzematge Persistent en iniciar Tails i "
-"instal·leu algun programari utilitzant el <a href=\"synaptic."
-"desktop\">Gestor de paquets Synaptic</a> o l'<a href=\"org.gnome.Terminal."
-"desktop\">APT a la línia d'ordres</a>."
+"instal·leu algun programari utilitzant el <a "
+"href=\"synaptic.desktop\">Gestor de paquets Synaptic</a> o l'<a "
+"href=\"org.gnome.Terminal.desktop\">APT a la línia d'ordres</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:240
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
-"gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "Per fer-ho, creeu un Emmagatzematge Persistent i instal·leu algun programari "
 "utilitzant el <a href=\"synaptic.desktop\">Gestor de paquets Synaptic</a> o "
@@ -1719,6 +1720,23 @@ msgstr "[descripció no disponible]"
 #: config/chroot_local-includes/usr/local/lib/tails-htp-notify-user:68
 msgid "Failed to synchronize the clock!"
 msgstr "S'ha produït un error en sincronitzar el rellotge!"
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:26
+msgid "Insufficient Memory Detected"
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:28
+#, python-brace-format
+msgid ""
+"Tails requires {required_ram_gb} GB of RAM, but this computer only has "
+"{installed_ram_gb} GB. You might experience reduced performance, "
+"instability, or crashes."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:41
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:42
+msgid "Don't Show Again"
+msgstr "No tornis a mostrar"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:132
 msgid "Screen Locker"
@@ -1869,15 +1887,15 @@ msgstr ""
 msgid "error:"
 msgstr "S'ha produït un error:"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:21
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:24
 msgid "Warning: virtual machine detected!"
 msgstr "Avís: s'ha detectat una màquina virtual!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:23
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:26
 msgid "Warning: non-free virtual machine detected!"
 msgstr "Avís: s'ha detectat una màquina virtual no lliure!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:25
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:28
 msgid ""
 "Both the host operating system and the virtualization software are able to "
 "monitor what you are doing in Tails. Only free software can be considered "
@@ -1888,10 +1906,6 @@ msgstr ""
 "poden monitoritzar el que feu a Tails. Només el programari lliure pot ésser "
 "considerat de confiança, tant pel sistema operatiu com per al programari de "
 "virtualització."
-
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:38
-msgid "Don't Show Again"
-msgstr "No tornis a mostrar"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/config.py:9
 #: config/chroot_local-includes/usr/local/bin/tca:10
@@ -2106,23 +2120,23 @@ msgstr ""
 "S'està inicialitzant l'encriptatge LUKS... És possible que l'ordinador deixi "
 "de respondre durant uns segons."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:413
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:415
 msgid "Unlocking the encryption..."
 msgstr "S'està desbloquejant l'encriptatge..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:421
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:423
 msgid "Formatting the file system..."
 msgstr "S'està formatant el sistema de fitxers..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:439
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:441
 msgid "Activating the Persistent Storage..."
 msgstr "S'està activant l'Emmagatzematge Persistent..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:444
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:446
 msgid "Finishing setting up the Persistent Storage..."
 msgstr "S'està acabant de configurar l'Emmagatzematge Persistent..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:697
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:699
 msgid ""
 "Can't unmount Persistent Storage, some process is still using it. Please "
 "close all applications that could be accessing it and try again. If that "
@@ -2134,7 +2148,7 @@ msgstr ""
 "torneu-ho a provar. Si això no funciona, reinicieu Tails i proveu de "
 "suprimir l'Emmagatzematge Persistent sense desbloquejar-lo."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:730
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:732
 msgid ""
 "Not enough memory to change the passphrase of the Persistent Storage. Try "
 "again after closing some applications or rebooting."
@@ -2771,15 +2785,12 @@ msgid "configuration;saved"
 msgstr "Configuració d'impressores"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:1
-msgid "Root Terminal"
-msgstr "Terminal d'administrador"
+msgid "Root Console"
+msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:2
-#, fuzzy
-msgid "Opens a terminal as the root user"
+msgid "Opens a console as the root user"
 msgstr ""
-"Obriu la terminal com a superusuari, usant l'ordre gksu per demanar la "
-"contrasenya"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:3
 msgid "admin"
@@ -2897,7 +2908,8 @@ msgid "Tails specific tools"
 msgstr "Eines específiques de Tails"
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
-msgid "To start a Root Terminal, you need to authenticate."
+#, fuzzy
+msgid "To start a Root Console, you need to authenticate."
 msgstr "Per a executar un terminal amb accés complet heu d'autenticar-vos."
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.AdditionalSoftware.policy.in.h:1
@@ -4137,6 +4149,16 @@ msgstr "desembre"
 msgid "Clock"
 msgstr "Rellotge"
 
+#~ msgid "Root Terminal"
+#~ msgstr "Terminal d'administrador"
+
+#, fuzzy
+#~ msgid ""
+#~ "Opens a terminal as the root user, using gksu to ask for the password"
+#~ msgstr ""
+#~ "Obriu la terminal com a superusuari, usant l'ordre gksu per demanar la "
+#~ "contrasenya"
+
 #~ msgid "meek"
 #~ msgstr "meek"
 
@@ -4223,15 +4245,15 @@ msgstr "Rellotge"
 #~ "\n"
 #~ "Help us keep your bitcoins safe!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~ "html#expenses\">How we spend our money.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/"
+#~ "donate.en.html#expenses\">How we spend our money.</a>"
 #~ msgstr ""
 #~ "Tails protegeix la vostra cartera.\n"
 #~ "\n"
 #~ "Ajudeu-nos a mantenir els vostres bitcoins segurs!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~ "html#expenses\">Com gastem els nostres diners.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/"
+#~ "donate.en.html#expenses\">Com gastem els nostres diners.</a>"
 
 #~ msgid "Create Backup"
 #~ msgstr "Crea una còpia de seguretat"

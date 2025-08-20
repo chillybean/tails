@@ -21,9 +21,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-06 10:51+0200\n"
-"PO-Revision-Date: 2025-07-25 21:08+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"POT-Creation-Date: 2025-08-20 11:52+0200\n"
+"PO-Revision-Date: 2025-08-14 16:02+0000\n"
+"Last-Translator: 홍길동 <papakiaphone@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/tor/tails-gui/ko/"
 ">\n"
 "Language: ko\n"
@@ -212,9 +212,9 @@ msgstr "Tails가 시작될 때 영구 저장소에서 다음 소프트웨어가 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
-"desktop\">APT on the command line</a>."
+"To add more, install some software using <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "소프트웨어를 더 추가하려면 <a href=\"synaptic.desktop\">시냅틱 패키지 관리자"
 "</a> 또는 <a href=\"org.gnome.Terminal.desktop\">터미널에서 APT</a>를 사용하"
@@ -368,18 +368,16 @@ msgid "bytes"
 msgstr "바이트"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:296
-#, fuzzy
 msgid ""
 "<b>An error occurred while updating the signing key.</b>\\n\\n<b>This "
 "prevents determining whether an upgrade is available from our website.</"
 "b>\\n\\nCheck your network connection and restart Tails.\\n\\nIf the problem "
 "persists, try doing a manual upgrade."
 msgstr ""
-"<b>서명 키를 갱신하는 동안 오류가 발생했어요.</b>\\n\\n<b>웹사이트에서 업그레"
-"이드가 있는지 여부를 확인할 수 없어요.</b>\\n\\n업그레이드를 다시 시도하려면 "
-"네트워크 연결을 확인하고, Tails를 다시 시작하세요.\\n\\n만약 문제가 계속된다"
-"면 file:///usr/share/doc/tails/website/doc/upgrade/error/check.en.html 을 참"
-"고하세요"
+"<b>서명 키를 업데이트하는 중 오류가 발생했습니다.</b>\\n\\n<b>이로 인해 웹사"
+"이트에서 업그레이드가 가능한지 확인할 수 없습니다.</b>\\n\\n네트워크 연결을 "
+"확인하고 Tails를 다시 시작하세요. \\n\\n문제가 지속되면 수동 업그레이드를 시"
+"도해 보세요."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:310
 msgid "Error while downloading the signing key"
@@ -390,7 +388,6 @@ msgid "Error while checking for upgrades"
 msgstr "업그레이드 확인 중 오류 발생"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:345
-#, fuzzy
 msgid ""
 "<b>Could not determine whether an upgrade is available from our website.</"
 "b>\n"
@@ -399,13 +396,11 @@ msgid ""
 "\n"
 "If the problem persists, try doing a manual upgrade."
 msgstr ""
-"<b>웹사이트에서 업그레이드가 있는지 여부를 확인할 수 없어요.</b>\n"
+"<b>웹사이트에서 업그레이드가 가능한지 확인할 수 없습니다.</b>\n"
 "\n"
-"업그레이드를 다시 시도하려면 네트워크 연결을 확인하고, Tails를 다시 시작하세"
-"요.\n"
+"네트워크 연결을 확인하고 Tails를 다시 시작하세요.\n"
 "\n"
-"만약 문제가 계속된다면 file:///usr/share/doc/tails/website/doc/upgrade/error/"
-"check.en.html 을 참고하세요"
+"문제가 지속되면 수동 업그레이드를 시도해 보세요"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:360
 msgid "no automatic upgrade is available from our website for this version"
@@ -858,7 +853,6 @@ msgstr ""
 "문제가 있는 것 같습니다."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:815
-#, fuzzy
 msgid "Start Tails to learn how to recover your data."
 msgstr "Tails를 시작하여 데이터 복구 방법을 알아보세요"
 
@@ -1458,7 +1452,8 @@ msgid "Dismiss"
 msgstr "확인"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:11
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:40
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:44
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:45
 msgid "Learn More"
 msgstr "자세히 알아보기"
 
@@ -1594,9 +1589,9 @@ msgid ""
 "Package Manager</a> or <a href=\"org.gnome.Terminal.desktop\">APT on the "
 "command line</a>."
 msgstr ""
-"<a href=\"synaptic.desktop\">Synaptic 패키지 관리자</a> 또는 <a href=\"org."
-"gnome.Terminal.desktop\">터미널에서 APT</a>를 사용하여 소프트웨어를 설치해보"
-"세요."
+"<a href=\"synaptic.desktop\">Synaptic 패키지 관리자</a> 또는 <a "
+"href=\"org.gnome.Terminal.desktop\">터미널에서 APT</a>를 사용하여 소프트웨어"
+"를 설치해보세요."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:227
 msgid ""
@@ -1604,15 +1599,16 @@ msgid ""
 "some software using <a href=\"synaptic.desktop\">Synaptic Package Manager</"
 "a> or <a href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
-"Tails 시작 시 영구 저장소의 잠금을 해제하고 <a href=\"synaptic."
-"desktop\">Synaptic 패키지 관리자</a> 또는 <a href=\"org.gnome.Terminal."
-"desktop\">터미널에서 APT</a>를 사용하여 소프트웨어를 설치해보세요."
+"Tails 시작 시 영구 저장소의 잠금을 해제하고 <a "
+"href=\"synaptic.desktop\">Synaptic 패키지 관리자</a> 또는 <a "
+"href=\"org.gnome.Terminal.desktop\">터미널에서 APT</a>를 사용하여 소프트웨어"
+"를 설치해보세요."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:240
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
-"gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "영구 저장소를 생성하고 <a href=\"synaptic.desktop\">Synaptic 패키지 관리자</"
 "a> 또는 <a href=\"org.gnome.Terminal.desktop\">터미널에서 APT</a>를 사용하여 "
@@ -1633,6 +1629,23 @@ msgstr "[세부 설명 없음]"
 #: config/chroot_local-includes/usr/local/lib/tails-htp-notify-user:68
 msgid "Failed to synchronize the clock!"
 msgstr "시각 동기화 실패!"
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:26
+msgid "Insufficient Memory Detected"
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:28
+#, python-brace-format
+msgid ""
+"Tails requires {required_ram_gb} GB of RAM, but this computer only has "
+"{installed_ram_gb} GB. You might experience reduced performance, "
+"instability, or crashes."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:41
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:42
+msgid "Don't Show Again"
+msgstr "다시 표시 안 함"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:132
 msgid "Screen Locker"
@@ -1781,15 +1794,15 @@ msgstr ""
 msgid "error:"
 msgstr "오류:"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:21
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:24
 msgid "Warning: virtual machine detected!"
 msgstr "경고: 가상 머신 탐지됨!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:23
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:26
 msgid "Warning: non-free virtual machine detected!"
 msgstr "경고: 상용 가상 머신 탐지됨!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:25
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:28
 msgid ""
 "Both the host operating system and the virtualization software are able to "
 "monitor what you are doing in Tails. Only free software can be considered "
@@ -1798,10 +1811,6 @@ msgid ""
 msgstr ""
 "호스트 운영체제와 가상화 소프트웨어 모두 Tails로 무엇을 하는지 감시할 수 있어"
 "요. 호스트 운영체제와 가상화 소프트웨어 모두 자유 소프트웨어만을 신뢰하세요."
-
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:38
-msgid "Don't Show Again"
-msgstr "다시 표시 안 함"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/config.py:9
 #: config/chroot_local-includes/usr/local/bin/tca:10
@@ -1837,11 +1846,12 @@ msgstr "잘못된 항목: {exception}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:299
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:823
-#, fuzzy
 msgid ""
 "You need to configure a WebTunnel or an obfs4 bridge to hide that you are "
 "using Tor"
-msgstr "Tor를 사용하고 있다는 사실을 숨기려면 obfs4 브리지를 구성해야 해요"
+msgstr ""
+"Tor를 사용하고 있다는 사실을 숨기려면 WebTunnel 또는 obfs4 브리지를 구성해야 "
+"합니다"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:354
 msgid "Failed to configure your Persistent Storage"
@@ -2007,23 +2017,23 @@ msgid ""
 "few seconds."
 msgstr "LUKS 암호화 중... 컴퓨터가 몇 초 동안 응답을 멈출 수 있어요."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:413
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:415
 msgid "Unlocking the encryption..."
 msgstr "암호화 해제 중..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:421
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:423
 msgid "Formatting the file system..."
 msgstr "파일 시스템 포맷 중..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:439
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:441
 msgid "Activating the Persistent Storage..."
 msgstr "영구 저장소 활성화 중..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:444
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:446
 msgid "Finishing setting up the Persistent Storage..."
 msgstr "영구 저장소 설정 마무리 중..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:697
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:699
 msgid ""
 "Can't unmount Persistent Storage, some process is still using it. Please "
 "close all applications that could be accessing it and try again. If that "
@@ -2035,7 +2045,7 @@ msgstr ""
 "문제가 생긴다면 Tails를 다시 시작한 후에 영구 저장소를 잠금 해제하지 말고 삭"
 "제해보세요."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:730
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:732
 msgid ""
 "Not enough memory to change the passphrase of the Persistent Storage. Try "
 "again after closing some applications or rebooting."
@@ -2652,13 +2662,12 @@ msgid "configuration;saved"
 msgstr "프린터 구성"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:1
-msgid "Root Terminal"
-msgstr "루트 터미널"
+msgid "Root Console"
+msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:2
-#, fuzzy
-msgid "Opens a terminal as the root user"
-msgstr "루트 사용자로 터미널을 열어 gksu를 통해 비밀번호를 물어보게 돼요"
+msgid "Opens a console as the root user"
+msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:3
 msgid "admin"
@@ -2772,7 +2781,8 @@ msgid "Tails specific tools"
 msgstr "Tails 전용 도구"
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
-msgid "To start a Root Terminal, you need to authenticate."
+#, fuzzy
+msgid "To start a Root Console, you need to authenticate."
 msgstr "루트 터미널을 시작하려면 인증하세요."
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.AdditionalSoftware.policy.in.h:1
@@ -3992,6 +4002,14 @@ msgstr "12월"
 msgid "Clock"
 msgstr "시계"
 
+#~ msgid "Root Terminal"
+#~ msgstr "루트 터미널"
+
+#, fuzzy
+#~ msgid ""
+#~ "Opens a terminal as the root user, using gksu to ask for the password"
+#~ msgstr "루트 사용자로 터미널을 열어 gksu를 통해 비밀번호를 물어보게 돼요"
+
 #~ msgid "meek"
 #~ msgstr "meek"
 
@@ -4050,8 +4068,8 @@ msgstr "시계"
 #~ "\n"
 #~ "Help us keep your bitcoins safe!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~ "html#expenses\">How we spend our money.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/"
+#~ "donate.en.html#expenses\">How we spend our money.</a>"
 #~ msgstr ""
 #~ "Tails가 지갑을 보호해드릴게요.\n"
 #~ "\n"
@@ -4197,8 +4215,8 @@ msgstr "시계"
 #~| "\n"
 #~| "Every bit helps in our fight against surveillance and censorship!\n"
 #~| "\n"
-#~| "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~| "html#expenses\">How we spend our money.</a>"
+#~| "<a href=\"file:///usr/share/doc/tails/website/"
+#~| "donate.en.html#expenses\">How we spend our money.</a>"
 #~ msgid ""
 #~ "Our annual fundraiser is live!\n"
 #~ "\n"

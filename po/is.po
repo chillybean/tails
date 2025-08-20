@@ -5,12 +5,13 @@
 # Translators:
 # Sveinn í Felli <sv1@fellsnet.is>, 2016-2022
 # Sveinn í Felli <sv1@fellsnet.is>, 2022
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-06 10:51+0200\n"
-"PO-Revision-Date: 2025-03-31 20:56+0000\n"
+"POT-Creation-Date: 2025-08-20 11:52+0200\n"
+"PO-Revision-Date: 2025-08-07 15:02+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Icelandic <https://hosted.weblate.org/projects/tor/tails-gui/"
@@ -20,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n % 10 != 1 || n % 100 == 11;\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -205,13 +206,13 @@ msgstr ""
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
-"desktop\">APT on the command line</a>."
+"To add more, install some software using <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "Til að bæta við fleiru, skaltu setja upp einhvern hugbúnað með <a "
-"href=\"synaptic.desktop\">Synaptic pakkastjóranum</a> eða með <a href=\"org."
-"gnome.Terminal.desktop\">APT á skipanalínu</a>."
+"href=\"synaptic.desktop\">Synaptic pakkastjóranum</a> eða með <a "
+"href=\"org.gnome.Terminal.desktop\">APT á skipanalínu</a>."
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:154
 msgid "_Create persistent storage"
@@ -1464,7 +1465,8 @@ msgid "Dismiss"
 msgstr "Afgreiða"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:11
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:40
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:44
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:45
 msgid "Learn More"
 msgstr "Fræðast frekar"
 
@@ -1603,9 +1605,9 @@ msgid ""
 "Package Manager</a> or <a href=\"org.gnome.Terminal.desktop\">APT on the "
 "command line</a>."
 msgstr ""
-"Til að gera þetta, skaltu setja upp einhvern hugbúnað með <a href=\"synaptic."
-"desktop\">Synaptic pakkastjóranum</a> eða með <a href=\"org.gnome.Terminal."
-"desktop\">APT á skipanalínu</a>."
+"Til að gera þetta, skaltu setja upp einhvern hugbúnað með <a "
+"href=\"synaptic.desktop\">Synaptic pakkastjóranum</a> eða með <a "
+"href=\"org.gnome.Terminal.desktop\">APT á skipanalínu</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:227
 msgid ""
@@ -1614,15 +1616,15 @@ msgid ""
 "a> or <a href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "Til að gera þetta, skaltu aflæsa varanlegu gagnageymslunni þinni þegar Tails "
-"ræsist og setja síðan upp einhvern hugbúnað með <a href=\"synaptic."
-"desktop\">Synaptic pakkastjóranum</a> eða með <a href=\"org.gnome.Terminal."
-"desktop\">APT á skipanalínu</a>."
+"ræsist og setja síðan upp einhvern hugbúnað með <a "
+"href=\"synaptic.desktop\">Synaptic pakkastjóranum</a> eða með <a "
+"href=\"org.gnome.Terminal.desktop\">APT á skipanalínu</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:240
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
-"gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "Til að gera þetta, skaltu útbúa varanlega gagnageymslu og setja síðan upp "
 "einhvern hugbúnað með <a href=\"synaptic.desktop\">Synaptic pakkastjóranum</"
@@ -1645,6 +1647,23 @@ msgstr "[lýsing ekki tiltæk]"
 #: config/chroot_local-includes/usr/local/lib/tails-htp-notify-user:68
 msgid "Failed to synchronize the clock!"
 msgstr "Mistókst að samstilla klukkuna!"
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:26
+msgid "Insufficient Memory Detected"
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:28
+#, python-brace-format
+msgid ""
+"Tails requires {required_ram_gb} GB of RAM, but this computer only has "
+"{installed_ram_gb} GB. You might experience reduced performance, "
+"instability, or crashes."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:41
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:42
+msgid "Don't Show Again"
+msgstr "Ekki birta þetta aftur"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:132
 msgid "Screen Locker"
@@ -1792,15 +1811,15 @@ msgstr ""
 msgid "error:"
 msgstr "villa:"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:21
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:24
 msgid "Warning: virtual machine detected!"
 msgstr "Aðvörun: sýndarvél fannst!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:23
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:26
 msgid "Warning: non-free virtual machine detected!"
 msgstr "Aðvörun: ófrjáls sýndarvél fannst!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:25
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:28
 msgid ""
 "Both the host operating system and the virtualization software are able to "
 "monitor what you are doing in Tails. Only free software can be considered "
@@ -1811,10 +1830,6 @@ msgstr ""
 "ert að gera í Tails. Einungis er hægt að gera ráð fyrir að hægt sé að "
 "treysta frjálsum og opnum hugbúnaði, bæði hvað varðar hýsilstýrikerfið og "
 "sýndarvélarhugbúnaðinn."
-
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:38
-msgid "Don't Show Again"
-msgstr "Ekki birta þetta aftur"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/config.py:9
 #: config/chroot_local-includes/usr/local/bin/tca:10
@@ -2024,23 +2039,23 @@ msgid ""
 msgstr ""
 "Frumstilling LUKS-dulritun... Tölvan gæti hætt að svara í nokkrar sekúndur."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:413
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:415
 msgid "Unlocking the encryption..."
 msgstr "Aflæsi dulrituninni..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:421
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:423
 msgid "Formatting the file system..."
 msgstr "Forsníð skráarkerfið..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:439
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:441
 msgid "Activating the Persistent Storage..."
 msgstr "Virkja varanlegu gagnageymsluna..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:444
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:446
 msgid "Finishing setting up the Persistent Storage..."
 msgstr "Lyk uppsetningu á varanlegri gagnageymslu..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:697
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:699
 msgid ""
 "Can't unmount Persistent Storage, some process is still using it. Please "
 "close all applications that could be accessing it and try again. If that "
@@ -2048,7 +2063,7 @@ msgid ""
 "unlocking it."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:730
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:732
 msgid ""
 "Not enough memory to change the passphrase of the Persistent Storage. Try "
 "again after closing some applications or rebooting."
@@ -2656,15 +2671,12 @@ msgid "configuration;saved"
 msgstr "Uppsetning prentara"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:1
-msgid "Root Terminal"
-msgstr "Skipanalína kerfisstjórnunar"
+msgid "Root Console"
+msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:2
-#, fuzzy
-msgid "Opens a terminal as the root user"
+msgid "Opens a console as the root user"
 msgstr ""
-"Opnar skjáhermi (terminal) sem rótarnotandi/kerfisstjóri, notar gksu til að "
-"biðja um lykilorðið"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:3
 msgid "admin"
@@ -2781,7 +2793,8 @@ msgid "Tails specific tools"
 msgstr "Sértæk Tails-verkfæri"
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
-msgid "To start a Root Terminal, you need to authenticate."
+#, fuzzy
+msgid "To start a Root Console, you need to authenticate."
 msgstr ""
 "Til að ræsa skipanalínu sem kerfisstjóri (root), verðurðu að auðkenna þig."
 
@@ -3200,6 +3213,7 @@ msgid "Activate GnuPG"
 msgstr "Virkja GnuPG"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:546
+#, fuzzy
 msgid "Pidgin Internet Messenger"
 msgstr "Pidgin Internet Messenger"
 
@@ -4013,6 +4027,16 @@ msgstr "desember"
 msgid "Clock"
 msgstr "Klukka"
 
+#~ msgid "Root Terminal"
+#~ msgstr "Skipanalína kerfisstjórnunar"
+
+#, fuzzy
+#~ msgid ""
+#~ "Opens a terminal as the root user, using gksu to ask for the password"
+#~ msgstr ""
+#~ "Opnar skjáhermi (terminal) sem rótarnotandi/kerfisstjóri, notar gksu til "
+#~ "að biðja um lykilorðið"
+
 #~ msgid "meek"
 #~ msgstr "meek"
 
@@ -4196,8 +4220,8 @@ msgstr "Klukka"
 
 #~ msgid "translator-credits"
 #~ msgstr ""
-#~ "Sveinn í Felli <sv1@fellsnet.is>, 2016 Baddi Svali, <saevartj@hotmail."
-#~ "com>, 2016"
+#~ "Sveinn í Felli <sv1@fellsnet.is>, 2016 Baddi Svali, "
+#~ "<saevartj@hotmail.com>, 2016"
 
 #~ msgid "Copyright © 2009-2018 tails@boum.org"
 #~ msgstr "Höfundarréttur © 2009-2018 tails@boum.org"

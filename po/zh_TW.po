@@ -22,13 +22,14 @@
 # Samlan <samlan@duck.com>, 2025.
 # c-s-lab <c-s-lab@users.noreply.hosted.weblate.org>, 2025.
 # Wendy <c-s-lab@users.noreply.hosted.weblate.org>, 2025.
+# jxt <chihsun.tsai@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-06 10:51+0200\n"
-"PO-Revision-Date: 2025-07-31 13:02+0000\n"
-"Last-Translator: Wendy <c-s-lab@users.noreply.hosted.weblate.org>\n"
+"POT-Creation-Date: 2025-08-20 11:52+0200\n"
+"PO-Revision-Date: 2025-08-20 02:02+0000\n"
+"Last-Translator: jxt <chihsun.tsai@gmail.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/tor/tails-gui/zh_Hant/>\n"
 "Language: zh_TW\n"
@@ -36,7 +37,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.13\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -210,9 +211,9 @@ msgstr "在 Tails 啟動時會從永久性儲存裝置中安裝下列其他軟�
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
-"desktop\">APT on the command line</a>."
+"To add more, install some software using <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "要加入更多其他軟體，可以使用<a href=\"synaptic.desktop\">Synaptic 套件管理程"
 "式</a>或<a href=\"org.gnome.Terminal.desktop\">透過終端機使用 APT</a>。"
@@ -1434,7 +1435,8 @@ msgid "Dismiss"
 msgstr "取消"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:11
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:40
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:44
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:45
 msgid "Learn More"
 msgstr "深入瞭解"
 
@@ -1576,19 +1578,19 @@ msgid ""
 "some software using <a href=\"synaptic.desktop\">Synaptic Package Manager</"
 "a> or <a href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
-"要這樣做，請在啟動 Tails 時解鎖您的永久性儲存空間，並使用 <a href=\"synaptic."
-"desktop\">Synaptic 套件管理器</a> 或 <a href=\"org.gnome.Terminal.desktop\">"
-"透過終端機使用 APT</a> 安裝一些軟體。"
+"要這樣做，請在啟動 Tails 時解鎖您的永久性儲存空間，並使用 <a "
+"href=\"synaptic.desktop\">Synaptic 套件管理器</a> 或 <a "
+"href=\"org.gnome.Terminal.desktop\">透過終端機使用 APT</a> 安裝一些軟體。"
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:240
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
-"gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
-"要做到這一點，請創建一個永久性儲存，並使用<a href=\"synaptic."
-"desktop\">Synaptic 套件管理器</a>或<a href=\"org.gnome.Terminal.desktop\">透"
-"過終端機使用 APT</a>安裝一些軟件。"
+"要做到這一點，請創建一個永久性儲存，並使用<a "
+"href=\"synaptic.desktop\">Synaptic 套件管理器</a>或<a "
+"href=\"org.gnome.Terminal.desktop\">透過終端機使用 APT</a>安裝一些軟件。"
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:258
 msgid "To do so, install Tails on a USB stick and create a Persistent Storage."
@@ -1605,6 +1607,23 @@ msgstr "[描述不可用]"
 #: config/chroot_local-includes/usr/local/lib/tails-htp-notify-user:68
 msgid "Failed to synchronize the clock!"
 msgstr "無法與時鐘同步！"
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:26
+msgid "Insufficient Memory Detected"
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:28
+#, python-brace-format
+msgid ""
+"Tails requires {required_ram_gb} GB of RAM, but this computer only has "
+"{installed_ram_gb} GB. You might experience reduced performance, "
+"instability, or crashes."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:41
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:42
+msgid "Don't Show Again"
+msgstr "不再顯示"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:132
 msgid "Screen Locker"
@@ -1740,15 +1759,15 @@ msgstr ""
 msgid "error:"
 msgstr "錯誤:"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:21
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:24
 msgid "Warning: virtual machine detected!"
 msgstr "警告: 偵測到虛擬機器！"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:23
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:26
 msgid "Warning: non-free virtual machine detected!"
 msgstr "警告：偵測到此虛擬機器是由非自由軟體 !"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:25
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:28
 msgid ""
 "Both the host operating system and the virtualization software are able to "
 "monitor what you are doing in Tails. Only free software can be considered "
@@ -1757,10 +1776,6 @@ msgid ""
 msgstr ""
 "主機作業系統和虛擬化軟體都能夠監控您在 Tails 中做什麼。只有真正自由的主機作業"
 "系統和虛擬化軟體才能值得信賴。"
-
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:38
-msgid "Don't Show Again"
-msgstr "不再顯示"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/config.py:9
 #: config/chroot_local-includes/usr/local/bin/tca:10
@@ -1959,23 +1974,23 @@ msgid ""
 "few seconds."
 msgstr "正在初始化 LUKS 加密...電腦可能會停止回應幾秒鐘。"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:413
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:415
 msgid "Unlocking the encryption..."
 msgstr "正在解鎖加密..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:421
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:423
 msgid "Formatting the file system..."
 msgstr "正在格式化檔案系統..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:439
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:441
 msgid "Activating the Persistent Storage..."
 msgstr "正在啟動持久性存儲..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:444
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:446
 msgid "Finishing setting up the Persistent Storage..."
 msgstr "正在完成持久性儲存的設定..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:697
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:699
 msgid ""
 "Can't unmount Persistent Storage, some process is still using it. Please "
 "close all applications that could be accessing it and try again. If that "
@@ -1985,7 +2000,7 @@ msgstr ""
 "無法卸載持久性存儲，某些進程仍在使用它。 請關閉所有可能訪問它的應用程序，然後"
 "重試。 如果這不起作用，請重新啟動 Tails 並嘗試刪除持久性儲存而不解鎖它。"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:730
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:732
 msgid ""
 "Not enough memory to change the passphrase of the Persistent Storage. Try "
 "again after closing some applications or rebooting."
@@ -2591,22 +2606,20 @@ msgid ""
 msgstr "在工作期間設定須儲存的檔案與應用程式配置"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:3
-#, fuzzy
 msgid "configuration;saved"
-msgstr "印表機設定"
+msgstr "設定;已儲存"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:1
-msgid "Root Terminal"
-msgstr "高級管理員終端"
+msgid "Root Console"
+msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:2
-#, fuzzy
-msgid "Opens a terminal as the root user"
-msgstr "以高級管理員身份啟動終端機，使用 gksu 指令取得密碼"
+msgid "Opens a console as the root user"
+msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:3
 msgid "admin"
-msgstr ""
+msgstr "管理者"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:1
 msgid "Tails Documentation"
@@ -2618,7 +2631,7 @@ msgstr "了解如何使用 Tails"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:3
 msgid "learn"
-msgstr ""
+msgstr "學習"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-about.desktop.in.h:2
 msgid "Learn more about Tails"
@@ -2635,25 +2648,23 @@ msgstr "將 Tails 持久性儲存備份到另一個 Tails U 盤"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-backup.desktop.in.h:3
 msgid "backup"
-msgstr ""
+msgstr "備份"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-installer.desktop.in.h:2
 msgid "Install, clone, upgrade Tails"
 msgstr "安裝、複製、升級 Tails"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-installer.desktop.in.h:3
-#, fuzzy
 msgid "install;clone;upgrade;manual"
-msgstr "安裝、複製、升級 Tails"
+msgstr "安裝、複製、升級、手動"
 
 #: ../config/chroot_local-includes/usr/share/applications/tca.desktop.in.h:2
 msgid "Connect Tails to the Tor network"
 msgstr "連線 Tails 到 Tor 網絡"
 
 #: ../config/chroot_local-includes/usr/share/applications/tca.desktop.in.h:3
-#, fuzzy
 msgid "connect;tor;network"
-msgstr "連線至本地網路"
+msgstr "連線;tor;網路"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:1
 msgid "Tor Browser"
@@ -2664,9 +2675,8 @@ msgid "Anonymous Web Browser"
 msgstr "匿名網路瀏覽器"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:3
-#, fuzzy
 msgid "web;tor;browser"
-msgstr "Tor 瀏覽器"
+msgstr "web;tor;瀏覽器"
 
 #: ../config/chroot_local-includes/usr/share/applications/unsafe-browser.desktop.in.h:2
 msgid "Browse the World Wide Web without anonymity"
@@ -2678,7 +2688,7 @@ msgstr "不安全的網頁瀏覽器"
 
 #: ../config/chroot_local-includes/usr/share/applications/unsafe-browser.desktop.in.h:4
 msgid "web;captive;portal"
-msgstr ""
+msgstr "web;強制;入口"
 
 #: ../config/chroot_local-includes/usr/share/applications/unlock-veracrypt-volumes.desktop.in.h:2
 msgid "Mount VeraCrypt encrypted file containers and devices"
@@ -2686,7 +2696,7 @@ msgstr "掛載 VeraCrypt 加密檔案容器和裝置"
 
 #: ../config/chroot_local-includes/usr/share/applications/unlock-veracrypt-volumes.desktop.in.h:3
 msgid "mount;encrypted;container;truecryt"
-msgstr ""
+msgstr "掛載;已加密;容器;truecryt"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop.in.h:2
 msgid ""
@@ -2695,9 +2705,8 @@ msgid ""
 msgstr "設定啟動 Tails 時從您的永久性儲存中安裝的額外軟體"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop.in.h:3
-#, fuzzy
 msgid "persistent;storage;package;install"
-msgstr "刪除永久性儲存裝置並重新安裝"
+msgstr "持久;儲存;軟體包;安裝"
 
 #: ../config/chroot_local-includes/usr/share/applications/whisperback.desktop.in.h:1
 msgid "WhisperBack Error Reporting"
@@ -2716,7 +2725,8 @@ msgid "Tails specific tools"
 msgstr "Tails 特有工具"
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
-msgid "To start a Root Terminal, you need to authenticate."
+#, fuzzy
+msgid "To start a Root Console, you need to authenticate."
 msgstr "需要授權以啟動根終端器。"
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.AdditionalSoftware.policy.in.h:1
@@ -3167,8 +3177,8 @@ msgid ""
 "To add or remove custom features, modify /live/persistence/"
 "TailsData_unlocked/persistence.conf."
 msgstr ""
-"增添或移除自定功能，請修改 /live/persistence/TailsData_unlocked/persistence."
-"conf."
+"增添或移除自定功能，請修改 /live/persistence/TailsData_unlocked/"
+"persistence.conf."
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:825
 msgid ""
@@ -3898,6 +3908,14 @@ msgstr "十二月"
 msgid "Clock"
 msgstr "時鐘"
 
+#~ msgid "Root Terminal"
+#~ msgstr "高級管理員終端"
+
+#, fuzzy
+#~ msgid ""
+#~ "Opens a terminal as the root user, using gksu to ask for the password"
+#~ msgstr "以高級管理員身份啟動終端機"
+
 #~ msgid "meek"
 #~ msgstr "meek"
 
@@ -3975,8 +3993,8 @@ msgstr "時鐘"
 #~ "\n"
 #~ "Help us keep your bitcoins safe!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~ "html#expenses\">How we spend our money.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/"
+#~ "donate.en.html#expenses\">How we spend our money.</a>"
 #~ msgstr ""
 #~ "Tails 保護你的錢包。\n"
 #~ "\n"

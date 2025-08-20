@@ -41,9 +41,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-06 10:51+0200\n"
-"PO-Revision-Date: 2025-07-30 13:05+0000\n"
-"Last-Translator: Lupo Cosentino <boots-bounce-hazy@duck.com>\n"
+"POT-Creation-Date: 2025-08-20 11:52+0200\n"
+"PO-Revision-Date: 2025-08-07 15:02+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/tor/tails-gui/it/"
 ">\n"
 "Language: it\n"
@@ -239,13 +239,13 @@ msgstr ""
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
-"desktop\">APT on the command line</a>."
+"To add more, install some software using <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
-"Per aggiungere altro, installa del software usando <a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a> o <a href=\"org.gnome.Terminal."
-"desktop\">APT a riga di comando</a>."
+"Per aggiungere altro, installa del software usando <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> o <a "
+"href=\"org.gnome.Terminal.desktop\">APT a riga di comando</a>."
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:154
 msgid "_Create persistent storage"
@@ -407,6 +407,7 @@ msgid "bytes"
 msgstr "bytes"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:296
+#, fuzzy
 msgid ""
 "<b>An error occurred while updating the signing key.</b>\\n\\n<b>This "
 "prevents determining whether an upgrade is available from our website.</"
@@ -1542,7 +1543,8 @@ msgid "Dismiss"
 msgstr "Chiudi"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:11
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:40
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:44
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:45
 msgid "Learn More"
 msgstr "Maggiori informazioni"
 
@@ -1683,9 +1685,9 @@ msgid ""
 "Package Manager</a> or <a href=\"org.gnome.Terminal.desktop\">APT on the "
 "command line</a>."
 msgstr ""
-"Per farlo, installa qualche software usando <a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a> o <a href=\"org.gnome.Terminal."
-"desktop\">APT da riga di comando</a>."
+"Per farlo, installa qualche software usando <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> o <a "
+"href=\"org.gnome.Terminal.desktop\">APT da riga di comando</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:227
 msgid ""
@@ -1701,8 +1703,8 @@ msgstr ""
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:240
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
-"gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "Per farlo, crea un'archiviazione persistente e installa qualche software "
 "usando <a href=\"synaptic.desktop\">Synaptic Package Manager</a> o <a "
@@ -1725,6 +1727,23 @@ msgstr "[descrizione non disponibile]"
 #: config/chroot_local-includes/usr/local/lib/tails-htp-notify-user:68
 msgid "Failed to synchronize the clock!"
 msgstr "Sincronizzazione orologio fallita!"
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:26
+msgid "Insufficient Memory Detected"
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:28
+#, python-brace-format
+msgid ""
+"Tails requires {required_ram_gb} GB of RAM, but this computer only has "
+"{installed_ram_gb} GB. You might experience reduced performance, "
+"instability, or crashes."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:41
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:42
+msgid "Don't Show Again"
+msgstr "Non mostrare più"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:132
 msgid "Screen Locker"
@@ -1873,15 +1892,15 @@ msgstr ""
 msgid "error:"
 msgstr "errore:"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:21
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:24
 msgid "Warning: virtual machine detected!"
 msgstr "Attenzione: macchina virtuale rilevata!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:23
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:26
 msgid "Warning: non-free virtual machine detected!"
 msgstr "Attenzione: macchina virtuale non-free rilevata!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:25
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:28
 msgid ""
 "Both the host operating system and the virtualization software are able to "
 "monitor what you are doing in Tails. Only free software can be considered "
@@ -1892,10 +1911,6 @@ msgstr ""
 "monitorare cosa si sta facendo in Tails. Solo il software libero può essere "
 "considerato affidabile, sia per il sistema operativo host sia per il "
 "software di virtualizzazione."
-
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:38
-msgid "Don't Show Again"
-msgstr "Non mostrare più"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/config.py:9
 #: config/chroot_local-includes/usr/local/bin/tca:10
@@ -2113,23 +2128,23 @@ msgstr ""
 "Inizializzazione dell'encryption LUKS... Il computer potrebbe smettere di "
 "rispondere per alcuni secondi."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:413
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:415
 msgid "Unlocking the encryption..."
 msgstr "Sblocco della cifratura..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:421
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:423
 msgid "Formatting the file system..."
 msgstr "Formattazione del file system..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:439
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:441
 msgid "Activating the Persistent Storage..."
 msgstr "Attivazione dell'archiviazione persistente..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:444
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:446
 msgid "Finishing setting up the Persistent Storage..."
 msgstr "Completamento dell'impostazione dell'archiviazione persistente..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:697
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:699
 msgid ""
 "Can't unmount Persistent Storage, some process is still using it. Please "
 "close all applications that could be accessing it and try again. If that "
@@ -2141,7 +2156,7 @@ msgstr ""
 "accedervi e prova nuovamente. Se ciò non funziona, riavvia Tails e prova a "
 "eliminare l'archiviazione persistente senza sbloccarla."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:730
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:732
 msgid ""
 "Not enough memory to change the passphrase of the Persistent Storage. Try "
 "again after closing some applications or rebooting."
@@ -2776,14 +2791,12 @@ msgid "configuration;saved"
 msgstr "Configurazione stampanti"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:1
-msgid "Root Terminal"
-msgstr "Terminale Root"
+msgid "Root Console"
+msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:2
-#, fuzzy
-msgid "Opens a terminal as the root user"
+msgid "Opens a console as the root user"
 msgstr ""
-"Apre un terminale come utente root, usando gksu per richiedere la password"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:3
 msgid "admin"
@@ -2901,7 +2914,8 @@ msgid "Tails specific tools"
 msgstr "Strumenti specifici di Tails"
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
-msgid "To start a Root Terminal, you need to authenticate."
+#, fuzzy
+msgid "To start a Root Console, you need to authenticate."
 msgstr "Per avviare un terminale con root, devi autenticarti."
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.AdditionalSoftware.policy.in.h:1
@@ -3718,6 +3732,7 @@ msgstr "_Inserisci un bridge che conosci già"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:403
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1044
+#, fuzzy
 msgid "Bridge"
 msgstr "Bridge"
 
@@ -4137,6 +4152,15 @@ msgstr "Dicembre"
 msgid "Clock"
 msgstr "Orologio"
 
+#~ msgid "Root Terminal"
+#~ msgstr "Terminale Root"
+
+#, fuzzy
+#~ msgid ""
+#~ "Opens a terminal as the root user, using gksu to ask for the password"
+#~ msgstr ""
+#~ "Apre un terminale come utente root, usando gksu per richiedere la password"
+
 #~ msgid "meek"
 #~ msgstr "meek"
 
@@ -4223,15 +4247,15 @@ msgstr "Orologio"
 #~ "\n"
 #~ "Help us keep your bitcoins safe!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~ "html#expenses\">How we spend our money.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/"
+#~ "donate.en.html#expenses\">How we spend our money.</a>"
 #~ msgstr ""
 #~ "Tails protegge il tuo portafoglio.\n"
 #~ "\n"
 #~ "Aiutaci a mantenere sicuri i tuoi bitcoin!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~ "html#expenses\">Come spendiamo i nostri soldi.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/"
+#~ "donate.en.html#expenses\">Come spendiamo i nostri soldi.</a>"
 
 #, fuzzy
 #~| msgid "Create"
@@ -4456,8 +4480,8 @@ msgstr "Orologio"
 #~ "General Public License per maggiori dettagli.\n"
 #~ "\n"
 #~ "Dovresti avere ricevuto una copia della GNU General Public License\n"
-#~ "insieme a questo programma.  In caso contrario, vedere <http://www.gnu."
-#~ "org/licenses/>.\n"
+#~ "insieme a questo programma.  In caso contrario, vedere <http://"
+#~ "www.gnu.org/licenses/>.\n"
 
 #~ msgid "Help:"
 #~ msgstr "Aiuto:"

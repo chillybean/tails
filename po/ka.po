@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-06 10:51+0200\n"
-"PO-Revision-Date: 2025-08-02 01:01+0000\n"
+"POT-Creation-Date: 2025-08-20 11:52+0200\n"
+"PO-Revision-Date: 2025-08-12 12:02+0000\n"
 "Last-Translator: Alan <georgianization@outlook.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/tor/tails-gui/"
 "ka/>\n"
@@ -204,13 +204,13 @@ msgstr ""
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
-"desktop\">APT on the command line</a>."
+"To add more, install some software using <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
-"დასამატებლად, დააყენეთ რამდენიმე პროგრამა <a href=\"synaptic."
-"desktop\">Synaptic-ის პაკეტების მმართველის</a> საშუალებით ან <a href=\"org."
-"gnome.Terminal.desktop\">APT-ბრძანებებით</a>."
+"დასამატებლად, დააყენეთ რამდენიმე პროგრამა <a "
+"href=\"synaptic.desktop\">Synaptic-ის პაკეტების მმართველის</a> საშუალებით ან "
+"<a href=\"org.gnome.Terminal.desktop\">APT-ბრძანებებით</a>."
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:154
 msgid "_Create persistent storage"
@@ -1489,7 +1489,8 @@ msgid "Dismiss"
 msgstr "აცილება"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:11
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:40
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:44
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:45
 msgid "Learn More"
 msgstr "იხილეთ ვრცლად"
 
@@ -1628,8 +1629,8 @@ msgid ""
 "command line</a>."
 msgstr ""
 "ამისთვის, დააყენეთ რამდენიმე პროგრამა <a href=\"synaptic.desktop\">Synaptic-"
-"ის პაკეტების მმართველის</a> საშუალებით ან <a href=\"org.gnome.Terminal."
-"desktop\">APT-ბრძანებებით</a>."
+"ის პაკეტების მმართველის</a> საშუალებით ან <a "
+"href=\"org.gnome.Terminal.desktop\">APT-ბრძანებებით</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:227
 msgid ""
@@ -1639,14 +1640,14 @@ msgid ""
 msgstr ""
 "ამისთვის, გახსენით თქვენი მუდმივი მეხსიერების საცავი Tails-ის გაშვებისას და "
 "დააყენეთ რამდენიმე პროგრამა <a href=\"synaptic.desktop\">Synaptic-ის "
-"პაკეტების მმართველის</a> საშუალებით ან <a href=\"org.gnome.Terminal."
-"desktop\">APT-ბრძანებებით</a>."
+"პაკეტების მმართველის</a> საშუალებით ან <a "
+"href=\"org.gnome.Terminal.desktop\">APT-ბრძანებებით</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:240
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
-"gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "ამისთვის შექმენით მუდმივი მეხსიერების საცავი და დააყენეთ რამდენიმე პროგრამა "
 "<a href=\"synaptic.desktop\">კრებულების Synaptic-მმართველით</a> ან <a "
@@ -1669,6 +1670,23 @@ msgstr "[აღწერილობა მიუწვდომელია]"
 #: config/chroot_local-includes/usr/local/lib/tails-htp-notify-user:68
 msgid "Failed to synchronize the clock!"
 msgstr "საათის სინქრონიზაცია ვერ მოხერხდა!"
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:26
+msgid "Insufficient Memory Detected"
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:28
+#, python-brace-format
+msgid ""
+"Tails requires {required_ram_gb} GB of RAM, but this computer only has "
+"{installed_ram_gb} GB. You might experience reduced performance, "
+"instability, or crashes."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:41
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:42
+msgid "Don't Show Again"
+msgstr "აღარ გამოჩნდეს"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:132
 msgid "Screen Locker"
@@ -1817,15 +1835,15 @@ msgstr ""
 msgid "error:"
 msgstr "შეცდომა:"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:21
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:24
 msgid "Warning: virtual machine detected!"
 msgstr "ყურადღება: აღმოჩენილია ვირტუალური მანქანა!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:23
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:26
 msgid "Warning: non-free virtual machine detected!"
 msgstr "გაფრთხილება: აღმოჩენილია არათავისუფალი ვირტუალური მანქანა!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:25
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:28
 msgid ""
 "Both the host operating system and the virtualization software are able to "
 "monitor what you are doing in Tails. Only free software can be considered "
@@ -1835,10 +1853,6 @@ msgstr ""
 "ორივეს, საოპერაციო სისტემასაც და ვირტუალურ პროგრამასაც შეუძლია თვალი ადევნოს "
 "თქვენს მოქმედებებს Tails-ში. მხოლოდ თავისუფალი პროგრამა შეიძლება ჩაითვალოს "
 "სანდოდ, როგორც საოპერაციო სისტემის, ასევე ვირტუალური პროგრამის შემთხვევაში."
-
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:38
-msgid "Don't Show Again"
-msgstr "აღარ გამოჩნდეს"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/config.py:9
 #: config/chroot_local-includes/usr/local/bin/tca:10
@@ -2051,23 +2065,23 @@ msgstr ""
 "დაიწყება LUKS-დაშიფვრა... კომპიუტერი შეიძლება მიუწვდომელი გახდეს რამდენიმე "
 "წამით."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:413
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:415
 msgid "Unlocking the encryption..."
 msgstr "იხსნება დაშიფვრა..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:421
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:423
 msgid "Formatting the file system..."
 msgstr "საფაილო სისტემის შედგენა..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:439
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:441
 msgid "Activating the Persistent Storage..."
 msgstr "მუდმივი საცავის ამოქმედება..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:444
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:446
 msgid "Finishing setting up the Persistent Storage..."
 msgstr "სრულდება მუდმივი საცავის გამართვა..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:697
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:699
 msgid ""
 "Can't unmount Persistent Storage, some process is still using it. Please "
 "close all applications that could be accessing it and try again. If that "
@@ -2079,7 +2093,7 @@ msgstr ""
 "ჰქონდეს და კვლავ სცადოთ. თუ არ უშველის, ახლიდან გაუშვით Tails და სცადეთ "
 "მუდმივი საცავის წაშლა მის გაუხსნელად."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:730
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:732
 msgid ""
 "Not enough memory to change the passphrase of the Persistent Storage. Try "
 "again after closing some applications or rebooting."
@@ -2702,23 +2716,20 @@ msgstr ""
 "სეანსებს შორის"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:3
-#, fuzzy
 msgid "configuration;saved"
-msgstr "პრინტერების გამართვა"
+msgstr "გამართვა;შენახული"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:1
-msgid "Root Terminal"
-msgstr "ტერმინალი ძირეული უფლებებით"
+msgid "Root Console"
+msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:2
-#, fuzzy
-msgid "Opens a terminal as the root user"
+msgid "Opens a console as the root user"
 msgstr ""
-"გახსნის ტერმინალს ძირეული მომხმარებლით, პაროლის მოთხოვნით gksu-ს მეშვეობით"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:3
 msgid "admin"
-msgstr ""
+msgstr "ხელმძღვანელი"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:1
 msgid "Tails Documentation"
@@ -2730,7 +2741,7 @@ msgstr "იხილეთ, როგორ უნდა გამოიყე�
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:3
 msgid "learn"
-msgstr ""
+msgstr "ვრცლად"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-about.desktop.in.h:2
 msgid "Learn more about Tails"
@@ -2747,25 +2758,23 @@ msgstr "დაამარქაფეთ Tails მისი მუდმივ�
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-backup.desktop.in.h:3
 msgid "backup"
-msgstr ""
+msgstr "მარქაფი"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-installer.desktop.in.h:2
 msgid "Install, clone, upgrade Tails"
 msgstr "დააყენეთ, გაამრავლეთ, განაახლეთ Tails"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-installer.desktop.in.h:3
-#, fuzzy
 msgid "install;clone;upgrade;manual"
-msgstr "დააყენეთ, გაამრავლეთ, განაახლეთ Tails"
+msgstr "დაყენება;გამრავლება;განახლება;ხელით"
 
 #: ../config/chroot_local-includes/usr/share/applications/tca.desktop.in.h:2
 msgid "Connect Tails to the Tor network"
 msgstr "Tails-ის დაკავშირება Tor-ქსელთან"
 
 #: ../config/chroot_local-includes/usr/share/applications/tca.desktop.in.h:3
-#, fuzzy
 msgid "connect;tor;network"
-msgstr "ადგილობრივ ქსელთან დაკავშირება"
+msgstr "დაკავშირება;tor;ქსელი"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:1
 msgid "Tor Browser"
@@ -2776,9 +2785,8 @@ msgid "Anonymous Web Browser"
 msgstr "ბრაუზერი ვინაობის დასაფარად"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:3
-#, fuzzy
 msgid "web;tor;browser"
-msgstr "Tor-ბრაუზერი"
+msgstr "ვებსივრცე;tor;ბრაუზერი"
 
 #: ../config/chroot_local-includes/usr/share/applications/unsafe-browser.desktop.in.h:2
 msgid "Browse the World Wide Web without anonymity"
@@ -2790,7 +2798,7 @@ msgstr "დაუცველი ბრაუზერი"
 
 #: ../config/chroot_local-includes/usr/share/applications/unsafe-browser.desktop.in.h:4
 msgid "web;captive;portal"
-msgstr ""
+msgstr "ვებსივრცე;შემშვები;გვერდი"
 
 #: ../config/chroot_local-includes/usr/share/applications/unlock-veracrypt-volumes.desktop.in.h:2
 msgid "Mount VeraCrypt encrypted file containers and devices"
@@ -2798,7 +2806,7 @@ msgstr "VeraCrypt-ის ფაილების დაშიფრული �
 
 #: ../config/chroot_local-includes/usr/share/applications/unlock-veracrypt-volumes.desktop.in.h:3
 msgid "mount;encrypted;container;truecryt"
-msgstr ""
+msgstr "დაერთება;დაშიფვრა;სათავსი;truecryt"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop.in.h:2
 msgid ""
@@ -2809,9 +2817,8 @@ msgstr ""
 "Tails გაეშვება"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop.in.h:3
-#, fuzzy
 msgid "persistent;storage;package;install"
-msgstr "მუდმივი მეხსიერების წაშლა და ახლიდან დაყენება"
+msgstr "მუდმივი;საცავი;კრებული;დაყენება"
 
 #: ../config/chroot_local-includes/usr/share/applications/whisperback.desktop.in.h:1
 msgid "WhisperBack Error Reporting"
@@ -2830,7 +2837,8 @@ msgid "Tails specific tools"
 msgstr "Tails-ის საგანგებო ხელსაწყოები"
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
-msgid "To start a Root Terminal, you need to authenticate."
+#, fuzzy
+msgid "To start a Root Console, you need to authenticate."
 msgstr "ძირეული ტერმინალის გასაშვებად, საჭიროა ანგარიში მონაცემები."
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.AdditionalSoftware.policy.in.h:1
@@ -4069,6 +4077,14 @@ msgstr "დეკემბერი"
 msgid "Clock"
 msgstr "საათი"
 
+#~ msgid "Root Terminal"
+#~ msgstr "ტერმინალი ძირეული უფლებებით"
+
+#, fuzzy
+#~ msgid ""
+#~ "Opens a terminal as the root user, using gksu to ask for the password"
+#~ msgstr "გახსნის ბრძანებების შესაყვანს ძირეული მომხმარებლით"
+
 #~ msgid "meek"
 #~ msgstr "meek"
 
@@ -4274,8 +4290,8 @@ msgstr "საათი"
 #~ "along with this program.  If not, see <http://www.gnu.org/licenses/>.\n"
 #~ msgstr ""
 #~ "WhisperBack - გამოხმაურების გაგზავნა დაშიფრული ფოსტით\n"
-#~ "ყველა უფლება დაცულია (C) 2009-2018 Tails-ის შემმუშავებლები <tails@boum."
-#~ "org>\n"
+#~ "ყველა უფლება დაცულია (C) 2009-2018 Tails-ის შემმუშავებლები "
+#~ "<tails@boum.org>\n"
 #~ "\n"
 #~ "ეს თავისუფალი პროგრამული უზრუნველყოფაა; შეგიძლიათ მისი გავრცელება და/ან "
 #~ "გარდაქმნა\n"
@@ -4646,7 +4662,7 @@ msgstr "საათი"
 #~ msgstr ""
 #~ "ახალი Tor-ხიდების მოთხოვნისთვის, ასევე შეგიძლიათ:\n"
 #~ "\n"
-#~ "            1. გაგზავნოთ ცარიელი წერილი ელფოსტაზე <tt>bridges@torproject."
-#~ "org</tt> Gmail ან Riseup მისამართიდან.\n"
+#~ "            1. გაგზავნოთ ცარიელი წერილი ელფოსტაზე "
+#~ "<tt>bridges@torproject.org</tt> Gmail ან Riseup მისამართიდან.\n"
 #~ "\n"
 #~ "              2. აკრიფოთ, ელფოსტით მიღებული რომელიმე ხიდის მონაცემები."

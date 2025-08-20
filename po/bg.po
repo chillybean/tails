@@ -22,9 +22,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-06 10:51+0200\n"
-"PO-Revision-Date: 2025-07-31 10:01+0000\n"
-"Last-Translator: emma peel <emma.peel@riseup.net>\n"
+"POT-Creation-Date: 2025-08-20 11:52+0200\n"
+"PO-Revision-Date: 2025-08-10 08:01+0000\n"
+"Last-Translator: 109247019824 "
+"<109247019824@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/tor/tails-gui/"
 "bg/>\n"
 "Language: bg\n"
@@ -215,13 +216,13 @@ msgstr ""
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:135
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:205
 msgid ""
-"To add more, install some software using <a href=\"synaptic."
-"desktop\">Synaptic Package Manager</a> or <a href=\"org.gnome.Terminal."
-"desktop\">APT on the command line</a>."
+"To add more, install some software using <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
-"Допълнителен софтуер се инсталира с помощта на <a href=\"synaptic."
-"desktop\">приложението за пакети Synaptic</a> или <a href=\"org.gnome."
-"Terminal.desktop\">чрез APT в команден ред</a>."
+"Допълнителен софтуер се инсталира с помощта на <a "
+"href=\"synaptic.desktop\">приложението за пакети Synaptic</a> или <a "
+"href=\"org.gnome.Terminal.desktop\">чрез APT в команден ред</a>."
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:154
 msgid "_Create persistent storage"
@@ -1498,7 +1499,8 @@ msgid "Dismiss"
 msgstr "Затваряне"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:11
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:40
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:44
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:45
 msgid "Learn More"
 msgstr "Научете повече"
 
@@ -1637,9 +1639,9 @@ msgid ""
 "Package Manager</a> or <a href=\"org.gnome.Terminal.desktop\">APT on the "
 "command line</a>."
 msgstr ""
-"За да се случи, инсталирайте някакъв софтуер с помощта на <a href=\"synaptic."
-"desktop\">приложението за управление на пакети на Synaptic</a> или <a "
-"href=\"org.gnome.Terminal.desktop\">APT от команден ред</a>."
+"За да се случи, инсталирайте някакъв софтуер с помощта на <a "
+"href=\"synaptic.desktop\">приложението за управление на пакети на Synaptic</"
+"a> или <a href=\"org.gnome.Terminal.desktop\">APT от команден ред</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:227
 msgid ""
@@ -1648,15 +1650,15 @@ msgid ""
 "a> or <a href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "За да се случи, отключете постоянното хранилище при стартиране на Tails и "
-"инсталирайте някакъв софтуер с помощта на <a href=\"synaptic."
-"desktop\">приложението за управление на пакети на Synaptic</a> или <a "
-"href=\"org.gnome.Terminal.desktop\">APT от команден ред</a>."
+"инсталирайте някакъв софтуер с помощта на <a "
+"href=\"synaptic.desktop\">приложението за управление на пакети на Synaptic</"
+"a> или <a href=\"org.gnome.Terminal.desktop\">APT от команден ред</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:240
 msgid ""
 "To do so, create a Persistent Storage and install some software using <a "
-"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a href=\"org."
-"gnome.Terminal.desktop\">APT on the command line</a>."
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
+"href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "За да се случи, създайте постоянно хранилище и инсталирайте някакъв софтуер "
 "с помощта на <a href=\"synaptic.desktop\">приложението за управление на "
@@ -1680,6 +1682,23 @@ msgstr "[описанието е недостъпно]"
 #: config/chroot_local-includes/usr/local/lib/tails-htp-notify-user:68
 msgid "Failed to synchronize the clock!"
 msgstr "Часовникът не може да бъде сверен!"
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:26
+msgid "Insufficient Memory Detected"
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:28
+#, python-brace-format
+msgid ""
+"Tails requires {required_ram_gb} GB of RAM, but this computer only has "
+"{installed_ram_gb} GB. You might experience reduced performance, "
+"instability, or crashes."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:41
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:42
+msgid "Don't Show Again"
+msgstr "Без повторно показване"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:132
 msgid "Screen Locker"
@@ -1829,15 +1848,15 @@ msgstr ""
 msgid "error:"
 msgstr "грешка:"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:21
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:24
 msgid "Warning: virtual machine detected!"
 msgstr "Внимание: открита е виртуална машина!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:23
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:26
 msgid "Warning: non-free virtual machine detected!"
 msgstr "Внимание: открита е несвободна виртуална машина!"
 
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:25
+#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:28
 msgid ""
 "Both the host operating system and the virtualization software are able to "
 "monitor what you are doing in Tails. Only free software can be considered "
@@ -1848,10 +1867,6 @@ msgstr ""
 "наблюдават какво правите в Tails. Само свободния софтуер може да се счита за "
 "надежден, както за операционната система домакин така и за софтуера за "
 "виртуализация."
-
-#: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:38
-msgid "Don't Show Again"
-msgstr "Без повторно показване"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/config.py:9
 #: config/chroot_local-includes/usr/local/bin/tca:10
@@ -2065,23 +2080,23 @@ msgstr ""
 "Подготвяне на шифроването на LUKS… Устройството може да спре да отговаря за "
 "известно време."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:413
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:415
 msgid "Unlocking the encryption..."
 msgstr "Отключване на хранилището…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:421
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:423
 msgid "Formatting the file system..."
 msgstr "Форматиране на файловата система…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:439
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:441
 msgid "Activating the Persistent Storage..."
 msgstr "Включване на постоянното хранилище…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:444
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:446
 msgid "Finishing setting up the Persistent Storage..."
 msgstr "Завършване на настройката на постоянното хранилище…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:697
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:699
 msgid ""
 "Can't unmount Persistent Storage, some process is still using it. Please "
 "close all applications that could be accessing it and try again. If that "
@@ -2093,7 +2108,7 @@ msgstr ""
 "него, и опитайте отново. Ако това не помогне, рестартирайте Tails и опитайте "
 "да премахнете постоянното хранилище, без да го отключвате."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:730
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:732
 msgid ""
 "Not enough memory to change the passphrase of the Persistent Storage. Try "
 "again after closing some applications or rebooting."
@@ -2624,8 +2639,8 @@ msgid ""
 "The %s variable was not found in the configuration file: /etc/whisperback/"
 "config.py"
 msgstr ""
-"Променливата %s не е намерена във файла с настройки: /etc/whisperback/config."
-"py"
+"Променливата %s не е намерена във файла с настройки: /etc/whisperback/"
+"config.py"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:136
 msgid "Unable to load a valid configuration."
@@ -2719,23 +2734,20 @@ msgstr ""
 "работните сесии"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:3
-#, fuzzy
 msgid "configuration;saved"
-msgstr "Конфигурация на принтери"
+msgstr "настройка;запазена"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:1
-msgid "Root Terminal"
-msgstr "Терминал на суперпотребителя"
+msgid "Root Console"
+msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:2
-#, fuzzy
-msgid "Opens a terminal as the root user"
+msgid "Opens a console as the root user"
 msgstr ""
-"Отваря терминал като суперпотребителя като използва gksu да поиска парола"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:3
 msgid "admin"
-msgstr ""
+msgstr "admin"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:1
 msgid "Tails Documentation"
@@ -2747,7 +2759,7 @@ msgstr "Научете как да използвате Tails"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:3
 msgid "learn"
-msgstr ""
+msgstr "научете"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-about.desktop.in.h:2
 msgid "Learn more about Tails"
@@ -2765,25 +2777,23 @@ msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-backup.desktop.in.h:3
 msgid "backup"
-msgstr ""
+msgstr "резервно копие"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-installer.desktop.in.h:2
 msgid "Install, clone, upgrade Tails"
 msgstr "Инсталиране, дублиране, обновяване на Tails"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-installer.desktop.in.h:3
-#, fuzzy
 msgid "install;clone;upgrade;manual"
-msgstr "Инсталиране, дублиране, обновяване на Tails"
+msgstr "инсталиране,дублиране,обновяване;ръчно"
 
 #: ../config/chroot_local-includes/usr/share/applications/tca.desktop.in.h:2
 msgid "Connect Tails to the Tor network"
 msgstr "Свързване на Tails към мрежата на Tor"
 
 #: ../config/chroot_local-includes/usr/share/applications/tca.desktop.in.h:3
-#, fuzzy
 msgid "connect;tor;network"
-msgstr "Свързване към местната мрежа"
+msgstr "свързване;tor;мрежа"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:1
 msgid "Tor Browser"
@@ -2794,9 +2804,8 @@ msgid "Anonymous Web Browser"
 msgstr "Анонимен мрежов четец"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:3
-#, fuzzy
 msgid "web;tor;browser"
-msgstr "Tor Browser"
+msgstr "уеб;tor;browser;мрежов четец"
 
 #: ../config/chroot_local-includes/usr/share/applications/unsafe-browser.desktop.in.h:2
 msgid "Browse the World Wide Web without anonymity"
@@ -2808,7 +2817,7 @@ msgstr "Небезопасен мрежов четец"
 
 #: ../config/chroot_local-includes/usr/share/applications/unsafe-browser.desktop.in.h:4
 msgid "web;captive;portal"
-msgstr ""
+msgstr "уеб;интерактивен;портал"
 
 #: ../config/chroot_local-includes/usr/share/applications/unlock-veracrypt-volumes.desktop.in.h:2
 msgid "Mount VeraCrypt encrypted file containers and devices"
@@ -2816,7 +2825,7 @@ msgstr "Монтиране на шифровани контейнери за ф�
 
 #: ../config/chroot_local-includes/usr/share/applications/unlock-veracrypt-volumes.desktop.in.h:3
 msgid "mount;encrypted;container;truecryt"
-msgstr ""
+msgstr "монтиране;шифрован;контейнер;truecrypt"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop.in.h:2
 msgid ""
@@ -2827,9 +2836,8 @@ msgstr ""
 "хранилище, при стартиране на Tails"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop.in.h:3
-#, fuzzy
 msgid "persistent;storage;package;install"
-msgstr "Премахване на постоянното хранилище и преинсталиране"
+msgstr "постоянно;хранилище;пакет;инсталиране"
 
 #: ../config/chroot_local-includes/usr/share/applications/whisperback.desktop.in.h:1
 msgid "WhisperBack Error Reporting"
@@ -2848,7 +2856,8 @@ msgid "Tails specific tools"
 msgstr "Специфични инструменти на Tails"
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
-msgid "To start a Root Terminal, you need to authenticate."
+#, fuzzy
+msgid "To start a Root Console, you need to authenticate."
 msgstr ""
 "За да получите достъп до правата на суперпотребителя в терминала, трябва да "
 "се удостоверите."
@@ -4094,6 +4103,14 @@ msgstr "Декември"
 msgid "Clock"
 msgstr "Часовник"
 
+#~ msgid "Root Terminal"
+#~ msgstr "Терминал на суперпотребителя"
+
+#, fuzzy
+#~ msgid ""
+#~ "Opens a terminal as the root user, using gksu to ask for the password"
+#~ msgstr "Отваря терминал като суперпотребителя"
+
 #~ msgid "meek"
 #~ msgstr "meek"
 
@@ -4179,15 +4196,15 @@ msgstr "Часовник"
 #~ "\n"
 #~ "Help us keep your bitcoins safe!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~ "html#expenses\">How we spend our money.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/"
+#~ "donate.en.html#expenses\">How we spend our money.</a>"
 #~ msgstr ""
 #~ "Tails предпазва портфейла ви.\n"
 #~ "\n"
 #~ "Помогнете ни да защитим вашите биткоини!\n"
 #~ "\n"
-#~ "<a href=\"file:///usr/share/doc/tails/website/donate.en."
-#~ "html#expenses\">Как разходваме парите ви.</a>"
+#~ "<a href=\"file:///usr/share/doc/tails/website/"
+#~ "donate.en.html#expenses\">Как разходваме парите ви.</a>"
 
 #~ msgid "Create Backup"
 #~ msgstr "Създаване на резервно копие"
