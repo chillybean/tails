@@ -540,9 +540,100 @@ tails (7.0~rc1) unstable; urgency=medium
 
 tails (6.19) UNRELEASED; urgency=medium
 
-  * Dummy entry for next release.
+  * Upgrade to Tor Browser based on Firefox ESR 128.14 (tails/tails!2378)
 
- -- anonym <anonym@riseup.net>  Fri, 25 Jul 2025 12:02:07 +0200
+    Closes issues:
+      - Upgrade to Tor Browser based on Firefox ESR 128.14 (tails/tails#21082)
+
+    Commits:
+      - Fetch Tor Browser from our own archive
+      - Upgrade Tor Browser to 14.5.6-build1 (refs: tails#21082)
+
+  * Upgrade to Linux 6.1.147-1, tor 0.4.8.17 (tails/tails!2373)
+
+    Closes issues:
+      - Upgrade to tor 0.4.8.17 (tails/tails#21038)
+      - Upgrade stable branch to Linux 6.1.147-1 (DSA 5973-1) (tails/tails#21139)
+
+    Commits:
+      - Upgrade tor to 0.4.8.17 (refs: tails/tails#21038)
+
+  * Upgrade Thunderbird to 1:128.13.0esr-1~deb12u1
+
+  * tag-apt-snapshots: generate index files under dist/* even for empty dists
+    (tails/tails!2355)
+
+    Commits:
+      - shfmt
+      - tag-apt-snapshots: generate index files under dist/* even for empty dists
+
+  * Tor Connection: remove irrelevant error message on bridge configuration screen
+    in Hiding mode (tails/tails!2324)
+
+    Closes issues:
+      - Tor Connection displays irrelevant "⚠️ Error" on Hiding screen
+        (tails/tails#21081)
+
+    Commits:
+      - Remove irrelevant error message
+
+  * improve RM doc after 7.0~rc1 (tails/tails!2359)
+
+    Commits:
+      - Revert "don't use tildes in Tor blog slug"
+      - shfmt
+      - don't use tildes in Tor blog slug
+      - allow IUK_SOURCE_VERSIONS to be empty (as in ~rc1)
+      - clarify meaning of major release
+      - Give conditional headings consistent prefix
+      - fix dir name for tor blog
+      - fix when VERSION has a tilde
+      - expand acronyms
+      - FIX how to verify IUKs for RCs
+      - FIX instructions for checking RC propagation
+      - explain how to generate UDFs for RCs
+      - creates UDF for the first beta/rc of next major debian
+      - trace git-annex commands
+      - Add progress info
+      - use set -eu inside ssh, too
+
+  * whisperback-search: add support for parsing RAM (tails/tails!2354)
+
+    Commits:
+      - whisperback-search: add support for parsing RAM
+
+  * Use the "tails" category instead of the "partners" one on the Tor blog
+    (tails/tails!2336)
+
+    Commits:
+      - Use the "tails" category instead of the "partners" one on the Tor blog
+
+  * make ruff faster by spawning much fewer processes (tails/tails!2333)
+
+    Commits:
+      - shfmt
+      - Aesthetics
+      - add pipefail
+      - don't save in memory
+      - make ruff faster by spawning much less processes
+
+  * Update Chutney 2025Q3 edition (tails/tails!2295)
+
+    Closes issues:
+      - Upgrade Chutney (2025Q3) (tails/tails#21020)
+
+    Commits:
+      - Chutney: update to current upstream at f9435e45f826a265dd3b7d341356cb04f1aa7b09
+      - Test suite & Chutney: drop Chutney commit allowing to configure node log-levels
+
+  * Improve tca-portal child process handling (tails/tails!2244)
+
+    Commits:
+      - ruff format
+      - Reduce amount of zombies in tca-portal
+      - Handle reader connection reset in tca-portal
+
+ -- Tails developers <tails@boum.org>  Wed, 20 Aug 2025 07:53:07 +0000
 
 tails (6.18) unstable; urgency=medium
 
