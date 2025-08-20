@@ -508,18 +508,19 @@ The general steps are:
 
    - `install_application.sh`
 
-1. Execute the following commands in a *Console*. You might have to adjust to
-   newer versions of *Autopsy*.
+1. Execute the following commands in a *Console*. Replace
+   <span class="command-placeholder">version</span> with the version number of
+   *The Sleuth Kit* and *Autopsy* that you downloaded.
 
    <p class="command">bash install_prereqs_ubuntu.sh</p>
 
    <p class="command">sudo apt install libsqlite3-dev libc3p0-java unzip</p>
 
-   <p class="command">sudo dpkg -i sleuthkit-java_4.12.1-1_amd64.deb</p>
+   <p class="command">sudo dpkg -i sleuthkit-java_<span class="command-placeholder">version</span>_amd64.deb</p>
 
-   <p class="command">bash install_application.sh -z autopsy-4.21.0.zip -i ~/Persistent/autopsy -j /usr/lib/jvm/java-17-openjdk-amd64</p>
+   <p class="command">bash install_application.sh -z autopsy-<span class="command-placeholder">version</span>.zip -i ~/Persistent/autopsy -j /usr/lib/jvm/java-17-openjdk-amd64</p>
 
-   <p class="command">/home/amnesia/Persistent/autopsy/autopsy-4.21.0/bin/autopsy</p>
+   <p class="command">/home/amnesia/Persistent/autopsy/autopsy-<span class="command-placeholder">version</span>/bin/autopsy</p>
 
 1. When starting for the first time, *Autopsy* freezes on **Starting modules**.
 
