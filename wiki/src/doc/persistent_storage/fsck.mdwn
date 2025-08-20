@@ -259,11 +259,11 @@ can run `ddrescue` again to try to copy the parts that failed the first time.
    <span class="command-placeholder">/dev/mapper/luks-xyz</span> with the device name found
    when [[identifying your *Persistent Storage* in the *Disks* utility|fsck#identify]].
 
-   <p class="command-template">ddrescue <span class="command-placeholder">/dev/mapper/luks-xyz</span> persistent-storage.img ddrescue.log</p>
+   <p class="command-template">sudo ddrescue <span class="command-placeholder">/dev/mapper/luks-xyz</span> persistent-storage.img ddrescue.log</p>
 
    The output of `ddrescue` looks like this:
 
-       GNU ddrescue 1.27
+       GNU ddrescue 1.29
        Press Ctrl-C to interrupt
             ipos:  749404 kB, non-trimmed:        0 B,  current rate:  34996 kB/s
             ipos:    1446 MB, non-trimmed:        0 B,  current rate:  24772 kB/s
@@ -413,8 +413,8 @@ partition image to a new USB stick.
 1. In the right pane, click on the **Ext4** volume, which is the one that
    corresponds to the decrypted version of your Persistent Storage.
 
-   In the attributes listed below the volume, verify that the content of the
-   volume is mounted at */home/amnesia/Persistent*.
+   In the attributes below the volume, verify that its device is
+   */dev/mapper/TailsData_unlocked*.
 
 1. Click on the [[!img lib/media-playback-stop.png link="no" class="symbolic"
    alt="Unmount selected partition"]] button to unmount the Persistent Storage.
@@ -512,9 +512,11 @@ The general steps are:
    <span class="command-placeholder">version</span> with the version number of
    *The Sleuth Kit* and *Autopsy* that you downloaded.
 
-   <p class="command">bash install_prereqs_ubuntu.sh</p>
+   <!-- The packages openjdk-17-jdk/unstable and openjdk-17-jre/unstable are needed in Debia 13 (Trixie). -->
 
-   <p class="command">sudo apt install libsqlite3-dev libc3p0-java unzip</p>
+   <p class="command">sudo apt install libsqlite3-dev libc3p0-java unzip openjdk-17-jdk/unstable openjdk-17-jre/unstable</p>
+
+   <p class="command">sudo bash install_prereqs_ubuntu.sh</p>
 
    <p class="command">sudo dpkg -i sleuthkit-java_<span class="command-placeholder">version</span>_amd64.deb</p>
 
