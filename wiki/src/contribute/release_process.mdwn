@@ -1960,10 +1960,9 @@ Look at the mirror status.
 
     (
       base="https://download.tails.net/tails/${DIST:?}"
-      echo \
-        "${base}/iuk/v2/Tails_amd64_${PREVIOUS_STABLE_VERSION:?}_to_${VERSION:?}.iuk?mirrorlist" \
-        "${base}/tails-amd64-${VERSION:?}/tails-amd64-${VERSION:?}.iso?mirrorlist" \
-        "${base}/tails-amd64-${VERSION:?}/tails-amd64-${VERSION:?}.img?mirrorlist" \
+      echo "${base}/iuk/v2/Tails_amd64_${PREVIOUS_STABLE_VERSION:?}_to_${VERSION:?}.iuk?mirrorlist"
+      echo "${base}/tails-amd64-${VERSION:?}/tails-amd64-${VERSION:?}.iso?mirrorlist"
+      echo "${base}/tails-amd64-${VERSION:?}/tails-amd64-${VERSION:?}.img?mirrorlist"
     )
 
 Wait for each of these pages to include:
