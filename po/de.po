@@ -38,12 +38,13 @@
 # try once, 2015,2019
 # u <u@451f.org>, 2014
 # Will Smith <info@belvenservices.com>, 2018
+# Weblate <noreply-mt-weblate@weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-24 10:46+0200\n"
-"PO-Revision-Date: 2025-07-13 11:01+0000\n"
+"PO-Revision-Date: 2025-08-10 11:02+0000\n"
 "Last-Translator: curtisb <curtisbaltimore@protonmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/tor/tails-gui/de/"
 ">\n"
@@ -1945,13 +1946,12 @@ msgstr "Ungültig: {exception}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:298
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:822
-#, fuzzy
 msgid ""
 "You need to configure a WebTunnel or an obfs4 bridge to hide that you are "
 "using Tor"
 msgstr ""
-"Du musst eine Obfs4-Brücke konfigurieren, um zu verschleiern, dass du Tor "
-"verwendest"
+"Du musst WebTunnel oder eine Obfs4-Brücke konfigurieren, um zu verschleiern, "
+"dass du Tor verwendest"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:353
 msgid "Failed to configure your Persistent Storage"
@@ -2801,10 +2801,9 @@ msgid "Root Terminal"
 msgstr "Als Systemverwalter im Terminal öffnen"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-terminal.desktop.in.h:2
+#, fuzzy
 msgid "Opens a terminal as the root user, using gksu to ask for the password"
-msgstr ""
-"Öffnet ein Terminal als Systemverwalter und benutzt gksu, um nach dem "
-"Passwort zu fragen"
+msgstr "Öffnet ein Terminal als Systemverwalter"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:1
 msgid "Tails Documentation"
@@ -3407,7 +3406,7 @@ msgstr " Zum Beispiel:"
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:186
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:46
 msgid "Passphrase:"
-msgstr "Passphrase:"
+msgstr "Passwort:"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:205
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:65
@@ -3645,7 +3644,6 @@ msgid "Configure a Tor bridge"
 msgstr "Konfiguriere eine Tor-Brücke"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:106
-#, fuzzy
 msgid ""
 "Bridges are secret Tor relays. Use a bridge as your first Tor relay if "
 "accessing Tor is blocked from where you are.\n"
@@ -3653,7 +3651,9 @@ msgid ""
 "You can use <i>obfs4</i> and <i>WebTunnel</i> bridges in Tails.\n"
 msgstr ""
 "Brücken sind geheime Tor-Relays. Benutze eine Brücke als dein erstes Tor-"
-"Relay, wenn der Zugang zu Tor von dort, wo du bist, blockiert ist."
+"Relay, wenn der Zugang zu Tor von dort, wo du bist, blockiert ist.\n"
+"\n"
+"Du kannst <i>obfs4</i> und <i>WebTunnel</i> Brücken in Tails verwenden.\n"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:126
 msgid "<a href=\"doc/anonymous_internet/tor\">Learn more about Tor bridges</a>"
@@ -3670,7 +3670,7 @@ msgstr "obfs4 (empfohlen)"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:185
 msgid "WebTunnel"
-msgstr ""
+msgstr "WebTunnel"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:208
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1522
@@ -3707,7 +3707,7 @@ msgstr "Brücke"
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:416
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1057
 msgid "obfs4 or webtunnel…"
-msgstr ""
+msgstr "obfs4 oder webtunnel…"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:489
 msgid "Save bridge to _Persistent Storage"
@@ -4142,6 +4142,36 @@ msgstr "Dezember"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "Uhr"
+
+#~ msgid "configuration;saved"
+#~ msgstr "Konfiguration;gespeichert"
+
+#~ msgid "admin"
+#~ msgstr "Admin"
+
+#~ msgid "learn"
+#~ msgstr "lernen"
+
+#~ msgid "backup"
+#~ msgstr "backup"
+
+#~ msgid "install;clone;upgrade;manual"
+#~ msgstr "installiere;klone;aktualisiere;Handbuch"
+
+#~ msgid "connect;tor;network"
+#~ msgstr "verbinde;tor;netzwerk"
+
+#~ msgid "web;tor;browser"
+#~ msgstr "web;tor;browser"
+
+#~ msgid "web;captive;portal"
+#~ msgstr "web;gefangen;portal"
+
+#~ msgid "mount;encrypted;container;truecryt"
+#~ msgstr "einbinden;verschlüsselt;container;truecryt"
+
+#~ msgid "persistent;storage;package;install"
+#~ msgstr "beständiger;Datenspeicher;paket;installieren"
 
 #~ msgid "meek"
 #~ msgstr "meek"
@@ -4712,9 +4742,6 @@ msgstr "Uhr"
 
 #~ msgid "Software installed when starting Tails"
 #~ msgstr "Automatisch beim Start von Tails installierte Software"
-
-#~ msgid "Printers configuration"
-#~ msgstr "Druckereinstellungen"
 
 #~ msgid "Thunderbird emails, feeds, and OpenPGP keys"
 #~ msgstr "Thunderbird E-Mails, feeds, und OpenPGP-Schlüssel"

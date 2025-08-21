@@ -43,13 +43,16 @@
 # xin, 2019
 # 29ecf73aa44506d57c48fc4a1ffd1a5b_54f0e73, 2019-2020
 # xin <xin@riseup.net>, 2025.
+# Weblate <noreply-mt-weblate@weblate.org>, 2025.
+# AO Localisation Lab <ao_localization_lab@users.noreply.hosted.weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-24 10:46+0200\n"
-"PO-Revision-Date: 2025-07-11 09:28+0000\n"
-"Last-Translator: xin <xin@riseup.net>\n"
+"PO-Revision-Date: 2025-08-18 19:02+0000\n"
+"Last-Translator: AO Localisation Lab "
+"<ao_localization_lab@users.noreply.hosted.weblate.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/tor/tails-gui/fr/"
 ">\n"
 "Language: fr\n"
@@ -58,7 +61,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
 "1000000 == 0 ? 1 : 2;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.13\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -1953,13 +1956,12 @@ msgstr "Invalide : {exception}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:298
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:822
-#, fuzzy
 msgid ""
 "You need to configure a WebTunnel or an obfs4 bridge to hide that you are "
 "using Tor"
 msgstr ""
-"Vous devez utiliser un pont obfs4 pour dissimuler le fait que vous utilisez "
-"Tor"
+"Vous devez utiliser un pont WebTunnel ou obfs4 pour dissimuler le fait que "
+"vous utilisez Tor"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:353
 msgid "Failed to configure your Persistent Storage"
@@ -2096,7 +2098,7 @@ msgstr "Démarrer le Navigateur Tor hors ligne"
 
 #: config/chroot_local-includes/usr/local/lib/launch-tor-browser:41
 msgid "Open Tor Connection"
-msgstr "Ouvrir la connexion à Tor"
+msgstr "Ouvrir Connexion à Tor"
 
 #: config/chroot_local-includes/usr/share/gnome-shell/extensions/torstatus@tails.boum.org/extension.js:37
 msgid "Tor Status"
@@ -2802,6 +2804,7 @@ msgid "Root Terminal"
 msgstr "Terminal superutilisateur"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-terminal.desktop.in.h:2
+#, fuzzy
 msgid "Opens a terminal as the root user, using gksu to ask for the password"
 msgstr ""
 "Ouvre un terminal en tant que superutilisateur, en utilisant gksu pour "
@@ -3648,7 +3651,6 @@ msgid "Configure a Tor bridge"
 msgstr "Configurer un pont Tor"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:106
-#, fuzzy
 msgid ""
 "Bridges are secret Tor relays. Use a bridge as your first Tor relay if "
 "accessing Tor is blocked from where you are.\n"
@@ -3656,7 +3658,9 @@ msgid ""
 "You can use <i>obfs4</i> and <i>WebTunnel</i> bridges in Tails.\n"
 msgstr ""
 "Les ponts sont des relais Tor secrets. Utilisez un pont comme premier "
-"relais Tor si l’accès à Tor est bloqué où vous vous situez."
+"relais Tor si l’accès à Tor est bloqué là où vous êtes.\n"
+"\n"
+"Vous pouvez utiliser des ponts <i>obfs4</i> et <i>WebTunnel</i> dans Tails.\n"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:126
 msgid "<a href=\"doc/anonymous_internet/tor\">Learn more about Tor bridges</a>"
@@ -3674,7 +3678,7 @@ msgstr "obfs4 (recommandé))"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:185
 msgid "WebTunnel"
-msgstr ""
+msgstr "WebTunnel"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:208
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1522
@@ -3683,7 +3687,7 @@ msgstr "Aucune"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:244
 msgid "_Ask for a Tor bridge by email"
-msgstr "_Demandez un pont par e-mail"
+msgstr "_Demandez un pont par courriel"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:263
 msgid ""
@@ -3711,7 +3715,7 @@ msgstr "Pont"
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:416
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1057
 msgid "obfs4 or webtunnel…"
-msgstr ""
+msgstr "obfs4 ou webtunnel…"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:489
 msgid "Save bridge to _Persistent Storage"
@@ -3780,7 +3784,7 @@ msgstr "Configurer un _mandataire local"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:955
 msgid "• Tor bridge by email"
-msgstr "• Pont de Tor par e-mail"
+msgstr "• Pont de Tor par courriel"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:975
 msgid ""
@@ -3788,10 +3792,9 @@ msgid ""
 "connections to Tor are blocked, for example in some countries, by some "
 "public networks, or by some parental controls."
 msgstr ""
-"Les passerelles Tor sont des relais Tor secrets. Utilisez une passerelle "
-"comme premier relais Tor si les connexions à Tor sont bloquées, par exemple "
-"dans certains pays, par certains réseaux publics, ou par certains contrôles "
-"parentaux."
+"Les ponts Tor sont des relais Tor secrets. Utilisez un pont comme premier "
+"relais Tor si les connexions à Tor sont bloquées, par exemple dans certains "
+"pays, par certains réseaux publics, ou par certains contrôles parentaux."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:995
 msgid ""
@@ -3830,7 +3833,7 @@ msgid ""
 "around the world."
 msgstr ""
 "Tor chiffre et anonymise votre connexion en passant par trois relais.\n"
-"Les relais Tor sont des serveurs exploités par différents organismes et "
+"Les relais Tor sont des serveurs gérés par différents organismes et "
 "bénévoles dans le monde entier."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1245
@@ -3857,7 +3860,7 @@ msgstr ""
 "réussisse.\n"
 "\n"
 "Quelqu'un qui surveille votre connexion Internet pourrait identifier ces "
-"tentatives comme provenant d'un utilisateur de Tails."
+"tentatives comme provenant d'une personne utilisant Tails."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1347
 msgid "Configure a Tor _bridge"
@@ -4051,7 +4054,7 @@ msgstr "Adresse"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2229
 msgid "Username"
-msgstr "Nom d’utilisateur"
+msgstr "Identifiant"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2246
 msgid "IP address or hostname"
@@ -4067,7 +4070,7 @@ msgstr "_Enregistrer les paramètres du mandataire"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:7
 msgid "Tor Connection - Fix Clock"
-msgstr "Connexion Tor – Corriger l’horloge"
+msgstr "Connexion à Tor – Corriger l’heure"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:76
 msgid ""
@@ -4146,6 +4149,31 @@ msgstr "décembre"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "Horloge"
+
+#, fuzzy
+#~| msgid "Printers configuration"
+#~ msgid "configuration;saved"
+#~ msgstr "Configuration des imprimantes"
+
+#, fuzzy
+#~| msgid "Install, clone, upgrade Tails"
+#~ msgid "install;clone;upgrade;manual"
+#~ msgstr "Installer, cloner, mettre à jour Tails"
+
+#, fuzzy
+#~| msgid "Connect to a local network"
+#~ msgid "connect;tor;network"
+#~ msgstr "Se connecter à un réseau local"
+
+#, fuzzy
+#~| msgid "Tor Browser"
+#~ msgid "web;tor;browser"
+#~ msgstr "Navigateur Tor"
+
+#, fuzzy
+#~| msgid "Delete Persistent Storage and Reinstall"
+#~ msgid "persistent;storage;package;install"
+#~ msgstr "Supprimer l’espace de stockage persistant et réinstaller"
 
 #~ msgid "meek"
 #~ msgstr "meek"
@@ -4701,9 +4729,6 @@ msgstr "Horloge"
 
 #~ msgid "Software installed when starting Tails"
 #~ msgstr "Logiciels installés lors du démarrage de Tails"
-
-#~ msgid "Printers configuration"
-#~ msgstr "Configuration des imprimantes"
 
 #~ msgid "Thunderbird emails, feeds, and OpenPGP keys"
 #~ msgstr "Courriels, flux de Thunderbird et clés OpenPGP"
