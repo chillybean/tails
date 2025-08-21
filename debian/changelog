@@ -2,7 +2,89 @@ tails (7.4) UNRELEASED; urgency=medium
 
   * Dummy entry for next release.
 
- -- boyska <boyska@riseup.net>  Fri, 08 Aug 2025 12:46:15 +0200
+ -- anonym <anonym@riseup.net>  Thu, 21 Aug 2025 14:36:39 +0200
+
+tails (7.0~rc2) unstable; urgency=medium
+
+  * Upgrade to Linux 6.12.41-1 (tails/tails#21138)
+
+  * Bump RAM requirements to 3 GiB and show warning when not met (tails/tails!2375)
+
+    Closes issues:
+      - Bump memory requirements to 3 GB (tails/tails#18040)
+      - Next time we bump RAM requirements: notify user at runtime if RAM requirements are not met (tails/tails#5502)
+      - Trixie uses more RAM → breaks some common usage scenarios (tails/tails#21114)
+
+    Commits:
+      - Fix gettext in tails-{virt,low-ram}-notify-user
+      - ruff format
+      - Add tails-low-ram-notify-user to internationalization machinery
+      - Improve variable name
+      - Display the amount of RAM present when warning about insufficient RAM
+      - Fix comparison
+      - Allow some slack before showing warning about insufficient RAM
+      - Notify user if their system has an insufficient amount of RAM installed
+      - Group gettext stuff higher up
+      - Fix Ruff F821
+      - Fix Ruff PLW1510
+      - Fix Ruff UP004
+      - Ruff format
+      - Test suite: bump memory allocated to the system under test to 3 GiB.
+      - Update references to memory requirements after bumping to 3 GiB
+      - Document new RAM requirement of 3 GiB (refs: tails/tails#18040)
+
+  * Remove the Places menu (tails/tails!2362)
+
+    Closes issues:
+      - Remove the Places menu (tails/tails#21086)
+      - Trixie: GNOME Places menu does not show GNOME bookmarks initially (tails/tails#20981)
+
+    Commits:
+      - Test suite: remove SFTP automated test
+      - Test suite: remove dead code
+      - Remove the Places menu
+
+  * Various low-hanging fruits for 7.0~rc1 (tails/tails!2356)
+
+    Closes issues:
+      - Rename Root Terminal into Root Console in Trixie (tails/tails#21110)
+      - Calls to localectl in PostLogin/Default are broken and useless on Trixie (tails/tails#21118)
+      - Install rtkit (tails/tails#21119)
+      - Skip the onboarding of Inkscape (tails/tails#21091)
+      - Root Terminal does not work in 7.0~rc1 (tails/tails#21123)
+
+    Commits:
+      - Fix typos in comments
+      - Fix typo in comment
+      - Acknowledge new user & group
+      - Avoid rtkit installation stealing UID/GID that we already use
+      - Rename "Root Terminal" to "Root Console"
+      - Skip the onboarding of Inkscape
+      - Install rtkit
+      - Remove broken and useless calls to localectl
+
+  * Test suite: fix things that are broken due to Trixie update phase 4
+    (tails/tails!2351)
+
+    Commits:
+      - Fixup recent changes to `I install "..." using Synaptic` step
+      - Test suite: bump timeout
+      - Test suite: wait() for PidginAddAccountProtocolXMPP.png instead of just find()
+      - port synaptic test to images
+      - Upgrade some dogtail call for Trixie
+      - FIX makepp not in Debian Trixie
+
+  * Start tails-create-netns.service as part of multi-user.target rather than
+    sysinit.target (tails/tails!2344)
+
+    Closes issues:
+      - Consider making tails-create-netns.service less strictly ordered (tails/tails#18369)
+
+    Commits:
+      - Start tails-create-netns.service as part of multi-user.target rather than
+        sysinit.target
+
+ -- Tails developers <tails@boum.org>  Wed, 20 Aug 2025 13:58:54 +0200
 
 tails (6.19) unstable; urgency=medium
 
