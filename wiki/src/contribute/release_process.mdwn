@@ -1959,7 +1959,7 @@ Wait for the HTTP mirrors to catch up
 Look at the mirror status.
 
     (
-      base='https://download.tails.net/tails/stable'
+      base="https://download.tails.net/tails/${DIST:?}"
       echo \
         "${base}/iuk/v2/Tails_amd64_${PREVIOUS_STABLE_VERSION:?}_to_${VERSION:?}.iuk?mirrorlist" \
         "${base}/tails-amd64-${VERSION:?}/tails-amd64-${VERSION:?}.iso?mirrorlist" \
