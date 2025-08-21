@@ -1399,37 +1399,37 @@ Prepare upgrade-description files
    Run this command, after adjusting it if needed as explained above:
 
         ${RELEASE_CHECKOUT:?}/config/chroot_local-includes/usr/src/iuk/bin/tails-iuk-generate-upgrade-description-files \
-            --version "${VERSION:?}" \
+            --version="${VERSION:?}" \
             $( \
                 if [ "${DIST:?}" = stable ]; then
                     echo \
-                        --next_version "${NEXT_PLANNED_MAJOR_VERSION:?}" \
-                        --next_version "${NEXT_PLANNED_MAJOR_VERSION:?}~rc1" \
-                        --next_version "${NEXT_PLANNED_BUGFIX_VERSION:?}" \
-                        --next_version "${NEXT_POTENTIAL_EMERGENCY_VERSION:?}"
+                        --next_version="${NEXT_PLANNED_MAJOR_VERSION:?}" \
+                        --next_version="${NEXT_PLANNED_MAJOR_VERSION:?}~rc1" \
+                        --next_version="${NEXT_PLANNED_BUGFIX_VERSION:?}" \
+                        --next_version="${NEXT_POTENTIAL_EMERGENCY_VERSION:?}"
                 else
                     echo \
-                        --next_version "${NEXT_PLANNED_MAJOR_VERSION:?}" \
-                        --next_version "${SECOND_NEXT_PLANNED_MAJOR_VERSION:?}"
+                        --next_version="${NEXT_PLANNED_MAJOR_VERSION:?}" \
+                        --next_version="${SECOND_NEXT_PLANNED_MAJOR_VERSION:?}"
                 fi
             ) \
-                --next_version "$((${VERSION%%.*}+1)).0~{beta,rc}{1,2,3}" \
+                --next_version="$((${VERSION%%.*}+1)).0~{beta,rc}{1,2,3}" \
             $( \
                 for version in $(echo ${IUK_SOURCE_VERSIONS?}); do
-                   echo "--previous_version ${version:?}"
+                   echo "--previous_version=${version:?}"
                 done \
             ) \
             $( \
                 find ${RELEASE_CHECKOUT:?}/wiki/src/upgrade/v2/Tails \
                    -type d \
                    -name "$((${VERSION%%.*}-1)).*" \
-                   -printf '--previous_version %f ' \
+                   -printf '--previous_version=%f ' \
             ) \
-            --iso "${ISO_PATH:?}" \
-            --iuks "${IUKS_DIR:?}" \
-            --release_checkout "${RELEASE_CHECKOUT:?}" \
-            --major_release "${MAJOR_RELEASE:?}" \
-            --channel "${DIST:?}"
+            --iso="${ISO_PATH:?}" \
+            --iuks="${IUKS_DIR:?}" \
+            --release_checkout="${RELEASE_CHECKOUT:?}" \
+            --major_release="${MAJOR_RELEASE:?}" \
+            --channel="${DIST:?}"
 
 1. Create an armoured detached signature for each created or modified
    upgrade-description file.
