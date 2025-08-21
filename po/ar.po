@@ -35,13 +35,14 @@
 # Xyx S, 2022
 # محيي الدين <tx99h4@hotmail.com>, 2014
 # jonnysemon <jonnysemon@users.noreply.hosted.weblate.org>, 2025.
+# fadoua <bouaouda.fadoua@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-24 10:46+0200\n"
-"PO-Revision-Date: 2025-07-01 16:22+0000\n"
-"Last-Translator: jonnysemon <jonnysemon@users.noreply.hosted.weblate.org>\n"
+"PO-Revision-Date: 2025-08-16 03:01+0000\n"
+"Last-Translator: fadoua <bouaouda.fadoua@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/tor/tails-gui/ar/"
 ">\n"
 "Language: ar\n"
@@ -50,7 +51,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.13\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -1601,7 +1602,7 @@ msgstr "مبني من %s"
 
 #: config/chroot_local-includes/usr/local/lib/tails-additional-software-notify:36
 msgid "Documentation"
-msgstr "وثائق"
+msgstr "التوثيقات"
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:114
 #, python-brace-format
@@ -1874,11 +1875,10 @@ msgstr "غير صالح: {exception}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:298
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:822
-#, fuzzy
 msgid ""
 "You need to configure a WebTunnel or an obfs4 bridge to hide that you are "
 "using Tor"
-msgstr "تحتاج إلى تكوين جسر obfs4 لإخفاء أنك تستخدم Tor"
+msgstr "تحتاج إلى تكوين جسر obfs4 أو WebTunnel لإخفاء أنك تستخدم تور"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:353
 msgid "Failed to configure your Persistent Storage"
@@ -2687,8 +2687,9 @@ msgid "Root Terminal"
 msgstr "طرفية بصلاحية جذر"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-terminal.desktop.in.h:2
+#, fuzzy
 msgid "Opens a terminal as the root user, using gksu to ask for the password"
-msgstr "يفتح طرفية كمستعمل جذر root مع استعمال gksu لطلب كلمة السر"
+msgstr "يفتح طرفية كمستخدم جذر root"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:1
 msgid "Tails Documentation"
@@ -3498,15 +3499,16 @@ msgid "Configure a Tor bridge"
 msgstr "تكوين جسر Tor"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:106
-#, fuzzy
 msgid ""
 "Bridges are secret Tor relays. Use a bridge as your first Tor relay if "
 "accessing Tor is blocked from where you are.\n"
 "\n"
 "You can use <i>obfs4</i> and <i>WebTunnel</i> bridges in Tails.\n"
 msgstr ""
-"الجسور هي مرحلات Tor سرية. استخدم جسرًا كأول مرحل Tor إذا تم حظر الوصول إلى "
-"Tor من مكانك."
+"الجسور هي مُرحلات تور سرية. استخدم جسرًا كأول مُرحل تور حُظر الوصول إلى تور من "
+"مكانك.\n"
+"\n"
+"يمكنك استخدام جسور <i>obfs4</i> و <i>WebTunnel</i> في Tails\n"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:126
 msgid "<a href=\"doc/anonymous_internet/tor\">Learn more about Tor bridges</a>"
@@ -3523,7 +3525,7 @@ msgstr "obfs4 (موصى به)"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:185
 msgid "WebTunnel"
-msgstr ""
+msgstr "WebTunnel"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:208
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1522
@@ -3559,7 +3561,7 @@ msgstr "جسر"
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:416
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1057
 msgid "obfs4 or webtunnel…"
-msgstr ""
+msgstr "obfs4 أو webtunnel…"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:489
 msgid "Save bridge to _Persistent Storage"
@@ -3975,6 +3977,34 @@ msgstr "ديسمبر"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "ساعة"
+
+#, fuzzy
+#~| msgid "Printers configuration"
+#~ msgid "configuration;saved"
+#~ msgstr "إعدادات  الطابعات"
+
+#~ msgid "backup"
+#~ msgstr "نسخ احتياطي"
+
+#, fuzzy
+#~| msgid "Install, clone, upgrade Tails"
+#~ msgid "install;clone;upgrade;manual"
+#~ msgstr "تثبيت، استنساخ، ترقية Tails"
+
+#, fuzzy
+#~| msgid "Connect to a local network"
+#~ msgid "connect;tor;network"
+#~ msgstr "اتصل بشبكة محلية"
+
+#, fuzzy
+#~| msgid "Tor Browser"
+#~ msgid "web;tor;browser"
+#~ msgstr "متصفح Tor"
+
+#, fuzzy
+#~| msgid "Delete Persistent Storage and Reinstall"
+#~ msgid "persistent;storage;package;install"
+#~ msgstr "حذف التخزين الدائم وإعادة التثبيت"
 
 #~ msgid "meek"
 #~ msgstr "meek"
@@ -4501,9 +4531,6 @@ msgstr "ساعة"
 
 #~ msgid "Software installed when starting Tails"
 #~ msgstr "تم تثبيت البرامج عند بدء تشغيل تيلز"
-
-#~ msgid "Printers configuration"
-#~ msgstr "إعدادات  الطابعات"
 
 #~ msgid "Thunderbird emails, feeds, and OpenPGP keys"
 #~ msgstr "رسائل البريد الإلكتروني لـ ثندربيرد والمواد الأولية ومفاتيح OpenPGP"

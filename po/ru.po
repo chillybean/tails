@@ -43,13 +43,16 @@
 # Руслан <nasretdinov.r.r@ya.ru>, 2014
 # Тимур Нагорских <timnagorskikh2k18@gmail.com>, 2019
 # Smiled <codeyro@users.noreply.hosted.weblate.org>, 2025.
+# Maksim_220 Кабанов <law820314@gmail.com>, 2025.
+# "Bucket B. Bucketman" <healtheries_deceptions@simplelogin.com>, 2025.
+# Abduloh Raupov <abdulohraupov@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-24 10:46+0200\n"
-"PO-Revision-Date: 2025-07-01 20:01+0000\n"
-"Last-Translator: Smiled <codeyro@users.noreply.hosted.weblate.org>\n"
+"PO-Revision-Date: 2025-08-11 10:02+0000\n"
+"Last-Translator: Abduloh Raupov <abdulohraupov@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/tor/tails-gui/ru/"
 ">\n"
 "Language: ru\n"
@@ -1924,11 +1927,12 @@ msgstr "Неверно: {exception}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:298
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:822
-#, fuzzy
 msgid ""
 "You need to configure a WebTunnel or an obfs4 bridge to hide that you are "
 "using Tor"
-msgstr "Вам нужно настроить мост obfs4, чтобы скрыть, что вы используете Tor"
+msgstr ""
+"Вам нужно настроить WebTunnel или obfs4 мост, чтобы скрыть, что вы "
+"используете Tor"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:353
 msgid "Failed to configure your Persistent Storage"
@@ -2764,9 +2768,9 @@ msgid "Root Terminal"
 msgstr "Root-терминал"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-terminal.desktop.in.h:2
+#, fuzzy
 msgid "Opens a terminal as the root user, using gksu to ask for the password"
-msgstr ""
-"Открывает терминал как пользователь root, используя gksu для запроса пароля"
+msgstr "Открывает терминал как root пользователь"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:1
 msgid "Tails Documentation"
@@ -3597,7 +3601,6 @@ msgid "Configure a Tor bridge"
 msgstr "Настроить мост Tor"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:106
-#, fuzzy
 msgid ""
 "Bridges are secret Tor relays. Use a bridge as your first Tor relay if "
 "accessing Tor is blocked from where you are.\n"
@@ -3605,7 +3608,9 @@ msgid ""
 "You can use <i>obfs4</i> and <i>WebTunnel</i> bridges in Tails.\n"
 msgstr ""
 "Мосты — это секретные узлы Tor. Используйте мост как ваш первый узел Tor, "
-"если доступ к Tor заблокирован там, где вы находитесь."
+"если доступ к Tor заблокирован там, где вы находитесь.\n"
+"\n"
+"Вы можете использовать <i>obfs4</i> или <i>WebTunnel</i> мосты в Tails.\n"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:126
 msgid "<a href=\"doc/anonymous_internet/tor\">Learn more about Tor bridges</a>"
@@ -3621,7 +3626,7 @@ msgstr "obfs4 (рекомендуется)"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:185
 msgid "WebTunnel"
-msgstr ""
+msgstr "WebTunnel"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:208
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1522
@@ -3658,7 +3663,7 @@ msgstr "Мост"
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:416
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1057
 msgid "obfs4 or webtunnel…"
-msgstr ""
+msgstr "obfs4 или webtunnel…"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:489
 msgid "Save bridge to _Persistent Storage"
@@ -4087,6 +4092,35 @@ msgstr "Декабрь"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "Часы"
+
+#~ msgid "configuration;saved"
+#~ msgstr "Конфигурация сохранена"
+
+#~ msgid "admin"
+#~ msgstr "админ"
+
+#~ msgid "learn"
+#~ msgstr "научиться"
+
+#, fuzzy
+#~| msgid "Install, clone, upgrade Tails"
+#~ msgid "install;clone;upgrade;manual"
+#~ msgstr "Установить, дублировать, обновить Tails"
+
+#, fuzzy
+#~| msgid "Connect to a local network"
+#~ msgid "connect;tor;network"
+#~ msgstr "Подключиться к локальной сети"
+
+#, fuzzy
+#~| msgid "Tor Browser"
+#~ msgid "web;tor;browser"
+#~ msgstr "Tor Browser"
+
+#, fuzzy
+#~| msgid "Delete Persistent Storage and Reinstall"
+#~ msgid "persistent;storage;package;install"
+#~ msgstr "Удалить постоянное хранилище и переустановить"
 
 #~ msgid "meek"
 #~ msgstr "meek"
@@ -4643,9 +4677,6 @@ msgstr "Часы"
 
 #~ msgid "Software installed when starting Tails"
 #~ msgstr "Программное обеспечение, установленное при запуске Tails"
-
-#~ msgid "Printers configuration"
-#~ msgstr "Настройка принтеров"
 
 #~ msgid "Thunderbird emails, feeds, and OpenPGP keys"
 #~ msgstr "Электронная почта Thunderbird, ленты и ключи OpenPGP"

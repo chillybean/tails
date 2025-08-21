@@ -17,12 +17,13 @@
 # Maxi <kutia0001@gmail.com>, 2015
 # Tsvetan Nikolov <slakware@gmail.com>, 2015-2016
 # 109247019824 <109247019824@users.noreply.hosted.weblate.org>, 2025.
+# emma peel <emma.peel@riseup.net>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-24 10:46+0200\n"
-"PO-Revision-Date: 2025-07-01 20:01+0000\n"
+"PO-Revision-Date: 2025-08-10 08:01+0000\n"
 "Last-Translator: 109247019824 "
 "<109247019824@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/tor/tails-gui/"
@@ -1887,12 +1888,12 @@ msgstr "Невярно: {exception}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:298
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:822
-#, fuzzy
 msgid ""
 "You need to configure a WebTunnel or an obfs4 bridge to hide that you are "
 "using Tor"
 msgstr ""
-"Трябва да настроите мост от вида obfs4, който да скрие, че използвате Tor"
+"Трябва да настроите WebTunnel или мост от вида obfs4, който да скрие, че "
+"използвате Tor"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:353
 msgid "Failed to configure your Persistent Storage"
@@ -2723,9 +2724,9 @@ msgid "Root Terminal"
 msgstr "Терминал на суперпотребителя"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-terminal.desktop.in.h:2
+#, fuzzy
 msgid "Opens a terminal as the root user, using gksu to ask for the password"
-msgstr ""
-"Отваря терминал като суперпотребителя като използва gksu да поиска парола"
+msgstr "Отваря терминал като суперпотребителя"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:1
 msgid "Tails Documentation"
@@ -3560,7 +3561,6 @@ msgid "Configure a Tor bridge"
 msgstr "Настройка на мост на Tor"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:106
-#, fuzzy
 msgid ""
 "Bridges are secret Tor relays. Use a bridge as your first Tor relay if "
 "accessing Tor is blocked from where you are.\n"
@@ -3569,7 +3569,9 @@ msgid ""
 msgstr ""
 "Мостовете са тайни препращащи възли на Tor. Използвайте мост като първи "
 "препращащ възел в Tor, ако достъпът до Tor е забранен от мястото, на което "
-"се намирате."
+"се намирате.\n"
+"\n"
+"В Tails можете да използвате мостове на <i>obfs4</i> и <i>WebTunnel</i>.\n"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:126
 msgid "<a href=\"doc/anonymous_internet/tor\">Learn more about Tor bridges</a>"
@@ -3586,7 +3588,7 @@ msgstr "obfs4 (препоръчано)"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:185
 msgid "WebTunnel"
-msgstr ""
+msgstr "WebTunnel"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:208
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1522
@@ -3623,7 +3625,7 @@ msgstr "Мост"
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:416
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1057
 msgid "obfs4 or webtunnel…"
-msgstr ""
+msgstr "obfs4 или webtunnel…"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:489
 msgid "Save bridge to _Persistent Storage"
@@ -4047,6 +4049,36 @@ msgstr "Декември"
 msgid "Clock"
 msgstr "Часовник"
 
+#~ msgid "configuration;saved"
+#~ msgstr "настройка;запазена"
+
+#~ msgid "admin"
+#~ msgstr "admin"
+
+#~ msgid "learn"
+#~ msgstr "научете"
+
+#~ msgid "backup"
+#~ msgstr "резервно копие"
+
+#~ msgid "install;clone;upgrade;manual"
+#~ msgstr "инсталиране,дублиране,обновяване;ръчно"
+
+#~ msgid "connect;tor;network"
+#~ msgstr "свързване;tor;мрежа"
+
+#~ msgid "web;tor;browser"
+#~ msgstr "уеб;tor;browser;мрежов четец"
+
+#~ msgid "web;captive;portal"
+#~ msgstr "уеб;интерактивен;портал"
+
+#~ msgid "mount;encrypted;container;truecryt"
+#~ msgstr "монтиране;шифрован;контейнер;truecrypt"
+
+#~ msgid "persistent;storage;package;install"
+#~ msgstr "постоянно;хранилище;пакет;инсталиране"
+
 #~ msgid "meek"
 #~ msgstr "meek"
 
@@ -4427,9 +4459,6 @@ msgstr "Часовник"
 
 #~ msgid "Configuration of network devices and connections"
 #~ msgstr "Конфигуриране на мрежови устройства и връзки"
-
-#~ msgid "Printers configuration"
-#~ msgstr "Конфигурация на принтери"
 
 #~ msgid "Bitcoin Client"
 #~ msgstr "Биткойн Клиент"

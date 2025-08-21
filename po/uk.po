@@ -14,7 +14,7 @@
 # Vira Motorko <ato4ka@i.ua>, 2015-2016
 # Vlad Anisimov <uniss@ua.fm>, 2022
 # f5a88f9e30127107e3f9ea67ac1be70b, 2015
-# Андрій Бандура <andriykopanytsia@gmail.com>, 2014
+# Андрій Бандура <andriykopanytsia@gmail.com>, 2014, 2025.
 # 3c10bacd49bdf01f9bfcd12a08b27e72_2c12325 <e46b2567c3990225cf11357b76499731_140467>, 2014
 # Максим Горпиніч <gorpinicmaksim5@gmail.com>, 2025.
 msgid ""
@@ -22,8 +22,8 @@ msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-24 10:46+0200\n"
-"PO-Revision-Date: 2025-07-01 18:01+0000\n"
-"Last-Translator: Максим Горпиніч <gorpinicmaksim5@gmail.com>\n"
+"PO-Revision-Date: 2025-08-17 21:02+0000\n"
+"Last-Translator: Андрій Бандура <andriykopanytsia@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/tor/tails-gui/"
 "uk/>\n"
 "Language: uk\n"
@@ -34,7 +34,7 @@ msgstr ""
 "11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.13\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -259,7 +259,7 @@ msgstr ""
 
 #: config/chroot_local-includes/usr/local/bin/electrum:156
 msgid "Donate Now"
-msgstr "Підтримати зараз"
+msgstr "Пожертвувати зараз"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:158
 msgid "Later"
@@ -1887,12 +1887,12 @@ msgstr "Недійсний: {exception}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:298
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:822
-#, fuzzy
 msgid ""
 "You need to configure a WebTunnel or an obfs4 bridge to hide that you are "
 "using Tor"
 msgstr ""
-"Вам потрібно налаштувати міст obfs4, щоб приховати, що ви використовуєте Tor"
+"Вам потрібно налаштувати WebTunnel або міст obfs4, щоб приховати, що ви "
+"використовуєте Tor"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:353
 msgid "Failed to configure your Persistent Storage"
@@ -2722,10 +2722,9 @@ msgid "Root Terminal"
 msgstr "Кореневий термінал"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-terminal.desktop.in.h:2
+#, fuzzy
 msgid "Opens a terminal as the root user, using gksu to ask for the password"
-msgstr ""
-"Відкриває термінал як кореневий користувач, використовуючи gksu, щоб "
-"запитати пароль"
+msgstr "Відкриває термінал від імені користувача root"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:1
 msgid "Tails Documentation"
@@ -3552,15 +3551,16 @@ msgid "Configure a Tor bridge"
 msgstr "Налаштуйте міст Tor"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:106
-#, fuzzy
 msgid ""
 "Bridges are secret Tor relays. Use a bridge as your first Tor relay if "
 "accessing Tor is blocked from where you are.\n"
 "\n"
 "You can use <i>obfs4</i> and <i>WebTunnel</i> bridges in Tails.\n"
 msgstr ""
-"Мости — це таємні ретранслятори Tor. Використовуйте міст як перший "
-"ретранслятор Tor, якщо доступ до Tor заблоковано з вашого місця перебування."
+"Мости – це секретні ретрансляції Tor. Використовуйте міст як першу "
+"ретрансляцію Tor, якщо доступ до Tor заблоковано з вашого місця.\n"
+"\n"
+"Ви можете використовувати мости <i>obfs4</i> та <i>WebTunnel</i> у Tails.\n"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:126
 msgid "<a href=\"doc/anonymous_internet/tor\">Learn more about Tor bridges</a>"
@@ -3577,7 +3577,7 @@ msgstr "obfs4 (рекомендовано)"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:185
 msgid "WebTunnel"
-msgstr ""
+msgstr "WebTunnel"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:208
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1522
@@ -3615,7 +3615,7 @@ msgstr "Міст"
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:416
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1057
 msgid "obfs4 or webtunnel…"
-msgstr ""
+msgstr "obfs4 або webtunnel…"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:489
 msgid "Save bridge to _Persistent Storage"
@@ -4046,6 +4046,36 @@ msgstr "Грудень"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "Годинник"
+
+#~ msgid "configuration;saved"
+#~ msgstr "конфігурація; збережено"
+
+#~ msgid "admin"
+#~ msgstr "адміністратор"
+
+#~ msgid "learn"
+#~ msgstr "навчитися"
+
+#~ msgid "backup"
+#~ msgstr "резервна копія"
+
+#~ msgid "install;clone;upgrade;manual"
+#~ msgstr "встановити; клонувати; оновити; посібник"
+
+#~ msgid "connect;tor;network"
+#~ msgstr "з'єднувач;тор;мережа"
+
+#~ msgid "web;tor;browser"
+#~ msgstr "веб;тор;браузер"
+
+#~ msgid "web;captive;portal"
+#~ msgstr "веб; полонений; портал"
+
+#~ msgid "mount;encrypted;container;truecryt"
+#~ msgstr "монтування;зашифрований;контейнер;truecryt"
+
+#~ msgid "persistent;storage;package;install"
+#~ msgstr "постійний;сховище;пакет;встановлення"
 
 #~ msgid "meek"
 #~ msgstr "meek"
@@ -4607,9 +4637,6 @@ msgstr "Годинник"
 
 #~ msgid "Software installed when starting Tails"
 #~ msgstr "Програмне забезпечення, що встановлюється при запуску Tails"
-
-#~ msgid "Printers configuration"
-#~ msgstr "Налаштування принтерів"
 
 #~ msgid "Thunderbird emails, feeds, and OpenPGP keys"
 #~ msgstr "Електронні листи Thunderbird, розсилки та ключі OpenPGP"

@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-24 10:46+0200\n"
-"PO-Revision-Date: 2025-07-19 16:03+0000\n"
+"PO-Revision-Date: 2025-08-14 16:02+0000\n"
 "Last-Translator: 홍길동 <papakiaphone@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/tor/tails-gui/ko/"
 ">\n"
@@ -374,11 +374,10 @@ msgid ""
 "b>\\n\\nCheck your network connection and restart Tails.\\n\\nIf the problem "
 "persists, try doing a manual upgrade."
 msgstr ""
-"<b>서명 키를 갱신하는 동안 오류가 발생했어요.</b>\\n\\n<b>웹사이트에서 업그레"
-"이드가 있는지 여부를 확인할 수 없어요.</b>\\n\\n업그레이드를 다시 시도하려면 "
-"네트워크 연결을 확인하고, Tails를 다시 시작하세요.\\n\\n만약 문제가 계속된다"
-"면 file:///usr/share/doc/tails/website/doc/upgrade/error/check.en.html 을 참"
-"고하세요"
+"<b>서명 키를 업데이트하는 중 오류가 발생했습니다.</b>\\n\\n<b>이로 인해 웹사"
+"이트에서 업그레이드가 가능한지 확인할 수 없습니다.</b>\\n\\n네트워크 연결을 "
+"확인하고 Tails를 다시 시작하세요. \\n\\n문제가 지속되면 수동 업그레이드를 시"
+"도해 보세요."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:310
 msgid "Error while downloading the signing key"
@@ -397,13 +396,11 @@ msgid ""
 "\n"
 "If the problem persists, try doing a manual upgrade."
 msgstr ""
-"<b>웹사이트에서 업그레이드가 있는지 여부를 확인할 수 없어요.</b>\n"
+"<b>웹사이트에서 업그레이드가 가능한지 확인할 수 없습니다.</b>\n"
 "\n"
-"업그레이드를 다시 시도하려면 네트워크 연결을 확인하고, Tails를 다시 시작하세"
-"요.\n"
+"네트워크 연결을 확인하고 Tails를 다시 시작하세요.\n"
 "\n"
-"만약 문제가 계속된다면 file:///usr/share/doc/tails/website/doc/upgrade/error/"
-"check.en.html 을 참고하세요"
+"문제가 지속되면 수동 업그레이드를 시도해 보세요"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:360
 msgid "no automatic upgrade is available from our website for this version"
@@ -1835,11 +1832,12 @@ msgstr "잘못된 항목: {exception}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:298
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:822
-#, fuzzy
 msgid ""
 "You need to configure a WebTunnel or an obfs4 bridge to hide that you are "
 "using Tor"
-msgstr "Tor를 사용하고 있다는 사실을 숨기려면 obfs4 브리지를 구성해야 해요"
+msgstr ""
+"Tor를 사용하고 있다는 사실을 숨기려면 WebTunnel 또는 obfs4 브리지를 구성해야 "
+"합니다"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:353
 msgid "Failed to configure your Persistent Storage"
@@ -2649,6 +2647,7 @@ msgid "Root Terminal"
 msgstr "루트 터미널"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-terminal.desktop.in.h:2
+#, fuzzy
 msgid "Opens a terminal as the root user, using gksu to ask for the password"
 msgstr "루트 사용자로 터미널을 열어 gksu를 통해 비밀번호를 물어보게 돼요"
 
@@ -3755,6 +3754,7 @@ msgstr ""
 "                "
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1680
+#, fuzzy
 msgid ""
 "\n"
 "<a href=\"doc/anonymous_internet/no-wifi\">\n"
@@ -3942,6 +3942,31 @@ msgstr "12월"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "시계"
+
+#, fuzzy
+#~| msgid "Printers configuration"
+#~ msgid "configuration;saved"
+#~ msgstr "프린터 구성"
+
+#, fuzzy
+#~| msgid "Install, clone, upgrade Tails"
+#~ msgid "install;clone;upgrade;manual"
+#~ msgstr "Tails 설치, 복제, 업그레이드"
+
+#, fuzzy
+#~| msgid "Connect to a local network"
+#~ msgid "connect;tor;network"
+#~ msgstr "로컬 네트워크에 연결하기"
+
+#, fuzzy
+#~| msgid "Tor Browser"
+#~ msgid "web;tor;browser"
+#~ msgstr "Tor 브라우저"
+
+#, fuzzy
+#~| msgid "Delete Persistent Storage and Reinstall"
+#~ msgid "persistent;storage;package;install"
+#~ msgstr "영구 저장소 삭제 후 다시 설치"
 
 #~ msgid "meek"
 #~ msgstr "meek"
@@ -4445,9 +4470,6 @@ msgstr "시계"
 
 #~ msgid "Software installed when starting Tails"
 #~ msgstr "Tails에 기본적으로 설치된 소프트웨어"
-
-#~ msgid "Printers configuration"
-#~ msgstr "프린터 구성"
 
 #~ msgid "Thunderbird emails, feeds, and OpenPGP keys"
 #~ msgstr "썬더버드 이메일, 피드 및 OpenPGP 키"

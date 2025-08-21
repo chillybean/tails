@@ -43,13 +43,14 @@
 # 耀石 徐 <xuyaoshix@gmail.com>, 2019
 # ヨイツの賢狼ホロ, 2018
 # Sketch6580 <sketch6580@users.noreply.hosted.weblate.org>, 2025.
+# mik <mik@users.noreply.hosted.weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-24 10:46+0200\n"
-"PO-Revision-Date: 2025-07-01 13:08+0000\n"
-"Last-Translator: Sketch6580 <sketch6580@users.noreply.hosted.weblate.org>\n"
+"PO-Revision-Date: 2025-08-13 19:02+0000\n"
+"Last-Translator: mik <mik@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/tor/tails-gui/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -1808,11 +1809,10 @@ msgstr "无效：{exception}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:298
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:822
-#, fuzzy
 msgid ""
 "You need to configure a WebTunnel or an obfs4 bridge to hide that you are "
 "using Tor"
-msgstr "您需要配置 obfs4 网桥来隐藏您正在使用 Tor"
+msgstr "您需要配置 WebTunnel 或 obfs4 网桥来隐藏您正在使用 Tor"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:353
 msgid "Failed to configure your Persistent Storage"
@@ -2609,8 +2609,9 @@ msgid "Root Terminal"
 msgstr "管理员用户终端"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-terminal.desktop.in.h:2
+#, fuzzy
 msgid "Opens a terminal as the root user, using gksu to ask for the password"
-msgstr "以根用户的身份打开终端，并使用 gksu 来请求密码"
+msgstr "以 root 用户身份打开终端"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:1
 msgid "Tails Documentation"
@@ -3402,15 +3403,16 @@ msgid "Configure a Tor bridge"
 msgstr "配置一个 Tor 网桥"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:106
-#, fuzzy
 msgid ""
 "Bridges are secret Tor relays. Use a bridge as your first Tor relay if "
 "accessing Tor is blocked from where you are.\n"
 "\n"
 "You can use <i>obfs4</i> and <i>WebTunnel</i> bridges in Tails.\n"
 msgstr ""
-"网桥是秘密的 Tor 中继。 如果您所在的位置封锁访问 Tor，请使用网桥作为您的第一"
-"个 Tor 中继。"
+"网桥是秘密的 Tor 中继。如果您所在的位置屏蔽访问 Tor，可以使用网桥作为您的第一"
+"个 Tor 中继。\n"
+"\n"
+"您可以在 Tails 中使用 <i>obfs4</i> 和 <i>WebTunnel</i> 网桥。\n"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:126
 msgid "<a href=\"doc/anonymous_internet/tor\">Learn more about Tor bridges</a>"
@@ -3426,7 +3428,7 @@ msgstr "obfs4（推荐）"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:185
 msgid "WebTunnel"
-msgstr ""
+msgstr "WebTunnel"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:208
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1522
@@ -3462,7 +3464,7 @@ msgstr "网桥"
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:416
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1057
 msgid "obfs4 or webtunnel…"
-msgstr ""
+msgstr "obfs4 或 webtunnel…"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:489
 msgid "Save bridge to _Persistent Storage"
@@ -3866,6 +3868,36 @@ msgstr "十二月"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "时钟"
+
+#~ msgid "configuration;saved"
+#~ msgstr "配置;已保存"
+
+#~ msgid "admin"
+#~ msgstr "管理员"
+
+#~ msgid "learn"
+#~ msgstr "了解"
+
+#~ msgid "backup"
+#~ msgstr "备份"
+
+#~ msgid "install;clone;upgrade;manual"
+#~ msgstr "安装;克隆;升级;手册"
+
+#~ msgid "connect;tor;network"
+#~ msgstr "连接;tor;网络"
+
+#~ msgid "web;tor;browser"
+#~ msgstr "web;tor;浏览器"
+
+#~ msgid "web;captive;portal"
+#~ msgstr "web;强制;门户"
+
+#~ msgid "mount;encrypted;container;truecryt"
+#~ msgstr "挂载;已加密;容器;truecryt"
+
+#~ msgid "persistent;storage;package;install"
+#~ msgstr "持久;存储;软件包;安装"
 
 #~ msgid "meek"
 #~ msgstr "meek"
@@ -4400,9 +4432,6 @@ msgstr "时钟"
 
 #~ msgid "Software installed when starting Tails"
 #~ msgstr "启动 Tails 时安装的软件"
-
-#~ msgid "Printers configuration"
-#~ msgstr "打印机配置"
 
 #~ msgid "Thunderbird emails, feeds, and OpenPGP keys"
 #~ msgstr "Thunderbird 邮件，阅读器列表和 OpenPGP 密钥"
