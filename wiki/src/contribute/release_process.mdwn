@@ -577,6 +577,10 @@ Update the Changelog entry for the release you're preparing:
 
  - `[ "${DIST:?}" = alpha ] || [ "${MAJOR_RELEASE:?}" -eq 1 ]`
 
+ - The generated changelog will include everything from any previous
+   release candidates, so please make sure the new Changelog entry
+   only contains merge requests introduced in this release.
+
  - For each merge request listed in the new Changelog entry,
    copy the "Closes: #NNNNNN" string from the MR description into the relevant
    section of the Changelog.
