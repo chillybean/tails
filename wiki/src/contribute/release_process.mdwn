@@ -1960,10 +1960,15 @@ Look at the mirror status.
 
     (
       base="https://download.tails.net/tails/${DIST:?}"
-      echo "${base}/iuk/v2/Tails_amd64_${PREVIOUS_STABLE_VERSION:?}_to_${VERSION:?}.iuk?mirrorlist"
+      if [ "$((${VERSION%%.*}))" = "$((${PREVIOUS_STABLE_VERSION%%.*}))" ]; then
+          echo "${base}/iuk/v2/Tails_amd64_${PREVIOUS_STABLE_VERSION:?}_to_${VERSION:?}.iuk?mirrorlist"
+      fi
+      if [ "$((${VERSION%%.*}))" = "$((${PREVIOUS_VERSION%%.*}))" ]; then
+          echo "${base}/iuk/v2/Tails_amd64_${PREVIOUS_VERSION:?}_to_${VERSION:?}.iuk?mirrorlist"
+      fi
       echo "${base}/tails-amd64-${VERSION:?}/tails-amd64-${VERSION:?}.iso?mirrorlist"
       echo "${base}/tails-amd64-${VERSION:?}/tails-amd64-${VERSION:?}.img?mirrorlist"
-    )
+    ) | sort -u
 
 Wait for each of these pages to include:
  - at least 6 working mirrors
