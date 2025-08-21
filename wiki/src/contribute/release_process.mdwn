@@ -1423,6 +1423,7 @@ Prepare upgrade-description files
                 find ${RELEASE_CHECKOUT:?}/wiki/src/upgrade/v2/Tails \
                    -type d \
                    -name "$((${VERSION%%.*}-1)).*" \
+                   '!' -name '*~testoverlayfs' \
                    -printf '--previous_version=%f ' \
             ) \
             --iso="${ISO_PATH:?}" \
