@@ -4,13 +4,17 @@ set -eu
 
 UDFS_DIR=wiki/src/upgrade/v2/
 
+getUpgradesYml() {
+    find "$UDFS_DIR" -type f -name upgrades.yml | LC_ALL=C sort
+}
+
 error=false
 while read -r upgradesYml; do
     if ! [ -f "${upgradesYml}.pgp" ]; then
         error=true
         echo "${upgradesYml}.pgp missing" >&2
     fi
-done < <(find "$UDFS_DIR" -type f -name upgrades.yml)
+done < <(getUpgradesYml)
 
 if $error; then
     exit 1
@@ -28,7 +32,7 @@ while read -r upgradesYml; do
         error=true
         echo "${upgradesYml}.pgp is valid with tails-signing.key, but not with tails-signing-minimal.key" >&2
     fi
-done < <(find "$UDFS_DIR" -type f -name upgrades.yml)
+done < <(getUpgradesYml)
 
 if $error; then
     exit 1
