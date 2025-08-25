@@ -17,6 +17,14 @@ sign() {
     "${RELEASE_CHECKOUT:?}/config/chroot_local-includes/usr/src/iuk/bin/tails-iuk-check-upgrade-description-file" "${udf:?}"
 }
 
+if [ "$#" -gt 0 ]
+then
+    for udf in "$@"; do
+        sign "$1" || exit 1
+    done
+    exit 0
+fi
+
 cd "${RELEASE_CHECKOUT:?}"
 find "${RELEASE_CHECKOUT:?}/wiki/src/upgrade/" \
      -type f -name upgrades.yml | \
