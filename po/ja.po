@@ -30,13 +30,14 @@
 # c7a0a66e0476db158663636124cfb54f_370a183, 2018
 # 藤前　甲 <m1440809437@hiru-dea.com>, 2014
 # Himmel <himmel@users.noreply.hosted.weblate.org>, 2025.
+# Weblate <noreply-mt-weblate@weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-24 10:46+0200\n"
-"PO-Revision-Date: 2025-07-14 09:01+0000\n"
-"Last-Translator: Himmel <himmel@users.noreply.hosted.weblate.org>\n"
+"PO-Revision-Date: 2025-08-18 07:02+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/tor/tails-gui/"
 "ja/>\n"
 "Language: ja\n"
@@ -44,7 +45,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.13\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -1883,12 +1884,12 @@ msgstr "無効: {exception}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:298
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:822
-#, fuzzy
 msgid ""
 "You need to configure a WebTunnel or an obfs4 bridge to hide that you are "
 "using Tor"
 msgstr ""
-"Tor を使用していることを隠すには、obfs4 ブリッジを構成する必要があります"
+"Tor を使用していることを隠すには、WebTunnel または obfs4 ブリッジを構成する必"
+"要があります"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:353
 msgid "Failed to configure your Persistent Storage"
@@ -2713,9 +2714,9 @@ msgid "Root Terminal"
 msgstr "Root ターミナル"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-terminal.desktop.in.h:2
+#, fuzzy
 msgid "Opens a terminal as the root user, using gksu to ask for the password"
-msgstr ""
-"root ユーザーとしてターミナルを開き、gksu を使用してパスワードを要求する"
+msgstr "root ユーザーとしてターミナルを開きます"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:1
 msgid "Tails Documentation"
@@ -3538,7 +3539,6 @@ msgid "Configure a Tor bridge"
 msgstr "Tor ブリッジを構成"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:106
-#, fuzzy
 msgid ""
 "Bridges are secret Tor relays. Use a bridge as your first Tor relay if "
 "accessing Tor is blocked from where you are.\n"
@@ -3546,7 +3546,9 @@ msgid ""
 "You can use <i>obfs4</i> and <i>WebTunnel</i> bridges in Tails.\n"
 msgstr ""
 "ブリッジは秘密の Tor リレーです。あなたがいる場所で Tor のアクセスがブロック"
-"されている場合、最初の Tor リレーとしてブリッジを使用します。"
+"されている場合、最初の Tor リレーとしてブリッジを使用します。\n"
+"\n"
+"Tails では、<i>obfs4</i> および <i>WebTunnel</i> ブリッジを使用できます。\n"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:126
 msgid "<a href=\"doc/anonymous_internet/tor\">Learn more about Tor bridges</a>"
@@ -3562,7 +3564,7 @@ msgstr "obfs4 (推奨)"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:185
 msgid "WebTunnel"
-msgstr ""
+msgstr "WebTunnel"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:208
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1522
@@ -3599,7 +3601,7 @@ msgstr "ブリッジ"
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:416
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1057
 msgid "obfs4 or webtunnel…"
-msgstr ""
+msgstr "obfs4 または WebTunnel…"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:489
 msgid "Save bridge to _Persistent Storage"
@@ -4022,6 +4024,36 @@ msgstr "12月"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "時刻"
+
+#~ msgid "configuration;saved"
+#~ msgstr "構成;保存済み"
+
+#~ msgid "admin"
+#~ msgstr "管理者"
+
+#~ msgid "learn"
+#~ msgstr "詳細"
+
+#~ msgid "backup"
+#~ msgstr "バックアップ"
+
+#~ msgid "install;clone;upgrade;manual"
+#~ msgstr "インストール;クローン;アップグレード;マニュアル"
+
+#~ msgid "connect;tor;network"
+#~ msgstr "接続;tor;ネットワーク"
+
+#~ msgid "web;tor;browser"
+#~ msgstr "ウェブ;tor;ブラウザー"
+
+#~ msgid "web;captive;portal"
+#~ msgstr "ウェブ;キャプティブ;ポータル"
+
+#~ msgid "mount;encrypted;container;truecryt"
+#~ msgstr "マウント;暗号化;コンテナー;truecryt"
+
+#~ msgid "persistent;storage;package;install"
+#~ msgstr "永続;ストレージ;パッケージ;インストール"
 
 #~ msgid "meek"
 #~ msgstr "meek"
@@ -4553,9 +4585,6 @@ msgstr "時刻"
 
 #~ msgid "Software installed when starting Tails"
 #~ msgstr "ソフトウェアは Tails が起動した時にインストールされました"
-
-#~ msgid "Printers configuration"
-#~ msgstr "プリンターの設定"
 
 #~ msgid "Thunderbird emails, feeds, and OpenPGP keys"
 #~ msgstr "Thunderbird のメール、フィード、設定"
