@@ -23,4 +23,14 @@ while read -r upgradesYml; do
         echo "${upgradesYml}.pgp invalid signature" >&2
         exit 1
     fi
+    if ! sqop verify "${upgradesYml}.pgp" wiki/src/tails-signing-minimal.key \
+        <"${upgradesYml}" &>/dev/null; then
+        error=true
+        echo "${upgradesYml}.pgp is valid with tails-signing.key, but not with tails-signing-minimal.key" >&2
+    fi
 done < <(find "$UDFS_DIR" -type f -name upgrades.yml)
+
+if $error; then
+    exit 1
+fi
+exit 0
