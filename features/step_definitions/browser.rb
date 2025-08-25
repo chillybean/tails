@@ -61,8 +61,18 @@ def browser_url_entry
   end
 end
 
-def get_current_browser_url
-  browser_url_entry.text
+def get_current_browser_url(raw: false)
+  address = browser_url_entry.text
+  if address.empty? || address.start_with?('about:')
+    return address
+  end
+
+  # Tor Browser omits the scheme if it is https, so we restore it
+  # unless the raw flag is set.
+  if !raw && !(address['://'])
+    address = "https://#{address}"
+  end
+  address
 end
 
 def set_browser_url(url)
@@ -82,11 +92,11 @@ def set_browser_url(url)
   retry_action(10) do
     @screen.press('ctrl', 'a')
     _, selection_length = browser_url_entry.get_text_selection_range
-    assert_equal(get_current_browser_url.length, selection_length)
+    assert_equal(get_current_browser_url(raw: true).length, selection_length)
     @screen.press('backspace')
     assert_true(get_current_browser_url.empty?)
     @screen.paste(url)
-    assert_equal(get_current_browser_url, url)
+    assert_equal(get_current_browser_url(raw: true), url)
   end
 end
 
