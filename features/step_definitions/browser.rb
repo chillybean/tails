@@ -219,10 +219,21 @@ When /^I open the address "([^"]*)" in the (.* Browser)( without waiting)?$/ do 
   end
 end
 
+def tor_browser_name
+  tbb_version_json = JSON.parse(
+    $vm.file_content('/usr/local/lib/tor-browser/tbb_version.json')
+  )
+  if tbb_version_json['channel'] == 'alpha'
+    'Tor Browser Alpha'
+  else
+    'Tor Browser'
+  end
+end
+
 def page_has_loaded_in_the_tor_browser(page_titles)
   page_titles = [page_titles] if page_titles.instance_of?(String)
   assert_equal(Array, page_titles.class)
-  browser_name = 'Tor Browser'
+  browser_name = tor_browser_name
   if $language == 'German'
     reload_action = 'Neu laden'
     separator = '–'
@@ -566,9 +577,9 @@ When /^I (can|cannot) save the current page as "([^"]+[.]html)" to the (.*) (dir
 end
 
 When /^I request a new identity in Tor Browser$/ do
-  @torbrowser.child('Tor Browser', roleName: 'button').press
+  @torbrowser.child(tor_browser_name, roleName: 'button').press
   @torbrowser.child('New identity', roleName: 'button').press
-  @torbrowser.child('Restart Tor Browser', roleName: 'button').press
+  @torbrowser.child("Restart #{tor_browser_name}", roleName: 'button').press
 end
 
 Then /^the Tor Browser has (\d+) tabs? open$/ do |expected_tab_count|
