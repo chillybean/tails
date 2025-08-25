@@ -5,7 +5,13 @@ set -eu
 UDFS_DIR=wiki/src/upgrade/v2/
 
 getUpgradesYml() {
-    find "$UDFS_DIR" -type f -name upgrades.yml | LC_ALL=C sort
+    thisVersion=${VERSION:0:1}
+    prevVersion=$((thisVersion - 1))
+    nextVersion=$((thisVersion + 1))
+    find "$UDFS_DIR/Tails/" \
+        -regex ".*/Tails/[${thisVersion}${prevVersion}${nextVersion}].*" \
+        -type f -name upgrades.yml \
+        | LC_ALL=C sort
 }
 
 error=false
