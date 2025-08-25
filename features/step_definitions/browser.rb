@@ -183,6 +183,10 @@ When /^I open a new tab in the (.*)$/ do |browser_name|
   info = xul_application_info(browser_name)
   retry_action(2) do
     @screen.click(info[:new_tab_button_image])
+    # The cursor will likely be on the newly opened tab which will
+    # open a pop-up that may obscure the address bar, which would
+    # cause a failure below.
+    @screen.hide_cursor
     @screen.wait(info[:address_bar_image], 15)
   end
 end
