@@ -89,7 +89,6 @@ class ReportGenerator:
         closed_issues_events = project.events.list(
             iterator=True,
             get_all=True,
-            target_type="issue",
             action="closed",
             after=self.after,
             before=self.before,
@@ -101,6 +100,7 @@ class ReportGenerator:
                 "iid": event.target_iid,
             }
             for event in closed_issues_events
+            if event.target_type in ['Issue', 'WorkItem']
         ]
         gl_closed_issues = []
         for issue in gl_closed_issues_with_duplicates:
