@@ -46,8 +46,7 @@ method _build_curl_opts () {
         CURLOPT_NOPROGRESS,      1,
         # This does *not* prevent curl from downloading more data this in the end.
         CURLOPT_MAXFILESIZE,     $self->max_download_size,
-        CURLOPT_SSLVERSION,      CURL_SSLVERSION_TLSv1_2,
-        CURLOPT_SSL_CIPHER_LIST, 'ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:!RC4:HIGH:!MD5:!aNULL:!EDH',
+        CURLOPT_SSLVERSION,      CURL_SSLVERSION_TLSv1_3,
     );
     if ($ENV{HARNESS_ACTIVE} or $ENV{DISABLE_PROXY}) {
         push @opts, CURLOPT_PROXY,     '';

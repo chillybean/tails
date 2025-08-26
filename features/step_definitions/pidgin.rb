@@ -123,7 +123,7 @@ When /^I create my XMPP account$/ do
   @screen.wait('PidginAddAccountWindow.png', 20)
   @screen.wait('PidginAddAccountProtocolLabel.png', 20)
   click_mid_right_edge('PidginAddAccountProtocolLabel.png')
-  @screen.click('PidginAddAccountProtocolXMPP.png')
+  @screen.wait('PidginAddAccountProtocolXMPP.png', 20).click
   # We first wait for some field that is shown for XMPP but not the
   # default (IRC) since we otherwise may decide where we click before
   # the GUI has updated after switching protocol.
@@ -178,6 +178,9 @@ When /^I start a conversation with my friend$/ do
   x = r.x + r.w / 2
   y = r.y + r.h
   @screen.click(x, y, double: true)
+  # If we keep the mouse hovering over the friend there's a tooltip
+  # that might obscure the conversation window we just opened
+  @screen.hide_cursor
   # Since Pidgin sets the window name to the contact, we have no good
   # way to identify the conversation window. Let's just look for the
   # expected menu bar.

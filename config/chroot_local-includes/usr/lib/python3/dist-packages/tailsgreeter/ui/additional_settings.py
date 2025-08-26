@@ -10,7 +10,7 @@ from typing import TYPE_CHECKING
 
 gi.require_version("Gdk", "3.0")
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gdk, Gtk
+from gi.repository import Gdk, Gtk  # NOQA: E402
 
 if TYPE_CHECKING:
     from tailsgreeter.settings.admin import AdminSetting
@@ -31,7 +31,7 @@ class AdditionalSetting(GreeterSetting):
         self.builder.add_from_file(
             tailsgreeter.config.data_path + ADDITIONAL_SETTINGS_UI_FILE
         )
-        self.box = self.builder.get_object("box_{}_popover".format(self.id))
+        self.box = self.builder.get_object(f"box_{self.name}_popover")
 
     def build_popover(self):
         self.popover = Popover(self.listboxrow, self.box)
@@ -50,14 +50,14 @@ class AdditionalSetting(GreeterSetting):
 
     def cb_listbox_button_press(self, widget, event, user_data=None):
         # On double-click: Close the window and apply chosen setting
-        if event.type == Gdk.EventType._2BUTTON_PRESS:
+        if event.type == Gdk.EventType._2BUTTON_PRESS:  # NOQA: SLF001
             self.close_window(Gtk.ResponseType.YES)
         return False
 
 
 class AdminSettingUI(AdditionalSetting):
     @property
-    def id(self) -> str:
+    def name(self) -> str:
         return "admin"
 
     @property
@@ -80,7 +80,7 @@ class AdminSettingUI(AdditionalSetting):
         if not password_verify:
             icon = None
         elif password_verify == password:
-            icon = "emblem-ok-symbolic"
+            icon = "object-select-symbolic"
         else:
             icon = "dialog-warning-symbolic"
         self.password_verify_entry.set_icon_from_icon_name(
@@ -188,7 +188,7 @@ class AdminSettingUI(AdditionalSetting):
 
 class MACSpoofSettingUI(AdditionalSetting):
     @property
-    def id(self) -> str:
+    def name(self) -> str:
         return "macspoof"
 
     @property
@@ -259,7 +259,7 @@ class MACSpoofSettingUI(AdditionalSetting):
 
 class NetworkSettingUI(AdditionalSetting):
     @property
-    def id(self) -> str:
+    def name(self) -> str:
         return "network"
 
     @property
@@ -331,7 +331,7 @@ class NetworkSettingUI(AdditionalSetting):
 
 class ObsoleteNetworkSettingUI(AdditionalSetting):
     @property
-    def id(self) -> str:
+    def name(self) -> str:
         return "obsolete_network"
 
     @property
@@ -354,7 +354,7 @@ class ObsoleteNetworkSettingUI(AdditionalSetting):
 
 class UnsafeBrowserSettingUI(AdditionalSetting):
     @property
-    def id(self) -> str:
+    def name(self) -> str:
         return "unsafe_browser"
 
     @property

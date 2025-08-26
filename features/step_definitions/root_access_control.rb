@@ -19,17 +19,17 @@ Then /^I cannot login as root using su with the standard passwords$/ do
   ['', 'live', 'amnesia'].each do |password|
     # We use /bin/su because Tails' bash has its own su() function,
     # which merely prints instructions.
-    step 'I run "/bin/su" in GNOME Terminal'
-    terminal = Dogtail::Application.new('gnome-terminal-server')
+    step 'I run "/bin/su" in Console'
+    terminal = Dogtail::Application.new('kgx')
                                    .child('Terminal', roleName: 'terminal')
     terminal.text['Password:']
-    @screen.paste(password, app: :terminal)
+    @screen.paste(password, app: :console)
     @screen.press('Return')
     try_for(10, msg: 'su did not return an authentication failure') do
       terminal.text['su: Authentication failure']
     end
     # Ensure the previous authentication failure does not taint the next tests
-    $vm.execute('pkill -u amnesia gnome-terminal')
+    $vm.execute('pkill -u amnesia kgx')
   end
 end
 
@@ -46,7 +46,7 @@ When /^running a command as root with pkexec requires PolicyKit administrator pr
 end
 
 Then /^I can run a command as root with pkexec$/ do
-  step 'I run "pkexec touch /root/pkexec-test" in GNOME Terminal'
+  step 'I run "pkexec touch /root/pkexec-test" in Console'
   step 'I enter the sudo password in the GNOME authentication prompt'
   try_for(10, msg: 'The /root/pkexec-test file was not created.') do
     $vm.file_exist?('/root/pkexec-test')
@@ -54,18 +54,18 @@ Then /^I can run a command as root with pkexec$/ do
 end
 
 Then /^I cannot run a command as root with pkexec and the standard passwords$/ do
-  step 'I run "pkexec touch /root/pkexec-test" in GNOME Terminal'
+  step 'I run "pkexec touch /root/pkexec-test" in Console'
   ['live', 'amnesia'].each do |password|
     deal_with_polkit_prompt(password, expect_success: false)
   end
   sleep 2
   @screen.press('Escape')
-  Dogtail::Application.new('gnome-terminal-server')
+  Dogtail::Application.new('kgx')
                       .child('Terminal', roleName: 'terminal')
                       .text[
                         'Error executing command as another user: Request dismissed'
                       ]
   assert(!$vm.file_exist?('/root/pkexec-test'))
   # Ensure we don't taint the next tests
-  $vm.execute('pkill -u amnesia gnome-terminal')
+  $vm.execute('pkill -u amnesia kgx')
 end

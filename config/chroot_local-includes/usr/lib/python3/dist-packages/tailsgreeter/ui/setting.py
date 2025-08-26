@@ -1,4 +1,4 @@
-from typing import Optional, TYPE_CHECKING
+from typing import TYPE_CHECKING
 import gi
 
 from tailsgreeter import TRANSLATION_DOMAIN
@@ -9,7 +9,7 @@ if TYPE_CHECKING:
     from tailsgreeter.ui.popover import Popover
 
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk
+from gi.repository import Gtk  # NOQA: E402
 
 
 SETTING_UI_FILE = "setting.ui"
@@ -19,7 +19,7 @@ class GreeterSetting:
     """Base class of all settings in the greeter"""
 
     @property
-    def id(self) -> str:
+    def name(self) -> str:
         return ""
 
     @property
@@ -36,8 +36,8 @@ class GreeterSetting:
 
     def __init__(self) -> None:
         self.accel_key = None
-        self.popover: Optional[Popover] = None
-        self.main_window: Optional[GreeterMainWindow] = None
+        self.popover: Popover | None = None
+        self.main_window: GreeterMainWindow | None = None
 
         self.builder = Gtk.Builder()
         self.builder.set_translation_domain(TRANSLATION_DOMAIN)

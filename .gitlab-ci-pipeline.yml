@@ -8,7 +8,7 @@ workflow:
 # Please, make sure to only use images from `registry.gitlab.tails.boum.org`,
 # as we give significant privileges to our Runners wrt. what they can do in our
 # repositories.
-image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:bookworm
+image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:trixie
 
 variables:
     GET_SOURCES_ATTEMPTS: 10
@@ -84,7 +84,7 @@ deploy-website:
   parallel:
     matrix:
       - SSH_SERVER: www.lizard
-        SSH_PORT: 3009
+        SSH_PORT: 22
       - SSH_SERVER: www2.chameleon
         SSH_PORT: 22
   script:
@@ -204,7 +204,7 @@ check-locale-descriptions:
     - ./bin/locale-descriptions suggest
 
 rubocop:
-  image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:bookworm
+  image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:trixie
   script:
   - apt-get -qy install rubocop
   - rubocop --version
@@ -272,7 +272,7 @@ shfmt-changed-files:
 
 test-persistent-storage-config-file:
   script:
-    - apt-get -qy install python3 python3-gi acl
+    - apt-get -qy install python3 python3-gi acl e2fsprogs
     - python3 config/chroot_local-includes/usr/lib/python3/dist-packages/tps/configuration/config_file_test.py
 
 test-python-doctest:
@@ -306,7 +306,7 @@ test-tailslib:
   rules:
     - if: '$CI_COMMIT_BRANCH != "master"'
   script:
-    - apt-get -qy install python3 python3-atomicwrites python3-sh python3-gi git
+    - apt-get -qy install python3 python3-atomicwrites python3-setuptools python3-sh python3-gi git
     - 'cd config/chroot_local-includes/usr/lib/python3/dist-packages ; find tailslib -name "*.py" -print0 | grep --null-data -v -e netnsdrop.py -e gnome.py | xargs -0 -L1 env PYTHONPATH=. python3 -m doctest'
 
 test-whisperback:

@@ -7,7 +7,7 @@ from tailsgreeter.translatable_window import TranslatableWindow
 
 gi.require_version("Gdk", "3.0")
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gdk, Gtk
+from gi.repository import Gdk, Gtk  # NOQA: E402
 
 if TYPE_CHECKING:
     from tailsgreeter.ui.settings_collection import GreeterSettingsCollection
@@ -25,7 +25,7 @@ class AddSettingsDialog(Gtk.Dialog, TranslatableWindow):
         self.listbox = builder.get_object("listbox_add_setting")
 
         for setting in self.settings.additional_settings:
-            logging.debug("Adding '%s' to additional settings listbox", setting.id)
+            logging.debug("Adding '%s' to additional settings listbox", setting.name)
             self.listbox.add(setting.listboxrow)
 
         self.set_transient_for(self)
