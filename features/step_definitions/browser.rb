@@ -448,6 +448,7 @@ Then(/^the screen keyboard works in Tor Browser$/) do
   when 'Persian'
     osk_key_images = ['ScreenKeyboardKeyCommaPersian.png',
                       'ScreenKeyboardKeyCommaPersian_alt.png',]
+    browser_bar_x = 'BrowserAddressBarCommaRTL.png'
   end
   step 'I start the Tor Browser'
   step 'I open a new tab in the Tor Browser'
