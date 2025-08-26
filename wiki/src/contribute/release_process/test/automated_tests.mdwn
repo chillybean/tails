@@ -78,12 +78,7 @@ to rebuild images first. To do so:
 1. On the corresponding `test_Tail_ISO_*` job page, click _Build with
    Parameters_.
 
-2. Set the `UPSTREAMJOB_BUILD_NUMBER` parameter the ID of the `build_Tail_ISO_*`
-   job build you want to test, for example `10`.
-
-   Known issue: <https://gitlab.torproject.org/tpo/tpa/tails/sysadmin/-/issues/18133>
-
-3. Optionally, you may also pass arbitrary arguments to Cucumber
+2. Optionally, you may also pass arbitrary arguments to Cucumber
    via the `EXTRA_CUCUMBER_ARGS` job parameter. For example:
 
    - If you set this parameter to `features/mac_spoofing.feature`, then Cucumber
