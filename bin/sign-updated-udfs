@@ -8,8 +8,8 @@ sign() {
 
     for _ in 1 2 3; do
         if gpg -u "${TAILS_SIGNATURE_KEY:?}" \
-               --armor \
-               --detach-sign "${udf:?}"; then
+            --armor \
+            --detach-sign "${udf:?}"; then
             break
         fi
     done
@@ -17,8 +17,7 @@ sign() {
     "${RELEASE_CHECKOUT:?}/config/chroot_local-includes/usr/src/iuk/bin/tails-iuk-check-upgrade-description-file" "${udf:?}"
 }
 
-if [ "$#" -gt 0 ]
-then
+if [ "$#" -gt 0 ]; then
     for udf in "$@"; do
         sign "$1" || exit 1
     done
@@ -27,7 +26,7 @@ fi
 
 cd "${RELEASE_CHECKOUT:?}"
 find "${RELEASE_CHECKOUT:?}/wiki/src/upgrade/" \
-     -type f -name upgrades.yml | \
+    -type f -name upgrades.yml |
     while read -r udf; do
         if [ -n "$(git status --porcelain "${udf:?}")" ]; then
             sign "${udf:?}" || break

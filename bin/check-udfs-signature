@@ -13,14 +13,14 @@ usage() {
 
 while getopts 'sh' opt; do
     case "$opt" in
-        s)
+    s)
         SIGN_FAILING=true
         ;;
-        h)
+    h)
         usage
         exit 0
         ;;
-        *)
+    *)
         usage >&2
         exit 2
         ;;
@@ -33,8 +33,8 @@ getUpgradesYml() {
     nextVersion=$((thisVersion + 1))
     find "$UDFS_DIR/Tails/" \
         -regex ".*/Tails/[${thisVersion}${prevVersion}${nextVersion}].*" \
-        -type f -name upgrades.yml \
-        | LC_ALL=C sort
+        -type f -name upgrades.yml |
+        LC_ALL=C sort
 }
 
 error=false
