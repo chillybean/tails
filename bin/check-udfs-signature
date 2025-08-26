@@ -60,13 +60,13 @@ while read -r upgradesYml; do
     if ! sqop verify "${upgradesYml}.pgp" wiki/src/tails-signing.key \
         <"${upgradesYml}" &>/dev/null; then
         err "${upgradesYml}.pgp" "invalid signature"
-        "$SIGN_FAILING" && sign "${upgradesYml}"
+        "$SIGN_FAILING" && ./bin/sign-udfs "${upgradesYml}"
         continue
     fi
     if ! sqop verify "${upgradesYml}.pgp" wiki/src/tails-signing-minimal.key \
         <"${upgradesYml}" &>/dev/null; then
         err "${upgradesYml}.pgp" "valid with tails-signing.key, but not with tails-signing-minimal.key" >&2
-        "$SIGN_FAILING" && ./bin/sign-updated-udfs "${upgradesYml}"
+        "$SIGN_FAILING" && ./bin/sign-udfs "${upgradesYml}"
     fi
 done < <(getUpgradesYml)
 
