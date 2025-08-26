@@ -12,20 +12,14 @@ Then /^the Unsafe Browser has no bookmarks$/ do
   info = xul_application_info('Unsafe Browser')
   # "Show all bookmarks"
   @screen.press('shift', 'ctrl', 'o')
-  @screen.wait('UnsafeBrowserExportBookmarksButton.png', 20).click
-  @screen.wait('UnsafeBrowserExportBookmarksButtonSelected.png', 20)
-  @screen.wait('UnsafeBrowserExportBookmarksMenuEntry.png', 20).click
-  @screen.wait('UnsafeBrowserExportBookmarksSavePrompt.png', 20)
-  # This prompt defaults to $HOME/Desktop which is inaccessible due to
-  # AppArmor confinement, so there is a permission error message that
-  # we have to close.
-  @screen.press('Escape')
-  sleep 1
+  bookmarks_frame = @unsafe_browser.child('Library', roleName: 'frame')
+  bookmarks_frame.child('Import and Backup', roleName: 'menu').click
+  bookmarks_frame.child('Backup…', roleName: 'menu item').click
+  file_chooser = @unsafe_browser.child('Bookmarks backup filename',
+                                       roleName: 'file chooser')
   path = "/home/#{info[:user]}/Downloads/bookmarks.json"
-  # The .json extension is automatically added in this prompt so we
-  # avoid adding it again.
-  @screen.paste(path.sub(/[.]json$/, ''))
-  @screen.press('Return')
+  file_chooser.child(roleName: 'text').text = path
+  file_chooser.button('Save').click
   try_for(10) { $vm.file_exist?(path) }
   dump = JSON.parse($vm.file_content(path))
 
