@@ -100,7 +100,7 @@ class ReportGenerator:
                 "iid": event.target_iid,
             }
             for event in closed_issues_events
-            if event.target_type in ['Issue', 'WorkItem']
+            if event.target_type in ["Issue", "WorkItem"]
         ]
         gl_closed_issues = []
         for issue in gl_closed_issues_with_duplicates:
