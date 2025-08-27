@@ -2080,7 +2080,7 @@ Check in the comments of the issue for the release notes if the
 technical writers have prepared a tweet. Otherwise tweet a simple link
 to the release notes:
 
-    echo "Tails ${VERSION:?} is out:\n\nhttps://tails.net/news/version_${TAG:?}/"
+    printf "Tails ${VERSION:?} is out:\n\nhttps://tails.net/news/version_${TAG:?}/\n"
 
 To login, use your [vault](https://gitlab.torproject.org/tpo/tpa/team/-/wikis/service/vault)
 client.
