@@ -118,8 +118,7 @@ has 'running_system' =>
     is      => 'lazy',
     isa     => InstanceOf['Tails::RunningSystem'],
     handles => [
-        qw{upgrade_description_file_url upgrade_description_sig_url},
-        qw{product_name initial_install_version build_target channel}
+        qw{product_name build_target}
     ];
 
 has 'free_space' =>
