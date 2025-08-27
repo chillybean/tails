@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
 "POT-Creation-Date: 2025-08-06 10:13+0000\n"
-"PO-Revision-Date: 2025-08-07 10:56+0000\n"
-"Last-Translator: xin <xin@riseup.net>\n"
+"PO-Revision-Date: 2025-08-25 08:14+0000\n"
+"Last-Translator: Chre <tor@renaudineau.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -365,10 +365,11 @@ msgstr ""
 "moins que votre clé USB Tails."
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid "   A new disk appears in the sidebar of the *Files* browser.\n"
+#, no-wrap
 msgid "   A new volume appears in the sidebar of the *Files* browser.\n"
-msgstr "   Un nouveau disque apparaît dans la barre latérale du navigateur de *Fichiers*.\n"
+msgstr ""
+"   Un nouveau volume apparaît dans la barre latérale du navigateur de "
+"*Fichiers*.\n"
 
 #. type: Bullet: '1. '
 msgid ""
@@ -377,14 +378,13 @@ msgid ""
 "shortcut menu."
 msgstr ""
 "Faites un clic droit (sur Mac, cliquez avec deux doigts) sur le nouveau "
-"volume qui apparaît dans la barre latérale du navigateur de *Fichiers* et "
+"volume qui est apparu dans la barre latérale du navigateur de *Fichiers* et "
 "choisissez *Propriétés* dans le menu de raccourci."
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid "   Take note of the free space in the disk.\n"
+#, no-wrap
 msgid "   Take note of the free space in the volume.\n"
-msgstr "   Notez l'espace libre sur le disque.\n"
+msgstr "   Notez l'espace libre dans le volume.\n"
 
 #. type: Plain text
 #, no-wrap
@@ -584,16 +584,12 @@ msgid "In the **Name** field, specify *persistent-storage.img*."
 msgstr "Dans le champ **Nom**, indiquez *stockage-persistant.img*."
 
 #. type: Bullet: '   - '
-#, fuzzy
-#| msgid ""
-#| "In the **Save in Folder** menu, choose the external disk to which you "
-#| "want to save the partition image."
 msgid ""
 "In the **Save in Folder** menu, choose the external hard disk to which you "
 "want to save the partition image."
 msgstr ""
-"Dans le menu **Enregistrer dans le dossier**, choisissez le disque externe "
-"dans lequel vous voulez enregistrer l'image de partition."
+"Dans le menu **Enregistrer dans le dossier**, choisissez le disque dur "
+"externe dans lequel vous voulez enregistrer l'image de partition."
 
 #. type: Plain text
 #, no-wrap
@@ -896,8 +892,9 @@ msgid ""
 "   If the repair takes more than a day, shutdown Tails and try [[analyzing the\n"
 "   partition image using *Autopsy*|fsck#autopsy]] instead.\n"
 msgstr ""
-"   Si la réparation prend plus d'un jour, éteignez Tails et [[analysez l'image\n"
-"   de partition en utilisant *Autopsy*|fsck#autopsy]] à la place.\n"
+"   Si la réparation prend plus d'un jour, éteignez Tails et essayez à la "
+"place d'[[analyser l'image\n"
+"   de partition en utilisant *Autopsy*|fsck#autopsy]].\n"
 
 #. type: Plain text
 #, no-wrap
@@ -924,7 +921,9 @@ msgstr "     <div class=\"tip\">\n"
 #. type: Plain text
 #, no-wrap
 msgid "     <p>We recommend that you keep the partition image for some time.</p>\n"
-msgstr "     <p>Nous vous recommandons de garder l'image de partition quelques temps.</p>\n"
+msgstr ""
+"     <p>Nous vous recommandons de garder l'image de partition quelques "
+"temps.</p>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -933,8 +932,10 @@ msgid ""
 "     might be able to recover them by [[analyzing the partition image using\n"
 "     <i>Autopsy</i>|fsck#autopsy]].</p>\n"
 msgstr ""
-"     <p>Si vous constatez après coup que certains fichiers sont manquants ou endommagés, vous\n"
-"     pourriez encore les récupérer en [[analysant l'image de partition en utilisant\n"
+"     <p>Si vous constatez après coup que certains fichiers sont manquants ou "
+"endommagés, vous\n"
+"     pourriez encore les récupérer en [[analysant l'image de partition en "
+"utilisant\n"
 "     <i>Autopsy</i>|fsck#autopsy]].</p>\n"
 
 #. type: Plain text
@@ -953,7 +954,8 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "<h2 id=\"copy\">Copying the partition image to a new USB stick</h2>\n"
-msgstr "<h2 id=\"copy\">Copier l'image de partition sur une nouvelle clé USB</h2>\n"
+msgstr ""
+"<h2 id=\"copy\">Copier l'image de partition sur une nouvelle clé USB</h2>\n"
 
 #. type: Plain text
 msgid ""
@@ -961,6 +963,9 @@ msgid ""
 "repair the file system of your Persistent Storage after copying the "
 "partition image to a new USB stick."
 msgstr ""
+"Si le matériel de votre clé USB est défaillant, vous devriez encore pouvoir "
+"réparer le système de fichiers de votre stockage persistant après avoir "
+"copié l'image de partition sur une nouvelle clé USB."
 
 #. type: Plain text
 #, no-wrap
@@ -969,7 +974,7 @@ msgstr "<h3 id=\"install\">Création d'une nouvelle clé USB Tails avec stockage
 
 #. type: Bullet: '1. '
 msgid "[[Install Tails|install]] on a new USB stick."
-msgstr "[[Installer Tails|install]] sur une nouvelle clé USB."
+msgstr "[[Installez Tails|install]] sur une nouvelle clé USB."
 
 #. type: Plain text
 #, no-wrap
@@ -990,7 +995,7 @@ msgstr ""
 
 #. type: Bullet: '1. '
 msgid "Create a Persistent Storage on the new Tails."
-msgstr ""
+msgstr "Créez un stockage persistant sur le nouveau Tails."
 
 #. type: Bullet: '1. '
 msgid ""

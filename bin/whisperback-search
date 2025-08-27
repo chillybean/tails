@@ -65,6 +65,11 @@ class WhisperbackParts:
         raise Unknown
 
     @property
+    def has_debugging_info(self) -> bool:
+        """returns False iff the message only includes the preamble"""
+        return not (len(self.parts) == 1 and "preamble" in self.parts)
+
+    @property
     def questions(self) -> list[tuple[str, str]]:
         q_a = user_questions.split(self.parts["preamble"])
         firstpart = q_a.pop(0)  # this is before questions are asked
@@ -205,7 +210,7 @@ class WhisperbackReport:
 
         This might be different from the running version.
         """
-        version = re.compile(r'''VERSION="([0-9.]+)"''')
+        version = re.compile(r'''VERSION="([0-9a-z.~]+)"''')
         m = version.search(
             self.parts["/lib/live/mount/rootfs/filesystem.squashfs/etc/os-release"]
         )
@@ -217,7 +222,7 @@ class WhisperbackReport:
     def version(self) -> str:
         """returns the running version"""
         m = re.search(
-            r'''^VERSION="([0-9.~-]+)"''',
+            r'''^VERSION="([0-9a-z.~-]+)"''',
             self.parts["preamble"],
             flags=re.MULTILINE,
         )
