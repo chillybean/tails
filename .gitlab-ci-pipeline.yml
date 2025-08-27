@@ -357,6 +357,19 @@ apt-snapshots-expiry:
   - "! ./https-get-expired -reject-expired https://nxdomain.tails.net/"
   - "./bin/test-utils/https-get-expired-test-all"
 
+check-target-branch-for-rm-config-change:
+  rules:
+    - if: $CI_PIPELINE_SOURCE != "merge_request_event"
+      when: never
+    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"
+      when: never
+    - changes:
+        - bin/rm-config
+  script:
+    - echo "rm-config changes should target the master branch."
+    - echo "For details, see tails/tails#21175."
+    - exit 1
+
 https-get-expired:
   rules:
     - if: '$CI_COMMIT_BRANCH =~ /^stable|testing|devel$/'
