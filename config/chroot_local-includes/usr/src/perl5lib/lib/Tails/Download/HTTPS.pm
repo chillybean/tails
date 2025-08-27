@@ -76,6 +76,7 @@ Throws an exception on detected failure.
 =cut
 
 method get_url (Str $url) {
+    say STDERR "Downloading $url";
     my $curl  = WWW::Curl::Easy->new;
     $curl->setopt(CURLOPT_URL, $url);
     while (my ($k, $v) = each(%{$self->curl_opts})) {
