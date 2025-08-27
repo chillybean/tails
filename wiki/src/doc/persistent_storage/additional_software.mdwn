@@ -197,29 +197,29 @@ connections are blocked by default for security.
 
 To make an application use the Tor network, you can either:
 
-A. Configure the application to use Tor as a proxy with the following parameters:
+- Configure the application to use Tor as a proxy with the following parameters:
 
-   * Type: SOCKS5
-   * Host: 127.0.0.1
-   * Port: 9050
+  * Type: SOCKS5
+  * Host: 127.0.0.1
+  * Port: 9050
 
-   For example, to use *Mumble* in Tails, you can configure Tor as proxy in the
-   network configuration of *Mumble*:
+  For example, to use *Mumble* in Tails, you can configure Tor as proxy in the
+  network configuration of *Mumble*:
 
-   [[!img mumble.png link="no" alt="Network configuration of Mumble with proxy settings"]]
+  [[!img mumble.png link="no" alt="Network configuration of Mumble with proxy settings"]]
 
-B. Run the application using `torsocks` on the command line.
+- Run the application using `torsocks` on the command line.
 
-   Execute the following command in a *Console*. Replace
-   <span class="command-placeholder">application</span> with the command line
-   of the application that you want to run.
+  Execute the following command in a *Console*. Replace
+  <span class="command-placeholder">application</span> with the command line
+  of the application that you want to run.
 
-   <p class="command-template">torsocks <span class="command-placeholder">application</span></p>
+  <p class="command-template">torsocks <span class="command-placeholder">application</span></p>
 
-   For example, to use *Mumble* in Tails, you can also execute the following
-   command:
+  For example, to use *Mumble* in Tails, you can also execute the following
+  command:
 
-   <p class="command">torsocks mumble</p>
+  <p class="command">torsocks mumble</p>
 
 ### Technical networking considerations
 
