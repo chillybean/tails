@@ -78,19 +78,22 @@ to rebuild images first. To do so:
 1. On the corresponding `test_Tail_ISO_*` job page, click _Build with
    Parameters_.
 
-2. Set the `UPSTREAMJOB_BUILD_NUMBER` parameter the ID of the `build_Tail_ISO_*`
-   job build you want to test, for example `10`.
+2. Optionally, you may also pass arbitrary arguments to:
 
-   Known issue: <https://gitlab.torproject.org/tpo/tpa/tails/sysadmin/-/issues/18133>
+   - `run_test_suite`, via the `EXTRA_SUITE_ARGS` job parameter.
 
-3. Optionally, you may also pass arbitrary arguments to Cucumber
-   via the `EXTRA_CUCUMBER_ARGS` job parameter. For example:
+     For example, you can pass `--disable-chutney` so that all tests use the
+     real Tor network.
 
-   - If you set this parameter to `features/mac_spoofing.feature`, then Cucumber
-     will run only the scenarios from the `mac_spoofing.feature` feature.
+   - Cucumber, via the `EXTRA_CUCUMBER_ARGS` job parameter.
 
-   - If you set this parameter to `--tags @automatic_upgrade`, then Cucumber
-     will run only the scenarios that are tagged `@automatic_upgrade`.
+     For example:
+
+     - If you set this parameter to `features/mac_spoofing.feature`, then Cucumber
+       will run only the scenarios from the `mac_spoofing.feature` feature.
+
+     - If you set this parameter to `--tags @automatic_upgrade`, then Cucumber
+       will run only the scenarios that are tagged `@automatic_upgrade`.
 
 ### Developer access to the Jenkins infrastructure
 
