@@ -316,7 +316,7 @@ Check that you are indeed preparing a RC:
 
     [ "${DIST:?}" = alpha ]
 
-Follow this part ONLY if you are preparing the release candidate for a major release.
+Follow this part ONLY if you are preparing the *first* release candidate for a major release.
 
 
 1. Merge the `master` Git branch into `devel`:
@@ -395,7 +395,7 @@ Bootstrap internal manual testing coordination:
 
 1. To give the pad a clear title, add this section on top:
 
-        echo "---\ntitle: Testing ${VERSION:?}\n---"
+        printf -- "---\ntitle: Testing ${VERSION:?}\n---\n"
 
 2. Set the `PAD` environment variable to the URL of this pad.
 
@@ -576,6 +576,10 @@ Update the Changelog entry for the release you're preparing:
 ### If you are preparing a major release (final or RC)
 
  - `[ "${DIST:?}" = alpha ] || [ "${MAJOR_RELEASE:?}" -eq 1 ]`
+
+ - The generated changelog will include everything from any previous
+   release candidates, so please make sure the new Changelog entry
+   only contains merge requests introduced in this release.
 
  - For each merge request listed in the new Changelog entry,
    copy the "Closes: #NNNNNN" string from the MR description into the relevant
@@ -1944,12 +1948,16 @@ Wait for the HTTP mirrors to catch up
 Look at the mirror status.
 
     (
-      base='https://download.tails.net/tails/stable'
-      echo \
-        "${base}/iuk/v2/Tails_amd64_${PREVIOUS_STABLE_VERSION:?}_to_${VERSION:?}.iuk?mirrorlist" \
-        "${base}/tails-amd64-${VERSION:?}/tails-amd64-${VERSION:?}.iso?mirrorlist" \
-        "${base}/tails-amd64-${VERSION:?}/tails-amd64-${VERSION:?}.img?mirrorlist" \
-    )
+      base="https://download.tails.net/tails/${DIST:?}"
+      if [ "$((${VERSION%%.*}))" = "$((${PREVIOUS_STABLE_VERSION%%.*}))" ]; then
+          echo "${base}/iuk/v2/Tails_amd64_${PREVIOUS_STABLE_VERSION:?}_to_${VERSION:?}.iuk?mirrorlist"
+      fi
+      if [ "$((${VERSION%%.*}))" = "$((${PREVIOUS_VERSION%%.*}))" ]; then
+          echo "${base}/iuk/v2/Tails_amd64_${PREVIOUS_VERSION:?}_to_${VERSION:?}.iuk?mirrorlist"
+      fi
+      echo "${base}/tails-amd64-${VERSION:?}/tails-amd64-${VERSION:?}.iso?mirrorlist"
+      echo "${base}/tails-amd64-${VERSION:?}/tails-amd64-${VERSION:?}.img?mirrorlist"
+    ) | sort -u
 
 Wait for each of these pages to include:
  - at least 6 working mirrors
