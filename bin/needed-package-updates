@@ -94,6 +94,10 @@ class NotFoundError(Exception):
     pass
 
 
+class NewerThanDebianError(Exception):
+    pass
+
+
 @dataclass
 class UDDPackageRow:
     package: str
@@ -172,6 +176,7 @@ class UDD:
         return package[suite].version
 
     def get_debian_version(self, name: str, version: Version) -> tuple:
+        suite_version = None
         for suite in self.suites:
             try:
                 suite_version = self.version(name, suite)
@@ -179,13 +184,17 @@ class UDD:
                 continue
             if version <= suite_version:
                 return (suite, suite_version)
-        try:
-            error_msg = f"{name}: the package version({version}) is higher than the version on {suite} ({suite_version})"
-        # Raised if suite_version is not defined, meaning that the package was not found in any of the suites
-        except NameError:
-            error_msg = f"{name}: the package was not found in any of the Debian suites"
-
-        raise NotFoundError(error_msg)
+        if suite_version is not None:
+            # We found the package in at least 1 Debian suite, but our
+            # version was always strictly larger than theirs
+            raise NewerThanDebianError(
+                f"{name}: the package version ({version}) is higher than "
+                f"the newest version in Debian ({suite_version})"
+            )
+        else:
+            raise NotFoundError(
+                f"{name}: the package was not found in any of the Debian suites"
+            )
 
     def packages_by_source(self, source: str, suite: str) -> set[str]:
         ret = set()
@@ -239,6 +248,9 @@ def get_issues(udd: UDD, package_dict: dict[str, Version]) -> Iterator[NewVersio
             suite, suite_version = udd.get_debian_version(package, striped_version)
         except NotFoundError as e:
             logger.error(e)
+            continue
+        except NewerThanDebianError as e:
+            logger.warning(e)
             continue
 
         if striped_version < suite_version:
@@ -372,7 +384,6 @@ def get_suites(min_codename: str) -> list:
                     f"{suite}-security",
                     suite,
                     f"{suite}-updates",
-                    f"{suite}-proposed-updates",
                     f"{suite}-backports",
                 ],
             )
