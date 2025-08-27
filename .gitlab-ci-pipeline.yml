@@ -365,6 +365,8 @@ check-target-branch-for-rm-config-change:
       when: never
     - changes:
         - bin/rm-config
+        - config/release_management/*.yml
+        - config/release_management/templates/*.yml
   script:
     - echo "rm-config changes should target the master branch."
     - echo "For details, see tails/tails#21175."
