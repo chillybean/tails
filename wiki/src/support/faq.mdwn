@@ -260,8 +260,12 @@ Currently, Tails does not work with VPNs.
 Tor provides anonymity by making it impossible for a single point in the
 network to know both the origin and destination of a connection.
 
+[[!img doc/anonymous_internet/tor/tor.png link="no" class="svg" alt="A Tor connection goes through 3 relays with the last one establishing the actual connection to the final destination"]]
+
 Unlike Tor, VPNs don't provide strong anonymity because the VPN provider can
 see both where you are connecting from and where you are connecting to.
+
+[[!img doc/anonymous_internet/tor/vpn.png link="no" class="svg" alt="A VPN connection goes through a single relay"]]
 
 But VPNs have clear benefits over Tor in some situations where strong anonymity
 is not needed, for example:
