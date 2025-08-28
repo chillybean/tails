@@ -316,7 +316,7 @@ Check that you are indeed preparing a RC:
 
     [ "${DIST:?}" = alpha ]
 
-Follow this part ONLY if you are preparing the release candidate for a major release.
+Follow this part ONLY if you are preparing the *first* release candidate for a major release.
 
 
 1. Merge the `master` Git branch into `devel`:
@@ -395,7 +395,7 @@ Bootstrap internal manual testing coordination:
 
 1. To give the pad a clear title, add this section on top:
 
-        echo "---\ntitle: Testing ${VERSION:?}\n---"
+        printf -- "---\ntitle: Testing ${VERSION:?}\n---\n"
 
 2. Set the `PAD` environment variable to the URL of this pad.
 
@@ -577,9 +577,16 @@ Update the Changelog entry for the release you're preparing:
 
  - `[ "${DIST:?}" = alpha ] || [ "${MAJOR_RELEASE:?}" -eq 1 ]`
 
+ - The generated changelog will include everything from any previous
+   release candidates, so please make sure the new Changelog entry
+   only contains merge requests introduced in this release.
+
  - For each merge request listed in the new Changelog entry,
    copy the "Closes: #NNNNNN" string from the MR description into the relevant
    section of the Changelog.
+
+   If you're tempted to skip this step, see the [last discussion on this
+   topic](https://gitlab.tails.boum.org/tails/tails/-/issues/21151#note_266794).
 
 ### In any case
 
@@ -910,8 +917,10 @@ Jenkins workers.
 
 1. Manually start a build of the release branch on Jenkins, removing
    other builds from the _Build Queue_ if needed so it can start
-   immediately. Take note of which job number was used for later (see
-   `matching_jenkins_images_build_id` below).
+   immediately.
+
+   Set the `MATCHING_JENKINS_IMAGES_BUILD_ID` environment variable to the ID of
+   this build.
 
    Note that Jenkins automatically started a build earlier when you
    pushed the tag, but since the versioned APT suite wasn't finished
@@ -945,7 +954,7 @@ Verify that Jenkins reproduced your images:
     (
      set -eu
      cd "${ARTIFACTS:?}"
-     url="https://nightly.tails.boum.org/build_Tails_ISO_${RELEASE_BRANCH:?}/lastSuccessful/archive/build-artifacts/tails-build-artifacts.shasum"
+     url="https://nightly.tails.boum.org/build_Tails_ISO_${RELEASE_BRANCH:?}/builds/${MATCHING_JENKINS_IMAGES_BUILD_ID:?}/archive/build-artifacts/tails-build-artifacts.shasum"
      curl "$url" > SHA512SUMS-jenkins.txt
      grep --perl-regexp '[.]img|iso' SHA512SUMS-jenkins.txt | sha512sum -c -
     )
@@ -954,7 +963,6 @@ Verify that Jenkins reproduced your images:
 
 yay, we're good to go!
 
-The `.build-manifest` may differ — that's OK.
 Then:
 
 1. To update the `~/.config/tails/release_management/current.yml` template
@@ -964,7 +972,7 @@ Then:
 
 2. Edit `~/.config/tails/release_management/current.yml`
    and set the `matching_jenkins_images_build_id` value
-   to the ID of this job (an integer):
+   to the value of `$MATCHING_JENKINS_IMAGES_BUILD_ID`:
 
        "${EDITOR:?}" ~/.config/tails/release_management/current.yml
 
@@ -1122,7 +1130,7 @@ To build the IUKS, run this command:
        set -o pipefail
        WORK_DIR=$(mktemp -d)
        TAILS_REMOTE="$(git -C "${RELEASE_CHECKOUT:?}" remote get-url origin)"
-       PUPPET_TAILS_REMOTE=$(echo -n "${TAILS_REMOTE:?}" | perl -p -E 's,:tails/tails(?:[.]git)?\z,:tails/puppet-tails,')
+       PUPPET_TAILS_REMOTE=$(echo -n "${TAILS_REMOTE:?}" | perl -p -E 's,([:/])tails/tails([.]git)?\z,$1tails/puppet-tails$2,')
        cd "${WORK_DIR:?}"
        git clone "$PUPPET_TAILS_REMOTE"
        TMPFILES_CONF=/etc/tmpfiles.d/tails-create-iuks.conf
@@ -1193,28 +1201,7 @@ Make sure that Jenkins has finished building the images so you have set
 Then, wait (a few minutes, `*/15` crontab) until the images appear
 on <https://iso-history.tails.boum.org/?C=M&O=D>:
 
-
-    (
-        dirurl="https://iso-history.tails.boum.org/tails-amd64-${VERSION:?}/"
-        isourl="${dirurl}tails-amd64-${VERSION:?}.iso"
-        isopath="$ISOS/tails-amd64-${VERSION:?}/tails-amd64-${VERSION:?}.iso"
-        while ! curl --silent --fail --head "$isourl" > /dev/null; do
-            sleep 10
-        done
-        echo "Dir created: ${dirurl}"
-        expected_size="$(stat -L -c %s "${isopath}")"
-        while true
-        do
-            size=$(curl --silent --head "${isourl}" | grep -iPo '^content-length:\s*\K\d+')
-            echo "FOUND: ${size} bytes"
-            if [ "$size" -eq "${expected_size}" ]; then
-                echo 'FOUND: ready'
-                notify-send "Image published" 'found in ISO history'
-                exit 0
-            fi
-            sleep 10
-        done
-    )
+    "${RELEASE_CHECKOUT:?}/bin/wait-for-images-in-iso-history" "${VERSION:?}" "${ISOS:?}"
 
 <a id="build-iuks-on-jenkins"></a>
 
@@ -1302,7 +1289,8 @@ Otherwise, see the next sections.
 
 ### If it fails with `urllib.error.HTTPError: HTTP Error 404: Not Found`
 
-This problem can be expected when we are maintaining Tails `N.x` together with Tails `(N+1).y`.
+This problem can be expected when we are maintaining Tails `N.x` together with Tails `(N+1).y`
+(for details, see [[!tails_ticket 18959]]).
 
 If this is the case:
 
@@ -1413,7 +1401,11 @@ Prepare upgrade-description files
                         --next_version="${SECOND_NEXT_PLANNED_MAJOR_VERSION:?}"
                 fi
             ) \
-                --next_version="$((${VERSION%%.*}+1)).0~{beta,rc}{1,2,3}" \
+            $( \
+                for version in "$((${VERSION%%.*}+1)).0~"{beta,rc}{1,2,3}; do
+                   echo --next_version=${version:?}
+                done \
+            ) \
             $( \
                 for version in $(echo ${IUK_SOURCE_VERSIONS?}); do
                    echo "--previous_version=${version:?}"
@@ -1770,7 +1762,7 @@ Lead the internal manual testing to conclusion
           echo ${TEST_IUK_SOURCE_VERSIONS:?}
 
 
-1. Fill the holes and make sure that the automated and manual test
+1. Fill the gaps and make sure that the automated and manual test
    suites are done in due time.
 
 1. If you were the one running the [automated test suite](#run-automated-tests),
@@ -1956,12 +1948,16 @@ Wait for the HTTP mirrors to catch up
 Look at the mirror status.
 
     (
-      base='https://download.tails.net/tails/stable'
-      echo \
-        "${base}/iuk/v2/Tails_amd64_${PREVIOUS_STABLE_VERSION:?}_to_${VERSION:?}.iuk?mirrorlist" \
-        "${base}/tails-amd64-${VERSION:?}/tails-amd64-${VERSION:?}.iso?mirrorlist" \
-        "${base}/tails-amd64-${VERSION:?}/tails-amd64-${VERSION:?}.img?mirrorlist" \
-    )
+      base="https://download.tails.net/tails/${DIST:?}"
+      if [ "$((${VERSION%%.*}))" = "$((${PREVIOUS_STABLE_VERSION%%.*}))" ]; then
+          echo "${base}/iuk/v2/Tails_amd64_${PREVIOUS_STABLE_VERSION:?}_to_${VERSION:?}.iuk?mirrorlist"
+      fi
+      if [ "$((${VERSION%%.*}))" = "$((${PREVIOUS_VERSION%%.*}))" ]; then
+          echo "${base}/iuk/v2/Tails_amd64_${PREVIOUS_VERSION:?}_to_${VERSION:?}.iuk?mirrorlist"
+      fi
+      echo "${base}/tails-amd64-${VERSION:?}/tails-amd64-${VERSION:?}.iso?mirrorlist"
+      echo "${base}/tails-amd64-${VERSION:?}/tails-amd64-${VERSION:?}.img?mirrorlist"
+    ) | sort -u
 
 Wait for each of these pages to include:
  - at least 6 working mirrors
@@ -2041,8 +2037,8 @@ Skip this part if preparing a release candidate:
    A cheap way to do this, could be to use [Gitlab web interface to create the
 MR](https://gitlab.tails.boum.org/tails/gitlab-config/-/edit/master/main.yml)
 
-   Assign the MR to the on-duty sysadmin (see link to "Semi-public
-   calendar" in <https://gitlab.tails.boum.org/tails/summit/-/wikis/Teams#sysadmins>).
+   Assign the MR to the on-duty sysadmin (see the *Tails sysadmin shifts*
+   calendar on NextCloud).
 
 ### Issues linked from the website
 
@@ -2054,8 +2050,8 @@ MR](https://gitlab.tails.boum.org/tails/gitlab-config/-/edit/master/main.yml)
 
 2. Create a GitLab issue to list them.
 
-   Title: *Issues linked from the website for Tails $VERSION*
-   Labels: *Core Work:Technical writing* and *To Do*
+   - Title: *Issues linked from the website for Tails $VERSION*
+   - Labels: *Core Work:Technical writing* and *To Do*
 
 Wait for the website update
 ---------------------------
@@ -2092,7 +2088,7 @@ Check in the comments of the issue for the release notes if the
 technical writers have prepared a tweet. Otherwise tweet a simple link
 to the release notes:
 
-    echo "Tails ${VERSION:?} is out: https://tails.net/news/version_${TAG:?}/"
+    printf "Tails ${VERSION:?} is out:\n\nhttps://tails.net/news/version_${TAG:?}/\n"
 
 To login, use your [vault](https://gitlab.torproject.org/tpo/tpa/team/-/wikis/service/vault)
 client.
