@@ -59,7 +59,7 @@ err() {
 while read -r upgradesYml; do
     if ! sqop verify "${upgradesYml}.pgp" wiki/src/tails-signing.key \
         <"${upgradesYml}" &>/dev/null; then
-        err "${upgradesYml}.pgp" "invalid signature"
+        err "${upgradesYml}.pgp" "invalid signature with tails-signing.key"
         if "$SIGN_FAILING"; then
             ./bin/sign-udfs "${upgradesYml}"
         fi
