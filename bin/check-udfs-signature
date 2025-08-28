@@ -28,7 +28,7 @@ while getopts 'sh' opt; do
 done
 
 getUpgradesYml() {
-    thisVersion=${VERSION:0:1}
+    thisVersion=${VERSION%%.*}
     prevVersion=$((thisVersion - 1))
     nextVersion=$((thisVersion + 1))
     find "$UDFS_DIR/Tails/" \
