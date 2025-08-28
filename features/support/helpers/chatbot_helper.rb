@@ -15,7 +15,6 @@ class ChatBot
     if @opts[:connect_server]
       cmd += ['--connect-server', @opts[:connect_server]]
     end
-    cmd += ['--auto-join'] + @opts[:auto_join] if @opts[:auto_join]
     cmd += ['--log-file', DEBUG_LOG_PSEUDO_FIFO]
 
     job = IO.popen(cmd)

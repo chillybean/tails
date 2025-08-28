@@ -112,11 +112,6 @@ def click_mid_right_edge(pattern, **opts)
   @screen.click(target[0], target[1])
 end
 
-def triple_click_mid_right_edge(pattern, **opts)
-  target = mid_right_edge(pattern, **opts)
-  @screen.click(target[0], target[1], triple: true)
-end
-
 When /^I create my XMPP account$/ do
   account = xmpp_account('Tails_account')
   @screen.click('PidginAccountManagerAddButton.png')
@@ -153,10 +148,9 @@ Then /^Pidgin automatically enables my XMPP account$/ do
   @screen.wait('PidginAvailableStatus.png', 60 * 3)
 end
 
-Given /^my XMPP friend goes online( and joins the multi-user chat)?$/ do |join_chat|
+Given /^my XMPP friend goes online$/ do
   account = xmpp_account('Friend_account')
   bot_opts = account.select { |k, _| ['connect_server'].include?(k) }
-  bot_opts['auto_join'] = [@chat_room_jid] if join_chat
   @friend_name = account['username']
   @chatbot = ChatBot.new(
     "#{account['username']}@#{account['domain']}",
@@ -187,85 +181,21 @@ When /^I start a conversation with my friend$/ do
   @screen.wait('PidginConversationWindowMenuBar.png', 10)
 end
 
-And /^I say (.*) to my friend( in the multi-user chat)?$/ do |msg, multi_chat|
+And /^I say (.*) to my friend$/ do |msg|
   msg = 'ping' if msg == 'something'
-  if multi_chat
-    focus_window(@chat_room_jid.split('@').first)
-    msg = "#{@friend_name}: #{msg}"
-  else
-    focus_window(@friend_name)
-  end
+  focus_window(@friend_name)
   @screen.paste(msg)
   @screen.press('Return')
 end
 
-Then /^I receive a response from my friend( in the multi-user chat)?$/ do |multi_chat|
-  if multi_chat
-    focus_window(@chat_room_jid.split('@').first)
-  else
-    focus_window(@friend_name)
-  end
+Then /^I receive a response from my friend$/ do
+  focus_window(@friend_name)
   try_for(60) do
     if @screen.exists?('PidginServerMessage.png')
       @screen.click('PidginDialogCloseButton.png')
     end
     @screen.find('PidginFriendExpectedAnswer.png')
   end
-end
-
-# The reason the chat must be empty is to guarantee that we don't mix
-# up messages/events from other users with the ones we expect from the
-# bot.
-When /^I join some empty multi-user chat$/ do
-  focus_window('Buddy List')
-  @screen.click('PidginBuddiesMenu.png')
-  @screen.wait('PidginBuddiesMenuJoinChat.png', 10).click
-  @screen.wait('PidginJoinChatWindow.png', 10).click
-  click_mid_right_edge('PidginJoinChatRoomLabel.png')
-  account = xmpp_account('Tails_account')
-  chat_room = if account.key?('chat_room') && \
-                 !account['chat_room'].nil? && \
-                 !account['chat_room'].empty?
-                account['chat_room']
-              else
-                random_alnum_string(10, 15)
-              end
-  @screen.paste(chat_room)
-
-  # We will need the conference server later, when starting the bot.
-  click_mid_right_edge('PidginJoinChatServerLabel.png')
-  @screen.press('ctrl', 'a')
-  @screen.press('ctrl', 'c')
-  conference_server =
-    $vm.execute_successfully('xclip -o', user: LIVE_USER).stdout.chomp
-  @chat_room_jid = "#{chat_room}@#{conference_server}"
-
-  @screen.click('PidginJoinChatButton.png')
-  # The following will both make sure that the we joined the chat, and
-  # that it is empty. We'll also deal with the *potential* "Create New
-  # Room" prompt that Pidgin shows for some server configurations.
-  images = ['PidginCreateNewRoomPrompt.png',
-            'PidginChat1UserInRoom.png',]
-  image_found = @screen.wait_any(images, 30).image
-  if image_found == 'PidginCreateNewRoomPrompt.png'
-    @screen.wait('PidginCreateNewRoomAcceptDefaultsButton.png', 15).click
-  end
-  focus_window(@chat_room_jid)
-  @screen.wait('PidginChat1UserInRoom.png', 10)
-end
-
-# Since some servers save the scrollback, and sends it when joining,
-# it's safer to clear it so we do not get false positives from old
-# messages when looking for a particular response, or similar.
-When /^I clear the multi-user chat's scrollback$/ do
-  focus_window(@chat_room_jid)
-  @screen.click('PidginConversationMenu.png')
-  @screen.wait('PidginConversationMenuClearScrollback.png', 10).click
-end
-
-Then /^I can see that my friend joined the multi-user chat$/ do
-  focus_window(@chat_room_jid)
-  @screen.wait('PidginChat2UsersInRoom.png', 60)
 end
 
 def configured_pidgin_accounts
@@ -293,25 +223,6 @@ def configured_pidgin_accounts
   end
 
   accounts
-end
-
-def chan_image(account, channel, image)
-  images = {
-    'chat.disroot.org' => {
-      'tails' => {
-        'conversation_tab' => 'PidginTailsConversationTab',
-        'welcome'          => 'PidginTailsChannelWelcome',
-      },
-    },
-  }
-  "#{images[account][channel][image]}.png"
-end
-
-def default_chan(account)
-  chans = {
-    'chat.disroot.org' => 'tails',
-  }
-  chans[account]
 end
 
 When /^I open Pidgin's account manager window$/ do
@@ -355,61 +266,6 @@ def deactivate_and_activate_pidgin_account(account)
   step "I open Pidgin's account manager window"
   step "I activate the \"#{account}\" Pidgin account"
   step "I close Pidgin's account manager window"
-end
-
-Then /^Pidgin successfully connects to the "([^"]+)" account$/ do |account|
-  expected_channel_entry = chan_image(account, default_chan(account), 'roster')
-  reconnect_button = 'PidginReconnect.png'
-  recovery_on_failure = proc do
-    if @screen.exists?('PidginReconnect.png')
-      @screen.click('PidginReconnect.png')
-    else
-      deactivate_and_activate_pidgin_account(account)
-    end
-  end
-  retry_tor(recovery_on_failure) do
-    begin
-      focus_window('Buddy List')
-    rescue ExecutionFailedInVM
-      # Sometimes focusing the window with xdotool will fail with the
-      # conversation window right on top of it. We'll try to close the
-      # conversation window. At worst, the test will still fail...
-      close_pidgin_conversation_window(account)
-    end
-    on_screen = @screen.wait_any([expected_channel_entry, reconnect_button],
-                                 60).image
-    unless on_screen == expected_channel_entry
-      raise "Connecting to account #{account} failed."
-    end
-  end
-end
-
-Then /^I can join the "([^"]+)" channel on "([^"]+)"$/ do |channel, server|
-  focus_window('Buddy List')
-  @screen.wait('PidginBuddiesMenu.png', 20).click
-  @screen.wait('PidginBuddiesMenuJoinChat.png', 10).click
-  @screen.wait('PidginJoinChatWindow.png', 10).click
-  click_mid_right_edge('PidginJoinChatRoomLabel.png')
-  @screen.paste(channel)
-  # Replace the default server (which is based on the XMPP account
-  # being used by the client)
-  triple_click_mid_right_edge('PidginJoinChatServerLabel.png')
-  @screen.paste(server)
-  @screen.click('PidginJoinChatButton.png')
-  @chat_room_jid = "#{channel}@#{server}"
-  focus_window(@chat_room_jid)
-  @screen.hide_cursor
-  try_for(60) do
-    @screen.wait(chan_image(server, channel, 'conversation_tab'), 5).click
-  rescue FindFailed => e
-    # If the channel tab can't be found it could be because there were
-    # multiple connection attempts and the channel tab we want is off the
-    # screen. We'll try closing tabs until the one we want can be found.
-    @screen.press('ctrl', 'w')
-    raise e
-  end
-  @screen.hide_cursor
-  @screen.wait(chan_image(server, channel, 'welcome'), 10)
 end
 
 Then /^I take note of the configured Pidgin accounts$/ do

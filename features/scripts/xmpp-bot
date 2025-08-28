@@ -6,14 +6,11 @@ from argparse import ArgumentParser
 
 class XmppBot(slixmpp.ClientXMPP):
     def __init__(
-        self, account, password, rooms=None, connect_server=None, log_file=None
+        self, account, password, connect_server=None, log_file=None
     ):
-        if rooms is None:
-            rooms = []
         self.__connect_server = connect_server
         self.__password = password
         self.__log_file = log_file
-        self.__rooms = rooms
         super().__init__(account, password)
         self.send_raw_message_fn = self.raw_send
         self.add_event_handler("session_start", self.start)
@@ -30,11 +27,6 @@ class XmppBot(slixmpp.ClientXMPP):
     async def start(self, event):
         self.send_presence()
         await self.get_roster()
-        for room in self.__rooms:
-            self.join_room(room)
-
-    def join_room(self, room):
-        self.plugin["xep_0045"].join_muc(room, self.boundjid.user)
 
     def raw_send(self, msg):
         msg.send()
@@ -75,14 +67,6 @@ if __name__ == "__main__":
         help="use a Connect Server, given as host[:port] " + "(port defaults to 5222)",
     )
     parser.add_argument(
-        "-j",
-        "--auto-join",
-        nargs="+",
-        metavar="ROOMS",
-        help="auto-join multi-user chatrooms on start",
-        default=[],
-    )
-    parser.add_argument(
         "-l", "--log-file", metavar="LOGFILE", help="Log to file instead of stderr"
     )
     parser.add_argument(
@@ -99,7 +83,6 @@ if __name__ == "__main__":
     otr_bot = XmppBot(
         args.account,
         args.password,
-        rooms=args.auto_join,
         connect_server=args.connect_server,
         log_file=args.log_file,
     )
