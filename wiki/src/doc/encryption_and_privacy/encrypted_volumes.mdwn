@@ -22,6 +22,17 @@ encryption in Linux.
 
 - The GNOME desktop allows you to open encrypted volumes.
 
+<div class="attack">
+
+
+<p>Such encrypted volumes, like the Persistent Storage, are not hidden.</p>
+
+<p>An attacker in possession of the device can know that there is an encrypted
+volume on it. Take into consideration that you can be forced or tricked to give
+out its passphrase.</p>
+
+</div>
+
 <h2 id="comparison">Comparison between <i>LUKS</i> and <i>VeraCrypt</i></h2>
 
 You can also open *VeraCrypt* encrypted
@@ -187,12 +198,6 @@ After you finished using the partition, click on the [[!img lib/media-eject.png
 alt="Eject" class="symbolic" link="no"]] button next to the partition in the
 sidebar of the *Files* browser to eject the partition safety and lock again the
 encryption.
-
-<h1 id="storing">Storing sensitive documents</h1>
-
-Such encrypted volumes are not hidden. An attacker in possession of
-the device can know that there is an encrypted volume on it. Take into consideration
-that you can be forced or tricked to give out its passphrase.
 
 <h1 id="os">Opening encrypted volumes from other operating systems</h1>
 
