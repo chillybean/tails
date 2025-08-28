@@ -60,7 +60,9 @@ while read -r upgradesYml; do
     if ! sqop verify "${upgradesYml}.pgp" wiki/src/tails-signing.key \
         <"${upgradesYml}" &>/dev/null; then
         err "${upgradesYml}.pgp" "invalid signature"
-        "$SIGN_FAILING" && ./bin/sign-udfs "${upgradesYml}"
+        if "$SIGN_FAILING"; then
+            ./bin/sign-udfs "${upgradesYml}"
+        fi
         continue
     fi
     if ! sqop verify "${upgradesYml}.pgp" wiki/src/tails-signing-minimal.key \
