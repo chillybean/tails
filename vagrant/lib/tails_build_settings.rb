@@ -19,7 +19,7 @@ end
 # than our Jenkins instance. If you're building from RAM, we assume you are setting
 # $TAILS_BUILD_MEMORY in your environment.
 def vm_memory_for_ram_builds
-  15207
+  17000
 end
 
 # The builder VM's platform
