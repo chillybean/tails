@@ -3,7 +3,7 @@ workflow:
     - if: $CI_FORCE_RUN
     - if: $CI_MERGE_REQUEST_IID
     - if: $CI_COMMIT_TAG
-    - if: '$CI_COMMIT_BRANCH =~ /^master|stable|testing|devel$/'
+    - if: '$CI_COMMIT_BRANCH =~ /^(master|stable|testing|devel)$/'
 
 # Please, make sure to only use images from `registry.gitlab.tails.boum.org`,
 # as we give significant privileges to our Runners wrt. what they can do in our
@@ -103,7 +103,7 @@ deploy-website:
 lint-po:
   image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:trixie
   rules:
-    - if: '$CI_COMMIT_BRANCH =~ /^master|stable|testing|devel$/'
+    - if: '$CI_COMMIT_BRANCH =~ /^(master|stable|testing|devel)$/'
     - changes:
         - .gitlab-ci.yml
         - .gitlab-ci-pipeline.yml
@@ -172,7 +172,7 @@ check-website-core-pages:
 
 check-po-msgfmt:
   rules:
-    - if: '$CI_COMMIT_BRANCH =~ /^master|stable|testing|devel$/'
+    - if: '$CI_COMMIT_BRANCH =~ /^(master|stable|testing|devel)$/'
     - changes:
         - .gitlab-ci.yml
         - .gitlab-ci-pipeline.yml
@@ -183,7 +183,7 @@ check-po-msgfmt:
 
 check-po-meta-date:
   rules:
-    - if: '$CI_COMMIT_BRANCH =~ /^master|stable|testing|devel$/'
+    - if: '$CI_COMMIT_BRANCH =~ /^(master|stable|testing|devel)$/'
     - changes:
         - .gitlab-ci.yml
         - .gitlab-ci-pipeline.yml
@@ -356,6 +356,21 @@ apt-snapshots-expiry:
   - echo "Invalid host"
   - "! ./https-get-expired -reject-expired https://nxdomain.tails.net/"
   - "./bin/test-utils/https-get-expired-test-all"
+
+check-target-branch-for-rm-config-change:
+  rules:
+    - if: $CI_PIPELINE_SOURCE != "merge_request_event"
+      when: never
+    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"
+      when: never
+    - changes:
+        - bin/rm-config
+        - config/release_management/*.yml
+        - config/release_management/templates/*.yml
+  script:
+    - echo "rm-config changes should target the master branch."
+    - echo "For details, see tails/tails#21175."
+    - exit 1
 
 https-get-expired:
   rules:
