@@ -26,12 +26,11 @@ do so:
      be coordinated with
      [[sysadmins|https://gitlab.torproject.org/tpo/tpa/team/-/wikis/tails/role-description]].
 
-2. `git clone https://gitlab.tails.boum.org/tails/puppet-tails.git` and apply the
+2. `git clone https://gitlab.tails.boum.org/tails/puppet-code.git` and apply the
    same changes to the ikiwiki configuration used by our production
    website:
-   - [[!tails_gitweb_puppet_tails templates/website/ikiwiki.setup.epp]]
-   - [[!tails_gitweb_puppet_tails manifests/website/params.pp]]
-   - [[!tails_gitweb_puppet_tails files/website/ikiwiki-libdir/IkiWiki/Plugin/sidebar2.pm]]
+   - [[!tails_gitweb_puppet_code site/profile/templates/tails/website/ikiwiki.setup.epp]]
+   - [[!tails_gitweb_puppet_code site/profile/files/tails/website/ikiwiki-libdir/IkiWiki/Plugin/sidebar2.pm]]
 
 3. Submit these production website configuration changes to the
    [[sysadmins team|https://gitlab.torproject.org/tpo/tpa/team/-/wikis/tails/role-description]],
