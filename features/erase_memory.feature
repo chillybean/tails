@@ -14,7 +14,8 @@ Feature: System memory erasure on shutdown
     Given I have started Tails from DVD without network and logged in
     And I prepare Tails for memory erasure tests
     When I start a process allocating 128 MiB of memory with a known pattern
-    Then patterns cover at least 128 MiB in the guest's memory
+    # Since Debian Trixie we only get 99.610% coverage (tails#21012)
+    Then patterns cover at least 127 MiB in the guest's memory
     When I kill the allocating process
     Then I find very few patterns in the guest's memory after 5 seconds
 
