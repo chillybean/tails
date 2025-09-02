@@ -32,7 +32,8 @@ getUpgradesYml() {
     prevVersion=$((thisVersion - 1))
     nextVersion=$((thisVersion + 1))
     find "$UDFS_DIR/Tails/" \
-        -regex ".*/Tails/[${thisVersion}${prevVersion}${nextVersion}].*" \
+        -regextype posix-extended \
+        -regex ".*/Tails/(${thisVersion}|${prevVersion}|${nextVersion})[.].*" \
         -type f -name upgrades.yml |
         LC_ALL=C sort
 }
