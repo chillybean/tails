@@ -676,7 +676,7 @@ Given /^I try to enable persistence( with the changed passphrase)?$/ do |with_ch
                @persistence_password
              end
   passphrase_entry.text = password
-  @screen.press('Return')
+  greeter.child('Unlock Encryption', roleName: 'button').click
 end
 
 Then /^persistence is successfully enabled$/ do
