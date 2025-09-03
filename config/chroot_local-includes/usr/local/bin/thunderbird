@@ -15,10 +15,10 @@ configure_locale() {
     # this pref is empty, but will then save the result to this pref
     # disabling this "guess" for the next time. We want Thunderbird to
     # always match the locale of the Tails session.
-    set_mozilla_pref "${PROFILE}/prefs.js"   \
-                     "intl.locale.requested" \
-                     '""'                    \
-                     user_pref
+    set_mozilla_pref "${PROFILE}/prefs.js" \
+        "intl.locale.requested" \
+        '""' \
+        user_pref
 }
 
 reconfigure_profile() {
