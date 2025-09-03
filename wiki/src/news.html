@@ -10,11 +10,11 @@
 
 <!-- Inlined news -->
 
-[[!inline pages="page(news/*) and !news/archive and !news/*/* and !news/discussion and (currentlang() or news/report_2* or news/test_*)" show="10" sort="-meta(date) age -path"]]
+[[!inline pages="page(news/*) and !news/archive and !news/*/* and !news/discussion" show="10" sort="-meta(date) age -path"]]
 
-<!-- Feed buttons used by puppet-tails:manifests/website/rss2email.pp
+<!-- Feed buttons used by puppet-code:site/profile/manifests/tails/website/rss2email.pp
 
-[[!inline pages="page(news/*) and !news/archive and !news/*/* and !news/discussion and (currentlang() or news/report_2* or news/test_*) and tagged(announce)"
+[[!inline pages="page(news/*) and !news/archive and !news/*/* and !news/discussion and tagged(announce)"
 show="10" feeds="yes" feedonly="yes" feedfile="emails" sort="-meta(date) age -path"]]
 
 -->
