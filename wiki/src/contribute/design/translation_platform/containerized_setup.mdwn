@@ -13,8 +13,7 @@ than Tails' sysadmins capacity of upgrading and maintaining the platform
 up-to-date. This led to the decision of redesigning the platform to use a
 containerized Weblate application as provided by upstream.
 
-Our [current Puppet code for the translation
-platform](https://gitlab.tails.boum.org/tails/puppet-tails/-/tree/master/manifests/weblate)
+Our [[!tails_gitweb_puppet_code site/profile/manifests/tails/weblate.pp desc="current Puppet code for the translation platform"]]
 is a result of that process and, when applied, will setup Weblate from a
 container using [Podman](https://podman.io/) and configure the environment
 around it to provide the other parts of the Translation Platform.
