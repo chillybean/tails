@@ -31,57 +31,77 @@ func init() {
 	}
 }
 
+// this is a porting from crypto/tls/handshake_client.go
+const defaultMaxRSAKeySize = 8192
+
+func checkKeySize(n int) (max int, ok bool) {
+	// Tails: ignore the godebug tlsmaxrsasize: we are not interested in afeature flag
+	return defaultMaxRSAKeySize, n <= defaultMaxRSAKeySize
+}
+
 // This function is a modified version of verifyServerCertificate, which can be found at
-// https://github.com/golang/go/blob/go1.19/src/crypto/tls/handshake_client.go#L849
+// https://github.com/golang/go/blob/go1.24.0/src/crypto/tls/handshake_client.go#L1082
 // (from here on, this will be called "upstream")
-func verifyButAcceptExpired(rawCerts [][]byte, verifiedChains [][]*x509.Certificate) error {
-	// Just like upstream, parse and collect certificates
-	certs := make([]*x509.Certificate, len(rawCerts))
-	for i, asn1Data := range rawCerts {
-		cert, err := x509.ParseCertificate(asn1Data)
+// All changes we do are highlighted by a "// Tails:" comment
+func verifyButAcceptExpired(certificates [][]byte, _verifiedChains [][]*x509.Certificate) error {
+	certs := make([]*x509.Certificate, len(certificates))
+	for i, asn1Data := range certificates {
+		cert, err := globalCertCache.newCert(asn1Data)
 		if err != nil {
+			// Tails: do not sendAlert
 			return errors.New("tls: failed to parse certificate from server: " + err.Error())
 		}
-		certs[i] = cert
+		if cert.cert.PublicKeyAlgorithm == x509.RSA {
+			n := cert.cert.PublicKey.(*rsa.PublicKey).N.BitLen()
+			if max, ok := checkKeySize(n); !ok {
+				// Tails: do not sendAlert
+				return fmt.Errorf("tls: server sent certificate containing RSA key larger than %d bits", max)
+			}
+		}
+		certs[i] = cert.cert
 	}
 
-	// In upstream, we're creating the x509.VerifyOptions object right now.
-	// here, we're using a global which is created in main. That's because we wouldn't have access to Conn
-	// data otherwise.
-	// Still, the object ends up having the same values
-	for _, cert := range certs[1:] {
-		verifyOpts.Intermediates.AddCert(cert)
-	}
-
-	// Before going on, let's check that the leaf certificate is for the valid hostname
-	// XXX: does this really add anything, that the subsequent certs[0].Verify() wouldn't have noticed?
-	if err := certs[0].VerifyHostname(verifyOpts.DNSName); err != nil {
-		return err
-	}
-
+	// Tails: determine the time that we want to pretend we're in
+	//  After that, we'll mostly follow the original code
+	fakeCurrentTime := currentTime
 	if !rejectExpired || certs[0].NotBefore.After(currentTime) {
 		// that's the real change: we're pretending that the time of verification is after the
 		// not-before field of the leaf certificate.
-		verifyOpts.CurrentTime = certs[0].NotBefore.Add(onesecond_more)
-	} else {
-		verifyOpts.CurrentTime = currentTime
+		fakeCurrentTime = certs[0].NotBefore.Add(onesecond_more)
 	}
 
-	// Just like upstream: perform verification
-	if _, err := certs[0].Verify(verifyOpts); err != nil {
-		return err
+	// Tails: we remove the whole "if echRejected"; we're not setting EncryptedClientHelloConfigList anyway,
+	// so we're not having Encrypted Client Hello
+
+	// Tails: we don't even check if InsecureSkipVerify is set, because we don't support it.
+	// Tails: inherit opts from verifyOpts that we created in main(), but let's use our fakeCurrentTime
+	opts := verifyOpts
+	opts.CurrentTime = fakeCurrentTime
+
+	for _, cert := range certs[1:] {
+		opts.Intermediates.AddCert(cert)
+	}
+	_, err := certs[0].Verify(opts)
+	if err != nil {
+		// Tails: do not sendAlert
+		return &tls.CertificateVerificationError{UnverifiedCertificates: certs, Err: err}
 	}
 
-	// Just like upstream: check that the public key type is modern enough
+	// Tails: the fipsAllowedChains block is disabled based on the reasoning that it must be enabled with
+	// GODEBUG=fips140=on. See src/crypto/tls/internal/fips140tls/fipstls.go
+	// fipsAllowedChains always returns chains, nil otherwise.
+
 	switch certs[0].PublicKey.(type) {
 	case *rsa.PublicKey, *ecdsa.PublicKey, ed25519.PublicKey:
 		break
 	default:
+		// Tails: do not sendAlert
 		return fmt.Errorf("tls: server's certificate contains an unsupported type of public key: %T", certs[0].PublicKey)
 	}
 
-	// upstream has other if statements after this. They don't apply to us
-	// because they run code for opt-in features that we don't enable.
+	// Tails: we skip the "if c.config.VerifyPeerCertificate" because we're exactly that function
+
+	// Tails: we drop the "if c.config.VerifyConnection because we're not setting it"
 
 	return nil
 }

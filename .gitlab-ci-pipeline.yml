@@ -344,10 +344,14 @@ apt-snapshots-expiry:
         - vagrant/definitions/tails-builder/config/APT_snapshots.d/*/serial
 
 .install-https-get-expired-build-deps: &install-https-get-expired-build-deps
-  - apt-get -qy install --no-install-recommends golang-go ca-certificates
+  - apt-get -qy install --no-install-recommends golang-go golang-src ca-certificates
 
+# Whenever you edit this, make sure this in sync with config/chroot_local-hooks/52-https-accept-expired
 .build-https-get-expired: &build-https-get-expired
-  - go build -o ./https-get-expired config/chroot_local-includes/usr/src/https-get-expired.go
+  - |
+    cp /usr/share/go-1.24/src/crypto/tls/cache.go config/chroot_local-includes/usr/src/
+    sed -i -e '0,/^package tls/s//package main/' config/chroot_local-includes/usr/src/cache.go
+    go build -o ./https-get-expired config/chroot_local-includes/usr/src/{https-get-expired.go,cache.go}
 
 .test-https-get-expired: &test-https-get-expired
   - echo "Basic check:"

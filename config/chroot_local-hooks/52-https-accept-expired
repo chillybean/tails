@@ -10,15 +10,19 @@ echo "Compiling and installing a custom https-get-expired program"
 # Import ensure_hook_dependency_is_installed()
 . /usr/local/lib/tails-shell-library/build.sh
 
-ensure_hook_dependency_is_installed golang-go
+ensure_hook_dependency_is_installed golang-go golang-src
 
 SRC="/usr/src/https-get-expired.go"
+SRCDIR="$(dirname "$SRC")"
 DST="/usr/local/lib/https-get-expired"
 
 echo "go env: will give us some details in case this program does not build reproducibly"
 go env
 
-go build -v -ldflags=-buildid= -trimpath -o "$DST" "$SRC"
+# Whenever you edit this, make sure this in sync with .gitlab-ci-pipeline.yml
+cp /usr/share/go-1.24/src/crypto/tls/cache.go "$SRCDIR"
+sed -i -e '0,/^package tls/s//package main/' "$SRCDIR/cache.go"
+go build -v -ldflags=-buildid= -trimpath -o "$DST" "$SRC" "$SRCDIR/cache.go"
 strip --strip-all "$DST"
 rm -rf \
     /root/.cache/go-build/ \
