@@ -14,8 +14,8 @@ Else, propose this on the [[tails-l10n mailing list|doc/about/contact#tails-l10n
    [[!tails_gitweb ikiwiki.setup]]
    and have this change reviewed and merged into our `master` branch.
 
-2. Add the new language to `$weblate_additional_languages` in
-   [[!tails_gitweb_puppet_tails manifests/website/params.pp]]
+2. Add the new language to `weblate::params::weblate_additional_languages` in
+   [[!tails_gitweb_puppet_code data/common.yaml]]
    and have a sysadmin review your changes and deploy them to production.
 
 3. To create PO files for the new language and commit them to Git,
@@ -30,7 +30,7 @@ Else, propose this on the [[tails-l10n mailing list|doc/about/contact#tails-l10n
        ~/scripts/weblate_status.py --modify
 
    Note that this script must not be run concurrently with
-   [[!tails_gitweb_puppet_tails files/weblate/scripts/cron.sh desc="`cron.sh`"]].
+   [[!tails_gitweb_puppet_weblate files/weblate/scripts/weblate-integration desc="`weblate-integration`"]].
    Hence, they both use a shared lock file.
 
    The changes made by the above script must be manually pushed to the
