@@ -26,8 +26,7 @@ based on their IP geolocation data:
   (Autonomous Systems, countries and calculated distances).
 
 - The list of mirrors is maintained by Sysadmins via Puppet (see
-  [[!tails_gitlab
-  tails/puppet-tails/-/blob/master/manifests/profile/mirrorbits.pp desc="code"]]
+  [[!tails_gitweb_puppet_code site/profile/manifests/tails/mirrorbits.pp desc="code"]]
   and [[!tails_gitlab
   tails/puppet-code/-/blob/5b1462c0db7f01566bb935632ac862c60d12b885/hieradata/common.yaml#L372
   desc="example data"]])
@@ -37,8 +36,7 @@ based on their IP geolocation data:
 We publish a list of HTTP mirrors in [a JSON file on our
 website](https://tails.net/mirrors.json) which will eventually be deprecated
 but is still used by the Tails Upgrader (up to Tails 5.8) and some bits of the
-RM process. That file is managed by [[!tails_gitlab
-ails/puppet-tails/-/blob/master/manifests/profile/mirrors_json.pp desc="Puppet"]].
+RM process. That file is managed by [[!tails_gitweb_puppet_code site/profile/manifests/tails/mirrors_json.pp desc="Puppet"]].
 
 The `mirrors.json` configuration file is essentially a list of mirrors, and for each
 of them we need a few values:
