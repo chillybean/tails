@@ -109,7 +109,7 @@ To release Tails you'll need some packages installed:
 
 * `iuk` [[dependencies|contribute/release_process/tails-iuk#build-deps]]
 
-* `squashfs-tools-ng` and `libsquashfs1` from Bookworm
+* `squashfs-tools-ng` and `libsquashfs1` from Trixie
 
 * `po4a` 0.69:
 
@@ -1102,10 +1102,10 @@ Sanity checks
 Check that you have the correct version of `squashfs-tools-ng` and `libsquashfs1` installed:
 
     [ "$(dpkg-query --showformat '${Version}\n' --show squashfs-tools-ng)" \
-      = '1.2.0-1' \
+      = 1.3.2-1 \
     ] || echo 'ERROR! Your squashfs-tools-ng is not the required version, so any generated IUKs will *not* be reproducible!'
     [ "$(dpkg-query --showformat '${Version}\n' --show libsquashfs1)" \
-      = '1.2.0-1' \
+      = 1.3.2-1 \
     ] || echo 'ERROR! Your libsquashfs1 is not the required version, so any generated IUKs will *not* be reproducible!'
 
 Build the Incremental Upgrade Kits locally
