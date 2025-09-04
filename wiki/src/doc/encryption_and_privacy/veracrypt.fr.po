@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-06-24 16:26-0600\n"
+"POT-Creation-Date: 2025-09-04 14:26+0200\n"
 "PO-Revision-Date: 2025-07-30 12:28+0000\n"
 "Last-Translator: Chre <tor@renaudineau.org>\n"
 "Language-Team: \n"
@@ -57,8 +57,8 @@ msgid ""
 "*LUKS*.|encrypted_volumes]]"
 msgstr ""
 "Vous pouvez également créer et ouvrir des volumes chiffrés *LUKS* dans "
-"Tails. *LUKS* est le standard pour le chiffrement de disque sous Linux. [["
-"Voir notre documentation sur *LUKS*.|encrypted_volumes]]"
+"Tails. *LUKS* est le standard pour le chiffrement de disque sous Linux. "
+"[[Voir notre documentation sur *LUKS*.|encrypted_volumes]]"
 
 #. type: Plain text
 #, no-wrap
@@ -90,8 +90,8 @@ msgid ""
 "With *VeraCrypt* you can store your files encrypted in two different kinds "
 "of *volumes*:"
 msgstr ""
-"Avec *VeraCrypt* vous pouvez stocker vos fichiers "
-"dans deux types de *volumes* différents :"
+"Avec *VeraCrypt* vous pouvez stocker vos fichiers dans deux types de "
+"*volumes* différents :"
 
 #. type: Plain text
 #, no-wrap
@@ -105,8 +105,8 @@ msgstr "<div class=\"icon\">\n"
 
 #. type: Plain text
 #, no-wrap
-msgid "[[!img container-icon.png link=\"no\"]]\n"
-msgstr "[[!img container-icon.png link=\"no\"]]\n"
+msgid "[[!img container-icon.png link=\"no\" alt=\"\"]]\n"
+msgstr "[[!img container-icon.png link=\"no\" alt=\"\"]]\n"
 
 #. type: Plain text
 #, no-wrap
@@ -130,8 +130,8 @@ msgstr "<h3>Partitions ou périphériques</h3>\n"
 
 #. type: Plain text
 #, no-wrap
-msgid "[[!img partition-icon.png link=\"no\"]]\n"
-msgstr "[[!img partition-icon.png link=\"no\"]]\n"
+msgid "[[!img partition-icon.png link=\"no\" alt=\"\"]]\n"
+msgstr "[[!img partition-icon.png link=\"no\" alt=\"\"]]\n"
 
 #. type: Plain text
 #, no-wrap
@@ -165,10 +165,9 @@ msgid ""
 "To unlock a *VeraCrypt* volume, you might need the following parameters, "
 "depending on the options that were selected when the volume was created:"
 msgstr ""
-"Pour déverrouiller un volume *VeraCrypt*, vous pourrez avoir besoin "
-"des paramètres suivants, en fonction des options qui ont été sélectionnées "
-"lors de "
-"la création du volume :"
+"Pour déverrouiller un volume *VeraCrypt*, vous pourrez avoir besoin des "
+"paramètres suivants, en fonction des options qui ont été sélectionnées lors "
+"de la création du volume :"
 
 #. type: Bullet: '- '
 msgid "**Passphrase**"
@@ -250,11 +249,6 @@ msgstr "Utiliser un fichier conteneur"
 
 #. type: Plain text
 #, no-wrap
-msgid "[[!img container-icon.png link=\"no\" alt=\"\"]]\n"
-msgstr "[[!img container-icon.png link=\"no\" alt=\"\"]]\n"
-
-#. type: Plain text
-#, no-wrap
 msgid "<a id=\"container-files\"></a>\n"
 msgstr "<a id=\"container-files\"></a>\n"
 
@@ -264,8 +258,10 @@ msgid "Unlocking a file container without keyfiles"
 msgstr "Déverrouiller un fichier conteneur sans fichiers clés"
 
 #. type: Bullet: '1. '
-msgid ""
-"Choose **Applications&nbsp;▸ Utilities&nbsp;▸ Unlock VeraCrypt Volumes**."
+#, fuzzy
+#| msgid ""
+#| "Choose **Applications&nbsp;▸ Utilities&nbsp;▸ Unlock VeraCrypt Volumes**."
+msgid "Choose **Apps&nbsp;▸ Utilities&nbsp;▸ Unlock VeraCrypt Volumes**."
 msgstr ""
 "Choisissez **Applications&nbsp;▸ Utilitaires&nbsp;▸ Déverrouiller les "
 "volumes VeraCrypt**."
@@ -322,17 +318,25 @@ msgid "Unlocking a file container with keyfiles"
 msgstr "Déverrouiller un fichier conteneur avec fichiers clés"
 
 #. type: Bullet: '1. '
+#, fuzzy
+#| msgid ""
+#| "Choose **Applications&nbsp;▸ Utilities&nbsp;▸ Disks** to start the "
+#| "*Disks* utility."
 msgid ""
-"Choose **Applications&nbsp;▸ Utilities&nbsp;▸ Disks** to start the *Disks* "
-"utility."
+"Choose **Apps&nbsp;▸ Utilities&nbsp;▸ Disks** to open the *Disks* utility."
 msgstr ""
 "Choisissez **Applications&nbsp;▸ Utilitaires&nbsp;▸ Disques** pour lancer "
 "l'utilitaire *Disques*."
 
 #. type: Bullet: '1. '
+#, fuzzy
+#| msgid ""
+#| "Choose **[[!img lib/open-menu.png alt=\"\" class=symbolic "
+#| "link=\"no\"]]&nbsp;▸ Attach Disk Image&hellip;** from the top navigation "
+#| "bar."
 msgid ""
-"Choose **[[!img lib/open-menu.png alt=\"\" class=symbolic link=\"no\"]]&nbsp;"
-"▸ Attach Disk Image&hellip;** from the top navigation bar."
+"Choose **[[!img lib/open-menu.png link=\"no\" class=\"symbolic\" "
+"alt=\"\"]]&nbsp;▸ Attach Disk Image** from the top navigation bar."
 msgstr ""
 "Choisir **[[!img lib/open-menu.png alt=\"\" class=symbolic "
 "link=\"no\"]]&nbsp;▸ Attacher l'image disque&hellip;** dans la barre de "
@@ -354,8 +358,9 @@ msgstr ""
 "modifier le contenu du fichier conteneur."
 
 #. type: Plain text
-#, no-wrap
-msgid "     [[!img read-only.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
+#, fuzzy, no-wrap
+#| msgid "     [[!img read-only.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
+msgid "     [[!img read-only.png class=\"screenshot\" alt=\"\"]]\n"
 msgstr "     [[!img read-only.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
 
 #. type: Bullet: '   - '
@@ -365,8 +370,9 @@ msgstr ""
 "à droite."
 
 #. type: Plain text
-#, no-wrap
-msgid "     [[!img all-files.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
+#, fuzzy, no-wrap
+#| msgid "     [[!img all-files.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
+msgid "     [[!img all-files.png class=\"screenshot\" alt=\"\"]]\n"
 msgstr "     [[!img all-files.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
 
 #. type: Bullet: '   - '
@@ -382,18 +388,41 @@ msgstr ""
 "Sélectionner le fichier conteneur et cliquez sur <span "
 "class=\"bold\">Attacher</span>."
 
-#. type: Plain text
-#, no-wrap
-msgid "   An authentication dialog appears.\n"
-msgstr "   Une fenêtre d'authentification apparaît.\n"
+#. type: Bullet: '1. '
+msgid "A first dialog appears to unlock the container."
+msgstr ""
 
 #. type: Plain text
-#, no-wrap
-msgid "   [[!img authentication.png link=\"no\" class=\"screenshot\" alt=\"Authentication required\"]]\n"
+#, fuzzy, no-wrap
+#| msgid "   [[!img authentication.png link=\"no\" class=\"screenshot\" alt=\"Authentication required\"]]\n"
+msgid "   [[!img authentication.png class=\"screenshot\" alt=\"Authentication required\"]]\n"
 msgstr "   [[!img authentication.png link=\"no\" class=\"screenshot\" alt=\"Authentification requise\"]]\n"
 
 #. type: Bullet: '1. '
-msgid "Open your *VeraCrypt* volumes from the **Places** menu."
+msgid "Select **Cancel**."
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid "   It is impossible to use keyfiles with this first dialog.\n"
+msgstr ""
+
+#. type: Bullet: '1. '
+msgid ""
+"A second dialog called **Set options to unlock** appears to unlock the "
+"container."
+msgstr ""
+
+#. type: Plain text
+#, fuzzy, no-wrap
+#| msgid "     [[!img all-files.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
+msgid "   [[!img options.png class=\"screenshot\" alt=\"\"]]\n"
+msgstr "     [[!img all-files.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
+
+#. type: Bullet: '1. '
+#, fuzzy
+#| msgid "Open your *VeraCrypt* volumes from the **Places** menu."
+msgid "Open your *VeraCrypt* volume from the sidebar of the *Files* menu."
 msgstr "Ouvrez vos volumes *VeraCrypt* depuis le menu **Emplacements**."
 
 #. type: Title =
@@ -403,17 +432,17 @@ msgstr "Utiliser une partition ou un périphérique"
 
 #. type: Plain text
 #, no-wrap
-msgid "[[!img partition-icon.png link=\"no\" alt=\"\"]]\n"
-msgstr "[[!img partition-icon.png link=\"no\" alt=\"\"]]\n"
-
-#. type: Plain text
-#, no-wrap
 msgid "<h2 id=\"partition-external\">Unlocking a partition on an external storage device</h2>\n"
 msgstr "<h2 id=\"partition-external\">Déverrouiller une partition sur un périphérique de stockage externe</h2>\n"
 
 #. type: Bullet: '1. '
 msgid "Plug in the USB stick or hard disk that you want to unlock."
 msgstr "Branchez la clé USB ou le disque dur que vous voulez déverrouiller."
+
+#. type: Plain text
+#, no-wrap
+msgid "   An authentication dialog appears.\n"
+msgstr "   Une fenêtre d'authentification apparaît.\n"
 
 #. type: Plain text
 #, no-wrap
@@ -427,14 +456,6 @@ msgid ""
 msgstr ""
 "Lors du démarrage de Tails, [[définissez un mot de passe d'administration|"
 "doc/first_steps/welcome_screen/administration_password]]."
-
-#. type: Bullet: '1. '
-msgid ""
-"Choose **Applications**&nbsp;▸ **Utilities**&nbsp;▸ **Disks** to start the "
-"*Disks* utility."
-msgstr ""
-"Choisissez **Applications**&nbsp;▸ **Utilitaires**&nbsp;▸ **Disques** pour "
-"lancer l'utilitaire *Disques*."
 
 #. type: Bullet: '1. '
 msgid "In the left pane, select the drive that corresponds to your hard disk."
@@ -485,8 +506,8 @@ msgid ""
 "Click the [[!img lib/media-playback-start.png alt=\"Mount selected "
 "partition\" class=\"symbolic\" link=\"no\"]] button to mount the volume."
 msgstr ""
-"Cliquer sur le bouton <span class=\"bold\">[[!img lib/media-playback-start."
-"png alt=\"Monter la partition sélectionnée\" class=\"symbolic\" "
+"Cliquer sur le bouton <span class=\"bold\">[[!img lib/media-playback-"
+"start.png alt=\"Monter la partition sélectionnée\" class=\"symbolic\" "
 "link=\"no\"]]</span> pour monter le volume."
 
 #. type: Bullet: '1. '
@@ -503,20 +524,39 @@ msgid "<h2 id=\"eject\">Ejecting a <i>VeraCrypt</i> volume</h2>\n"
 msgstr "<h2 id=\"eject\">Éjecter un volume <i>VeraCrypt</i></h2>\n"
 
 #. type: Bullet: '1. '
-msgid "Choose **Applications**&nbsp;▸ **Files** to open the *Files* browser."
+#, fuzzy
+#| msgid ""
+#| "Choose **Applications**&nbsp;▸ **Files** to open the *Files* browser."
+msgid ""
+"Choose **Apps&nbsp;▸ Accessories&nbsp;▸ Files** to open the *Files* browser."
 msgstr ""
 "Choisissez **Applications**&nbsp;▸ **Fichiers** pour ouvrir le navigateur de "
 "*Fichiers*."
 
 #. type: Bullet: '1. '
 msgid ""
-"In the sidebar of the *Files* browser, click on the [[!img lib/media-eject."
-"png alt=\"Eject\" class=\"symbolic\" link=\"no\"]] button on the label of "
-"your *VeraCrypt* volume."
+"In the sidebar of the *Files* browser, click on the [[!img lib/media-"
+"eject.png alt=\"Eject\" class=\"symbolic\" link=\"no\"]] button on the label "
+"of your *VeraCrypt* volume."
 msgstr ""
 "Dans la barre latérale du navigateur de *Fichiers*, cliquez sur le bouton [[!"
 "img lib/media-eject.png alt=\"Éjecter\" class=\"symbolic\" link=\"no\"]] "
 "dans l'étiquette de votre volume *VeraCrypt*."
+
+#, no-wrap
+#~ msgid "[[!img container-icon.png link=\"no\"]]\n"
+#~ msgstr "[[!img container-icon.png link=\"no\"]]\n"
+
+#, no-wrap
+#~ msgid "[[!img partition-icon.png link=\"no\"]]\n"
+#~ msgstr "[[!img partition-icon.png link=\"no\"]]\n"
+
+#~ msgid ""
+#~ "Choose **Applications**&nbsp;▸ **Utilities**&nbsp;▸ **Disks** to start "
+#~ "the *Disks* utility."
+#~ msgstr ""
+#~ "Choisissez **Applications**&nbsp;▸ **Utilitaires**&nbsp;▸ **Disques** "
+#~ "pour lancer l'utilitaire *Disques*."
 
 #, no-wrap
 #~ msgid "Introduction to *VeraCrypt*"
@@ -607,8 +647,8 @@ msgstr ""
 #~ "button in the line that corresponds to your file container."
 #~ msgstr ""
 #~ "Dans <span class=\"application\">Déverrouiller des volumes VeraCrypt</"
-#~ "span>, cliquez sur le bouton <span class=\"bold\">[[!img lib/window-close."
-#~ "png class=\"symbolic\" link=\"no\" alt=\"\"]]</span> sur la ligne "
+#~ "span>, cliquez sur le bouton <span class=\"bold\">[[!img lib/window-"
+#~ "close.png class=\"symbolic\" link=\"no\" alt=\"\"]]</span> sur la ligne "
 #~ "correspondant à votre fichier conteneur."
 
 #, no-wrap
@@ -653,8 +693,8 @@ msgstr ""
 #~ "button in the line that corresponds to your USB stick or hard disk."
 #~ msgstr ""
 #~ "Dans <span class=\"application\">Déverrouiller des volumes VeraCrypt</"
-#~ "span>, cliquez sur le bouton <span class=\"bold\">[[!img lib/window-close."
-#~ "png class=\"symbolic\" link=\"no\" alt=\"\"]]</span> sur la ligne "
+#~ "span>, cliquez sur le bouton <span class=\"bold\">[[!img lib/window-"
+#~ "close.png class=\"symbolic\" link=\"no\" alt=\"\"]]</span> sur la ligne "
 #~ "correspondant à votre clé USB ou disque dur."
 
 #, no-wrap

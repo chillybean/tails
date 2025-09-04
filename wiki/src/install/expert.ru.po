@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-06-24 16:26-0600\n"
+"POT-Creation-Date: 2025-09-04 14:26+0200\n"
 "PO-Revision-Date: 2024-09-13 07:55+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -411,16 +411,15 @@ msgstr ""
 
 #
 #. type: Bullet: '1. '
+#, fuzzy
+#| msgid ""
+#| "Execute the following commands to copy the USB image that you downloaded "
+#| "earlier to the USB stick."
 msgid ""
 "Execute the following commands to copy the USB image that you downloaded "
-"earlier to the USB stick."
+"earlier to the USB stick. Replace:"
 msgstr ""
 "Чтобы записать скачанный ранее образ на флешку, выполните следующие команды:"
-
-#. type: Plain text
-#, no-wrap
-msgid "   Replace:\n"
-msgstr "   Замените:\n"
 
 #
 #. type: Bullet: '   - '
@@ -471,9 +470,10 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#, no-wrap
-msgid "   <p class=\"command-example\">sudo dd if=<span class=\"command-placeholder\">tails.img</span> of=<span class=\"command-placeholder\">device</span> bs=16M oflag=direct status=progress</p>\n"
-msgstr ""
+#, fuzzy, no-wrap
+#| msgid "   <p class=\"command-template\">dd if=/home/user/tails-amd64-3.12.img of=/dev/sdb bs=16M oflag=direct status=progress</p>\n"
+msgid "   <p class=\"command-template\">sudo dd if=<span class=\"command-placeholder\">tails.img</span> of=<span class=\"command-placeholder\">device</span> bs=16M oflag=direct status=progress</p>\n"
+msgstr "   <p class=\"command-template\">dd if=/home/user/tails-amd64-3.12.img of=/dev/sdb bs=16M oflag=direct status=progress</p>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -489,3 +489,7 @@ msgstr "[[!inline pages=\"install/inc/steps/restart_first_time.inline.ru\" raw=\
 #, no-wrap
 msgid "[[!inline pages=\"install/inc/steps/welcome.inline\" raw=\"yes\" sort=\"age\"]]\n"
 msgstr "[[!inline pages=\"install/inc/steps/welcome.inline.ru\" raw=\"yes\" sort=\"age\"]]\n"
+
+#, no-wrap
+#~ msgid "   Replace:\n"
+#~ msgstr "   Замените:\n"

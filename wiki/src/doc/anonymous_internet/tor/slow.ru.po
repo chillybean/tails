@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2020-04-12 16:10+0200\n"
+"POT-Creation-Date: 2025-09-04 14:26+0200\n"
 "PO-Revision-Date: 2024-05-18 00:53+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,8 +37,13 @@ msgid "Tor circuits lengthen the connections"
 msgstr "Tor удлиняет путь от вас до сайта"
 
 #. type: Plain text
+#, fuzzy
+#| msgid ""
+#| "Tor provides anonymity by building circuits with three relays. So instead "
+#| "of connecting directly to the destination server, a connection is made "
+#| "between each relay of the circuit and this takes more time."
 msgid ""
-"Tor provides anonymity by building circuits with three relays. So instead of "
+"Tor provides anonymity by building circuits with 3 relays. So, instead of "
 "connecting directly to the destination server, a connection is made between "
 "each relay of the circuit and this takes more time."
 msgstr ""
@@ -53,6 +58,11 @@ msgid ""
 msgstr ""
 "Более того, Tor пытается строить цепочки с узлами в разных странах. Больше "
 "расстояния – меньше скорость."
+
+#. type: Plain text
+#, no-wrap
+msgid "[[!img tor/tor.png link=\"no\" class=\"svg\" alt=\"A Tor connection goes through 3 relays with the last one establishing the actual connection to the final destination\"]]\n"
+msgstr ""
 
 #. type: Title =
 #, no-wrap
@@ -89,10 +99,4 @@ msgid ""
 "attack, instead of the intended target.  Some people use [[!wikipedia\n"
 "Peer_to_peer desc=\"peer-to-peer software\"]] through Tor which\n"
 "is bad for the network.\n"
-msgstr ""
-"Некоторые люди используют Tor ненадлежащим образом. Иногда это происходит "
-"умышленно, иногда по незнанию. Бывало, что через Tor шли [[!wikipedia_ru DoS-"
-"атака desc=\"DDoS-атаки\"]]. При этом страдали узлы Tor, а не тот сайт, "
-"который изначально был целью атаки. Порой люди пропускали через Tor трафик "
-"приложений [[!wikipedia_ru Одноранговая_сеть desc=\"«точка-к-точке»\"]], и "
-"это также негативно воздействовало на сеть.\n"
+msgstr "Некоторые люди используют Tor ненадлежащим образом. Иногда это происходит умышленно, иногда по незнанию. Бывало, что через Tor шли [[!wikipedia_ru DoS-атака desc=\"DDoS-атаки\"]]. При этом страдали узлы Tor, а не тот сайт, который изначально был целью атаки. Порой люди пропускали через Tor трафик приложений [[!wikipedia_ru Одноранговая_сеть desc=\"«точка-к-точке»\"]], и это также негативно воздействовало на сеть.\n"

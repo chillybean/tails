@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tails\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-06-24 16:26-0600\n"
+"POT-Creation-Date: 2025-09-04 14:26+0200\n"
 "PO-Revision-Date: 2024-11-22 18:39+0000\n"
 "Last-Translator: victor dargallo <victordargallo@disroot.org>\n"
 "Language-Team: Spanish <https://translate.tails.net/projects/tails/"
@@ -57,11 +57,9 @@ msgid ""
 "another USB stick or an external hard disk.  *LUKS* is the standard for disk "
 "encryption in Linux."
 msgstr ""
-"Puedes crear otros volúmenes cifrados usando "
-"*LUKS* para cifrar, por ejemplo, otra "
-"memoria USB o un disco duro externo. "
-"*LUKS* es el estándar para el cifrado "
-"en Linux."
+"Puedes crear otros volúmenes cifrados usando *LUKS* para cifrar, por "
+"ejemplo, otra memoria USB o un disco duro externo. *LUKS* es el estándar "
+"para el cifrado en Linux."
 
 #. type: Bullet: '- '
 #, fuzzy
@@ -74,6 +72,25 @@ msgstr "El escritorio de GNOME te permite abrir volúmenes cifrados."
 #| msgid "The GNOME desktop allows you to open encrypted volumes."
 msgid "The GNOME desktop allows you to open encrypted volumes."
 msgstr "El escritorio de GNOME te permite abrir volúmenes cifrados."
+
+#. type: Plain text
+#, fuzzy, no-wrap
+#| msgid "<div class=\"tip\">\n"
+msgid "<div class=\"attack\">\n"
+msgstr "<div class=\"tip\">\n"
+
+#. type: Plain text
+#, no-wrap
+msgid "<p>Such encrypted volumes, like the Persistent Storage, are not hidden.</p>\n"
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid ""
+"<p>An attacker in possession of the device can know that there is an encrypted\n"
+"volume on it. Take into consideration that you can be forced or tricked to give\n"
+"out its passphrase.</p>\n"
+msgstr ""
 
 #. type: Plain text
 #, fuzzy, no-wrap
@@ -101,8 +118,7 @@ msgstr "Crea una partición cifrada"
 
 #. type: Bullet: '1. '
 msgid ""
-"Choose **Applications**&nbsp;▸ **Utilities**&nbsp;▸ **Disks** to open the "
-"*Disks* utility."
+"Choose **Apps&nbsp;▸ Utilities&nbsp;▸ Disks** to open the *Disks* utility."
 msgstr ""
 
 #. type: Plain text
@@ -130,8 +146,9 @@ msgstr ""
 "Haz click en él:"
 
 #. type: Plain text
-#, no-wrap
-msgid "     [[!img storage_devices_after.png link=no alt=\"\"]]\n"
+#, fuzzy, no-wrap
+#| msgid "     [[!img storage_devices_after.png link=no alt=\"\"]]\n"
+msgid "     [[!img storage_devices_after.png class=\"screenshot\" alt=\"\"]]\n"
 msgstr "     [[!img storage_devices_after.png link=no alt=\"\"]]\n"
 
 #. type: Plain text
@@ -152,9 +169,9 @@ msgstr ""
 #| "   [[!img lib/system-run.png alt=\"Additional partition options\" "
 #| "class=\"symbolic\" link=\"no\"]]\n"
 msgid ""
-"Click on the [[!img lib/view-more.png alt=\"Drive Options\" "
-"class=\"symbolic\" link=\"no\"]] button in the title bar and choose **Format "
-"Disk** to erase all the existing partitions on the device."
+"Select the [[!img lib/view-more.png alt=\"Menu\" class=\"symbolic\" "
+"link=\"no\"]] button in the title bar and choose **Format Disk** to erase "
+"all the existing partitions on the device."
 msgstr ""
 "   [[!img lib/system-run.png alt=\"Opciones adicionales de partición\" "
 "class=\"symbolic\" link=\"no\"]]\n"
@@ -231,8 +248,9 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#, no-wrap
-msgid "[[!img empty_device.png link=no alt=\"Free Space 123 GB\"]]\n"
+#, fuzzy, no-wrap
+#| msgid "[[!img empty_device.png link=no alt=\"Free Space 123 GB\"]]\n"
+msgid "[[!img empty_device.png class=\"screenshot\" alt=\"Free Space 123 GB\"]]\n"
 msgstr "[[!img empty_device.png link=no alt=\"Espacio Libre 123 GB\"]]\n"
 
 #. type: Bullet: '  1. '
@@ -369,7 +387,7 @@ msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid "     [[!img encrypted_partition.png link=\"no\" alt=\"Partition 1 4.0 GB LUKS / Filesystem 4.0 GB Ext4\"]]\n"
+msgid "     [[!img encrypted_partition.png class=\"screenshot\" alt=\"Partition 1 4.0 GB LUKS / Filesystem 4.0 GB Ext4\"]]\n"
 msgstr ""
 
 #. type: Bullet: '  1. '
@@ -386,18 +404,16 @@ msgid "<h2 id=\"using\">Using the new partition</h2>\n"
 msgstr "Usa la nueva partición"
 
 #. type: Plain text
+#, fuzzy
+#| msgid ""
+#| "You can open this new partition from the sidebar of the file browser with "
+#| "the name you gave it."
 msgid ""
-"You can open this new partition from the sidebar of the file browser with "
+"You can open this new partition from the sidebar of the *Files* browser with "
 "the name you gave it."
 msgstr ""
 "Puedes abrir esta nueva partición desde la barra lateral del explorador de "
 "archivos con el nombre que le diste."
-
-#. type: Plain text
-msgid ""
-"After opening the partition with the file browser, you can also access it "
-"from the **Places** menu."
-msgstr ""
 
 #. type: Plain text
 #, fuzzy, no-wrap
@@ -423,7 +439,7 @@ msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid "   [[!img unlock.png link=\"no\" class=\"screenshot\" alt=\"Authentication Required\"]]\n"
+msgid "   [[!img unlock.png class=\"screenshot\" alt=\"Authentication Required\"]]\n"
 msgstr ""
 
 #. type: Bullet: '1. '
@@ -441,17 +457,16 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '1. '
+#, fuzzy
+#| msgid ""
+#| "You can open this new partition from the sidebar of the file browser with "
+#| "the name you gave it."
 msgid ""
-"After unlocking, you can access the content of the partition from either:"
+"After unlocking, you can access the content of the partition from the "
+"sidebar of the *Files* browser."
 msgstr ""
-
-#. type: Bullet: '   * '
-msgid "The **Places** menu"
-msgstr ""
-
-#. type: Bullet: '   * '
-msgid "The sidebar of the *Files* browser"
-msgstr ""
+"Puedes abrir esta nueva partición desde la barra lateral del explorador de "
+"archivos con el nombre que le diste."
 
 #. type: Plain text
 #, no-wrap
@@ -460,19 +475,6 @@ msgid ""
 "alt=\"Eject\" class=\"symbolic\" link=\"no\"]] button next to the partition in the\n"
 "sidebar of the *Files* browser to eject the partition safety and lock again the\n"
 "encryption.\n"
-msgstr ""
-
-#. type: Plain text
-#, fuzzy, no-wrap
-#| msgid "Storing sensitive documents"
-msgid "<h1 id=\"storing\">Storing sensitive documents</h1>\n"
-msgstr "Guardar documentos delicados"
-
-#. type: Plain text
-msgid ""
-"Such encrypted volumes are not hidden. An attacker in possession of the "
-"device can know that there is an encrypted volume on it. Take into "
-"consideration that you can be forced or tricked to give out its passphrase."
 msgstr ""
 
 #. type: Plain text
@@ -522,8 +524,9 @@ msgstr ""
 "Haz click en él:"
 
 #. type: Plain text
-#, no-wrap
-msgid "   [[!img storage_devices_after.png link=no alt=\"\"]]\n"
+#, fuzzy, no-wrap
+#| msgid "   [[!img storage_devices_after.png link=no alt=\"\"]]\n"
+msgid "   [[!img storage_devices_after.png class=\"screenshot\" alt=\"\"]]\n"
 msgstr "   [[!img storage_devices_after.png link=no alt=\"\"]]\n"
 
 #. type: Plain text
@@ -535,9 +538,9 @@ msgstr ""
 
 #. type: Bullet: '1. '
 msgid ""
-"Click on the partition displaying a [[!img lib/network-wireless-encrypted."
-"png alt=\"Partition LUKS\" class=\"symbolic\" link=\"no\"]] in the bottom-"
-"right corner."
+"Click on the partition displaying a [[!img lib/network-wireless-"
+"encrypted.png alt=\"Partition LUKS\" class=\"symbolic\" link=\"no\"]] in the "
+"bottom-right corner."
 msgstr ""
 
 #. type: Bullet: '1. '
@@ -552,6 +555,11 @@ msgid ""
 msgstr ""
 "   [[!img lib/system-run.png alt=\"Opciones adicionales de partición\" "
 "class=\"symbolic\" link=\"no\"]]\n"
+
+#, fuzzy, no-wrap
+#~| msgid "Storing sensitive documents"
+#~ msgid "<h1 id=\"storing\">Storing sensitive documents</h1>\n"
+#~ msgstr "Guardar documentos delicados"
 
 #, no-wrap
 #~ msgid "       </div>\n"

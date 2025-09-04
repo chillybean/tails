@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tails\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-05-27 18:23+0000\n"
+"POT-Creation-Date: 2025-09-04 14:26+0200\n"
 "PO-Revision-Date: 2025-01-24 17:18+0000\n"
 "Last-Translator: victor dargallo <victordargallo@disroot.org>\n"
 "Language-Team: Spanish <http://translate.tails.net/projects/tails/"
@@ -56,9 +56,14 @@ msgid "icon that looks like a person."
 msgstr "que se asemeja a una persona."
 
 #. type: Plain text
-#, no-wrap
+#, fuzzy, no-wrap
+#| msgid ""
+#| "[[!img desktop/accessibility.png link=\"no\" class=\"screenshot\"\n"
+#| "alt=\"Accessibility menu with the following options, all disabled\n"
+#| "by default: High Contrast, Zoom, Large Text, Screen Reader, Screen Keyboard,\n"
+#| "Visual Alters, Sticky Keys, Slow Keys, Bounce Keys, and Mouse Keys\"]]\n"
 msgid ""
-"[[!img desktop/accessibility.png link=\"no\" class=\"screenshot\"\n"
+"[[!img desktop/accessibility.png class=\"screenshot\"\n"
 "alt=\"Accessibility menu with the following options, all disabled\n"
 "by default: High Contrast, Zoom, Large Text, Screen Reader, Screen Keyboard,\n"
 "Visual Alters, Sticky Keys, Slow Keys, Bounce Keys, and Mouse Keys\"]]\n"
@@ -67,6 +72,33 @@ msgstr ""
 "alt=\"Menú de accesibilidad con las siguientes opciones, todas desactivadas\n"
 "por defecto: Contraste elevado, Zoom, Texto Grande, Lector de Pantalla, Teclado Visual,\n"
 "Alertas visuales, Teclas permanentes, Teclas Lentas, Teclas de Rebote y Teclas del ratón\"]]\n"
+
+#. type: Plain text
+#, fuzzy, no-wrap
+#| msgid "<h1 id=\"menu\">Accessibility menu</h1>\n"
+msgid "<h1 id=\"settings\">Accessibility settings</h1>\n"
+msgstr "<h1 id=\"menu\">Menú de accesibilidad</h1>\n"
+
+#. type: Plain text
+msgid "More accessibility settings are available in the *Settings* utility."
+msgstr ""
+
+#. type: Plain text
+msgid "To configure all possible accessibility settings, you can either:"
+msgstr ""
+
+#. type: Bullet: '- '
+msgid ""
+"Choose **Accessibility Settings** in the accessibility menu in the top bar, "
+"the [[!img lib/accessibility.png alt=\"\" class=\"symbolic\" link=\"no\"]] "
+"icon that looks like a person."
+msgstr ""
+
+#. type: Bullet: '- '
+msgid ""
+"Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Settings** and select "
+"**Accessibility** in the sidebar of the *Settings* utility."
+msgstr ""
 
 #. type: Plain text
 #, no-wrap
@@ -98,18 +130,22 @@ msgstr ""
 msgid ""
 "To learn about all keyboard shortcuts in GNOME visit [GNOME Help: Useful "
 "keyboard shortcuts](https://help.gnome.org/users/gnome-help/stable/shell-"
-"keyboard-shortcuts.html.en)  or use the *Settings* application in Tails:"
+"keyboard-shortcuts.html.en)  or use the *Settings* utility in Tails:"
 msgstr ""
 
 #. type: Bullet: '1. '
 #, fuzzy
 #| msgid "Choose **Applications&nbsp;▸ Settings**."
-msgid "Choose **Applications&nbsp;▸ System Tools&nbsp;▸ Settings**."
+msgid "Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Settings**."
 msgstr "Elige **Aplicaciones&nbsp;▸ Configuración**."
 
 #. type: Bullet: '1. '
+#, fuzzy
+#| msgid ""
+#| "In the *Settings* application, choose **Keyboard&nbsp;▸ Keyboard "
+#| "Shortcuts&nbsp;▸ View and Customize Shortcuts**."
 msgid ""
-"In the *Settings* application, choose **Keyboard&nbsp;▸ Keyboard "
+"In the *Settings* utility, choose **Keyboard&nbsp;▸ Keyboard "
 "Shortcuts&nbsp;▸ View and Customize Shortcuts**."
 msgstr ""
 "En la aplicación *Configuración*, elige **Teclado&nbsp;▸ Atajos de "
@@ -120,12 +156,9 @@ msgid "To access the accessibility menu using the keyboard:"
 msgstr "Para acceder al menú de accesibilidad usando el teclado:"
 
 #. type: Bullet: '1. '
-msgid ""
-"Press **Ctrl+Alt+Tab** to move the keyboard focus "
-"to the top bar."
+msgid "Press **Ctrl+Alt+Tab** to move the keyboard focus to the top bar."
 msgstr ""
-"Presiona **Ctrl+Alt+Tab** para mover el foco del "
-"teclado a la barra superior."
+"Presiona **Ctrl+Alt+Tab** para mover el foco del teclado a la barra superior."
 
 #. type: Bullet: '1. '
 msgid "Use the arrow keys on the keyboard to select the accessibility menu."
@@ -144,9 +177,7 @@ msgstr ""
 
 #. type: Bullet: '1. '
 msgid "Press **Space** to toggle the selected item."
-msgstr ""
-"Presiona **Espacio** para cambiar el elemento "
-"seleccionado."
+msgstr "Presiona **Espacio** para cambiar el elemento seleccionado."
 
 #. type: Bullet: '1. '
 msgid "Press **Esc** to close the menu."
@@ -218,7 +249,7 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid ""
-"<p>Keyloggers are more likely on public computers, in internet cafés or\n"
+"<p>Keyloggers are more likely on public computers, in Internet cafés or\n"
 "libraries, and on desktop computers, where a device is easier to hide.</p>\n"
 msgstr ""
 
@@ -242,15 +273,13 @@ msgstr "<div class=\"bug\">\n"
 #. type: Plain text
 #, no-wrap
 msgid ""
-"<p>The screen keyboard doesn't work in a <i>Root Terminal</i>. ([[!tails_ticket\n"
+"<p>The screen keyboard doesn't work in a <i>Root Console</i>. ([[!tails_ticket\n"
 "18061]])</p>\n"
 msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid ""
-"<p>Instead, open a <i>Terminal</i> and execute the following command to log in\n"
-"as root:</p>\n"
+msgid "<p>Execute the following command in a regular <i>Console</i>.</p>\n"
 msgstr ""
 
 #. type: Plain text
@@ -277,8 +306,8 @@ msgstr ""
 #~ "Accessibility](https://help.gnome.org/users/gnome-help/stable/a11y.html)."
 #~ msgstr ""
 #~ "Estas tecnologías son documentadas en más detalle en la [Ayuda de GNOME: "
-#~ "Accesibilidad](https://help.gnome.org/users/gnome-help/stable/a11y.html."
-#~ "es)."
+#~ "Accesibilidad](https://help.gnome.org/users/gnome-help/stable/"
+#~ "a11y.html.es)."
 
 #, no-wrap
 #~ msgid "Universal access menu"

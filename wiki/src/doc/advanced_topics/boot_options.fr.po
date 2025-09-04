@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2025-01-16 21:24+0000\n"
+"POT-Creation-Date: 2025-09-04 14:26+0200\n"
 "PO-Revision-Date: 2025-04-29 19:53+0000\n"
 "Last-Translator: Chre <tor@renaudineau.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -83,9 +83,12 @@ msgid "This is what *SYSLINUX* looks like:"
 msgstr "Voici ce à quoi *SYSLINUX* ressemble :"
 
 #. type: Plain text
-#, no-wrap
+#, fuzzy, no-wrap
+#| msgid ""
+#| "[[!img install/inc/screenshots/syslinux.png link=\"no\" class=\"screenshot\" alt=\"Black screen ('SYSLINUX') with Tails\n"
+#| "logo and 2 options: 'Tails' and 'Tails (Troubleshooting Mode)'.\"]]\n"
 msgid ""
-"[[!img install/inc/screenshots/syslinux.png link=\"no\" class=\"screenshot\" alt=\"Black screen ('SYSLINUX') with Tails\n"
+"[[!img install/inc/screenshots/syslinux.png class=\"screenshot\" alt=\"Black screen ('SYSLINUX') with Tails\n"
 "logo and 2 options: 'Tails' and 'Tails (Troubleshooting Mode)'.\"]]\n"
 msgstr ""
 "[[!img install/inc/screenshots/syslinux.png link=\"no\" class=\"screenshot\" alt=\"Écran noir ('SYSLINUX') avec le logo\n"
@@ -133,9 +136,12 @@ msgstr ""
 "   d'options de démarrage apparaît en bas de l'écran.\n"
 
 #. type: Plain text
-#, no-wrap
+#, fuzzy, no-wrap
+#| msgid ""
+#| "   [[!img syslinux-with-options.png link=\"no\" class=\"screenshot\" alt=\"SYSLINUX with\n"
+#| "   a list of options starting with '/live/vmlinuz' at the bottom\"]]\n"
 msgid ""
-"   [[!img syslinux-with-options.png link=\"no\" class=\"screenshot\" alt=\"SYSLINUX with\n"
+"   [[!img syslinux-with-options.png class=\"screenshot\" alt=\"SYSLINUX with\n"
 "   a list of options starting with '/live/vmlinuz' at the bottom\"]]\n"
 msgstr ""
 "   [[!img syslinux-with-options.png link=\"no\" class=\"screenshot\" alt=\"SYSLINUX avec\n"
@@ -229,11 +235,9 @@ msgid ""
 "   Type the boot option that you want to add. The line is most likely\n"
 "   wrapped and displayed on several lines but it is a single configuration line.\n"
 msgstr ""
-"   Pour ajouter une option de démarrage, naviguez à la fin de la ligne qui "
-"commence\n"
+"   Pour ajouter une option de démarrage, naviguez à la fin de la ligne qui commence\n"
 "   par `linux` avec les flèches du clavier.\n"
-"   Tapez l'option de démarrage que vous voulez ajouter. La ligne s'affiche "
-"très probablement\n"
+"   Tapez l'option de démarrage que vous voulez ajouter. La ligne s'affiche très probablement\n"
 "   sur plusieurs lignes mais il s'agit d'une seule ligne de configuration.\n"
 
 #. type: Bullet: '1. '
@@ -262,9 +266,7 @@ msgstr "<div class=\"bug\">\n"
 #. type: Plain text
 #, no-wrap
 msgid "<p>These modifications are deleted each time you upgrade Tails. ([[!tails_ticket 18268]])</p>\n"
-msgstr ""
-"<p>Ces modifications sont supprimées à chaque fois que vous mettez à jour "
-"Tails. ([[!tails_ticket 18268]])</p>\n"
+msgstr "<p>Ces modifications sont supprimées à chaque fois que vous mettez à jour Tails. ([[!tails_ticket 18268]])</p>\n"
 
 #. type: Plain text
 msgid "To do so:"
@@ -279,7 +281,9 @@ msgstr ""
 "doc/first_steps/welcome_screen/administration_password]]."
 
 #. type: Bullet: '1. '
-msgid "Open a *Terminal*."
+#, fuzzy
+#| msgid "Open a *Terminal*."
+msgid "Open a *Console*."
 msgstr "Ouvrez un *Terminal*."
 
 #. type: Bullet: '1. '
@@ -293,9 +297,7 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "   <p class=\"command\">sudo mount -o remount,rw /lib/live/mount/medium/</p>\n"
-msgstr ""
-"   <p class=\"command\">sudo mount -o remount,rw /lib/live/mount/medium/</p>"
-"\n"
+msgstr "   <p class=\"command\">sudo mount -o remount,rw /lib/live/mount/medium/</p>\n"
 
 #. type: Bullet: '1. '
 msgid ""
@@ -311,16 +313,12 @@ msgstr "Si votre ordinateur utilise *SYSLINUX* :"
 #. type: Plain text
 #, no-wrap
 msgid "     <p class=\"command\">gnome-text-editor admin:///lib/live/mount/medium/syslinux/live64.cfg</p>\n"
-msgstr ""
-"     <p class=\"command\">gnome-text-editor admin:///lib/live/mount/medium/"
-"syslinux/live64.cfg</p>\n"
+msgstr "     <p class=\"command\">gnome-text-editor admin:///lib/live/mount/medium/syslinux/live64.cfg</p>\n"
 
 #. type: Plain text
 #, no-wrap
 msgid "     The section `label live` corresponds to the default boot options.\n"
-msgstr ""
-"     La section `label live` correspond aux options de démarrage par défaut."
-"\n"
+msgstr "     La section `label live` correspond aux options de démarrage par défaut.\n"
 
 #. type: Plain text
 #, no-wrap
@@ -334,9 +332,7 @@ msgstr "Si votre ordinateur utilise *GRUB* :"
 #. type: Plain text
 #, no-wrap
 msgid "     <p class=\"command\">gnome-text-editor admin:///lib/live/mount/medium/EFI/debian/grub.cfg</p>\n"
-msgstr ""
-"     <p class=\"command\">gnome-text-editor admin:///lib/live/mount/medium/"
-"EFI/debian/grub.cfg</p>\n"
+msgstr "     <p class=\"command\">gnome-text-editor admin:///lib/live/mount/medium/EFI/debian/grub.cfg</p>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -344,8 +340,7 @@ msgid ""
 "     The section `menuentry 'Tails 6.11'` corresponds to the default boot\n"
 "     options.\n"
 msgstr ""
-"     La section `menuentry 'Tails 6.11'` correspond aux options de démarrage."
-"\n"
+"     La section `menuentry 'Tails 6.11'` correspond aux options de démarrage.\n"
 "     par défaut.\n"
 
 #. type: Plain text
@@ -354,8 +349,7 @@ msgid ""
 "     The section `menuentry 'Tails 6.11 (Troubleshooting Mode)'` corresponds to\n"
 "     the troubleshoot mode.\n"
 msgstr ""
-"     La section `menuentry 'Tails 6.11 (Troubleshooting Mode)'` correspond "
-"au\n"
+"     La section `menuentry 'Tails 6.11 (Troubleshooting Mode)'` correspond au\n"
 "     mode sans échec.\n"
 
 #. type: Bullet: '1. '

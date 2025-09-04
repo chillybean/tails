@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Italian Tails translation\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2024-02-26 12:26+0100\n"
+"POT-Creation-Date: 2025-09-04 14:26+0200\n"
 "PO-Revision-Date: 2024-12-04 17:07+0000\n"
 "Last-Translator: _ignifugo <ignifugo@insicuri.net>\n"
 "Language-Team: ita <transitails@inventati.org>\n"
@@ -40,8 +40,8 @@ msgstr "<a id=\"disks\"></a>\n"
 
 #. type: Title =
 #, no-wrap
-msgid "Using the *Disks* utility"
-msgstr "Usare l'utilità *Dischi*"
+msgid "Using *GNOME Disks*"
+msgstr "Usando *Dischi GNOME*"
 
 #. type: Plain text
 #, no-wrap
@@ -56,9 +56,7 @@ msgstr "<p><b>Rischi di sovrascrivere il disco rigido del computer.</b></p>\n"
 #. type: Plain text
 #, no-wrap
 msgid "<p>If at some point you are not sure about which device to choose, stop proceeding.</p>\n"
-msgstr ""
-"<p>Se in qualche passaggio non sei sicura di quale dispositivo scegliere, "
-"interrompi la procedura.</p>\n"
+msgstr "<p>Se in qualche passaggio non sei sicura di quale dispositivo scegliere, interrompi la procedura.</p>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -66,40 +64,77 @@ msgid "</div>\n"
 msgstr "</div>\n"
 
 #. type: Bullet: '1. '
-msgid "Make sure that the USB stick that you want to reset is unplugged."
-msgstr "Assicurati che la chiavetta USB che vuoi resettare sia disinserita."
+#, fuzzy
+#| msgid "Using *GNOME Disks*"
+msgid "Install *GNOME Disks*."
+msgstr "Usando *Dischi GNOME*"
 
-#. type: Bullet: '1. '
+#. type: Bullet: '   - '
 msgid ""
-"Choose **Applications**&nbsp;▸ **Utilities**&nbsp;▸ **Disks** to start the "
-"*Disks* utility."
+"If you are using the GNOME desktop environment, *GNOME Disks* should be "
+"installed by default."
 msgstr ""
-"Scegli **Applicazioni**&nbsp;▸ **Utilità**&nbsp;▸ **Dischi** per avviare "
-"l'utilità *Dischi*."
+
+#. type: Bullet: '   - '
+msgid ""
+"Otherwise, install the `gnome-disk-utility` package using the usual "
+"installation method for your distribution."
+msgstr ""
 
 #. type: Plain text
 #, no-wrap
 msgid ""
-"   A list of all the storage devices on the computer appears in the left pane\n"
-"   of the window.\n"
+"     You can also install Tails using the\n"
+"     `dd` command from any Linux distribution\n"
+"     as described in our instructions for [[installing from Debian using\n"
+"     the command line|install/expert#install]].\n"
+msgstr ""
+
+#. type: Bullet: '1. '
+msgid "Make sure that the USB stick that you want to reset is unplugged."
+msgstr "Assicurati che la chiavetta USB che vuoi resettare sia disinserita."
+
+#. type: Bullet: '1. '
+msgid "Open *GNOME Disks* (also called *Disks*)."
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid ""
+"   <div>\n"
+"     For example, you can press the <b>Super</b> ([[!img lib/start.png class=\"symbolic\" link=\"no\" alt=\"\"]]) key,\n"
+"     then type <code>disks</code> and choose <b>Disks</b>.\n"
+"   </div>\n"
+msgstr ""
+
+#. type: Plain text
+#, fuzzy, no-wrap
+#| msgid ""
+#| "   A list of all the storage devices on the computer appears in the left pane\n"
+#| "   of the window.\n"
+msgid "   The storage devices in the computer are listed in the left pane.\n"
 msgstr ""
 "   Una lista di tutti i dispositivi del computer appariranno nel pannello di sinistra\n"
 "della finestra.\n"
+
+#. type: Plain text
+#, no-wrap
+msgid "   [[!img install/inc/icons/gnome-disks.png link=\"no\" alt=\"\"]]\n"
+msgstr ""
 
 #. type: Bullet: '1. '
 msgid "Plug in the USB stick that you want to reset."
 msgstr "Collega la chiavetta USB da resettare."
 
 #. type: Plain text
-#, no-wrap
-msgid ""
-"   A new device appears in the list of storage devices. This new device\n"
-"   corresponds to the USB stick that you plugged in. Click on it.\n"
+#, fuzzy, no-wrap
+#| msgid ""
+#| "   A new device appears in the list of storage devices. This new device\n"
+#| "   corresponds to the USB stick that you plugged in. Click on it.\n"
+msgid "   A new device appears in the list of storage devices. Select it.\n"
 msgstr ""
-"   Un nuovo dispositivo appare nella lista dei dispositivi di archiviazione. "
-"Questo nuovo\n"
-"      dispositivo corrisponde alla chiavetta USB che hai inserito. Fai clic "
-"su di esso.\n"
+"   Un nuovo dispositivo appare nella lista dei dispositivi di archiviazione. Questo nuovo\n"
+"      dispositivo corrisponde alla chiavetta USB che hai inserito. Fai clic su di esso.\n"
 
 #. type: Bullet: '1. '
 msgid ""
@@ -117,9 +152,9 @@ msgstr ""
 #| "open-menu.png alt=\"Menu\" class=symbolic link=no]]</span> button in the "
 #| "titlebar and choose **Format Disk…**."
 msgid ""
-"To reset the USB stick, click on the [[!img lib/view-more.png alt=\"Drive "
-"Options\" class=\"symbolic\" link=\"no\"]] button in the title bar and "
-"choose **Format Disk** to erase all the existing partitions on the device."
+"To reset the USB stick, select the [[!img lib/view-more.png alt=\"Menu\" "
+"class=\"symbolic\" link=\"no\"]] button in the title bar and choose **Format "
+"Disk** to erase all the existing partitions on the device."
 msgstr ""
 "Per resettare la chiavetta USB, fai clic sul tasto <span class=\"guimenu\">[!"
 "img lib/open-menu.png alt=\"Menu\" class=symbolic link=no]]</span> nella "
@@ -130,8 +165,7 @@ msgstr ""
 #, fuzzy
 #| msgid "In the **Format Disk** dialog:"
 msgid "In the **Format Disk** dialog:"
-msgstr ""
-"Nella finestra di dialogo **Formatta disco**:"
+msgstr "Nella finestra di dialogo **Formatta disco**:"
 
 #. type: Bullet: '   - '
 #, fuzzy
@@ -199,12 +233,12 @@ msgstr ""
 
 #. type: Bullet: '1. '
 msgid ""
-"To make sure that all the changes are written to the USB stick, click on the"
+"To make sure that all the changes are written to the USB stick, select the"
 msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid "   [[!img lib/media-eject.png alt=\"Eject\" class=\"symbolic\" link=\"no\"]]\n"
+msgid "   [[!img lib/system-shutdown.png alt=\"Power Off this Disk\" class=\"symbolic\" link=\"no\"]]\n"
 msgstr ""
 
 #. type: Plain text
@@ -241,12 +275,11 @@ msgstr ""
 #| "If Tails starts as usual, follow the instructions for [[resetting a USB "
 #| "stick using *GNOME Disks*|linux#disks]]."
 msgid ""
-"If Tails starts as usual, follow the instructions for [[resetting a USB "
-"stick using the *Disks* utility|linux#disks]]."
+"If Tails starts as usual, follow the instructions to [[reset a USB stick "
+"using *GNOME Disks* for Linux|linux#disks]]."
 msgstr ""
 "Se Tails si avvia come al solito, segui le istruzioni per [[inizializzare "
-"una chiavetta USB usando *GNOME Disks*|"
-"linux#disks]]."
+"una chiavetta USB usando *GNOME Disks*|linux#disks]]."
 
 #. type: Plain text
 #, no-wrap
@@ -259,6 +292,17 @@ msgstr ""
 "    memoria sufficiente per operare in questa modalità. Prova con un altro computer, o trova\n"
 "    un altro sistema Linux, come un'altra chiavetta USB Tails, da cui eseguire l'inizializzazione.\n"
 
+#, no-wrap
+#~ msgid "Using the *Disks* utility"
+#~ msgstr "Usare l'utilità *Dischi*"
+
+#~ msgid ""
+#~ "Choose **Applications**&nbsp;▸ **Utilities**&nbsp;▸ **Disks** to start "
+#~ "the *Disks* utility."
+#~ msgstr ""
+#~ "Scegli **Applicazioni**&nbsp;▸ **Utilità**&nbsp;▸ **Dischi** per avviare "
+#~ "l'utilità *Dischi*."
+
 #~ msgid ""
 #~ "To make sure that all the changes are written to the USB stick, click on "
 #~ "the <span class=\"guimenu\">[[!img lib/media-eject.png alt=\"Eject\" "
@@ -268,10 +312,6 @@ msgstr ""
 #~ "chiavetta USB, fai clic sul bottone <span class=\"guimenu\">[[!img lib/"
 #~ "media-eject.png alt=\"Espelle questo disco\" class=symbolic link=no]]</"
 #~ "span> nella barra del titolo."
-
-#, no-wrap
-#~ msgid "Using *GNOME Disks*"
-#~ msgstr "Usando *Dischi GNOME*"
 
 #, no-wrap
 #~ msgid ""
@@ -293,15 +333,14 @@ msgstr ""
 
 #~ msgid ""
 #~ "When starting Tails, add the <span class=\"command\">toram</span> boot "
-#~ "option in the *Boot Loader*. For "
-#~ "detailed instructions, see the documentation on [[using the <span "
-#~ "class=\"application\">Boot Loader</span>|advanced_topics/boot_options]]."
+#~ "option in the *Boot Loader*. For detailed instructions, see the "
+#~ "documentation on [[using the <span class=\"application\">Boot Loader</"
+#~ "span>|advanced_topics/boot_options]]."
 #~ msgstr ""
 #~ "Quando avvii Tails, aggiungi l'opzione di avvio <span "
 #~ "class=\"command\">toram</span> nel <span class=\"application\">Boot "
 #~ "Loader</span>. Per istruzioni dettagliate, vedi la documentazione su "
-#~ "[[using the *Boot Loader*|"
-#~ "advanced_topics/boot_options]]."
+#~ "[[using the *Boot Loader*|advanced_topics/boot_options]]."
 
 #~ msgid "    Then click on the **Format…** button.\n"
 #~ msgstr ""
@@ -310,9 +349,8 @@ msgstr ""
 
 #~ msgid ""
 #~ "In the popup window, choose <span class=\"guilabel\">Master Boot Record</"
-#~ "span> from the **Scheme** drop-down list. "
-#~ "Then click on the **Format** button."
+#~ "span> from the **Scheme** drop-down list. Then click on the **Format** "
+#~ "button."
 #~ msgstr ""
 #~ "Nella finestra popup, scegli<span class=\"guilabel\">Master Boot Record</"
-#~ "span> dal menù a tendina**Schema**.Clicca sul "
-#~ "bottone**Formattare**."
+#~ "span> dal menù a tendina**Schema**.Clicca sul bottone**Formattare**."
