@@ -1,7 +1,7 @@
 import gettext
 from logging import getLogger
 from gi.repository import Gio, GLib, Gtk
-from typing import TYPE_CHECKING, List
+from typing import TYPE_CHECKING
 
 from tps_frontend import CREATION_VIEW_UI_FILE, DBUS_SERVICE_NAME, DBUS_JOB_INTERFACE
 from tps_frontend.view import View
@@ -32,7 +32,7 @@ class CreationView(View):
         self,
         proxy: Gio.DBusProxy,
         changed_properties: GLib.Variant,
-        invalidated_properties: List[str],
+        invalidated_properties: list[str],
     ):
         if not "Job" in changed_properties.keys():
             return
@@ -63,7 +63,7 @@ class CreationView(View):
         self,
         proxy: Gio.DBusProxy,
         changed_properties: GLib.Variant,
-        invalidated_properties: List[str],
+        invalidated_properties: list[str],
     ):
         if "Status" in changed_properties.keys():
             self.set_status(changed_properties["Status"])
