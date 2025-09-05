@@ -9,9 +9,14 @@ import shutil
 import subprocess
 
 import additional_software
-from additional_software import notify_failure, \
-    OLD_APT_LISTS_DIR, get_additional_packages, notify, \
-    APT_LISTS_DIR, get_packages_list_path
+from additional_software import (
+    notify_failure,
+    OLD_APT_LISTS_DIR,
+    get_additional_packages,
+    notify,
+    APT_LISTS_DIR,
+    get_packages_list_path,
+)
 from tailslib import LIVE_USERNAME
 from tailslib.locale import apply_selected_locale
 
@@ -36,19 +41,26 @@ def upgrade_additional_packages():
     apt_get_returncode = _launch_apt_get(["update"])
     if apt_get_returncode:
         logging.warning("Warning: the update failed.")
-        notify_failure(_("The check for upgrades of your additional software "
-                         "failed"),
-                       _("Please check your network connection, "
-                         "restart Tails, or read the system log to "
-                         "understand the problem."))
+        notify_failure(
+            _("The check for upgrades of your additional software failed"),
+            _(
+                "Please check your network connection, "
+                "restart Tails, or read the system log to "
+                "understand the problem."
+            ),
+        )
         return False
     if install_additional_packages(upgrade_mode=True):
         logging.info("The upgrade was successful.")
     else:
-        notify_failure(_("The upgrade of your additional software failed"),
-                       _("Please check your network connection, "
-                         "restart Tails, or read the system log to "
-                         "understand the problem."))
+        notify_failure(
+            _("The upgrade of your additional software failed"),
+            _(
+                "Please check your network connection, "
+                "restart Tails, or read the system log to "
+                "understand the problem."
+            ),
+        )
         return False
 
     # We now know that the APT packages cache is up-to-date wrt. the APT lists,
@@ -93,8 +105,10 @@ def install_additional_packages(upgrade_mode=False):
         try:
             restore_old_apt_lists()
         except Exception as e:
-            logging.warning("Restoring old APT lists failed with %r, "
-                            "deleting them and proceeding anyway." % e)
+            logging.warning(
+                "Restoring old APT lists failed with %r, "
+                "deleting them and proceeding anyway." % e
+            )
         # In all cases, delete the old APT lists: if they could be
         # restored we don't need them anymore (and we don't want to
         # restore them again next time); if they could not be
@@ -110,23 +124,26 @@ def install_additional_packages(upgrade_mode=False):
     installing_notification_id: int | None = None
     if not upgrade_mode:
         installing_notification_id = notify(
-            _("Installing your additional software from persistent "
-              "storage..."),
+            _("Installing your additional software from persistent storage..."),
             _("This can take several minutes."),
-            return_id=True)
-    logging.info("Will install the following packages: %s"
-                 % " ".join(packages))
+            return_id=True,
+        )
+    logging.info("Will install the following packages: %s" % " ".join(packages))
     apt_get_returncode = _launch_apt_get(
-        ["--no-remove", "--option", "DPkg::Options::=--force-confold",
-         "install", *list(packages)])
+        [
+            "--no-remove",
+            "--option",
+            "DPkg::Options::=--force-confold",
+            "install",
+            *list(packages),
+        ]
+    )
     if apt_get_returncode:
-        logging.warning("Warning: installation of %s failed"
-                        % " ".join(packages))
+        logging.warning("Warning: installation of %s failed" % " ".join(packages))
         if not upgrade_mode:
             if installing_notification_id is not None:
                 _close_notification(installing_notification_id)
-            notify_failure(_("The installation of your additional software "
-                             "failed"))
+            notify_failure(_("The installation of your additional software failed"))
         return False
     else:
         logging.info("Installation completed successfully.")
@@ -153,36 +170,38 @@ def _launch_apt_get(specific_args: list[str]):
     apt_get_env = os.environ.copy()
     # The environnment provided in GDM PostLogin hooks doesn't contain /sbin/
     # which is required by dpkg. Let's use the default path for root in Tails.
-    apt_get_env['PATH'] = \
-        "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    apt_get_env["PATH"] = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
     # We will log the output and want it in English when included in bug
     # reports
-    apt_get_env['LANG'] = "C"
-    apt_get_env['DEBIAN_PRIORITY'] = "critical"
+    apt_get_env["LANG"] = "C"
+    apt_get_env["DEBIAN_PRIORITY"] = "critical"
     args = ["apt-get", "--quiet", "--yes"]
     args.extend(specific_args)
-    apt_get = subprocess.Popen(args,
-                               env=apt_get_env,
-                               universal_newlines=True,
-                               stderr=subprocess.STDOUT,
-                               stdout=subprocess.PIPE)
-    for line in iter(apt_get.stdout.readline, ''):
-        if not line.startswith('('):
+    apt_get = subprocess.Popen(
+        args,
+        env=apt_get_env,
+        universal_newlines=True,
+        stderr=subprocess.STDOUT,
+        stdout=subprocess.PIPE,
+    )
+    for line in iter(apt_get.stdout.readline, ""):
+        if not line.startswith("("):
             logging.info(line.rstrip())
     apt_get.wait()
     if apt_get.returncode:
-        logging.warning("apt-get exited with returncode %i"
-                        % apt_get.returncode)
+        logging.warning("apt-get exited with returncode %i" % apt_get.returncode)
     return apt_get.returncode
 
 
 def save_old_apt_lists(srcdir=APT_LISTS_DIR, destdir=OLD_APT_LISTS_DIR):
     """Save a copy of the APT lists"""
     if os.path.exists(destdir):
-        logging.warning("Warning: a copy of the APT lists already exists, "
-                        "which should never happen. Removing it.")
+        logging.warning(
+            "Warning: a copy of the APT lists already exists, "
+            "which should never happen. Removing it."
+        )
         delete_old_apt_lists(destdir)
-    subprocess.run(['/bin/cp', '--archive', srcdir, destdir], check=True)
+    subprocess.run(["/bin/cp", "--archive", srcdir, destdir], check=True)
 
 
 def delete_old_apt_lists(old_apt_lists_dir=OLD_APT_LISTS_DIR):
@@ -229,17 +248,26 @@ def has_additional_packages_list():
 def _close_notification(notification_id):
     """Close a notification shown to the user of the live system."""
     subprocess.run(
-            ["/bin/sudo", "-u", LIVE_USERNAME,
-             "DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/{uid}/bus".format(
-                  uid=pwd.getpwnam(LIVE_USERNAME).pw_uid),
-             "gdbus", "call",
-             "--session",
-             "--dest", "org.freedesktop.Notifications",
-             "--object-path", "/org/freedesktop/Notifications",
-             "--method", "org.freedesktop.Notifications.CloseNotification",
-             str(notification_id)],
-            stdout=subprocess.DEVNULL,
-            check=False,
+        [
+            "/bin/sudo",
+            "-u",
+            LIVE_USERNAME,
+            "DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/{uid}/bus".format(
+                uid=pwd.getpwnam(LIVE_USERNAME).pw_uid
+            ),
+            "gdbus",
+            "call",
+            "--session",
+            "--dest",
+            "org.freedesktop.Notifications",
+            "--object-path",
+            "/org/freedesktop/Notifications",
+            "--method",
+            "org.freedesktop.Notifications.CloseNotification",
+            str(notification_id),
+        ],
+        stdout=subprocess.DEVNULL,
+        check=False,
     )
 
 

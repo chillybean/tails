@@ -20,12 +20,8 @@ class CreationView(View):
     def __init__(self, window: "Window"):
         super().__init__(window)
         self.backend_job = None
-        self.status_label = self.builder.get_object(
-            "creation_status_label"
-        )  # type: Gtk.Label
-        self.progress_bar = self.builder.get_object(
-            "creation_progress_bar"
-        )  # type: Gtk.ProgressBar
+        self.status_label = self.builder.get_object("creation_status_label")  # type: Gtk.Label
+        self.progress_bar = self.builder.get_object("creation_progress_bar")  # type: Gtk.ProgressBar
 
         # Connect to properties-changed signal
         self.window.service_proxy.connect(
