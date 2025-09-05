@@ -18,6 +18,7 @@
 
 import gettext
 import logging
+from typing import ClassVar
 
 from gi.repository import Handy
 from gi.repository import Gtk
@@ -30,7 +31,7 @@ class TranslatableWindow:
     """Interface providing functions to translate a window on the fly"""
 
     retain_focus = True
-    registered_windows = []
+    registered_windows: ClassVar[list[Gtk.Window]] = []
 
     def __init__(self, window):
         self.window_ = window
