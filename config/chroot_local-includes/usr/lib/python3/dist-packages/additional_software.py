@@ -30,7 +30,7 @@ APT_LISTS_DIR = "/var/lib/apt/lists"
 PACKAGES_LIST_FILE = "live-additional-software.conf"
 
 
-gettext.install("tails")
+gettext.textdomain("tails")
 _ = gettext.gettext
 
 
