@@ -145,7 +145,7 @@ class TranslatableWindow:
             self.translation = gettext.translation(
                 TRANSLATION_DOMAIN, tailsgreeter.config.system_locale_dir, [str(lang)]
             )
-        except IOError:
+        except OSError:
             self.translation = None
 
         text_direction = self.get_locale_direction(lang)
