@@ -34,7 +34,7 @@ class CreationView(View):
         changed_properties: GLib.Variant,
         invalidated_properties: list[str],
     ):
-        if not "Job" in changed_properties.keys():
+        if "Job" not in changed_properties.keys():
             return
 
         job_path = changed_properties["Job"]
