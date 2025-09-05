@@ -1,5 +1,3 @@
-#!/usr/bin/python3 -I
-#
 # Copyright 2012-2019 Tails developers <tails@boum.org>
 # Copyright 2011 Max <govnototalitarizm@gmail.com>
 # Copyright 2011 Martin Owens
