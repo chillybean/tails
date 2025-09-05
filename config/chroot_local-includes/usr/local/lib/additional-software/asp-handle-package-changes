@@ -26,6 +26,10 @@ from tailslib.persistence import has_unlocked_persistence, has_persistence,\
     additional_software_persistence_feature_is_active
 
 
+with open("/etc/default/locale") as f:
+    for line in f:
+        k, v = line.strip().split("=", 1)
+        os.environ[k] = v
 gettext.install("tails")
 _ = gettext.gettext
 
