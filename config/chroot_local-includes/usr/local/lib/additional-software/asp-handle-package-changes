@@ -21,15 +21,13 @@ import additional_software
 from additional_software import notify, notify_failure, \
     ASP_STATE_INSTALLER_ASKED, remove_additional_packages, \
     get_additional_packages, write_config
+from tailslib.locale import apply_selected_locale
 from tailslib.persistence import has_unlocked_persistence, has_persistence,\
     is_tails_media_writable, spawn_tps_frontend, \
     additional_software_persistence_feature_is_active
 
 
-with open("/etc/default/locale") as f:
-    for line in f:
-        k, v = line.strip().split("=", 1)
-        os.environ[k] = v
+apply_selected_locale()
 gettext.textdomain("tails")
 _ = gettext.gettext
 
