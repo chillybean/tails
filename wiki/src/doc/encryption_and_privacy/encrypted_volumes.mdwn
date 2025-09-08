@@ -22,6 +22,17 @@ encryption in Linux.
 
 - The GNOME desktop allows you to open encrypted volumes.
 
+<div class="attack">
+
+
+<p>Such encrypted volumes, like the Persistent Storage, are not hidden.</p>
+
+<p>An attacker in possession of the device can know that there is an encrypted
+volume on it. Take into consideration that you can be forced or tricked to give
+out its passphrase.</p>
+
+</div>
+
 <h2 id="comparison">Comparison between <i>LUKS</i> and <i>VeraCrypt</i></h2>
 
 You can also open *VeraCrypt* encrypted
@@ -33,8 +44,7 @@ about *VeraCrypt*.|veracrypt]]
 
 <h1 id="creating">Creating an encrypted partition</h1>
 
-Choose **Applications**&nbsp;▸ **Utilities**&nbsp;▸ **Disks** to open the
-*Disks* utility.
+Choose **Apps&nbsp;▸ Utilities&nbsp;▸ Disks** to open the *Disks* utility.
 
 <h2 id="identifying">Identifying your external storage device</h2>
 
@@ -45,14 +55,14 @@ the screen.
 
   1. A new device appears in the list of storage devices. Click on it.
 
-     [[!img storage_devices_after.png link=no alt=""]]
+     [[!img storage_devices_after.png class="screenshot" alt=""]]
 
   1. Check that the description of the device on the right side of the screen
   corresponds to your device: its brand, its size, etc.
 
 <h2 id="formatting">Formatting the device</h2>
 
-  1. Click on the [[!img lib/view-more.png alt="Drive Options" class="symbolic" link="no"]] button
+  1. Select the [[!img lib/view-more.png alt="Menu" class="symbolic" link="no"]] button
      in the title bar and choose **Format Disk**
      to erase all the existing partitions on the device.
 
@@ -84,7 +94,7 @@ the screen.
 Now the schema of the partitions in the middle of the screen shows an empty
 device:
 
-[[!img empty_device.png link=no alt="Free Space 123 GB"]]
+[[!img empty_device.png class="screenshot" alt="Free Space 123 GB"]]
 
   1. Click on the **[[!img lib/list-add.png alt="Create partition" class="symbolic" link="no"]]**
      button to create a new partition on the device.
@@ -151,7 +161,7 @@ device:
   1. Creating the partition takes from a few seconds to a few minutes. After
      that, the new encrypted partition appears in the volumes on the device:
 
-     [[!img encrypted_partition.png link="no" alt="Partition 1 4.0 GB LUKS / Filesystem 4.0 GB Ext4"]]
+     [[!img encrypted_partition.png class="screenshot" alt="Partition 1 4.0 GB LUKS / Filesystem 4.0 GB Ext4"]]
 
   1. If you want to create another partition in the free space on the
      device, click on the free space and then click on the
@@ -160,11 +170,8 @@ device:
 
 <h2 id="using">Using the new partition</h2>
 
-You can open this new partition from the sidebar of the file browser with the
+You can open this new partition from the sidebar of the *Files* browser with the
 name you gave it.
-
-After opening the partition with the file browser, you can also access it
-from the **Places** menu.
 
 <h1 id="opening">Opening an existing encrypted partition</h1>
 
@@ -175,7 +182,7 @@ unlock the encryption automatically.
 
 1. A dialog appears, asking for the passphrase to unlock the partition.
 
-   [[!img unlock.png link="no" class="screenshot" alt="Authentication Required"]]
+   [[!img unlock.png class="screenshot" alt="Authentication Required"]]
 
 1. Enter the passphrase of the partition in the password prompt and
    click **Unlock**.
@@ -184,21 +191,13 @@ unlock the encryption automatically.
    passphrase of this partition only until you shut down. The passphrase is not
    stored in your Persistent Storage.
 
-1. After unlocking, you can access the content of the partition from either:
-
-   * The **Places** menu
-   * The sidebar of the *Files* browser
+1. After unlocking, you can access the content of the partition from the
+   sidebar of the *Files* browser.
 
 After you finished using the partition, click on the [[!img lib/media-eject.png
 alt="Eject" class="symbolic" link="no"]] button next to the partition in the
 sidebar of the *Files* browser to eject the partition safety and lock again the
 encryption.
-
-<h1 id="storing">Storing sensitive documents</h1>
-
-Such encrypted volumes are not hidden. An attacker in possession of
-the device can know that there is an encrypted volume on it. Take into consideration
-that you can be forced or tricked to give out its passphrase.
 
 <h1 id="os">Opening encrypted volumes from other operating systems</h1>
 
@@ -212,15 +211,14 @@ operating system.
 
 <h1 id="changing">Changing the passphrase of an existing encrypted partition</h1>
 
-1. Choose **Applications**&nbsp;▸ **Utilities**&nbsp;▸ **Disks** to open the
-   *Disks* utility.
+1. Choose **Apps&nbsp;▸ Utilities&nbsp;▸ Disks** to open the *Disks* utility.
 
 1. Plug in the external storage device that contains the encrypted partition
    for which you want to change the passphrase.
 
 1. The device appears in the list of storage devices. Click on it.
 
-   [[!img storage_devices_after.png link=no alt=""]]
+   [[!img storage_devices_after.png class="screenshot" alt=""]]
 
 1. Check that the description of the device on the right side of the screen
 corresponds to your device: its brand, its size, etc.

@@ -8,33 +8,40 @@ Tails.
 
 <h1 id="top-navigation-bar">Top navigation bar</h1>
 
-In the upper left corner of the screen there is one button and three menus:
+In the upper-left corner of the screen, there are 2 elements:
 
-- The <b>Activities</b> button
+[[!img upper-left.png class="screenshot" alt=""]]
 
-- The **Applications** menu
+- The Activities button [[!img lib/activities.png class="symbolic" link="no" alt=""]]
 
-- The **Places** menu
+- The Apps menu
 
-<h2 id="activities">Activities overview</h2>
+<h2 id="activities">Activities button</h2>
 
-To access your windows and applications you can either:
+The shape of the Activities button represents your workspaces, the grouping of
+windows on your desktop. For example, below is the shape of the Activities
+button if you have 3 workspaces and the second workspace is the one that it
+displayed right now.
 
-- Click on the <b>Activities</b> button.
+[[!img lib/workspaces.png class="symbolic" link="no" alt=""]]
 
-- Throw your mouse pointer to the top-left hot corner.
+To open the Activities Overview, you can either:
+
+- Click on the Activities button.
+
+- Throw your mouse pointer to the upper-left corner of the screen.
 
 - Press the [[!img lib/start.png class="symbolic" link="no" alt="Super"]] key on your keyboard.
 
 You can see your windows and applications in the overview. You can also
 start typing to search your applications, files, and folders.
 
-<h2 id="applications">Applications menu</h2>
+<h2 id="applications">Apps menu</h2>
 
-The **Applications** menu provides shortcuts to the
-[[included software|about/features]] and to GNOME configuration utilities.
+The **Apps** menu provides launchers for the
+[[included software|about/features]] and GNOME utilities.
 
-[[!img applications.png link="no" class="screenshot" alt=""]]
+[[!img applications.png class="screenshot" alt=""]]
 
 <a id="help"></a>
 
@@ -228,42 +235,33 @@ shortcuts allow you to launch the most frequently used applications:
 
 <div class="icon">
 
-  [[!img lib/apps/kleopatra.png link="no" alt=""]]
+  [[!img lib/apps/files.png link="no" alt=""]]
 
   <div class="text">
 
-  <p><b><i>Kleopatra</i></b> allows you to encrypt text and files using
-  <i>GnuPG</i>.</p>
-
-  <p>See [[encrypting text and files using <i>GnuPG</i> and
-  <i>Kleopatra</i>|encryption_and_privacy/kleopatra]].</p>
+  <p>The <b><i>Files</i></b> browser allows you to browse and organize your
+  files, create folders, and [[connect to SSH or SFTP
+  servers|desktop#files]].</p>
 
   </div>
 
 </div>
-
-<h2 id="places">Places menu</h2>
-
-The **Places** menu provides direct access to different
-folders and storage media.
-
-[[!img places.png link="no" class="screenshot" alt=""]]
 
 <h2 id="tor-status">Tor status and circuits</h2>
 
 The Tor status icon ([[!img lib/symbolic/tor-disconnected.png alt="Tor status menu" link="no" class="symbolic"]] or [[!img lib/symbolic/tor-connected.png alt="Tor status menu" link="no" class="symbolic"]]) provides a shortcut to *Onion
 Circuits*, which allows you to manage the Tor circuits being used by Tails.
 
-[[!img tor_status.png link="no" class="screenshot" alt=""]]
+[[!img tor_status.png class="screenshot" alt=""]]
 
 [[See our documentation on *Onion Circuits*.|anonymous_internet/tor/circuits]]
 
-<h2 id="accessibility">Accessibility</h2>
+<h2 id="accessibility">Accessibility menu</h2>
 
 The accessibility menu allows you to activate the screen reader,
 screen keyboard, large text display, and other assistive technologies.
 
-[[!img accessibility.png link="no" alt=""]]
+[[!img accessibility.png class="screenshot" alt=""]]
 
 [[See our documentation on accessibility.|accessibility]]
 
@@ -272,14 +270,14 @@ screen keyboard, large text display, and other assistive technologies.
 The keyboard layout menu allow you to change the keyboard layout and
 input method for non-Latin scripts.
 
-[[!img keyboard.png link="no" class="screenshot" alt=""]]
+[[!img keyboard.png class="screenshot" alt=""]]
 
 <h2 id="system">System menu</h2>
 
 In the top-right corner of the top navigation bar, the system menu allows you to
 manage your settings, connect to a Wi-Fi network, and restart your computer.
 
-[[!img system-with-wired.png link="no" class="screenshot" alt=""]]
+[[!img system-with-wired.png class="screenshot" alt=""]]
 
 <h3 id="networking">Networking</h3>
 
@@ -289,16 +287,17 @@ See also the documentation on [[connecting to a network|anonymous_internet/netwo
 
 <h3 id="screen-locker">Screen locker</h3>
 
-Click on **Lock screen** to lock your screen with a password.
+Select the **Lock Screen** button to lock your screen with a password.
 
 - If you set up an [[administration password|first_steps/welcome_screen/administration_password]]
   when starting Tails, you can unlock your screen with your administration
   password.
 
   <div class="tip">
+
   <p>Your screen will automatically lock after some time if you have set up an
   administration password. To disable this behavior, execute the following
-  command in a terminal:</p>
+  command in a console.</p>
 
   <p class="command">gsettings set org.gnome.desktop.screensaver lock-enabled false</p>
 
@@ -307,7 +306,7 @@ Click on **Lock screen** to lock your screen with a password.
 - Otherwise, you can set up a password to unlock your screen when locking your
   screen for the first time.
 
-  [[!img screen_locker.png link="no" class="screenshot" alt=""]]
+  [[!img screen_locker.png class="screenshot" alt=""]]
 
 <h3 id="suspend">Suspend</h3>
 
@@ -339,11 +338,11 @@ From the system menu, you can switch between:
 
 - The default *light* mode with colder colors and more brightness
 
-  [[!img light.png link="no" class="screenshot" alt=""]]
+  [[!img light.png class="screenshot" alt=""]]
 
 - A *dark* mode
 
-  [[!img dark.png link="no" class="screenshot" alt=""]]
+  [[!img dark.png class="screenshot" alt=""]]
 
 - A *night light* mode with warmer colors and less brightness
 
@@ -353,37 +352,35 @@ From the system menu, you can switch between:
 
   [[!img dark_night.png link="no" class="screenshot" alt=""]]
 
+<div class="note">
+
+<p>Night Light is unavailable when running Tails in a [[virtual
+machine|doc/advanced_topics/virtualization]].</p>
+
+</div>
+
 <h1 id="shortcuts">Keyboard shortcuts</h1>
 
 To learn about all keyboard shortcuts in GNOME visit [GNOME Help: Useful
-keyboard
-shortcuts](https://help.gnome.org/users/gnome-help/stable/shell-keyboard-shortcuts.html.en)
-or use the *Settings* application in Tails:
+keyboard shortcuts](https://help.gnome.org/users/gnome-help/stable/shell-keyboard-shortcuts.html.en)
+or use the *Settings* utility in Tails:
 
-1. Choose **Applications&nbsp;▸ Settings**.
+1. Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Settings**.
 
-1. In the *Settings* application, choose **Keyboard&nbsp;▸ Keyboard
+1. In the *Settings* utility, choose **Keyboard&nbsp;▸ Keyboard
    Shortcuts&nbsp;▸ View and Customize Shortcuts**.
 
 <h1 id="files">The <i>Files</i> browser</h1>
 
-To open the *Files* browser, you can
-either:
-
-- Choose
-  **Applications&nbsp;▸ Accessories&nbsp;▸ Files**.
-
-- Open one of the shortcuts from the **Places**
-  menu.
+To open the *Files* browser, choose **Apps&nbsp;▸ Accessories&nbsp;▸ Files**.
 
 [[!img lib/apps/files.png link="no" alt=""]]
 
 To connect to a remote SFTP (SSH File Transfer Protocol) server:
 
-1. Choose **Other Locations** in the sidebar
-   of the *Files* browser.
+1. Choose **Network** in the sidebar of the *Files* browser.
 
-1. Specify an SFTP server in **Connect to Server**
+1. Specify an SSH or SFTP server in the **Server address** field
    at the bottom of the right pane. For example:
 
        ssh://user@example.com/
