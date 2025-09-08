@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-09-04 14:26+0200\n"
+"POT-Creation-Date: 2025-08-06 10:13+0000\n"
 "PO-Revision-Date: 2025-08-25 08:14+0000\n"
 "Last-Translator: Chre <tor@renaudineau.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -164,9 +164,8 @@ msgid "</div>\n"
 msgstr "</div>\n"
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid "[[!img repair.png link=\"no\" class=\"screenshot\" alt=\"File System Errors dialog in Welcome Screen\"]]\n"
-msgid "[[!img repair.png class=\"screenshot\" alt=\"File System Errors dialog in Welcome Screen\"]]\n"
+#, no-wrap
+msgid "[[!img repair.png link=\"no\" class=\"screenshot\" alt=\"File System Errors dialog in Welcome Screen\"]]\n"
 msgstr "[[!img repair.png link=\"no\" class=\"screenshot\" alt=\"Boîte de dialogue Erreurs du système de fichiers, dans l'écran de bienvenue\"]]\n"
 
 #. type: Plain text
@@ -349,10 +348,7 @@ msgid "Choose to start without unlocking your Persistent Storage."
 msgstr "Choisissez de démarrer sans déverrouiller votre stockage persistant."
 
 #. type: Bullet: '1. '
-#, fuzzy
-#| msgid "Choose **Applications&nbsp;▸ Files** to open the *Files* browser."
-msgid ""
-"Choose **Apps&nbsp;▸ Accessories&nbsp;▸ Files** to open the *Files* browser."
+msgid "Choose **Applications&nbsp;▸ Files** to open the *Files* browser."
 msgstr ""
 "Choisissez **Applications&nbsp;▸ Fichiers** pour ouvrir le navigateur de "
 "*Fichiers*."
@@ -371,7 +367,9 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "   A new volume appears in the sidebar of the *Files* browser.\n"
-msgstr "   Un nouveau volume apparaît dans la barre latérale du navigateur de *Fichiers*.\n"
+msgstr ""
+"   Un nouveau volume apparaît dans la barre latérale du navigateur de "
+"*Fichiers*.\n"
 
 #. type: Bullet: '1. '
 msgid ""
@@ -394,12 +392,9 @@ msgid "<h3 id=\"identify\">Identifying your Persistent Storage in the <i>Disks</
 msgstr "<h3 id=\"identify\">Identification de votre stockage persistant dans l'utilitaire <i>Disques</i> </h3>\n"
 
 #. type: Bullet: '1. '
-#, fuzzy
-#| msgid ""
-#| "Choose **Applications&nbsp;▸ Utilities&nbsp;▸ Disks** to open the *Disks* "
-#| "utility."
 msgid ""
-"Choose **Apps&nbsp;▸ Utilities&nbsp;▸ Disks** to open the *Disks* utility."
+"Choose **Applications&nbsp;▸ Utilities&nbsp;▸ Disks** to open the *Disks* "
+"utility."
 msgstr ""
 "Choisissez **Applications&nbsp;▸ Utilitaires&nbsp;▸ Disques** pour ouvrir "
 "l'utilitaire *Disques*."
@@ -452,9 +447,8 @@ msgid "     This volume corresponds to the encrypted version of your Persistent 
 msgstr "     Ce volume correspond à la version chiffrée de votre stockage persistant.\n"
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid "   [[!img disks.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
-msgid "   [[!img disks.png class=\"screenshot\" alt=\"\"]]\n"
+#, no-wrap
+msgid "   [[!img disks.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
 msgstr "   [[!img disks.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
 
 #. type: Bullet: '1. '
@@ -573,13 +567,9 @@ msgid "<h3 id=\"create\">Creating the partition image</h3>\n"
 msgstr "<h3 id=\"create\">Création de l'image de partition</h3>\n"
 
 #. type: Bullet: '1. '
-#, fuzzy
-#| msgid ""
-#| "Choose **[[!img lib/system-run.png alt=\"Additional partition options\" "
-#| "class=symbolic link=\"no\"]]&nbsp;▸ Create Partition Image**."
 msgid ""
-"Choose **[[!img lib/system-run.png link=\"no\" class=\"symbolic\" "
-"alt=\"Additional partition options\"]]&nbsp;▸ Create Partition Image**."
+"Choose **[[!img lib/system-run.png alt=\"Additional partition options\" "
+"class=symbolic link=\"no\"]]&nbsp;▸ Create Partition Image**."
 msgstr ""
 "Choisissez **[[!img lib/system-run.png alt=\"Options de partition "
 "supplémentaires\" class=symbolic link=\"no\"]]&nbsp;▸ Créer une image de la "
@@ -670,35 +660,24 @@ msgstr ""
 "persistant."
 
 #. type: Bullet: '1. '
-#, fuzzy
-#| msgid ""
-#| "Right-click in the empty space of the right pane and choose **Open in "
-#| "Terminal** in the shortcut menu."
 msgid ""
 "Right-click in the empty space of the right pane and choose **Open in "
-"Console** in the shortcut menu."
+"Terminal** in the shortcut menu."
 msgstr ""
 "Faites un clic droit sur un espace vide du panneau de droite et choisissez "
 "**Ouvrir dans un terminal** dans le menu de raccourci."
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid "   Doing so opens a terminal that is configured to operate in this folder.\n"
-msgid "   Doing so opens a console that is configured to operate in this folder.\n"
+#, no-wrap
+msgid "   Doing so opens a terminal that is configured to operate in this folder.\n"
 msgstr "   Cela ouvre un terminal configuré pour fonctionner dans ce dossier.\n"
 
 #. type: Bullet: '1. '
-#, fuzzy
-#| msgid ""
-#| "In the terminal, execute the following command. Replace <span "
-#| "class=\"command-placeholder\">/dev/mapper/luks-xyz</span> with the device "
-#| "name found when [[identifying your *Persistent Storage* in the *Disks* "
-#| "utility|fsck#identify]]."
 msgid ""
-"In the console, execute the following command. Replace <span class=\"command-"
-"placeholder\">/dev/mapper/luks-xyz</span> with the device name found when "
-"[[identifying your *Persistent Storage* in the *Disks* utility|"
-"fsck#identify]]."
+"In the terminal, execute the following command. Replace <span "
+"class=\"command-placeholder\">/dev/mapper/luks-xyz</span> with the device "
+"name found when [[identifying your *Persistent Storage* in the *Disks* "
+"utility|fsck#identify]]."
 msgstr ""
 "Dans le terminal, exécutez la commande suivante. Remplacez <span "
 "class=\"command-placeholder\">/dev/mapper/luks-xyz</span> par le nom de "
@@ -706,9 +685,8 @@ msgstr ""
 "persistant* dans l'utilitaire *Disques*|fsck#identify]]."
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid "   <p class=\"command-template\">ddrescue <span class=\"command-placeholder\">/dev/mapper/luks-xyz</span> persistent-storage.img ddrescue.log</p>\n"
-msgid "   <p class=\"command-template\">sudo ddrescue <span class=\"command-placeholder\">/dev/mapper/luks-xyz</span> persistent-storage.img ddrescue.log</p>\n"
+#, no-wrap
+msgid "   <p class=\"command-template\">ddrescue <span class=\"command-placeholder\">/dev/mapper/luks-xyz</span> persistent-storage.img ddrescue.log</p>\n"
 msgstr "   <p class=\"command-template\">ddrescue <span class=\"command-placeholder\">/dev/mapper/luks-xyz</span> stockage-persistant.img ddrescue.log</p>\n"
 
 #. type: Plain text
@@ -717,20 +695,9 @@ msgid "   The output of `ddrescue` looks like this:\n"
 msgstr "   La sortie de `ddrescue` ressemble à ceci :\n"
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid ""
-#| "       GNU ddrescue 1.27\n"
-#| "       Press Ctrl-C to interrupt\n"
-#| "            ipos:  749404 kB, non-trimmed:        0 B,  current rate:  34996 kB/s\n"
-#| "            ipos:    1446 MB, non-trimmed:        0 B,  current rate:  24772 kB/s\n"
-#| "            opos:    1446 MB, non-scraped:        0 B,  average rate:  33629 kB/s\n"
-#| "       non-tried:    9290 MB,  bad-sector:        0 B,    error rate:       0 B/s\n"
-#| "         rescued:    1446 MB,   bad areas:        0,        run time:         43s\n"
-#| "       pct rescued:   13.46%, read errors:        0,  remaining time:      1m 31s\n"
-#| "                                     time since last successful read:          0s\n"
-#| "       Copying non-tried blocks... Pass 1 (forwards)\n"
+#, no-wrap
 msgid ""
-"       GNU ddrescue 1.29\n"
+"       GNU ddrescue 1.27\n"
 "       Press Ctrl-C to interrupt\n"
 "            ipos:  749404 kB, non-trimmed:        0 B,  current rate:  34996 kB/s\n"
 "            ipos:    1446 MB, non-trimmed:        0 B,  current rate:  24772 kB/s\n"
@@ -906,10 +873,9 @@ msgstr ""
 "cliquez sur le bouton **Réparer le système de fichiers**."
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid "[[!img repair.png link=\"no\" class=\"screenshot\" alt=\"File System Errors dialog in Welcome Screen\"]]\n"
-msgid "   [[!img repair.png class=\"screenshot\" alt=\"File System Errors dialog in Welcome Screen\"]]\n"
-msgstr "[[!img repair.png link=\"no\" class=\"screenshot\" alt=\"Boîte de dialogue Erreurs du système de fichiers, dans l'écran de bienvenue\"]]\n"
+#, no-wrap
+msgid "   [[!img repair.png link=\"no\" class=\"screenshot\" alt=\"File System Errors dialog in Welcome Screen\"]]\n"
+msgstr ""
 
 #. type: Bullet: '1. '
 msgid "The repair of the file system starts."
@@ -926,13 +892,13 @@ msgid ""
 "   If the repair takes more than a day, shutdown Tails and try [[analyzing the\n"
 "   partition image using *Autopsy*|fsck#autopsy]] instead.\n"
 msgstr ""
-"   Si la réparation prend plus d'un jour, éteignez Tails et essayez à la place d'[[analyser l'image\n"
+"   Si la réparation prend plus d'un jour, éteignez Tails et essayez à la "
+"place d'[[analyser l'image\n"
 "   de partition en utilisant *Autopsy*|fsck#autopsy]].\n"
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid "   [[!img repairing.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
-msgid "   [[!img repairing.png class=\"screenshot\" alt=\"\"]]\n"
+#, no-wrap
+msgid "   [[!img repairing.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
 msgstr "   [[!img repairing.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
 
 #. type: Bullet: '1. '
@@ -955,7 +921,9 @@ msgstr "     <div class=\"tip\">\n"
 #. type: Plain text
 #, no-wrap
 msgid "     <p>We recommend that you keep the partition image for some time.</p>\n"
-msgstr "     <p>Nous vous recommandons de garder l'image de partition quelques temps.</p>\n"
+msgstr ""
+"     <p>Nous vous recommandons de garder l'image de partition quelques "
+"temps.</p>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -964,8 +932,10 @@ msgid ""
 "     might be able to recover them by [[analyzing the partition image using\n"
 "     <i>Autopsy</i>|fsck#autopsy]].</p>\n"
 msgstr ""
-"     <p>Si vous constatez après coup que certains fichiers sont manquants ou endommagés, vous\n"
-"     pourriez encore les récupérer en [[analysant l'image de partition en utilisant\n"
+"     <p>Si vous constatez après coup que certains fichiers sont manquants ou "
+"endommagés, vous\n"
+"     pourriez encore les récupérer en [[analysant l'image de partition en "
+"utilisant\n"
 "     <i>Autopsy</i>|fsck#autopsy]].</p>\n"
 
 #. type: Plain text
@@ -984,7 +954,8 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "<h2 id=\"copy\">Copying the partition image to a new USB stick</h2>\n"
-msgstr "<h2 id=\"copy\">Copier l'image de partition sur une nouvelle clé USB</h2>\n"
+msgstr ""
+"<h2 id=\"copy\">Copier l'image de partition sur une nouvelle clé USB</h2>\n"
 
 #. type: Plain text
 msgid ""
@@ -1084,8 +1055,8 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid ""
-"   In the attributes below the volume, verify that its device is\n"
-"   */dev/mapper/TailsData_unlocked*.\n"
+"   In the attributes listed below the volume, verify that the content of the\n"
+"   volume is mounted at */home/amnesia/Persistent*.\n"
 msgstr ""
 
 #. type: Bullet: '1. '
@@ -1220,55 +1191,34 @@ msgid "`install_application.sh`"
 msgstr "`install_application.sh`"
 
 #. type: Bullet: '1. '
-#, fuzzy
-#| msgid ""
-#| "In the terminal, execute the following command. Replace <span "
-#| "class=\"command-placeholder\">/dev/mapper/luks-xyz</span> with the device "
-#| "name found when [[identifying your *Persistent Storage* in the *Disks* "
-#| "utility|fsck#identify]]."
 msgid ""
-"Execute the following commands in a *Console*. Replace <span class=\"command-"
-"placeholder\">version</span> with the version number of *The Sleuth Kit* and "
-"*Autopsy* that you downloaded."
+"Execute the following commands in a *Terminal*. You might have to adjust to "
+"newer versions of *Autopsy*."
 msgstr ""
-"Dans le terminal, exécutez la commande suivante. Remplacez <span "
-"class=\"command-placeholder\">/dev/mapper/luks-xyz</span> par le nom de "
-"périphérique trouvé lors de l'[[identification de votre *stockage "
-"persistant* dans l'utilitaire *Disques*|fsck#identify]]."
 
 #. type: Plain text
 #, no-wrap
-msgid "   <!-- The packages openjdk-17-jdk/unstable and openjdk-17-jre/unstable are needed in Debian 13 (Trixie). -->\n"
-msgstr ""
-
-#. type: Plain text
-#, fuzzy, no-wrap
-#| msgid "   <p class=\"command\">sudo apt install libsqlite3-dev libc3p0-java unzip</p>\n"
-msgid "   <p class=\"command\">sudo apt install libsqlite3-dev libc3p0-java unzip openjdk-17-jdk/unstable openjdk-17-jre/unstable</p>\n"
-msgstr "   <p class=\"command\">sudo apt install libsqlite3-dev libc3p0-java unzip</p>\n"
-
-#. type: Plain text
-#, fuzzy, no-wrap
-#| msgid "   <p class=\"command\">bash install_prereqs_ubuntu.sh</p>\n"
-msgid "   <p class=\"command\">sudo bash install_prereqs_ubuntu.sh</p>\n"
+msgid "   <p class=\"command\">bash install_prereqs_ubuntu.sh</p>\n"
 msgstr "   <p class=\"command\">bash install_prereqs_ubuntu.sh</p>\n"
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid "   <p class=\"command\">sudo dpkg -i sleuthkit-java_4.12.1-1_amd64.deb</p>\n"
-msgid "   <p class=\"command\">sudo dpkg -i sleuthkit-java_<span class=\"command-placeholder\">version</span>_amd64.deb</p>\n"
+#, no-wrap
+msgid "   <p class=\"command\">sudo apt install libsqlite3-dev libc3p0-java unzip</p>\n"
+msgstr "   <p class=\"command\">sudo apt install libsqlite3-dev libc3p0-java unzip</p>\n"
+
+#. type: Plain text
+#, no-wrap
+msgid "   <p class=\"command\">sudo dpkg -i sleuthkit-java_4.12.1-1_amd64.deb</p>\n"
 msgstr "   <p class=\"command\">sudo dpkg -i sleuthkit-java_4.12.1-1_amd64.deb</p>\n"
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid "   <p class=\"command\">bash install_application.sh -z autopsy-4.21.0.zip -i ~/Persistent/autopsy -j /usr/lib/jvm/java-17-openjdk-amd64</p>\n"
-msgid "   <p class=\"command\">bash install_application.sh -z autopsy-<span class=\"command-placeholder\">version</span>.zip -i ~/Persistent/autopsy -j /usr/lib/jvm/java-17-openjdk-amd64</p>\n"
+#, no-wrap
+msgid "   <p class=\"command\">bash install_application.sh -z autopsy-4.21.0.zip -i ~/Persistent/autopsy -j /usr/lib/jvm/java-17-openjdk-amd64</p>\n"
 msgstr "   <p class=\"command\">bash install_application.sh -z autopsy-4.21.0.zip -i ~/Persistent/autopsy -j /usr/lib/jvm/java-17-openjdk-amd64</p>\n"
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid "   <p class=\"command\">/home/amnesia/Persistent/autopsy/autopsy-4.21.0/bin/autopsy</p>\n"
-msgid "   <p class=\"command\">/home/amnesia/Persistent/autopsy/autopsy-<span class=\"command-placeholder\">version</span>/bin/autopsy</p>\n"
+#, no-wrap
+msgid "   <p class=\"command\">/home/amnesia/Persistent/autopsy/autopsy-4.21.0/bin/autopsy</p>\n"
 msgstr "   <p class=\"command\">/home/amnesia/Persistent/autopsy/autopsy-4.21.0/bin/autopsy</p>\n"
 
 #. type: Bullet: '1. '
@@ -1312,7 +1262,7 @@ msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid "   [[!img autopsy.png class=\"screenshot\" alt=\"Autopsy in Tails showing files recovered from the partition image of a Persistent Storage\"]]\n"
+msgid "   [[!img autopsy.png link=\"no\" class=\"screenshot\" alt=\"Autopsy in Tails showing files recovered from the partition image of a Persistent Storage\"]]\n"
 msgstr ""
 
 #. type: Bullet: '1. '

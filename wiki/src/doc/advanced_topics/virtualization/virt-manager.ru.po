@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-09-04 14:26+0200\n"
+"POT-Creation-Date: 2025-06-24 15:31-0600\n"
 "PO-Revision-Date: 2024-04-30 13:48+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -79,7 +79,7 @@ msgstr "<div class=\"note\">\n"
 #. type: Plain text
 #, fuzzy, no-wrap
 #| msgid "<p>The following instructions have been tested on Debian 10 (Buster).</p>\n"
-msgid "<p>The following instructions have been tested on Debian 13 (Trixie).</p>\n"
+msgid "<p>The following instructions have been tested on Debian 12 (Bookworm).</p>\n"
 msgstr "<p>Рекомендации в этом разделе были протестированы в Debian 10 (Buster).</p>\n"
 
 #. type: Title =
@@ -207,8 +207,8 @@ msgid ""
 "b>."
 msgstr ""
 "Для создания новой виртуальной машины выберите в меню <span "
-"class=\"menuchoice\"> **Файл**&nbsp;▸ <span class=\"guimenuitem\">Создать "
-"виртуальную машину</span></span>."
+"class=\"menuchoice\"> **Файл**&nbsp;▸ <span "
+"class=\"guimenuitem\">Создать виртуальную машину</span></span>."
 
 #. type: Bullet: '1. '
 msgid "In *step 1*, choose **Local install media (ISO image or CDROM)**."
@@ -223,30 +223,28 @@ msgstr "На *шаге 5*:"
 #. type: Bullet: '   1. '
 #, fuzzy
 #| msgid ""
-#| "In *step 2*, choose **Browse...**, and **Browse Local** to browse for the "
-#| "USB image that you want to start from."
+#| "**Use ISO image**, then **Browse...**, and **Browse Local** to browse for "
+#| "the ISO image that you want to start from"
 msgid ""
-"Select the **Browse** button and then the **Browse Local** button to choose "
+"**Choose ISO image**, then **Browse...**, and **Browse Local** to browse for "
 "the ISO image that you want to start from."
 msgstr ""
-"На *шаге 2* выберите по кнопкам **Обзор...** и **Выбрать файл** нужный файл "
-"с USB-образом."
+"В первой строке **Choose ISO or CDROM install media** через кнопку **Обзор** "
+"выберите файл с нужным ISO-образом"
 
 #. type: Bullet: '   2. '
 msgid ""
 "Unselect **Automatically detected from the installation media / source**."
 msgstr ""
 
-#. type: Bullet: '   3. '
+#. type: Bullet: '   1. '
 msgid ""
-"Enter **Debian 13** in the field **Choose the operating system you are "
+"Specify **Debian 11** in the field **Choose the operating system you are "
 "installing**."
 msgstr ""
 
 #. type: Bullet: '1. '
-#, fuzzy
-#| msgid "In *step 3*, allocate at least 2048 MB of RAM."
-msgid "In *step 3*, allocate at least 3072 MB of RAM."
+msgid "In *step 3*, allocate at least 2048 MB of RAM."
 msgstr "На *шаге 3* выделите не менее 2048 Мб оперативной памяти."
 
 #. type: Bullet: '1. '
@@ -307,7 +305,7 @@ msgid ""
 "    select the <b>default</b> virtual network in\n"
 "    the left pane.</li>\n"
 "<li>Click on the [[!img lib/media-playback-start.png alt=\"Start Network\"\n"
-"    link=\"no\" class=\"symbolic\"]] icon on the bottom of the left pane to\n"
+"    link=no class=symbolic]] icon on the bottom of the left pane to\n"
 "    start the default virtual network.</li>\n"
 "</ol>\n"
 msgstr ""
@@ -401,14 +399,16 @@ msgid "In *step 1*, choose **Import existing disk image**."
 msgstr "На *шаге 1* выберите **Импорт образа диска**."
 
 #. type: Bullet: '   1. '
+#, fuzzy
+#| msgid ""
+#| "In *step 2*, choose **Browse...**, and **Browse Local** to browse for the "
+#| "USB image that you want to start from."
 msgid ""
-"Specify **Debian 11** in the field **Choose the operating system you are "
-"installing**."
+"Choose **Browse...**, and **Browse Local** to browse for the USB image that "
+"you want to start from."
 msgstr ""
-
-#. type: Bullet: '1. '
-msgid "In *step 3*, allocate at least 2048 MB of RAM."
-msgstr "На *шаге 3* выделите не менее 2048 Мб оперативной памяти."
+"На *шаге 2* выберите по кнопкам **Обзор...** и **Выбрать файл** нужный файл "
+"с USB-образом."
 
 #. type: Bullet: '1. '
 msgid "In *step 4*:"
@@ -446,7 +446,7 @@ msgstr ""
 "значение **USB**."
 
 #. type: Bullet: '   1. '
-msgid "Select **Removable**."
+msgid "Enable **Removable**."
 msgstr ""
 
 #. type: Bullet: '   1. '
@@ -522,8 +522,8 @@ msgstr "Подключите USB-флешку, с которой хотите з
 #, fuzzy
 #| msgid ""
 #| "Choose <span class=\"menuchoice\"> <span class=\"guimenu\">View</"
-#| "span>&nbsp;▸ **Details**</span> to edit the configuration of the virtual "
-#| "machine."
+#| "span>&nbsp;▸ **Details**</span> to edit "
+#| "the configuration of the virtual machine."
 msgid ""
 "Choose **View**&nbsp;▸ **Details** to edit the configuration of the virtual "
 "machine."
@@ -562,13 +562,9 @@ msgid "<a id=\"disconnect\"></a>\n"
 msgstr "<a id=\"disconnect\"></a>\n"
 
 #. type: Plain text
-#, fuzzy
-#| msgid ""
-#| "You can also disconnect the original ISO image and start directly from "
-#| "the USB stick once Tails is already installed on it. To do so:"
 msgid ""
-"You can also remove the original ISO image and start directly from the USB "
-"stick once Tails is already installed on it. To do so:"
+"You can also disconnect the original ISO image and start directly from the "
+"USB stick once Tails is already installed on it. To do so:"
 msgstr ""
 "Вы также можете отключить исходный ISO-образ и стартовать прямо с флешки, "
 "если на ней уже есть Tails. Для этого:"
@@ -585,9 +581,9 @@ msgstr ""
 
 #. type: Bullet: '  1. '
 #, fuzzy
-#| msgid "Select **Storage** in the left pane."
-msgid "Select **Remove** in the right pane."
-msgstr "Wählen Sie im linken Fensterbereich **Storage** aus."
+#| msgid "Click on the **Add Hardware** button on the bottom of the left pane."
+msgid "Click on the **Disconnect** button in the right pane."
+msgstr "Нажмите кнопку **Добавить оборудование** слева внизу."
 
 #. type: Bullet: '  1. '
 msgid "To enable the USB stick as a boot option:"
@@ -701,23 +697,6 @@ msgid ""
 "display and video device."
 msgstr ""
 
-#, fuzzy
-#~| msgid ""
-#~| "**Use ISO image**, then **Browse...**, and **Browse Local** to browse "
-#~| "for the ISO image that you want to start from"
-#~ msgid ""
-#~ "**Choose ISO image**, then **Browse...**, and **Browse Local** to browse "
-#~ "for the ISO image that you want to start from."
-#~ msgstr ""
-#~ "В первой строке **Choose ISO or CDROM install media** через кнопку "
-#~ "**Обзор** выберите файл с нужным ISO-образом"
-
-#, fuzzy
-#~| msgid ""
-#~| "Click on the **Add Hardware** button on the bottom of the left pane."
-#~ msgid "Click on the **Disconnect** button in the right pane."
-#~ msgstr "Нажмите кнопку **Добавить оборудование** слева внизу."
-
 #, fuzzy, no-wrap
 #~| msgid ""
 #~| "<p>Please, [[let us know|about/contact#tails-dev]] if they do not apply\n"
@@ -735,8 +714,8 @@ msgstr ""
 #, fuzzy
 #~| msgid ""
 #~| "To create a new virtual machine, choose <span class=\"menuchoice\"> "
-#~| "**File**&nbsp;▸ <span class=\"guimenuitem\">New Virtual Machine</span></"
-#~| "span>."
+#~| "**File**&nbsp;▸ <span "
+#~| "class=\"guimenuitem\">New Virtual Machine</span></span>."
 #~ msgid ""
 #~ "To start the virtual machine choose <span class=\"menuchoice\"> <span "
 #~ "class=\"guimenu\">View</span>&nbsp;▸ <span class=\"guimenuitem\">Console</"
@@ -745,8 +724,8 @@ msgstr ""
 #~ "class=\"guimenuitem\">Run</span></span>."
 #~ msgstr ""
 #~ "Для создания новой виртуальной машины выберите в меню <span "
-#~ "class=\"menuchoice\"> **Файл**&nbsp;▸ <span class=\"guimenuitem\">Создать "
-#~ "виртуальную машину</span></span>."
+#~ "class=\"menuchoice\"> **Файл**&nbsp;▸ <span "
+#~ "class=\"guimenuitem\">Создать виртуальную машину</span></span>."
 
 #~ msgid ""
 #~ "Double-click on **localhost (QEMU)** to connect to the *QEMU* system of "
@@ -870,6 +849,9 @@ msgstr ""
 #~ msgstr ""
 #~ "Tun Sie anschließend folgendes, um einen virtuellen USB-Speicher zu "
 #~ "erstellen:"
+
+#~ msgid "Select **Storage** in the left pane."
+#~ msgstr "Wählen Sie im linken Fensterbereich **Storage** aus."
 
 #~ msgid ""
 #~ "In the right pane, change the **Bus type** to USB and click **Finish**."

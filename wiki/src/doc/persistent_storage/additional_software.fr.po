@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tails\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-09-04 14:26+0200\n"
+"POT-Creation-Date: 2025-08-06 11:39+0200\n"
 "PO-Revision-Date: 2025-07-30 14:56+0000\n"
 "Last-Translator: Chre <tor@renaudineau.org>\n"
 "Language-Team: Tails translators <tails@boum.org>\n"
@@ -66,7 +66,8 @@ msgstr ""
 "doc/first_steps/welcome_screen/administration_password]]."
 
 #. type: Bullet: '    1. '
-msgid "Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Synaptic Package Manager**."
+msgid ""
+"Choose **Applications&nbsp;▸ System Tools&nbsp;▸ Synaptic Package Manager**."
 msgstr ""
 
 #. type: Bullet: '  1. '
@@ -111,8 +112,8 @@ msgid ""
 "Search the [Debian website](https://www.debian.org/distrib/"
 "packages#search_packages)."
 msgstr ""
-"Cherchez sur le [site web de Debian](https://www.debian.org/distrib/"
-"packages.fr.html#search_packages)."
+"Cherchez sur le [site web de Debian](https://www.debian.org/distrib/packages."
+"fr.html#search_packages)."
 
 #. type: Plain text
 #, no-wrap
@@ -130,18 +131,13 @@ msgid "<div class=\"caution\">\n"
 msgstr "<div class=\"caution\">\n"
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid ""
-#| "<p>The packages included in Tails are carefully tested for security.\n"
-#| "Installing additional packages might break the security built in Tails. For\n"
-#| "example, installing OpenVPN might modify the firewall rules that Tails uses to\n"
-#| "force network traffic to go through Tor. So, be careful with what you\n"
-#| "install.</p>\n"
+#, no-wrap
 msgid ""
 "<p>The packages included in Tails are carefully tested for security.\n"
-"Installing additional packages might break the security built into Tails. For\n"
+"Installing additional packages might break the security built in Tails. For\n"
 "example, installing OpenVPN might modify the firewall rules that Tails uses to\n"
-"force network traffic to go through Tor.</p>\n"
+"force network traffic to go through Tor. So, be careful with what you\n"
+"install.</p>\n"
 msgstr ""
 "<p>La sécurité des paquets inclus dans Tails est soigneusement testée.\n"
 "Installer des paquets supplémentaires peut mettre en péril la sécurité de votre Tails, Par\n"
@@ -167,14 +163,9 @@ msgstr ""
 "Dans le cas contraire, ils ne pourront pas accéder au réseau."
 
 #. type: Bullet: '- '
-#, fuzzy
-#| msgid ""
-#| "Some software might, for example, modify the firewall and break the "
-#| "security built in Tails. But other software like games or office tools "
-#| "are probably fine."
 msgid ""
 "Some software might, for example, modify the firewall and break the security "
-"built into Tails. But other software like games or office tools are probably "
+"built in Tails. But other software like games or office tools are probably "
 "fine."
 msgstr ""
 "Certains logiciels pourraient, par exemple, modifier le pare-feu et casser "
@@ -221,14 +212,9 @@ msgid "[*Scribus*](https://www.scribus.net/), a page layout application."
 msgstr "[*Scribus*](https://www.scribus.net/), un logiciel de mise en page."
 
 #. type: Bullet: '- '
-#, fuzzy
-#| msgid ""
-#| "[*Cheese*](https://wiki.gnome.org/Apps/Cheese), an application to take "
-#| "pictures and videos from your webcam."
 msgid ""
-"[*GNOME Camera*](https://apps.gnome.org/Snapshot/), from the `gnome-"
-"snapshot` package, an application to take pictures and videos from your "
-"webcam."
+"[*Cheese*](https://wiki.gnome.org/Apps/Cheese), an application to take "
+"pictures and videos from your webcam."
 msgstr ""
 "[*Cheese*](https://wiki.gnome.org/Apps/Cheese), une application pour prendre "
 "des photos et des vidéos depuis votre webcam."
@@ -410,9 +396,8 @@ msgstr ""
 "l'avenir."
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid "   [[!img add.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
-msgid "   [[!img add.png class=\"screenshot\" alt=\"\"]]\n"
+#, no-wrap
+msgid "   [[!img add.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
 msgstr "   [[!img add.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
 
 #. type: Bullet: '   - '
@@ -511,92 +496,73 @@ msgstr ""
 msgid "To make an application use the Tor network, you can either:"
 msgstr "Pour faire qu'une application utilise le réseau Tor, vous pouvez :"
 
-#. type: Bullet: '- '
-#, fuzzy
-#| msgid ""
-#| "A. Configure the application to use Tor as a proxy with the following "
-#| "parameters:"
+#. type: Plain text
 msgid ""
-"Configure the application to use Tor as a proxy with the following "
+"A. Configure the application to use Tor as a proxy with the following "
 "parameters:"
 msgstr ""
 "A. Soit configurer l'application pour qu'elle utilise Tor comme proxy avec "
 "les paramètres suivants :"
 
-#. type: Bullet: '  * '
+#. type: Bullet: '   * '
 msgid "Type: SOCKS5"
 msgstr "Type : SOCKS5"
 
-#. type: Bullet: '  * '
+#. type: Bullet: '   * '
 msgid "Host: 127.0.0.1"
 msgstr "Hôte : 127.0.0.1"
 
-#. type: Bullet: '  * '
+#. type: Bullet: '   * '
 msgid "Port: 9050"
 msgstr "Port : 9050"
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid ""
-#| "   For example, to use *Mumble* in Tails, you can configure Tor as proxy in the\n"
-#| "   network configuration of *Mumble*:\n"
+#, no-wrap
 msgid ""
-"  For example, to use *Mumble* in Tails, you can configure Tor as proxy in the\n"
-"  network configuration of *Mumble*:\n"
+"   For example, to use *Mumble* in Tails, you can configure Tor as proxy in the\n"
+"   network configuration of *Mumble*:\n"
 msgstr ""
 "   Par exemple, pour utiliser *Mumble* dans Tails, vous pouvez configurer Tor comme proxy dans la\n"
 "   configuration réseau de *Mumble* :\n"
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid "   [[!img mumble.png link=\"no\" alt=\"Network configuration of Mumble with proxy settings\"]]\n"
-msgid "  [[!img mumble.png class=\"screenshot\" alt=\"Network configuration of Mumble with proxy settings\"]]\n"
+#, no-wrap
+msgid "   [[!img mumble.png link=\"no\" alt=\"Network configuration of Mumble with proxy settings\"]]\n"
 msgstr "   [[!img mumble.png link=\"no\" alt=\"Configuration réseau de Mumble avec les paramètres de proxy\"]]\n"
 
-#. type: Bullet: '- '
-#, fuzzy
-#| msgid "B. Run the application using `torsocks` on the command line."
-msgid "Open the application using `torsocks` on the command line."
+#. type: Plain text
+msgid "B. Run the application using `torsocks` on the command line."
 msgstr ""
 "B. Soit lancer l'application en ligne de commande en utilisant `torsocks`."
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid ""
-#| "   Execute the following command in a *Terminal*. Replace <span\n"
-#| "   class=\"command-placeholder\">application</span> with the command line of the\n"
-#| "   application that you want to run:\n"
+#, no-wrap
 msgid ""
-"  Execute the following command in a *Console*. Replace\n"
-"  <span class=\"command-placeholder\">application</span> with the command line\n"
-"  of the application that you want to open.\n"
+"   Execute the following command in a *Terminal*. Replace <span\n"
+"   class=\"command-placeholder\">application</span> with the command line of the\n"
+"   application that you want to run:\n"
 msgstr ""
 "   Exécutez la commande suivante dans un *Terminal*. Remplacez <span\n"
 "   class=\"command-placeholder\">application</span> par la ligne de commande de\n"
 "   l'application que vous voulez lancer :\n"
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid "   <p class=\"command-template\">torsocks <span class=\"command-placeholder\">application</span></p>\n"
-msgid "  <p class=\"command-template\">torsocks <span class=\"command-placeholder\">application</span></p>\n"
+#, no-wrap
+msgid "   <p class=\"command-template\">torsocks <span class=\"command-placeholder\">application</span></p>\n"
 msgstr "   <p class=\"command-template\">torsocks <span class=\"command-placeholder\">application</span></p>\n"
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid ""
-#| "   For example, to use *Mumble* in Tails, you can also execute the following\n"
-#| "   command:\n"
+#, no-wrap
 msgid ""
-"  For example, to use *Mumble* in Tails, you can also execute the following\n"
-"  command:\n"
+"   For example, to use *Mumble* in Tails, you can also execute the following\n"
+"   command:\n"
 msgstr ""
 "   Par exemple, pour utiliser *Mumble* dans Tails, vous pouvez aussi exécuter la commande\n"
 "   suivante :\n"
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid "   <p class=\"command\">torsocks mumble</p>\n"
-msgid "  <p class=\"command\">torsocks mumble</p>\n"
+#, no-wrap
+msgid "   <p class=\"command\">torsocks mumble</p>\n"
 msgstr "   <p class=\"command\">torsocks mumble</p>\n"
 
 #. type: Title ###
@@ -647,14 +613,10 @@ msgid "Checking your list of additional software"
 msgstr "Vérifier votre liste de logiciels supplémentaires"
 
 #. type: Plain text
-#, fuzzy
-#| msgid ""
-#| "To see which packages are installed automatically every time you start "
-#| "Tails, choose **Applications&nbsp;▸ System Tools&nbsp;▸ Additional "
-#| "Software**."
 msgid ""
 "To see which packages are installed automatically every time you start "
-"Tails, choose **Apps&nbsp;▸ System Tools&nbsp;▸ Additional Software**."
+"Tails, choose **Applications&nbsp;▸ System Tools&nbsp;▸ Additional "
+"Software**."
 msgstr ""
 "Pour voir quels paquets sont installés automatiquement à chaque fois que "
 "vous démarrez Tails, choisissez **Applications&nbsp;▸ Outils système&nbsp;▸ "
@@ -694,9 +656,7 @@ msgstr ""
 "**Installer une seule fois**, vous pouvez l'enlever en redémarrant Tails."
 
 #. type: Bullet: '- '
-#, fuzzy
-#| msgid "**Install Every Time**, you can remove it:"
-msgid "**Install Every Time**, you can remove it either:"
+msgid "**Install Every Time**, you can remove it:"
 msgstr "**Installer à chaque fois**, vous pouvez l'enlever :"
 
 #. type: Bullet: '  - '
@@ -704,16 +664,8 @@ msgid "Using *Additional Software*:"
 msgstr "En utilisant *Logiciels supplémentaires* :"
 
 #. type: Bullet: '    1. '
-#, fuzzy
-#| msgid ""
-#| "To see which packages are installed automatically every time you start "
-#| "Tails, choose **Applications&nbsp;▸ System Tools&nbsp;▸ Additional "
-#| "Software**."
-msgid "Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Additional Software**."
+msgid "Choose **Applications&nbsp;▸ System Tools&nbsp;▸ Additional Software**."
 msgstr ""
-"Pour voir quels paquets sont installés automatiquement à chaque fois que "
-"vous démarrez Tails, choisissez **Applications&nbsp;▸ Outils système&nbsp;▸ "
-"Logiciels supplémentaires**."
 
 #. type: Bullet: '    1. '
 msgid ""
@@ -754,9 +706,8 @@ msgstr ""
 "  enlever le paquet de votre liste de logiciels supplémentaires.\n"
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid "  [[!img remove.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
-msgid "  [[!img remove.png class=\"screenshot\" alt=\"\"]]\n"
+#, no-wrap
+msgid "  [[!img remove.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
 msgstr "  [[!img remove.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
 
 #. type: Title -
@@ -774,8 +725,8 @@ msgstr ""
 
 #. type: Bullet: '1. '
 msgid ""
-"Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Root Console** to open a console "
-"with administration rights."
+"Choose **Applications&nbsp;▸ System Tools&nbsp;▸ Root Terminal** to open a "
+"*Root Terminal*."
 msgstr ""
 
 #. type: Bullet: '1. '
@@ -802,13 +753,9 @@ msgstr ""
 "soumis à un examen public.</p>\n"
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid ""
-#| "<p>Configuring additional APT repositories might break the security built in\n"
-#| "Tails and might install software that has not even been approved by Debian. Be even more careful\n"
-#| "with what you install.</p>\n"
+#, no-wrap
 msgid ""
-"<p>Configuring additional APT repositories might break the security built into\n"
+"<p>Configuring additional APT repositories might break the security built in\n"
 "Tails and might install software that has not even been approved by Debian. Be even more careful\n"
 "with what you install.</p>\n"
 msgstr ""
@@ -849,10 +796,9 @@ msgid ""
 "configuration of the Persistent Storage, and add the *apt-sources.list.d* "
 "folder as a feature of type `link`:"
 msgstr ""
-"En tant que root, éditez */live/persistence/TailsData_unlocked/"
-"persistence.conf*, la configuration du stockage persistant, et ajoutez le "
-"dossier <span class=\"filename\">apt-sources.list.d</span> comme option de "
-"type `link` :"
+"En tant que root, éditez */live/persistence/TailsData_unlocked/persistence."
+"conf*, la configuration du stockage persistant, et ajoutez le dossier <span "
+"class=\"filename\">apt-sources.list.d</span> comme option de type `link` :"
 
 #. type: Plain text
 #, no-wrap

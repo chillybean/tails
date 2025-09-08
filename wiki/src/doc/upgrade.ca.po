@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-09-04 14:26+0200\n"
+"POT-Creation-Date: 2025-06-24 16:26-0600\n"
 "PO-Revision-Date: 2025-07-03 15:56+0000\n"
 "Last-Translator: victor dargallo <victordargallo@disroot.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -82,13 +82,9 @@ msgid "<h1 id=\"check-version\">Checking which version of Tails you are currentl
 msgstr "<h1 id=\"check-version\">Comprovar quina versió de Tails esteu executant actualment</h1>\n"
 
 #. type: Plain text
-#, fuzzy
-#| msgid ""
-#| "To check which version of Tails you are currently running, choose "
-#| "**Applications&nbsp;▸ Tails&nbsp;▸ About Tails**."
 msgid ""
 "To check which version of Tails you are currently running, choose "
-"**Apps&nbsp;▸ Tails&nbsp;▸ About Tails**."
+"**Applications&nbsp;▸ Tails&nbsp;▸ About Tails**."
 msgstr ""
 "Per comprovar quina versió de Tails esteu executant actualment, trieu "
 "**Aplicacions&nbsp;▸ Tails&nbsp;▸ Quant a Tails**."
@@ -111,10 +107,13 @@ msgid ""
 "checks if upgrades are available and then proposes you to upgrade your USB "
 "stick. The upgrades are checked for and downloaded through Tor."
 msgstr ""
-"Després d'iniciar Tails i connectar-vos a Tor, l'*Actualitzador de Tails* "
-"comprova automàticament si hi ha actualitzacions disponibles i després us "
-"proposa actualitzar el vostre llapis USB. Les actualitzacions es comproven i "
-"es baixen a través de Tor."
+"Després d'iniciar Tails i connectar-vos a Tor, "
+"l'*Actualitzador "
+"de Tails* comprova automàticament si hi ha actualitzacions disponibles "
+"i després "
+"us proposa actualitzar el vostre llapis USB. Les actualitzacions es "
+"comproven i es baixen "
+"a través de Tor."
 
 #. type: Plain text
 msgid "The advantages of automatic upgrades are the following:"
@@ -168,9 +167,8 @@ msgstr ""
 "llapis USB."
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid "[[!img upgrader_automatic.png link=no]]\n"
-msgid "[[!img upgrader_automatic.png class=\"screenshot\" alt=\"\"]]\n"
+#, no-wrap
+msgid "[[!img upgrader_automatic.png link=no]]\n"
 msgstr "[[!img upgrader_automatic.png link=no]]\n"
 
 #. type: Plain text
@@ -178,8 +176,9 @@ msgid ""
 "If you decide to do the upgrade, click on **Upgrade now**, and follow the "
 "assistant through the upgrade process."
 msgstr ""
-"Si decidiu fer l'actualització, feu clic a **Actualitza ara**, i seguiu "
-"l'assistent durant el procés d'actualització."
+"Si decidiu fer l'actualització, feu clic a "
+"**Actualitza ara**, "
+"i seguiu l'assistent durant el procés d'actualització."
 
 #. type: Plain text
 #, no-wrap
@@ -189,10 +188,20 @@ msgstr "<div class=\"tip\">\n"
 #. type: Plain text
 #, no-wrap
 msgid ""
-"<p>If you cannot upgrade at startup, you can open <i>Tails Upgrader</i>\n"
-"later by choosing <b>Apps&nbsp;▸ Tails&nbsp;▸ About Tails</b> and clicking\n"
-"<b>Check for Upgrades</b>.</p>\n"
+"<p>If you cannot upgrade at startup (for example, if you have no network\n"
+"connection by then), you can start <i>Tails Upgrader</i>\n"
+"later by opening a terminal and executing the following\n"
+"command:</p>\n"
 msgstr ""
+"<p>Si no podeu actualitzar a l'arrencada (per exemple, si no teniu cap xarxa\n"
+"en iniciar), podeu iniciar l'<span class=\"application\">Actualitzador\n"
+"de Tails</span> més tard obrint un terminal i executant la següent\n"
+"ordre:</p>\n"
+
+#. type: Plain text
+#, no-wrap
+msgid "<pre>tails-upgrade-frontend-wrapper</pre>\n"
+msgstr "<pre>tails-upgrade-frontend-wrapper</pre>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -286,14 +295,13 @@ msgid ""
 "After connecting to Tor, a dialog informs you if you have to upgrade your "
 "USB stick using *Tails Cloner* to a newer version of Tails."
 msgstr ""
-"Després de connectar-vos a Tor, un diàleg us informarà si heu d'actualitzar "
-"el vostre llapis USB mitjançant el *Clonador de Tails* a una versió més "
-"recent de Tails."
+"Després de connectar-vos a Tor, un diàleg us informarà si heu "
+"d'actualitzar el vostre llapis USB mitjançant el *Clonador de Tails* "
+"a una versió més recent de Tails."
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid "[[!img upgrader_manual.png link=no]]\n"
-msgid "[[!img upgrader_manual.png class=\"screenshot\" alt=\"\"]]\n"
+#, no-wrap
+msgid "[[!img upgrader_manual.png link=no]]\n"
 msgstr "[[!img upgrader_manual.png link=no]]\n"
 
 #. type: Plain text
@@ -494,22 +502,6 @@ msgstr "- Un quart d'hora per actualitzar"
 #| msgid "- [[Cloning from another Tails|upgrade/clone]]"
 msgid "[[Cloning from another Tails|upgrade/clone]]"
 msgstr "- [[Clonar des d'un altre Tails|upgrade/clone]]"
-
-#, no-wrap
-#~ msgid ""
-#~ "<p>If you cannot upgrade at startup (for example, if you have no network\n"
-#~ "connection by then), you can start <i>Tails Upgrader</i>\n"
-#~ "later by opening a terminal and executing the following\n"
-#~ "command:</p>\n"
-#~ msgstr ""
-#~ "<p>Si no podeu actualitzar a l'arrencada (per exemple, si no teniu cap xarxa\n"
-#~ "en iniciar), podeu iniciar l'<span class=\"application\">Actualitzador\n"
-#~ "de Tails</span> més tard obrint un terminal i executant la següent\n"
-#~ "ordre:</p>\n"
-
-#, no-wrap
-#~ msgid "<pre>tails-upgrade-frontend-wrapper</pre>\n"
-#~ msgstr "<pre>tails-upgrade-frontend-wrapper</pre>\n"
 
 #~ msgid ""
 #~ "If an error occurs during the upgrade, the assistant proposes you to read "
@@ -721,8 +713,8 @@ msgstr "- [[Clonar des d'un altre Tails|upgrade/clone]]"
 #~ msgstr ""
 #~ "Beide Methoden funktionieren nur, wenn der zu aktualisierende USB-Stick\n"
 #~ "mithilfe des *Tails Installers* installiert\n"
-#~ "wurde. **Der beständige Speicherbereich auf dem USB-Stick bleibt "
-#~ "erhalten.**\n"
+#~ "wurde. **Der beständige Speicherbereich auf dem USB-Stick bleibt erhalten."
+#~ "**\n"
 
 #~ msgid ""
 #~ "<p>If you use Tails from a USB stick installed from macOS using the\n"

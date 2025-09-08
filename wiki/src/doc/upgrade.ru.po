@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-09-04 14:26+0200\n"
+"POT-Creation-Date: 2025-06-24 16:26-0600\n"
 "PO-Revision-Date: 2024-05-15 10:53+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -92,7 +92,7 @@ msgstr "<h1 name=\"check-version\">Проверка версии запущен�
 #| "  **About Tails**</span>.\n"
 msgid ""
 "To check which version of Tails you are currently running, choose "
-"**Apps&nbsp;▸ Tails&nbsp;▸ About Tails**."
+"**Applications&nbsp;▸ Tails&nbsp;▸ About Tails**."
 msgstr ""
 "Чтобы выяснить, какую версию Tails вы сейчас используете, выберите <span "
 "class=\"menuchoice\">\n"
@@ -180,9 +180,8 @@ msgstr ""
 "диалог. Вам предложат обновить флешку."
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid "[[!img upgrader_automatic.png link=no]]\n"
-msgid "[[!img upgrader_automatic.png class=\"screenshot\" alt=\"\"]]\n"
+#, no-wrap
+msgid "[[!img upgrader_automatic.png link=no]]\n"
 msgstr "[[!img upgrader_automatic.png link=no]]\n"
 
 #. type: Plain text
@@ -201,10 +200,16 @@ msgstr "<div class=\"tip\">\n"
 #. type: Plain text
 #, no-wrap
 msgid ""
-"<p>If you cannot upgrade at startup, you can open <i>Tails Upgrader</i>\n"
-"later by choosing <b>Apps&nbsp;▸ Tails&nbsp;▸ About Tails</b> and clicking\n"
-"<b>Check for Upgrades</b>.</p>\n"
-msgstr ""
+"<p>If you cannot upgrade at startup (for example, if you have no network\n"
+"connection by then), you can start <i>Tails Upgrader</i>\n"
+"later by opening a terminal and executing the following\n"
+"command:</p>\n"
+msgstr "<p>Если не получается выполнить обновление на старте (например, вы не подключены к Интернету), можете запустить <i>Tails Upgrader</i> позже. Для этого нужно открыть терминал и выполнить в командной строке следующую команду:</p>\n"
+
+#. type: Plain text
+#, no-wrap
+msgid "<pre>tails-upgrade-frontend-wrapper</pre>\n"
+msgstr "<pre>tails-upgrade-frontend-wrapper</pre>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -308,9 +313,8 @@ msgstr ""
 "вашу флешку с помощью *Tails Installer* до свежей версии Tails.\n"
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid "[[!img upgrader_manual.png link=no]]\n"
-msgid "[[!img upgrader_manual.png class=\"screenshot\" alt=\"\"]]\n"
+#, no-wrap
+msgid "[[!img upgrader_manual.png link=no]]\n"
 msgstr "[[!img upgrader_manual.png link=no]]\n"
 
 #. type: Plain text
@@ -486,18 +490,6 @@ msgstr "полчаса для обновления."
 #| msgid "- [[Cloning from another Tails|upgrade/clone-overview]]"
 msgid "[[Cloning from another Tails|upgrade/clone]]"
 msgstr "- [[Клонирование из другой копии Tails|upgrade/clone-overview]]"
-
-#, no-wrap
-#~ msgid ""
-#~ "<p>If you cannot upgrade at startup (for example, if you have no network\n"
-#~ "connection by then), you can start <i>Tails Upgrader</i>\n"
-#~ "later by opening a terminal and executing the following\n"
-#~ "command:</p>\n"
-#~ msgstr "<p>Если не получается выполнить обновление на старте (например, вы не подключены к Интернету), можете запустить <i>Tails Upgrader</i> позже. Для этого нужно открыть терминал и выполнить в командной строке следующую команду:</p>\n"
-
-#, no-wrap
-#~ msgid "<pre>tails-upgrade-frontend-wrapper</pre>\n"
-#~ msgstr "<pre>tails-upgrade-frontend-wrapper</pre>\n"
 
 #~ msgid ""
 #~ "If an error occurs during the upgrade, the assistant proposes you to read "
@@ -718,8 +710,8 @@ msgstr "- [[Клонирование из другой копии Tails|upgrade/
 #~ msgstr ""
 #~ "Beide Methoden funktionieren nur, wenn der zu aktualisierende USB-Stick\n"
 #~ "mithilfe des *Tails Installers* installiert\n"
-#~ "wurde. **Der beständige Speicherbereich auf dem USB-Stick bleibt "
-#~ "erhalten.**\n"
+#~ "wurde. **Der beständige Speicherbereich auf dem USB-Stick bleibt erhalten."
+#~ "**\n"
 
 #~ msgid ""
 #~ "<p>If you use Tails from a USB stick installed from macOS using the\n"
