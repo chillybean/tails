@@ -58,7 +58,7 @@ err() {
 }
 
 while read -r upgradesYml; do
-    if ! sqop verify "${upgradesYml}.pgp" wiki/src/tails-signing.key \
+    if ! sqopv verify "${upgradesYml}.pgp" wiki/src/tails-signing.key \
         <"${upgradesYml}" &>/dev/null; then
         err "${upgradesYml}.pgp" "invalid signature with tails-signing.key"
         if "$SIGN_FAILING"; then
@@ -66,7 +66,7 @@ while read -r upgradesYml; do
         fi
         continue
     fi
-    if ! sqop verify "${upgradesYml}.pgp" wiki/src/tails-signing-minimal.key \
+    if ! sqopv verify "${upgradesYml}.pgp" wiki/src/tails-signing-minimal.key \
         <"${upgradesYml}" &>/dev/null; then
         err "${upgradesYml}.pgp" "valid with tails-signing.key, but not with tails-signing-minimal.key"
         "$SIGN_FAILING" && ./bin/sign-udfs "${upgradesYml}"

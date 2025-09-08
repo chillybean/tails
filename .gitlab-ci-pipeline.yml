@@ -167,7 +167,7 @@ check-isolated-python:
 
 check-udfs-signatures:
   script:
-    - apt-get -qy install python3 python3-debian sqop
+    - apt-get -qy install python3 python3-debian sqopv
     - export VERSION=$(python3 -c 'from debian.changelog import Changelog; print(Changelog(open("debian/changelog"))[0].version)')
     - echo "${VERSION:?}"
     - ./bin/check-udfs-signature
