@@ -1795,6 +1795,12 @@ Given(/^I corrupt the Persistent Storage filesystem on USB drive "([^"]*)"( in a
 
   # Lock the Persistent Storage
   $vm.execute_successfully('cryptsetup luksClose TailsData_unlocked')
+
+  # The above operations may confuse udisks and in turn cause tpsd to
+  # get into a non-functioning state, fixed by restarting udisks (and
+  # in turn tpsd which cannot handle udisks restarting).
+  $vm.execute_successfully('systemctl restart udisks2.service')
+  $vm.execute_successfully('systemctl restart tails-persistent-storage.service')
 end
 
 Given(/^the Persistent Storage filesystem is corrupted beyond what e2fsck can repair$/) do
