@@ -18,8 +18,7 @@ To know which packages are available in Debian:
 
   1. When starting Tails, [[set up an administration password|doc/first_steps/welcome_screen/administration_password]].
 
-  1. Choose
-     **Applications&nbsp;▸ System Tools&nbsp;▸ Synaptic Package Manager**.
+  1. Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Synaptic Package Manager**.
 
   1. Wait until *Synaptic* finishes downloading new package information
      from the Debian servers.
@@ -46,10 +45,9 @@ Be careful about what you install
 <div class="caution">
 
 <p>The packages included in Tails are carefully tested for security.
-Installing additional packages might break the security built in Tails. For
+Installing additional packages might break the security built into Tails. For
 example, installing OpenVPN might modify the firewall rules that Tails uses to
-force network traffic to go through Tor. So, be careful with what you
-install.</p>
+force network traffic to go through Tor.</p>
 
 </div>
 
@@ -59,7 +57,7 @@ If you are unsure:
   Tor. They are otherwise blocked from accessing the network.
 
 - Some software might, for example, modify the firewall and break the security
-  built in Tails. But other software like games or office tools are probably fine.
+  built into Tails. But other software like games or office tools are probably fine.
 
 - Software not [[officially included in Tails|doc/about/features]] might have not been tested for security.
   We also cannot provide support or documentation for it.
@@ -77,7 +75,7 @@ Examples of additional useful software
 
 - [*Scribus*](https://www.scribus.net/), a page layout application.
 
-- [*Cheese*](https://wiki.gnome.org/Apps/Cheese), an application
+- [*GNOME Camera*](https://apps.gnome.org/Snapshot/), from the `gnome-snapshot` package, an application
   to take pictures and videos from your webcam.
 
 - [*Mumble*](https://www.mumble.info/), a voice chat application.
@@ -120,8 +118,7 @@ To install a package using *Synaptic*:
 
 1. When starting Tails, [[set up an administration password|doc/first_steps/welcome_screen/administration_password]].
 
-1. Choose
-   **Applications&nbsp;▸ System Tools&nbsp;▸ Synaptic Package Manager**.
+1. Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Synaptic Package Manager**.
 
 1. Click **Search** and search for the name of the package.
 
@@ -155,7 +152,7 @@ To install an additional package automatically when starting Tails:
    a notification appears to ask if you want to install this package
    every time you start Tails in the future.
 
-   [[!img add.png link="no" class="screenshot" alt=""]]
+   [[!img add.png class="screenshot" alt=""]]
 
    - If you choose **Install Every Time**,
      the package is saved in the Persistent Storage and will be reinstalled
@@ -199,29 +196,29 @@ connections are blocked by default for security.
 
 To make an application use the Tor network, you can either:
 
-A. Configure the application to use Tor as a proxy with the following parameters:
+- Configure the application to use Tor as a proxy with the following parameters:
 
-   * Type: SOCKS5
-   * Host: 127.0.0.1
-   * Port: 9050
+  * Type: SOCKS5
+  * Host: 127.0.0.1
+  * Port: 9050
 
-   For example, to use *Mumble* in Tails, you can configure Tor as proxy in the
-   network configuration of *Mumble*:
+  For example, to use *Mumble* in Tails, you can configure Tor as proxy in the
+  network configuration of *Mumble*:
 
-   [[!img mumble.png link="no" alt="Network configuration of Mumble with proxy settings"]]
+  [[!img mumble.png class="screenshot" alt="Network configuration of Mumble with proxy settings"]]
 
-B. Run the application using `torsocks` on the command line.
+- Open the application using `torsocks` on the command line.
 
-   Execute the following command in a *Terminal*. Replace <span
-   class="command-placeholder">application</span> with the command line of the
-   application that you want to run:
+  Execute the following command in a *Console*. Replace
+  <span class="command-placeholder">application</span> with the command line
+  of the application that you want to open.
 
-   <p class="command-template">torsocks <span class="command-placeholder">application</span></p>
+  <p class="command-template">torsocks <span class="command-placeholder">application</span></p>
 
-   For example, to use *Mumble* in Tails, you can also execute the following
-   command:
+  For example, to use *Mumble* in Tails, you can also execute the following
+  command:
 
-   <p class="command">torsocks mumble</p>
+  <p class="command">torsocks mumble</p>
 
 ### Technical networking considerations
 
@@ -242,9 +239,8 @@ B. Run the application using `torsocks` on the command line.
 Checking your list of additional software
 =========================================
 
-To see which packages are installed automatically
-every time you start Tails, choose
-**Applications&nbsp;▸ System Tools&nbsp;▸ Additional Software**.
+To see which packages are installed automatically every time you start Tails,
+choose **Apps&nbsp;▸ System Tools&nbsp;▸ Additional Software**.
 
 Click the **[[!img lib/window-close.png class="symbolic" link="no" alt=""]]**
 button to remove a package from the list.
@@ -259,12 +255,11 @@ When you installed the package, if you chose:
 
 - **Install Only Once**, you can remove it by restarting Tails.
 
-- **Install Every Time**, you can remove it:
+- **Install Every Time**, you can remove it either:
 
   - Using *Additional Software*:
 
-    1. Choose
-       **Applications&nbsp;▸ System Tools&nbsp;▸ Additional Software**.
+    1. Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Additional Software**.
 
     1. Click the **[[!img lib/window-close.png class="symbolic" link="no" alt=""]]**
        to the right of the name of the package.
@@ -273,8 +268,7 @@ When you installed the package, if you chose:
 
     1. When starting Tails, [[set up an administration password|doc/first_steps/welcome_screen/administration_password]].
 
-    1. Choose
-       **Applications&nbsp;▸ System Tools&nbsp;▸ Synaptic Package Manager**.
+    1. Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Synaptic Package Manager**.
 
     1. Click **Search** and search for the name of the package.
 
@@ -288,7 +282,7 @@ When you installed the package, if you chose:
   After the package is removed, a notification appears to ask if you want to
   remove this package from your list of additional software.
 
-  [[!img remove.png link="no" class="screenshot" alt=""]]
+  [[!img remove.png class="screenshot" alt=""]]
 
 Freeing space in your Persistent Storage
 ----------------------------------------
@@ -297,9 +291,8 @@ After you installed many packages that you are not using anymore, you can free s
 
 1. When starting Tails, [[set up an administration password|doc/first_steps/welcome_screen/administration_password]].
 
-1. Choose
-   **Applications&nbsp;▸ System Tools&nbsp;▸ Root Terminal**
-   to open a *Root Terminal*.
+1. Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Root Console** to open a
+   console with administration rights.
 
 1. Execute the following command:
 
@@ -313,7 +306,7 @@ Configuring additional APT repositories  (for advanced users)
 <p>The packages available in Debian are
 submitted to public scrutiny.</p>
 
-<p>Configuring additional APT repositories might break the security built in
+<p>Configuring additional APT repositories might break the security built into
 Tails and might install software that has not even been approved by Debian. Be even more careful
 with what you install.</p>
 

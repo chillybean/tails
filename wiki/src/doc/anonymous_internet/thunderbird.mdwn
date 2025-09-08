@@ -8,8 +8,7 @@ Tails includes *Thunderbird* for:
 
 [[!toc levels=2]]
 
-To start *Thunderbird* choose
-**Applications&nbsp;▸ Internet&nbsp;▸ Thunderbird**.
+To open *Thunderbird*, choose **Apps&nbsp;▸ Internet&nbsp;▸ Thunderbird**.
 
 <div class="tip">
 
@@ -32,19 +31,19 @@ features of <i>Thunderbird</i></a> don't work in Tails.</p>
 
 <h1 id="account">Configuring an email account</h1>
 
-1. When starting *Thunderbird* for the first
+1. When opening *Thunderbird* for the first
    time, an assistant appears to guide you through the process of
    configuring *Thunderbird* to access your
    email account.
 
    <div class="tip">
 
-   <p>To start this assistant again in the future from the main window of
+   <p>To open this assistant again in the future from the main window of
    <i>Thunderbird</i>, choose
-   <b>[[!img lib/open-menu.png alt="Menu" class=symbolic link=no]]&nbsp;▸ Account Settings</b>
+   <b>[[!img lib/open-menu.png link="no" class="symbolic" alt="Menu"]]&nbsp;▸ Account Settings</b>
    and then, from the <b>Account Settings</b>
    dialog, choose <b>Account Actions</b>&nbsp;▸
-   <b>Add Mail Account&hellip;</b>.</p>
+   <b>Add Mail Account</b>.</p>
 
    </div>
 
@@ -104,7 +103,7 @@ standards in *Thunderbird*.
 
 To create a feed account:
 
-1. Choose  **[[!img lib/open-menu.png alt="Menu" class=symbolic link=no]]</span>&nbsp;▸
+1. Choose  **[[!img lib/open-menu.png link="no" class="symbolic" alt="Menu"]]&nbsp;▸
    Account Settings** from the main window of *Thunderbird*.
 
 1. In the **Account Settings** tab, choose **Account Actions&nbsp;▸ Add Feed
@@ -126,10 +125,10 @@ To create a feed account:
    Sites often have a feed icon <i class="fa fa-rss"></i> that points to their
    RSS or Atom feed.
 
-   If a site has no feed icon, right-click on the home or news page of the site
-   and choose **View Page Source** in the shortcut menu. In the source of the
+   If a site has no feed icon, right-click on the home or news page of the site in *Tor Browser*
+   and select **View Page Source** in the shortcut menu. In the source of the
    page look for a link of type *application/rss+xml* or
-   *application/atom+xml*. No all sites have a news feed.
+   *application/atom+xml*. Not all sites have a news feed.
 
    [[!wikipedia RSS]] and [[!wikipedia Atom (web standard) desc="Atom"]] are
    similar standards and their differences don't really matter to readers.
@@ -213,15 +212,6 @@ stored in <i>Thunderbird</i>.</p>
 
 </div>
 
-<div class="note">
-
-<p>Since Tails 4.13 (November 2020), <em>Thunderbird</em> 78 replaces the
-<em>Enigmail</em> extension with built-in support for OpenPGP encryption. If
-you used <em>Enigmail</em> before Tails 4.13, follow our [[migration
-instructions|openpgp_migration]].</p>
-
-</div>
-
 See also the official [OpenPGP in Thunderbird - HOWTO and
 FAQ](https://support.mozilla.org/kb/openpgp-thunderbird-howto-and-faq).
 
@@ -258,12 +248,12 @@ instructions below to export it from *GnuPG* and import it into *Thunderbird*.
 
 From the desktop:
 
-1. Choose **Applications&nbsp;▸ Accessories&nbsp;▸ Kleopatra**.
+1. Choose **Apps&nbsp;▸ Accessories&nbsp;▸ Kleopatra**.
 
 1. Select the private key that you want to migrate to *Thunderbird*.
 
 1. Choose **File&nbsp;▸ Backup Secret Keys…** and save this private key to your
-   *Home* directory.
+   *Home* folder.
 
 1. Close *Kleopatra*.
 
@@ -280,8 +270,8 @@ In *Thunderbird*:
 
 1. In the right pane, click the **Add Key…** button.
 
-1. In the **Add a Personal OpenPGP Key** dialog, choose **Import an
-   existing OpenPGP Key** and click **Continue**.
+1. In the dialog that appears, select the option **Import an
+   existing OpenPGP Key** and **Continue**.
 
 1. Click the **Select File to Import…** button and choose
    the private key that your exported from *Kleopatra*.

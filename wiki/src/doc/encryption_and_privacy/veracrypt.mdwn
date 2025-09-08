@@ -33,7 +33,7 @@ encrypted in two different kinds of *volumes*:
 <h3>File containers</h3>
 
 <div class="icon">
-[[!img container-icon.png link="no"]]
+[[!img container-icon.png link="no" alt=""]]
 <div class="text">
 <p>A file container is a single big file inside which you can store
 several files encrypted, a bit like a ZIP file.</p>
@@ -43,7 +43,7 @@ several files encrypted, a bit like a ZIP file.</p>
 <h3>Partitions or drives</h3>
 
 <div class="icon">
-[[!img partition-icon.png link="no"]]
+[[!img partition-icon.png link="no" alt=""]]
 <div class="text">
 <p>Usually, drives (USB sticks and hard disks) have a single partition of their
 entire size. This way, you can encrypt a whole USB stick, for example.
@@ -96,8 +96,7 @@ Using a file container
 Unlocking a file container without keyfiles
 -------------------------------------------
 
-1. Choose
-   **Applications&nbsp;▸ Utilities&nbsp;▸ Unlock VeraCrypt Volumes**.
+1. Choose **Apps&nbsp;▸ Utilities&nbsp;▸ Unlock VeraCrypt Volumes**.
 
 1. Click **Add** and choose the file container
    that you want to unlock.
@@ -121,12 +120,10 @@ Unlocking a file container without keyfiles
 Unlocking a file container with keyfiles
 ----------------------------------------
 
-1. Choose
-   **Applications&nbsp;▸ Utilities&nbsp;▸ Disks**
-   to start the *Disks* utility.
+1. Choose **Apps&nbsp;▸ Utilities&nbsp;▸ Disks** to open the *Disks* utility.
 
-1. Choose **[[!img lib/open-menu.png alt="" class=symbolic link="no"]]&nbsp;▸
-   Attach Disk Image&hellip;** from the top navigation bar.
+1. Choose **[[!img lib/open-menu.png link="no" class="symbolic" alt=""]]&nbsp;▸
+   Attach Disk Image** from the top navigation bar.
 
 1. In the **Select Disk Image to Attach** dialog:
 
@@ -134,27 +131,35 @@ Unlocking a file container with keyfiles
      check box in the bottom-left corner if you want to modify the content of
      the file container.
 
-     [[!img read-only.png link="no" class="screenshot" alt=""]]
+     [[!img read-only.png class="screenshot" alt=""]]
 
    - Choose **All Files** in the file filter in the
      bottom-right corner.
 
-     [[!img all-files.png link="no" class="screenshot" alt=""]]
+     [[!img all-files.png class="screenshot" alt=""]]
 
    - Navigate to the folder containing the file container that you want to open.
 
    - Select the file container and click **Attach**.
 
-   An authentication dialog appears.
+1. A first dialog appears to unlock the container.
 
-   [[!img authentication.png link="no" class="screenshot" alt="Authentication required"]]
+   [[!img authentication.png class="screenshot" alt="Authentication required"]]
+
+1. Select **Cancel**.
+
+   It is impossible to use keyfiles with this first dialog.
+
+1. A second dialog called **Set options to unlock** appears to unlock the container.
+
+   [[!img options.png class="screenshot" alt=""]]
 
 1. Enter the parameters to unlock the volume. For more information, see
    the [[Unlocking parameters|veracrypt#parameters]] section above.
 
 1. Click **Unlock**.
 
-1. Open your *VeraCrypt* volumes from the **Places** menu.
+1. Open your *VeraCrypt* volume from the sidebar of the *Files* menu.
 
 Using a partition or drive
 ==========================
@@ -167,21 +172,20 @@ Using a partition or drive
 
    An authentication dialog appears.
 
-   [[!img authentication.png link="no" class="screenshot" alt="Authentication required"]]
+   [[!img authentication.png class="screenshot" alt="Authentication required"]]
 
 1. Enter the parameters to unlock the volume. For more information, see
    the [[Unlocking parameters|veracrypt#parameters]] section above.
 
 1. Click **Unlock**.
 
-1. Open your *VeraCrypt* volumes from the **Places** menu.
+1. Open your *VeraCrypt* volume from the sidebar of the *Files* menu.
 
 <h2 id="partition-internal">Unlocking a partition on an internal hard disk</h2>
 
 1. When starting Tails, [[set up an administration password|doc/first_steps/welcome_screen/administration_password]].
 
-1. Choose **Applications**&nbsp;▸ **Utilities**&nbsp;▸ **Disks** to start the
-   *Disks* utility.
+1. Choose **Apps&nbsp;▸ Utilities&nbsp;▸ Disks** to open the *Disks* utility.
 
 1. In the left pane, select the drive that corresponds to your hard disk.
 
@@ -213,7 +217,7 @@ Using a partition or drive
 
 <h2 id="eject">Ejecting a <i>VeraCrypt</i> volume</h2>
 
-1. Choose **Applications**&nbsp;▸ **Files** to open the *Files* browser.
+1. Choose **Apps&nbsp;▸ Accessories&nbsp;▸ Files** to open the *Files* browser.
 
 1. In the sidebar of the *Files* browser, click on the
    [[!img lib/media-eject.png alt="Eject" class="symbolic" link="no"]] button
