@@ -174,8 +174,6 @@ ENV['TAILS_WEBSITE_CACHE'] = releasing? ? '0' : '1'
 task :parse_build_options do
   options = []
 
-  # Default to in-memory builds
-  options << 'ram'
   # Default to build using the in-VM proxy
   options << 'vmproxy'
   # Default to fast compression on development branches
@@ -285,9 +283,9 @@ task :ensure_enough_free_memory do
   cpus = ENV['TAILS_BUILD_CPUS'].to_i
   free_memory = capture_command('free', '--mebi').first.split[12].to_i
   required_memory = if ENV['TAILS_RAM_BUILD']
-                      vm_memory_for_ram_builds(cpus)
+                      vm_memory_for_ram_builds
                     else
-                      vm_memory_base(cpus)
+                      vm_memory_for_disk_builds(cpus)
                     end
 
   if free_memory < required_memory
