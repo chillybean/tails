@@ -165,6 +165,13 @@ check-isolated-python:
     - apt-get -qy install git python3-sh
     - ./bin/test-utils/check-isolated-python
 
+check-udfs-signatures:
+  script:
+    - apt-get -qy install python3 python3-debian sqop
+    - export VERSION=$(python3 -c 'from debian.changelog import Changelog; print(Changelog(open("debian/changelog"))[0].version)')
+    - echo "${VERSION:?}"
+    - ./bin/check-udfs-signature
+
 check-website-core-pages:
   script:
     - apt-get -qy install git
