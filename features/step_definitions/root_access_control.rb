@@ -69,3 +69,14 @@ Then /^I cannot run a command as root with pkexec and the standard passwords$/ d
   # Ensure we don't taint the next tests
   $vm.execute('pkill -u amnesia kgx')
 end
+
+When /^I start the Root Console using the administration password$/ do
+  launch_root_console
+end
+
+Then /^the Root Console starts$/ do
+  try_for(10) do
+    assert_not_nil @screen.ocr['root@amnesia:~#']
+    true
+  end
+end

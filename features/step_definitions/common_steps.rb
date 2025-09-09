@@ -1091,6 +1091,15 @@ def launch_console(**opts)
   )
 end
 
+def launch_root_console(**opts)
+  launch_app(
+    'root-console.desktop',
+    'kgx',
+    pkexec_root: true,
+    **opts
+  )
+end
+
 def launch_nautilus(**opts)
   launch_app(
     'org.gnome.Nautilus.desktop',
