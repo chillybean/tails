@@ -9,7 +9,10 @@ echo "Make sure we install the required custom Tails packages"
 # of the Debian package being forked, without any extra separator such
 # as "." or "+".
 TAILS_PACKAGES="
+apparmor
+apparmor-profiles
 flatpak
+libapparmor1
 "
 
 OLD_VERSION_RE='([.]0|[+])tails[0-9]*$'
