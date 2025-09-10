@@ -75,9 +75,8 @@ When /^I start the Root Console using the administration password$/ do
 end
 
 Then /^the Root Console starts$/ do
-  try_for(10, msg: 'Cannot find the expected shell prompt with Dogtail') do
-    Dogtail::Application.new('kgx', user: 'root')
-                        .child('Terminal', roleName: 'terminal')
-                        .text['root@amnesia:~#']
-  end
+  # Due to tails#21123, where the Root Console was invisible, we need
+  # visual confirmation and cannot use e.g. Dogtail, which still would
+  # "see" the window through the accessibility bus.
+  @screen.wait('RootConsole.png', 10)
 end
