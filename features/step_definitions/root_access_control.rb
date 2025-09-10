@@ -75,8 +75,9 @@ When /^I start the Root Console using the administration password$/ do
 end
 
 Then /^the Root Console starts$/ do
-  try_for(10) do
-    assert_not_nil @screen.ocr['root@amnesia:~#']
-    true
+  try_for(10, msg: 'Cannot find the expected shell prompt with Dogtail') do
+    Dogtail::Application.new('kgx', user: 'root')
+                        .child('Terminal', roleName: 'terminal')
+                        .text['root@amnesia:~#']
   end
 end
