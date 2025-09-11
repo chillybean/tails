@@ -1,6 +1,7 @@
 #!/usr/bin/python3 -I
 
 import argparse
+import gettext
 import logging
 import os
 from pathlib import Path
@@ -12,6 +13,8 @@ import tps
 import tps.logging
 from tps import DBUS_SERVICE_NAME
 from tps.service import Service
+
+gettext.textdomain("tails")
 
 logger = tps.logging.get_logger(__name__)
 
@@ -77,6 +80,31 @@ def main():
         on_name_acquired,
         on_name_lost,
     )
+
+    locale1 = Gio.DBusProxy.new_for_bus_sync(
+        bus_type=Gio.BusType.SYSTEM,
+        flags=Gio.DBusProxyFlags.NONE,
+        info=None,
+        name="org.freedesktop.locale1",
+        object_path="/org/freedesktop/locale1",
+        interface_name="org.freedesktop.locale1",
+        cancellable=None,
+    )  # type: Gio.DBusProxy
+
+    def locale_change_handler(_proxy, changed, _removed):
+        old_locale = os.environ["LANG"]
+        try:
+            for setting in changed["Locale"]:
+                if setting.startswith("LANG="):
+                    _, val = setting.split("=", 1)
+                    os.environ["LANG"] = val
+                    break
+        except (KeyError, ValueError):
+            pass
+        if old_locale != os.environ["LANG"]:
+            logger.info(f"Changed locale: {old_locale} → {os.environ['LANG']}")
+
+    locale1.connect("g-properties-changed", locale_change_handler)
 
     # Run the mainloop until it gets terminated or we get a keyboard
     # interrupt
