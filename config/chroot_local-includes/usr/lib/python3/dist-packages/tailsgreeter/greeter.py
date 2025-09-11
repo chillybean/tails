@@ -42,7 +42,6 @@ from tailsgreeter.ui.additional_settings import (
     MACSpoofSettingUI,
     NetworkSettingUI,
     UnsafeBrowserSettingUI,
-    ObsoleteNetworkSettingUI,
 )
 from tailsgreeter.ui.main_window import GreeterMainWindow
 from tailsgreeter.ui.region_settings import (
@@ -107,7 +106,6 @@ class GreeterApplication:
             MACSpoofSettingUI(self.macspoof_setting),
             NetworkSettingUI(self.network_setting),
             UnsafeBrowserSettingUI(self.unsafe_browser_setting),
-            ObsoleteNetworkSettingUI(),
         )
 
         # Initialize main window
