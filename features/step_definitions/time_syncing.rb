@@ -127,7 +127,7 @@ Then /^the system clock is just past Tails' source date$/ do
          "The system time (#{system_time}) is before the Tails " \
          "source date (#{source_time})")
 
-  if diff <= max_diff
+  if diff > max_diff
     # In this case the only acceptable explanation is that systemd
     # adjusted the time.
     systemd_has_adjusted_time = $vm.execute(
