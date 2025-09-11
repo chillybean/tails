@@ -133,7 +133,7 @@ Then /^the system clock is just past Tails' source date$/ do
     # than $SOURCE_DATE_EPOCH.
     systemd_has_adjusted_time = systemd_journal_includes(
       'System time before build time, advancing clock.',
-      journalctl_args: ['_PID=1'],
+      journalctl_args: ['_PID=1']
     )
     unless systemd_has_adjusted_time
       raise(
