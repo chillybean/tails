@@ -144,7 +144,7 @@ class PasswordDialog:
         self.entry2 = Gtk.Entry(can_focus=True, visibility=False, width_request=200)
         self.entry2.connect("changed", self.on_entry_changed)
 
-        self.show_checkbox = Gtk.CheckButton(label="Show Password")
+        self.show_checkbox = Gtk.CheckButton(label=_("Show Password"))
         self.show_checkbox.connect("toggled", self.on_show_checkbox_toggled)
 
         grid = Gtk.Grid(row_spacing=2, column_spacing=10)
