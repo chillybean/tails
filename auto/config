@@ -149,6 +149,8 @@ $RUN_LB_CONFIG \
     --mirror-chroot "$DEBIAN_MIRROR" \
     --mirror-binary-security "$DEBIAN_SECURITY_MIRROR" \
     --mirror-chroot-security "$DEBIAN_SECURITY_MIRROR" \
+    --mirror-binary-volatile "$DEBIAN_MIRROR" \
+    --mirror-chroot-volatile "$DEBIAN_MIRROR" \
     --packages-lists none \
     --tasks none \
     --linux-packages="$kernel_package" \
