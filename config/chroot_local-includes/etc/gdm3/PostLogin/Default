@@ -138,6 +138,10 @@ update-locale \
     "LC_MEASUREMENT=${TAILS_FORMATS}.UTF-8" \
     "LC_PAPER=${TAILS_FORMATS}.UTF-8"
 
+# Ensure the org.freedesktop.locale1 D-Bus interface updates according
+# to the above changes
+systemctl restart systemd-localed.service
+
 # Set the system locale GSetting (#16806)
 cat >/etc/dconf/db/local.d/01_Tails_settings <<EOF
 [system/locale]
