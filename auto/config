@@ -109,12 +109,6 @@ perl -pi \
     config/chroot_sources/*.chroot ||
     fatal "APT mirror substitution failed with exit code $?"
 
-# Adjust live-build to handle the new security suite name
-# introduced in Debian Bullseye.
-# shellcheck disable=SC2016
-sed -i 's@${LB_DISTRIBUTION}/updates@${LB_DISTRIBUTION}-security@' \
-    /usr/share/live/build/scripts/build/lb_chroot_sources
-
 if [ -n "${KERNEL_VERSION}" ]; then
     kernel_package="linux-image-${KERNEL_VERSION}"
 else
