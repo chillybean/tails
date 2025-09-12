@@ -398,7 +398,9 @@ def main():
     )
     logging.getLogger("urllib3.connectionpool").setLevel(logging.WARNING)
 
-    parser = argparse.ArgumentParser(description="list all packages that ")
+    parser = argparse.ArgumentParser(
+        description="list all packages that need to be updated"
+    )
     parser.add_argument("-v", "--verbose", action="store_true", help="Give more infos")
     parser.add_argument("--debug", action="store_true", help="Show all debug messages")
     parser.add_argument(
