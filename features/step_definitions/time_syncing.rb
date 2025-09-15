@@ -127,12 +127,14 @@ Then /^the system clock is just past Tails' source date$/ do
          "The system time (#{system_time}) is before the Tails " \
          "source date (#{source_time})")
 
-  if diff <= max_diff
+  if diff > max_diff
     # In this case the only acceptable explanation is that systemd
-    # adjusted the time.
-    systemd_has_adjusted_time = $vm.execute(
-      "journalctl | grep 'System time before build time, advancing clock'"
-    ).success?
+    # adjusted the time, because its build time is more recent
+    # than $SOURCE_DATE_EPOCH.
+    systemd_has_adjusted_time = systemd_journal_includes(
+      'System time before build time, advancing clock.',
+      journalctl_args: ['_PID=1']
+    )
     unless systemd_has_adjusted_time
       raise(
         "The system time (#{system_time}) is more than #{max_diff} seconds " \
