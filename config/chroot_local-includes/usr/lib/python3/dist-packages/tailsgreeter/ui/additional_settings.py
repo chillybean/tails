@@ -329,29 +329,6 @@ class NetworkSettingUI(AdditionalSetting):
         return False
 
 
-class ObsoleteNetworkSettingUI(AdditionalSetting):
-    @property
-    def name(self) -> str:
-        return "obsolete_network"
-
-    @property
-    def title(self) -> str:
-        return _("_Network Connection")
-
-    @property
-    def icon_name(self) -> str:
-        return "tails-network"
-
-    @property
-    def value_for_display(self) -> str:
-        return _("Obsolete")
-
-    def __init__(self):
-        super().__init__()
-        self.accel_key = Gdk.KEY_n
-        self.hide_button_add = True
-
-
 class UnsafeBrowserSettingUI(AdditionalSetting):
     @property
     def name(self) -> str:

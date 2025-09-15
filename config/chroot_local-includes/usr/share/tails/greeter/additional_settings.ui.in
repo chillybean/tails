@@ -327,52 +327,6 @@
       </packing>
     </child>
   </object>
-  <object class="GtkBox" id="box_obsolete_network_popover">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="margin_left">18</property>
-    <property name="margin_right">18</property>
-    <property name="margin_top">18</property>
-    <property name="margin_bottom">18</property>
-    <property name="orientation">vertical</property>
-    <property name="spacing">18</property>
-    <child>
-      <object class="GtkLabel" id="label_obsolete_network_title">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="label" translatable="yes">Network Configuration</property>
-        <attributes>
-          <attribute name="weight" value="bold"/>
-          <attribute name="scale" value="1.5"/>
-        </attributes>
-      </object>
-      <packing>
-        <property name="expand">False</property>
-        <property name="fill">True</property>
-        <property name="position">0</property>
-      </packing>
-    </child>
-    <child>
-      <object class="GtkLabel" id="label_obsolete_network_description">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="label" translatable="yes">We replaced this additional setting in Tails 4.19 (June 2021) with a Tor Connection assistant integrated in the desktop.
-
-You will be asked whether you want to use Tor bridges when connecting to Tor after starting Tails.
-
-If you want to work offline, enable the Offline Mode in the additional settings.</property>
-        <property name="justify">fill</property>
-        <property name="wrap">True</property>
-        <property name="max_width_chars">50</property>
-        <property name="xalign">0</property>
-      </object>
-      <packing>
-        <property name="expand">False</property>
-        <property name="fill">True</property>
-        <property name="position">1</property>
-      </packing>
-    </child>
-  </object>
   <object class="GtkBox" id="box_network_popover">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -561,9 +515,7 @@ If you want to work offline, enable the Offline Mode in the additional settings.
 
 A captive portal is a web page that is displayed before you can access the Internet. Captive portals usually require you to log in to the network or enter information such as an email address.
 
-The Unsafe Browser is not anonymous and can deanonymize you. Use it only to sign in to networks.
-
-The Unsafe Browser is enabled by default again since Tails 5.8 (December 2022), after we fixed the security vulnerabilities that made us disable it by default in Tails 4.8 (June 2020).</property>
+The Unsafe Browser is not anonymous and can deanonymize you. Use it only to sign in to networks.</property>
         <property name="justify">fill</property>
         <property name="wrap">True</property>
         <property name="width_chars">50</property>
