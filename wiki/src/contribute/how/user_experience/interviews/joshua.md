@@ -163,7 +163,7 @@ Browser*". That didn't used to be there. When I saw it for the first time, I
 wondered what happened. That's kind of alarming.
 
 I swear there used to be a security slider to change the security level. Now it
-kind of burried and it requires a reboot of the browser.
+kind of buried and it requires a reboot of the browser.
 
 I like that *uBlock Origin* is there.
 
