@@ -39,9 +39,22 @@ systemctl restart tor@default.service
 echo >&2 "$BASENAME: $1 up: starting tca.service"
 /usr/local/lib/run-with-user-env systemctl --user start tca.service
 
-# that's not what it looks: htpdate will not really be started until Tor has bootstrapped
-echo >&2 "$BASENAME: $1 up: restarting htpdate.service"
-systemctl --no-block restart htpdate.service
+# Why the subsequent code block is inside an if-statement? Shouldn't we always restart htpdate?
+# To address tails#21014 we don't re-run htpdate if it already succeeded.
+# In fact, there is no reason to start it another time: the time has been synced already, and we can assume
+# that your hardware clock is keeping time after that.
+# Please note that it might be tempting to remove the if, and replace "restart" with "start".
+# That would be very similar, but not exactly the same: an htpdate instance which is running (and would
+# probably fail since it's running through a disconnect-reconnect) would not be stopped by running "start",
+# while restart would.
+# This does *not* solve the root cause of tails#21014: there is nothing specific about "htpdate has already
+# succeeded" as far as we know, and this can be one more way in which time synchronization could fail.
+# But it makes the bug far less visible in the test suite.
+if ! [ -f /run/htpdate/success ]; then
+    # that's not what it looks: htpdate will not really be started until Tor has bootstrapped
+    echo >&2 "$BASENAME: $1 up: restarting htpdate.service"
+    systemctl --no-block restart htpdate.service
+fi
 
 # Wait until the user is done with configuring Tor
 echo >&2 "$BASENAME: $1 up: waiting until Tor was configured"
