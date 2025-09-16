@@ -1781,11 +1781,12 @@ end
 # In many cases this is superior to a naive "journalctl | grep", which
 # will find itself because tails-autotest-remote-shell logs the
 # commands its executes.
-def systemd_journal_includes(message, journalctl_args: [])
+def systemd_journal_includes(message, journalctl_args: [], regexp: false)
+  matcher = regexp ? '--regex' : 'MESSAGE'
   $vm.execute(
     'journalctl --boot --output=cat ' \
     "#{journalctl_args.join(' ')} " \
-    "MESSAGE='#{message}' "\
+    "#{matcher}='#{message}' "\
     '| wc -l'
   ).stdout.to_i.positive?
 end
