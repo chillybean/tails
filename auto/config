@@ -12,7 +12,7 @@ set -x
 if [ -n "${SOURCE_DATE_EPOCH}" ]; then
     CURRENT_EPOCH="$(date --utc +%s)"
     if [ "${SOURCE_DATE_EPOCH}" -gt "${CURRENT_EPOCH}" ]; then
-        fatal "SOURCE_DATE_EPOCH is set before the current time. Exiting."
+        fatal "SOURCE_DATE_EPOCH is set after the current time. Exiting."
     fi
 else
     fatal "SOURCE_DATE_EPOCH is not set. Exiting."
@@ -109,12 +109,6 @@ perl -pi \
     config/chroot_sources/*.chroot ||
     fatal "APT mirror substitution failed with exit code $?"
 
-# Adjust live-build to handle the new security suite name
-# introduced in Debian Bullseye.
-# shellcheck disable=SC2016
-sed -i 's@${LB_DISTRIBUTION}/updates@${LB_DISTRIBUTION}-security@' \
-    /usr/share/live/build/scripts/build/lb_chroot_sources
-
 if [ -n "${KERNEL_VERSION}" ]; then
     kernel_package="linux-image-${KERNEL_VERSION}"
 else
@@ -127,6 +121,7 @@ $RUN_LB_CONFIG \
     --apt-recommends false \
     --architecture amd64 \
     --backports false \
+    --volatile true \
     --binary-images iso \
     --binary-indices false \
     --cache false \
@@ -149,6 +144,8 @@ $RUN_LB_CONFIG \
     --mirror-chroot "$DEBIAN_MIRROR" \
     --mirror-binary-security "$DEBIAN_SECURITY_MIRROR" \
     --mirror-chroot-security "$DEBIAN_SECURITY_MIRROR" \
+    --mirror-binary-volatile "$DEBIAN_MIRROR" \
+    --mirror-chroot-volatile "$DEBIAN_MIRROR" \
     --packages-lists none \
     --tasks none \
     --linux-packages="$kernel_package" \
