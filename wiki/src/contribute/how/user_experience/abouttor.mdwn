@@ -59,5 +59,10 @@ In Git, this file lives in `toolkit/locales/en-US/toolkit/global/tor-browser.ftl
 [Contributing to Tor Browser](https://gitlab.torproject.org/tpo/applications/wiki/-/blob/master/Development-Information/Tor-Browser/Contributing-to-Tor-Browser.md?ref_type=heads):
 explains how to create issues and MRs, how to choose branch names, how to write commit messages, etc.
 
+# Tips and resources
 
-
+- To display contents under conditions that are more complex than "are we on
+  Tails", e.g. during a specific time span, use `potentiallyShow` in
+  `aboutTor.js`. Examples:
+   - Outside of a YEC, the code has a simple example for a survey.
+   - [Full blown YEC example](https://gitlab.torproject.org/tpo/applications/tor-browser/-/merge_requests/1689/diffs)
