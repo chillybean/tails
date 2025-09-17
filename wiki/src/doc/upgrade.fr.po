@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tails\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-06-24 16:26-0600\n"
+"POT-Creation-Date: 2025-09-17 11:40+0200\n"
 "PO-Revision-Date: 2025-07-31 12:37+0000\n"
 "Last-Translator: Chre <tor@renaudineau.org>\n"
 "Language-Team: Tails translators <tails@boum.org>\n"
@@ -82,13 +82,16 @@ msgid "<h1 id=\"check-version\">Checking which version of Tails you are currentl
 msgstr "<h1 id=\"check-version\">Connaître la version de Tails que vous être en train d'exécuter</h1>\n"
 
 #. type: Plain text
+#, fuzzy
+#| msgid ""
+#| "To check which version of Tails you are currently running, choose "
+#| "**Applications&nbsp;▸ Tails&nbsp;▸ About Tails**."
 msgid ""
 "To check which version of Tails you are currently running, choose "
-"**Applications&nbsp;▸ Tails&nbsp;▸ About Tails**."
+"**Apps&nbsp;▸ Tails&nbsp;▸ About Tails**."
 msgstr ""
 "Pour vérifier la version de Tails que vous être en train d'exécuter, "
-"choisissez "
-"**Applications&nbsp;▸ Tails&nbsp;▸ À propos de Tails**."
+"choisissez **Applications&nbsp;▸ Tails&nbsp;▸ À propos de Tails**."
 
 #. type: Plain text
 msgid ""
@@ -96,8 +99,8 @@ msgid ""
 "check whether a new version of Tails is available. This check is also done "
 "automatically every time you start Tails and connect to the Tor network."
 msgstr ""
-"Dans l'utilitaire **À propos de Tails**, vous pouvez cliquer sur **"
-"Vérification de la présence de mises à jour** pour vérifier la présence "
+"Dans l'utilitaire **À propos de Tails**, vous pouvez cliquer sur "
+"**Vérification de la présence de mises à jour** pour vérifier la présence "
 "d'une nouvelle version de Tails. Cette vérification est également faite "
 "automatiquement à chaque fois que vous démarrez Tails et que vous vous "
 "connectez au réseau Tor."
@@ -113,12 +116,10 @@ msgid ""
 "checks if upgrades are available and then proposes you to upgrade your USB "
 "stick. The upgrades are checked for and downloaded through Tor."
 msgstr ""
-"Après le démarrage de Tails et la connexion à Tor, le "
-"*Tails Upgrader* vérifie automatiquement si des mises à jour sont "
-"disponibles "
-"et vous propose le cas échéant de mettre à jour votre clé USB. Les mises à "
-"jour "
-"sont vérifiées et téléchargées via Tor."
+"Après le démarrage de Tails et la connexion à Tor, le *Tails Upgrader* "
+"vérifie automatiquement si des mises à jour sont disponibles et vous propose "
+"le cas échéant de mettre à jour votre clé USB. Les mises à jour sont "
+"vérifiées et téléchargées via Tor."
 
 #. type: Plain text
 msgid "The advantages of automatic upgrades are the following:"
@@ -168,8 +169,9 @@ msgstr ""
 "dialogue apparaît et vous propose de mettre à jour votre clé USB."
 
 #. type: Plain text
-#, no-wrap
-msgid "[[!img upgrader_automatic.png link=no]]\n"
+#, fuzzy, no-wrap
+#| msgid "[[!img upgrader_automatic.png link=no]]\n"
+msgid "[[!img upgrader_automatic.png class=\"screenshot\" alt=\"\"]]\n"
 msgstr "[[!img upgrader_automatic.png link=no]]\n"
 
 #. type: Plain text
@@ -178,8 +180,7 @@ msgid ""
 "assistant through the upgrade process."
 msgstr ""
 "Si vous voulez faire la mise à jour, cliquez sur **Mettre à jour "
-"maintenant**, "
-"et suivez l'assistant à travers le processus de mise à jour."
+"maintenant**, et suivez l'assistant à travers le processus de mise à jour."
 
 #. type: Plain text
 #, no-wrap
@@ -189,20 +190,10 @@ msgstr "<div class=\"tip\">\n"
 #. type: Plain text
 #, no-wrap
 msgid ""
-"<p>If you cannot upgrade at startup (for example, if you have no network\n"
-"connection by then), you can start <i>Tails Upgrader</i>\n"
-"later by opening a terminal and executing the following\n"
-"command:</p>\n"
+"<p>If you cannot upgrade at startup, you can open <i>Tails Upgrader</i>\n"
+"later by choosing <b>Apps&nbsp;▸ Tails&nbsp;▸ About Tails</b> and clicking\n"
+"<b>Check for Upgrades</b>.</p>\n"
 msgstr ""
-"<p>Si vous ne pouvez pas mettre à jour au démarrage (par exemple si vous n'avez\n"
-"pas de connexion à un réseau au démarrage), vous pouvez lancer\n"
-"<i>Tails Upgrader</i> plus tard en ouvrant un\n"
-"terminal et en exécutant la commande suivante :</p>\n"
-
-#. type: Plain text
-#, no-wrap
-msgid "<pre>tails-upgrade-frontend-wrapper</pre>\n"
-msgstr "<pre>tails-upgrade-frontend-wrapper</pre>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -291,8 +282,9 @@ msgstr ""
 "utilisant *Tails Cloner*."
 
 #. type: Plain text
-#, no-wrap
-msgid "[[!img upgrader_manual.png link=no]]\n"
+#, fuzzy, no-wrap
+#| msgid "[[!img upgrader_manual.png link=no]]\n"
+msgid "[[!img upgrader_manual.png class=\"screenshot\" alt=\"\"]]\n"
 msgstr "[[!img upgrader_manual.png link=no]]\n"
 
 #. type: Plain text
@@ -465,6 +457,22 @@ msgstr "¼ d'heure pour mettre à jour"
 #. type: Bullet: '- '
 msgid "[[Cloning from another Tails|upgrade/clone]]"
 msgstr "[[Cloner depuis un autre Tails|upgrade/clone]]"
+
+#, no-wrap
+#~ msgid ""
+#~ "<p>If you cannot upgrade at startup (for example, if you have no network\n"
+#~ "connection by then), you can start <i>Tails Upgrader</i>\n"
+#~ "later by opening a terminal and executing the following\n"
+#~ "command:</p>\n"
+#~ msgstr ""
+#~ "<p>Si vous ne pouvez pas mettre à jour au démarrage (par exemple si vous n'avez\n"
+#~ "pas de connexion à un réseau au démarrage), vous pouvez lancer\n"
+#~ "<i>Tails Upgrader</i> plus tard en ouvrant un\n"
+#~ "terminal et en exécutant la commande suivante :</p>\n"
+
+#, no-wrap
+#~ msgid "<pre>tails-upgrade-frontend-wrapper</pre>\n"
+#~ msgstr "<pre>tails-upgrade-frontend-wrapper</pre>\n"
 
 #~ msgid ""
 #~ "If an error occurs during the upgrade, the assistant proposes you to read "

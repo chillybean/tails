@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-06-24 16:26-0600\n"
+"POT-Creation-Date: 2025-09-17 11:40+0200\n"
 "PO-Revision-Date: 2025-06-27 17:01+0000\n"
 "Last-Translator: victor dargallo <victordargallo@disroot.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -438,17 +438,16 @@ msgstr ""
 "   </div>\n"
 
 #. type: Bullet: '1. '
+#, fuzzy
+#| msgid ""
+#| "Execute the following commands to copy the USB image that you downloaded "
+#| "earlier to the USB stick."
 msgid ""
 "Execute the following commands to copy the USB image that you downloaded "
-"earlier to the USB stick."
+"earlier to the USB stick. Replace:"
 msgstr ""
 "Executeu les ordres següents per copiar la imatge USB que heu baixat "
 "anteriorment al llapis USB."
-
-#. type: Plain text
-#, no-wrap
-msgid "   Replace:\n"
-msgstr "   Substituïu:\n"
 
 #. type: Bullet: '   - '
 msgid ""
@@ -505,8 +504,9 @@ msgstr ""
 "   d'afegir <code>sudo</code> al principi de l'ordre:</p>\n"
 
 #. type: Plain text
-#, no-wrap
-msgid "   <p class=\"command-example\">sudo dd if=<span class=\"command-placeholder\">tails.img</span> of=<span class=\"command-placeholder\">device</span> bs=16M oflag=direct status=progress</p>\n"
+#, fuzzy, no-wrap
+#| msgid "   <p class=\"command-example\">sudo dd if=<span class=\"command-placeholder\">tails.img</span> of=<span class=\"command-placeholder\">device</span> bs=16M oflag=direct status=progress</p>\n"
+msgid "   <p class=\"command-template\">sudo dd if=<span class=\"command-placeholder\">tails.img</span> of=<span class=\"command-placeholder\">device</span> bs=16M oflag=direct status=progress</p>\n"
 msgstr "   <p class=\"command-example\">dd if=<span class=\"command-placeholder\">tails.img</span> of=<span class=\"command-placeholder\">dispositiu</span> bs=16M oflag=direct status=progress</p>\n"
 
 #. type: Plain text
@@ -523,6 +523,10 @@ msgstr "[[!inline pages=\"install/inc/steps/restart_first_time.inline.ca\" raw=\
 #, no-wrap
 msgid "[[!inline pages=\"install/inc/steps/welcome.inline\" raw=\"yes\" sort=\"age\"]]\n"
 msgstr "[[!inline pages=\"install/inc/steps/welcome.inline.ca\" raw=\"yes\" sort=\"age\"]]\n"
+
+#, no-wrap
+#~ msgid "   Replace:\n"
+#~ msgstr "   Substituïu:\n"
 
 #~ msgid ""
 #~ "Import the Tails signing key in your <span class=\"application\">GnuPG</"

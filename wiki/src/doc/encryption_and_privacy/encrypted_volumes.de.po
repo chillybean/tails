@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tails\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-06-24 16:26-0600\n"
+"POT-Creation-Date: 2025-09-17 11:40+0200\n"
 "PO-Revision-Date: 2024-10-21 14:02+0000\n"
 "Last-Translator: Benjamin Held <Benjamin.Held@protonmail.com>\n"
 "Language-Team: Tails translators <tails@boum.org>\n"
@@ -82,6 +82,26 @@ msgstr ""
 "öffnen."
 
 #. type: Plain text
+#, fuzzy, no-wrap
+#| msgid "<div class=\"tip\">\n"
+msgid "<div class=\"attack\">\n"
+msgstr "<div class=\"tip\">\n"
+
+#. type: Plain text
+#, no-wrap
+msgid "<p>Such encrypted volumes, like the Persistent Storage, are not hidden.</p>\n"
+msgstr ""
+
+#. type: Plain text
+#, fuzzy, no-wrap
+#| msgid "Such encrypted volumes are not hidden. An attacker in possession of the device can know that there is an encrypted volume on it. Take into consideration that you can be forced or tricked to give out its passphrase."
+msgid ""
+"<p>An attacker in possession of the device can know that there is an encrypted\n"
+"volume on it. Take into consideration that you can be forced or tricked to give\n"
+"out its passphrase.</p>\n"
+msgstr "Solche verschlüsselte Laufwerke sind nicht versteckt. Eine angreifende Person im Besitz des Mediums kann herausfinden, dass sich ein verschlüsseltes Laufwerk darauf befindet. Ziehen Sie in Erwägung, dass Sie gezwungen oder hereingelegt werden könnten, dass Passwort herauszugeben."
+
+#. type: Plain text
 #, no-wrap
 msgid "<h2 id=\"comparison\">Comparison between <i>LUKS</i> and <i>VeraCrypt</i></h2>\n"
 msgstr "<h2 id=\"comparison\">Vergleich zwischen <i>LUKS</i> und <i>VeraCrypt</i></h2>\n"
@@ -92,11 +112,9 @@ msgid ""
 "disk encryption tool for Windows, macOS, and Linux. [[See our documentation "
 "about *VeraCrypt*.|veracrypt]]"
 msgstr ""
-"Sie können auch *VeraCrypt*-verschlüsselte "
-"Volumes in Tails öffnen. *VeraCrypt* ist ein  "
-"Festplattenverschlüsselungstool für Windows, macOS und Linux. [[Siehe "
-"unsere  "
-"Dokumentation über *VeraCrypt*.|veracrypt]]"
+"Sie können auch *VeraCrypt*-verschlüsselte Volumes in Tails öffnen. "
+"*VeraCrypt* ist ein  Festplattenverschlüsselungstool für Windows, macOS und "
+"Linux. [[Siehe unsere  Dokumentation über *VeraCrypt*.|veracrypt]]"
 
 #. type: Plain text
 #, no-wrap
@@ -109,9 +127,12 @@ msgid "<h1 id=\"creating\">Creating an encrypted partition</h1>\n"
 msgstr "<h1 id=\"creating\">Erstellen Sie eine verschlüsselte Partition</h1>\n"
 
 #. type: Bullet: '1. '
+#, fuzzy
+#| msgid ""
+#| "Choose **Applications**&nbsp;▸ **Utilities**&nbsp;▸ **Disks** to open the "
+#| "*Disks* utility."
 msgid ""
-"Choose **Applications**&nbsp;▸ **Utilities**&nbsp;▸ **Disks** to open the "
-"*Disks* utility."
+"Choose **Apps&nbsp;▸ Utilities&nbsp;▸ Disks** to open the *Disks* utility."
 msgstr ""
 "Wählen Sie **Anwendungen**&nbsp;▸ **Dienstprogramme**&nbsp;▸ "
 "**Datenträger**, um das *Datenträger*-Dienstprogramm zu öffnen."
@@ -141,8 +162,9 @@ msgstr ""
 "aus."
 
 #. type: Plain text
-#, no-wrap
-msgid "     [[!img storage_devices_after.png link=no alt=\"\"]]\n"
+#, fuzzy, no-wrap
+#| msgid "     [[!img storage_devices_after.png link=no alt=\"\"]]\n"
+msgid "     [[!img storage_devices_after.png class=\"screenshot\" alt=\"\"]]\n"
 msgstr "     [[!img storage_devices_after.png link=no alt=\"\"]]\n"
 
 #. type: Plain text
@@ -160,10 +182,15 @@ msgid "<h2 id=\"formatting\">Formatting the device</h2>\n"
 msgstr "<h2 id=\"formatting\">Formatieren Sie das Medium</h2>\n"
 
 #. type: Bullet: '  1. '
+#, fuzzy
+#| msgid ""
+#| "Click on the [[!img lib/view-more.png alt=\"Drive Options\" "
+#| "class=\"symbolic\" link=\"no\"]] button in the title bar and choose "
+#| "**Format Disk** to erase all the existing partitions on the device."
 msgid ""
-"Click on the [[!img lib/view-more.png alt=\"Drive Options\" "
-"class=\"symbolic\" link=\"no\"]] button in the title bar and choose **Format "
-"Disk** to erase all the existing partitions on the device."
+"Select the [[!img lib/view-more.png alt=\"Menu\" class=\"symbolic\" "
+"link=\"no\"]] button in the title bar and choose **Format Disk** to erase "
+"all the existing partitions on the device."
 msgstr ""
 "Klicken Sie auf die [[!img lib/view-more.png alt=\"Laufwerksoptionen\" "
 "class=\"symbolic\" link=\"no\"]] Schaltfläche in der Titelleiste und wählen "
@@ -230,8 +257,9 @@ msgstr ""
 "Medium an:"
 
 #. type: Plain text
-#, no-wrap
-msgid "[[!img empty_device.png link=no alt=\"Free Space 123 GB\"]]\n"
+#, fuzzy, no-wrap
+#| msgid "[[!img empty_device.png link=no alt=\"Free Space 123 GB\"]]\n"
+msgid "[[!img empty_device.png class=\"screenshot\" alt=\"Free Space 123 GB\"]]\n"
 msgstr "[[!img empty_device.png link=no alt=\"Free Space 123 GB\"]]\n"
 
 #. type: Bullet: '  1. '
@@ -384,7 +412,7 @@ msgstr ""
 #. type: Plain text
 #, fuzzy, no-wrap
 #| msgid "     [[!img encrypted_partition.png link=\"no\" alt=\"Partition 1 4.0 GB LUKS / secret 4.0 GB Ext4\"]]\n"
-msgid "     [[!img encrypted_partition.png link=\"no\" alt=\"Partition 1 4.0 GB LUKS / Filesystem 4.0 GB Ext4\"]]\n"
+msgid "     [[!img encrypted_partition.png class=\"screenshot\" alt=\"Partition 1 4.0 GB LUKS / Filesystem 4.0 GB Ext4\"]]\n"
 msgstr "     [[!img encrypted_partition.png link=\"no\" alt=\"Partition 1 4.0 GB LUKS / secret 4.0 GB Ext4\"]]\n"
 
 #. type: Bullet: '  1. '
@@ -404,20 +432,16 @@ msgid "<h2 id=\"using\">Using the new partition</h2>\n"
 msgstr "<h2 id=\"using\">Benutzen Sie die neue Partition</h2>\n"
 
 #. type: Plain text
+#, fuzzy
+#| msgid ""
+#| "You can open this new partition from the sidebar of the file browser with "
+#| "the name you gave it."
 msgid ""
-"You can open this new partition from the sidebar of the file browser with "
+"You can open this new partition from the sidebar of the *Files* browser with "
 "the name you gave it."
 msgstr ""
 "Sie können diese neue Partition über die Seitenleiste des Dateibrowsers mit "
 "dem Namen öffnen, den Sie ihr gegeben haben."
-
-#. type: Plain text
-msgid ""
-"After opening the partition with the file browser, you can also access it "
-"from the **Places** menu."
-msgstr ""
-"Nachdem Sie die Partition mit dem Dateibrowser geöffnet haben, können Sie "
-"auch über das **Orte**-Menü darauf zugreifen."
 
 #. type: Plain text
 #, no-wrap
@@ -445,8 +469,9 @@ msgstr ""
 "entsperren."
 
 #. type: Plain text
-#, no-wrap
-msgid "   [[!img unlock.png link=\"no\" class=\"screenshot\" alt=\"Authentication Required\"]]\n"
+#, fuzzy, no-wrap
+#| msgid "   [[!img unlock.png link=\"no\" class=\"screenshot\" alt=\"Authentication Required\"]]\n"
+msgid "   [[!img unlock.png class=\"screenshot\" alt=\"Authentication Required\"]]\n"
 msgstr "   [[!img unlock.png link=\"no\" class=\"screenshot\" alt=\"Authentifizierung erforderlich\"]]\n"
 
 #. type: Bullet: '1. '
@@ -466,18 +491,14 @@ msgid ""
 msgstr "   Wenn Sie die Option **Passwort merken** aktivieren, merkt sich Tails das Passwort dieser Partition nur bis zum Herunterfahren. Das Passwort wird nicht in Ihrem beständigen Datenspeicher gespeichert.\n"
 
 #. type: Bullet: '1. '
+#, fuzzy
+#| msgid ""
+#| "After unlocking, you can access the content of the partition from either:"
 msgid ""
-"After unlocking, you can access the content of the partition from either:"
+"After unlocking, you can access the content of the partition from the "
+"sidebar of the *Files* browser."
 msgstr ""
 "Nach dem Entsperren können Sie auf den Inhalt der Partition von entweder:"
-
-#. type: Bullet: '   * '
-msgid "The **Places** menu"
-msgstr "Das **Orte**-Menü"
-
-#. type: Bullet: '   * '
-msgid "The sidebar of the *Files* browser"
-msgstr "Die Seitenleiste des *Dateien*-Browsers"
 
 #. type: Plain text
 #, no-wrap
@@ -491,22 +512,6 @@ msgstr ""
 "alt=\"Auswerfen\" class=\"symbolic\" link=\"no\"]] Schaltfläche neben der Partition in der\n"
 "Seitenleiste des *Dateien*-Browsers, um die Partition sicher auszuwerfen und die\n"
 "Verschlüsselung erneut zu sperren.\n"
-
-#. type: Plain text
-#, no-wrap
-msgid "<h1 id=\"storing\">Storing sensitive documents</h1>\n"
-msgstr "<h1 id=\"storing\">Sensible Dokumente speichern</h1>\n"
-
-#. type: Plain text
-msgid ""
-"Such encrypted volumes are not hidden. An attacker in possession of the "
-"device can know that there is an encrypted volume on it. Take into "
-"consideration that you can be forced or tricked to give out its passphrase."
-msgstr ""
-"Solche verschlüsselte Laufwerke sind nicht versteckt. Eine angreifende "
-"Person im Besitz des Mediums kann herausfinden, dass sich ein "
-"verschlüsseltes Laufwerk darauf befindet. Ziehen Sie in Erwägung, dass Sie "
-"gezwungen oder hereingelegt werden könnten, dass Passwort herauszugeben."
 
 #. type: Plain text
 #, no-wrap
@@ -553,8 +558,9 @@ msgstr ""
 "Das Gerät wird in der Liste der Speichergeräte angezeigt. Klicken Sie darauf."
 
 #. type: Plain text
-#, no-wrap
-msgid "   [[!img storage_devices_after.png link=no alt=\"\"]]\n"
+#, fuzzy, no-wrap
+#| msgid "   [[!img storage_devices_after.png link=no alt=\"\"]]\n"
+msgid "   [[!img storage_devices_after.png class=\"screenshot\" alt=\"\"]]\n"
 msgstr "   [[!img storage_devices_after.png link=no alt=\"\"]]\n"
 
 #. type: Plain text
@@ -569,9 +575,9 @@ msgstr ""
 #. type: Bullet: '1. '
 #, fuzzy
 msgid ""
-"Click on the partition displaying a [[!img lib/network-wireless-encrypted."
-"png alt=\"Partition LUKS\" class=\"symbolic\" link=\"no\"]] in the bottom-"
-"right corner."
+"Click on the partition displaying a [[!img lib/network-wireless-"
+"encrypted.png alt=\"Partition LUKS\" class=\"symbolic\" link=\"no\"]] in the "
+"bottom-right corner."
 msgstr ""
 "An diesem Punkt können Sie, wenn Sie möchten, weitere Partitionen in dem "
 "restlichen freien Speicherplatz erstellen, indem Sie darauf klicken und "
@@ -587,6 +593,23 @@ msgstr ""
 "An diesem Punkt können Sie, wenn Sie möchten, weitere Partitionen in dem "
 "restlichen freien Speicherplatz erstellen, indem Sie darauf klicken und "
 "erneut **Partition erstellen** auswählen."
+
+#~ msgid ""
+#~ "After opening the partition with the file browser, you can also access it "
+#~ "from the **Places** menu."
+#~ msgstr ""
+#~ "Nachdem Sie die Partition mit dem Dateibrowser geöffnet haben, können Sie "
+#~ "auch über das **Orte**-Menü darauf zugreifen."
+
+#~ msgid "The **Places** menu"
+#~ msgstr "Das **Orte**-Menü"
+
+#~ msgid "The sidebar of the *Files* browser"
+#~ msgstr "Die Seitenleiste des *Dateien*-Browsers"
+
+#, no-wrap
+#~ msgid "<h1 id=\"storing\">Storing sensitive documents</h1>\n"
+#~ msgstr "<h1 id=\"storing\">Sensible Dokumente speichern</h1>\n"
 
 #, no-wrap
 #~ msgid "       </div>\n"
