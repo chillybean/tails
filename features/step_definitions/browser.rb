@@ -2,24 +2,49 @@ def browser
   Dogtail::Application.new('Firefox')
 end
 
-def desktop_portal
-  Dogtail::Application.new('xdg-desktop-portal-gtk')
+def desktop_portal_save_as(filename: nil, directory: nil, bookmark: false)
+  dialog = nil
+  try_for(30) do
+    dialog = Dogtail::Application.new('org.gnome.Nautilus').child(roleName: 'frame')
+    true
+  end
+  # Enter the output filename in the initially focused text entry
+  dialog.child('File Name', roleName: 'text').text = filename unless filename.nil?
+  unless directory.nil?
+    if bookmark
+      dialog.child('Sidebar', roleName: 'list')
+            .child(directory, roleName: 'list item')
+            .click
+    else
+      # Enter the output directory in its text entry
+      @screen.press('ctrl', 'l')
+      # The keyboard shortcut focuses the text entry we want to input
+      # the directory path into, but there's an annoying issue if we also
+      # inputted a filename in the other text entry earlier; if we did the
+      # other text entry is still focused for a short time, and it loses
+      # its "File Name" name and thus becomes very similar to the text
+      # entry we now want to interact with, making it difficult to
+      # distinguish the two. We do know that the entry we want is
+      # positioned pretty high up in the dialog, so we distinguish them
+      # like that.
+      try_for(10) { dialog.focused_child.position.last < 50 }
+      dialog.focused_child.text = directory
+      @screen.press('enter')
+    end
+  end
+  dialog.child('Save', roleName: 'button').click
 end
 
-def desktop_portal_save_as_dialog
-  desktop_portal.child(roleName: 'file chooser')
-end
-
-def save_page_as
+def browser_save_page_as(*args, **opts)
   browser.child(
     description: 'Open application menu',
-    roleName:    'push button'
+    roleName:    'button'
   ).press
   browser.child(
     name:     'Save page as\u2026',
-    roleName: 'push button'
+    roleName: 'button'
   ).press
-  desktop_portal_save_as_dialog
+  desktop_portal_save_as(*args, **opts)
 end
 
 def browser_url_entry
@@ -183,8 +208,8 @@ When /^I open the address "([^"]*)" in the (.* Browser)( without waiting)?$/ do 
     open_address.call
     unless non_blocking
       try_for(120, delay: 3) do
-        !browser.child?('Stop', roleName: 'push button', retry: false) &&
-          browser.child?('Reload', roleName: 'push button', retry: false)
+        !browser.child?('Stop', roleName: 'button', retry: false) &&
+          browser.child?('Reload', roleName: 'button', retry: false)
       end
     end
   end
@@ -211,7 +236,7 @@ def page_has_loaded_in_the_tor_browser(page_titles)
         .map  { |page_title| "#{page_title} #{separator} #{browser_name}" }
         .any? { |page_title| page_title == frame.name }
     end &&
-      @torbrowser.child(reload_action, roleName: 'push button')
+      @torbrowser.child(reload_action, roleName: 'button')
   end
 end
 
@@ -219,7 +244,7 @@ Then /^"([^"]+)" has loaded in the Tor Browser$/ do |title|
   page_has_loaded_in_the_tor_browser(title)
 end
 
-def xul_app_shared_lib_check(pid, expected_absent_tbb_libs = [])
+def xul_app_shared_lib_check(pid, expected_absent_tbb_libs: [])
   absent_tbb_libs = []
   unwanted_native_libs = []
   tbb_libs = $vm.execute_successfully('ls -1 ${TBB_INSTALL}/*.so',
@@ -254,7 +279,7 @@ Then /^the (.*) uses all expected TBB shared libraries$/ do |application|
   ).stdout.chomp
   pid = pid.scan(/\d+/).first
   assert_match(/\A\d+\z/, pid, "It seems like #{application} is not running")
-  xul_app_shared_lib_check(pid, info[:unused_tbb_libs])
+  xul_app_shared_lib_check(pid, expected_absent_tbb_libs: info[:unused_tbb_libs])
 end
 
 Then /^the (.*) chroot is torn down$/ do |browser|
@@ -282,7 +307,7 @@ end
 When /^I download some file in the Tor Browser to the (.*) directory$/ do |target_dir|
   @some_file = 'tails-signing.key'
   some_url = "https://tails.net/#{@some_file}"
-  step "I open the address \"#{some_url}\" in the Tor Browser without waiting"
+  step "I open the address \"#{some_url}\" in the Tor Browser"
   # Note that the "Opening ..." dialog sometimes appear with roleName
   # "frame" and sometimes with "dialog", so we deliberately do not
   # specify the roleName.
@@ -291,10 +316,7 @@ When /^I download some file in the Tor Browser to the (.*) directory$/ do |targe
            .button('Save File')
   try_for(10) { button.sensitive? }
   button.press
-  file_dialog = desktop_portal_save_as_dialog
-  activate_places_sidebar_item(file_dialog, "/home/#{LIVE_USER}/#{target_dir}")
-  file_dialog.child('Save', roleName: 'push button').click
-
+  desktop_portal_save_as(directory: "/home/#{LIVE_USER}/#{target_dir}")
   @torbrowser
     .button('Downloads')
     .press
@@ -385,8 +407,6 @@ Then /^DuckDuckGo is the default search engine$/ do
   case $language
   when 'Arabic', 'Persian'
     ddg_search_prompt = 'DuckDuckGoSearchPromptRTL.png'
-  when 'Hindi'
-    ddg_search_prompt = "DuckDuckGoSearchPrompt#{$language}.png"
   end
   step 'I open a new tab in the Tor Browser'
   set_browser_url('a random search string')
@@ -428,7 +448,7 @@ When /^I log-in to the Captive Portal$/ do
 end
 
 Then /^Tor Browser's circuit view is working$/ do
-  @torbrowser.child('Tor Circuit', roleName: 'push button').click
+  @torbrowser.child('Tor Circuit', roleName: 'button').click
   nodes = @torbrowser.child('This browser', roleName: 'list item')
                      .parent.children(roleName: 'list item')
   domain = URI.parse(get_current_browser_url).host.split('.')[-2..].join('.')
@@ -461,7 +481,7 @@ Given /^the Tor Browser (?:has started|starts)$/ do
     @torbrowser.child?(roleName: 'frame', recursive: false)
   end
   browser_info = xul_application_info('Tor Browser')
-  @screen.wait(browser_info[:new_tab_button_image], 10)
+  @screen.wait(browser_info[:new_tab_button_image], 20)
   try_for(120, delay: 3) do
     # We can't use Dogtail here: this step must support many languages
     # and using Dogtail would require maintaining a list of translations
@@ -499,7 +519,7 @@ Given /^I add a bookmark to eff.org in the Tor Browser$/ do
   step "I open the address \"#{url}\" in the Tor Browser"
   step 'the Tor Browser shows the ' \
        '"The proxy server is refusing connections" error'
-  @torbrowser.child('Bookmark this page (Ctrl+D)', roleName: 'push button').click
+  @torbrowser.child('Bookmark this page (Ctrl+D)', roleName: 'button').click
   prompt = @torbrowser.child('Add bookmark', roleName: 'panel')
   prompt.child('Location', roleName: 'combo box').open
   prompt.child('Bookmarks Menu', roleName: 'menu item').click
@@ -514,73 +534,19 @@ end
 When /^I can print the current page as "([^"]+[.]pdf)" to the (.*) directory$/ do |output_file, target_dir|
   output_dir = "/home/#{LIVE_USER}/#{target_dir}"
   @screen.press('ctrl', 'p')
-  @torbrowser.child('Save', roleName: 'push button').press
-  file_dialog = desktop_portal_save_as_dialog
-  # Enter the output filename in the text entry
-  text_entry = file_dialog.child('Name', roleName: 'label').labelee
-  filename = "#{output_dir}/#{output_file}"
-  text_entry.text = filename
-  file_dialog.child('Save', roleName: 'push button').click
-
+  @torbrowser.child('Save', roleName: 'button').press
+  desktop_portal_save_as(filename: output_file, directory: output_dir)
   try_for(30,
           msg: "The page was not printed to #{output_dir}/#{output_file}") do
     $vm.file_exist?("#{output_dir}/#{output_file}")
   end
 end
 
-def activate_places_sidebar_item(parent, path)
-  list_item = parent.child(description: path, roleName: 'list item')
-  # We have had problems with the Space press not causing the
-  # bookmark to be selected despite it being focused (tails#20356,
-  # tails#20159)
-  try_for(20) do
-    # Unlike the native file picker, the XDG Desktop Portal file
-    # picker use here has this issue: grabbing focus of the list item
-    # and then pressing Space to activate it does nothing, which for
-    # the native file picker selects the list item in its list box and
-    # changes the directory. So we also manually making the list item
-    # selected and then it works as expected.
-    # Furthermore, our Dogtail::Node#select is implemented with
-    # .doActionNamed('select'), but for some reason that action is not
-    # available for this list item like it usually is. So we instead
-    # call .select() which Dogtail implements differently and is
-    # available for this list item node.
-    list_item.call_tree_api_method('select')
-    list_item.grabFocus
-    @screen.press('Space')
-    # If we successfully selected the bookmark then the path will be
-    # updated accordingly, and each path component is a 'toggle
-    # button' labelled with the name of the folder.
-    parent.child?(path.split('/').last, roleName: 'toggle button', retry: false)
-  end
-end
-
 When /^I (can|cannot) save the current page as "([^"]+[.]html)" to the (.*) (directory|GNOME bookmark)$/ do |should_work, output_file, target_dir, bookmark|
   should_work = should_work == 'can'
-  is_gnome_bookmark = bookmark == 'GNOME bookmark'
-  file_dialog = save_page_as
   output_dir = "/home/#{LIVE_USER}/#{target_dir}"
-
-  if is_gnome_bookmark
-    activate_places_sidebar_item(file_dialog, output_dir)
-  else
-    # Enter the output directory in the text entry
-    text_entry = file_dialog.child('Name', roleName: 'label').labelee
-    text_entry.text = output_dir
-    # Do the "activate" action of the text entry (same effect as
-    # pressing Enter) to open the directory.
-    text_entry.activate
-  end
-
-  # Enter the output filename in the text entry
-  text_entry = file_dialog.child('Name', roleName: 'label').labelee
-  text_entry.text = output_file
-  save_button = file_dialog.child('Save', roleName: 'push button')
-  # When changing output directory the Save button turns insensitive
-  # for a few moments
-  try_for(10) { save_button.sensitive? }
-  save_button.click
-
+  browser_save_page_as(filename: output_file, directory: output_dir,
+                       bookmark: bookmark == 'GNOME bookmark')
   if should_work
     try_for(20,
             msg: "The page was not saved to #{output_dir}/#{output_file}") do
@@ -592,9 +558,9 @@ When /^I (can|cannot) save the current page as "([^"]+[.]html)" to the (.*) (dir
 end
 
 When /^I request a new identity in Tor Browser$/ do
-  @torbrowser.child('Tor Browser', roleName: 'push button').press
-  @torbrowser.child('New identity', roleName: 'push button').press
-  @torbrowser.child('Restart Tor Browser', roleName: 'push button').press
+  @torbrowser.child('Tor Browser', roleName: 'button').press
+  @torbrowser.child('New identity', roleName: 'button').press
+  @torbrowser.child('Restart Tor Browser', roleName: 'button').press
 end
 
 Then /^the Tor Browser has (\d+) tabs? open$/ do |expected_tab_count|

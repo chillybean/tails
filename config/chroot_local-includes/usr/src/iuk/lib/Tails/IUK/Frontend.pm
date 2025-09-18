@@ -118,8 +118,7 @@ has 'running_system' =>
     is      => 'lazy',
     isa     => InstanceOf['Tails::RunningSystem'],
     handles => [
-        qw{upgrade_description_file_url upgrade_description_sig_url},
-        qw{product_name initial_install_version build_target channel}
+        qw{product_name build_target}
     ];
 
 has 'free_space' =>
@@ -260,7 +259,7 @@ method dialog (Str $question, Str :$type = 'question', Str :$title,
         assert_undefined($cancel_label);
         assert_undefined($default_cancel);
     }
-    my @cmd  = ('zenity', "--$type", '--ellipsize', '--text', $question);
+    my @cmd  = ('zenity', "--$type", '--text', $question);
     my $info = $question;
     if (defined $title) {
         $info = "$title\n$info";

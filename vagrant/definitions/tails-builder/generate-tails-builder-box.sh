@@ -180,6 +180,7 @@ steps:
       - dpkg-dev
       - gdisk
       - gettext
+      - gir1.2-udisks-2.0
       - git
       - grub2
       - ikiwiki
@@ -202,33 +203,9 @@ steps:
       - sudo
       - systemd-timesyncd
       - time
+      - udisks2
       - wget
     tag: rootfs
-
-  # <Work around Debian#951257>
-  # XXX:bookworm: remove this workaround, because this was worked around upstream
-  # in udisks2 2.9.4-1:
-  # https://salsa.debian.org/utopia-team/udisks2/-/commit/050527c84bed6bc6c90d46d3eb612c48baf92e7d)
-  - chroot: rootfs
-    shell: mv /bin/udevadm /bin/udevadm.orig
-
-  - create-file: /bin/udevadm
-    perm: 0755
-    contents: |
-      #!/bin/sh
-      exit 0
-
-  - apt: install
-    packages:
-      - gir1.2-udisks-2.0
-      - udisks2
-    tag: rootfs
-
-  - chroot: rootfs
-    shell: |
-      rm /bin/udevadm
-      mv /bin/udevadm.orig /bin/udevadm
-  # </Work around Debian#951257>
 
   - chroot: rootfs
     shell: apt-get -y dist-upgrade

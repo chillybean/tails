@@ -14,17 +14,29 @@ def assert_all_keys_are_valid_for_n_months(type, months)
 
   ignored_keys = []
 
-  cmd  = type == :OpenPGP ? 'gpg'     : 'apt-key adv'
-  user = type == :OpenPGP ? LIVE_USER : 'root'
+  if type == :OpenPGP
+    gpg_home = "/home/#{LIVE_USER}/.gnupg"
+  else
+    gpg_home = '/tmp/gnupg-new'
+    $vm.execute_successfully(
+      "install --directory --mode=0700 '#{gpg_home}'", user: LIVE_USER
+    )
+    apt_keyrings = $vm.file_glob('/usr/share/keyrings/debian-archive-*.pgp')
+    apt_keyrings.reject! { |f| File.basename(f) == 'debian-archive-removed-keys.pgp' }
+    $vm.execute_successfully(
+      "gpg --homedir '#{gpg_home}' --import #{apt_keyrings.join(' ')}", user: LIVE_USER
+    )
+  end
   keys = $vm.execute_successfully(
-    "#{cmd} --batch --with-colons --fingerprint --list-key", user:
+    "gpg --homedir '#{gpg_home}' --batch --with-colons --fingerprint --list-key",
+    user: LIVE_USER
   ).stdout
             .scan(/^fpr:::::::::([A-Z0-9]+):$/)
             .flatten
             .reject { |fpr| ignored_keys.include?(fpr) }
 
   invalid = keys.reject do |fpr|
-    key_valid_for_n_months?(type, fpr, months)
+    key_valid_for_n_months?(type, fpr, months, gpg_home)
   end
   assert(invalid.empty?,
          "The following #{type} key(s) will not be valid " \
@@ -48,7 +60,7 @@ def get_subkey_use(line)
   uses.split('').sort
 end
 
-def key_valid_for_n_months?(type, fingerprint, months)
+def key_valid_for_n_months?(type, fingerprint, months, gpg_home)
   # we define a check to be valid:
   #  - only if the master key is valid
   #  - only if either:
@@ -65,12 +77,10 @@ def key_valid_for_n_months?(type, fingerprint, months)
   assert([:OpenPGP, :APT].include?(type))
   assert(months.is_a?(Integer))
 
-  cmd  = type == :OpenPGP ? 'gpg'     : 'apt-key adv'
-  user = type == :OpenPGP ? LIVE_USER : 'root'
-  list_options = '--list-options show-unusable-subkeys'
-
   key_description = $vm.execute_successfully(
-    "#{cmd} --batch  #{list_options} --list-key #{fingerprint}", user:
+    "gpg --homedir '#{gpg_home}' --batch --list-options show-unusable-subkeys " \
+    "--list-key #{fingerprint}",
+    user: LIVE_USER
   ).stdout.split("\n")
 
   masterkey = key_description.grep(/^pub\b/)
@@ -86,10 +96,8 @@ def key_valid_for_n_months?(type, fingerprint, months)
   valid_subkeys = subkeys.filter do |subkey_line|
     if type == :APT && !get_subkey_use(subkey_line).include?('S')
       # we don't care about non-signing key
-      return false
-    end
-
-    if check_key_valid(subkey_line, months)
+      false
+    elsif check_key_valid(subkey_line, months)
       true
     else
       debug_log("subkey not valid: #{subkey_line}")

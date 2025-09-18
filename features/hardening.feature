@@ -1,3 +1,0 @@
-@product
-Feature: Hardening features
-

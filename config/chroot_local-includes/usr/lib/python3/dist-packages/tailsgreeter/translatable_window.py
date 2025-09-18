@@ -1,5 +1,3 @@
-#!/usr/bin/python3 -I
-#
 # Copyright 2012-2019 Tails developers <tails@boum.org>
 # Copyright 2011 Max <govnototalitarizm@gmail.com>
 # Copyright 2011 Martin Owens
@@ -20,7 +18,9 @@
 
 import gettext
 import logging
+from typing import ClassVar
 
+from gi.repository import Handy
 from gi.repository import Gtk
 
 import tailsgreeter.config
@@ -31,7 +31,7 @@ class TranslatableWindow:
     """Interface providing functions to translate a window on the fly"""
 
     retain_focus = True
-    registered_windows = []
+    registered_windows: ClassVar[list[Gtk.Window]] = []
 
     def __init__(self, window):
         self.window_ = window
@@ -42,6 +42,7 @@ class TranslatableWindow:
         self.containers = []
         self.labels = {}
         self.placeholder_texts = {}
+        self.subtitles = {}
         self.titles = {}
         self.tooltips = {}
 
@@ -104,11 +105,21 @@ class TranslatableWindow:
             logging.debug("Handling container '%s'", widget.get_name())
             self.containers.append(widget)
             if (
-                (isinstance(widget, Gtk.HeaderBar) or isinstance(widget, Gtk.Window))
+                (
+                    isinstance(widget, Gtk.HeaderBar)
+                    or isinstance(widget, Gtk.Window)
+                    or isinstance(widget, Handy.ActionRow)
+                )
                 and widget not in self.titles
                 and widget.get_title()
             ):
                 self.titles[widget] = widget.get_title()
+            if (
+                isinstance(widget, Handy.ActionRow)
+                and widget not in self.subtitles
+                and widget.get_subtitle()
+            ):
+                self.subtitles[widget] = widget.get_subtitle()
             for child in widget.get_children():
                 self.store_translations(child)
         else:
@@ -133,7 +144,7 @@ class TranslatableWindow:
             self.translation = gettext.translation(
                 TRANSLATION_DOMAIN, tailsgreeter.config.system_locale_dir, [str(lang)]
             )
-        except IOError:
+        except OSError:
             self.translation = None
 
         text_direction = self.get_locale_direction(lang)
@@ -144,6 +155,8 @@ class TranslatableWindow:
                 widget.original_set_label(self.gettext(label))
         for widget in self.placeholder_texts.keys():
             widget.set_placeholder_text(self.gettext(self.placeholder_texts[widget]))
+        for widget in self.subtitles.keys():
+            widget.set_subtitle(self.gettext(self.subtitles[widget]))
         for widget in self.titles.keys():
             widget.set_title(self.gettext(self.titles[widget]))
         for widget in self.tooltips.keys():

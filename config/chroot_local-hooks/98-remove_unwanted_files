@@ -46,3 +46,14 @@ rm usr/share/doc/tails/website/torrents/rss.html
 
 # Documentation that's large and not that useful in Tails
 rm -r /usr/share/inkscape/examples
+
+# Don't include hunspell dictionaries in the bdic format
+#
+# These dictionaries are shipped *in addition to* the same
+# dictionaries in the .dic + .aff format and grow the image
+# size significantly.
+#
+# Only Chrome & friends, as well as apps that use Qt WebEngine, use
+# the bdic format, so no app we ship should lose spellchecking if we
+# exclude those.
+rm -f /usr/share/hunspell-bdic/*.bdic

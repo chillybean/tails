@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-06-24 16:26-0600\n"
+"POT-Creation-Date: 2025-09-17 11:40+0200\n"
 "PO-Revision-Date: 2024-05-20 17:55+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,8 +66,7 @@ msgid ""
 "encryption in Linux."
 msgstr ""
 "Для создания зашифрованных томов (например, флешек, внешних жёстких дисков) "
-"можно использовать *LUKS*. Это стандарт шифрования дисков "
-"в Linux."
+"можно использовать *LUKS*. Это стандарт шифрования дисков в Linux."
 
 #. type: Bullet: '- '
 #, fuzzy
@@ -80,6 +79,26 @@ msgstr "Их можно открыть на рабочем столе GNOME."
 #| msgid "The GNOME desktop allows you to open encrypted volumes."
 msgid "The GNOME desktop allows you to open encrypted volumes."
 msgstr "Их можно открыть на рабочем столе GNOME."
+
+#. type: Plain text
+#, fuzzy, no-wrap
+#| msgid "<div class=\"tip\">\n"
+msgid "<div class=\"attack\">\n"
+msgstr "<div class=\"tip\">\n"
+
+#. type: Plain text
+#, no-wrap
+msgid "<p>Such encrypted volumes, like the Persistent Storage, are not hidden.</p>\n"
+msgstr ""
+
+#. type: Plain text
+#, fuzzy, no-wrap
+#| msgid "Such encrypted volumes are not hidden. An attacker in possession of the device can know that there is an encrypted volume on it. Take into consideration that you can be forced or tricked to give out its passphrase."
+msgid ""
+"<p>An attacker in possession of the device can know that there is an encrypted\n"
+"volume on it. Take into consideration that you can be forced or tricked to give\n"
+"out its passphrase.</p>\n"
+msgstr "Описанные нами зашифрованные тома не скрыты от чужих глаз. Если злоумышленник получит физический доступ к устройству, он может выяснить, что на устройстве есть зашифрованный том. В определённых ситуациях вас могут заставить сообщить пароль или обманным путем завладеть им."
 
 #. type: Plain text
 #, fuzzy, no-wrap
@@ -110,8 +129,7 @@ msgstr "<h2 class=\"bullet-number-three\">Erstellen Sie eine neue, verschlüssel
 
 #. type: Bullet: '1. '
 msgid ""
-"Choose **Applications**&nbsp;▸ **Utilities**&nbsp;▸ **Disks** to open the "
-"*Disks* utility."
+"Choose **Apps&nbsp;▸ Utilities&nbsp;▸ Disks** to open the *Disks* utility."
 msgstr ""
 
 #. type: Plain text
@@ -141,8 +159,9 @@ msgid "A new device appears in the list of storage devices. Click on it."
 msgstr "В списке слева появится новое устройство. Щёлкните по нему:"
 
 #. type: Plain text
-#, no-wrap
-msgid "     [[!img storage_devices_after.png link=no alt=\"\"]]\n"
+#, fuzzy, no-wrap
+#| msgid "     [[!img storage_devices_after.png link=no alt=\"\"]]\n"
+msgid "     [[!img storage_devices_after.png class=\"screenshot\" alt=\"\"]]\n"
 msgstr "     [[!img storage_devices_after.png link=no alt=\"\"]]\n"
 
 #. type: Plain text
@@ -166,9 +185,9 @@ msgstr "<h2 class=\"bullet-number-two\">Formatieren Sie das Medium</h2>\n"
 #| "titlebar and choose **Format Disk…** to erase all the existing partitions "
 #| "on the device."
 msgid ""
-"Click on the [[!img lib/view-more.png alt=\"Drive Options\" "
-"class=\"symbolic\" link=\"no\"]] button in the title bar and choose **Format "
-"Disk** to erase all the existing partitions on the device."
+"Select the [[!img lib/view-more.png alt=\"Menu\" class=\"symbolic\" "
+"link=\"no\"]] button in the title bar and choose **Format Disk** to erase "
+"all the existing partitions on the device."
 msgstr ""
 "Нажмите кнопку <span class=\"guimenu\">[[!img lib/open-menu.png alt=\"Меню\" "
 "class=\"symbolic\" link=\"no\"]]</span> в заголовке окна. Выберите <span "
@@ -253,8 +272,9 @@ msgid ""
 msgstr "Теперь схема разделов в середине экрана показывает пустое устройство:"
 
 #. type: Plain text
-#, no-wrap
-msgid "[[!img empty_device.png link=no alt=\"Free Space 123 GB\"]]\n"
+#, fuzzy, no-wrap
+#| msgid "[[!img empty_device.png link=no alt=\"Free Space 123 GB\"]]\n"
+msgid "[[!img empty_device.png class=\"screenshot\" alt=\"Free Space 123 GB\"]]\n"
 msgstr "[[!img empty_device.png link=no alt=\"Свободное место 123 Гб\"]]\n"
 
 #. type: Bullet: '  1. '
@@ -401,7 +421,7 @@ msgstr ""
 #. type: Plain text
 #, fuzzy, no-wrap
 #| msgid "     [[!img encrypted_partition.png link=\"no\" alt=\"Partition 1 4.0 GB LUKS / secret 4.0 GB Ext4\"]]\n"
-msgid "     [[!img encrypted_partition.png link=\"no\" alt=\"Partition 1 4.0 GB LUKS / Filesystem 4.0 GB Ext4\"]]\n"
+msgid "     [[!img encrypted_partition.png class=\"screenshot\" alt=\"Partition 1 4.0 GB LUKS / Filesystem 4.0 GB Ext4\"]]\n"
 msgstr "     [[!img encrypted_partition.png link=\"no\" alt=\"Раздел 1 4.0 Гб LUKS / зашифрован 4.0 Гб Ext4\"]]\n"
 
 #. type: Bullet: '  1. '
@@ -422,20 +442,16 @@ msgid "<h2 id=\"using\">Using the new partition</h2>\n"
 msgstr "<h2 class=\"bullet-number-four\">Benutzen Sie die neue Partition</h2>\n"
 
 #. type: Plain text
+#, fuzzy
+#| msgid ""
+#| "You can open this new partition from the sidebar of the file browser with "
+#| "the name you gave it."
 msgid ""
-"You can open this new partition from the sidebar of the file browser with "
+"You can open this new partition from the sidebar of the *Files* browser with "
 "the name you gave it."
 msgstr ""
 "Новый раздел можно открыть в боковой панели файлового менеджера с той меткой "
 "(именем), которую вы ему присвоили."
-
-#. type: Plain text
-msgid ""
-"After opening the partition with the file browser, you can also access it "
-"from the **Places** menu."
-msgstr ""
-"После открытия раздела с помощью файлового менеджера вы также можете "
-"получить к нему доступ из меню **Места** ."
 
 #. type: Plain text
 #, fuzzy, no-wrap
@@ -468,7 +484,7 @@ msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid "   [[!img unlock.png link=\"no\" class=\"screenshot\" alt=\"Authentication Required\"]]\n"
+msgid "   [[!img unlock.png class=\"screenshot\" alt=\"Authentication Required\"]]\n"
 msgstr ""
 
 #. type: Bullet: '1. '
@@ -492,17 +508,16 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '1. '
+#, fuzzy
+#| msgid ""
+#| "You can open this new partition from the sidebar of the file browser with "
+#| "the name you gave it."
 msgid ""
-"After unlocking, you can access the content of the partition from either:"
+"After unlocking, you can access the content of the partition from the "
+"sidebar of the *Files* browser."
 msgstr ""
-
-#. type: Bullet: '   * '
-msgid "The **Places** menu"
-msgstr ""
-
-#. type: Bullet: '   * '
-msgid "The sidebar of the *Files* browser"
-msgstr ""
+"Новый раздел можно открыть в боковой панели файлового менеджера с той меткой "
+"(именем), которую вы ему присвоили."
 
 #. type: Plain text
 #, fuzzy, no-wrap
@@ -513,23 +528,6 @@ msgid ""
 "sidebar of the *Files* browser to eject the partition safety and lock again the\n"
 "encryption.\n"
 msgstr "Чтобы закрыть раздел после окончания работы нажмите кнопку **[[!img lib/media-eject.png alt=\"Извлечь\" class=\"symbolic\" link=\"no\"]]** рядом с разделом на боковой панели файлового менеджера."
-
-#. type: Plain text
-#, fuzzy, no-wrap
-#| msgid "Storing sensitive documents\n"
-msgid "<h1 id=\"storing\">Storing sensitive documents</h1>\n"
-msgstr "Sensible Dokumente speichern\n"
-
-#. type: Plain text
-msgid ""
-"Such encrypted volumes are not hidden. An attacker in possession of the "
-"device can know that there is an encrypted volume on it. Take into "
-"consideration that you can be forced or tricked to give out its passphrase."
-msgstr ""
-"Описанные нами зашифрованные тома не скрыты от чужих глаз. Если "
-"злоумышленник получит физический доступ к устройству, он может выяснить, что "
-"на устройстве есть зашифрованный том. В определённых ситуациях вас могут "
-"заставить сообщить пароль или обманным путем завладеть им."
 
 #. type: Plain text
 #, fuzzy, no-wrap
@@ -579,8 +577,9 @@ msgid "The device appears in the list of storage devices. Click on it."
 msgstr "Устройство появится в списке носителей. Щёлкните по нему:"
 
 #. type: Plain text
-#, no-wrap
-msgid "   [[!img storage_devices_after.png link=no alt=\"\"]]\n"
+#, fuzzy, no-wrap
+#| msgid "   [[!img storage_devices_after.png link=no alt=\"\"]]\n"
+msgid "   [[!img storage_devices_after.png class=\"screenshot\" alt=\"\"]]\n"
 msgstr "   [[!img storage_devices_after.png link=no alt=\"\"]]\n"
 
 #. type: Plain text
@@ -595,13 +594,13 @@ msgstr ""
 #. type: Bullet: '1. '
 #, fuzzy
 #| msgid ""
-#| "Click on the partition displaying a [[!img lib/network-wireless-encrypted."
-#| "png alt=\"padlock\" class=\"symbolic\" link=\"no\"]] at the bottom-right "
-#| "corner."
+#| "Click on the partition displaying a [[!img lib/network-wireless-"
+#| "encrypted.png alt=\"padlock\" class=\"symbolic\" link=\"no\"]] at the "
+#| "bottom-right corner."
 msgid ""
-"Click on the partition displaying a [[!img lib/network-wireless-encrypted."
-"png alt=\"Partition LUKS\" class=\"symbolic\" link=\"no\"]] in the bottom-"
-"right corner."
+"Click on the partition displaying a [[!img lib/network-wireless-"
+"encrypted.png alt=\"Partition LUKS\" class=\"symbolic\" link=\"no\"]] in the "
+"bottom-right corner."
 msgstr ""
 "Нажмите на раздел со значком [[!img lib/network-wireless-encrypted.png "
 "alt=\"замочек\" class=\"symbolic\" link=\"no\"]] в правом нижнем углу."
@@ -618,6 +617,18 @@ msgid ""
 msgstr ""
 "   кнопке [[!img lib/system-run.png alt=\"Дополнительные параметры раздела\" "
 "class=\"symbolic\" link=\"no\"]]\n"
+
+#~ msgid ""
+#~ "After opening the partition with the file browser, you can also access it "
+#~ "from the **Places** menu."
+#~ msgstr ""
+#~ "После открытия раздела с помощью файлового менеджера вы также можете "
+#~ "получить к нему доступ из меню **Места** ."
+
+#, fuzzy, no-wrap
+#~| msgid "Storing sensitive documents\n"
+#~ msgid "<h1 id=\"storing\">Storing sensitive documents</h1>\n"
+#~ msgstr "Sensible Dokumente speichern\n"
 
 #, no-wrap
 #~ msgid ""

@@ -31,8 +31,9 @@ Then /^the USB drive "([^"]+)" contains the same files as my persistent storage$
                              "cryptsetup luksOpen #{backup_dev} #{luks_mapping}")
     begin
       $vm.execute_successfully("mount '#{luks_dev}' #{backup_dir}")
-      # `S.gpg-agent*` matches socket files which diff cannot handle
-      c = $vm.execute("diff --brief --recursive --exclude='S.gpg-agent*' " \
+      # Below we exclude socket files which diff cannot handle
+      c = $vm.execute('diff --brief --recursive ' \
+                      "--exclude='S.gpg-agent*' --exclude='S.scdaemon' " \
                       "#{source_dir} #{backup_dir}")
       raise "The backup differs:\n#{c.stdout}" if c.failure?
     ensure

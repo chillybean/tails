@@ -10,14 +10,10 @@ echo "Compiling and installing a custom https-get-expired program"
 # Import ensure_hook_dependency_is_installed()
 . /usr/local/lib/tails-shell-library/build.sh
 
-ensure_hook_dependency_is_installed golang-go
-
-SRC="/usr/src/https-get-expired.go"
-DST="/usr/local/lib/https-get-expired"
+ensure_hook_dependency_is_installed golang-go golang-src
 
 echo "go env: will give us some details in case this program does not build reproducibly"
 go env
 
-go build -v -ldflags=-buildid= -trimpath  -o "$DST" "$SRC"
-strip --strip-all "$DST"
-rm -rf /root/.cache/go-build/
+PREFIX='' /usr/local/lib/build-https-accept-expired
+rm /usr/local/lib/build-https-accept-expired

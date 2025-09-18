@@ -1,6 +1,6 @@
 import logging
 import gi
-from typing import Callable, Optional
+from collections.abc import Callable
 
 from tailsgreeter import TRANSLATION_DOMAIN
 import tailsgreeter.config
@@ -15,7 +15,7 @@ from tailsgreeter.ui.popover import Popover
 
 gi.require_version("Gtk", "3.0")
 gi.require_version("Pango", "1.0")
-from gi.repository import Gtk, Pango
+from gi.repository import Gtk, Pango  # NOQA: E402
 
 
 REGION_SETTINGS_UI_FILE = "region_settings.ui"
@@ -24,7 +24,7 @@ REGION_SETTINGS_UI_FILE = "region_settings.ui"
 class LocalizationSettingUI(GreeterSetting):
     def __init__(self, localization_setting: LocalizationSetting):
         self._setting = localization_setting
-        self.value: Optional[str] = self.default
+        self.value: str | None = self.default
         self.value_changed_by_user = False
         super().__init__()
 
@@ -37,10 +37,10 @@ class LocalizationSettingUI(GreeterSetting):
         self.builder.add_from_file(
             tailsgreeter.config.data_path + REGION_SETTINGS_UI_FILE
         )
-        popover_box = self.builder.get_object("box_{}_popover".format(self.id))
+        popover_box = self.builder.get_object(f"box_{self.name}_popover")
         self.popover = Popover(self.listboxrow, popover_box)
 
-        self.treeview = self.builder.get_object("treeview_{}".format(self.id))
+        self.treeview = self.builder.get_object(f"treeview_{self.name}")
         self.treeview.connect("row-activated", self.cb_treeview_row_activated)
 
         # Fill the treeview
@@ -49,7 +49,7 @@ class LocalizationSettingUI(GreeterSetting):
         column = Gtk.TreeViewColumn("", renderer, text=1)
         self.treeview.append_column(column)
 
-        searchentry = self.builder.get_object("searchentry_{}".format(self.id))
+        searchentry = self.builder.get_object(f"searchentry_{self.name}")
         searchentry.connect("search-changed", self.cb_searchentry_search_changed)
         searchentry.connect("activate", self.cb_searchentry_activate)
 
@@ -78,7 +78,7 @@ class LocalizationSettingUI(GreeterSetting):
         return True
 
     @property
-    def default(self) -> Optional[str]:
+    def default(self) -> str | None:
         return None
 
     def on_language_changed(self, locale: str):
@@ -109,7 +109,7 @@ class LocalizationSettingUI(GreeterSetting):
         self.popover.close(Gtk.ResponseType.YES)
 
     def cb_value_changed(self, obj, param):
-        logging.debug("refreshing {}".format(self._setting.get_name(self.value)))
+        logging.debug(f"refreshing {self._setting.get_name(self.value)}")
 
         def treeview_select_line(model, path, iter_, data):
             if model.get_value(iter_, 0) == data:
@@ -175,7 +175,7 @@ class LocalizationSettingUI(GreeterSetting):
 
         return any(
             search_string in model.get_value(node, i).lower()
-            for i in range(0, model.get_n_columns())
+            for i in range(model.get_n_columns())
         )
 
 
@@ -183,7 +183,7 @@ class LanguageSettingUI(LocalizationSettingUI):
     _setting: LanguageSetting = None
 
     @property
-    def id(self) -> str:
+    def name(self) -> str:
         return "language"
 
     @property
@@ -226,7 +226,7 @@ class FormatsSettingUI(LocalizationSettingUI):
     _setting: FormatsSetting = None
 
     @property
-    def id(self) -> str:
+    def name(self) -> str:
         return "formats"
 
     @property
@@ -263,7 +263,7 @@ class KeyboardSettingUI(LocalizationSettingUI):
     _setting: KeyboardSetting = None
 
     @property
-    def id(self) -> str:
+    def name(self) -> str:
         return "keyboard"
 
     @property

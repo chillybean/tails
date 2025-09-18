@@ -1,4 +1,4 @@
-When /^I clone the Git repository "(\S+)" in GNOME Terminal$/ do |repo|
+When /^I clone the Git repository "(\S+)" in Console$/ do |repo|
   repo_directory = %r{\S+/(\S+)(\.git)?$}.match(repo)[1]
   assert(!$vm.directory_exist?("/home/#{LIVE_USER}/#{repo_directory}"))
 
@@ -11,13 +11,13 @@ When /^I clone the Git repository "(\S+)" in GNOME Terminal$/ do |repo|
   end
 
   retry_tor(recovery_proc) do
-    step "I run \"git clone #{repo}\" in GNOME Terminal"
+    step "I run \"git clone #{repo}\" in Console"
     m = %r{^(https?|git)://}.match(repo)
     step 'I verify the SSH fingerprint for the Git repository' unless m
     try_for(180, msg: 'Git process took too long') do
       !$vm.process_running?('/usr/bin/git')
     end
-    Dogtail::Application.new('gnome-terminal-server')
+    Dogtail::Application.new('kgx')
                         .child('Terminal', roleName: 'terminal')
                         .text['Unpacking objects: 100%']
   end

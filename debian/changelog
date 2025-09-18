@@ -1,8 +1,576 @@
-tails (6.20) UNRELEASED; urgency=medium
+tails (7.0) unstable; urgency=medium
 
-  * Dummy entry for next release.
+  * Upgrade to Linux 6.12.43-1
 
- -- intrigeri <intrigeri@debian.org>  Thu, 21 Aug 2025 08:49:24 +0000
+  * Upgrade Thunderbird to 1:128.14.0esr-1~deb13u1
+
+  * Resolve "Upgrade Tor Browser for 7.0" (tails/tails!2467)
+
+    Closes issues:
+      - Upgrade Tor Browser for 7.0 (tails/tails#21208)
+
+    Commits:
+      - Fetch Tor Browser from our own archive
+      - Upgrade Tor Browser to 14.5.7-build1 (refs: tails#21208)
+
+  * Bump debian snapshot (tails/tails!2411)
+
+    Closes issues:
+      - Bump debian APT snapshot in testing branch (tails/tails#21152)
+
+    Commits:
+      - Bump debian snapshot
+
+  * Test suite: fix check for systemd adjusting the clock to its built-in epoch
+    (tails/tails!2465)
+
+    Commits:
+      - Test suite: adjust to current systemd message
+      - Test suite: make journalctl options vs. matches ordering more future-proof
+      - Fix option name
+      - Test suite: add regexp support to systemd_journal_includes
+
+  * Bump the 'debian' APT snapshot to 2025091102 (tails/tails!2458)
+
+    Closes issues:
+      - Bump 'debian' APT snapshot on the testing branch for "[SUA 275-1] Updated
+        systemd packages" (tails/tails#21212)
+
+    Commits:
+      - Update submodule after live-build!5 was merged
+      - Fix script description
+      - Fix enabling the ${LB_DISTRIBUTION}-updates APT source
+      - Patch live-build in its source tree rather than at build time
+      - Enable the ${LB_DISTRIBUTION}-updates APT source
+      - Bump the 'debian' APT snapshot to 2025091102
+
+  * Root Console: force GSK_RENDERER=cairo to fix display (tails/tails!2451)
+
+    Closes issues:
+      - Root Terminal does not work in 7.0~rc1 and 7.0~rc2 on sid with virtio GPU
+        and 3d acceleration disabled (tails/tails#21123)
+
+    Commits:
+      - Test suite: replace improper use of Dogtail with image matching
+      - Test suite: replace brittle OCR with Dogtail
+      - Lint to appease rubocop
+      - Test suite: add scenario making sure the Root Console can start
+      - Test suite: add support for pkexec'd applications to launch_app()
+      - Test suite: migrate to modern Ruby
+      - Root Console: force GSK_RENDERER=cairo to fix display
+
+  * Upgrade to Trixie 13.1 (tails/tails!2445)
+
+    Closes issues:
+      - Upgrade testing branch to Trixie 13.1 (tails/tails#21166)
+
+    Commits:
+      - Upgrade to Trixie 13.1
+
+  * Fix translations in several Python applications (tails/tails!2441)
+
+    Closes issues:
+      - Audit gettext usage in Python scripts in Trixie (tails/tails#21145)
+      - Translations for "Create Persistent Storage" in Welcome Screen are not
+        used (tails/tails#20938)
+      - Translations of status UI displayed while creating Persistent Storage
+        are not used (tails/tails#20939)
+
+    Commits:
+      - Migrate from deprecated /etc/default/locale to /etc/locale.conf
+      - Fix E713 to appease ruff
+      - Fix UP035, UP006 to appease ruff
+      - ruff format
+      - Fix RUF012 to appease ruff
+      - Fix EXE001 to appease ruff
+      - Fix UP024 to appease ruff
+      - Welcome Screen: add support for Handy.ActionRow to TranslatableWindow
+      - tails-additional-software-notify: fix gettext (tails#21145)
+      - additional_software.py: fix gettext (refs: tails#21145)
+      - asp-install: set locale and fix gettext (refs: tails#21145)
+      - Refactor
+      - asp-handle-package-changes: fix gettext (refs: tails#21145)
+      - asp-handle-package-changes: set the chosen locale (refs: tails#21145)
+      - Set system locale with update-locale
+      - Screen Locker: translate forgotten "Show Password" checkbox label
+      - tps-frontend: translate status strings that we got over D-Bus
+
+  * port https-get-expired to go 1.24 (tails/tails!2436)
+
+    Closes issues:
+      - Check that https-get-expired is still up to date (tails/tails#20406)
+
+    Commits:
+      - refactor building https-get-expired to DRY
+      - port https-get-expired to go 1.24
+
+  * Stop translating news and security sections of our website (tails/tails!2428)
+
+    Closes issues:
+      - Stop translating news and security pages (tails/tails#21137)
+
+    Commits:
+      - Remove page that has been deleted
+      - Simplify
+      - Merge duplicate pages
+      - Remove obsolete comment
+      - Delete news/*/*.po and security/*/*.po: not translatable anymore
+      - ikiwiki: don't translate security/*/* and news/*/* either
+      - Refresh PO files, unfuzzy related strings, and cleanup obsolete strings
+      - Drop unsupported documentation
+      - Update location of a bunch of infrastructure configuration in Puppet
+      - Update location of a bunch of rss2email configuration in Puppet
+      - Update inlines: drop currentlang() for pages that are not translatable anymore
+      - Delete news/*.po and security/*.po: not translatable anymore
+      - Update location of a bunch of infrastructure configuration in Puppet
+      - Update what the ikiwiki.setup file in Puppet is used for
+      - Fix ikiwiki shortcut to Puppet code
+      - Stop translating news and security pages
+
+  * Revert "APT: postpone sha1.second_preimage_resistance requirement to
+    2027-02-01" (tails/tails!2424)
+
+    Closes issues:
+      - Remove customized APT Sequoia configuration (tails/tails#21087)
+
+    Commits:
+      - Revert "APT: postpone sha1.second_preimage_resistance requirement to
+        2027-02-01"
+      - refresh torproject APT key
+
+  * Test suite: lower required coverage for user space anti-test (tails/tails!2417)
+
+    Closes issues:
+      - Pattern coverage anti-test for user space processes fails on Trixie
+        (tails/tails#21012)
+
+    Commits:
+      - Test suite: lower required coverage for user space anti-test
+
+  * Ensure minimal key can verify all relevant UDF signatures (tails/tails!2397)
+
+    Closes issues:
+      - Ensure that tails-signing-minimal.key is always sufficient to verify all
+        current UDF signatures (tails/tails#21156)
+      - Automatically check the validity of UDFs signatures with both the full or
+        minimal signing key, separately (tails/tails#21157)
+
+    Commits:
+      - fix regexp for versions >= 10
+      - sign older UDFs
+      - sign UDFs
+      - more informative error message
+      - automatically determine version in CI
+      - more explicit if statement
+      - remove leftover redirection to stderr
+      - supports VERSION >= 10
+      - GitLab CI: check the validity of UDFs signatures
+      - codespell
+      - improve the ergonomics of sign-(updated-)udfs
+      - Document arguments for sign-updated-udfs
+      - shfmt
+      - check-udfs-signature can sign again failing ones
+      - sign-updated-udfs can force specific files
+      - refactor sign-updated-udfs code
+      - Don't check UDFs for very old releases
+      - report all errors
+      - stable output
+      - check with minimal signing key, too
+      - make the script more robust
+      - move code to a new script as-is
+
+  * Repair "Copy to" shortcut to Android phone, Hide GnuPG Log Viewer from the Apps
+    menu (tails/tails!2464)
+
+    Closes issues:
+      - "Copy to" shortmenu from Files doesn't work to phones (tails/tails#21213)
+      - Hide GnuPG Log Viewer from the Apps menu (tails/tails#21214)
+
+    Commits:
+      - Hide the GnuPG Log Viewer from the Apps menu
+      - Install gvfs-fuse: repairs "Copy to" shortcut to Android phone over MTP
+
+  * Replace 0001-sane-clock with systemd's implementation (tails/tails!2457)
+
+    Closes issues:
+      - Replace 0001-sane-clock with systemd's implementation (tails/tails#21070)
+
+    Commits:
+      - Lint
+      - Test suite: fix checking if systemd advanced the clock
+      - Test suite: fix logic error
+      - Make hooks executable bit consistent
+      - Fix error message
+      - Replace 0001-sane-clock with systemd's implementation
+
+  * Welcome Screen cleanups (tails/tails!2456)
+
+    Closes issues:
+      - Drop obsolete Network Connection option from Welcome Screen
+        (tails/tails#20470)
+      - Remove explanation from 2022-12 about enabling the Unsafe Browser by default
+        (tails/tails#21080)
+
+    Commits:
+      - Welcome Screen: drop obsolete Network Connection option (refs: tails#20470)
+      - Welcome Screen: drop explanation for Unsafe Browser setting (refs: tails#21080)
+
+  * Skip the onboarding of GIMP (tails/tails!2450)
+
+    Closes issues:
+      - Skip the onboarding of GIMP (tails/tails#21142)
+
+    Commits:
+      - skip the onboarding of GIMP
+
+  * Fix installed_custom_packages_are_monitored() (tails/tails!2449)
+
+    Closes issues:
+      - 99-custom-packages-check did not catch unmonitored custom apparmor package
+        (tails/tails#21207)
+
+    Commits:
+      - Require custom AppArmor packages
+      - Fix installed_custom_packages_are_monitored()
+
+  * Upgrader: use sqopv instead of sqop; and remove gnome-power-manager
+    (tails/tails!2439)
+
+    Closes issues:
+      - Upgrader: use sqopv instead of sqop (tails/tails#20708)
+      - Remove gnome-power-manager (tails/tails#21143)
+
+    Commits:
+      - check-udfs-signature: use sqopv instead of sqop
+      - Remove gnome-power-manager
+      - Upgrader: use sqopv instead of sqop
+
+  * Test suite: Dogtailify to avoid lost key press (tails/tails!2434)
+
+    Closes issues:
+      - Test suite: lost Return key press when enabling persistence at Welcome
+        Screen since Trixie (tails/tails#21196)
+
+    Commits:
+      - Test suite: Dogtailify to avoid lost key press (refs: tails#21196)
+
+  * Fix startup notification for WhisperBack (tails/tails!2429)
+
+    Closes issues:
+      - Buggy startup notification for WhisperBack (tails/tails#20201)
+
+    Commits:
+      - Whisperback: keep DESKTOP_STARTUP_ID environment variable
+
+  * Test suite: restart udisks and tpsd after corrupting Persistent Storage
+    (tails/tails!2427)
+
+    Closes issues:
+      - Test suite: restart udisks2 and tpsd at the end of the "I corrupt the
+        Persistent Storage filesystem on USB drive ..." step (tails/tails#21193)
+
+    Commits:
+      - Test suite: restart udisks and tpsd after corruption Persistent Storage
+
+  * Drop workaround for flatpak#6256 (tails/tails!2426)
+
+    Closes issues:
+      - Drop workaround for flatpak#6256 (--installation is not respected for
+        overrides) (tails/tails#21060)
+
+    Commits:
+      - Drop workaround for flatpak#6256 (refs: tails#21060)
+
+  * Test suite: drop Pidgin MUC scenarios and related code (tails/tails!2423)
+
+    Closes issues:
+      - Test suite: remove MUC scenarios from pidgin.feature (tails/tails#21184)
+
+    Commits:
+      - Stop installing xclip
+      - Ruff format
+      - Test suite: drop Pidgin MUC scenarios and related code
+
+  * Attempt to fix no-overview GNOME extension from sometimes failing
+    (tails/tails!2420)
+
+    Closes issues:
+      - Trixie: no-overview@fthx sometimes fails to close the Activities
+        Overview (tails/tails#21030)
+
+    Commits:
+      - Attempt to fix no-overview GNOME extension from sometimes failing
+
+  * GitLab CI: fail if a MR modifies rm-config and targets another branch than
+    master (tails/tails!2407)
+
+    Closes issues:
+      - Confusing behavior if rm-config is modified elsewhere than on the master
+        branch (tails/tails#21175)
+
+    Commits:
+      - GitLab CI: fix commit branch regexp
+      - GitLab CI: fail if a MR modifies rm-config's templates or config files, and
+        targets another branch than master
+      - GitLab CI: fail if a MR modifies rm-config and targets another branch than
+        master
+
+  * Make curl use socks5h instead of socks5 (tails/tails!2403)
+
+    Closes issues:
+      - We should use socks5h instead of socks5 when possible (tails/tails#21160)
+
+    Commits:
+      - Make curl use Socks5h instead of Socks5.
+
+  * Upgrader: log the URL of the UDF it's trying to download (tails/tails!2390)
+
+    Closes issues:
+      - Upgrader: log the URL of the UDF it's trying to download
+        (tails/tails#21155)
+
+    Commits:
+      - Tails::Download::HTTPS: log the URL we're trying to download
+      - Drop unused method delegations
+
+  * Update our doc to Tails 7.0 (Trixie) (tails/tails!2366)
+
+    Closes issues:
+      - Update our doc to Tails 7.0 (Trixie) (P165 A.1.4) (tails/tails#20203)
+
+    Commits:
+      - Revert "Update PO files"
+      - Remove /usr/local/bin/thunderbird from our l10n machinery: no l10n strings
+        anymore
+      - Update PO files
+      - Add missing images
+      - Add a note about obfs4 bridges < 0.0.12
+      - Help me remember what's up
+      - Revert "Document changes to Night Light"
+      - Fix broken links
+      - shfmt
+      - Thunderbird: stop notifying users about Enigmail migration
+      - Update last screenshots
+      - Apply style guide
+      - Remove broken link
+      - Update screenshots
+      - Fix link
+      - Align table cells to the top
+      - Prevent note numbers to wrap on their own
+      - Clarify
+      - Tranform into a note
+      - Update to Trixie
+      - Fix spelling
+      - Use US spelling
+      - Style guide
+      - The 'key servers' don't really exist anymore
+      - Add missing alt tags
+      - Add missing 'screenshot' classes
+      - Consistency
+      - Link to screenshots
+      - Don't repeat title
+      - Apply style guide
+      - Update to Trixie
+      - Update to Trixie
+      - Improve link
+      - People cannot contact us on amnesia-news
+      - Add comparison diagram with VPN
+      - Deduplicate PO strings
+      - Recommend GNOME Camera instead of Cheese
+      - Social media can't be used in Tails in practice
+      - User agent now has Linux x86_64
+      - No more youtube-dl in Trixie
+      - This dialog has no title anymore
+      - Fix grammar
+      - Clarify context
+      - Fix upstream link
+      - Fix sentence
+      - Update to Trixie
+      - Fix Markdown
+      - Apply style guide
+      - Update to Trixie
+      - Put more important stuff first
+      - Remove XMPP support channel
+      - Fix formatting
+      - Delete doc about OpenPGP migration in Thunderbird
+      - Consistency
+      - Document how to access all accessibility settings
+      - Document duplicate unlocking dialog (#21116)
+      - Remove old migration note
+      - Reorder for 7.0
+      - No more 'Recipients' tab in Trixie
+      - Fix typo
+      - Update to Trixie
+      - Use command template
+      - Remove 'Eject' button
+      - Reuse language across similar procedures
+      - Adjust to new button icon
+      - Adjust to new name in Screen Reader
+      - Add missing images
+      - Simplify
+      - Apply style guide
+      - Use consistent phrasing
+      - Improve procedure
+      - Remove the places menu (#21086)
+      - Click is mouse-specific
+      - Link to Microsoft's summary of core webs
+      - Document Tor circuit button
+      - Click is mouse specific
+      - Be more clear
+      - Improve grammar
+      - Clarify
+      - Update to Debian Trixie
+      - Be more objective
+      - Rewrite using Disks
+      - Remove old notes
+      - Replace Kleopatra with Files in doc on Favorites
+      - Update to Trixie
+      - Document changes to Night Light
+      - Update requirements
+      - Replace Terminal with Console in doc
+      - Always put "Replace" on the same line as "Execute"
+      - Fix path in macOS
+      - Update to GUI option
+      - Update to new Activities button
+      - Replace **Applications** menu with *Apps* menu
+      - Misc improvements
+      - Refresh
+      - Fix grammar
+      - Fix link
+      - Improve grammar
+      - Fix grammar
+      - Refresh
+      - These don't sound like arguments against Ubuntu as phrased
+      - Clarify
+      - Ubuntu One is something different now
+      - Update stats
+      - Reuse illustration
+      - Fix indentation
+      - Split as 2 different attacks
+      - Don't point to Contribute so prominently
+      - Unwrap
+      - Add another reason to trust Tails
+      - Put less technical point first
+      - Stop pointing to a redirection
+      - Use caps (more) consistently
+      - Stop pointing to a redirection
+
+  * Bring back the pre-compiled AppArmor policy (tails/tails!2361)
+
+    Closes issues:
+      - Bring back the pre-compiled AppArmor policy (tails/tails#21105)
+
+    Commits:
+      - Enable the 21105-bring-back-precompiled-apparmor-policy APT overlay (refs:
+        #21105).
+      - shfmt
+      - Revert "Temporarily drop the pre-compiled AppArmor policy"
+
+  * Switch to zstd for SquashFS compression of released ISO/USB images
+    (tails/tails!2360)
+
+    Closes issues:
+      - Consider switching SquashFS compression to zstd (tails/tails#18655)
+      - Boot is much slower for release builds (defaultcomp) than dev builds
+        (fastcomp) (tails/tails#21100)
+
+    Commits:
+      - Switch to zstd for SquashFS compression of released ISO/USB images
+
+  * Simplify build memory requirements (tails/tails!2152)
+
+    Commits:
+      - Bump memory for Trixie builds on Jenkins
+      - drop useless parameter
+      - fix typo
+      - TAILS_RAM_BUILD=1 is enough to have a ram build
+      - the previous formula didn't work for disk builds
+      - simpler formulas for disk and ram builds
+      - Building from ram is not default anymore
+
+ -- Tails developers <tails@boum.org>  Wed, 17 Sep 2025 12:48:22 +0200
+
+tails (7.0~rc2) unstable; urgency=medium
+
+  * Upgrade to Linux 6.12.41-1 (tails/tails#21138)
+
+  * Bump RAM requirements to 3 GiB and show warning when not met (tails/tails!2375)
+
+    Closes issues:
+      - Bump memory requirements to 3 GB (tails/tails#18040)
+      - Next time we bump RAM requirements: notify user at runtime if RAM requirements are not met (tails/tails#5502)
+      - Trixie uses more RAM → breaks some common usage scenarios (tails/tails#21114)
+
+    Commits:
+      - Fix gettext in tails-{virt,low-ram}-notify-user
+      - ruff format
+      - Add tails-low-ram-notify-user to internationalization machinery
+      - Improve variable name
+      - Display the amount of RAM present when warning about insufficient RAM
+      - Fix comparison
+      - Allow some slack before showing warning about insufficient RAM
+      - Notify user if their system has an insufficient amount of RAM installed
+      - Group gettext stuff higher up
+      - Fix Ruff F821
+      - Fix Ruff PLW1510
+      - Fix Ruff UP004
+      - Ruff format
+      - Test suite: bump memory allocated to the system under test to 3 GiB.
+      - Update references to memory requirements after bumping to 3 GiB
+      - Document new RAM requirement of 3 GiB (refs: tails/tails#18040)
+
+  * Remove the Places menu (tails/tails!2362)
+
+    Closes issues:
+      - Remove the Places menu (tails/tails#21086)
+      - Trixie: GNOME Places menu does not show GNOME bookmarks initially (tails/tails#20981)
+
+    Commits:
+      - Test suite: remove SFTP automated test
+      - Test suite: remove dead code
+      - Remove the Places menu
+
+  * Various low-hanging fruits for 7.0~rc1 (tails/tails!2356)
+
+    Closes issues:
+      - Rename Root Terminal into Root Console in Trixie (tails/tails#21110)
+      - Calls to localectl in PostLogin/Default are broken and useless on Trixie (tails/tails#21118)
+      - Install rtkit (tails/tails#21119)
+      - Skip the onboarding of Inkscape (tails/tails#21091)
+      - Root Terminal does not work in 7.0~rc1 (tails/tails#21123)
+
+    Commits:
+      - Fix typos in comments
+      - Fix typo in comment
+      - Acknowledge new user & group
+      - Avoid rtkit installation stealing UID/GID that we already use
+      - Rename "Root Terminal" to "Root Console"
+      - Skip the onboarding of Inkscape
+      - Install rtkit
+      - Remove broken and useless calls to localectl
+
+  * Test suite: fix things that are broken due to Trixie update phase 4
+    (tails/tails!2351)
+
+    Commits:
+      - Fixup recent changes to `I install "..." using Synaptic` step
+      - Test suite: bump timeout
+      - Test suite: wait() for PidginAddAccountProtocolXMPP.png instead of just find()
+      - port synaptic test to images
+      - Upgrade some dogtail call for Trixie
+      - FIX makepp not in Debian Trixie
+
+  * Start tails-create-netns.service as part of multi-user.target rather than
+    sysinit.target (tails/tails!2344)
+
+    Closes issues:
+      - Consider making tails-create-netns.service less strictly ordered (tails/tails#18369)
+
+    Commits:
+      - Start tails-create-netns.service as part of multi-user.target rather than
+        sysinit.target
+
+ -- Tails developers <tails@boum.org>  Wed, 20 Aug 2025 13:58:54 +0200
 
 tails (6.19) unstable; urgency=medium
 
@@ -100,6 +668,538 @@ tails (6.19) unstable; urgency=medium
       - Handle reader connection reset in tca-portal
 
  -- Tails developers <tails@boum.org>  Wed, 20 Aug 2025 09:39:38 +0000
+
+tails (7.0~rc1) unstable; urgency=medium
+
+  * Bump memory requirements for Trixie (tails/tails!2326)
+
+    Commits:
+      - Bump memory requirements for Trixie
+
+  * Improve Trixie images size and boot time (tails/tails!2342)
+
+    Commits:
+      - Run updated clean-squashfs-sort-file
+      - Update SquashFS sort file, again
+      - shfmt
+      - Remove unused imports
+      - boot-profile: update IGNORE_PREFIX for Trixie
+      - Updating SquashFS sort file
+      - Remove overly noisy "set -x"
+      - clean-squashfs-sort-file: add more non-existing files
+      - Exclude empty /debootstrap from the SquashFS
+      - Don't include hunspell dictionaries in the bdic format
+      - live-boot: don't include tools and drivers we don't need in the initrd
+      - Drop initramfs hook to delete unwanted kernel modules & firmware
+      - Add missing "set -u" to add_module initramfs-tools hook
+      - Drop overly noisy "set -x"
+      - Add missing "prereqs" argument support to the add_modules initramfs-tools hook
+      - Disable units with ConditionNeedsUpdate=
+
+  * Fix progress bar while cloning (tails/tails!2338)
+
+    Commits:
+      - ruff format
+      - don't rely on mountpoint name
+      - fix SyntaxWarning
+      - terminate is now thread-safe
+      - add typing information
+
+  * Temporarily drop the pre-compiled AppArmor policy (tails/tails!2332)
+
+    Commits:
+      - Temporarily drop the pre-compiled AppArmor policy
+
+  * Release process: don't wait for non-existing IUKs from N.x to (N+1).0
+    (tails/tails!2331)
+
+    Commits:
+      - Add comment to explain why we don't need a check that was just removed
+      - remove comment which is now irrelevant
+      - ruff reformat
+      - test_iuk_source_versions is now a set
+      - Improve phrasing in comments
+      - Release process: don't wait for non-existing IUKs from N.x to (N+1).0
+
+  * Remove Kleopatra from favorites (tails/tails!2330)
+
+    Commits:
+      - Revert "Add Kleopatra to the Favorites submenu"
+
+  * APT: postpone sha1.second_preimage_resistance requirement to 2027-02-01
+    (tails/tails!2329)
+
+    Commits:
+      - APT: postpone sha1.second_preimage_resistance requirement to 2027-02-01
+
+  * Restore icons in Persistent Storage settings (tails/tails!2322)
+
+    Commits:
+      - Restore icons in Persistent Storage settings
+
+  * Fix  Notification of Additional Software successful installation on startup is
+    broken on Trixie (tails/tails!2317)
+
+    Commits:
+      - ruff format
+      - no need to wait if we use a "wrong" AppName
+      - migrate to argparse
+
+  * Upgrader: force GSK_RENDERER=cairo to fix display of zenity dialogs without 3D
+    acceleration (tails/tails!2309)
+
+    Commits:
+      - Upgrader: force GSK_RENDERER=cairo to fix display of zenity dialogs
+
+  * Zenity: drop --ellipsize everywhere (tails/tails!2203)
+
+    Commits:
+      - shfmt
+      - Appease ruff
+      - Zenity: drop --ellipsize everywhere
+
+  * fix syntaxwarning in onion-grater (tails/tails!2173)
+
+    Commits:
+      - Avoid useless string concatenation
+      - ruff reformat
+      - fix more ruff complaints
+      - Fix function-uses-loop-variable
+      - ruff fix+format
+      - fix SyntaxWarning on onion-grater
+
+  * Replace GNOME Terminal with Console (tails/tails!2345)
+
+    Commits:
+      - shfmt
+      - Test suite: don't .grabFocus with Console
+      - Test suite: adapt to migration from GNOME Terminal to Console
+      - Test suite: also wait properly for prompt if we restart the terminal
+      - Test suite: don't match against old shell history
+      - Test suite: actually wait for shell prompt before interacting with the terminal
+      - Replace GNOME Terminal with Console (refs: tails/tails#20161)
+
+  * Ruff lint parts of the Welcome Screen (tails/tails!2321)
+
+    Commits:
+      - Ruff format
+      - Silence a Ruff false positive
+      - Ruff lint parts of the Welcome Screen
+
+  * Stop installing aircrack-ng and sq (tails/tails!2310)
+
+    Commits:
+      - shfmt
+      - Drop obsolete workaround
+      - Stop installing sq
+      - Stop installing aircrack-ng and explicitly install tails-spoof-mac's
+        dependencies
+
+  * Test suite: fix things that are broken due to Trixie update phase 3
+    (tails/tails!2299)
+
+    Commits:
+      - Adapt example to something that actually works in Trixie
+      - Test suite: adapt to Evince's new internal name in Trixie
+      - Test suite: bump images for Tails Upgrader after Trixie migration
+      - Test suite: bump timeout
+      - Revert "Test suite: adapt to changes in `pmap --show-path` output in Trixie"
+      - Test suite: adapt to Totem's new internal name in Trixie
+      - Test suite: search for "Start Tails" button with support for localization
+
+  * Don't monitor in-house "private" backports (tails/tails!2240)
+
+    Commits:
+      - Don't monitor in-house "private" backports
+
+  * Fix versioning scheme for our forked Debian packages vs. Debian security &
+    stable updates (tails/tails!2233)
+
+    Commits:
+      - Encourage writing automated tests to ensure custom packages behave as expected
+      - Make hook verify its own freshness
+      - Use APT overlay with packages that follow new versioning scheme
+      - Adjust to new versioning scheme
+      - Enforce new versioning scheme for packages forked from Debian
+
+  * Test suite: fix things that are broken due to Trixie update phase 2
+    (tails/tails!2215)
+
+    Commits:
+      - Test suite: add missing words to comment and improve it
+      - Test suite: be less invasive when changing ownership
+      - shfmt
+      - Test suite: drop useless variable
+      - Test suite: adapt to apt-key being obsoleted in Trixie
+      - Test suite: fix method return vs block return value issue
+      - Test suite: Add expected journal entries introduced in Trixie
+      - Don't try to add the live user to the non-existent powerdev group
+      - Stop removing the live user from the sudo group it isn't part of
+      - Test suite: use more appropriate find(...) instead of wait(..., 1)
+      - Test suite: Dogtailify part of step
+      - Test suite: drop Dogtail workaround
+      - Test suite: Dogtailify step
+      - Test suite: Dogtailify step
+      - Test suite: Dogtailify step
+      - Test suite: drop Dogtail workarounds
+      - Test suite: bump timeout for starting Tor Browser
+      - Test suite: detect when no-overview@fthx fails to exit the Activities Overview
+      - Test suite: drop workaround in FileChooser dialog
+      - Test suite: disable GTK4 shadows for Dogtail compatibility (refs: tails#21022)
+      - Test suite: adapt zenity interactions vs changes in Trixie
+      - Test suite: adapt how we shut down/restart using the applet on Trixie
+      - Test suite: wait for Ponytail to be ready before usage
+      - Test suite: bump images
+      - Test suite: work around rare Pidgin tooltip issue
+      - Test suite: deal with zenity not starting fast enough vs Dogtail
+      - Test suite: work around weird issue when Nautilus is used as FileChooser
+      - Test suite: wait for Nautilus-as-FileChooser-portal
+      - Test suite: make step more reliable
+      - Test suite: adapt to changes in `pmap --show-path` output in Trixie
+      - Test suite: adapt to modern Ruby
+      - Enable automated-testing@tails.net for the GDM session later
+      - Test suite: drop workaround (refs: tails#20894)
+      - Test suite: lock/unmount VeraCrupt volumes/containers via Nautilus
+
+  * Test suite: fix things that are broken due to Trixie update (tails/tails!2183)
+
+    Commits:
+      - Test suite: improve method name
+      - Test suite: drop special casing for Hindi
+      - Test suite: enable localization tests for Hindi and Indonesian
+      - Test suite: drop obsolete comment
+      - Test suite: drop Dogtail workarounds
+      - Test suite: drop Dogtail workaround for GNOME Shell notification issue fixed in
+        Trixie
+      - Test suite: drop Dogtail workaround for GNOME Settings issue fixed in Trixie
+      - Test suite: drop Dogtail workarounds that are fixed in Trixie
+      - Test suite: adapt step vs Trixie
+      - Test suite: drop Dogtail click workaround
+      - Revert "Test suite: work around Dogtail click issue"
+      - Remote Shell server: handle XDG_SESSION_TYPE vs Trixie
+      - Test suite: adapt default keyboard layout for Arabic vs Trixie
+      - Test suite: bump image vs Trixie
+      - Test suite: make step language agnostic
+      - Test suite: adapt to Trixie's GNOME Activities Overview button
+      - Test suite: add method for printing Dogtail node's ancestry
+      - Test suite: work around GNOME Places not listing bookmarks
+      - Test suite: adapt for Nautilus-based FileChooser portal
+      - Test suite: update step definitions vs Trixie update
+
+  * GitLab CI: install missing test dependencies (tails/tails!2158)
+
+    Commits:
+      - GitLab CI: install package that ships distutils.version, needed by tailslib.git
+      - GitLab CI: install package that ships chattr binary which is needed by test
+
+  * Upgrade to Debian Trixie (tails/tails!2157)
+
+    Commits:
+      - shfmt
+      - Test suite: don't .grabFocus with Console
+      - Test suite: adapt to migration from GNOME Terminal to Console
+      - Test suite: also wait properly for prompt if we restart the terminal
+      - Test suite: don't match against old shell history
+      - Test suite: actually wait for shell prompt before interacting with the terminal
+      - Replace GNOME Terminal with Console (refs: tails/tails#20161)
+      - Run updated clean-squashfs-sort-file
+      - Update SquashFS sort file, again
+      - shfmt
+      - Remove unused imports
+      - boot-profile: update IGNORE_PREFIX for Trixie
+      - Updating SquashFS sort file
+      - Remove overly noisy "set -x"
+      - clean-squashfs-sort-file: add more non-existing files
+      - Exclude empty /debootstrap from the SquashFS
+      - Don't include hunspell dictionaries in the bdic format
+      - live-boot: don't include tools and drivers we don't need in the initrd
+      - Drop initramfs hook to delete unwanted kernel modules & firmware
+      - Add missing "set -u" to add_module initramfs-tools hook
+      - Drop overly noisy "set -x"
+      - Add missing "prereqs" argument support to the add_modules initramfs-tools hook
+      - Disable units with ConditionNeedsUpdate=
+      - Temporarily drop the pre-compiled AppArmor policy
+      - ruff format
+      - no need to wait if we use a "wrong" AppName
+      - migrate to argparse
+      - ruff format
+      - don't rely on mountpoint name
+      - fix SyntaxWarning
+      - terminate is now thread-safe
+      - add typing information
+      - Install libdrm-nouveau2 and libdrm-radeon1
+      - Add comment to explain why we don't need a check that was just removed
+      - APT: postpone sha1.second_preimage_resistance requirement to 2027-02-01
+      - remove comment which is now irrelevant
+      - ruff reformat
+      - test_iuk_source_versions is now a set
+      - shfmt
+      - Drop obsolete workaround
+      - Stop installing sq
+      - Stop installing aircrack-ng and explicitly install tails-spoof-mac's
+        dependencies
+      - Adapt example to something that actually works in Trixie
+      - Test suite: adapt to Evince's new internal name in Trixie
+      - Test suite: bump images for Tails Upgrader after Trixie migration
+      - Test suite: bump timeout
+      - Revert "Test suite: adapt to changes in `pmap --show-path` output in Trixie"
+      - Test suite: adapt to Totem's new internal name in Trixie
+      - Test suite: search for "Start Tails" button with support for localization
+      - Improve phrasing in comments
+      - Release process: don't wait for non-existing IUKs from N.x to (N+1).0
+      - Revert "Add Kleopatra to the Favorites submenu"
+      - Ruff format
+      - Silence a Ruff false positive
+      - Ruff lint parts of the Welcome Screen
+      - Upgrader: force GSK_RENDERER=cairo to fix display of zenity dialogs
+      - Restore icons in Persistent Storage settings
+      - Bump memory requirements for Trixie
+      - Welcome Screen: fix icons in Additional Settings
+      - Remove incorrect and over-detailed comment
+      - shfmt
+      - Fix typo
+      - Fix typo in comment
+      - Refresh expected /etc/group
+      - shfmt
+      - Don't include /root/.config/go/ in the SquashFS
+      - Finish merge conflict resolution
+      - Don't monitor in-house "private" backports
+      - Revert "Use APT overlay with packages that follow new versioning scheme"
+      - Encourage writing automated tests to ensure custom packages behave as expected
+      - Make hook verify its own freshness
+      - Use APT overlay with packages that follow new versioning scheme
+      - Adjust to new versioning scheme
+      - Enforce new versioning scheme for packages forked from Debian
+      - Test suite: add missing words to comment and improve it
+      - Test suite: be less invasive when changing ownership
+      - shfmt
+      - Test suite: drop useless variable
+      - Test suite: adapt to apt-key being obsoleted in Trixie
+      - Test suite: fix method return vs block return value issue
+      - Test suite: Add expected journal entries introduced in Trixie
+      - Don't try to add the live user to the non-existent powerdev group
+      - Stop removing the live user from the sudo group it isn't part of
+      - Test suite: use more appropriate find(...) instead of wait(..., 1)
+      - Test suite: Dogtailify part of step
+      - Test suite: drop Dogtail workaround
+      - Test suite: Dogtailify step
+      - Test suite: Dogtailify step
+      - Test suite: Dogtailify step
+      - Test suite: drop Dogtail workarounds
+      - Test suite: bump timeout for starting Tor Browser
+      - Test suite: detect when no-overview@fthx fails to exit the Activities Overview
+      - Test suite: drop workaround in FileChooser dialog
+      - Test suite: disable GTK4 shadows for Dogtail compatibility (refs: tails#21022)
+      - Test suite: adapt zenity interactions vs changes in Trixie
+      - Test suite: adapt how we shut down/restart using the applet on Trixie
+      - Test suite: wait for Ponytail to be ready before usage
+      - Test suite: bump images
+      - Test suite: work around rare Pidgin tooltip issue
+      - Test suite: deal with zenity not starting fast enough vs Dogtail
+      - Test suite: work around weird issue when Nautilus is used as FileChooser
+      - Test suite: wait for Nautilus-as-FileChooser-portal
+      - Test suite: make step more reliable
+      - Test suite: adapt to changes in `pmap --show-path` output in Trixie
+      - Test suite: adapt to modern Ruby
+      - Enable automated-testing@tails.net for the GDM session later
+      - Test suite: drop workaround (refs: tails#20894)
+      - Test suite: lock/unmount VeraCrupt volumes/containers via Nautilus
+      - Fix syntax to disable sending the hostname via DHCP, again
+      - Drop python3-nautilus
+      - Drop obsolete mousetweaks package
+      - Add translations for Qt 6
+      - Enable Qt6 / Adwaita & GNOME integration
+      - Drop workarounds to make Qt apps use the GNOME cursor size
+      - Only install GNOME Shell extensions that we enable by default
+      - Add keywords to desktop files to restore discoverability
+      - Move Synaptic configuration to the new Trixie location
+      - Update live-tools disabling for Trixie
+      - Test suite: improve method name
+      - Test suite: drop special casing for Hindi
+      - Refresh tails-000-standard.list packages list for Trixie, take 2
+      - Fix syntax to disable sending the hostname via DHCP
+      - Test suite: enable localization tests for Hindi and Indonesian
+      - Test suite: drop obsolete comment
+      - Revert "don't override buttons which work just fine"
+      - shfmt
+      - Appease ruff
+      - Don't try to install unar
+      - Zenity: drop --ellipsize everywhere
+      - Test suite: drop Dogtail workarounds
+      - Test suite: drop Dogtail workaround for GNOME Shell notification issue fixed in
+        Trixie
+      - Test suite: drop Dogtail workaround for GNOME Settings issue fixed in Trixie
+      - Test suite: drop Dogtail workarounds that are fixed in Trixie
+      - Test suite: adapt step vs Trixie
+      - Test suite: drop Dogtail click workaround
+      - Revert "Test suite: work around Dogtail click issue"
+      - Remote Shell server: handle XDG_SESSION_TYPE vs Trixie
+      - Test suite: adapt default keyboard layout for Arabic vs Trixie
+      - Test suite: bump image vs Trixie
+      - Test suite: make step language agnostic
+      - Test suite: adapt to Trixie's GNOME Activities Overview button
+      - Test suite: add method for printing Dogtail node's ancestry
+      - Test suite: work around GNOME Places not listing bookmarks
+      - Test suite: adapt for Nautilus-based FileChooser portal
+      - Test suite: update step definitions vs Trixie update
+      - Avoid useless string concatenation
+      - ruff reformat
+      - fix more ruff complaints
+      - Fix function-uses-loop-variable
+      - ruff fix+format
+      - fix SyntaxWarning on onion-grater
+      - bump memory requirements
+      - Test suite: drop redundant use of `self`
+      - Test suite: improve formatting
+      - Test suite: don't raise empty RuntimeException
+      - Test suite: bump image
+      - Test suite: drop empty cucumber .feature
+      - Test suite: simplify
+      - Test suite: fix 'I close the "zenity" app'
+      - Test suite: work around Dogtail click issue
+      - Test suite: exclude another socket file when comparing source and backup
+      - Test suite: fix searches in GNOME Activities Overview
+      - Test suite: work around Welcome Screen Dogtail issue
+      - Test suite: mass replace for Trixie: gnome-terminal-server → org.gnome.Terminal
+      - Test suite: make a smart Dogtail::Node.click()
+      - Test suite: mass replace 'push button' → 'button'
+      - JavaScript improvements from review
+      - Test suite: use click action instead of .click()
+      - Test suite: adapt early Dogtail usage vs Trixie
+      - Test suite: bump a few images
+      - Test suite: close unsafe mode notification at Welcome Screen
+      - Test suite: workaround issue that breaks Dogtail during the Welcome Screen
+      - Test suite: make Dogtail::Node.click() use Ponytail for real clicks
+      - Install mesa-vulkan-drivers (refs: tails#20947)
+      - Remote Shell: prevent Dogtail crashing PythonSession on Trixie (refs:
+        tails#20953)
+      - Drop obsolete comment (refs: tails#20954)
+      - Enable automated-testing@ extension during automated testing
+      - Add GNOME Shell Extension for supporting Dogtail
+      - Refresh and unfuzzy plymouthd.conf patch
+      - Ignore SLF001 false positive
+      - Use absolute path (fixes S607)
+      - Sort imports to ruff's liking
+      - ruff format
+      - Ruff auto-fix changed files
+      - Update link to issue
+      - Update expected /etc/passwd
+      - Update expected /etc/passwd and /etc/group: drop removed dhcpcd user
+      - GitLab CI: install package that ships distutils.version, needed by tailslib.git
+      - GitLab CI: install package that ships chattr binary which is needed by test
+      - shfmt
+      - Developer tools: target a version of Python that's supported by ruff
+      - rubocop: require a supported TargetRubyVersion
+      - Adjust to new package name
+      - Don't install wtmpdb
+      - Fix typo
+      - Adjust to new package name
+      - Stop installing network-manager-gnome, install nm-connection-editor instead
+      - Ship keepassxc-minimal instead of keepassxc-full
+      - Adjust to new package name
+      - Ensure we don't ship dhcpcd-base
+      - don't override buttons which work just fine
+      - fix removed _addItems
+      - fix: variable declaration is required by new JS version
+      - look for system menu until it succeeds
+      - remove useless code and modules
+      - upgrade PanelMenu.Button to GNOME 48
+      - document hacking tips for GNOME Extensions
+      - actually make date extension work
+      - port torstatus extension to class
+      - Port status-menu-helper extension to class
+      - Port date extension to class
+      - Upgrade GNOME Shell extensions to ESM
+      - Make debug=greeter on the kernel cmdline work on Trixie
+      - Debian 12 is not Trixie
+      - Test suite: drop unused images
+      - Tails::Download::HTTPS: drop custom ciphers list
+      - Tails::Download::HTTPS: switch to TLS 1.3
+      - Update org.boum.tails.Platform to freedesktop-sdk-24.08.18
+      - Re-enable userns rule in Tor Browser AppArmor profile
+      - Update no-overview@fthx GNOME Shell extension to v48 for Trixie
+      - GNOME Shell extensions: declare compatibility with Trixie
+      - Avoid merged rule with conflicting x modifiers
+      - Refresh patch
+      - Have callback accept 4th argument
+      - Welcome Screen: update required WebKit2 version
+      - Don't try to delete or load the fscache kernel module: now built-in
+      - Don't needlessly copy modules used by early_patch to the initramfs
+      - Remove obsolete explanation
+      - Start sync'ing gdm-tails.json for Trixie
+      - Don't try to use non-existing CSS, this breaks gnome-shell
+      - Ensure we don't ship dhcpcd
+      - Update expected /etc/passwd for Trixie
+      - Disable the plasmashell AppArmor profile
+      - Avoid merged rule with conflicting x modifiers
+      - Adjust path for Trixie
+      - NetworkManager: disable dhcp-send-hostname globally
+      - Update check for custom packages
+      - Stop installing a fake gnome-backgrounds package
+      - Avoid UID 108 conflict
+      - Drop zenity patch: there's no zenity.ui file anymore on Trixie
+      - Refresh patch
+      - Temporarily drop Window List styling patch
+      - Drop obsolete patch
+      - Refresh patch
+      - Drop obsolete patch
+      - Enable diceware word list for French
+      - Remove diceware word lists now included upstream
+      - Enable the feature-trixie APT overlay (refs: #feature/trixie).
+      - Update latest checked version
+      - Drop obsolete APT pinning
+      - Update package name for Trixie
+      - Refresh tails-000-standard.list packages list for Trixie
+      - Remove spurious blank line
+      - Replace obsolete sq-keyring-linter with sq
+      - Drop Bookworm transition package which is not in Trixie, install the bits we
+        need instead
+      - Update package name for Trixie
+      - Rubocop: target Trixie's Ruby version
+      - GitLab CI: use Trixie images for Tails Team stuff
+      - Replace eog with Loupe (refs: tails/tails#20640)
+      - Adjust to new locale configuration file
+      - Developer tool: target Python 3.13
+      - Switch to xdg-desktop-portal-gnome
+      - Require Trixie or newer to build, release, and test Tails
+      - Drop unneeded TODO: this is tracked on GitLab
+      - Cleanup obsolete stuff
+      - run_test_suite: run all tests on feature/trixie
+      - Upgrade to Debian 13 (Trixie)
+
+  * Restore basic functionality for the automated test suite on Trixie
+    (tails/tails!2146)
+
+    Commits:
+      - Test suite: drop redundant use of `self`
+      - Test suite: improve formatting
+      - Test suite: don't raise empty RuntimeException
+      - Test suite: bump image
+      - Test suite: drop empty cucumber .feature
+      - Test suite: simplify
+      - Test suite: fix 'I close the "zenity" app'
+      - Test suite: work around Dogtail click issue
+      - Test suite: exclude another socket file when comparing source and backup
+      - Test suite: fix searches in GNOME Activities Overview
+      - Test suite: work around Welcome Screen Dogtail issue
+      - Test suite: mass replace for Trixie: gnome-terminal-server → org.gnome.Terminal
+      - Test suite: make a smart Dogtail::Node.click()
+      - Test suite: mass replace 'push button' → 'button'
+      - JavaScript improvements from review
+      - Test suite: use click action instead of .click()
+      - Test suite: adapt early Dogtail usage vs Trixie
+      - Test suite: bump a few images
+      - Test suite: close unsafe mode notification at Welcome Screen
+      - Test suite: workaround issue that breaks Dogtail during the Welcome Screen
+      - Test suite: make Dogtail::Node.click() use Ponytail for real clicks
+      - Install mesa-vulkan-drivers (refs: tails#20947)
+      - Remote Shell: prevent Dogtail crashing PythonSession on Trixie (refs:
+        tails#20953)
+      - Drop obsolete comment (refs: tails#20954)
+      - Enable automated-testing@ extension during automated testing
+      - Add GNOME Shell Extension for supporting Dogtail
+
+ -- Tails developers <tails@boum.org>  Wed, 06 Aug 2025 13:05:03 +0200
 
 tails (6.18) unstable; urgency=medium
 
