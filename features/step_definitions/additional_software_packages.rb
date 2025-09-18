@@ -34,13 +34,10 @@ Then /^I am proposed to add the "([^"]*)" package to my Additional Software$/ do
 end
 
 def click_gnome_shell_notification_button(title)
-  # The notification buttons do not expose any actions through AT-SPI,
-  # so Dogtail is unable to click it directly. We let it grab focus
-  # and activate it via the keyboard instead.
   Dogtail::Application.new('gnome-shell')
-                      .child(title, roleName: 'push button')
-                      .grabFocus
-  @screen.press('Return')
+                      .child(roleName: 'notification')
+                      .child(title, roleName: 'button')
+                      .click
 end
 
 Then /^I create a persistent storage and activate the Additional Software feature$/ do
@@ -114,7 +111,7 @@ Given /^I remove "([^"]*)" from the list of Additional Software using Additional
   # modal dialog to be run via gtk_dialog_run() which causes the
   # application to hang when triggered via a ATSPI action. See
   # https://gitlab.gnome.org/GNOME/gtk/-/issues/1281
-  installed_package.parent.parent.child('Remove', roleName: 'push button').grabFocus
+  installed_package.parent.parent.child('Remove', roleName: 'button').grabFocus
   @screen.press('Return')
   asp_gui.child('Question', roleName: 'alert').button('Remove').click
   deal_with_polkit_prompt(@sudo_password)

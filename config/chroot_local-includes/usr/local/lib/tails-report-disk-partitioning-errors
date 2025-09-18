@@ -27,7 +27,7 @@ $(gettext 'We recommend that you create a backup of your Tails using <i>Tails Cl
 EOTEXT
     )"
     if zenity \
-        --question --ellipsize \
+        --question \
         --icon-name=error \
         --cancel-label="$(gettext 'Close')" \
         --ok-label="$(gettext 'Open Tails Cloner')" \
@@ -45,7 +45,7 @@ $(gettext 'We recommend that you reinstall Tails from scratch. If the error pers
 EOTEXT
     )"
     exec zenity \
-        --info --ellipsize \
+        --info \
         --icon-name=error \
         --title="$title" --text="$text"
 fi

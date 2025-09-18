@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tails l10n\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2024-05-02 21:29+0000\n"
+"POT-Creation-Date: 2025-09-17 11:40+0200\n"
 "PO-Revision-Date: 2018-11-05 11:30+0000\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Tails Chinese translators <jxt@twngo.xyz>\n"
@@ -29,8 +29,7 @@ msgid ""
 "solution for Linux. *virt-manager* has a more complex interface than *GNOME "
 "Boxes* but it also has a more complete set of features."
 msgstr ""
-"[*virt-manager*](http://virt-manager.org/) "
-"Linux　可用\n"
+"[*virt-manager*](http://virt-manager.org/) Linux　可用\n"
 "旳虛擬器自由軟體。 *virt-manager* 的介面比\n"
 "*VirtualBox* 或 *GNOME Boxes* 更為複雜\n"
 "但它的功能也更為充足強大。\n"
@@ -69,7 +68,7 @@ msgstr "<div class=\"note\">\n"
 
 #. type: Plain text
 #, fuzzy, no-wrap
-msgid "<p>The following instructions have been tested on Debian 12 (Bookworm).</p>\n"
+msgid "<p>The following instructions have been tested on Debian 13 (Trixie).</p>\n"
 msgstr "<p>以下的指示已經過 Debian Stretch 環境測試</p>\n"
 
 #. type: Title =
@@ -175,12 +174,11 @@ msgstr ""
 #. type: Bullet: '1. '
 #, fuzzy
 msgid ""
-"To create a new virtual machine, choose <span class=\"menuchoice\"> <span "
-"class=\"guimenu\">File</span>&nbsp;▸ <span class=\"guimenuitem\">New Virtual "
-"Machine</span></span>."
+"To create a new virtual machine, choose <b>File&nbsp;▸ New Virtual Machine</"
+"b>."
 msgstr ""
-"選擇<span class=\"menuchoice\"> View&nbsp;▸ "
-"**Details**</span>以編輯虛擬器的設定。"
+"選擇<span class=\"menuchoice\"> View&nbsp;▸ **Details**</span>以編輯虛擬器的"
+"設定。"
 
 #. type: Bullet: '1. '
 msgid "In *step 1*, choose **Local install media (ISO image or CDROM)**."
@@ -192,7 +190,7 @@ msgstr ""
 
 #. type: Bullet: '   1. '
 msgid ""
-"**Choose ISO image**, then **Browse...**, and **Browse Local** to browse for "
+"Select the **Browse** button and then the **Browse Local** button to choose "
 "the ISO image that you want to start from."
 msgstr ""
 
@@ -201,14 +199,14 @@ msgid ""
 "Unselect **Automatically detected from the installation media / source**."
 msgstr ""
 
-#. type: Bullet: '   1. '
+#. type: Bullet: '   3. '
 msgid ""
-"Specify **Debian 11** in the field **Choose the operating system you are "
+"Enter **Debian 13** in the field **Choose the operating system you are "
 "installing**."
 msgstr ""
 
 #. type: Bullet: '1. '
-msgid "In *step 3*, allocate at least 2048 MB of RAM."
+msgid "In *step 3*, allocate at least 3072 MB of RAM."
 msgstr ""
 
 #. type: Bullet: '1. '
@@ -231,11 +229,11 @@ msgid "Click **Finish** to start the virtual machine."
 msgstr "關閉虛擬器。"
 
 #. type: Plain text
-#, no-wrap
+#, fuzzy, no-wrap
 msgid ""
-"If you get the error message \"<span class=\"guilabel\">Error starting\n"
-"domain: Requested operation is not valid: network 'default' is not\n"
-"active</span>\", then try to start the default virtual network:\n"
+"If you get the error message\n"
+"\"<b>Error starting domain: Requested operation is not valid: network 'default' is not active</b>\",\n"
+"then try to start the default virtual network:\n"
 msgstr ""
 "如果看到錯誤訊息 \"<span class=\"guilabel\">Error starting\n"
 "domain: Requested operation is not valid: network 'default' is not\n"
@@ -245,17 +243,15 @@ msgstr ""
 #, fuzzy, no-wrap
 msgid ""
 "<ol>\n"
-"<li>Click on **QEMU/KVM - Not Connected**.</li>\n"
-"<li>Choose <span class=\"menuchoice\">\n"
-"    **Edit**&nbsp;▸\n"
-"    **Connection details**</span> to\n"
-"    administer the connection to your local\n"
-"    *QEMU* system.</li>\n"
-"<li>Click on **Virtual Networks** tab, then\n"
-"    select the **default** virtual network in\n"
+"<li>Click on <b>QEMU/KVM - Not Connected</b>.</li>\n"
+"<li>Choose <b>Edit&nbsp;▸ Connection details</b>\n"
+"    to administer the connection to your local\n"
+"    <i>QEMU</i> system.</li>\n"
+"<li>Click on <b>Virtual Networks</b> tab, then\n"
+"    select the <b>default</b> virtual network in\n"
 "    the left pane.</li>\n"
 "<li>Click on the [[!img lib/media-playback-start.png alt=\"Start Network\"\n"
-"    link=no class=symbolic]] icon on the bottom of the left pane to\n"
+"    link=\"no\" class=\"symbolic\"]] icon on the bottom of the left pane to\n"
 "    start the default virtual network.</li>\n"
 "</ol>\n"
 msgstr ""
@@ -331,8 +327,12 @@ msgstr ""
 
 #. type: Bullet: '   1. '
 msgid ""
-"Choose **Browse...**, and **Browse Local** to browse for the USB image that "
-"you want to start from."
+"Specify **Debian 11** in the field **Choose the operating system you are "
+"installing**."
+msgstr ""
+
+#. type: Bullet: '1. '
+msgid "In *step 3*, allocate at least 2048 MB of RAM."
 msgstr ""
 
 #. type: Bullet: '1. '
@@ -365,7 +365,7 @@ msgid "Expand the **Advanced options**."
 msgstr ""
 
 #. type: Bullet: '   1. '
-msgid "Enable **Removable**."
+msgid "Select **Removable**."
 msgstr ""
 
 #. type: Bullet: '   1. '
@@ -433,8 +433,8 @@ msgid ""
 "Choose **View**&nbsp;▸ **Details** to edit the configuration of the virtual "
 "machine."
 msgstr ""
-"選擇<span class=\"menuchoice\"> View&nbsp;▸ "
-"**Details**</span>以編輯虛擬器的設定。"
+"選擇<span class=\"menuchoice\"> View&nbsp;▸ **Details**</span>以編輯虛擬器的"
+"設定。"
 
 #. type: Bullet: '  1. '
 msgid "Click on the **Add Hardware** button on the bottom of the left pane."
@@ -462,9 +462,10 @@ msgid "<a id=\"disconnect\"></a>\n"
 msgstr "<a id=\"disconnect\"></a>\n"
 
 #. type: Plain text
+#, fuzzy
 msgid ""
-"You can also disconnect the original ISO image and start directly from the "
-"USB stick once Tails is already installed on it. To do so:"
+"You can also remove the original ISO image and start directly from the USB "
+"stick once Tails is already installed on it. To do so:"
 msgstr ""
 "也可以切斷 ISO 映像檔，直接利用已安裝 Tails 的 USB 隨身碟來開機，其方式為："
 
@@ -480,8 +481,8 @@ msgstr ""
 
 #. type: Bullet: '  1. '
 #, fuzzy
-msgid "Click on the **Disconnect** button in the right pane."
-msgstr "在左側面板下方選取 **Add Hardware**按鍵。"
+msgid "Select **Remove** in the right pane."
+msgstr "在左側面板選取 **USB Host Device**。"
 
 #. type: Bullet: '  1. '
 msgid "To enable the USB stick as a boot option:"
@@ -574,6 +575,10 @@ msgid ""
 msgstr ""
 
 #, fuzzy
+#~ msgid "Click on the **Disconnect** button in the right pane."
+#~ msgstr "在左側面板下方選取 **Add Hardware**按鍵。"
+
+#, fuzzy
 #~ msgid ""
 #~ "To start the virtual machine choose <span class=\"menuchoice\"> <span "
 #~ "class=\"guimenu\">View</span>&nbsp;▸ <span class=\"guimenuitem\">Console</"
@@ -581,8 +586,8 @@ msgstr ""
 #~ "class=\"guimenu\">Virtual Machine</span>&nbsp;▸ <span "
 #~ "class=\"guimenuitem\">Run</span></span>."
 #~ msgstr ""
-#~ "選擇<span class=\"menuchoice\"> View&nbsp;"
-#~ "▸ **Details**</span>以編輯虛擬器的設定。"
+#~ "選擇<span class=\"menuchoice\"> View&nbsp;▸ **Details**</span>以編輯虛擬器"
+#~ "的設定。"
 
 #~ msgid ""
 #~ "Once you started from the USB device you can [[create a persistent volume|"
@@ -651,10 +656,6 @@ msgstr ""
 
 #~ msgid "Then do the following to create a virtual USB storage:"
 #~ msgstr "然後依下面方式來建立一個虛擬的 USB 儲存："
-
-#, fuzzy
-#~ msgid "Select **Storage** in the left pane."
-#~ msgstr "在左側面板選取 **USB Host Device**。"
 
 #~ msgid ""
 #~ "In the right pane, change the **Bus type** to USB and click **Finish**."

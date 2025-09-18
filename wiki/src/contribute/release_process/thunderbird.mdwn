@@ -44,7 +44,7 @@ the Tails images build process.
 
 1. Let's update our branch to the new version:
 
-        git checkout tails/bookworm && git merge origin/tails/bookworm && \
+        git checkout tails/trixie && git merge origin/tails/trixie && \
         git merge --no-edit "${TAG:?}"
 
    For merge conflicts, just `git checkout --theirs` (we only care
@@ -55,7 +55,7 @@ the Tails images build process.
 
 1. Git push:
 
-        git push --follow-tags origin tails/bookworm
+        git push --follow-tags origin tails/trixie
 
 1. Set variables according to your local environment:
 

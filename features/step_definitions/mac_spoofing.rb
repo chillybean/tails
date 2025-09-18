@@ -8,10 +8,11 @@ def all_ethernet_nics
 end
 
 When /^I disable MAC spoofing in Tails Greeter$/ do
-  open_greeter_additional_settings
-  @screen.wait('TailsGreeterMACSpoofing.png', 30).click
-  @screen.wait('TailsGreeterDisableMACSpoofing.png', 10).click
-  @screen.wait('TailsGreeterAdditionalSettingsAdd.png', 10).click
+  dialog = open_greeter_additional_settings
+  dialog.child('MAC Address Anonymization', roleName: 'label').click
+  dialog.child("Don't anonymize MAC addresses", roleName: 'label').click
+  dialog.child('Add', roleName: 'button').click
+  wait_for_welcome_screen_settings_to_vanish
 end
 
 Then /^the (\d+)(?:st|nd|rd|th) network device has (its real|a spoofed) MAC address configured$/ do |dev_nr, mode|

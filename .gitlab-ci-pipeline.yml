@@ -8,7 +8,7 @@ workflow:
 # Please, make sure to only use images from `registry.gitlab.tails.boum.org`,
 # as we give significant privileges to our Runners wrt. what they can do in our
 # repositories.
-image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:bookworm
+image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:trixie
 
 variables:
     GET_SOURCES_ATTEMPTS: 10
@@ -167,7 +167,7 @@ check-isolated-python:
 
 check-udfs-signatures:
   script:
-    - apt-get -qy install python3 python3-debian sqop
+    - apt-get -qy install python3 python3-debian sqopv
     - export VERSION=$(python3 -c 'from debian.changelog import Changelog; print(Changelog(open("debian/changelog"))[0].version)')
     - echo "${VERSION:?}"
     - ./bin/check-udfs-signature
@@ -211,7 +211,7 @@ check-locale-descriptions:
     - ./bin/locale-descriptions suggest
 
 rubocop:
-  image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:bookworm
+  image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:trixie
   script:
   - apt-get -qy install rubocop
   - rubocop --version
@@ -279,7 +279,7 @@ shfmt-changed-files:
 
 test-persistent-storage-config-file:
   script:
-    - apt-get -qy install python3 python3-gi acl
+    - apt-get -qy install python3 python3-gi acl e2fsprogs
     - python3 config/chroot_local-includes/usr/lib/python3/dist-packages/tps/configuration/config_file_test.py
 
 test-python-doctest:
@@ -313,7 +313,7 @@ test-tailslib:
   rules:
     - if: '$CI_COMMIT_BRANCH != "master"'
   script:
-    - apt-get -qy install python3 python3-atomicwrites python3-sh python3-gi git
+    - apt-get -qy install python3 python3-atomicwrites python3-setuptools python3-sh python3-gi git
     - 'cd config/chroot_local-includes/usr/lib/python3/dist-packages ; find tailslib -name "*.py" -print0 | grep --null-data -v -e netnsdrop.py -e gnome.py | xargs -0 -L1 env PYTHONPATH=. python3 -m doctest'
 
 test-whisperback:
@@ -344,10 +344,10 @@ apt-snapshots-expiry:
         - vagrant/definitions/tails-builder/config/APT_snapshots.d/*/serial
 
 .install-https-get-expired-build-deps: &install-https-get-expired-build-deps
-  - apt-get -qy install --no-install-recommends golang-go ca-certificates
+  - apt-get -qy install --no-install-recommends golang-go golang-src ca-certificates binutils
 
 .build-https-get-expired: &build-https-get-expired
-  - go build -o ./https-get-expired config/chroot_local-includes/usr/src/https-get-expired.go
+  - env PREFIX=config/chroot_local-includes ./config/chroot_local-includes/usr/local/lib/build-https-accept-expired
 
 .test-https-get-expired: &test-https-get-expired
   - echo "Basic check:"

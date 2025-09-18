@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-06-26 22:21+0000\n"
+"POT-Creation-Date: 2025-09-17 11:40+0200\n"
 "PO-Revision-Date: 2024-10-17 22:09+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -93,8 +93,8 @@ msgstr ""
 #| "See our explanation about [[why does Tails use Tor|doc/anonymous_internet/"
 #| "tor/why#relationship]]."
 msgid ""
-"See also our explanation about [[why does Tails use Tor|doc/"
-"anonymous_internet/tor/why#relationship]]."
+"See also our explanation about [[why Tails uses Tor|doc/anonymous_internet/"
+"tor/why#relationship]]."
 msgstr ""
 "Lesen Sie hier unsere Erklärung, [[warum Tails Tor benutzt|doc/"
 "anonymous_internet/tor/why#relationship]]."
@@ -147,12 +147,18 @@ msgstr ""
 "- Der schnelle Entwicklungszyklus von Ubuntu wäre zu schnell für Tails."
 
 #. type: Bullet: '- '
+#, fuzzy
+#| msgid ""
+#| "Ubuntu adds features in ways that we find dangerous for privacy. For "
+#| "example Ubuntu One ([partly discontinued](http://blog.canonical.com/"
+#| "2014/04/02/shutting-down-ubuntu-one-file-services/))  and the [Amazon ads "
+#| "and data leaks](https://www.eff.org/deeplinks/2012/10/privacy-ubuntu-1210-"
+#| "amazon-ads-and-data-leaks)."
 msgid ""
-"Ubuntu adds features in ways that we find dangerous for privacy. For example "
-"Ubuntu One ([partly discontinued](http://blog.canonical.com/2014/04/02/"
-"shutting-down-ubuntu-one-file-services/))  and the [Amazon ads and data "
-"leaks](https://www.eff.org/deeplinks/2012/10/privacy-ubuntu-1210-amazon-ads-"
-"and-data-leaks)."
+"Ubuntu adds features in ways that we find dangerous for privacy. For an "
+"example, see [EFF: Privacy in Ubuntu 12.10, Amazon Ads and Data Leaks]"
+"(https://www.eff.org/deeplinks/2012/10/privacy-ubuntu-1210-amazon-ads-and-"
+"data-leaks)."
 msgstr ""
 "Ubuntu fügt Funktionen auf eine Weise hinzu, die wir als gefährlich für die "
 "Privatsphäre erachten. Zum Beispiel Ubuntu One ([teilweise eingestellt]"
@@ -162,11 +168,10 @@ msgstr ""
 
 #. type: Bullet: '- '
 msgid ""
-"Ubuntu is led by a company that takes most of the important decisions and "
-"has the power to make them happen."
+"Ubuntu is led by [Canonical](https://en.wikipedia.org/wiki/Canonical_\\"
+"(company\\)), a for-profit corporation that takes most of the important "
+"decisions."
 msgstr ""
-"Ubuntu wird von einem Unternehmen geführt, das die meisten wichtigen "
-"Entscheidungen trifft und die Macht hat, sie umzusetzen."
 
 #. type: Bullet: '- '
 msgid ""
@@ -192,26 +197,6 @@ msgstr ""
 "Pakete zu tun haben; während dies außerhalb der begrenzten Anzahl von "
 "Paketen, die Ubuntu offiziell unterstützt, im Allgemeinen nicht der Fall ist."
 
-#. type: Bullet: '- '
-msgid ""
-"We are actively working on improving [[AppArmor support|contribute/design/"
-"application_isolation]] in Tails; a security framework that is already used "
-"in a few Ubuntu applications."
-msgstr ""
-"Wir arbeiten aktiv daran, die [[AppArmor-Unterstützung|contribute/design/"
-"application_isolation]] in Tails zu verbessern; ein Sicherheitsframework, "
-"das bereits in einigen Ubuntu-Anwendungen verwendet wird."
-
-#. type: Bullet: '- '
-msgid ""
-"We are also working on adding compiler hardening options to more Debian "
-"packages included in Tails; another security feature that Ubuntu already "
-"provides."
-msgstr ""
-"Wir arbeiten auch daran, mehr Debian-Pakete, die in Tails enthalten sind, "
-"mit Compiler-Härtungsoptionen auszustatten; eine weitere "
-"Sicherheitsfunktion, die Ubuntu bereits bietet."
-
 #. type: Plain text
 #, no-wrap
 msgid "<h2 id=\"gnome\">Why does Tails ship the GNOME Desktop?</h2>\n"
@@ -219,45 +204,48 @@ msgstr "<h2 id=\"gnome\">Warum liefert Tails den GNOME-Desktop aus?</h2>\n"
 
 #. type: Plain text
 msgid ""
-"We had users ask for LXDE, XFCE, MATE, KDE, and so on, but we are not going "
-"to change desktop. According to us, the main drawback of GNOME is that it "
-"requires quite a lot of resources to work properly, but it has many "
-"advantages.  The GNOME Desktop is:"
+"People have asked for Tails with LXDE, XFCE, MATE, KDE, and so on, but we "
+"are not going to use a different desktop."
 msgstr ""
-"Wir hatten Benutzer, die nach LXDE, XFCE, MATE, KDE usw. gefragt haben, aber "
-"wir werden den Desktop nicht ändern. Unserer Meinung nach ist der "
-"Hauptnachteil von GNOME, dass es ziemlich viele Ressourcen benötigt, um "
-"ordnungsgemäß zu funktionieren, aber es hat viele Vorteile. Der GNOME-"
-"Desktop ist:"
+
+#. type: Plain text
+msgid ""
+"The main drawback of GNOME is that it requires quite a lot of resources, but "
+"GNOME has many advantages, especially for users who are new to Linux."
+msgstr ""
+
+#. type: Plain text
+msgid "The GNOME desktop is:"
+msgstr ""
 
 #. type: Bullet: '- '
-#, fuzzy
-#| msgid "- Well integrated, especially for new Linux users."
-msgid "Well integrated, especially for new Linux users."
-msgstr "- Gut integriert, besonders für neue Linux-Benutzer."
+msgid "Well integrated"
+msgstr ""
 
 #. type: Bullet: '- '
 #, fuzzy
 #| msgid "- Very well translated and documented."
-msgid "Very well translated and documented."
+msgid "Very well translated"
 msgstr "- Sehr gut übersetzt und dokumentiert."
 
 #. type: Bullet: '- '
 #, fuzzy
 #| msgid "- Doing relatively good regarding accessibility features."
-msgid "Doing relatively good regarding accessibility features."
+msgid "Doing relatively well in terms of accessibility features"
 msgstr "- Bietet relativ gute Funktionen zur Barrierefreiheit."
 
 #. type: Bullet: '- '
 #, fuzzy
 #| msgid "- Actively developed."
-msgid "Actively developed."
+msgid "Actively developed"
 msgstr "- Aktiv entwickelt."
 
 #. type: Bullet: '- '
-msgid ""
-"Well maintained in [[Debian|faq#debian]], where it is the default desktop "
-"environment."
+#, fuzzy
+#| msgid ""
+#| "Well maintained in [[Debian|faq#debian]], where it is the default desktop "
+#| "environment."
+msgid "Well maintained in Debian, where it is the default desktop"
 msgstr ""
 "Gut gewartet in [[Debian|faq#debian]], wo es die Standard-Desktop-Umgebung "
 "ist."
@@ -273,12 +261,8 @@ msgstr ""
 
 #. type: Plain text
 msgid ""
-"We are not proposing several desktop environments to choose from because we "
-"want to [[limit the amount of software included in Tails|faq#new-software]]."
+"That's also why we are not going to provide more than one desktop option."
 msgstr ""
-"Wir schlagen nicht vor, mehrere Desktop-Umgebungen zur Auswahl anzubieten, "
-"da wir [[die Menge der in Tails enthaltenen Software begrenzen|faq#new-"
-"software]] möchten."
 
 #. type: Plain text
 #, no-wrap
@@ -291,7 +275,9 @@ msgid "<h2 id=\"dedicated-stick\">Do I need a USB stick dedicated to Tails?</h2>
 msgstr "<h2 id=\"dedicated-stick\">Benötige ich einen USB-Stick speziell für Tails?</h2>\n"
 
 #. type: Plain text
-msgid "Yes. Tails requires a USB stick dedicated to only running Tails."
+#, fuzzy
+#| msgid "Yes. Tails requires a USB stick dedicated to only running Tails."
+msgid "Yes. Tails requires a USB stick dedicated to running Tails only."
 msgstr ""
 "Ja. Tails erfordert einen USB-Stick, der nur zum Ausführen von Tails "
 "bestimmt ist."
@@ -458,9 +444,14 @@ msgid "<h2 id=\"integrity\">Can I verify the integrity of a Tails USB stick or D
 msgstr "<h2 id=\"integrity\">Kann ich die Integrität eines Tails-USB-Sticks oder einer DVD überprüfen?</h2>\n"
 
 #. type: Plain text
+#, fuzzy
+#| msgid ""
+#| "It is impossible to verify the integrity of a Tails USB stick or DVD "
+#| "while running Tails from it. It would be like asking to someone whether "
+#| "they are lying: a true liar would always pretend to tell the truth."
 msgid ""
 "It is impossible to verify the integrity of a Tails USB stick or DVD while "
-"running Tails from it. It would be like asking to someone whether they are "
+"running Tails from it. It would be like asking someone whether they are "
 "lying: a true liar would always pretend to tell the truth."
 msgstr ""
 "Es ist unmöglich, die Integrität eines Tails-USB-Sticks oder einer DVD zu "
@@ -573,7 +564,8 @@ msgstr "<h2 id=\"add-ons\">Kann ich andere Add-ons im <span class=\"application\
 #| msgid ""
 #| "Updating add-ons in *Tor Browser* might break the security built in Tails."
 msgid ""
-"Installing add-ons in *Tor Browser* might break the security built in Tails."
+"Installing add-ons in *Tor Browser* might break the security built into "
+"Tails."
 msgstr ""
 "Das Aktualisieren von Add-ons im *Tor Browser* könnte die in Tails "
 "integrierte Sicherheit beeinträchtigen."
@@ -607,27 +599,38 @@ msgstr ""
 "die von einem Angreifer aus der Ferne ausgenutzt werden können.\n"
 
 #. type: Plain text
-#, no-wrap
+#, fuzzy, no-wrap
+#| msgid ""
+#| "3. They can have bugs breaking the security offered by other add-ons\n"
+#| "and break your anonymity.\n"
 msgid ""
-"3. They can have bugs breaking the security offered by other add-ons\n"
+"3. They can have bugs that break the security offered by other add-ons\n"
 "and break your anonymity.\n"
 msgstr ""
 "3. Sie können Fehler aufweisen, die die Sicherheit anderer Add-ons\n"
 "beeinträchtigen und Ihre Anonymität gefährden.\n"
 
 #. type: Plain text
-#, no-wrap
+#, fuzzy, no-wrap
+#| msgid ""
+#| "4. They can break your anonymity by making your browsing behaviour\n"
+#| "distinguishable amongst other Tails users.\n"
 msgid ""
 "4. They can break your anonymity by making your browsing behaviour\n"
-"distinguishable amongst other Tails users.\n"
+"distinguishable from other Tails users.\n"
 msgstr ""
 "4. Sie können Ihre Anonymität gefährden, indem sie Ihr Surfverhalten\n"
 "von anderen Tails-Nutzern unterscheidbar machen.\n"
 
 #. type: Plain text
+#, fuzzy
+#| msgid ""
+#| "Unless proven otherwise, no add-on, apart from the ones already included "
+#| "in Tails, have been seriously audited and should be considered safe to "
+#| "use in this context."
 msgid ""
 "Unless proven otherwise, no add-on, apart from the ones already included in "
-"Tails, have been seriously audited and should be considered safe to use in "
+"Tails, has been seriously audited and should be considered safe to use in "
 "this context."
 msgstr ""
 "Sofern nicht das Gegenteil bewiesen ist, wurden keine Add-ons, außer den "
@@ -673,8 +676,11 @@ msgid "No."
 msgstr "Nein."
 
 #. type: Plain text
+#, fuzzy
+#| msgid ""
+#| "Updating add-ons in *Tor Browser* might break the security built in Tails."
 msgid ""
-"Updating add-ons in *Tor Browser* might break the security built in Tails."
+"Updating add-ons in *Tor Browser* might break the security built into Tails."
 msgstr ""
 "Das Aktualisieren von Add-ons im *Tor Browser* könnte die in Tails "
 "integrierte Sicherheit beeinträchtigen."
@@ -707,9 +713,8 @@ msgstr ""
 msgid ""
 "As explained in our documentation about [[the fingerprint of *Tor Browser* "
 "in Tails|doc/anonymous_internet/Tor_Browser#fingerprint]], Tails provides "
-"anonymity by making it difficult to distinguish a particular user amongst "
-"all the users of *Tor Browser* (either in Tails or on other operating "
-"systems)."
+"anonymity by making it difficult to distinguish you from other users of *Tor "
+"Browser* (either in Tails or on other operating systems)."
 msgstr ""
 "Wie in unserer Dokumentation über \n"
 "[[den Fingerabdruck des *Tor Browsers* in Tails|doc/anonymous_internet/"
@@ -728,21 +733,6 @@ msgstr ""
 "Die von solchen Fingerprinting-Websites abgerufenen Informationen sind an "
 "sich nicht schädlich für die Anonymität, solange sie für alle Benutzer des "
 "<span class=\"application\">Tor Browsers</span> gleich sind."
-
-#. type: Plain text
-#, no-wrap
-msgid ""
-"For example, the user-agent string of *Tor Browser* includes\n"
-"<em>Windows NT</em> but this value preserves your anonymity even if\n"
-"you run Windows NT. On the other hand, changing this value makes you distinguishable from\n"
-"other users of *Tor Browser* and, as a\n"
-"consequence, weakens your anonymity.\n"
-msgstr ""
-"Zum Beispiel enthält der User-Agent-String des <span class=\"application\">Tor Browsers</span>\n"
-"<em>Windows NT</em>, aber dieser Wert schützt Ihre Anonymität, selbst wenn\n"
-"Sie Windows NT verwenden. Andererseits macht das Ändern dieses Wertes Sie von anderen\n"
-"Benutzern des <span class=\"application\">Tor Browsers</span> unterscheidbar\n"
-"und schwächt somit Ihre Anonymität.\n"
 
 #. type: Plain text
 msgid ""
@@ -776,6 +766,11 @@ msgstr ""
 "Netzwerk sowohl den Ursprung als auch das Ziel einer Verbindung kennt."
 
 #. type: Plain text
+#, no-wrap
+msgid "[[!img doc/anonymous_internet/tor/tor.png link=\"no\" class=\"svg\" alt=\"A Tor connection goes through 3 relays with the last one establishing the actual connection to the final destination\"]]\n"
+msgstr ""
+
+#. type: Plain text
 msgid ""
 "Unlike Tor, VPNs don't provide strong anonymity because the VPN provider can "
 "see both where you are connecting from and where you are connecting to."
@@ -783,6 +778,11 @@ msgstr ""
 "Im Gegensatz zu Tor bieten VPNs keine starke Anonymität, da der VPN-Anbieter "
 "sowohl sehen kann, von wo Sie sich verbinden, als auch zu welchem Ziel Sie "
 "sich verbinden."
+
+#. type: Plain text
+#, no-wrap
+msgid "[[!img doc/anonymous_internet/tor/vpn.png link=\"no\" class=\"svg\" alt=\"A VPN connection goes through a single relay\"]]\n"
+msgstr ""
 
 #. type: Plain text
 msgid ""
@@ -895,13 +895,18 @@ msgid "<h2 id=\"htp\">Why does Tails automatically connect to websites when star
 msgstr "<h2 id=\"htp\">Warum verbindet sich Tails beim Start automatisch mit Websites?</h2>\n"
 
 #. type: Plain text
-msgid "The clock of the computer needs to be set at the correct time to both:"
+#, fuzzy
+#| msgid ""
+#| "The clock of the computer needs to be set at the correct time to both:"
+msgid "The clock of the computer needs to be set at the correct time for both:"
 msgstr ""
 "Die Uhr des Computers muss auf die richtige Zeit eingestellt werden, um "
 "sowohl:"
 
 #. type: Bullet: '1. '
-msgid "Be able to connect to the Tor network in the first place"
+#, fuzzy
+#| msgid "Be able to connect to the Tor network in the first place"
+msgid "Being able to connect to the Tor network."
 msgstr "Um sich überhaupt mit dem Tor-Netzwerk verbinden zu können"
 
 #. type: Plain text
@@ -916,15 +921,21 @@ msgstr ""
 "   [[manuell|doc/anonymous_internet/tor/troubleshoot#clock]].\n"
 
 #. type: Bullet: '2. '
-msgid "Protect your anonymity while using Tor"
+#, fuzzy
+#| msgid "Protect your anonymity while using Tor"
+msgid "Protecting your anonymity while using Tor."
 msgstr "Schützen Sie Ihre Anonymität bei der Nutzung von Tor"
 
 #. type: Plain text
-#, no-wrap
+#, fuzzy, no-wrap
+#| msgid ""
+#| "   The computer clock is fixed a second time, precisely, to prevent a website\n"
+#| "   from identifying you by analyzing minor differences of your computer clock\n"
+#| "   with the correct time.\n"
 msgid ""
 "   The computer clock is fixed a second time, precisely, to prevent a website\n"
-"   from identifying you by analyzing minor differences of your computer clock\n"
-"   with the correct time.\n"
+"   from identifying you by analyzing minor differences between your computer clock\n"
+"   and the correct time.\n"
 msgstr ""
 "   Die Computeruhr wird ein zweites Mal genau eingestellt, um zu verhindern,\n"
 "   dass eine Website Sie identifiziert, indem sie geringfügige Unterschiede\n"
@@ -1028,18 +1039,19 @@ msgstr ""
 
 #. type: Plain text
 msgid ""
-"First of all, make sure that this software is already available in Debian, "
-"as this is a requirement to be included in Tails. Adding to Tails software "
-"which is not in Debian imply an additional workload that could compromise "
-"the sustainability of the project. On top of that, being in Debian brings "
-"many advantages:"
+"First, make sure that this software is already available in Debian, as this "
+"is a requirement to be included in Tails."
 msgstr ""
-"Zunächst einmal sollten Sie sicherstellen, dass diese Software bereits in "
-"Debian verfügbar ist, da dies eine Voraussetzung für die Aufnahme in Tails "
-"ist. Das Hinzufügen von Software zu Tails, die nicht in Debian enthalten "
-"ist, bedeutet eine zusätzliche Arbeitsbelastung, die die Nachhaltigkeit des "
-"Projekts gefährden könnte. Darüber hinaus bringt die Aufnahme in Debian "
-"viele Vorteile mit sich:"
+
+#. type: Plain text
+msgid ""
+"Adding to Tails software that is not in Debian implies extra work that could "
+"compromise the sustainability of the project."
+msgstr ""
+
+#. type: Plain text
+msgid "Being in Debian brings many advantages:"
+msgstr ""
 
 #. type: Bullet: '- '
 #, fuzzy
@@ -1067,10 +1079,15 @@ msgstr ""
 "Benutzer und Derivate, einschließlich Ubuntu."
 
 #. type: Plain text
+#, fuzzy
+#| msgid ""
+#| "To check whether a software is in Debian, search for it on <https://"
+#| "packages.debian.org/>. If it is not yet available in Debian, you should "
+#| "ask its developers why it is not the case yet."
 msgid ""
-"To check whether a software is in Debian, search for it on <https://"
-"packages.debian.org/>. If it is not yet available in Debian, you should ask "
-"its developers why it is not the case yet."
+"To check whether some software is in Debian, search for it on <https://"
+"packages.debian.org/>. If it is not yet available in Debian, ask its "
+"developers why it is not the case yet."
 msgstr ""
 "Um zu überprüfen, ob eine Software in Debian verfügbar ist, suchen Sie sie "
 "auf <https://packages.debian.org/>. Wenn sie noch nicht in Debian verfügbar "
@@ -1270,11 +1287,14 @@ msgstr ""
 "  nur TCP-Verbindungen, wie sie für HTTP und E-Mail verwendet werden.\n"
 
 #. type: Plain text
-#, no-wrap
+#, fuzzy, no-wrap
+#| msgid ""
+#| "  The Tor Project is working on [supporting UDP traffic over\n"
+#| "  Tor](https://gitlab.torproject.org/tpo/core/torspec/-/issues/73), which\n"
+#| "  should remove this limitation.\n"
 msgid ""
-"  The Tor Project is working on [supporting UDP traffic over\n"
-"  Tor](https://gitlab.torproject.org/tpo/core/torspec/-/issues/73), which\n"
-"  should remove this limitation.\n"
+"  To remove this limitation, the Tor Project is working on [supporting UDP traffic over\n"
+"  Tor](https://spec.torproject.org/proposals/339-udp-over-tor.htm).\n"
 msgstr ""
 "  Das Tor-Projekt arbeitet an der [Unterstützung von UDP-Verkehr über\n"
 "  Tor](https://gitlab.torproject.org/tpo/core/torspec/-/issues/73), wodurch\n"
@@ -1325,7 +1345,9 @@ msgstr ""
 "in Zukunft nicht tun."
 
 #. type: Plain text
-msgid "The problem with using BitTorrent over Tor is double:"
+#, fuzzy
+#| msgid "The problem with using BitTorrent over Tor is double:"
+msgid "There are 2 problems with using BitTorrent over Tor:"
 msgstr "Das Problem mit der Verwendung von BitTorrent über Tor ist doppelt:"
 
 #. type: Bullet: '- '
@@ -1343,45 +1365,6 @@ msgid ""
 msgstr ""
 "Es schadet dem Netzwerk, siehe: <https://blog.torproject.org/why-tor-slow-"
 "and-what-were-going-do-about-it>."
-
-#. type: Plain text
-#, no-wrap
-msgid "<h2 id=\"youtube\">Can I download videos from websites?</h2>\n"
-msgstr "<h2 id=\"youtube\">Kann ich Videos von Websites herunterladen?</h2>\n"
-
-#. type: Plain text
-msgid ""
-"You can install `youtube-dl` as [[Additional Software|doc/persistent_storage/"
-"additional_software]]. *youtube-dl* allows downloading videos from more than "
-"[700 websites](https://github.com/rg3/youtube-dl/blob/master/docs/"
-"supportedsites.md)."
-msgstr ""
-"Sie können `youtube-dl` als [[Zusätzliche Software|doc/persistent_storage/"
-"additional_software]] installieren. *youtube-dl* ermöglicht das "
-"Herunterladen von Videos von mehr als [700 Websites](https://github.com/rg3/"
-"youtube-dl/blob/master/docs/supportedsites.md)."
-
-#. type: Plain text
-msgid ""
-"For example, to download a YouTube video, execute the following command in a "
-"terminal:"
-msgstr ""
-"Um beispielsweise ein YouTube-Video herunterzuladen, führen Sie den "
-"folgenden Befehl in einem Terminal aus:"
-
-#. type: Plain text
-#, no-wrap
-msgid "<p class=\"command\">torsocks youtube-dl \"https://www.youtube.com/watch?v=JWII85UlzKw\"</p>\n"
-msgstr "<p class=\"command\">torsocks youtube-dl \"https://www.youtube.com/watch?v=fzeBfbHb0ZY\"</p>\n"
-
-#. type: Plain text
-msgid ""
-"For more information, refer to the official [*youtube-dl* website](https://"
-"ytdl-org.github.io/youtube-dl/index.html)."
-msgstr ""
-"Für weitere Informationen besuchen Sie die offizielle [<span "
-"class=\"application\">youtube-dl</span>-Website](https://ytdl-org.github.io/"
-"youtube-dl/index.html)."
 
 #. type: Plain text
 #, no-wrap
@@ -1421,7 +1404,7 @@ msgstr "<h2 id=\"antivirus\">Braucht Tails ein Antivirus-Programm?</h2>\n"
 #| "antivirus softwares, including the permission design of Linux systems."
 msgid ""
 "No, as other Linux systems, Tails doesn't require an antivirus to protect "
-"itself from most malwares, such as viruses, trojans, and worms. There are "
+"itself from most malware, such as viruses, trojans, and worms. There are "
 "various reasons why Linux operating systems generally don't need antivirus "
 "software, including the permission design of Linux systems."
 msgstr ""
@@ -1445,7 +1428,9 @@ msgid "<h2 id=\"old-software\">Why does Tails include old versions of software?<
 msgstr "<h2 id=\"old-software\">Warum enthält Tails alte Versionen von Software?</h2>\n"
 
 #. type: Plain text
-msgid "The Tails 6 series is based on Debian 12 (Bookworm)."
+#, fuzzy
+#| msgid "The Tails 6 series is based on Debian 12 (Bookworm)."
+msgid "The Tails 7 series is based on Debian 13 (Trixie)."
 msgstr "Die Tails 6-Serie basiert auf Debian 12 (Bookworm)."
 
 #. type: Plain text
@@ -1477,6 +1462,119 @@ msgid ""
 msgstr ""
 "Sie können sehen, welche Version eines Softwarepakets in jeder Version von "
 "Debian verfügbar ist, unter <https://packages.debian.org/>."
+
+#~ msgid ""
+#~ "Ubuntu is led by a company that takes most of the important decisions and "
+#~ "has the power to make them happen."
+#~ msgstr ""
+#~ "Ubuntu wird von einem Unternehmen geführt, das die meisten wichtigen "
+#~ "Entscheidungen trifft und die Macht hat, sie umzusetzen."
+
+#~ msgid ""
+#~ "We are actively working on improving [[AppArmor support|contribute/design/"
+#~ "application_isolation]] in Tails; a security framework that is already "
+#~ "used in a few Ubuntu applications."
+#~ msgstr ""
+#~ "Wir arbeiten aktiv daran, die [[AppArmor-Unterstützung|contribute/design/"
+#~ "application_isolation]] in Tails zu verbessern; ein Sicherheitsframework, "
+#~ "das bereits in einigen Ubuntu-Anwendungen verwendet wird."
+
+#~ msgid ""
+#~ "We are also working on adding compiler hardening options to more Debian "
+#~ "packages included in Tails; another security feature that Ubuntu already "
+#~ "provides."
+#~ msgstr ""
+#~ "Wir arbeiten auch daran, mehr Debian-Pakete, die in Tails enthalten sind, "
+#~ "mit Compiler-Härtungsoptionen auszustatten; eine weitere "
+#~ "Sicherheitsfunktion, die Ubuntu bereits bietet."
+
+#~ msgid ""
+#~ "We had users ask for LXDE, XFCE, MATE, KDE, and so on, but we are not "
+#~ "going to change desktop. According to us, the main drawback of GNOME is "
+#~ "that it requires quite a lot of resources to work properly, but it has "
+#~ "many advantages.  The GNOME Desktop is:"
+#~ msgstr ""
+#~ "Wir hatten Benutzer, die nach LXDE, XFCE, MATE, KDE usw. gefragt haben, "
+#~ "aber wir werden den Desktop nicht ändern. Unserer Meinung nach ist der "
+#~ "Hauptnachteil von GNOME, dass es ziemlich viele Ressourcen benötigt, um "
+#~ "ordnungsgemäß zu funktionieren, aber es hat viele Vorteile. Der GNOME-"
+#~ "Desktop ist:"
+
+#, fuzzy
+#~| msgid "- Well integrated, especially for new Linux users."
+#~ msgid "Well integrated, especially for new Linux users."
+#~ msgstr "- Gut integriert, besonders für neue Linux-Benutzer."
+
+#~ msgid ""
+#~ "We are not proposing several desktop environments to choose from because "
+#~ "we want to [[limit the amount of software included in Tails|faq#new-"
+#~ "software]]."
+#~ msgstr ""
+#~ "Wir schlagen nicht vor, mehrere Desktop-Umgebungen zur Auswahl "
+#~ "anzubieten, da wir [[die Menge der in Tails enthaltenen Software "
+#~ "begrenzen|faq#new-software]] möchten."
+
+#, no-wrap
+#~ msgid ""
+#~ "For example, the user-agent string of *Tor Browser* includes\n"
+#~ "<em>Windows NT</em> but this value preserves your anonymity even if\n"
+#~ "you run Windows NT. On the other hand, changing this value makes you distinguishable from\n"
+#~ "other users of *Tor Browser* and, as a\n"
+#~ "consequence, weakens your anonymity.\n"
+#~ msgstr ""
+#~ "Zum Beispiel enthält der User-Agent-String des <span class=\"application\">Tor Browsers</span>\n"
+#~ "<em>Windows NT</em>, aber dieser Wert schützt Ihre Anonymität, selbst wenn\n"
+#~ "Sie Windows NT verwenden. Andererseits macht das Ändern dieses Wertes Sie von anderen\n"
+#~ "Benutzern des <span class=\"application\">Tor Browsers</span> unterscheidbar\n"
+#~ "und schwächt somit Ihre Anonymität.\n"
+
+#~ msgid ""
+#~ "First of all, make sure that this software is already available in "
+#~ "Debian, as this is a requirement to be included in Tails. Adding to Tails "
+#~ "software which is not in Debian imply an additional workload that could "
+#~ "compromise the sustainability of the project. On top of that, being in "
+#~ "Debian brings many advantages:"
+#~ msgstr ""
+#~ "Zunächst einmal sollten Sie sicherstellen, dass diese Software bereits in "
+#~ "Debian verfügbar ist, da dies eine Voraussetzung für die Aufnahme in "
+#~ "Tails ist. Das Hinzufügen von Software zu Tails, die nicht in Debian "
+#~ "enthalten ist, bedeutet eine zusätzliche Arbeitsbelastung, die die "
+#~ "Nachhaltigkeit des Projekts gefährden könnte. Darüber hinaus bringt die "
+#~ "Aufnahme in Debian viele Vorteile mit sich:"
+
+#, no-wrap
+#~ msgid "<h2 id=\"youtube\">Can I download videos from websites?</h2>\n"
+#~ msgstr "<h2 id=\"youtube\">Kann ich Videos von Websites herunterladen?</h2>\n"
+
+#~ msgid ""
+#~ "You can install `youtube-dl` as [[Additional Software|doc/"
+#~ "persistent_storage/additional_software]]. *youtube-dl* allows downloading "
+#~ "videos from more than [700 websites](https://github.com/rg3/youtube-dl/"
+#~ "blob/master/docs/supportedsites.md)."
+#~ msgstr ""
+#~ "Sie können `youtube-dl` als [[Zusätzliche Software|doc/persistent_storage/"
+#~ "additional_software]] installieren. *youtube-dl* ermöglicht das "
+#~ "Herunterladen von Videos von mehr als [700 Websites](https://github.com/"
+#~ "rg3/youtube-dl/blob/master/docs/supportedsites.md)."
+
+#~ msgid ""
+#~ "For example, to download a YouTube video, execute the following command "
+#~ "in a terminal:"
+#~ msgstr ""
+#~ "Um beispielsweise ein YouTube-Video herunterzuladen, führen Sie den "
+#~ "folgenden Befehl in einem Terminal aus:"
+
+#, no-wrap
+#~ msgid "<p class=\"command\">torsocks youtube-dl \"https://www.youtube.com/watch?v=JWII85UlzKw\"</p>\n"
+#~ msgstr "<p class=\"command\">torsocks youtube-dl \"https://www.youtube.com/watch?v=fzeBfbHb0ZY\"</p>\n"
+
+#~ msgid ""
+#~ "For more information, refer to the official [*youtube-dl* website]"
+#~ "(https://ytdl-org.github.io/youtube-dl/index.html)."
+#~ msgstr ""
+#~ "Für weitere Informationen besuchen Sie die offizielle [<span "
+#~ "class=\"application\">youtube-dl</span>-Website](https://ytdl-"
+#~ "org.github.io/youtube-dl/index.html)."
 
 #, no-wrap
 #~ msgid "Installing add-ons in <span class=\"application\">Tor Browser</span> might break the security built in Tails.\n"

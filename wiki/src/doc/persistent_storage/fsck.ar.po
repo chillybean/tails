@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-08-06 10:13+0000\n"
+"POT-Creation-Date: 2025-09-17 11:40+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -134,7 +134,7 @@ msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid "[[!img repair.png link=\"no\" class=\"screenshot\" alt=\"File System Errors dialog in Welcome Screen\"]]\n"
+msgid "[[!img repair.png class=\"screenshot\" alt=\"File System Errors dialog in Welcome Screen\"]]\n"
 msgstr ""
 
 #. type: Plain text
@@ -278,7 +278,8 @@ msgid "Choose to start without unlocking your Persistent Storage."
 msgstr ""
 
 #. type: Bullet: '1. '
-msgid "Choose **Applications&nbsp;▸ Files** to open the *Files* browser."
+msgid ""
+"Choose **Apps&nbsp;▸ Accessories&nbsp;▸ Files** to open the *Files* browser."
 msgstr ""
 
 #. type: Bullet: '1. '
@@ -312,8 +313,7 @@ msgstr ""
 
 #. type: Bullet: '1. '
 msgid ""
-"Choose **Applications&nbsp;▸ Utilities&nbsp;▸ Disks** to open the *Disks* "
-"utility."
+"Choose **Apps&nbsp;▸ Utilities&nbsp;▸ Disks** to open the *Disks* utility."
 msgstr ""
 
 #. type: Bullet: '1. '
@@ -359,7 +359,7 @@ msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid "   [[!img disks.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
+msgid "   [[!img disks.png class=\"screenshot\" alt=\"\"]]\n"
 msgstr ""
 
 #. type: Bullet: '1. '
@@ -462,8 +462,8 @@ msgstr ""
 
 #. type: Bullet: '1. '
 msgid ""
-"Choose **[[!img lib/system-run.png alt=\"Additional partition options\" "
-"class=symbolic link=\"no\"]]&nbsp;▸ Create Partition Image**."
+"Choose **[[!img lib/system-run.png link=\"no\" class=\"symbolic\" "
+"alt=\"Additional partition options\"]]&nbsp;▸ Create Partition Image**."
 msgstr ""
 
 #. type: Bullet: '1. '
@@ -536,25 +536,25 @@ msgstr ""
 #. type: Bullet: '1. '
 msgid ""
 "Right-click in the empty space of the right pane and choose **Open in "
-"Terminal** in the shortcut menu."
+"Console** in the shortcut menu."
 msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid "   Doing so opens a terminal that is configured to operate in this folder.\n"
+msgid "   Doing so opens a console that is configured to operate in this folder.\n"
 msgstr ""
 
 #. type: Bullet: '1. '
 msgid ""
-"In the terminal, execute the following command. Replace <span "
-"class=\"command-placeholder\">/dev/mapper/luks-xyz</span> with the device "
-"name found when [[identifying your *Persistent Storage* in the *Disks* "
-"utility|fsck#identify]]."
+"In the console, execute the following command. Replace <span class=\"command-"
+"placeholder\">/dev/mapper/luks-xyz</span> with the device name found when "
+"[[identifying your *Persistent Storage* in the *Disks* utility|"
+"fsck#identify]]."
 msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid "   <p class=\"command-template\">ddrescue <span class=\"command-placeholder\">/dev/mapper/luks-xyz</span> persistent-storage.img ddrescue.log</p>\n"
+msgid "   <p class=\"command-template\">sudo ddrescue <span class=\"command-placeholder\">/dev/mapper/luks-xyz</span> persistent-storage.img ddrescue.log</p>\n"
 msgstr ""
 
 #. type: Plain text
@@ -565,7 +565,7 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid ""
-"       GNU ddrescue 1.27\n"
+"       GNU ddrescue 1.29\n"
 "       Press Ctrl-C to interrupt\n"
 "            ipos:  749404 kB, non-trimmed:        0 B,  current rate:  34996 kB/s\n"
 "            ipos:    1446 MB, non-trimmed:        0 B,  current rate:  24772 kB/s\n"
@@ -697,7 +697,7 @@ msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid "   [[!img repair.png link=\"no\" class=\"screenshot\" alt=\"File System Errors dialog in Welcome Screen\"]]\n"
+msgid "   [[!img repair.png class=\"screenshot\" alt=\"File System Errors dialog in Welcome Screen\"]]\n"
 msgstr ""
 
 #. type: Bullet: '1. '
@@ -718,7 +718,7 @@ msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid "   [[!img repairing.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
+msgid "   [[!img repairing.png class=\"screenshot\" alt=\"\"]]\n"
 msgstr ""
 
 #. type: Bullet: '1. '
@@ -853,8 +853,8 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid ""
-"   In the attributes listed below the volume, verify that the content of the\n"
-"   volume is mounted at */home/amnesia/Persistent*.\n"
+"   In the attributes below the volume, verify that its device is\n"
+"   */dev/mapper/TailsData_unlocked*.\n"
 msgstr ""
 
 #. type: Bullet: '1. '
@@ -990,33 +990,39 @@ msgstr ""
 
 #. type: Bullet: '1. '
 msgid ""
-"Execute the following commands in a *Terminal*. You might have to adjust to "
-"newer versions of *Autopsy*."
+"Execute the following commands in a *Console*. Replace <span class=\"command-"
+"placeholder\">version</span> with the version number of *The Sleuth Kit* and "
+"*Autopsy* that you downloaded."
 msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid "   <p class=\"command\">bash install_prereqs_ubuntu.sh</p>\n"
+msgid "   <!-- The packages openjdk-17-jdk/unstable and openjdk-17-jre/unstable are needed in Debian 13 (Trixie). -->\n"
 msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid "   <p class=\"command\">sudo apt install libsqlite3-dev libc3p0-java unzip</p>\n"
+msgid "   <p class=\"command\">sudo apt install libsqlite3-dev libc3p0-java unzip openjdk-17-jdk/unstable openjdk-17-jre/unstable</p>\n"
 msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid "   <p class=\"command\">sudo dpkg -i sleuthkit-java_4.12.1-1_amd64.deb</p>\n"
+msgid "   <p class=\"command\">sudo bash install_prereqs_ubuntu.sh</p>\n"
 msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid "   <p class=\"command\">bash install_application.sh -z autopsy-4.21.0.zip -i ~/Persistent/autopsy -j /usr/lib/jvm/java-17-openjdk-amd64</p>\n"
+msgid "   <p class=\"command\">sudo dpkg -i sleuthkit-java_<span class=\"command-placeholder\">version</span>_amd64.deb</p>\n"
 msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid "   <p class=\"command\">/home/amnesia/Persistent/autopsy/autopsy-4.21.0/bin/autopsy</p>\n"
+msgid "   <p class=\"command\">bash install_application.sh -z autopsy-<span class=\"command-placeholder\">version</span>.zip -i ~/Persistent/autopsy -j /usr/lib/jvm/java-17-openjdk-amd64</p>\n"
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid "   <p class=\"command\">/home/amnesia/Persistent/autopsy/autopsy-<span class=\"command-placeholder\">version</span>/bin/autopsy</p>\n"
 msgstr ""
 
 #. type: Bullet: '1. '
@@ -1060,7 +1066,7 @@ msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid "   [[!img autopsy.png link=\"no\" class=\"screenshot\" alt=\"Autopsy in Tails showing files recovered from the partition image of a Persistent Storage\"]]\n"
+msgid "   [[!img autopsy.png class=\"screenshot\" alt=\"Autopsy in Tails showing files recovered from the partition image of a Persistent Storage\"]]\n"
 msgstr ""
 
 #. type: Bullet: '1. '

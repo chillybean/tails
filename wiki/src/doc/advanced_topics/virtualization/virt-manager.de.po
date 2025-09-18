@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-06-24 15:31-0600\n"
+"POT-Creation-Date: 2025-09-17 11:40+0200\n"
 "PO-Revision-Date: 2024-10-20 20:09+0000\n"
 "Last-Translator: Benjamin Held <Benjamin.Held@protonmail.com>\n"
 "Language-Team: \n"
@@ -68,8 +68,9 @@ msgid "<div class=\"note\">\n"
 msgstr "<div class=\"note\">\n"
 
 #. type: Plain text
-#, no-wrap
-msgid "<p>The following instructions have been tested on Debian 12 (Bookworm).</p>\n"
+#, fuzzy, no-wrap
+#| msgid "<p>The following instructions have been tested on Debian 12 (Bookworm).</p>\n"
+msgid "<p>The following instructions have been tested on Debian 13 (Trixie).</p>\n"
 msgstr "<p>Die nachfolgenden Anweisungen wurden unter Debian 12 (Bookworm) getestet.</p>\n"
 
 #. type: Title =
@@ -188,15 +189,15 @@ msgstr ""
 #, fuzzy
 #| msgid ""
 #| "Choose <span class=\"menuchoice\"> <span class=\"guimenu\">View</"
-#| "span>&nbsp;▸ **Details**</span> to edit "
-#| "the configuration of the virtual machine."
+#| "span>&nbsp;▸ **Details**</span> to edit the configuration of the virtual "
+#| "machine."
 msgid ""
 "To create a new virtual machine, choose <b>File&nbsp;▸ New Virtual Machine</"
 "b>."
 msgstr ""
 "Wählen Sie <span class=\"menuchoice\"> <span class=\"guimenu\">Ansicht</"
-"span>&nbsp;▸ **Details**</span>, um die "
-"Konfiguration der virtuellen Maschine zu bearbeiten."
+"span>&nbsp;▸ **Details**</span>, um die Konfiguration der virtuellen "
+"Maschine zu bearbeiten."
 
 #. type: Bullet: '1. '
 msgid "In *step 1*, choose **Local install media (ISO image or CDROM)**."
@@ -208,7 +209,7 @@ msgstr ""
 
 #. type: Bullet: '   1. '
 msgid ""
-"**Choose ISO image**, then **Browse...**, and **Browse Local** to browse for "
+"Select the **Browse** button and then the **Browse Local** button to choose "
 "the ISO image that you want to start from."
 msgstr ""
 
@@ -217,14 +218,14 @@ msgid ""
 "Unselect **Automatically detected from the installation media / source**."
 msgstr ""
 
-#. type: Bullet: '   1. '
+#. type: Bullet: '   3. '
 msgid ""
-"Specify **Debian 11** in the field **Choose the operating system you are "
+"Enter **Debian 13** in the field **Choose the operating system you are "
 "installing**."
 msgstr ""
 
 #. type: Bullet: '1. '
-msgid "In *step 3*, allocate at least 2048 MB of RAM."
+msgid "In *step 3*, allocate at least 3072 MB of RAM."
 msgstr ""
 
 #. type: Bullet: '1. '
@@ -285,7 +286,7 @@ msgid ""
 "    select the <b>default</b> virtual network in\n"
 "    the left pane.</li>\n"
 "<li>Click on the [[!img lib/media-playback-start.png alt=\"Start Network\"\n"
-"    link=no class=symbolic]] icon on the bottom of the left pane to\n"
+"    link=\"no\" class=\"symbolic\"]] icon on the bottom of the left pane to\n"
 "    start the default virtual network.</li>\n"
 "</ol>\n"
 msgstr ""
@@ -368,8 +369,12 @@ msgstr ""
 
 #. type: Bullet: '   1. '
 msgid ""
-"Choose **Browse...**, and **Browse Local** to browse for the USB image that "
-"you want to start from."
+"Specify **Debian 11** in the field **Choose the operating system you are "
+"installing**."
+msgstr ""
+
+#. type: Bullet: '1. '
+msgid "In *step 3*, allocate at least 2048 MB of RAM."
 msgstr ""
 
 #. type: Bullet: '1. '
@@ -404,7 +409,7 @@ msgid "Expand the **Advanced options**."
 msgstr ""
 
 #. type: Bullet: '   1. '
-msgid "Enable **Removable**."
+msgid "Select **Removable**."
 msgstr ""
 
 #. type: Bullet: '   1. '
@@ -503,9 +508,13 @@ msgid "<a id=\"disconnect\"></a>\n"
 msgstr "<a id=\"disconnect\"></a>\n"
 
 #. type: Plain text
+#, fuzzy
+#| msgid ""
+#| "You can also disconnect the original ISO image and start directly from "
+#| "the USB stick once Tails is already installed on it. To do so:"
 msgid ""
-"You can also disconnect the original ISO image and start directly from the "
-"USB stick once Tails is already installed on it. To do so:"
+"You can also remove the original ISO image and start directly from the USB "
+"stick once Tails is already installed on it. To do so:"
 msgstr ""
 "Sie können das ursprüngliche ISO-Image auch trennen und direkt vom USB-Stick "
 "starten, sobald Tails darauf installiert wurde. Um dies zu tun:"
@@ -522,11 +531,9 @@ msgstr ""
 
 #. type: Bullet: '  1. '
 #, fuzzy
-#| msgid "Click on the **Add Hardware** button on the bottom of the left pane."
-msgid "Click on the **Disconnect** button in the right pane."
-msgstr ""
-"Klicken Sie auf die Schaltfläche **Hardware hinzufügen** im unteren Teil des "
-"linken Fensterbereichs."
+#| msgid "Select **Storage** in the left pane."
+msgid "Select **Remove** in the right pane."
+msgstr "Wählen Sie im linken Fensterbereich **Storage** aus."
 
 #. type: Bullet: '  1. '
 msgid "To enable the USB stick as a boot option:"
@@ -624,9 +631,17 @@ msgstr ""
 
 #, fuzzy
 #~| msgid ""
+#~| "Click on the **Add Hardware** button on the bottom of the left pane."
+#~ msgid "Click on the **Disconnect** button in the right pane."
+#~ msgstr ""
+#~ "Klicken Sie auf die Schaltfläche **Hardware hinzufügen** im unteren Teil "
+#~ "des linken Fensterbereichs."
+
+#, fuzzy
+#~| msgid ""
 #~| "Choose <span class=\"menuchoice\"> <span class=\"guimenu\">View</"
-#~| "span>&nbsp;▸ **Details**</span> to edit "
-#~| "the configuration of the virtual machine."
+#~| "span>&nbsp;▸ **Details**</span> to edit the configuration of the virtual "
+#~| "machine."
 #~ msgid ""
 #~ "To start the virtual machine choose <span class=\"menuchoice\"> <span "
 #~ "class=\"guimenu\">View</span>&nbsp;▸ <span class=\"guimenuitem\">Console</"
@@ -635,8 +650,8 @@ msgstr ""
 #~ "class=\"guimenuitem\">Run</span></span>."
 #~ msgstr ""
 #~ "Wählen Sie <span class=\"menuchoice\"> <span class=\"guimenu\">Ansicht</"
-#~ "span>&nbsp;▸ **Details**</span>, um die "
-#~ "Konfiguration der virtuellen Maschine zu bearbeiten."
+#~ "span>&nbsp;▸ **Details**</span>, um die Konfiguration der virtuellen "
+#~ "Maschine zu bearbeiten."
 
 #, fuzzy, no-wrap
 #~| msgid ""
@@ -760,9 +775,6 @@ msgstr ""
 #~ msgstr ""
 #~ "Tun Sie anschließend folgendes, um einen virtuellen USB-Speicher zu "
 #~ "erstellen:"
-
-#~ msgid "Select **Storage** in the left pane."
-#~ msgstr "Wählen Sie im linken Fensterbereich **Storage** aus."
 
 #~ msgid ""
 #~ "In the right pane, change the **Bus type** to USB and click **Finish**."

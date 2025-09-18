@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-06-24 16:26-0600\n"
+"POT-Creation-Date: 2025-09-17 11:40+0200\n"
 "PO-Revision-Date: 2024-05-20 17:55+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: Arabic <http://translate.tails.net/projects/tails/"
@@ -69,6 +69,24 @@ msgid "The GNOME desktop allows you to open encrypted volumes."
 msgstr ""
 
 #. type: Plain text
+#, fuzzy, no-wrap
+msgid "<div class=\"attack\">\n"
+msgstr "<div class=\"tip\">\n"
+
+#. type: Plain text
+#, no-wrap
+msgid "<p>Such encrypted volumes, like the Persistent Storage, are not hidden.</p>\n"
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid ""
+"<p>An attacker in possession of the device can know that there is an encrypted\n"
+"volume on it. Take into consideration that you can be forced or tricked to give\n"
+"out its passphrase.</p>\n"
+msgstr ""
+
+#. type: Plain text
 #, no-wrap
 msgid "<h2 id=\"comparison\">Comparison between <i>LUKS</i> and <i>VeraCrypt</i></h2>\n"
 msgstr ""
@@ -92,8 +110,7 @@ msgstr "<h2 class=\"bullet-number-three\">Erstellen Sie eine neue, verschlüssel
 
 #. type: Bullet: '1. '
 msgid ""
-"Choose **Applications**&nbsp;▸ **Utilities**&nbsp;▸ **Disks** to open the "
-"*Disks* utility."
+"Choose **Apps&nbsp;▸ Utilities&nbsp;▸ Disks** to open the *Disks* utility."
 msgstr ""
 
 #. type: Plain text
@@ -117,7 +134,7 @@ msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid "     [[!img storage_devices_after.png link=no alt=\"\"]]\n"
+msgid "     [[!img storage_devices_after.png class=\"screenshot\" alt=\"\"]]\n"
 msgstr ""
 
 #. type: Plain text
@@ -134,9 +151,9 @@ msgstr "<h2 class=\"bullet-number-two\">Formatieren Sie das Medium</h2>\n"
 
 #. type: Bullet: '  1. '
 msgid ""
-"Click on the [[!img lib/view-more.png alt=\"Drive Options\" "
-"class=\"symbolic\" link=\"no\"]] button in the title bar and choose **Format "
-"Disk** to erase all the existing partitions on the device."
+"Select the [[!img lib/view-more.png alt=\"Menu\" class=\"symbolic\" "
+"link=\"no\"]] button in the title bar and choose **Format Disk** to erase "
+"all the existing partitions on the device."
 msgstr ""
 
 #. type: Bullet: '  1. '
@@ -194,7 +211,7 @@ msgstr ""
 
 #. type: Plain text
 #, fuzzy, no-wrap
-msgid "[[!img empty_device.png link=no alt=\"Free Space 123 GB\"]]\n"
+msgid "[[!img empty_device.png class=\"screenshot\" alt=\"Free Space 123 GB\"]]\n"
 msgstr "[[!img places_secret.png link=no alt=\"Places&nbsp;▸ secret\"]]\n"
 
 #. type: Bullet: '  1. '
@@ -326,7 +343,7 @@ msgstr ""
 
 #. type: Plain text
 #, fuzzy, no-wrap
-msgid "     [[!img encrypted_partition.png link=\"no\" alt=\"Partition 1 4.0 GB LUKS / Filesystem 4.0 GB Ext4\"]]\n"
+msgid "     [[!img encrypted_partition.png class=\"screenshot\" alt=\"Partition 1 4.0 GB LUKS / Filesystem 4.0 GB Ext4\"]]\n"
 msgstr "     [[!img create_partition.png link=no alt=\"Create partition on…\"]]\n"
 
 #. type: Bullet: '  1. '
@@ -343,14 +360,8 @@ msgstr "<h2 class=\"bullet-number-four\">Benutzen Sie die neue Partition</h2>\n"
 
 #. type: Plain text
 msgid ""
-"You can open this new partition from the sidebar of the file browser with "
+"You can open this new partition from the sidebar of the *Files* browser with "
 "the name you gave it."
-msgstr ""
-
-#. type: Plain text
-msgid ""
-"After opening the partition with the file browser, you can also access it "
-"from the **Places** menu."
 msgstr ""
 
 #. type: Plain text
@@ -374,7 +385,7 @@ msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid "   [[!img unlock.png link=\"no\" class=\"screenshot\" alt=\"Authentication Required\"]]\n"
+msgid "   [[!img unlock.png class=\"screenshot\" alt=\"Authentication Required\"]]\n"
 msgstr ""
 
 #. type: Bullet: '1. '
@@ -393,15 +404,8 @@ msgstr ""
 
 #. type: Bullet: '1. '
 msgid ""
-"After unlocking, you can access the content of the partition from either:"
-msgstr ""
-
-#. type: Bullet: '   * '
-msgid "The **Places** menu"
-msgstr ""
-
-#. type: Bullet: '   * '
-msgid "The sidebar of the *Files* browser"
+"After unlocking, you can access the content of the partition from the "
+"sidebar of the *Files* browser."
 msgstr ""
 
 #. type: Plain text
@@ -411,18 +415,6 @@ msgid ""
 "alt=\"Eject\" class=\"symbolic\" link=\"no\"]] button next to the partition in the\n"
 "sidebar of the *Files* browser to eject the partition safety and lock again the\n"
 "encryption.\n"
-msgstr ""
-
-#. type: Plain text
-#, fuzzy, no-wrap
-msgid "<h1 id=\"storing\">Storing sensitive documents</h1>\n"
-msgstr "Sensible Dokumente speichern\n"
-
-#. type: Plain text
-msgid ""
-"Such encrypted volumes are not hidden. An attacker in possession of the "
-"device can know that there is an encrypted volume on it. Take into "
-"consideration that you can be forced or tricked to give out its passphrase."
 msgstr ""
 
 #. type: Plain text
@@ -460,7 +452,7 @@ msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid "   [[!img storage_devices_after.png link=no alt=\"\"]]\n"
+msgid "   [[!img storage_devices_after.png class=\"screenshot\" alt=\"\"]]\n"
 msgstr ""
 
 #. type: Plain text
@@ -483,6 +475,10 @@ msgid ""
 "class=\"symbolic\" link=\"no\"]] button and choose **Change Passphrase** in "
 "the shortcut menu."
 msgstr ""
+
+#, fuzzy, no-wrap
+#~ msgid "<h1 id=\"storing\">Storing sensitive documents</h1>\n"
+#~ msgstr "Sensible Dokumente speichern\n"
 
 #, no-wrap
 #~ msgid "       </div>\n"

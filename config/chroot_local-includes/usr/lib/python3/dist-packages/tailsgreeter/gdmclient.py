@@ -27,7 +27,7 @@ import tailsgreeter.config  # NOQA: E402
 import tailsgreeter.errors  # NOQA: E402
 
 
-class GdmClient(object):
+class GdmClient:
     """Greeter client class"""
 
     def __init__(self, session_opened_cb=None):
@@ -56,19 +56,19 @@ class GdmClient(object):
         )
 
     def __on_info(self, client, service_name, info):
-        logging.debug("Received info %s from %s" % (info, service_name))
+        logging.debug(f"Received info {info} from {service_name}")
 
     def __on_problem(self, client, service_name, problem):
-        logging.debug("Received problem %s from %s" % (problem, service_name))
+        logging.debug(f"Received problem {problem} from {service_name}")
         raise tailsgreeter.errors.GdmServerError(problem)
 
     def __on_info_query(self, client, service_name, question):
-        logging.debug("Received info_query %s from %s" % (question, service_name))
+        logging.debug(f"Received info_query {question} from {service_name}")
         raise NotImplementedError
 
     def __on_secret_info_query(self, client, service_name, secret_question):
         logging.debug(
-            "Received secret_info_query %s from %s" % (secret_question, service_name)
+            f"Received secret_info_query {secret_question} from {service_name}"
         )
         self.__user_verifier.call_answer_query(
             service_name, tailsgreeter.config.LPASSWORD, None, None, None
@@ -84,7 +84,7 @@ class GdmClient(object):
     def __on_verification_complete(self, *args):
         logging.debug("Received verification-complete")
 
-    def __on_session_opened(self, client, service_name):
+    def __on_session_opened(self, client, service_name, _unused):
         logging.debug("Received session-opened with %s" % service_name)
         if self.session_opened_cb:
             self.session_opened_cb()
@@ -95,9 +95,7 @@ class GdmClient(object):
         logging.debug("Received default-session-name-changed: %s" % session_id)
 
     def __on_timed_login_requested(self, client, user_name, seconds):
-        logging.debug(
-            "Received timed-login-requested for %s in %s" % (user_name, seconds)
-        )
+        logging.debug(f"Received timed-login-requested for {user_name} in {seconds}")
         raise NotImplementedError
 
     def do_login(self):

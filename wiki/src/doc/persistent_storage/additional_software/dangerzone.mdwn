@@ -59,7 +59,7 @@ We recommend that you use:
 <tr><td>Safe to use on</td><td>Other people's files</td><td>Your files only</td></tr>
 <tr><td>Clean audio and video files</td><td class="cross">No</td><td class="check">Yes</td></tr>
 <tr><td>Remove malware and trackers</td><td class="check">Yes</td><td class="cross">No</td></tr>
-<tr><td>Remove visual metadata and fingerprints ¹</td><td class="cross">No</td><td class="cross">No</td></tr>
+<tr><td>Remove visual metadata and fingerprints¹</td><td class="cross">No</td><td class="cross">No</td></tr>
 <tr><td>Allow selecting text in generated PDFs</td><td class="check">Yes</td><td class="cross">No</td></tr>
 <tr><td>Speed</td><td class="cross">Slower</td><td class="check">Faster</td></tr>
 <tr><td>Included in Tails by default</td><td class="cross">No</td><td class="check">Yes</td></tr>
@@ -97,7 +97,7 @@ To install *Dangerzone* as additional software in Tails, you have to:
 
 1. When starting Tails, [[set up an administration password|doc/first_steps/welcome_screen/administration_password]].
 
-1. Choose **Applications&nbsp;▸ Persistent Storage** to open the
+1. Choose **Apps&nbsp;▸ Tails&nbsp;▸ Persistent Storage** to open the
    Persistent Storage settings.
 
    Create a Persistent Storage if you don't have one already.
@@ -106,8 +106,8 @@ To install *Dangerzone* as additional software in Tails, you have to:
 
    Close the Persistent Storage settings.
 
-1. Choose **Applications&nbsp;▸ Utilities&nbsp;▸ Terminal** to open a
-   terminal without administration rights.
+1. Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Console** to open a
+   console without administration rights.
 
 1. Execute the following command to open the configuration of your Persistent
    Storage in the *Text Editor* with administration rights.
@@ -127,8 +127,8 @@ To install *Dangerzone* as additional software in Tails, you have to:
 
    Save your changes and close the *Text Editor*.
 
-1. Choose **Applications&nbsp;▸ System Tools&nbsp;▸ Root Terminal** to open a
-   terminal with administration rights.
+1. Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Root Console** to open a
+   console with administration rights.
 
 1. Execute the following commands to configure the *Dangerzone* repository as
    additional APT repository.
@@ -161,8 +161,8 @@ To install *Dangerzone* as additional software in Tails, you have to:
 
 1. [[Connect to the Tor network|doc/anonymous_internet/tor]].
 
-1. Choose **Applications&nbsp;▸ System Tools&nbsp;▸ Root Terminal** to open a
-   terminal with administration rights.
+1. Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Root Console** to open a
+   console with administration rights.
 
 1. Execute the following commands to install the `dangerzone` package and its dependencies.
 
@@ -176,14 +176,13 @@ To install *Dangerzone* as additional software in Tails, you have to:
 
    Choose to **Install Every Time**.
 
-1. Close the *Root Terminal*.
+1. Close the *Root Console*.
 
 <h2 id="test">Convert a test document</h2>
 
-1. Choose **Applications&nbsp;▸ Office&nbsp;▸ Dangerzone** to start
-   *Dangerzone*.
+1. Choose **Apps&nbsp;▸ Office&nbsp;▸ Dangerzone** to open *Dangerzone*.
 
-   When started for the first time, *Dangerzone* installs its container.
+   When opened for the first time, *Dangerzone* installs its container.
 
    This operation can take several minutes.
 
@@ -191,7 +190,7 @@ To install *Dangerzone* as additional software in Tails, you have to:
 
    Click the button **Select suspicious documents**.
 
-   [[!img dangerzone.png link="no" class="screenshot" alt=""]]
+   [[!img dangerzone.png class="screenshot" alt=""]]
 
 1. Select a simple document to test the conversion process, like an empty
    *LibreOffice* document or an image.

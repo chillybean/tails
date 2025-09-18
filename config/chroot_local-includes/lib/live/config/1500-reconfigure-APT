@@ -93,7 +93,7 @@ s{
    ^
    (Pin:\s+release\s+)
    o=Debian
-   (,[an]=bookworm-backports)
+   (,[an]=trixie-backports)
    $
 }{$1o=Debian Backports$2}xms;
 ' | perl -pi - /etc/apt/preferences

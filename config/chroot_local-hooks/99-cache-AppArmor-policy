@@ -5,8 +5,8 @@ set -e
 echo "Generate the pre-compiled binary AppArmor policy cache"
 
 apparmor_parser \
-   --write-cache \
-   --skip-kernel-load \
-   --verbose \
-   --add \
-   /etc/apparmor.d
+    --write-cache \
+    --skip-kernel-load \
+    --verbose \
+    --add \
+    /etc/apparmor.d

@@ -20,37 +20,51 @@
    (https://github.com/laserb/gnome-shell-extension-suspend-button) by
    Raphael Freudiger <laser_b@gmx.ch>.
 **/
-const Lang = imports.lang;
-const Main = imports.ui.main;
-const PopupMenu = imports.ui.popupMenu;
+import * as Main from 'resource:///org/gnome/shell/ui/main.js';
+import * as PopupMenu from 'resource:///org/gnome/shell/ui/popupMenu.js';
+import GLib from 'gi://GLib';
+import * as Gettext from 'gettext';
+import * as Config from 'resource:///org/gnome/shell/misc/config.js';
+import * as Util from 'resource:///org/gnome/shell/misc/util.js';
 
-const Gettext = imports.gettext.domain('tails');
+Gettext.textdomain('tails');
 const _ = Gettext.gettext;
 
-const Me = imports.misc.extensionUtils.getCurrentExtension();
-const Lib = Me.imports.lib;
+function initTranslations(extension) {
+    let localeDir = extension.dir.get_child('locale').get_path();
 
-const Util = imports.misc.util;
-
-var Action = new Lang.Class({
-    Name: 'Action',
-
-    _init: function(button, id) {
-        this.button = button;
-        this.id = id;
+    // Extension installed in .local
+    if (GLib.file_test(localeDir, GLib.FileTest.EXISTS)) {
+        Gettext.bindtextdomain('gnome-shell-extension-status-menu-helper', localeDir);
     }
-});
+    // Extension installed system-wide
+    else {
+        Gettext.bindtextdomain('gnome-shell-extension-status-menu-helper',
+            Config.LOCALEDIR);
+    }
+}
 
-const Extension = new Lang.Class({
-    Name: 'StatusMenuHelper.Extension',
+export default class StatusMenuHelperExtension {
 
-    enable: function() {
+    enable() {
         if (this._isEnabled) return;
         this._isEnabled = true;
+        this.setupTimer = setInterval(() => { this.setup() }, 2000); // try until it works
+    }
 
+    setup() {
+        console.log("setup()...")
         this.statusMenu = Main.panel.statusArea.quickSettings;
 
-        statusMenuTopButtons = this.statusMenu._system._systemItem.child.get_children();
+        if(
+            this.statusMenu === undefined ||
+            this.statusMenu._system === undefined ||
+            this.statusMenu._system._systemItem === undefined ||
+            this.statusMenu._system._systemItem.child === undefined
+        ) {
+            return;
+        }
+        const statusMenuTopButtons = this.statusMenu._system._systemItem.child.get_children();
         for (var item of statusMenuTopButtons) {
             if (item.constructor.name == "LockItem") {
                 this._origLockItem = item;
@@ -68,9 +82,12 @@ const Extension = new Lang.Class({
                 return;
             this._onMenuOpen();
         });
-    },
 
-    disable: function() {
+        console.log("setup() COMPLETE")
+        clearInterval(this.setupTimer)
+    }
+
+    disable() {
         // We want to keep the extension enabled on the lock screen
         if (Main.sessionMode.isLocked) return;
         if (!this._isEnabled) return;
@@ -80,9 +97,9 @@ const Extension = new Lang.Class({
         this._restoreOrigActions();
 
         this.statusMenu.menu.disconnect(this._menuOpenStateChangedId);
-    },
+    }
 
-    _createActions: function() {
+    _createActions() {
         this._lockScreenAction = this._createAction(_("Lock Screen"),
                                                    'changes-prevent-symbolic',
                                                     this._onLockClicked);
@@ -101,51 +118,53 @@ const Extension = new Lang.Class({
 
         this._actions = [this._lockScreenAction, this._suspendAction,
                          this._restartAction, this._powerOffAction];
-    },
+    }
 
-    _createAction: function(label, icon, onClickedFunction) {
-        item = new PopupMenu.PopupImageMenuItem(label, icon);
+    _createAction(label, icon, onClickedFunction) {
+        const item = new PopupMenu.PopupImageMenuItem(label, icon);
         item.connect('activate', onClickedFunction);
         return item;
-    },
+    }
 
-    _hideOrigActions: function() {
+    _hideOrigActions() {
         this._origLockItem.hide();
         this._origShutdownItem.hide();
-    },
+    }
 
-    _restoreOrigActions: function() {
+    _restoreOrigActions() {
         this._origLockItem.show();
         this._origShutdownItem.show();
-    },
+    }
 
-    _addSeparateButtons: function() {
-        this.statusMenu._addItems(this._actions);
-    },
+    _addSeparateButtons() {
+        for(const action of this._actions) {
+            this.statusMenu.menu.addItem(action)
+        }
+    }
 
-    _destroyActions: function() {
+    _destroyActions() {
         for (var item of this._actions) {
             item.destroy();
         }
-    },
+    }
 
-    _onLockClicked: function() {
+    _onLockClicked() {
         Util.spawn(['tails-screen-locker']);
-    },
+    }
 
-    _onSuspendClicked: function() {
+    _onSuspendClicked() {
         Util.spawn(['systemctl', 'suspend'])
-    },
+    }
 
-    _onRestartClicked: function() {
+    _onRestartClicked() {
         Util.spawn(['sudo', '-n', 'reboot'])
-    },
+    }
 
-    _onPowerOffClicked: function() {
+    _onPowerOffClicked() {
         Util.spawn(['sudo', '-n', 'poweroff'])
-    },
+    }
 
-    _onMenuOpen: function() {
+    _onMenuOpen() {
         this._lockScreenAction.visible = !Main.sessionMode.isLocked && !Main.sessionMode.isGreeter;
         // Ideally we would only have to hide the original actions in
         // the enable() method, but something keeps making the original
@@ -154,7 +173,7 @@ const Extension = new Lang.Class({
         this._hideOrigActions();
     }
 
-});
+}
 
 function init(metadata) {
     Lib.initTranslations(Me);

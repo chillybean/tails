@@ -9,7 +9,7 @@
 # random username to make Tor use different circuits each time curl is
 # called (see IsolateSOCKSAuth).
 username=curl-$(head -c 12 /dev/urandom | xxd -p)
-ALL_PROXY="socks5://${username}:0@127.0.0.1:9050"
+ALL_PROXY="socks5h://${username}:0@127.0.0.1:9050"
 export ALL_PROXY
 
 exec /usr/bin/curl "$@"

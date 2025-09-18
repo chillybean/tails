@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2024-05-02 21:29+0000\n"
+"POT-Creation-Date: 2025-09-17 11:40+0200\n"
 "PO-Revision-Date: 2024-05-20 17:57+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,9 +34,7 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "[[!inline pages=\"doc/advanced_topics/virtualization.caution\" raw=\"yes\" sort=\"age\"]]\n"
-msgstr ""
-"[[!inline pages=\"doc/advanced_topics/virtualization.caution.sr_Latn\" raw="
-"\"yes\" sort=\"age\"]]\n"
+msgstr "[[!inline pages=\"doc/advanced_topics/virtualization.caution.sr_Latn\" raw=\"yes\" sort=\"age\"]]\n"
 
 #. type: Plain text
 #, no-wrap
@@ -64,7 +62,7 @@ msgstr "<div class=\"note\">\n"
 
 #. type: Plain text
 #, no-wrap
-msgid "<p>The following instructions have been tested on Debian 12 (Bookworm).</p>\n"
+msgid "<p>The following instructions have been tested on Debian 13 (Trixie).</p>\n"
 msgstr ""
 
 #. type: Title =
@@ -162,9 +160,8 @@ msgstr ""
 
 #. type: Bullet: '1. '
 msgid ""
-"To create a new virtual machine, choose <span class=\"menuchoice\"> <span "
-"class=\"guimenu\">File</span>&nbsp;▸ <span class=\"guimenuitem\">New Virtual "
-"Machine</span></span>."
+"To create a new virtual machine, choose <b>File&nbsp;▸ New Virtual Machine</"
+"b>."
 msgstr ""
 
 #. type: Bullet: '1. '
@@ -177,7 +174,7 @@ msgstr ""
 
 #. type: Bullet: '   1. '
 msgid ""
-"**Choose ISO image**, then **Browse...**, and **Browse Local** to browse for "
+"Select the **Browse** button and then the **Browse Local** button to choose "
 "the ISO image that you want to start from."
 msgstr ""
 
@@ -186,14 +183,14 @@ msgid ""
 "Unselect **Automatically detected from the installation media / source**."
 msgstr ""
 
-#. type: Bullet: '   1. '
+#. type: Bullet: '   3. '
 msgid ""
-"Specify **Debian 11** in the field **Choose the operating system you are "
+"Enter **Debian 13** in the field **Choose the operating system you are "
 "installing**."
 msgstr ""
 
 #. type: Bullet: '1. '
-msgid "In *step 3*, allocate at least 2048 MB of RAM."
+msgid "In *step 3*, allocate at least 3072 MB of RAM."
 msgstr ""
 
 #. type: Bullet: '1. '
@@ -215,26 +212,24 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid ""
-"If you get the error message \"<span class=\"guilabel\">Error starting\n"
-"domain: Requested operation is not valid: network 'default' is not\n"
-"active</span>\", then try to start the default virtual network:\n"
+"If you get the error message\n"
+"\"<b>Error starting domain: Requested operation is not valid: network 'default' is not active</b>\",\n"
+"then try to start the default virtual network:\n"
 msgstr ""
 
 #. type: Plain text
 #, no-wrap
 msgid ""
 "<ol>\n"
-"<li>Click on **QEMU/KVM - Not Connected**.</li>\n"
-"<li>Choose <span class=\"menuchoice\">\n"
-"    **Edit**&nbsp;▸\n"
-"    **Connection details**</span> to\n"
-"    administer the connection to your local\n"
-"    *QEMU* system.</li>\n"
-"<li>Click on **Virtual Networks** tab, then\n"
-"    select the **default** virtual network in\n"
+"<li>Click on <b>QEMU/KVM - Not Connected</b>.</li>\n"
+"<li>Choose <b>Edit&nbsp;▸ Connection details</b>\n"
+"    to administer the connection to your local\n"
+"    <i>QEMU</i> system.</li>\n"
+"<li>Click on <b>Virtual Networks</b> tab, then\n"
+"    select the <b>default</b> virtual network in\n"
 "    the left pane.</li>\n"
 "<li>Click on the [[!img lib/media-playback-start.png alt=\"Start Network\"\n"
-"    link=no class=symbolic]] icon on the bottom of the left pane to\n"
+"    link=\"no\" class=\"symbolic\"]] icon on the bottom of the left pane to\n"
 "    start the default virtual network.</li>\n"
 "</ol>\n"
 msgstr ""
@@ -291,8 +286,12 @@ msgstr ""
 
 #. type: Bullet: '   1. '
 msgid ""
-"Choose **Browse...**, and **Browse Local** to browse for the USB image that "
-"you want to start from."
+"Specify **Debian 11** in the field **Choose the operating system you are "
+"installing**."
+msgstr ""
+
+#. type: Bullet: '1. '
+msgid "In *step 3*, allocate at least 2048 MB of RAM."
 msgstr ""
 
 #. type: Bullet: '1. '
@@ -324,7 +323,7 @@ msgid "Expand the **Advanced options**."
 msgstr ""
 
 #. type: Bullet: '   1. '
-msgid "Enable **Removable**."
+msgid "Select **Removable**."
 msgstr ""
 
 #. type: Bullet: '   1. '
@@ -408,10 +407,14 @@ msgid "<a id=\"disconnect\"></a>\n"
 msgstr ""
 
 #. type: Plain text
+#, fuzzy
 msgid ""
-"You can also disconnect the original ISO image and start directly from the "
-"USB stick once Tails is already installed on it. To do so:"
+"You can also remove the original ISO image and start directly from the USB "
+"stick once Tails is already installed on it. To do so:"
 msgstr ""
+"Anschließend können Sie das ursprüngliche ISO-Image trennen und direkt, "
+"[[wie im vorangegangen Abschnitt beschrieben|virt-manager#disconnect]], von "
+"dem virtuellen USB-Stick starten."
 
 #. type: Bullet: '  1. '
 msgid "Shut down the virtual machine."
@@ -425,8 +428,8 @@ msgstr ""
 
 #. type: Bullet: '  1. '
 #, fuzzy
-msgid "Click on the **Disconnect** button in the right pane."
-msgstr "Wählen Sie im linken Fensterbereich **USB Disk 1** aus."
+msgid "Select **Remove** in the right pane."
+msgstr "Wählen Sie im linken Fensterbereich **Storage** aus."
 
 #. type: Bullet: '  1. '
 msgid "To enable the USB stick as a boot option:"
@@ -518,6 +521,10 @@ msgid ""
 "display and video device."
 msgstr ""
 
+#, fuzzy
+#~ msgid "Click on the **Disconnect** button in the right pane."
+#~ msgstr "Wählen Sie im linken Fensterbereich **USB Disk 1** aus."
+
 #~ msgid ""
 #~ "  1. Double-click on **localhost (QEMU)** to connect to the *QEMU*\n"
 #~ "     system of your host.\n"
@@ -586,9 +593,6 @@ msgstr ""
 #~ "Tun Sie anschließend folgendes, um einen virtuellen USB-Speicher zu "
 #~ "erstellen:"
 
-#~ msgid "Select **Storage** in the left pane."
-#~ msgstr "Wählen Sie im linken Fensterbereich **Storage** aus."
-
 #~ msgid ""
 #~ "In the right pane, change the **Bus type** to USB and click **Finish**."
 #~ msgstr ""
@@ -610,15 +614,6 @@ msgstr ""
 #~ "Starten Sie anschließend die virtuelle Maschine von der virtuellen DVD, "
 #~ "um Tails auf den virtuellen USB-Speicher zu installieren. Der virtuelle "
 #~ "USB-Speicher erscheint im *Tails Installer* als **QEMU HARDDISK**."
-
-#~ msgid ""
-#~ "After that you can disconnect the original ISO image and start directly "
-#~ "from the virtual USB stick [[as described in the previous section|virt-"
-#~ "manager#disconnect]]."
-#~ msgstr ""
-#~ "Anschließend können Sie das ursprüngliche ISO-Image trennen und direkt, "
-#~ "[[wie im vorangegangen Abschnitt beschrieben|virt-manager#disconnect]], "
-#~ "von dem virtuellen USB-Stick starten."
 
 #~ msgid ""
 #~ "Once you started from the virtual USB device you can [[create a "

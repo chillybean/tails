@@ -21,13 +21,6 @@ import subprocess
 import sys
 from dataclasses import dataclass
 
-# Make electrum use the cursor size configured in GNOME
-# refs: #20206
-os.environ["XCURSOR_SIZE"] = subprocess.check_output(
-    ["/usr/bin/gsettings", "get", "org.gnome.desktop.interface", "cursor-size"],
-    text=True,
-).strip()
-
 translation = gettext.translation("tails", "/usr/share/locale", fallback=True)
 _ = translation.gettext
 
@@ -159,7 +152,6 @@ def show_donation_message():
             "--icon-name",
             "tails-logo-drawing",
             "--modal",
-            "--ellipsize",
         ],
         check=False,
     )
@@ -225,7 +217,6 @@ def verify_start():
             "--title",
             "",
             "--default-cancel",
-            "--ellipsize",
             "--ok-label",
             launch_text,
             "--cancel-label",
