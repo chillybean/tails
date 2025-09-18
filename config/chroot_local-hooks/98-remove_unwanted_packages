@@ -55,6 +55,9 @@ for package in mutt rpcbind tcpd; do
     fi
 done
 
+### Remove packages installed by debootstrap
+packages_to_purge="${packages_to_purge} ifupdown"
+
 ### Remove unwanted packages that might, or might not,
 ### have been installed during the build.
 for package in \
