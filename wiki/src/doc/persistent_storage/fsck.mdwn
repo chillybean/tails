@@ -56,7 +56,7 @@ start|recover]].</p>
 
 </div>
 
-[[!img repair.png link="no" class="screenshot" alt="File System Errors dialog in Welcome Screen"]]
+[[!img repair.png class="screenshot" alt="File System Errors dialog in Welcome Screen"]]
 
 Tails can try to fix these errors, but this might erase some of your data and
 take a long time.
@@ -126,7 +126,7 @@ is the simplest way of creating a partition image of your Persistent Storage.
 
    2. Choose to start without unlocking your Persistent Storage.
 
-1. Choose **Applications&nbsp;▸ Files** to open the *Files* browser.
+1. Choose **Apps&nbsp;▸ Accessories&nbsp;▸ Files** to open the *Files* browser.
 
 1. Plug in the hard disk on which you want to save the partition image of your
    Persistent Storage. You need as much free space as the size of your
@@ -142,8 +142,7 @@ is the simplest way of creating a partition image of your Persistent Storage.
 
 <h3 id="identify">Identifying your Persistent Storage in the <i>Disks</i> utility</h3>
 
-1. Choose **Applications&nbsp;▸ Utilities&nbsp;▸ Disks** to open the *Disks*
-   utility.
+1. Choose **Apps&nbsp;▸ Utilities&nbsp;▸ Disks** to open the *Disks* utility.
 
 1. In the left pane of the *Disks* utility, identify your Tails USB stick in
    the list of storage devices.
@@ -164,7 +163,7 @@ is the simplest way of creating a partition image of your Persistent Storage.
 
      This volume corresponds to the encrypted version of your Persistent Storage.
 
-   [[!img disks.png link="no" class="screenshot" alt=""]]
+   [[!img disks.png class="screenshot" alt=""]]
 
 1. In the right pane, click on the volume that corresponds to your
    Persistent Storage.
@@ -210,8 +209,8 @@ decrypted version of your Persistent Storage. To do so:
 
 <h3 id="create">Creating the partition image</h3>
 
-1. Choose **[[!img lib/system-run.png alt="Additional partition options"
-   class=symbolic link="no"]]&nbsp;▸ Create Partition Image**.
+1. Choose **[[!img lib/system-run.png link="no" class="symbolic"
+   alt="Additional partition options"]]&nbsp;▸ Create Partition Image**.
 
 1. In the **Create Disk Image** dialog:
 
@@ -246,25 +245,25 @@ The `ddrescue` utility tries to copy first the parts of the Persistent Storage
 that are not failing and skips over the parts that are failing. After that, you
 can run `ddrescue` again to try to copy the parts that failed the first time.
 
-1. Choose **Applications&nbsp;▸ Files** to open the *Files* browser.
+1. Choose **Apps&nbsp;▸ Accessories&nbsp;▸ Files** to open the *Files* browser.
 
 1. In the *Files* browser, navigate to the folder of the external hard disk where
    you want to save the partition image of your Persistent Storage.
 
 1. Right-click in the empty space of the right pane and choose **Open in
-   Terminal** in the shortcut menu.
+   Console** in the shortcut menu.
 
-   Doing so opens a terminal that is configured to operate in this folder.
+   Doing so opens a console that is configured to operate in this folder.
 
-1. In the terminal, execute the following command. Replace
+1. In the console, execute the following command. Replace
    <span class="command-placeholder">/dev/mapper/luks-xyz</span> with the device name found
    when [[identifying your *Persistent Storage* in the *Disks* utility|fsck#identify]].
 
-   <p class="command-template">ddrescue <span class="command-placeholder">/dev/mapper/luks-xyz</span> persistent-storage.img ddrescue.log</p>
+   <p class="command-template">sudo ddrescue <span class="command-placeholder">/dev/mapper/luks-xyz</span> persistent-storage.img ddrescue.log</p>
 
    The output of `ddrescue` looks like this:
 
-       GNU ddrescue 1.27
+       GNU ddrescue 1.29
        Press Ctrl-C to interrupt
             ipos:  749404 kB, non-trimmed:        0 B,  current rate:  34996 kB/s
             ipos:    1446 MB, non-trimmed:        0 B,  current rate:  24772 kB/s
@@ -331,7 +330,7 @@ from the Welcome Screen is likely the easiest technique.
 1. When the error message about file system errors appears, click on the
    **Repair File System** button.
 
-   [[!img repair.png link="no" class="screenshot" alt="File System Errors dialog in Welcome Screen"]]
+   [[!img repair.png class="screenshot" alt="File System Errors dialog in Welcome Screen"]]
 
 1. The repair of the file system starts.
 
@@ -340,7 +339,7 @@ from the Welcome Screen is likely the easiest technique.
    If the repair takes more than a day, shutdown Tails and try [[analyzing the
    partition image using *Autopsy*|fsck#autopsy]] instead.
 
-   [[!img repairing.png link="no" class="screenshot" alt=""]]
+   [[!img repairing.png class="screenshot" alt=""]]
 
 1. After the repair finishes:
 
@@ -387,8 +386,7 @@ partition image to a new USB stick.
 
 <h3 id="restore">Copying the partition image onto the new USB stick</h3>
 
-1. Choose **Applications&nbsp;▸ Utilities&nbsp;▸ Disks** to open the *Disks*
-   utility.
+1. Choose **Apps&nbsp;▸ Utilities&nbsp;▸ Disks** to open the *Disks* utility.
 
 1. In the left pane of the *Disks* utility, identify your new Tails USB stick in
    the list of storage devices.
@@ -415,8 +413,8 @@ partition image to a new USB stick.
 1. In the right pane, click on the **Ext4** volume, which is the one that
    corresponds to the decrypted version of your Persistent Storage.
 
-   In the attributes listed below the volume, verify that the content of the
-   volume is mounted at */home/amnesia/Persistent*.
+   In the attributes below the volume, verify that its device is
+   */dev/mapper/TailsData_unlocked*.
 
 1. Click on the [[!img lib/media-playback-stop.png link="no" class="symbolic"
    alt="Unmount selected partition"]] button to unmount the Persistent Storage.
@@ -441,7 +439,7 @@ partition image to a new USB stick.
 1. If an error message about file system errors appears, click on the **Repair
    File System** button.
 
-   [[!img repair.png link="no" class="screenshot" alt="File System Errors dialog in Welcome Screen"]]
+   [[!img repair.png class="screenshot" alt="File System Errors dialog in Welcome Screen"]]
 
 1. The repair of the file system starts.
 
@@ -450,7 +448,7 @@ partition image to a new USB stick.
    If the repair takes more than a day, shutdown Tails and try [[analyzing the
    partition image using *Autopsy*|fsck#autopsy]] instead.
 
-   [[!img repairing.png link="no" class="screenshot" alt=""]]
+   [[!img repairing.png class="screenshot" alt=""]]
 
 1. After the repair finishes:
 
@@ -510,18 +508,21 @@ The general steps are:
 
    - `install_application.sh`
 
-1. Execute the following commands in a *Terminal*. You might have to adjust to
-   newer versions of *Autopsy*.
+1. Execute the following commands in a *Console*. Replace
+   <span class="command-placeholder">version</span> with the version number of
+   *The Sleuth Kit* and *Autopsy* that you downloaded.
 
-   <p class="command">bash install_prereqs_ubuntu.sh</p>
+   <!-- The packages openjdk-17-jdk/unstable and openjdk-17-jre/unstable are needed in Debian 13 (Trixie). -->
 
-   <p class="command">sudo apt install libsqlite3-dev libc3p0-java unzip</p>
+   <p class="command">sudo apt install libsqlite3-dev libc3p0-java unzip openjdk-17-jdk/unstable openjdk-17-jre/unstable</p>
 
-   <p class="command">sudo dpkg -i sleuthkit-java_4.12.1-1_amd64.deb</p>
+   <p class="command">sudo bash install_prereqs_ubuntu.sh</p>
 
-   <p class="command">bash install_application.sh -z autopsy-4.21.0.zip -i ~/Persistent/autopsy -j /usr/lib/jvm/java-17-openjdk-amd64</p>
+   <p class="command">sudo dpkg -i sleuthkit-java_<span class="command-placeholder">version</span>_amd64.deb</p>
 
-   <p class="command">/home/amnesia/Persistent/autopsy/autopsy-4.21.0/bin/autopsy</p>
+   <p class="command">bash install_application.sh -z autopsy-<span class="command-placeholder">version</span>.zip -i ~/Persistent/autopsy -j /usr/lib/jvm/java-17-openjdk-amd64</p>
+
+   <p class="command">/home/amnesia/Persistent/autopsy/autopsy-<span class="command-placeholder">version</span>/bin/autopsy</p>
 
 1. When starting for the first time, *Autopsy* freezes on **Starting modules**.
 
@@ -543,6 +544,6 @@ The general steps are:
    different ways in the left sidebar, for example, both as a file system tree
    and by type of files.
 
-   [[!img autopsy.png link="no" class="screenshot" alt="Autopsy in Tails showing files recovered from the partition image of a Persistent Storage"]]
+   [[!img autopsy.png class="screenshot" alt="Autopsy in Tails showing files recovered from the partition image of a Persistent Storage"]]
 
 1. Extract the files that you want to recover to the case folder.

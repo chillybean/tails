@@ -28,7 +28,7 @@ Given /^I copy the sample videos to "([^"]+)" as user "([^"]+)"$/ do |destinatio
 end
 
 When /^I(?:| try to) open "([^"]+)" with Totem$/ do |filename|
-  step "I run \"totem #{filename}\" in GNOME Terminal"
+  step "I run \"totem #{filename}\" in Console"
 end
 
 When /^I close Totem$/ do
@@ -56,7 +56,7 @@ end
 
 Then /^Totem tells me it is not allowed to open this file$/ do
   assert(
-    Dogtail::Application.new('totem')
+    Dogtail::Application.new('org.gnome.Totem')
                         .child?(
                           'You are not allowed to open this file.',
                           roleName: 'label'

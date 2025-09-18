@@ -21,10 +21,11 @@ This technique uses the command line.
 
 1. When starting Tails, [[set up an administration password|doc/first_steps/welcome_screen/administration_password]].
 
-2. To find out the index of the wireless device that you want to enable,
-   open a [[root
-   terminal|doc/first_steps/welcome_screen/administration_password#open_root_terminal]],
-   and execute the following command:
+1. Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Root Console** to open a
+   console with administration rights.
+
+1. To find out the index of the wireless device that you want to enable,
+   execute the following command:
 
    <p class="command">rfkill list</p>
 
@@ -45,8 +46,8 @@ This technique uses the command line.
    device is 1, while the index of the GPS device is 2. Yours are
    probably different.
 
-3. To enable the wireless device,
-   `execute` the following command in the root terminal, replacing
+1. To enable the wireless device,
+   execute the following command. Replace
    <span class="command-placeholder">index</span> with the index found at step 2:
 
    <p class="command-template">rfkill unblock <span class="command-placeholder">index</span></p>
@@ -56,8 +57,8 @@ This technique uses the command line.
 
    <p class="command-template">rfkill unblock 2</p>
 
-4. To verify that the wireless device is enabled,
-   execute the following command in the root terminal again:
+1. To verify that the wireless device is enabled,
+   execute the following command again:
 
    <p class="command">rfkill list</p>
 

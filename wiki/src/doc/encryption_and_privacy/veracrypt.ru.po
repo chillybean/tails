@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-06-24 16:26-0600\n"
+"POT-Creation-Date: 2025-09-17 11:40+0200\n"
 "PO-Revision-Date: 2024-05-11 12:54+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,8 +89,8 @@ msgid ""
 "With *VeraCrypt* you can store your files encrypted in two different kinds "
 "of *volumes*:"
 msgstr ""
-"С помощью *VeraCrypt* вы можете хранить ваши файлы "
-"зашифрованными в *томах* двух разных типов:"
+"С помощью *VeraCrypt* вы можете хранить ваши файлы зашифрованными в *томах* "
+"двух разных типов:"
 
 #. type: Plain text
 #, no-wrap
@@ -104,8 +104,8 @@ msgstr "<div class=\"icon\">\n"
 
 #. type: Plain text
 #, no-wrap
-msgid "[[!img container-icon.png link=\"no\"]]\n"
-msgstr "[[!img container-icon.png link=\"no\"]]\n"
+msgid "[[!img container-icon.png link=\"no\" alt=\"\"]]\n"
+msgstr "[[!img container-icon.png link=\"no\" alt=\"\"]]\n"
 
 #. type: Plain text
 #, no-wrap
@@ -129,8 +129,8 @@ msgstr "<h3>Разделы и диски</h3>\n"
 
 #. type: Plain text
 #, no-wrap
-msgid "[[!img partition-icon.png link=\"no\"]]\n"
-msgstr "[[!img partition-icon.png link=\"no\"]]\n"
+msgid "[[!img partition-icon.png link=\"no\" alt=\"\"]]\n"
+msgstr "[[!img partition-icon.png link=\"no\" alt=\"\"]]\n"
 
 #. type: Plain text
 #, no-wrap
@@ -242,11 +242,6 @@ msgstr "Файловые контейнеры"
 
 #. type: Plain text
 #, no-wrap
-msgid "[[!img container-icon.png link=\"no\" alt=\"\"]]\n"
-msgstr "[[!img container-icon.png link=\"no\" alt=\"\"]]\n"
-
-#. type: Plain text
-#, no-wrap
 msgid "<a id=\"container-files\"></a>\n"
 msgstr "<a id=\"container-files\"></a>\n"
 
@@ -264,8 +259,7 @@ msgstr "Разблокирование файлового контейнера �
 #| "     **Utilities**&nbsp;▸\n"
 #| "     <span class=\"guisubmenuitem\">Unlock VeraCrypt Volumes</span></"
 #| "span>.\n"
-msgid ""
-"Choose **Applications&nbsp;▸ Utilities&nbsp;▸ Unlock VeraCrypt Volumes**."
+msgid "Choose **Apps&nbsp;▸ Utilities&nbsp;▸ Unlock VeraCrypt Volumes**."
 msgstr ""
 "1. Выберите\n"
 "   <span class=\"menuchoice\">\n"
@@ -329,8 +323,7 @@ msgstr "Разблокирование файлового контейнера �
 #| "     <span class=\"guisubmenuitem\">Disks</span></span>\n"
 #| "   to start the *Disks* utility.\n"
 msgid ""
-"Choose **Applications&nbsp;▸ Utilities&nbsp;▸ Disks** to start the *Disks* "
-"utility."
+"Choose **Apps&nbsp;▸ Utilities&nbsp;▸ Disks** to open the *Disks* utility."
 msgstr ""
 "1. Выберите\n"
 "   <span class=\"menuchoice\">\n"
@@ -340,10 +333,20 @@ msgstr ""
 "  и запустите  утилиту *Диски*.\n"
 
 #. type: Bullet: '1. '
+#, fuzzy
+#| msgid ""
+#| "1. Choose <span class=menuchoice\">\n"
+#| "     **Disks**&nbsp;▸\n"
+#| "     **Attach Disk Image&hellip;**</span> from the\n"
+#| "     top navigation bar.\n"
 msgid ""
-"Choose **[[!img lib/open-menu.png alt=\"\" class=symbolic link=\"no\"]]&nbsp;"
-"▸ Attach Disk Image&hellip;** from the top navigation bar."
+"Choose **[[!img lib/open-menu.png link=\"no\" class=\"symbolic\" "
+"alt=\"\"]]&nbsp;▸ Attach Disk Image** from the top navigation bar."
 msgstr ""
+"1. Выберите <span class=menuchoice\">\n"
+"     **Диски**&nbsp;▸\n"
+"     **Подключить образ диска&hellip;**</span> в верхней навигационной "
+"панели.\n"
 
 #. type: Bullet: '1. '
 msgid "In the **Select Disk Image to Attach** dialog:"
@@ -361,8 +364,9 @@ msgstr ""
 "устройство только для чтения</span>."
 
 #. type: Plain text
-#, no-wrap
-msgid "     [[!img read-only.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
+#, fuzzy, no-wrap
+#| msgid "     [[!img read-only.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
+msgid "     [[!img read-only.png class=\"screenshot\" alt=\"\"]]\n"
 msgstr "     [[!img read-only.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
 
 #. type: Bullet: '   - '
@@ -370,8 +374,9 @@ msgid "Choose **All Files** in the file filter in the bottom-right corner."
 msgstr "Выберите **Все файлы** в правом нижнем углу."
 
 #. type: Plain text
-#, no-wrap
-msgid "     [[!img all-files.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
+#, fuzzy, no-wrap
+#| msgid "     [[!img all-files.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
+msgid "     [[!img all-files.png class=\"screenshot\" alt=\"\"]]\n"
 msgstr "     [[!img all-files.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
 
 #. type: Bullet: '   - '
@@ -385,29 +390,45 @@ msgstr ""
 "Выберите файл-контейнер и нажмите кнопку <span class=\"bold\">Подключить</"
 "span> в правом верхнем углу."
 
+#. type: Bullet: '1. '
+msgid "A first dialog appears to unlock the container."
+msgstr ""
+
 #. type: Plain text
-#, no-wrap
-msgid "   An authentication dialog appears.\n"
+#, fuzzy, no-wrap
+#| msgid "     [[!img read-only.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
+msgid "   [[!img authentication.png class=\"screenshot\" alt=\"Authentication required\"]]\n"
+msgstr "     [[!img read-only.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
+
+#. type: Bullet: '1. '
+msgid "Select **Cancel**."
 msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid "   [[!img authentication.png link=\"no\" class=\"screenshot\" alt=\"Authentication required\"]]\n"
+msgid "   It is impossible to use keyfiles with this first dialog.\n"
 msgstr ""
 
 #. type: Bullet: '1. '
-msgid "Open your *VeraCrypt* volumes from the **Places** menu."
+msgid ""
+"A second dialog called **Set options to unlock** appears to unlock the "
+"container."
+msgstr ""
+
+#. type: Plain text
+#, fuzzy, no-wrap
+#| msgid "     [[!img all-files.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
+msgid "   [[!img options.png class=\"screenshot\" alt=\"\"]]\n"
+msgstr "     [[!img all-files.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
+
+#. type: Bullet: '1. '
+msgid "Open your *VeraCrypt* volume from the sidebar of the *Files* menu."
 msgstr ""
 
 #. type: Title =
 #, no-wrap
 msgid "Using a partition or drive"
 msgstr "Разделы и диски"
-
-#. type: Plain text
-#, no-wrap
-msgid "[[!img partition-icon.png link=\"no\" alt=\"\"]]\n"
-msgstr "[[!img partition-icon.png link=\"no\" alt=\"\"]]\n"
 
 #. type: Plain text
 #, no-wrap
@@ -423,6 +444,11 @@ msgid "Plug in the USB stick or hard disk that you want to unlock."
 msgstr ""
 "   В противном случае подключите флешку или жёсткий диск, которые хотите\n"
 " разблокировать.\n"
+
+#. type: Plain text
+#, no-wrap
+msgid "   An authentication dialog appears.\n"
+msgstr ""
 
 #. type: Plain text
 #, no-wrap
@@ -442,12 +468,6 @@ msgstr ""
 "Если ваш раздел находится на внутреннем жёстком диске, [[установите пароль "
 "администратора|doc/first_steps/welcome_screen/administration_password]] при "
 "запуске Tails."
-
-#. type: Bullet: '1. '
-msgid ""
-"Choose **Applications**&nbsp;▸ **Utilities**&nbsp;▸ **Disks** to start the "
-"*Disks* utility."
-msgstr ""
 
 #. type: Bullet: '1. '
 #, fuzzy
@@ -522,8 +542,23 @@ msgid "<h2 id=\"eject\">Ejecting a <i>VeraCrypt</i> volume</h2>\n"
 msgstr ""
 
 #. type: Bullet: '1. '
-msgid "Choose **Applications**&nbsp;▸ **Files** to open the *Files* browser."
+#, fuzzy
+#| msgid ""
+#| "1. Choose\n"
+#| "   <span class=\"menuchoice\">\n"
+#| "     **Applications**&nbsp;▸\n"
+#| "     **Utilities**&nbsp;▸\n"
+#| "     <span class=\"guisubmenuitem\">Disks</span></span>\n"
+#| "   to start the *Disks* utility.\n"
+msgid ""
+"Choose **Apps&nbsp;▸ Accessories&nbsp;▸ Files** to open the *Files* browser."
 msgstr ""
+"1. Выберите\n"
+"   <span class=\"menuchoice\">\n"
+"     **Приложения**&nbsp;▸\n"
+"     **Утилиты**&nbsp;▸\n"
+"     <span class=\"guisubmenuitem\">Диски</span></span>\n"
+"  и запустите  утилиту *Диски*.\n"
 
 #. type: Bullet: '1. '
 #, fuzzy
@@ -533,13 +568,21 @@ msgstr ""
 #| "class=\"symbolic\" link=\"no\"]]</span> button on the label of the volume "
 #| "corresponding to your partition."
 msgid ""
-"In the sidebar of the *Files* browser, click on the [[!img lib/media-eject."
-"png alt=\"Eject\" class=\"symbolic\" link=\"no\"]] button on the label of "
-"your *VeraCrypt* volume."
+"In the sidebar of the *Files* browser, click on the [[!img lib/media-"
+"eject.png alt=\"Eject\" class=\"symbolic\" link=\"no\"]] button on the label "
+"of your *VeraCrypt* volume."
 msgstr ""
 "В боковой панели менеджера *Файлы* нажмите кнопку <span class=\"bold\">[[!"
 "img lib/media-eject.png alt=\"Извлечь\" class =\"symbolic\" link =\"no\"]]</"
 "span> на ярлыке тома, соответствующего вашему разделу."
+
+#, no-wrap
+#~ msgid "[[!img container-icon.png link=\"no\"]]\n"
+#~ msgstr "[[!img container-icon.png link=\"no\"]]\n"
+
+#, no-wrap
+#~ msgid "[[!img partition-icon.png link=\"no\"]]\n"
+#~ msgstr "[[!img partition-icon.png link=\"no\"]]\n"
 
 #, no-wrap
 #~ msgid "Introduction to *VeraCrypt*"
@@ -657,22 +700,6 @@ msgstr ""
 #, no-wrap
 #~ msgid "  [[!img eject-partition.png link=\"no\" alt=\"\"]]\n"
 #~ msgstr "  [[!img eject-partition.png link=\"no\" alt=\"\"]]\n"
-
-#, fuzzy, no-wrap
-#~| msgid ""
-#~| "1. Choose <span class=menuchoice\">\n"
-#~| "     **Disks**&nbsp;▸\n"
-#~| "     **Attach Disk Image&hellip;**</span> from the\n"
-#~| "     top navigation bar.\n"
-#~ msgid ""
-#~ "1. Choose <span class=menuchoice\">\n"
-#~ "     **Disks**&nbsp;▸\n"
-#~ "     **Attach Disk Image&hellip;**</span> from the\n"
-#~ "     top navigation bar.\n"
-#~ msgstr ""
-#~ "1. Выберите <span class=menuchoice\">\n"
-#~ "     **Диски**&nbsp;▸\n"
-#~ "     **Подключить образ диска&hellip;**</span> в верхней навигационной панели.\n"
 
 #, no-wrap
 #~ msgid "     [[!img disks-menu.png link=\"no\" alt=\"\"]]\n"

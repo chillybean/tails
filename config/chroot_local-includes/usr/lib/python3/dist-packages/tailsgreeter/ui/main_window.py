@@ -161,7 +161,7 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
 
         # Add settings to region listbox
         for setting in self.settings.region_settings:
-            logging.debug("Adding '%s' to region listbox", setting.id)
+            logging.debug("Adding '%s' to region listbox", setting.name)
             self.listbox_region.add(setting.listboxrow)
 
         # Add settings dialog
@@ -341,12 +341,12 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
                 settings_loaded = True
                 # Add the setting to the listbox of added settings, if it was
                 # not added before (by the user, before unlocking perrsistence).
-                if self.setting_added(setting.id):
+                if self.setting_added(setting.name):
                     # The setting was already added, we only have to call apply()
                     # to update the label
                     setting.apply()
                 else:
-                    self.add_setting(setting.id)
+                    self.add_setting(setting.name)
             except SettingNotFoundError as e:
                 logging.debug(e)
                 # The settings file does not exist, so we create it by
@@ -614,7 +614,7 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
     ):
         for setting in self.settings:
             if setting.accel_key == keyval:
-                self.edit_setting(setting.id)
+                self.edit_setting(setting.name)
         return False
 
     def cb_linkbutton_help_activate(self, linkbutton, user_data=None):
@@ -723,7 +723,9 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
     def on_additional_setting_popover_closed(
         self, popover: Popover, setting: AdditionalSetting
     ):
-        logging.debug("'%s' popover closed. response: %s", setting.id, popover.response)
+        logging.debug(
+            "'%s' popover closed. response: %s", setting.name, popover.response
+        )
         # Unselect the listbox row
         self.listbox_settings.unselect_all()
         if popover.response == Gtk.ResponseType.YES:

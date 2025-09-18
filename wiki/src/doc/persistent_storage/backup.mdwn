@@ -24,17 +24,19 @@ replace it immediately with your backup Tails.
 1. Plug in the new USB stick on which you want to create your backup Tails USB
    stick and clone *to*.
 
-1. Choose **Applications**&nbsp;▸ **Tails Cloner**.
+1. Choose **Apps&nbsp;▸ Tails&nbsp;▸ Tails Cloner**.
 
 1. Turn on the option **Clone the current Persistent Storage** below the
    option **Clone the current Tails**.
 
-   [[!img clone.png link="no" class="screenshot" alt=""]]
+   [[!img clone.png class="screenshot" alt=""]]
 
 1. Make sure that the new USB stick is selected in the **Target USB stick**
    menu.
 
 1. To start the cloning, click on the **Install** button.
+
+1. Read the warning message in the confirmation dialog.
 
 1. Enter a passphrase for the Persistent Storage on the new USB stick in the
    **Passphrase** text box.
@@ -42,8 +44,6 @@ replace it immediately with your backup Tails.
 1. Enter the same passphrase again in the **Confirm** text box.
 
 1. Click **Continue**.
-
-1. Read the warning message in the confirmation dialog.
 
 1. Click **Delete All Data and Install** to confirm.
 
@@ -64,8 +64,7 @@ replace it immediately with your backup Tails.
 
 1. Plug in your backup Tails USB stick.
 
-1. Choose
-   **Applications&nbsp;▸ System Tools&nbsp;▸ Back Up Persistent Storage**.
+1. Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Back Up Persistent Storage**.
 
    <div class="note">
 
@@ -79,16 +78,15 @@ replace it immediately with your backup Tails.
    For detailed instructions, see how to [[manually upgrade from another
    Tails|upgrade/clone#upgrade]].
 
-<h1 id="terminal">Updating your backup Tails from a terminal</h1>
+<h1 id="console">Updating your backup Tails from a <i>Console</i></h1>
 
-If you prefer updating your backup Tails from a terminal:
+If you prefer updating your backup Tails from a *Console*:
 
 1. Start on your current Tails.
 
 1. When starting Tails, [[set up an administration password|doc/first_steps/welcome_screen/administration_password]].
 
-1. Choose **Applications**&nbsp;▸ **Accessories**&nbsp;▸ **Files** to open the
-   *Files* browser.
+1. Choose **Apps&nbsp;▸ Accessories&nbsp;▸ Files** to open the *Files* browser.
 
 1. Plug in your backup Tails USB stick.
 
@@ -96,7 +94,7 @@ If you prefer updating your backup Tails from a terminal:
    *Files* browser. Click on it and enter the
    passphrase of your backup Tails to unlock the volume.
 
-1. Execute the following command in a *Root Terminal*:
+1. Execute the following command in a *Root Console*.
 
        rsync -PaSHAXv --del /live/persistence/TailsData_unlocked/ /media/amnesia/TailsData
 

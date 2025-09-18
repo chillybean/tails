@@ -3,7 +3,7 @@
 # multiple configurations and how to keep them up-to-date
 
 
-target-version = "py311"
+target-version = "py312"
 
 extend-exclude = [
     "submodules/chutney",
@@ -76,7 +76,7 @@ extend-ignore = [
     "S603",
     # We don't record the author of a TODO, for better or worse
     "TD002",
-    # Accept commonly used "TODO:Bookworm"
+    # Accept commonly used "TODO:Trixie"
     "TD007",
     # We use os.exec*() instead of subprocess to replace the current process
     "S606",

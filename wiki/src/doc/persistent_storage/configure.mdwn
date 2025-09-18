@@ -1,15 +1,7 @@
 [[!meta title="Configuring the Persistent Storage"]]
 
 To configure the Persistent Storage, choose
-**Applications**&nbsp;▸ **Tails**&nbsp;▸ **Persistent Storage**.
-
-Since Tails 5.8 (December 2022), your data corresponding to each feature of the
-Persistent Storage is stored to the USB stick immediately. You don't have to
-restart Tails anymore after enabling a new feature.
-
-For example, when you enable the Tor Browser Bookmarks feature of the
-Persistent Storage, your current bookmarks are saved in the Persistent Storage
-immediately.
+**Apps&nbsp;▸ Tails&nbsp;▸ Persistent Storage**.
 
 [[!toc levels=3]]
 
@@ -39,8 +31,11 @@ Personal Documents
 When the Persistent Folder feature is turned on, you can save your personal files and working
 documents in the *Persistent* folder.
 
-To open the *Persistent* folder, choose
-**Places&nbsp;▸ Persistent**.
+To open the *Persistent* folder:
+
+1. Choose **Apps&nbsp;▸ Accessories&nbsp;▸  Files**.
+
+1. Select the *Persistent* folder in the sidebar.
 
 System Settings
 ===============
@@ -142,15 +137,6 @@ When the GnuPG feature is turned on, the OpenPGP keys that you create or import
 in *GnuPG* and [[*Kleopatra*|doc/encryption_and_privacy/kleopatra]] are
 saved in the Persistent Storage.
 
-<div class="note">
-
-<p>Since Tails 4.13 (November 2020), <em>Thunderbird</em> uses its own OpenPGP keyring,
-different from the keyring used by <em>GnuPG</em> and <em>Kleopatra</em>. You don't need to enable the GnuPG
-feature anymore if you only use OpenPGP encryption in
-<em>Thunderbird</em>.</p>
-
-</div>
-
 <a id="pidgin"></a>
 
 <div class="icon">
@@ -211,7 +197,7 @@ a network connection is established.
 <div class="caution">
 
 <p>The packages included in Tails are carefully tested for security.
-Installing additional packages might break the security built in Tails,
+Installing additional packages might break the security built into Tails,
 so [[be careful with what you install|additional_software#warning]].</p>
 
 </div>
@@ -225,22 +211,23 @@ so [[be careful with what you install|additional_software#warning]].</p>
 
 When the Dotfiles feature is turned on:
 
+- The *Files* browser has a shortcut to the *Dotfiles* folder in the sidebar.
+
+  The absolute path of the *Dotfiles* folder is
+  */live/persistence/TailsData_unlocked/dotfiles*.
+
 - All the files in the
-  */live/persistence/TailsData_unlocked/dotfiles* folder
+  *Dotfiles* folder
   are linked in the *Home* folder using Linux symbolic links.
 
-- All the files in subfolders of
-  */live/persistence/TailsData_unlocked/dotfiles* are also linked in the
+- All the files in subfolders of the
+  *Dotfiles* folder are also linked in the
   corresponding subfolder of the *Home* folder using Linux symbolic links.
 
-- A shortcut is provided in the left pane of the *Files* browser and in the
-  **Places** menu in the top navigation bar to access the
-  */live/persistence/TailsData_unlocked/dotfiles* folder.
-
 For example, having the following files in
-*/live/persistence/TailsData_unlocked/dotfiles*:
+the *Dotfiles* folder:
 
-    /live/persistence/TailsData_unlocked/dotfiles
+    Dotfiles
     ├── file_a
     ├── folder
     │   ├── file_b
@@ -248,9 +235,9 @@ For example, having the following files in
     │       └── file_c
     └── emptyfolder
 
-Produces the following result in */home/amnesia*:
+Produces the following result in the *Home* folder:
 
-    /home/amnesia
+    Home
     ├── file_a → /live/persistence/TailsData_unlocked/dotfiles/file_a
     └── folder
         ├── file_b → /live/persistence/TailsData_unlocked/dotfiles/folder/file_b
@@ -292,25 +279,23 @@ projector), you can save the configuration of your displays using the
 
 1. Turn on the *Dotfiles* feature and restart Tails.
 
-1. Choose **Applications**&nbsp;▸ **System Tools**&nbsp;▸ **Settings** to open the *Settings* utility.
+1. Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Settings** to open the *Settings* utility.
 
 1. Choose **Displays** in the *Settings* utility.
 
 1. Configure your displays.
 
-1. Choose **Places**&nbsp;▸ **Dotfiles**
-   to open the */live/persistence/TailsData_unlocked/dotfiles* folder
-   in the *Files* browser.
+1. Choose **Apps&nbsp;▸ Accessories&nbsp;▸ Files**.
 
-1. Click the [[!img lib/open-menu.png alt="Main Menu" class="symbolic" link="no"]]
-   button in the title bar and turn on the option **Show Hidden Files**.
+1. Select the *Dotfiles* folder in the sidebar.
 
-1. Create a folder called *.config*
-   (*config* preceded by a dot).
+1. Select the [[!img lib/go-down.png alt="View Options Toggle Button" class="symbolic" link="no"]]
+   button in the title bar and select the option **Show Hidden Files**.
 
-1. Copy the *.config/monitors.xml* file from
-   your *Home* folder to
-   */live/persistence/TailsData_unlocked/dotfiles/.config*.
+1. Create a folder named *.config* (notice the `.`) in this *Dotfiles* folder.
+
+1. Copy the file *.config/monitors.xml* from your *Home* folder to this
+   *.config* folder.
 
 Deleting the data corresponding to a feature
 ============================================
@@ -322,7 +307,7 @@ When you turn off a feature of the Persistent Storage:
   For example:
 
   * If you turn off the Persistent Folder feature, the documents saved in
-    **Places** &nbsp;▸ **Persistent** are not available anymore.
+    the *Persistent* folder are not available anymore in the *Files* browser.
 
   * If you turn off the Electrum Bitcoin Wallet feature, the wallet used by
     *Electrum* is not available anymore.

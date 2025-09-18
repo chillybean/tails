@@ -16,13 +16,13 @@
 
 <p>Tor and Tails don't protect you by making you look like any random Internet
 user, but by making all Tor and Tails users look the same. It becomes
-impossible to know who is who among them.</p>
+impossible to know who is who among all users.</p>
 
 <ul>
 
 <li><p>Your Internet service provider (ISP) and local network can
-see that you connect to the Tor network. They still cannot know what sites you visit.
-To hide that you connect to Tor, you can use a [[Tor bridge|doc/anonymous_internet/tor]].</p></li>
+see that you connect to the Tor network. But, they cannot know which sites you visit.
+To also hide that you connect to Tor, use a [[Tor bridge|doc/anonymous_internet/tor]].</p></li>
 
 <li><p>The sites that you visit can know that you are using Tor, because the
 <a href="https://metrics.torproject.org/exonerator.html">list of exit
@@ -35,6 +35,10 @@ nodes of the Tor network</a> is public.</p></li>
 <p>Parental controls, Internet service providers, and countries
 with heavy censorship can identify and block connections to the Tor
 network that don't use Tor bridges.</p>
+
+</div>
+
+<div class="attack">
 
 <p>Many websites ask you to solve a CAPTCHA or block access from the Tor
 network.</p>
@@ -65,9 +69,9 @@ more attention to the security warnings in <i>Tor Browser</i>. If you get such
 a warning, use the [[New Identity|doc/anonymous_internet/Tor_Browser#new-identity]] feature of <i>Tor Browser</i> to
 change exit node.</p></li>
 
-</ul>
+[[!img ssl_warning.png link="no" alt="Warning: Potential Security Risk Ahead"]]
 
-[[!img ssl_warning.png link=no alt="Warning: Potential Security Risk Ahead"]]
+</ul>
 
 <p>To learn more about what information is available to someone observing the different
 parts of a Tor circuit, see the interactive graphics at

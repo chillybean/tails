@@ -195,5 +195,16 @@ EXPECTED_JOURNAL_ENTRIES = [
     'SYSLOG_IDENTIFIER' => 'spice-vdagentd',
     'MESSAGE'           => 'AIIEEE lost spice client connection, reconnecting (err: )',
   },
+  {
+    'SYSLOG_IDENTIFIER' => 'spice-vdagentd',
+    'MESSAGE'           => 'Error receiving data: Connection reset by peer',
+  },
+  # Fixed in alsa-utils upstream.
+  # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1093057
+  # https://github.com/alsa-project/alsa-utils/issues/280
+  {
+    'SYSLOG_IDENTIFIER' => 'systemd-udevd',
+    'MESSAGE'           => %r{/usr/lib/udev/rules.d/90-alsa-restore.rules:[0-9]+ GOTO="alsa_restore_std" has no matching label, ignoring.},
+  },
 ].freeze
 # rubocop:enable Layout/LineLength

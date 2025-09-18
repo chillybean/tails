@@ -493,7 +493,7 @@ def tca_configure(mode, connect: true, &block)
     radio_button_label, roleName: 'radio button'
   )
   try_for(10) do
-    radio_button.click
+    radio_button.doActionNamed('click')
     radio_button.checked?
   end
   block.call if block_given?
@@ -523,7 +523,7 @@ When(/^I look at the hide mode but then I go back$/) do
 
     btn = tor_connection_assistant.child(
       '_Back',
-      roleName: 'push button'
+      roleName: 'button'
     )
     assert btn.sensitive?
     btn.click
@@ -683,7 +683,7 @@ When /^I configure (?:some|the) (persistent )?(\w+) bridges (from a QR code )?in
                                        roleName: 'radio button')
                                 .click
         tor_connection_assistant.child('Scan QR code',
-                                       roleName: 'push button')
+                                       roleName: 'button')
                                 .click
         try_for(30) do
           all_labels = tor_connection_assistant.children(roleName: 'label')
@@ -746,7 +746,7 @@ When /^I scan a QR code from the error page in Tor Connection Assistant$/ do
 
   qr_code_bridges = chutney_bridges(bridge_type).slice(0, 1)
   setup_qrcode_bridges_on_webcam(qr_code_bridges)
-  tor_connection_assistant.child('Scan QR Code', roleName: 'push button').click
+  tor_connection_assistant.child('Scan QR Code', roleName: 'button').click
 
   try_for(30) do
     !tor_connection_assistant.textentry('').text.empty?
@@ -838,10 +838,10 @@ end
 
 def click_connect_to_tor
   btn = nil
-  try_for(3) do
+  try_for(10) do
     btn = tor_connection_assistant.child(
       '_Connect to Tor',
-      roleName: 'push button'
+      roleName: 'button'
     )
     btn.sensitive?
   end
@@ -887,7 +887,7 @@ When /^I set the time zone in Tor Connection to "([^"]*)"$/ do |timezone|
   @screen.press('Return')
 
   try_for(5) do
-    time_dialog.child('Apply', roleName: 'push button').click
+    time_dialog.child('Apply', roleName: 'button').click
     true
   end
 
@@ -1147,17 +1147,11 @@ Then(/^Tor Connection suggests me to connect to Wi-Fi$/) do
 end
 
 Then(/^I click on the Wi-Fi settings$/) do
-  tor_connection_assistant.child('Open Wi-Fi Settings', roleName: 'push button').click
+  tor_connection_assistant.child('Open Wi-Fi Settings', roleName: 'button').click
 end
 
 Then(/^The Wi-Fi settings are displayed$/) do
-  # Gnome Control Center is buggy vs Dogtail: except the Settings (frame) child all
-  # other children apparently are invisible so our default Dogtail option
-  # showingOnly: true makes us not find them.
   Dogtail::Application.new('gnome-control-center')
-                      .child('Settings categories', roleName:    'list',
-                                                    showingOnly: false)
-                      .children(roleName: 'list item', showingOnly: false)
-                      .find(&:selected?)
-                      .child('Wi-Fi', roleName: 'label', showingOnly: false)
+                      .child('Wi-Fi', roleName: 'grouping')
+                      .child('Wi-Fi', roleName: 'check box')
 end

@@ -157,11 +157,11 @@ When /^I unlock and mount this VeraCrypt (volume|file container) with Unlock Ver
   app = launch_unlock_veracrypt_volumes
   case support
   when 'volume'
-    app.child('Unlock', roleName: 'push button').click
+    app.child('Unlock', roleName: 'button').click
   when 'file container'
     # Clicking on this button breaks accessibility of the app,
     # so we instead use the keyboard
-    app.child('Add', roleName: 'push button').grabFocus
+    app.child('Add', roleName: 'button').grabFocus
     @screen.press('Return')
 
     select_path_in_file_chooser(
@@ -181,12 +181,10 @@ When /^I unlock and mount this VeraCrypt (volume|file container) with Unlock Ver
   end
   if @veracrypt_is_hidden
     checkbox = dialog.childLabelled('Hidden Volume')
-    checkbox.grabFocus
-    @screen.press('Space')
+    checkbox.click
     try_for(10) { checkbox.checked? }
   end
-  dialog.button('Unlock').grabFocus
-  @screen.press('Return')
+  dialog.button('Unlock').click
   try_for(10) { !gnome_shell_unlock_dialog? }
   try_for(30) do
     !$vm.file_glob('/media/amnesia/*/GPL-3').empty?
@@ -250,7 +248,7 @@ When /^I unlock and mount this VeraCrypt (volume|file container) with GNOME Disk
     end
   end
   disks.child(
-    roleName:    'push button',
+    roleName:    'button',
     description: 'Unlock selected encrypted partition'
   ).click
   unlock_dialog = disks.dialog('Set options to unlock')
@@ -292,7 +290,7 @@ When /^I unlock and mount this VeraCrypt (volume|file container) with GNOME Disk
     disks.child(
       '',
       description: 'Mount selected partition',
-      roleName:    'push button'
+      roleName:    'button'
     ).click
     true
   rescue Dogtail::Failure
@@ -321,23 +319,17 @@ When /^I open this VeraCrypt volume in GNOME Files$/ do
 end
 
 Then /^I see the expected contents in this VeraCrypt volume$/ do
-  # Since Bookworm Nautilus behaves odd with our default showingOnly
-  # == true, it just lists a single frame as the only child.
   nautilus_with_open_veracrypt_volume.child('GPL-3',
-                                            roleName:    'table cell',
-                                            showingOnly: false)
+                                            roleName: 'table cell')
 end
 
 When /^I lock the currently opened VeraCrypt (volume|file container)$/ do |support|
-  $vm.execute_successfully(
-    'udisksctl unmount --block-device /dev/mapper/tcrypt-*',
-    user: LIVE_USER
-  )
-  device = support == 'volume' ? '/dev/sda' : '/dev/loop1'
-  $vm.execute_successfully(
-    "udisksctl lock --block-device #{device}",
-    user: LIVE_USER
-  )
+  action = if support == 'file container'
+             'Unmount'
+           else
+             'Eject'
+           end
+  nautilus_with_open_veracrypt_volume.button(action).click
 end
 
 Then /^the VeraCrypt (?:volume|file container) has been unmounted and locked$/ do

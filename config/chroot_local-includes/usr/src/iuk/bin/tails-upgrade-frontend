@@ -12,7 +12,12 @@ use 5.10.1;
 use FindBin;
 use lib "$FindBin::Bin/../lib";
 
+use Env;
 use Tails::IUK::Frontend;
 
 umask 022;
+
+# Workaround tails/tails#21059
+$ENV{GSK_RENDERER} = 'cairo';
+
 Tails::IUK::Frontend->new_with_options()->run;

@@ -76,10 +76,10 @@ class ProgressThread(threading.Thread):
     drive = None
     get_free_bytes = None
 
-    def __init__(self, parent):
+    def __init__(self, parent: "TailsInstallerWindow"):
         threading.Thread.__init__(self)
         self.parent = parent
-        self.terminate = False
+        self.terminate = threading.Event()
 
     def set_data(self, size, drive, freebytes):
         self.totalsize = size / 1024
@@ -92,10 +92,14 @@ class ProgressThread(threading.Thread):
     def run(self):
         value = 0
         tps_value = 0
-        while not self.terminate:
-            if os.path.ismount("/media/amnesia/Tails/"):
+        while not self.terminate.is_set():
+            try:
                 free = self.get_free_bytes()
-                value = (self.orig_free - free) / 1024
+            except FileNotFoundError:  # not mounted
+                pass
+            else:
+                if free is not None:
+                    value = (self.orig_free - free) / 1024
             if os.path.ismount("/media/amnesia/TailsData"):
                 tps_value = psutil.disk_usage("/media/amnesia/TailsData").used / 1024
             GLib.idle_add(
@@ -105,11 +109,16 @@ class ProgressThread(threading.Thread):
             sleep(0.1)
 
     def stop(self):
-        self.terminate = True
+        self.terminate.set()
 
 
 class TailsInstallerThread(threading.Thread):
-    def __init__(self, live, progress, parent):
+    def __init__(
+        self,
+        live: TailsInstallerCreator,
+        progress: ProgressThread,
+        parent: "TailsInstallerWindow",
+    ):
         threading.Thread.__init__(self)
         self.progress = progress
         self.live = live
@@ -849,7 +858,7 @@ class TailsInstallerWindow(Gtk.ApplicationWindow):
                 _(
                     "Unable to use the selected file.  "
                     "You may have better luck if you move your ISO "
-                    "to the root of your drive (ie: C:\)"
+                    "to the root of your drive (ie: C:\\)"
                 )
             )
             self.live.log.exception(ex.args[0])

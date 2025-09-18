@@ -16,16 +16,17 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 **********************************************************************/
 
-const Gio = imports.gi.Gio;
-const GObject = imports.gi.GObject;
-const Shell = imports.gi.Shell;
-const St = imports.gi.St;
+import Gio from 'gi://Gio';
+import GObject from 'gi://GObject';
+import Shell from 'gi://Shell';
+import St from 'gi://St';
 
-const Main = imports.ui.main;
-const PanelMenu = imports.ui.panelMenu;
-const PopupMenu = imports.ui.popupMenu;
+import * as Main from 'resource:///org/gnome/shell/ui/main.js';
+import * as PanelMenu from 'resource:///org/gnome/shell/ui/panelMenu.js';
+import * as PopupMenu from 'resource:///org/gnome/shell/ui/popupMenu.js';
 
-const Gettext = imports.gettext.domain('tails');
+import * as Gettext from 'gettext';
+Gettext.textdomain('tails');
 const _ = Gettext.gettext;
 
 const TorStatusIndicatorName = 'tor-status';
@@ -54,7 +55,7 @@ class TorStatusIndicator extends PanelMenu.Button {
         // Create icon
         this._icon = new St.Icon({ style_class: 'system-status-icon' });
         this._updateIcon(status_file.query_exists(null));
-        this.add_actor(this._icon);
+        this.add_child(this._icon);
         this.add_style_class_name('panel-status-button');
     }
 
@@ -98,20 +99,22 @@ class TorStatusIndicator extends PanelMenu.Button {
     }
 });
 
-let tor_status_indicator;
+export default class TorStatusExtension {
 
-function init() {
-}
+    init() {
+    }
 
-function enable() {
-    log("TorStatus: entering enable()");
-    tor_status_indicator = new TorStatusIndicator;
-    Main.panel.addToStatusArea(TorStatusIndicatorName, tor_status_indicator);
-    log("TorStatus: exiting enable()");
-}
+    enable() {
+        log("TorStatus: entering enable()");
+        this.tor_status_indicator = new TorStatusIndicator;
+        Main.panel.addToStatusArea(TorStatusIndicatorName, this.tor_status_indicator);
+        log("TorStatus: exiting enable()");
+    }
 
-function disable() {
-    log("TorStatus: entering disable()");
-    tor_status_indicator.destroy();
-    log("TorStatus: exiting disable()");
+    disable() {
+        log("TorStatus: entering disable()");
+        this.tor_status_indicator.destroy();
+        log("TorStatus: exiting disable()");
+    }
+
 }

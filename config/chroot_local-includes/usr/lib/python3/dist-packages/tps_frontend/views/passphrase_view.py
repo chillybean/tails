@@ -19,6 +19,7 @@ def wordlist():
         "ca": "ca",
         "de": "de",
         "es": "es",
+        "fr": "fr",
         "it": "it",
         "pt": "pt-br",
     }
@@ -54,19 +55,11 @@ class PassphraseView(View):
 
     def __init__(self, window: "Window"):
         super().__init__(window)
-        self.passphrase_entry = self.builder.get_object(
-            "passphrase_entry"
-        )  # type: Gtk.Entry
+        self.passphrase_entry = self.builder.get_object("passphrase_entry")  # type: Gtk.Entry
         self.verify_entry = self.builder.get_object("verify_entry")  # type: Gtk.Entry
-        self.progress_bar = self.builder.get_object(
-            "passphrase_hint_progress_bar"
-        )  # type: Gtk.ProgressBar
-        self.verify_hint_box = self.builder.get_object(
-            "verify_hint_box"
-        )  # type: Gtk.Box
-        self.create_button = self.builder.get_object(
-            "create_button"
-        )  # type: Gtk.Button
+        self.progress_bar = self.builder.get_object("passphrase_hint_progress_bar")  # type: Gtk.ProgressBar
+        self.verify_hint_box = self.builder.get_object("verify_hint_box")  # type: Gtk.Box
+        self.create_button = self.builder.get_object("create_button")  # type: Gtk.Button
         self.passphrase_hint_label = self.builder.get_object(
             "passphrase_suggestion_label"
         )

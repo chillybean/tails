@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-06-26 22:20+0000\n"
+"POT-Creation-Date: 2025-09-17 11:40+0200\n"
 "PO-Revision-Date: 2024-10-21 14:03+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -77,8 +77,7 @@ msgstr ""
 "administration_password]] при запуске Tails."
 
 #. type: Bullet: '    1. '
-msgid ""
-"Choose **Applications&nbsp;▸ System Tools&nbsp;▸ Synaptic Package Manager**."
+msgid "Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Synaptic Package Manager**."
 msgstr ""
 
 #. type: Bullet: '  1. '
@@ -150,13 +149,18 @@ msgid "<div class=\"caution\">\n"
 msgstr "<div class=\"caution\">\n"
 
 #. type: Plain text
-#, no-wrap
+#, fuzzy, no-wrap
+#| msgid ""
+#| "<p>The packages included in Tails are carefully tested for security.\n"
+#| "Installing additional packages might break the security built in Tails. For\n"
+#| "example, installing OpenVPN might modify the firewall rules that Tails uses to\n"
+#| "force network traffic to go through Tor. So, be careful with what you\n"
+#| "install.</p>\n"
 msgid ""
 "<p>The packages included in Tails are carefully tested for security.\n"
-"Installing additional packages might break the security built in Tails. For\n"
+"Installing additional packages might break the security built into Tails. For\n"
 "example, installing OpenVPN might modify the firewall rules that Tails uses to\n"
-"force network traffic to go through Tor. So, be careful with what you\n"
-"install.</p>\n"
+"force network traffic to go through Tor.</p>\n"
 msgstr ""
 "<p>Все предустановленные в Tails программы тщательно проверены и безопасны.\n"
 "Установка дополнительных программ рискует нарушит систему защиты Tails. Например, установка OpenVPN может изменить настройки межсетевого экрана, который Tails использует для трафика в Tor. Будьте осторожны с тем, что вы устанавливаете.</p>\n"
@@ -179,9 +183,14 @@ msgstr ""
 "Иначе доступ в сеть для них будет закрыт."
 
 #. type: Bullet: '- '
+#, fuzzy
+#| msgid ""
+#| "Some software might, for example, modify the firewall and break the "
+#| "security built in Tails. But other software like games or office tools "
+#| "are probably fine."
 msgid ""
 "Some software might, for example, modify the firewall and break the security "
-"built in Tails. But other software like games or office tools are probably "
+"built into Tails. But other software like games or office tools are probably "
 "fine."
 msgstr ""
 "Некоторые программы могут, например, изменить настройки межсетевого экрана и "
@@ -227,8 +236,9 @@ msgstr ""
 
 #. type: Bullet: '- '
 msgid ""
-"[*Cheese*](https://wiki.gnome.org/Apps/Cheese), an application to take "
-"pictures and videos from your webcam."
+"[*GNOME Camera*](https://apps.gnome.org/Snapshot/), from the `gnome-"
+"snapshot` package, an application to take pictures and videos from your "
+"webcam."
 msgstr ""
 
 #. type: Bullet: '- '
@@ -457,8 +467,9 @@ msgstr ""
 "устанавливать этот пакет каждый раз при запуске Tails в будущем."
 
 #. type: Plain text
-#, no-wrap
-msgid "   [[!img add.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
+#, fuzzy, no-wrap
+#| msgid "   [[!img add.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
+msgid "   [[!img add.png class=\"screenshot\" alt=\"\"]]\n"
 msgstr "   [[!img add.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
 
 #. type: Bullet: '   - '
@@ -553,64 +564,65 @@ msgstr ""
 msgid "To make an application use the Tor network, you can either:"
 msgstr ""
 
-#. type: Plain text
+#. type: Bullet: '- '
 msgid ""
-"A. Configure the application to use Tor as a proxy with the following "
+"Configure the application to use Tor as a proxy with the following "
 "parameters:"
 msgstr ""
 
-#. type: Bullet: '   * '
+#. type: Bullet: '  * '
 msgid "Type: SOCKS5"
 msgstr ""
 
-#. type: Bullet: '   * '
+#. type: Bullet: '  * '
 msgid "Host: 127.0.0.1"
 msgstr ""
 
-#. type: Bullet: '   * '
+#. type: Bullet: '  * '
 msgid "Port: 9050"
 msgstr ""
 
 #. type: Plain text
 #, no-wrap
 msgid ""
-"   For example, to use *Mumble* in Tails, you can configure Tor as proxy in the\n"
-"   network configuration of *Mumble*:\n"
+"  For example, to use *Mumble* in Tails, you can configure Tor as proxy in the\n"
+"  network configuration of *Mumble*:\n"
 msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid "   [[!img mumble.png link=\"no\" alt=\"Network configuration of Mumble with proxy settings\"]]\n"
+msgid "  [[!img mumble.png class=\"screenshot\" alt=\"Network configuration of Mumble with proxy settings\"]]\n"
 msgstr ""
 
-#. type: Plain text
-msgid "B. Run the application using `torsocks` on the command line."
+#. type: Bullet: '- '
+msgid "Open the application using `torsocks` on the command line."
 msgstr ""
 
 #. type: Plain text
 #, no-wrap
 msgid ""
-"   Execute the following command in a *Terminal*. Replace <span\n"
-"   class=\"command-placeholder\">application</span> with the command line of the\n"
-"   application that you want to run:\n"
+"  Execute the following command in a *Console*. Replace\n"
+"  <span class=\"command-placeholder\">application</span> with the command line\n"
+"  of the application that you want to open.\n"
 msgstr ""
 
 #. type: Plain text
 #, fuzzy, no-wrap
 #| msgid "<span class=\"command\">hunspell-<span class=\"command-placeholder\">lang</span></span>"
-msgid "   <p class=\"command-template\">torsocks <span class=\"command-placeholder\">application</span></p>\n"
+msgid "  <p class=\"command-template\">torsocks <span class=\"command-placeholder\">application</span></p>\n"
 msgstr "<span class=\"command\">hunspell-<span class=\"command-placeholder\">lang</span></span>"
 
 #. type: Plain text
 #, no-wrap
 msgid ""
-"   For example, to use *Mumble* in Tails, you can also execute the following\n"
-"   command:\n"
+"  For example, to use *Mumble* in Tails, you can also execute the following\n"
+"  command:\n"
 msgstr ""
 
 #. type: Plain text
-#, no-wrap
-msgid "   <p class=\"command\">torsocks mumble</p>\n"
+#, fuzzy, no-wrap
+#| msgid "   <p class=\"command\">torsocks mumble</p>\n"
+msgid "  <p class=\"command\">torsocks mumble</p>\n"
 msgstr "   <p class=\"command\">torsocks mumble</p>\n"
 
 #. type: Title ###
@@ -661,8 +673,7 @@ msgstr "Проверка вашего списка дополнительных 
 #| "   <span class=\"guimenuitem\">Additional Software</span></span>.\n"
 msgid ""
 "To see which packages are installed automatically every time you start "
-"Tails, choose **Applications&nbsp;▸ System Tools&nbsp;▸ Additional "
-"Software**."
+"Tails, choose **Apps&nbsp;▸ System Tools&nbsp;▸ Additional Software**."
 msgstr ""
 "Для того, чтобы увидеть, какие пакеты устанавливаются автоматически\n"
 "при запуске Tails, выберите <span class=\"menuchoice\">\n"
@@ -711,7 +722,7 @@ msgstr ""
 #. type: Bullet: '- '
 #, fuzzy
 #| msgid "<span class=\"bold\">Install Every Time</span>, you can remove it:"
-msgid "**Install Every Time**, you can remove it:"
+msgid "**Install Every Time**, you can remove it either:"
 msgstr ""
 "<span class=\"bold\">Install Every Time:</span> (регулярная установка) тогда "
 "вы можете удалить пакет:"
@@ -723,8 +734,20 @@ msgid "Using *Additional Software*:"
 msgstr "Установка дополнительных программ"
 
 #. type: Bullet: '    1. '
-msgid "Choose **Applications&nbsp;▸ System Tools&nbsp;▸ Additional Software**."
+#, fuzzy
+#| msgid ""
+#| "To see which packages are installed automatically\n"
+#| "every time you start Tails, choose <span class=\"menuchoice\">\n"
+#| "   <span class=\"guimenu\">Applications</span>&nbsp;▸\n"
+#| "   <span class=\"guisubmenu\">System Tools</span>&nbsp;▸\n"
+#| "   <span class=\"guimenuitem\">Additional Software</span></span>.\n"
+msgid "Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Additional Software**."
 msgstr ""
+"Для того, чтобы увидеть, какие пакеты устанавливаются автоматически\n"
+"при запуске Tails, выберите <span class=\"menuchoice\">\n"
+"   <span class=\"guimenu\">Приложения</span>&nbsp;▸\n"
+"   <span class=\"guisubmenu\">Системные</span>&nbsp;▸\n"
+"   <span class=\"guimenuitem\">Additional Software</span></span>.\n"
 
 #. type: Bullet: '    1. '
 msgid ""
@@ -771,8 +794,9 @@ msgstr ""
 "удалить этот пакет из списка дополнительных программ.\n"
 
 #. type: Plain text
-#, no-wrap
-msgid "  [[!img remove.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
+#, fuzzy, no-wrap
+#| msgid "  [[!img remove.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
+msgid "  [[!img remove.png class=\"screenshot\" alt=\"\"]]\n"
 msgstr "  [[!img remove.png link=\"no\" class=\"screenshot\" alt=\"\"]]\n"
 
 #. type: Title -
@@ -790,8 +814,8 @@ msgstr ""
 
 #. type: Bullet: '1. '
 msgid ""
-"Choose **Applications&nbsp;▸ System Tools&nbsp;▸ Root Terminal** to open a "
-"*Root Terminal*."
+"Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Root Console** to open a console "
+"with administration rights."
 msgstr ""
 
 #. type: Bullet: '1. '
@@ -816,9 +840,13 @@ msgid ""
 msgstr "<p> Пакеты программ в Debian открыты для внешнего аудита.</p>\n"
 
 #. type: Plain text
-#, no-wrap
+#, fuzzy, no-wrap
+#| msgid ""
+#| "<p>Configuring additional APT repositories might break the security built in\n"
+#| "Tails and might install software that has not even been approved by Debian. Be even more careful\n"
+#| "with what you install.</p>\n"
 msgid ""
-"<p>Configuring additional APT repositories might break the security built in\n"
+"<p>Configuring additional APT repositories might break the security built into\n"
 "Tails and might install software that has not even been approved by Debian. Be even more careful\n"
 "with what you install.</p>\n"
 msgstr "<p>Настройка дополнительных репозиториев APT может нарушить встроенную систему защиты Tails и привести к установке программ, которые не были одобрены Debian. Будьте особенно осторожны с тем, что устанавливаете.</p>\n"
@@ -881,18 +909,22 @@ msgstr ""
 #| msgid "Write your additional `sources.list` files in the <span class=\"filename\">apt-sources.list.d</span> folder. For example, to add the `non-free` sections of Debian 10 (Buster), backports, and security updates, you can create a file named <span class=\"filename\">/live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list</span> with the following content:"
 msgid ""
 "   For example, to add\n"
-"   the `non-free` sections of Debian 11 (Bullseye), backports, and security\n"
+"   the `non-free` sections of Debian 13 (Trixie), backports, and security\n"
 "   updates, you can create a file named\n"
 "   */live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list*\n"
 "   with the following content:\n"
 msgstr "Сохраните ваши дополнительные файлы `sources.list` в папке <span class=\"filename\">apt-sources.list.d</span>. Например, чтобы добавить разделы `non-free` Debian 10 (Buster), резервные копии и обновления для системы безопасности, вы можете создать файл с именем <span class=\"filename\">/live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list</span> со следующим содержимым:"
 
 #. type: Plain text
-#, no-wrap
+#, fuzzy, no-wrap
+#| msgid ""
+#| "       deb tor+http://ftp.us.debian.org/debian/ bullseye non-free\n"
+#| "       deb tor+http://ftp.us.debian.org/debian/ bullseye-backports non-free\n"
+#| "       deb tor+http://security.debian.org/ bullseye/updates non-free\n"
 msgid ""
-"       deb tor+http://ftp.us.debian.org/debian/ bullseye non-free\n"
-"       deb tor+http://ftp.us.debian.org/debian/ bullseye-backports non-free\n"
-"       deb tor+http://security.debian.org/ bullseye/updates non-free\n"
+"       deb tor+http://ftp.us.debian.org/debian/ trixie non-free\n"
+"       deb tor+http://ftp.us.debian.org/debian/ trixie-backports non-free\n"
+"       deb tor+http://security.debian.org/ trixie/updates non-free\n"
 msgstr ""
 "       deb tor+http://ftp.us.debian.org/debian/ bullseye non-free\n"
 "       deb tor+http://ftp.us.debian.org/debian/ bullseye-backports non-free\n"

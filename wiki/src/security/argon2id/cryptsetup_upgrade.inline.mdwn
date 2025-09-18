@@ -2,7 +2,6 @@
 
    1. To verify whether your encrypted volume uses PBKDF2 or Argon2id, execute
       the following command.
-
       Replace <span class="command-placeholder">[partition]</span> with the
       partition name found in step 1.6.
 
@@ -20,7 +19,6 @@
       here.
 
    1. Execute the following command to do a backup of your LUKS1 header.
-
       Replace <span class="command-placeholder">[partition]</span> with the
       partition name found in step 1.6.
 
@@ -32,7 +30,6 @@
       <p class="pre command-template">cryptsetup luksHeaderRestore /dev/<span class="command-placeholder">[partition]</span> --header-backup-file /home/amnesia/luks1header</p>
 
    1. To update your LUKS header to LUKS2, execute the following command.
-
       Replace <span class="command-placeholder">[partition]</span> with the
       device name found in step 1.6.
 
@@ -40,7 +37,6 @@
 
    1. To verify that Argon2id is the new key derivation function, execute the
       following command again.
-
       Replace <span class="command-placeholder">[partition]</span> with the
       partition name found in step 1.6.
 

@@ -165,9 +165,7 @@ using the Tails signing key.
    </div>
 
 1. Execute the following commands to copy the USB image that you
-   downloaded earlier to the USB stick.
-
-   Replace:
+   downloaded earlier to the USB stick. Replace:
 
    - <span class="command-placeholder">tails.img</span> with the path to the USB image
 
@@ -187,7 +185,7 @@ using the Tails signing key.
    <p>If you get a <code>Permission denied</code> error, try
    adding <code>sudo</code> at the beginning of the command:</p>
 
-   <p class="command-example">sudo dd if=<span class="command-placeholder">tails.img</span> of=<span class="command-placeholder">device</span> bs=16M oflag=direct status=progress</p>
+   <p class="command-template">sudo dd if=<span class="command-placeholder">tails.img</span> of=<span class="command-placeholder">device</span> bs=16M oflag=direct status=progress</p>
 
    </div>
 

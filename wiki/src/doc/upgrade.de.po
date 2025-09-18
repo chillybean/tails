@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tails\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-06-24 16:26-0600\n"
+"POT-Creation-Date: 2025-09-17 11:40+0200\n"
 "PO-Revision-Date: 2024-11-27 11:39+0000\n"
 "Last-Translator: jade time <jade4time@proton.me>\n"
 "Language-Team: Tails localization discussion <tails-l10n@boum.org>\n"
@@ -80,12 +80,16 @@ msgid "<h1 id=\"check-version\">Checking which version of Tails you are currentl
 msgstr "<h1 id=\"check-version\">Überprüfung, welche Version von Tails Sie derzeit verwenden</h1>\n"
 
 #. type: Plain text
+#, fuzzy
+#| msgid ""
+#| "To check which version of Tails you are currently running, choose "
+#| "**Applications&nbsp;▸ Tails&nbsp;▸ About Tails**."
 msgid ""
 "To check which version of Tails you are currently running, choose "
-"**Applications&nbsp;▸ Tails&nbsp;▸ About Tails**."
+"**Apps&nbsp;▸ Tails&nbsp;▸ About Tails**."
 msgstr ""
-"Um zu überprüfen, welche Version von Tails Sie derzeit verwenden, wählen "
-"Sie **Anwendungen&nbsp;▸ Tails&nbsp;▸ Über Tails**."
+"Um zu überprüfen, welche Version von Tails Sie derzeit verwenden, wählen Sie "
+"**Anwendungen&nbsp;▸ Tails&nbsp;▸ Über Tails**."
 
 #. type: Plain text
 msgid ""
@@ -106,11 +110,9 @@ msgid ""
 "stick. The upgrades are checked for and downloaded through Tor."
 msgstr ""
 "Nach dem Start von Tails und dem Herstellen einer Verbindung zu Tor prüft "
-"der *Tails Upgrader* automatisch, ob Aktualisierungen verfügbar sind und schlägt "
-"Ihnen "
-"dann vor, Ihren USB-Stick zu aktualisieren. Die Suche nach Aktualisierungen "
-"und der Download "
-"werden über Tor durchgeführt."
+"der *Tails Upgrader* automatisch, ob Aktualisierungen verfügbar sind und "
+"schlägt Ihnen dann vor, Ihren USB-Stick zu aktualisieren. Die Suche nach "
+"Aktualisierungen und der Download werden über Tor durchgeführt."
 
 #. type: Plain text
 msgid "The advantages of automatic upgrades are the following:"
@@ -169,8 +171,9 @@ msgstr ""
 "vorschlagen, Ihren USB-Stick zu aktualisieren."
 
 #. type: Plain text
-#, no-wrap
-msgid "[[!img upgrader_automatic.png link=no]]\n"
+#, fuzzy, no-wrap
+#| msgid "[[!img upgrader_automatic.png link=no]]\n"
+msgid "[[!img upgrader_automatic.png class=\"screenshot\" alt=\"\"]]\n"
 msgstr "[[!img upgrader_automatic.png link=no]]\n"
 
 #. type: Plain text
@@ -178,9 +181,9 @@ msgid ""
 "If you decide to do the upgrade, click on **Upgrade now**, and follow the "
 "assistant through the upgrade process."
 msgstr ""
-"Wenn Sie sich zum Aktualisieren entscheiden, drücken Sie "
-"die **Jetzt aktualisieren** Schaltfläche "
-"und folgen Sie dem Assistenten durch den Aktualisierungsvorgang."
+"Wenn Sie sich zum Aktualisieren entscheiden, drücken Sie die **Jetzt "
+"aktualisieren** Schaltfläche und folgen Sie dem Assistenten durch den "
+"Aktualisierungsvorgang."
 
 #. type: Plain text
 #, no-wrap
@@ -190,20 +193,10 @@ msgstr "<div class=\"tip\">\n"
 #. type: Plain text
 #, no-wrap
 msgid ""
-"<p>If you cannot upgrade at startup (for example, if you have no network\n"
-"connection by then), you can start <i>Tails Upgrader</i>\n"
-"later by opening a terminal and executing the following\n"
-"command:</p>\n"
+"<p>If you cannot upgrade at startup, you can open <i>Tails Upgrader</i>\n"
+"later by choosing <b>Apps&nbsp;▸ Tails&nbsp;▸ About Tails</b> and clicking\n"
+"<b>Check for Upgrades</b>.</p>\n"
 msgstr ""
-"<p>Falls Sie beim Starten nicht aktualisieren können (zum Beispiel, wenn Sie\n"
-"zu dem Zeitpunkt keine Netzwerkverbindung haben), können Sie den <span class=\"application\">Tails\n"
-"Upgrader</span> später durch das Ausführen des folgenden Befehls\n"
-"starten:</p>\n"
-
-#. type: Plain text
-#, no-wrap
-msgid "<pre>tails-upgrade-frontend-wrapper</pre>\n"
-msgstr "<pre>tails-upgrade-frontend-wrapper</pre>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -300,13 +293,13 @@ msgid ""
 "USB stick using *Tails Cloner* to a newer version of Tails."
 msgstr ""
 "Nachdem Sie eine Verbindung zu Tor hergestellt haben, informiert Sie ein "
-"Dialogfeld, "
-"ob Sie Ihren USB-Stick mit *Tails Cloner* "
-"auf eine neuere Version von Tails aktualisieren müssen."
+"Dialogfeld, ob Sie Ihren USB-Stick mit *Tails Cloner* auf eine neuere "
+"Version von Tails aktualisieren müssen."
 
 #. type: Plain text
-#, no-wrap
-msgid "[[!img upgrader_manual.png link=no]]\n"
+#, fuzzy, no-wrap
+#| msgid "[[!img upgrader_manual.png link=no]]\n"
+msgid "[[!img upgrader_manual.png class=\"screenshot\" alt=\"\"]]\n"
 msgstr "[[!img upgrader_manual.png link=no]]\n"
 
 #. type: Plain text
@@ -501,6 +494,22 @@ msgstr "- ¼ Stunde für das Upgrade"
 msgid "[[Cloning from another Tails|upgrade/clone]]"
 msgstr "- [[Klonen von einem anderen Tails|upgrade/clone]]"
 
+#, no-wrap
+#~ msgid ""
+#~ "<p>If you cannot upgrade at startup (for example, if you have no network\n"
+#~ "connection by then), you can start <i>Tails Upgrader</i>\n"
+#~ "later by opening a terminal and executing the following\n"
+#~ "command:</p>\n"
+#~ msgstr ""
+#~ "<p>Falls Sie beim Starten nicht aktualisieren können (zum Beispiel, wenn Sie\n"
+#~ "zu dem Zeitpunkt keine Netzwerkverbindung haben), können Sie den <span class=\"application\">Tails\n"
+#~ "Upgrader</span> später durch das Ausführen des folgenden Befehls\n"
+#~ "starten:</p>\n"
+
+#, no-wrap
+#~ msgid "<pre>tails-upgrade-frontend-wrapper</pre>\n"
+#~ msgstr "<pre>tails-upgrade-frontend-wrapper</pre>\n"
+
 #~ msgid ""
 #~ "If an error occurs during the upgrade, the assistant proposes you to read "
 #~ "one of the following pages:"
@@ -662,8 +671,8 @@ msgstr "- [[Klonen von einem anderen Tails|upgrade/clone]]"
 #~ msgstr ""
 #~ "Beide Methoden funktionieren nur, wenn der zu aktualisierende USB-Stick\n"
 #~ "mithilfe des *Tails Installers* installiert\n"
-#~ "wurde. **Der beständige Speicherbereich auf dem USB-Stick bleibt erhalten."
-#~ "**\n"
+#~ "wurde. **Der beständige Speicherbereich auf dem USB-Stick bleibt "
+#~ "erhalten.**\n"
 
 #~ msgid ""
 #~ "<p>If you use Tails from a USB stick installed from macOS using the\n"
