@@ -2,7 +2,505 @@ tails (7.4) UNRELEASED; urgency=medium
 
   * Dummy entry for next release.
 
- -- anonym <anonym@riseup.net>  Thu, 21 Aug 2025 14:36:39 +0200
+ -- boyska <boyska@riseup.net>  Fri, 08 Aug 2025 12:46:15 +0200
+
+tails (7.1) UNRELEASED; urgency=medium
+
+  * Dummy entry for next release.
+
+ -- anonym <anonym@riseup.net>  Thu, 18 Sep 2025 12:10:54 +0200
+
+tails (7.0) unstable; urgency=medium
+
+  * Upgrade to Linux 6.12.43-1
+
+  * Upgrade Thunderbird to 1:128.14.0esr-1~deb13u1
+
+  * Resolve "Upgrade Tor Browser for 7.0" (tails/tails!2467)
+
+    Closes issues:
+      - Upgrade Tor Browser for 7.0 (tails/tails#21208)
+
+    Commits:
+      - Fetch Tor Browser from our own archive
+      - Upgrade Tor Browser to 14.5.7-build1 (refs: tails#21208)
+
+  * Bump debian snapshot (tails/tails!2411)
+
+    Closes issues:
+      - Bump debian APT snapshot in testing branch (tails/tails#21152)
+
+    Commits:
+      - Bump debian snapshot
+
+  * Test suite: fix check for systemd adjusting the clock to its built-in epoch
+    (tails/tails!2465)
+
+    Commits:
+      - Test suite: adjust to current systemd message
+      - Test suite: make journalctl options vs. matches ordering more future-proof
+      - Fix option name
+      - Test suite: add regexp support to systemd_journal_includes
+
+  * Bump the 'debian' APT snapshot to 2025091102 (tails/tails!2458)
+
+    Closes issues:
+      - Bump 'debian' APT snapshot on the testing branch for "[SUA 275-1] Updated
+        systemd packages" (tails/tails#21212)
+
+    Commits:
+      - Update submodule after live-build!5 was merged
+      - Fix script description
+      - Fix enabling the ${LB_DISTRIBUTION}-updates APT source
+      - Patch live-build in its source tree rather than at build time
+      - Enable the ${LB_DISTRIBUTION}-updates APT source
+      - Bump the 'debian' APT snapshot to 2025091102
+
+  * Root Console: force GSK_RENDERER=cairo to fix display (tails/tails!2451)
+
+    Closes issues:
+      - Root Terminal does not work in 7.0~rc1 and 7.0~rc2 on sid with virtio GPU
+        and 3d acceleration disabled (tails/tails#21123)
+
+    Commits:
+      - Test suite: replace improper use of Dogtail with image matching
+      - Test suite: replace brittle OCR with Dogtail
+      - Lint to appease rubocop
+      - Test suite: add scenario making sure the Root Console can start
+      - Test suite: add support for pkexec'd applications to launch_app()
+      - Test suite: migrate to modern Ruby
+      - Root Console: force GSK_RENDERER=cairo to fix display
+
+  * Upgrade to Trixie 13.1 (tails/tails!2445)
+
+    Closes issues:
+      - Upgrade testing branch to Trixie 13.1 (tails/tails#21166)
+
+    Commits:
+      - Upgrade to Trixie 13.1
+
+  * Fix translations in several Python applications (tails/tails!2441)
+
+    Closes issues:
+      - Audit gettext usage in Python scripts in Trixie (tails/tails#21145)
+      - Translations for "Create Persistent Storage" in Welcome Screen are not
+        used (tails/tails#20938)
+      - Translations of status UI displayed while creating Persistent Storage
+        are not used (tails/tails#20939)
+
+    Commits:
+      - Migrate from deprecated /etc/default/locale to /etc/locale.conf
+      - Fix E713 to appease ruff
+      - Fix UP035, UP006 to appease ruff
+      - ruff format
+      - Fix RUF012 to appease ruff
+      - Fix EXE001 to appease ruff
+      - Fix UP024 to appease ruff
+      - Welcome Screen: add support for Handy.ActionRow to TranslatableWindow
+      - tails-additional-software-notify: fix gettext (tails#21145)
+      - additional_software.py: fix gettext (refs: tails#21145)
+      - asp-install: set locale and fix gettext (refs: tails#21145)
+      - Refactor
+      - asp-handle-package-changes: fix gettext (refs: tails#21145)
+      - asp-handle-package-changes: set the chosen locale (refs: tails#21145)
+      - Set system locale with update-locale
+      - Screen Locker: translate forgotten "Show Password" checkbox label
+      - tps-frontend: translate status strings that we got over D-Bus
+
+  * port https-get-expired to go 1.24 (tails/tails!2436)
+
+    Closes issues:
+      - Check that https-get-expired is still up to date (tails/tails#20406)
+
+    Commits:
+      - refactor building https-get-expired to DRY
+      - port https-get-expired to go 1.24
+
+  * Stop translating news and security sections of our website (tails/tails!2428)
+
+    Closes issues:
+      - Stop translating news and security pages (tails/tails#21137)
+
+    Commits:
+      - Remove page that has been deleted
+      - Simplify
+      - Merge duplicate pages
+      - Remove obsolete comment
+      - Delete news/*/*.po and security/*/*.po: not translatable anymore
+      - ikiwiki: don't translate security/*/* and news/*/* either
+      - Refresh PO files, unfuzzy related strings, and cleanup obsolete strings
+      - Drop unsupported documentation
+      - Update location of a bunch of infrastructure configuration in Puppet
+      - Update location of a bunch of rss2email configuration in Puppet
+      - Update inlines: drop currentlang() for pages that are not translatable anymore
+      - Delete news/*.po and security/*.po: not translatable anymore
+      - Update location of a bunch of infrastructure configuration in Puppet
+      - Update what the ikiwiki.setup file in Puppet is used for
+      - Fix ikiwiki shortcut to Puppet code
+      - Stop translating news and security pages
+
+  * Revert "APT: postpone sha1.second_preimage_resistance requirement to
+    2027-02-01" (tails/tails!2424)
+
+    Closes issues:
+      - Remove customized APT Sequoia configuration (tails/tails#21087)
+
+    Commits:
+      - Revert "APT: postpone sha1.second_preimage_resistance requirement to
+        2027-02-01"
+      - refresh torproject APT key
+
+  * Test suite: lower required coverage for user space anti-test (tails/tails!2417)
+
+    Closes issues:
+      - Pattern coverage anti-test for user space processes fails on Trixie
+        (tails/tails#21012)
+
+    Commits:
+      - Test suite: lower required coverage for user space anti-test
+
+  * Ensure minimal key can verify all relevant UDF signatures (tails/tails!2397)
+
+    Closes issues:
+      - Ensure that tails-signing-minimal.key is always sufficient to verify all
+        current UDF signatures (tails/tails#21156)
+      - Automatically check the validity of UDFs signatures with both the full or
+        minimal signing key, separately (tails/tails#21157)
+
+    Commits:
+      - fix regexp for versions >= 10
+      - sign older UDFs
+      - sign UDFs
+      - more informative error message
+      - automatically determine version in CI
+      - more explicit if statement
+      - remove leftover redirection to stderr
+      - supports VERSION >= 10
+      - GitLab CI: check the validity of UDFs signatures
+      - codespell
+      - improve the ergonomics of sign-(updated-)udfs
+      - Document arguments for sign-updated-udfs
+      - shfmt
+      - check-udfs-signature can sign again failing ones
+      - sign-updated-udfs can force specific files
+      - refactor sign-updated-udfs code
+      - Don't check UDFs for very old releases
+      - report all errors
+      - stable output
+      - check with minimal signing key, too
+      - make the script more robust
+      - move code to a new script as-is
+
+  * Repair "Copy to" shortcut to Android phone, Hide GnuPG Log Viewer from the Apps
+    menu (tails/tails!2464)
+
+    Closes issues:
+      - "Copy to" shortmenu from Files doesn't work to phones (tails/tails#21213)
+      - Hide GnuPG Log Viewer from the Apps menu (tails/tails#21214)
+
+    Commits:
+      - Hide the GnuPG Log Viewer from the Apps menu
+      - Install gvfs-fuse: repairs "Copy to" shortcut to Android phone over MTP
+
+  * Replace 0001-sane-clock with systemd's implementation (tails/tails!2457)
+
+    Closes issues:
+      - Replace 0001-sane-clock with systemd's implementation (tails/tails#21070)
+
+    Commits:
+      - Lint
+      - Test suite: fix checking if systemd advanced the clock
+      - Test suite: fix logic error
+      - Make hooks executable bit consistent
+      - Fix error message
+      - Replace 0001-sane-clock with systemd's implementation
+
+  * Welcome Screen cleanups (tails/tails!2456)
+
+    Closes issues:
+      - Drop obsolete Network Connection option from Welcome Screen
+        (tails/tails#20470)
+      - Remove explanation from 2022-12 about enabling the Unsafe Browser by default
+        (tails/tails#21080)
+
+    Commits:
+      - Welcome Screen: drop obsolete Network Connection option (refs: tails#20470)
+      - Welcome Screen: drop explanation for Unsafe Browser setting (refs: tails#21080)
+
+  * Skip the onboarding of GIMP (tails/tails!2450)
+
+    Closes issues:
+      - Skip the onboarding of GIMP (tails/tails#21142)
+
+    Commits:
+      - skip the onboarding of GIMP
+
+  * Fix installed_custom_packages_are_monitored() (tails/tails!2449)
+
+    Closes issues:
+      - 99-custom-packages-check did not catch unmonitored custom apparmor package
+        (tails/tails#21207)
+
+    Commits:
+      - Require custom AppArmor packages
+      - Fix installed_custom_packages_are_monitored()
+
+  * Upgrader: use sqopv instead of sqop; and remove gnome-power-manager
+    (tails/tails!2439)
+
+    Closes issues:
+      - Upgrader: use sqopv instead of sqop (tails/tails#20708)
+      - Remove gnome-power-manager (tails/tails#21143)
+
+    Commits:
+      - check-udfs-signature: use sqopv instead of sqop
+      - Remove gnome-power-manager
+      - Upgrader: use sqopv instead of sqop
+
+  * Test suite: Dogtailify to avoid lost key press (tails/tails!2434)
+
+    Closes issues:
+      - Test suite: lost Return key press when enabling persistence at Welcome
+        Screen since Trixie (tails/tails#21196)
+
+    Commits:
+      - Test suite: Dogtailify to avoid lost key press (refs: tails#21196)
+
+  * Fix startup notification for WhisperBack (tails/tails!2429)
+
+    Closes issues:
+      - Buggy startup notification for WhisperBack (tails/tails#20201)
+
+    Commits:
+      - Whisperback: keep DESKTOP_STARTUP_ID environment variable
+
+  * Test suite: restart udisks and tpsd after corrupting Persistent Storage
+    (tails/tails!2427)
+
+    Closes issues:
+      - Test suite: restart udisks2 and tpsd at the end of the "I corrupt the
+        Persistent Storage filesystem on USB drive ..." step (tails/tails#21193)
+
+    Commits:
+      - Test suite: restart udisks and tpsd after corruption Persistent Storage
+
+  * Drop workaround for flatpak#6256 (tails/tails!2426)
+
+    Closes issues:
+      - Drop workaround for flatpak#6256 (--installation is not respected for
+        overrides) (tails/tails#21060)
+
+    Commits:
+      - Drop workaround for flatpak#6256 (refs: tails#21060)
+
+  * Test suite: drop Pidgin MUC scenarios and related code (tails/tails!2423)
+
+    Closes issues:
+      - Test suite: remove MUC scenarios from pidgin.feature (tails/tails#21184)
+
+    Commits:
+      - Stop installing xclip
+      - Ruff format
+      - Test suite: drop Pidgin MUC scenarios and related code
+
+  * Attempt to fix no-overview GNOME extension from sometimes failing
+    (tails/tails!2420)
+
+    Closes issues:
+      - Trixie: no-overview@fthx sometimes fails to close the Activities
+        Overview (tails/tails#21030)
+
+    Commits:
+      - Attempt to fix no-overview GNOME extension from sometimes failing
+
+  * GitLab CI: fail if a MR modifies rm-config and targets another branch than
+    master (tails/tails!2407)
+
+    Closes issues:
+      - Confusing behavior if rm-config is modified elsewhere than on the master
+        branch (tails/tails#21175)
+
+    Commits:
+      - GitLab CI: fix commit branch regexp
+      - GitLab CI: fail if a MR modifies rm-config's templates or config files, and
+        targets another branch than master
+      - GitLab CI: fail if a MR modifies rm-config and targets another branch than
+        master
+
+  * Make curl use socks5h instead of socks5 (tails/tails!2403)
+
+    Closes issues:
+      - We should use socks5h instead of socks5 when possible (tails/tails#21160)
+
+    Commits:
+      - Make curl use Socks5h instead of Socks5.
+
+  * Upgrader: log the URL of the UDF it's trying to download (tails/tails!2390)
+
+    Closes issues:
+      - Upgrader: log the URL of the UDF it's trying to download
+        (tails/tails#21155)
+
+    Commits:
+      - Tails::Download::HTTPS: log the URL we're trying to download
+      - Drop unused method delegations
+
+  * Update our doc to Tails 7.0 (Trixie) (tails/tails!2366)
+
+    Closes issues:
+      - Update our doc to Tails 7.0 (Trixie) (P165 A.1.4) (tails/tails#20203)
+
+    Commits:
+      - Revert "Update PO files"
+      - Remove /usr/local/bin/thunderbird from our l10n machinery: no l10n strings
+        anymore
+      - Update PO files
+      - Add missing images
+      - Add a note about obfs4 bridges < 0.0.12
+      - Help me remember what's up
+      - Revert "Document changes to Night Light"
+      - Fix broken links
+      - shfmt
+      - Thunderbird: stop notifying users about Enigmail migration
+      - Update last screenshots
+      - Apply style guide
+      - Remove broken link
+      - Update screenshots
+      - Fix link
+      - Align table cells to the top
+      - Prevent note numbers to wrap on their own
+      - Clarify
+      - Tranform into a note
+      - Update to Trixie
+      - Fix spelling
+      - Use US spelling
+      - Style guide
+      - The 'key servers' don't really exist anymore
+      - Add missing alt tags
+      - Add missing 'screenshot' classes
+      - Consistency
+      - Link to screenshots
+      - Don't repeat title
+      - Apply style guide
+      - Update to Trixie
+      - Update to Trixie
+      - Improve link
+      - People cannot contact us on amnesia-news
+      - Add comparison diagram with VPN
+      - Deduplicate PO strings
+      - Recommend GNOME Camera instead of Cheese
+      - Social media can't be used in Tails in practice
+      - User agent now has Linux x86_64
+      - No more youtube-dl in Trixie
+      - This dialog has no title anymore
+      - Fix grammar
+      - Clarify context
+      - Fix upstream link
+      - Fix sentence
+      - Update to Trixie
+      - Fix Markdown
+      - Apply style guide
+      - Update to Trixie
+      - Put more important stuff first
+      - Remove XMPP support channel
+      - Fix formatting
+      - Delete doc about OpenPGP migration in Thunderbird
+      - Consistency
+      - Document how to access all accessibility settings
+      - Document duplicate unlocking dialog (#21116)
+      - Remove old migration note
+      - Reorder for 7.0
+      - No more 'Recipients' tab in Trixie
+      - Fix typo
+      - Update to Trixie
+      - Use command template
+      - Remove 'Eject' button
+      - Reuse language across similar procedures
+      - Adjust to new button icon
+      - Adjust to new name in Screen Reader
+      - Add missing images
+      - Simplify
+      - Apply style guide
+      - Use consistent phrasing
+      - Improve procedure
+      - Remove the places menu (#21086)
+      - Click is mouse-specific
+      - Link to Microsoft's summary of core webs
+      - Document Tor circuit button
+      - Click is mouse specific
+      - Be more clear
+      - Improve grammar
+      - Clarify
+      - Update to Debian Trixie
+      - Be more objective
+      - Rewrite using Disks
+      - Remove old notes
+      - Replace Kleopatra with Files in doc on Favorites
+      - Update to Trixie
+      - Document changes to Night Light
+      - Update requirements
+      - Replace Terminal with Console in doc
+      - Always put "Replace" on the same line as "Execute"
+      - Fix path in macOS
+      - Update to GUI option
+      - Update to new Activities button
+      - Replace **Applications** menu with *Apps* menu
+      - Misc improvements
+      - Refresh
+      - Fix grammar
+      - Fix link
+      - Improve grammar
+      - Fix grammar
+      - Refresh
+      - These don't sound like arguments against Ubuntu as phrased
+      - Clarify
+      - Ubuntu One is something different now
+      - Update stats
+      - Reuse illustration
+      - Fix indentation
+      - Split as 2 different attacks
+      - Don't point to Contribute so prominently
+      - Unwrap
+      - Add another reason to trust Tails
+      - Put less technical point first
+      - Stop pointing to a redirection
+      - Use caps (more) consistently
+      - Stop pointing to a redirection
+
+  * Bring back the pre-compiled AppArmor policy (tails/tails!2361)
+
+    Closes issues:
+      - Bring back the pre-compiled AppArmor policy (tails/tails#21105)
+
+    Commits:
+      - Enable the 21105-bring-back-precompiled-apparmor-policy APT overlay (refs:
+        #21105).
+      - shfmt
+      - Revert "Temporarily drop the pre-compiled AppArmor policy"
+
+  * Switch to zstd for SquashFS compression of released ISO/USB images
+    (tails/tails!2360)
+
+    Closes issues:
+      - Consider switching SquashFS compression to zstd (tails/tails#18655)
+      - Boot is much slower for release builds (defaultcomp) than dev builds
+        (fastcomp) (tails/tails#21100)
+
+    Commits:
+      - Switch to zstd for SquashFS compression of released ISO/USB images
+
+  * Simplify build memory requirements (tails/tails!2152)
+
+    Commits:
+      - Bump memory for Trixie builds on Jenkins
+      - drop useless parameter
+      - fix typo
+      - TAILS_RAM_BUILD=1 is enough to have a ram build
+      - the previous formula didn't work for disk builds
+      - simpler formulas for disk and ram builds
+      - Building from ram is not default anymore
+
+ -- Tails developers <tails@boum.org>  Wed, 17 Sep 2025 12:48:22 +0200
 
 tails (7.0~rc2) unstable; urgency=medium
 

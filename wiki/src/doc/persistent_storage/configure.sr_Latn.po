@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-06-10 12:51+0200\n"
+"POT-Creation-Date: 2025-09-17 11:40+0200\n"
 "PO-Revision-Date: 2024-06-05 05:54+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,22 +26,8 @@ msgstr ""
 
 #. type: Plain text
 msgid ""
-"To configure the Persistent Storage, choose **Applications**&nbsp;▸ "
-"**Tails**&nbsp;▸ **Persistent Storage**."
-msgstr ""
-
-#. type: Plain text
-msgid ""
-"Since Tails 5.8 (December 2022), your data corresponding to each feature of "
-"the Persistent Storage is stored to the USB stick immediately. You don't "
-"have to restart Tails anymore after enabling a new feature."
-msgstr ""
-
-#. type: Plain text
-msgid ""
-"For example, when you enable the Tor Browser Bookmarks feature of the "
-"Persistent Storage, your current bookmarks are saved in the Persistent "
-"Storage immediately."
+"To configure the Persistent Storage, choose **Apps&nbsp;▸ Tails&nbsp;▸ "
+"Persistent Storage**."
 msgstr ""
 
 #. type: Plain text
@@ -106,25 +92,22 @@ msgstr ""
 "</div>\n"
 
 #. type: Plain text
-#, no-wrap
 msgid ""
-"When the Persistent Folder feature is turned on, you can save your personal files and working\n"
-"documents in the *Persistent* folder.\n"
+"When the Persistent Folder feature is turned on, you can save your personal "
+"files and working documents in the *Persistent* folder."
 msgstr ""
 
 #. type: Plain text
-#, fuzzy, no-wrap
-msgid ""
-"To open the *Persistent* folder, choose\n"
-"<span class=\"menuchoice\">\n"
-"  **Places**&nbsp;▸\n"
-"  **Persistent**</span>.\n"
+msgid "To open the *Persistent* folder:"
 msgstr ""
-"Um den Ordner *Persistent* zu öffnen und um auf Ihre\n"
-"persönlichen Dateien und Arbeitsdokumente zuzugreifen, wählen Sie \n"
-"<span class=\"menuchoice\">\n"
-"  **Orte**&nbsp;▸\n"
-"  **Persistent**</span>.\n"
+
+#. type: Bullet: '1. '
+msgid "Choose **Apps&nbsp;▸ Accessories&nbsp;▸ Files**."
+msgstr ""
+
+#. type: Bullet: '1. '
+msgid "Select the *Persistent* folder in the sidebar."
+msgstr ""
 
 #. type: Title =
 #, no-wrap
@@ -351,15 +334,6 @@ msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid ""
-"<p>Since Tails 4.13 (November 2020), <em>Thunderbird</em> uses its own OpenPGP keyring,\n"
-"different from the keyring used by <em>GnuPG</em> and <em>Kleopatra</em>. You don't need to enable the GnuPG\n"
-"feature anymore if you only use OpenPGP encryption in\n"
-"<em>Thunderbird</em>.</p>\n"
-msgstr ""
-
-#. type: Plain text
-#, no-wrap
 msgid "<a id=\"pidgin\"></a>\n"
 msgstr ""
 
@@ -488,7 +462,7 @@ msgstr "<div class=\"caution\">\n"
 #, no-wrap
 msgid ""
 "<p>The packages included in Tails are carefully tested for security.\n"
-"Installing additional packages might break the security built in Tails,\n"
+"Installing additional packages might break the security built into Tails,\n"
 "so [[be careful with what you install|additional_software#warning]].</p>\n"
 msgstr ""
 
@@ -515,34 +489,36 @@ msgstr ""
 
 #. type: Bullet: '- '
 msgid ""
-"All the files in the */live/persistence/TailsData_unlocked/dotfiles* folder "
-"are linked in the *Home* folder using Linux symbolic links."
-msgstr ""
-
-#. type: Bullet: '- '
-msgid ""
-"All the files in subfolders of */live/persistence/TailsData_unlocked/"
-"dotfiles* are also linked in the corresponding subfolder of the *Home* "
-"folder using Linux symbolic links."
-msgstr ""
-
-#. type: Bullet: '- '
-msgid ""
-"A shortcut is provided in the left pane of the *Files* browser and in the "
-"**Places** menu in the top navigation bar to access the */live/persistence/"
-"TailsData_unlocked/dotfiles* folder."
-msgstr ""
-
-#. type: Plain text
-msgid ""
-"For example, having the following files in */live/persistence/"
-"TailsData_unlocked/dotfiles*:"
+"The *Files* browser has a shortcut to the *Dotfiles* folder in the sidebar."
 msgstr ""
 
 #. type: Plain text
 #, no-wrap
 msgid ""
-"    /live/persistence/TailsData_unlocked/dotfiles\n"
+"  The absolute path of the *Dotfiles* folder is\n"
+"  */live/persistence/TailsData_unlocked/dotfiles*.\n"
+msgstr ""
+
+#. type: Bullet: '- '
+msgid ""
+"All the files in the *Dotfiles* folder are linked in the *Home* folder using "
+"Linux symbolic links."
+msgstr ""
+
+#. type: Bullet: '- '
+msgid ""
+"All the files in subfolders of the *Dotfiles* folder are also linked in the "
+"corresponding subfolder of the *Home* folder using Linux symbolic links."
+msgstr ""
+
+#. type: Plain text
+msgid "For example, having the following files in the *Dotfiles* folder:"
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid ""
+"    Dotfiles\n"
 "    ├── file_a\n"
 "    ├── folder\n"
 "    │   ├── file_b\n"
@@ -552,13 +528,13 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-msgid "Produces the following result in */home/amnesia*:"
+msgid "Produces the following result in the *Home* folder:"
 msgstr ""
 
 #. type: Plain text
 #, no-wrap
 msgid ""
-"    /home/amnesia\n"
+"    Home\n"
 "    ├── file_a → /live/persistence/TailsData_unlocked/dotfiles/file_a\n"
 "    └── folder\n"
 "        ├── file_b → /live/persistence/TailsData_unlocked/dotfiles/folder/file_b\n"
@@ -611,11 +587,10 @@ msgid "<h3 id=\"displays\">Save the configuration of your displays</h3>\n"
 msgstr ""
 
 #. type: Plain text
-#, no-wrap
 msgid ""
-"If you have more than one display (for example, two monitors or a\n"
-"projector), you can save the configuration of your displays using the\n"
-"**Dotfiles** feature.\n"
+"If you have more than one display (for example, two monitors or a "
+"projector), you can save the configuration of your displays using the "
+"**Dotfiles** feature."
 msgstr ""
 
 #. type: Bullet: '1. '
@@ -624,8 +599,8 @@ msgstr ""
 
 #. type: Bullet: '1. '
 msgid ""
-"Choose **Applications**&nbsp;▸ **System Tools**&nbsp;▸ **Settings** to open "
-"the *Settings* utility."
+"Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Settings** to open the *Settings* "
+"utility."
 msgstr ""
 
 #. type: Bullet: '1. '
@@ -637,30 +612,25 @@ msgid "Configure your displays."
 msgstr ""
 
 #. type: Bullet: '1. '
-msgid ""
-"Choose **Places**&nbsp;▸ **Dotfiles** to open the <span class=\"filename\">/"
-"live/persistence/TailsData_unlocked/dotfiles</span> folder in the <span "
-"class=\"application\">Files</span> browser."
+msgid "Select the *Dotfiles* folder in the sidebar."
 msgstr ""
 
 #. type: Bullet: '1. '
 msgid ""
-"Click the [[!img lib/open-menu.png alt=\"Main Menu\" class=\"symbolic\" "
-"link=\"no\"]] button in the title bar and turn on the option **Show Hidden "
-"Files**."
+"Select the [[!img lib/go-down.png alt=\"View Options Toggle Button\" "
+"class=\"symbolic\" link=\"no\"]] button in the title bar and select the "
+"option **Show Hidden Files**."
 msgstr ""
 
 #. type: Bullet: '1. '
 msgid ""
-"Create a folder called *.config* (<span "
-"class=\"filename\">config</span> preceded by a dot)."
+"Create a folder named *.config* (notice the `.`) in this *Dotfiles* folder."
 msgstr ""
 
 #. type: Bullet: '1. '
 msgid ""
-"Copy the *.config/monitors.xml* file from your "
-"*Home* folder to <span class=\"filename\">/"
-"live/persistence/TailsData_unlocked/dotfiles/.config</span>."
+"Copy the file *.config/monitors.xml* from your *Home* folder to this *."
+"config* folder."
 msgstr ""
 
 #. type: Title =
@@ -683,8 +653,8 @@ msgstr ""
 
 #. type: Bullet: '  * '
 msgid ""
-"If you turn off the Persistent Folder feature, the documents saved in "
-"**Places** &nbsp;▸ **Persistent** are not available anymore."
+"If you turn off the Persistent Folder feature, the documents saved in the "
+"*Persistent* folder are not available anymore in the *Files* browser."
 msgstr ""
 
 #. type: Bullet: '  * '
@@ -718,6 +688,19 @@ msgid ""
 "Turn on the feature again to restore the data and make it available in Tails "
 "again."
 msgstr ""
+
+#, fuzzy, no-wrap
+#~ msgid ""
+#~ "To open the *Persistent* folder, choose\n"
+#~ "<span class=\"menuchoice\">\n"
+#~ "  **Places**&nbsp;▸\n"
+#~ "  **Persistent**</span>.\n"
+#~ msgstr ""
+#~ "Um den Ordner *Persistent* zu öffnen und um auf Ihre\n"
+#~ "persönlichen Dateien und Arbeitsdokumente zuzugreifen, wählen Sie \n"
+#~ "<span class=\"menuchoice\">\n"
+#~ "  **Orte**&nbsp;▸\n"
+#~ "  **Persistent**</span>.\n"
 
 #, fuzzy
 #~ msgid ""
@@ -759,14 +742,12 @@ msgstr ""
 #~ "**Passphrase**-Textfeld ein.\n"
 
 #~ msgid ""
-#~ "3. If you select the **Read-Only** check box, "
-#~ "the\n"
+#~ "3. If you select the **Read-Only** check box, the\n"
 #~ "content of persistent volume will be available and you will be able to "
 #~ "modify\n"
 #~ "it but the changes will not be saved.\n"
 #~ msgstr ""
-#~ "3. Wenn Sie die **Schreibgeschützt**-"
-#~ "Auswahlbox markieren,\n"
+#~ "3. Wenn Sie die **Schreibgeschützt**-Auswahlbox markieren,\n"
 #~ "wird der Inhalt des beständigen Speicherbereichs verfügbar sein und Sie "
 #~ "werden in der Lage sein\n"
 #~ "ihn zu modifizieren, die Änderungen werden jedoch nicht gespeichert.\n"
@@ -820,10 +801,8 @@ msgstr ""
 #~ "Wenn diese Funktion aktiviert ist, werden alle Dateien in dem Ordner\n"
 #~ "<span class=\"filename\">/live/persistence/TailsData_unlocked/dotfiles</"
 #~ "span>\n"
-#~ "in den *Persönlichen Ordner* verknüpft. "
-#~ "Dateien\n"
-#~ "in Unterordnern von *dotfiles* werden "
-#~ "ebenfalls\n"
+#~ "in den *Persönlichen Ordner* verknüpft. Dateien\n"
+#~ "in Unterordnern von *dotfiles* werden ebenfalls\n"
 #~ "in die entsprechenden Unterordner Ihres <span "
 #~ "class=\"filename\">Persönlichen Ordners</span>\n"
 #~ "verknüpft.\n"
@@ -842,8 +821,7 @@ msgstr ""
 #~ "Ein gutes Beispiel hierfür sind \"dotfiles\" (daher der Name dieser "
 #~ "Funktion), die \n"
 #~ "versteckten Konfigurationsdateien im Hauptverzeichnis Ihres\n"
-#~ "Persönlichen Ordners, wie *~/.gitconfig* "
-#~ "und <span\n"
+#~ "Persönlichen Ordners, wie *~/.gitconfig* und <span\n"
 #~ "class=\"filename\">~/.bashrc</span>.\n"
 
 #~ msgid "[[!img seahorse-key-personal.png link=no]]\n"
@@ -858,13 +836,11 @@ msgstr ""
 
 #~ msgid ""
 #~ "When this feature is activated, the secrets of\n"
-#~ "*GNOME Keyring* are saved in the "
-#~ "persistent\n"
+#~ "*GNOME Keyring* are saved in the persistent\n"
 #~ "volume.\n"
 #~ msgstr ""
 #~ "Wenn diese Funktion aktiviert ist, werden die geheimen Inhalte des\n"
-#~ "*GNOME Schlüsselbunds* im beständigen "
-#~ "Speicherbereich\n"
+#~ "*GNOME Schlüsselbunds* im beständigen Speicherbereich\n"
 #~ "gesichert.\n"
 
 #~ msgid ""
@@ -912,8 +888,7 @@ msgstr ""
 #~ msgstr ""
 #~ "Wenn diese Funktion aktiviert ist, werden die Pakete, die Sie mithilfe "
 #~ "des\n"
-#~ "*Synaptic* Paketmanagers oder des "
-#~ "Befehls\n"
+#~ "*Synaptic* Paketmanagers oder des Befehls\n"
 #~ "<span class=\"command\">apt</span> installieren, im beständigen "
 #~ "Speicherbereich gesichert.\n"
 
@@ -929,41 +904,33 @@ msgstr ""
 
 #~ msgid ""
 #~ "To reinstall these packages automatically when restarting Tails, use the\n"
-#~ "[[**Additional software packages** "
-#~ "persistence\n"
+#~ "[[**Additional software packages** persistence\n"
 #~ "feature|configure#additional_software]].\n"
 #~ msgstr ""
 #~ "Um diese Pakete automatisch bei einem Neustart von Tails erneut zu "
 #~ "installieren, benutzen Sie die\n"
-#~ "[[Funktion **zusätzlicher Softwarepakete** "
-#~ "für den beständigen\n"
+#~ "[[Funktion **zusätzlicher Softwarepakete** für den beständigen\n"
 #~ "Speicherbereich|configure#additional_software]].\n"
 
 #~ msgid ""
-#~ "If you activate the **APT Packages** "
-#~ "persistence feature,\n"
+#~ "If you activate the **APT Packages** persistence feature,\n"
 #~ "it is recommended to activate the <span class=\"guilabel\">APT Lists</"
 #~ "span> feature as well.\n"
 #~ msgstr ""
-#~ "Falls Sie die Funktion **APT Pakete** "
-#~ "aktivieren,\n"
+#~ "Falls Sie die Funktion **APT Pakete** aktivieren,\n"
 #~ "wird empfohlen, zusätzlich dazu die Funktion <span class=\"guilabel\">APT "
 #~ "Listen</span> zu aktivieren.\n"
 
 #~ msgid ""
-#~ "Those so called *APT lists* correspond to "
-#~ "the files\n"
+#~ "Those so called *APT lists* correspond to the files\n"
 #~ "downloaded while doing\n"
 #~ "**Reload** from the\n"
-#~ "*Synaptic* package manager or issuing "
-#~ "the\n"
+#~ "*Synaptic* package manager or issuing the\n"
 #~ "<span class=\"command\">apt update</span> command.\n"
 #~ msgstr ""
-#~ "Diese sogenannten *APT Listen* entsprechen "
-#~ "den Dateien,\n"
+#~ "Diese sogenannten *APT Listen* entsprechen den Dateien,\n"
 #~ "die beim Durchführen von **Neu Laden** im\n"
-#~ "*Synaptic* Paketmanager oder beim "
-#~ "Ausführen des\n"
+#~ "*Synaptic* Paketmanager oder beim Ausführen des\n"
 #~ "<span class=\"command\">apt update</span> Befehls heruntergeladen "
 #~ "werden.\n"
 

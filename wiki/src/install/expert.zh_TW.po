@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tails l10n\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-06-11 22:18+0000\n"
+"POT-Creation-Date: 2025-09-17 11:40+0200\n"
 "PO-Revision-Date: 2024-05-20 18:01+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: Tails Chinese translators <jxt@twngo.xyz>\n"
@@ -124,11 +124,9 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '1. '
-msgid ""
-"Import the Tails signing key in your <span class=\"application\">GnuPG</"
-"span> keyring:"
-msgstr ""
-"把Tails 簽名金鑰滙入到你的*GnuPG*-金鑰圈中。"
+#, fuzzy
+msgid "Import the Tails signing key in your *GnuPG* keyring:"
+msgstr "用自己的金鑰來證明 Tails  簽名金鑰。"
 
 #. type: Plain text
 #, no-wrap
@@ -425,15 +423,11 @@ msgid ""
 "   </div>\n"
 msgstr ""
 
+#
 #. type: Bullet: '1. '
 msgid ""
 "Execute the following commands to copy the USB image that you downloaded "
-"earlier to the USB stick."
-msgstr ""
-
-#. type: Plain text
-#, no-wrap
-msgid "   Replace:\n"
+"earlier to the USB stick. Replace:"
 msgstr ""
 
 #. type: Bullet: '   - '
@@ -484,7 +478,7 @@ msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid "   <p class=\"command-example\">sudo dd if=<span class=\"command-placeholder\">tails.img</span> of=<span class=\"command-placeholder\">device</span> bs=16M oflag=direct status=progress</p>\n"
+msgid "   <p class=\"command-template\">sudo dd if=<span class=\"command-placeholder\">tails.img</span> of=<span class=\"command-placeholder\">device</span> bs=16M oflag=direct status=progress</p>\n"
 msgstr ""
 
 #. type: Plain text
@@ -501,6 +495,11 @@ msgstr "[[!inline pages=\"install/inc/steps/restart_first_time.inline.zh_TW\" ra
 #, no-wrap
 msgid "[[!inline pages=\"install/inc/steps/welcome.inline\" raw=\"yes\" sort=\"age\"]]\n"
 msgstr "[[!inline pages=\"install/inc/steps/welcome.inline.zh_TW\" raw=\"yes\" sort=\"age\"]]\n"
+
+#~ msgid ""
+#~ "Import the Tails signing key in your <span class=\"application\">GnuPG</"
+#~ "span> keyring:"
+#~ msgstr "把Tails 簽名金鑰滙入到你的*GnuPG*-金鑰圈中。"
 
 #, no-wrap
 #~ msgid ""
