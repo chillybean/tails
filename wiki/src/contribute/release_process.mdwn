@@ -2193,11 +2193,10 @@ Check that you are indeed preparing a final release:
            --repo "${bare_repo:?}" && \
         rm -rf "${bare_repo:?}"
 
-1. On the `stable` branch, remove all old versions
-   that were never released from `wiki/src/upgrade/v2/Tails`:
+1. Remove UDFs for versions that were never released:
 
-        cd "${RELEASE_CHECKOUT:?}" && \
-        git checkout stable && \
+        cd "${MASTER_CHECKOUT:?}" && \
+        git checkout master && \
         ./bin/remove-unused-udfs --before-version "${VERSION:?}"
 
    Explanation: the post-release APT repository steps from the previous stable
