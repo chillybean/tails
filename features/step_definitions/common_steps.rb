@@ -1687,6 +1687,19 @@ Then(/^the layout of the screen keyboard is set to "([^"]+)"$/) do |layout|
   @screen.find("ScreenKeyboardLayout#{layout.upcase}.png")
 end
 
+Then /^tpsd is localized to the selected locale$/ do
+  locale = $vm.execute_successfully('echo $LANG').stdout.chomp
+  tpsd_locale_changes = $vm.execute(
+    'journalctl -u tails-persistent-storage.service ' \
+   '--grep="Changed locale:" SYSLOG_IDENTIFIER=tpsd'
+  ).stdout.split("\n")
+  if locale == 'en_US.UTF-8'
+    assert_equal(['-- No entries --'], tpsd_locale_changes)
+  else
+    assert_not_nil(tpsd_locale_changes.last[/Changed locale: .* → #{locale}/])
+  end
+end
+
 Given /^I create a directory "(\S+)"$/ do |path|
   $vm.execute_successfully("mkdir '#{path}'")
 end
