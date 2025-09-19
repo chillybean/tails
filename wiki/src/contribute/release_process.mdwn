@@ -405,6 +405,7 @@ Bootstrap internal manual testing coordination:
 4. Generate boilerplate for the call for manual testing:
 
         ./bin/generate-call-for-manual-testers \
+           --release-branch "${RELEASE_BRANCH:?}" \
            --dist "${DIST:?}" \
            --pad "${PAD:?}" \
            --version "${VERSION:?}" | ./bin/automailer.py
