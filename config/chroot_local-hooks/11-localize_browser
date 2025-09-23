@@ -81,20 +81,6 @@ while IFS=: read -r MOZILLA_LOCALE LOCATION; do
                           "spellchecker.dictionary" \
                           "\"${SPELLCHECKER_LOCALE}\"" \
                            "user_pref"
-    HOMEPAGE="https://tails.net/home/"
-    . /etc/os-release # get $TAILS_CHANNEL and $TAILS_DISTRIBUTION
-    if [ "${TAILS_DISTRIBUTION}" = UNRELEASED ] \
-          || [ "${TAILS_CHANNEL:-stable}" != stable ]; then
-       HOMEPAGE="${HOMEPAGE}testing/"
-    fi
-    if echo "${TAILS_WIKI_SUPPORTED_LANGUAGES}" | grep -qw "${LANG_CODE}"; then
-        HOMEPAGE="${HOMEPAGE}index.${LANG_CODE}.html"
-    fi
-    set_mozilla_pref "${LOCALE_PROFILE_FILE}" \
-                     "browser.startup.homepage" "\"${HOMEPAGE}\"" "user_pref"
-    set_mozilla_pref "${LOCALE_PROFILE_FILE}" \
-                     "browser.startup.homepage.new_identity" "\"${HOMEPAGE}\"" \
-                     "user_pref"
 done < "${DESCRIPTIONS_FILE}"
 
 # This directory is not needed after build time.
