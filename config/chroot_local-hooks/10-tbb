@@ -124,6 +124,13 @@ embed_extensions_in_omni_ja() {
     (
         cd "${tmp}"
         7z x -tzip "${tbb_install}/browser/omni.ja"
+        # Patch Tor Browser to skip the mandatory signature check for
+        # uBlock Origin, which is necessary because we get it from the
+        # webext-ublock-origin-firefox .deb which is not
+        # signed. Context:
+        # https://gitlab.tails.boum.org/tails/tails/-/issues/11419
+        # Once Tor Browser ships an adblocker we can drop this
+        # (https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/17569).
         # Any $ in the below in-line patch must be escaped!
         patch --no-backup-if-mismatch -p1 <<'EOF'
 --- browser-omni.orig/modules/BrowserGlue.sys.mjs	2025-07-24 20:16:00.000000000 +0200
