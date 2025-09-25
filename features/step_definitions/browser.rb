@@ -136,7 +136,7 @@ def tor_browser_application_info(defaults)
     'echo ${TBB_INSTALL}/firefox.real', libs: 'tor-browser'
   ).stdout.chomp
   cmd_regex = "#{binary} .* -profile " \
-              "/home/#{user}/\.tor-browser/profile\.default"
+              "/home/#{user}/\.tor-browser/profile\.default( .*)?"
   defaults.merge(
     {
       user:,
@@ -156,7 +156,7 @@ def unsafe_browser_application_info(defaults)
     'echo ${TBB_INSTALL}/firefox.unsafe-browser', libs: 'tor-browser'
   ).stdout.chomp
   cmd_regex = "#{binary} .* " \
-              "--profile /home/#{user}/\.unsafe-browser/profile\.default"
+              "--profile /home/#{user}/\.unsafe-browser/profile\.default( .*)?"
   defaults.merge(
     {
       user:,
