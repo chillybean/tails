@@ -225,12 +225,6 @@ def configured_pidgin_accounts
   accounts
 end
 
-When /^I open Pidgin's account manager window$/ do
-  @screen.wait('PidginMenuAccounts.png', 20).click
-  @screen.wait('PidginMenuManageAccounts.png', 20).click
-  step "I see Pidgin's account manager window"
-end
-
 When /^I see Pidgin's account manager window$/ do
   @screen.wait('PidginAccountWindow.png', 40)
 end
@@ -243,29 +237,6 @@ When /^I close Pidgin$/ do
   focus_window('Buddy List')
   @screen.press('ctrl', 'q')
   @screen.wait_vanish('PidginAvailableStatus.png', 10)
-end
-
-When /^I (de)?activate the "([^"]+)" Pidgin account$/ do |deactivate, account|
-  @screen.click("PidginAccount_#{account}.png")
-  @screen.type(['Left'], ['space'])
-  if deactivate
-    @screen.wait_vanish('PidginAccountEnabledCheckbox.png', 5)
-  else
-    # wait for the Pidgin to be connecting, otherwise sometimes the step
-    # that closes the account management dialog happens before the account
-    # is actually enabled
-    @screen.wait_any(['PidginConnecting.png', 'PidginAvailableStatus.png'], 5)
-  end
-end
-
-def deactivate_and_activate_pidgin_account(account)
-  debug_log("Deactivating and reactivating Pidgin account #{account}")
-  step "I open Pidgin's account manager window"
-  step "I deactivate the \"#{account}\" Pidgin account"
-  step "I close Pidgin's account manager window"
-  step "I open Pidgin's account manager window"
-  step "I activate the \"#{account}\" Pidgin account"
-  step "I close Pidgin's account manager window"
 end
 
 Then /^I take note of the configured Pidgin accounts$/ do
@@ -334,25 +305,6 @@ When /^I close Pidgin's certificate import failure dialog$/ do
   @screen.press('Escape')
   # @screen.wait('PidginCertificateManagerClose.png', 10).click
   @screen.wait_vanish('PidginCertificateImportFailed.png', 10)
-end
-
-When /^I see the Tails GitLab URL$/ do
-  try_for(60) do
-    if @screen.exists?('PidginServerMessage.png')
-      @screen.click('PidginDialogCloseButton.png')
-    end
-    begin
-      @screen.find('PidginTailsGitLabUrl.png')
-    rescue FindFailed => e
-      @screen.press('Page_Up')
-      raise e
-    end
-  end
-end
-
-When /^I click on the Tails GitLab URL$/ do
-  @screen.click('PidginTailsGitLabUrl.png')
-  try_for(60) { @torbrowser = Dogtail::Application.new('Firefox') }
 end
 
 Then /^Pidgin's D-Bus interface is not available$/ do
