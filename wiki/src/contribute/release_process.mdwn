@@ -99,7 +99,7 @@ Packages
 
 To release Tails you'll need some packages installed:
 
-* `oathtool gitlab-cli j2cli intltool jq tidy libnotify-bin mktorrent podman pwgen python3-bs4 python3-debian python3-git python3-gitlab python3-jinja2 python3-html2text python3-sh python3-toml python3-voluptuous transmission-cli moreutils wl-clipboard rename i18nspector`
+* `oathtool gitlab-cli j2cli intltool jq tidy libnotify-bin mktorrent podman pwgen python3-bs4 python3-debian python3-git python3-gitlab python3-jinja2 python3-html2text python3-sh python3-toml python3-voluptuous transmission-cli moreutils wl-clipboard rename i18nspector sqopv`
 
   Note: if the Debian version you are running does not include all required
   Go packages, such as [[!debpts podman]], you should be able to install
@@ -405,6 +405,7 @@ Bootstrap internal manual testing coordination:
 4. Generate boilerplate for the call for manual testing:
 
         ./bin/generate-call-for-manual-testers \
+           --release-branch "${RELEASE_BRANCH:?}" \
            --dist "${DIST:?}" \
            --pad "${PAD:?}" \
            --version "${VERSION:?}" | ./bin/automailer.py
@@ -602,7 +603,7 @@ version's `.packages` file and the one from the to-be-released images:
        fi
    
        diff --color=never -u \
-           "wiki/src/torrents/files/tails-amd64-${PREVIOUS_STABLE_VERSION}.packages" \
+           "wiki/src/torrents/files/tails-amd64-${PREVIOUS_VERSION}.packages" \
            <(curl --silent "https://nightly.tails.boum.org/build_Tails_ISO_${NEW_BRANCH}/lastSuccessful/archive/latest.packages") \
         | wdiff --diff-input  --terminal | grep -v --perl-regexp '^[~.:+a-zA-Z_0-9 \t\s-]*$'
 
@@ -1487,10 +1488,7 @@ Check if the upgrades file looks good:
     done
     )
 
-The above output should not mention any missing IUKs/ISOs, except when
-releasing a new major version `(N+1).0` (i.e. when Tails is upgraded
-to a new Debian major release) when it is expected that the previous
-stable `N.x` release has no IUK (but it should have an ISO!).
+The above output should not mention any missing IUKs/ISOs.
 
 Done with OpenPGP signing
 =========================
@@ -1933,6 +1931,11 @@ documentation](https://gitlab.torproject.org/tpo/tpa/team/-/wikis/service/blog#h
 
   - In any case, do *not* leave the `FIXME` placeholder as-is.
 
+- Pay attention to the links generated for any images; they sometimes
+  point to somewhere under https://blog.torproject.org but should
+  always point to the image hosted on Tails website,
+  https://tails.net/ (for details, see [[!tails_ticket 21237]]).
+
 - Proof-read `${TOR_BLOG_FILE}`.
 
 - Prepare a *draft* merge request against the [Tor blog](https://gitlab.torproject.org/tpo/web/blog)
@@ -2195,11 +2198,10 @@ Check that you are indeed preparing a final release:
            --repo "${bare_repo:?}" && \
         rm -rf "${bare_repo:?}"
 
-1. On the `stable` branch, remove all old versions
-   that were never released from `wiki/src/upgrade/v2/Tails`:
+1. Remove UDFs for versions that were never released:
 
-        cd "${RELEASE_CHECKOUT:?}" && \
-        git checkout stable && \
+        cd "${MASTER_CHECKOUT:?}" && \
+        git checkout master && \
         ./bin/remove-unused-udfs --before-version "${VERSION:?}"
 
    Explanation: the post-release APT repository steps from the previous stable
@@ -2241,9 +2243,9 @@ Check that you are indeed preparing a final release:
         git commit debian/changelog \
            -m "Add dummy changelog entry for ${NEXT_STABLE_CHANGELOG_VERSION:?}."
 
-1. Merge the release branch and its APT suite into `devel`:
+1. Merge the `stable` branch and its APT suite into `devel`:
 
-        ./bin/merge-main-branch "${RELEASE_BRANCH:?}" devel
+        ./bin/merge-main-branch stable devel
 
    When there's a merge conflict, the script aborts to let you resolve
    the conflict. Then:
@@ -2271,13 +2273,13 @@ Check that you are indeed preparing a final release:
    Then checkout the `devel` branch, and there
    [[thaw the packages that were granted freeze exceptions|APT_repository/time-based_snapshots#freeze-exceptions-post-release]].
 
-1. Verify that the snapshots used in the release branch are ok,
+1. Verify that the snapshots used for this release are ok,
    e.g. they use the correct snapshots, and they were bumped
    appropriately (they should expire after the next planned major release date).
    Look carefully at the output of this command:
 
         cd "${RELEASE_CHECKOUT:?}" && \
-        git checkout "${RELEASE_BRANCH:?}" && \
+        git checkout stable && \
         ./bin/apt-snapshots-expiry
 
 1. Push the resulting branches:
