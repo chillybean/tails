@@ -21,6 +21,7 @@ def call_for_testing_contents(args) -> str:
     )
 
     return jinja2_env.get_template("call_for_manual_testers.mdwn").render(
+        release_branch=args.release_branch,
         dist=args.dist,
         pad=args.pad,
         version=args.version,
@@ -32,6 +33,7 @@ if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser()
+    parser.add_argument("--release-branch", required=True)
     parser.add_argument("--dist", required=True)
     parser.add_argument("--version", required=True)
     parser.add_argument("--pad", required=True)
