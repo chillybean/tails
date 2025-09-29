@@ -1,0 +1,67 @@
+#!/usr/bin/python3
+
+"""
+This script will change multiple policy files in order to explain better what
+administration password they are being asked for.
+"""
+
+import argparse
+import gettext
+from xml.dom import minidom
+
+translation = gettext.translation("tails", "/usr/share/locale", fallback=True)
+_ = translation.gettext
+
+
+def replace_message(fpath: str, localized_message: str):
+    with open(fpath) as buf:
+        policy_xml = minidom.parse(buf)  # noqa: S318  we assume policies are trusted
+    policyconfig = policy_xml.getElementsByTagName("policyconfig")[0]
+    action = policyconfig.getElementsByTagName("action")[0]
+    message = action.getElementsByTagName("message")[0]
+    text = message.childNodes[0]
+    text.data = localized_message
+    new_text = policy_xml.toxml()
+
+    with open(fpath, "w") as buf:
+        buf.write(new_text)
+
+
+def yesno(value: str) -> bool:
+    if value == "yes":
+        return True
+    if value == "no":
+        return False
+    raise ValueError("Not a yes/no value: %r" % value)
+
+
+def main():
+    p = argparse.ArgumentParser()
+    p.add_argument(
+        "--admin-password-set",
+        type=yesno,
+        help="Specify if there is an administration password available",
+        required=True,
+    )
+    args = p.parse_args()
+    if args.admin_password_set:
+        synaptic_prompt = _(
+            "Authentication is required to run the Synaptic Package Manager. "
+            "Enter the administration password that you set up in the Welcome Screen.",
+        )
+    else:
+        synaptic_prompt = _(
+            "For better security, no administration password is set up in Tails "
+            "by default. "
+            "To run the Synaptic Package Manager, restart Tails "
+            "and set up an administration password in the Welcome Screen.",
+        )
+
+    replace_message(
+        "/usr/share/polkit-1/actions/com.ubuntu.pkexec.synaptic.policy",
+        synaptic_prompt,
+    )
+
+
+if __name__ == "__main__":
+    main()
