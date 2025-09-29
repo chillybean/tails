@@ -39,7 +39,6 @@ systemctl restart tor@default.service
 echo >&2 "$BASENAME: $1 up: starting tca.service"
 /usr/local/lib/run-with-user-env systemctl --user start tca.service
 
-# Why the subsequent code block is inside an if-statement? Shouldn't we always restart htpdate?
 # To address tails#21014 we don't re-run htpdate if it already succeeded.
 # In fact, there is no reason to start it another time: the time has been synced already, and we can assume
 # that your hardware clock is keeping time after that.
