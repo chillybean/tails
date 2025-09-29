@@ -4,14 +4,14 @@
  "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
 <policyconfig>
 
-  <action id="org.boum.tails.gnome-root-terminal">
+  <action id="org.boum.tails.gnome-root-console">
     <_message>To start a Root Terminal, you need to authenticate: please type the administration password.</_message>
     <defaults>
       <allow_any>no</allow_any>
       <allow_inactive>no</allow_inactive>
       <allow_active>auth_admin</allow_active>
     </defaults>
-    <annotate key="org.freedesktop.policykit.exec.path">/usr/bin/gnome-terminal</annotate>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/local/lib/kgx-pkexec</annotate>
     <annotate key="org.freedesktop.policykit.exec.allow_gui">true</annotate>
   </action>
 
