@@ -17,14 +17,16 @@ def replace_message(fpath: str, localized_message: str):
     with open(fpath) as buf:
         policy_xml = minidom.parse(buf)  # noqa: S318  we assume policies are trusted
     policyconfig = policy_xml.getElementsByTagName("policyconfig")[0]
-    action = policyconfig.getElementsByTagName("action")[0]
-    message = action.getElementsByTagName("message")[0]
-    text = message.childNodes[0]
-    text.data = localized_message
-    new_text = policy_xml.toxml()
+    for action in policyconfig.getElementsByTagName("action"):
+        for message in action.getElementsByTagName("message"):
+            if message.attributes and "xml:lang" in message.attributes:
+                action.removeChild(message)
+            else:
+                text = message.childNodes[0]
+                text.data = localized_message
 
     with open(fpath, "w") as buf:
-        buf.write(new_text)
+        buf.write(policy_xml.toxml())
 
 
 def yesno(value: str) -> bool:
