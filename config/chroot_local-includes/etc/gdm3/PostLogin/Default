@@ -190,7 +190,6 @@ if [ -z "${TAILS_USER_PASSWORD}" ]; then
     /usr/local/lib/polkit-policy-change-message --admin-password-set=no
     log_n_exit "Password variable not found."
 else
-    cp /usr/share/tails/greeter/polkit-1/actions/*.policy /usr/share/polkit-1/actions/
     /usr/local/lib/polkit-policy-change-message --admin-password-set=yes
 fi
 

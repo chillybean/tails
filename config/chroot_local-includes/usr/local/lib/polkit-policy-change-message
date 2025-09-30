@@ -42,7 +42,7 @@ def yesno(value: str) -> bool:
 @dataclass
 class PolicyFile:
     path: Path
-    prompt: str | None
+    prompt: str | None = None
 
 
 def main():
@@ -57,7 +57,10 @@ def main():
 
     policies = {
         "synaptic": PolicyFile(
-            path=Path("/usr/share/polkit-1/actions/com.ubuntu.pkexec.synaptic.policy")
+            path=Path("/usr/share/polkit-1/actions/com.ubuntu.pkexec.synaptic.policy"),
+        ),
+        "root-console": PolicyFile(
+            path=Path("/usr/share/polkit-1/actions/org.boum.tails.root-console.policy"),
         ),
     }
     if args.admin_password_set:
@@ -65,6 +68,12 @@ def main():
             "Authentication is required to run the Synaptic Package Manager. "
             "Enter the administration password that you set up in the Welcome Screen.",
         )
+        policies["root-console"].prompt = _(
+            "Authentication is required to start a Root Console. "
+            "Enter the administration password that you set up in the "
+            "Welcome Screen."
+        )
+
     else:
         policies["synaptic"].prompt = _(
             "For better security, no administration password is set up in Tails "
@@ -72,8 +81,14 @@ def main():
             "To run the Synaptic Package Manager, restart Tails "
             "and set up an administration password in the Welcome Screen.",
         )
+        policies["root-console"].prompt = _(
+            "For better security, no administration password is set up in "
+            "Tails by default. "
+            "To start a Root Console, restart Tails and set up an "
+            "administration password in the Welcome Screen.",
+        )
 
-    for policy in policies:
+    for policy in policies.values():
         if policy.prompt:
             replace_message(policy.path, policy.prompt)
 
