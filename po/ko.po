@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-17 10:36+0200\n"
+"POT-Creation-Date: 2025-09-30 15:46+0200\n"
 "PO-Revision-Date: 2025-09-16 15:01+0000\n"
 "Last-Translator: Joseph <mizizang@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/tor/tails-gui/ko/"
@@ -2635,6 +2635,19 @@ msgstr ""
 "오프라인 모드에서는 Tor 접속을 할 수 없습니다.\n"
 "Tor를 통해 인터넷에 연결하려면 Tails를 다시 시작한 뒤 오프라인 모드를 끄세요."
 
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:42
+msgid ""
+"Authentication is required to run the Synaptic Package Manager. Enter the "
+"administration password that you set up in the Welcome Screen."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:48
+msgid ""
+"For better security, no administration password is set up in Tails by "
+"default. To run the Synaptic Package Manager, restart Tails and set up an "
+"administration password in the Welcome Screen."
+msgstr ""
+
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:2
 msgid ""
 "Configure which files and application configuration are saved between "
@@ -2761,8 +2774,11 @@ msgid "Tails specific tools"
 msgstr "Tails 전용 도구"
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
-msgid "To start a Root Console, you need to authenticate."
-msgstr "루트 콘솔을 시작하려면 인증하세요."
+msgid ""
+"For better security, no administration password is set up in Tails by "
+"default. To start a Root Console, restart Tails and set up an administration "
+"password in the Welcome Screen."
+msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.AdditionalSoftware.policy.in.h:1
 msgid "Remove an additional software package"
@@ -2774,6 +2790,12 @@ msgid ""
 "($(command_line))"
 msgstr ""
 "추가 소프트웨어에서 패키지를 제거하려면 인증이 필요합니다. ($(command_line))"
+
+#: ../config/chroot_local-includes/usr/share/tails/greeter/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
+msgid ""
+"Authentication is required to start a Root Console. Enter the administration "
+"password that you set up in the Welcome Screen."
+msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:18
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:56
@@ -3954,6 +3976,9 @@ msgstr "12월"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "시간 및 날짜"
+
+#~ msgid "To start a Root Console, you need to authenticate."
+#~ msgstr "루트 콘솔을 시작하려면 인증하세요."
 
 #~ msgid "_Network Connection"
 #~ msgstr "_네트워크 연결"

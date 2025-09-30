@@ -50,7 +50,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-17 10:36+0200\n"
+"POT-Creation-Date: 2025-09-30 15:46+0200\n"
 "PO-Revision-Date: 2025-09-10 16:01+0000\n"
 "Last-Translator: intrigeri <intrigeri@torproject.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/tor/tails-gui/fr/"
@@ -2777,6 +2777,19 @@ msgstr ""
 "Pour vous connecter à Tor et à Internet, redémarrez Tails sans le mode hors "
 "ligne."
 
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:42
+msgid ""
+"Authentication is required to run the Synaptic Package Manager. Enter the "
+"administration password that you set up in the Welcome Screen."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:48
+msgid ""
+"For better security, no administration password is set up in Tails by "
+"default. To run the Synaptic Package Manager, restart Tails and set up an "
+"administration password in the Welcome Screen."
+msgstr ""
+
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:2
 msgid ""
 "Configure which files and application configuration are saved between "
@@ -2910,8 +2923,11 @@ msgid "Tails specific tools"
 msgstr "Outils spécifiques à Tails"
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
-msgid "To start a Root Console, you need to authenticate."
-msgstr "Vous devez vous authentifier pour lancer une console d'administration."
+msgid ""
+"For better security, no administration password is set up in Tails by "
+"default. To start a Root Console, restart Tails and set up an administration "
+"password in the Welcome Screen."
+msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.AdditionalSoftware.policy.in.h:1
 msgid "Remove an additional software package"
@@ -2924,6 +2940,12 @@ msgid ""
 msgstr ""
 "Une authentification est requise afin d’enlever un paquet de vos logiciels "
 "supplémentaires ($(command_line))"
+
+#: ../config/chroot_local-includes/usr/share/tails/greeter/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
+msgid ""
+"Authentication is required to start a Root Console. Enter the administration "
+"password that you set up in the Welcome Screen."
+msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:18
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:56
@@ -4145,6 +4167,10 @@ msgstr "décembre"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "Horloge"
+
+#~ msgid "To start a Root Console, you need to authenticate."
+#~ msgstr ""
+#~ "Vous devez vous authentifier pour lancer une console d'administration."
 
 #~ msgid "_Network Connection"
 #~ msgstr "Connexion _réseau"

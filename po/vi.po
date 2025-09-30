@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-17 10:36+0200\n"
+"POT-Creation-Date: 2025-09-30 15:46+0200\n"
 "PO-Revision-Date: 2025-06-27 17:01+0000\n"
 "Last-Translator: John Doah <poly.diy2ds3v@mailbox.org>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/tor/tails-gui/"
@@ -2694,6 +2694,19 @@ msgid ""
 "To connect to Tor and the Internet, restart Tails without Offline Mode."
 msgstr ""
 
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:42
+msgid ""
+"Authentication is required to run the Synaptic Package Manager. Enter the "
+"administration password that you set up in the Welcome Screen."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:48
+msgid ""
+"For better security, no administration password is set up in Tails by "
+"default. To run the Synaptic Package Manager, restart Tails and set up an "
+"administration password in the Welcome Screen."
+msgstr ""
+
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:2
 msgid ""
 "Configure which files and application configuration are saved between "
@@ -2836,9 +2849,11 @@ msgid "Tails specific tools"
 msgstr "Những công cụ đặc biệt của Tails"
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
-#, fuzzy
-msgid "To start a Root Console, you need to authenticate."
-msgstr "Để khởi động một Root Terminal gốc, bạn cần phải xác thực."
+msgid ""
+"For better security, no administration password is set up in Tails by "
+"default. To start a Root Console, restart Tails and set up an administration "
+"password in the Welcome Screen."
+msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.AdditionalSoftware.policy.in.h:1
 msgid "Remove an additional software package"
@@ -2851,6 +2866,12 @@ msgid ""
 msgstr ""
 "Việc xác thực được yêu cầu đề gỡ bỏ một gói package khỏi phần mềm bổ sung "
 "của bạn ($(command_line))"
+
+#: ../config/chroot_local-includes/usr/share/tails/greeter/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
+msgid ""
+"Authentication is required to start a Root Console. Enter the administration "
+"password that you set up in the Welcome Screen."
+msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:18
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:56
@@ -4049,6 +4070,10 @@ msgstr "Tháng mười hai"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "Đồng hồ"
+
+#, fuzzy
+#~ msgid "To start a Root Console, you need to authenticate."
+#~ msgstr "Để khởi động một Root Terminal gốc, bạn cần phải xác thực."
 
 #~ msgid "_Network Connection"
 #~ msgstr "_Kết nối Mạng"

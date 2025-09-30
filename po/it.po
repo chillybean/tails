@@ -41,7 +41,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-17 10:36+0200\n"
+"POT-Creation-Date: 2025-09-30 10:36+0200\n"
 "PO-Revision-Date: 2025-08-07 15:02+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/tor/tails-gui/it/"
@@ -2884,9 +2884,11 @@ msgid "Tails specific tools"
 msgstr "Strumenti specifici di Tails"
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
-#, fuzzy
-msgid "To start a Root Console, you need to authenticate."
-msgstr "Per avviare un terminale con root, devi autenticarti."
+msgid ""
+"For better security, no administration password is set up in Tails by "
+"default. To start a Root Console, restart Tails and set up an administration "
+"password in the Welcome Screen."
+msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.AdditionalSoftware.policy.in.h:1
 msgid "Remove an additional software package"
@@ -2899,6 +2901,12 @@ msgid ""
 msgstr ""
 "È richiesta l'autenticazione per rimuovere un pacchetto dai tuoi software "
 "aggiuntivi ($(command_line))"
+
+#: ../config/chroot_local-includes/usr/share/tails/greeter/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
+msgid ""
+"Authentication is required to start a Root Console. Enter the administration "
+"password that you set up in the Welcome Screen."
+msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:18
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:56
@@ -4094,6 +4102,10 @@ msgstr "Dicembre"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "Orologio"
+
+#, fuzzy
+#~ msgid "To start a Root Console, you need to authenticate."
+#~ msgstr "Per avviare un terminale con root, devi autenticarti."
 
 #~ msgid "_Network Connection"
 #~ msgstr "_Connessioni di rete"
