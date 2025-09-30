@@ -61,14 +61,16 @@ def browser_url_entry
   end
 end
 
+# Get the URL that is currently opened in Tor Browser. If
+# as_displayed is true, returns the URL as displayed by the Tor
+# Browser. The most important effect is that https:// is omitted.
+# Else (the default) it will return the actual URL
 def get_current_browser_url(as_displayed: false)
   address = browser_url_entry.text
   if address.empty? || address.start_with?('about:')
     return address
   end
 
-  # Tor Browser omits the scheme if it is https, so we restore it
-  # unless the as_displayed flag is set.
   if !as_displayed && !(address['://'])
     address = "https://#{address}"
   end
