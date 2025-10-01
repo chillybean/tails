@@ -83,7 +83,8 @@ for package in \
 done
 
 if [ -n "${packages_to_purge}" ]; then
-    apt-get --yes purge "${packages_to_purge}"
+    # shellcheck disable=SC2086
+    apt-get --yes purge $packages_to_purge
 fi
 
 ### Deinstall some other unwanted packages whose regexp might not be match
