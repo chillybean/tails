@@ -1136,7 +1136,7 @@ To build the IUKS, run this command:
        set -o pipefail
        WORK_DIR=$(mktemp -d)
        TAILS_REMOTE="$(git -C "${RELEASE_CHECKOUT:?}" remote get-url origin)"
-       PUPPET_TAILS_REMOTE=$(echo -n "${TAILS_REMOTE:?}" | perl -p -E 's,([:/])tails/tails([.]git)?\z,$1tails/puppet-tails$2,')
+       PUPPET_TAILS_REMOTE=$(echo -n "${TAILS_REMOTE:?}" | perl -p -E 's,([:/])tails/tails([.]git)?\z,$1tails/puppet-code$2,')
        cd "${WORK_DIR:?}"
        git clone "$PUPPET_TAILS_REMOTE"
        TMPFILES_CONF=/etc/tmpfiles.d/tails-create-iuks.conf
@@ -1157,7 +1157,7 @@ To build the IUKS, run this command:
        time                                                                   \
        sudo                                                                   \
        nice                                                                   \
-       ./puppet-tails/files/jenkins/slaves/isobuilders/wrap_tails_create_iuks \
+       ./puppet-code/site/profile/files/tails/jenkins/slaves/isobuilders/wrap_tails_create_iuks \
            --tails-git-remote "file://${RELEASE_CHECKOUT:?}/.git"             \
            --tails-git-commit "${TAG:?}"                                      \
            --source-date-epoch "${SOURCE_DATE_EPOCH:?}"                       \
@@ -1171,7 +1171,8 @@ To build the IUKS, run this command:
            2>&1 | tee "$IUK_CREATION_LOG"
     ) && \
      cd "${IUKS_DIR:?}" && \
-     sha256sum Tails_amd64_*_to_${VERSION:?}.iuk > "${IUKS_HASHES:?}"
+     sha256sum Tails_amd64_*_to_${VERSION:?}.iuk > "${IUKS_HASHES:?}" && \
+     rm -rf "${WORK_DIR:?}"
     )
 
 This command takes a long time. In parallel, while it is running,
