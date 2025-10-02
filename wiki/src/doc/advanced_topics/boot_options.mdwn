@@ -118,13 +118,13 @@ To do so:
 1. Execute to following command to allow modifying the content of the Tails
    partition on the USB stick.
 
-   <p class="command">sudo mount -o remount,rw /lib/live/mount/medium/</p>
+   <p class="command">sudo mount -o remount,rw /usr/lib/live/mount/medium/</p>
 
 1. Execute the following command to edit the configuration of the Boot Loader.
 
    - If your computer uses *SYSLINUX*:
 
-     <p class="command">gnome-text-editor admin:///lib/live/mount/medium/syslinux/live64.cfg</p>
+     <p class="command">gnome-text-editor admin:///usr/lib/live/mount/medium/syslinux/live64.cfg</p>
 
      The section `label live` corresponds to the default boot options.
 
@@ -132,7 +132,7 @@ To do so:
 
    - If your computer uses *GRUB*:
 
-     <p class="command">gnome-text-editor admin:///lib/live/mount/medium/EFI/debian/grub.cfg</p>
+     <p class="command">gnome-text-editor admin:///usr/lib/live/mount/medium/EFI/debian/grub.cfg</p>
 
      The section `menuentry 'Tails 6.11'` corresponds to the default boot
      options.
