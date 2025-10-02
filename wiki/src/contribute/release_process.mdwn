@@ -1041,12 +1041,17 @@ The final steps towards publishing
 the release will be done in a new, dedicated branch.
 
     if [ "${DIST:?}" = alpha ]; then
-        git checkout -b "${WEBSITE_RELEASE_BRANCH:?}" origin/master && \
-        git push -u origin "${WEBSITE_RELEASE_BRANCH:?}"
+        START_POINT=origin/master
     else
-        git checkout -b "${WEBSITE_RELEASE_BRANCH:?}" "${TAG:?}" && \
-        git push -u origin "${WEBSITE_RELEASE_BRANCH:?}"
+        START_POINT="${TAG:?}"
     fi
+    git checkout -b "${WEBSITE_RELEASE_BRANCH:?}" "${START_POINT:?}" && \
+    git push \
+        --set-upstream \
+        -o merge_request.create \
+        -o merge_request.draft \
+        -o merge_request.target=master \
+        origin "${WEBSITE_RELEASE_BRANCH:?}"
 
 Generate the OpenPGP signatures and Torrents
 ============================================
@@ -1131,7 +1136,7 @@ To build the IUKS, run this command:
        set -o pipefail
        WORK_DIR=$(mktemp -d)
        TAILS_REMOTE="$(git -C "${RELEASE_CHECKOUT:?}" remote get-url origin)"
-       PUPPET_TAILS_REMOTE=$(echo -n "${TAILS_REMOTE:?}" | perl -p -E 's,([:/])tails/tails([.]git)?\z,$1tails/puppet-tails$2,')
+       PUPPET_TAILS_REMOTE=$(echo -n "${TAILS_REMOTE:?}" | perl -p -E 's,([:/])tails/tails([.]git)?\z,$1tails/puppet-code$2,')
        cd "${WORK_DIR:?}"
        git clone "$PUPPET_TAILS_REMOTE"
        TMPFILES_CONF=/etc/tmpfiles.d/tails-create-iuks.conf
@@ -1152,7 +1157,7 @@ To build the IUKS, run this command:
        time                                                                   \
        sudo                                                                   \
        nice                                                                   \
-       ./puppet-tails/files/jenkins/slaves/isobuilders/wrap_tails_create_iuks \
+       ./puppet-code/site/profile/files/tails/jenkins/slaves/isobuilders/wrap_tails_create_iuks \
            --tails-git-remote "file://${RELEASE_CHECKOUT:?}/.git"             \
            --tails-git-commit "${TAG:?}"                                      \
            --source-date-epoch "${SOURCE_DATE_EPOCH:?}"                       \
@@ -1166,7 +1171,8 @@ To build the IUKS, run this command:
            2>&1 | tee "$IUK_CREATION_LOG"
     ) && \
      cd "${IUKS_DIR:?}" && \
-     sha256sum Tails_amd64_*_to_${VERSION:?}.iuk > "${IUKS_HASHES:?}"
+     sha256sum Tails_amd64_*_to_${VERSION:?}.iuk > "${IUKS_HASHES:?}" && \
+     rm -rf "${WORK_DIR:?}"
     )
 
 This command takes a long time. In parallel, while it is running,
@@ -1979,36 +1985,28 @@ Sanity checks
 Push
 ----
 
-Push the last commits to our Git repository and put `master` in the
-following state:
+Push the last commits and set the website release branch to auto-merge.
+This will make the release go live on our website once all required checks
+complete successfully:
 
-    ( cd "${RELEASE_CHECKOUT:?}" && \
-      git push origin \
-          "${WEBSITE_RELEASE_BRANCH:?}:${WEBSITE_RELEASE_BRANCH:?}" \
-          devel:devel \
-    ) && \
     (
       set -eu
-      cd "${MASTER_CHECKOUT:?}"
-      git fetch
-      git merge origin/master
-      git merge --edit "origin/${WEBSITE_RELEASE_BRANCH:?}"
-      git submodule update --init
+      cd "${RELEASE_CHECKOUT:?}"
+      git checkout "${WEBSITE_RELEASE_BRANCH:?}"
       echo "stable" > config/base_branch
       git diff-index --quiet HEAD config/base_branch || \
         git commit config/base_branch \
-          -m "Restore master's base branch." \
+          -m "Ensure base branch on 'master' remains 'stable'"
+      git push origin devel:devel
+      git push origin \
+          -o merge_request.merge_when_pipeline_succeeds \
+          "${WEBSITE_RELEASE_BRANCH:?}"
     )
+
+Mark the merge request for `$WEBSITE_RELEASE_BRANCH` as ready.
 
 Close the "Write release notes" ticket manually since
 `Closes:` statements are not sufficient when updating `master`.
-
-Finally, push the `master` branch to make the changes go live on our
-website:
-
-    ( cd "${MASTER_CHECKOUT:?}" && \
-      git push origin master:master \
-    )
 
 Bug tracker [if preparing a final release]
 --------------------------------------------
