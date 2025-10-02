@@ -391,6 +391,12 @@ def get_suites(min_codename: str) -> list:
     return suites
 
 
+def udd_mirror_last_update():
+    return requests.head(
+        "https://udd-mirror.debian.net/logs/stamp.txt", timeout=60
+    ).headers["last-modified"]
+
+
 def main():
     logging.basicConfig(
         level=logging.DEBUG,
@@ -444,6 +450,10 @@ def main():
                 err = e
         else:
             raise err
+
+    logger.info(
+        "Last successful auto-update of the UDD mirror: %s", udd_mirror_last_update()
+    )
 
     propose_update = check_build_manifest(build_manifest, config, suites, args.verbose)
 
