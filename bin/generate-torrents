@@ -17,7 +17,6 @@ for type in iso img; do
     mktorrent \
         -o "${ISOS:?}/tails-amd64-${VERSION:?}.${type:?}.torrent" \
         -a 'udp://tracker.torrent.eu.org:451' \
-        -a 'udp://tracker.coppersurfer.tk:6969' \
         "${tmp:?}/tails-amd64-${VERSION:?}-${type:?}"
     transmission-show "${ISOS:?}/tails-amd64-${VERSION:?}.${type:?}.torrent"
     cd -
