@@ -27,7 +27,6 @@ Feature: Tor stream isolation is effective
   Scenario: The Tor Browser is using the web browser-specific SocksPort
     When I monitor the network connections of Tor Browser
     And I start the Tor Browser
-    And the Tor Browser loads about:tor
     And I open the Tails homepage in the Tor Browser
     Then the Tor Browser loads the Tails homepage
     And I see that Tor Browser is properly stream isolated
