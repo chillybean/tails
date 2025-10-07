@@ -1,4 +1,12 @@
-#!/usr/bin/python3 -I
+#!/usr/bin/python3 -IXgil=1
+
+# The "Xgil=1" part of the shebang enforces the GIL. Below in
+# locale_change_handler() we change the environment via os.environ,
+# which ends up calling setenv(3), which is not thread-safe, which is
+# concerning since we execute it from a thread. Our understanding is
+# that since the os module is written in python the GIL makes setting
+# the environment via os.environ safe, which is the reason why we
+# enforce it.
 
 import argparse
 import gettext
