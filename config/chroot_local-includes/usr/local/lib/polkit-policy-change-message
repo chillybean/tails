@@ -34,7 +34,7 @@ def yesno(value: str) -> bool:
         return True
     if value == "no":
         return False
-    raise ValueError("Not a yes/no value: %r" % value)
+    raise ValueError(f"Not a yes/no value: {value!r}")
 
 
 def main():
