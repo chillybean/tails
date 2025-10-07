@@ -367,6 +367,9 @@ After('@product') do |scenario|
       record_scenario_skipped(scenario)
     elsif [ChutneyBootstrapFailure, TorBootstrapFailure, TimeSyncingError].any? \
           { |c| scenario.exception.is_a?(c) }
+      if scenario.exception.is_a?(ChutneyBootstrapFailure)
+        Cucumber.wants_to_quit = true
+      end
       if File.exist?("#{$config['TMPDIR']}/chutney-data")
         chutney_artifact_dir = "#{ARTIFACTS_DIR}/chutney-data"
         chutney_scenario_symlink = "#{ARTIFACTS_DIR}/" + sanitize_filename(
