@@ -744,6 +744,9 @@ msgid ""
 "If bad areas were reported, try leaving your USB stick to rest for some "
 "minutes and executing the same `ddrescue` command again to copy more data."
 msgstr ""
+"Se sono state segnalate aree danneggiate, prova a lasciare la chiavetta USB "
+"a riposo per alcuni minuti ed esegui nuovamente lo stesso comando `ddrescue` "
+"per copiare altri dati."
 
 #. type: Plain text
 #, no-wrap
@@ -751,6 +754,10 @@ msgid ""
 "     We recommend that you replace your USB stick and [[copy the partition image\n"
 "     to a new USB stick|fsck#copy]] after you execute `ddrescue` several times.\n"
 msgstr ""
+"     Ti consigliamo di sostituire la chiavetta USB e di [[copiare l'immagine "
+"della partizione\n"
+"          su una nuova chiavetta USB|fsck#copy]] dopo aver eseguito "
+"`ddrescue` più volte.\n"
 
 #. type: Bullet: '   - '
 msgid ""
@@ -758,10 +765,14 @@ msgid ""
 "several executions of the `ddrescue` command, it means that all the data "
 "that could be rescued was copied to the partition image."
 msgstr ""
+"Se non sono state segnalate aree danneggiate o se sono state segnalate le "
+"stesse aree danneggiate dopo diverse esecuzioni del comando `ddrescue`, "
+"significa che tutti i dati che potevano essere salvati sono stati copiati "
+"nell'immagine della partizione."
 
 #. type: Bullet: '1. '
 msgid "Shut down Tails."
-msgstr ""
+msgstr "Spegni Tails."
 
 #. type: Plain text
 #, no-wrap
@@ -769,27 +780,35 @@ msgid ""
 "   You can now safely start [[recovering data from the Persistent\n"
 "   Storage|fsck#welcome]].\n"
 msgstr ""
+"   A questo punto puoi avviare in modo sicuro il [[recupero dei dati dall'"
+"Archivio\n"
+"      Persistente|fsck#welcome]].\n"
 
 #. type: Plain text
 #, no-wrap
 msgid "<h1 id=\"recover\">Recovering data from the Persistent Storage</h1>\n"
-msgstr ""
+msgstr "<h1 id=\"recover\">Recuperare dati dall'Archivio Persistente</h1>\n"
 
 #. type: Plain text
 msgid ""
 "After [[creating a partition image|fsck#image]], you can safely try to "
 "recover data from your Persistent Storage without risking erasing more data."
 msgstr ""
+"Dopo aver [[creato un'immagine della partizione|fsck#image]], puoi tentare "
+"di recuperare i dati dall'Archivio Persistente senza rischiare di cancellare "
+"altri dati."
 
 #. type: Plain text
 msgid ""
 "We are presenting here 3 recovery techniques that work in different cases. "
 "We recommend that you try the 3 techniques one after the other."
 msgstr ""
+"Qui presentiamo 3 tecniche di recupero che funzionano in casi diversi. Ti "
+"consigliamo di provare le 3 tecniche una dopo l'altra."
 
 #. type: Bullet: '1. '
 msgid "[[Repairing the file system from the Welcome Screen|fsck#welcome]]"
-msgstr ""
+msgstr "[[Riparare il file system dalla Schermata di Benvenuto|fsck#welcome]]"
 
 #. type: Plain text
 #, no-wrap
@@ -797,10 +816,14 @@ msgid ""
 "   If the hardware of your USB stick is not failing, repairing the file system\n"
 "   from the Welcome Screen is likely the easiest technique.\n"
 msgstr ""
+"   Se l'hardware della chiavetta USB non è in avaria, la riparazione del "
+"file system\n"
+"      dalla Schermata di Benvenuto è probabilmente la tecnica più semplice.\n"
 
 #. type: Bullet: '1. '
 msgid "[[Copying the partition image to a new USB stick|fsck#copy]]"
 msgstr ""
+"[Copiare l'immagine della partizione su una nuova chiavetta USB|fsck#copia]]"
 
 #. type: Plain text
 #, no-wrap
@@ -809,10 +832,14 @@ msgid ""
 "   repair the file system of your Persistent Storage after copying the\n"
 "   partition image to a new USB stick.\n"
 msgstr ""
+"   Se l'hardware della chiavetta USB è guasto, puoi ancora\n"
+"      riparare il file system dell'Archivio Persistente dopo aver copiato\n"
+"      l'immagine della partizione su una nuova chiavetta USB.\n"
 
 #. type: Bullet: '1. '
 msgid "[[Analyzing the partition image using *Autopsy*|fsck#autopsy]]"
 msgstr ""
+"[[Analisi dell'immagine della partizione usando *Autopsy*|fsck#autopsy]]"
 
 #. type: Plain text
 #, no-wrap
@@ -820,31 +847,41 @@ msgid ""
 "   [*Autopsy*](https://www.autopsy.com/) is an advanced digital forensics tool\n"
 "   that allows recovering files, even from broken file systems.\n"
 msgstr ""
+"   [*Autopsy*](https://www.autopsy.com/) è un'analisi forense digitale "
+"avanzata.\n"
+"      che ti permette di recuperare i file, anche da file system danneggiati."
+"\n"
 
 #. type: Plain text
 #, no-wrap
 msgid "<h2 id=\"welcome\">Repairing the file system from the Welcome Screen</h2>\n"
 msgstr ""
+"<h2 id=\"welcome\">Riparare il file system dalla Schermata di Benvenuto</h2>"
+"\n"
 
 #. type: Plain text
 msgid ""
 "If the hardware of your USB stick is not failing, repairing the file system "
 "from the Welcome Screen is likely the easiest technique."
 msgstr ""
+"Se l'hardware della chiavetta USB non è in avaria, la riparazione del file "
+"system dalla Schermata di Benvenuto è probabilmente la tecnica più semplice."
 
 #. type: Bullet: '1. '
 msgid "Start on the Tails USB stick that has file system errors."
-msgstr ""
+msgstr "Avvia la chiavetta USB Tails che presenta errori nel file system."
 
 #. type: Bullet: '1. '
 msgid "In the Welcome Screen, try to unlock the Persistent Storage."
-msgstr ""
+msgstr "Nella Schermata di Benvenuto, prova a sbloccare l'Archivio Persistente."
 
 #. type: Bullet: '1. '
 msgid ""
 "When the error message about file system errors appears, click on the "
 "**Repair File System** button."
 msgstr ""
+"Quando viene visualizzato il messaggio di errore del file system, clicca sul "
+"tasto **Ripara File System**."
 
 #. type: Plain text
 #, fuzzy, no-wrap
@@ -854,12 +891,14 @@ msgstr "[[!img repair.png link=\"no\" class=\"screenshot\" alt=\"Finestra di dia
 
 #. type: Bullet: '1. '
 msgid "The repair of the file system starts."
-msgstr ""
+msgstr "Si avvia la riparazione del file system."
 
 #. type: Plain text
 #, no-wrap
 msgid "   The repair can take a long time, from a few seconds to several hours.\n"
 msgstr ""
+"   La riparazione può richiedere molto tempo, da pochi secondi a diverse ore."
+"\n"
 
 #. type: Plain text
 #, no-wrap
@@ -867,6 +906,9 @@ msgid ""
 "   If the repair takes more than a day, shutdown Tails and try [[analyzing the\n"
 "   partition image using *Autopsy*|fsck#autopsy]] instead.\n"
 msgstr ""
+"   Se la riparazione richiede più di un giorno, spegni Tails e prova invece "
+"ad [[analizzare l' \n"
+"      immagine della partizione usando *Autopsy*|fsck#autopsy]].\n"
 
 #. type: Plain text
 #, no-wrap
@@ -875,13 +917,15 @@ msgstr "   [[!img repairing.png class=\"screenshot\" alt=\"\"]]\n"
 
 #. type: Bullet: '1. '
 msgid "After the repair finishes:"
-msgstr ""
+msgstr "Al termine della riparazione:"
 
 #. type: Bullet: '   - '
 msgid ""
 "If the repair succeeded, start Tails and verify the content of your "
 "Persistent Storage."
 msgstr ""
+"Se la riparazione è riuscita, avvia Tails e verifica il contenuto "
+"dell'Archivio Persistente."
 
 #. type: Plain text
 #, no-wrap
@@ -892,6 +936,8 @@ msgstr "     <div class=\"tip\">\n"
 #, no-wrap
 msgid "     <p>We recommend that you keep the partition image for some time.</p>\n"
 msgstr ""
+"     <p>Ti consigliamo di conservare l'immagine della partizione per un "
+"certo periodo di tempo.</p>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -900,6 +946,11 @@ msgid ""
 "     might be able to recover them by [[analyzing the partition image using\n"
 "     <i>Autopsy</i>|fsck#autopsy]].</p>\n"
 msgstr ""
+"     <p>Se in seguito ti accorgi che alcuni file sono mancanti o danneggiati,"
+"\n"
+"          potresti essere in grado di recuperarli [[analizzando l'immagine "
+"della partizione tramite\n"
+"          <i>Autopsy</i>fsck#autopsy]].</p>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -911,11 +962,16 @@ msgid ""
 "If the repair failed, try to [[copy the partition image to a new USB stick|"
 "fsck#copy]] as described below."
 msgstr ""
+"Se la riparazione non è riuscita, prova a "
+"[[copiare l'immagine della partizione su una nuova chiavetta USB|fsck#copy]] "
+"come descritto di seguito."
 
 #. type: Plain text
 #, no-wrap
 msgid "<h2 id=\"copy\">Copying the partition image to a new USB stick</h2>\n"
 msgstr ""
+"<h2 id=\"copy\">Copia l'immagine della partizione su una nuova chiavetta "
+"USB</h2>\n"
 
 #. type: Plain text
 msgid ""
@@ -923,40 +979,51 @@ msgid ""
 "repair the file system of your Persistent Storage after copying the "
 "partition image to a new USB stick."
 msgstr ""
+"Se l'hardware della chiavetta USB è in avaria, puoi riparare il file system "
+"dell'Archivio Persistente dopo aver copiato l'immagine della partizione su "
+"una nuova chiavetta USB."
 
 #. type: Plain text
 #, no-wrap
 msgid "<h3 id=\"install\">Creating a new Tails USB stick with Persistent Storage</h3>\n"
 msgstr ""
+"<h3 id=\"install\">Crea una nuova chiavetta USB Tails con l'Archivio "
+"Persistente</h3>\n"
 
 #. type: Bullet: '1. '
 msgid "[[Install Tails|install]] on a new USB stick."
-msgstr ""
+msgstr "[[Installa Tails|install]] su una nuova chiavetta USB."
 
 #. type: Plain text
 #, no-wrap
 msgid "   The new USB stick must be at least as large as your current Tails USB stick.\n"
 msgstr ""
+"   La nuova chiavetta USB deve essere grande almeno quanto la tua attuale "
+"chiavetta USB di Tails.\n"
 
 #. type: Bullet: '1. '
 msgid "Start on the new Tails."
-msgstr ""
+msgstr "Inizia con il nuovo Tails."
 
 #. type: Bullet: '1. '
 msgid ""
 "When starting Tails, [[set up an administration password|doc/first_steps/"
 "welcome_screen/administration_password]]."
 msgstr ""
+"Quando si avvia Tails, [[imposta una password di amministrazione|doc/"
+"first_steps/welcome_screen/administration_password]]."
 
 #. type: Bullet: '1. '
 msgid "Create a Persistent Storage on the new Tails."
-msgstr ""
+msgstr "Creare un Archivio Persistente sul nuovo Tails."
 
 #. type: Bullet: '1. '
 msgid ""
 "Close the Persistent Storage settings after creation, when the list of "
 "features is displayed."
 msgstr ""
+"Chiudi le impostazioni dell'Archivio Persistente dopo averlo creato, quando "
+"viene visualizzato l'elenco delle funzioni."
 
 #. type: Plain text
 #, no-wrap
@@ -965,42 +1032,59 @@ msgid ""
 "   Storage. So, it does not matter which features you turn on after creating\n"
 "   the Persistent Storage.\n"
 msgstr ""
+"   La procedura descritta di seguito sovrascrive il contenuto e la "
+"configurazione del nuovo Archivio\n"
+"      Persistente. Non è importante quali funzioni siano state attivate dopo "
+"la creazione\n"
+"      dell'Archivio Persistente.\n"
 
 #. type: Plain text
 #, no-wrap
 msgid "<h3 id=\"restore\">Copying the partition image onto the new USB stick</h3>\n"
 msgstr ""
+"<h3 id=\"restore\">Copia dell'immagine della partizione sulla nuova "
+"chiavetta USB</h3>\n"
 
 #. type: Bullet: '1. '
 msgid ""
 "In the left pane of the *Disks* utility, identify your new Tails USB stick "
 "in the list of storage devices."
 msgstr ""
+"Nel riquadro di sinistra dell'utility *Disks*, identifica la nuova chiavetta "
+"USB Tails nell'elenco dei dispositivi di archiviazione."
 
 #. type: Bullet: '1. '
 msgid ""
 "In the left pane, click on the storage device that corresponds to your new "
 "Tails USB stick."
 msgstr ""
+"Nel riquadro di sinistra, clicca sul dispositivo di archiviazione "
+"corrispondente alla nuova chiavetta USB Tails."
 
 #. type: Bullet: '1. '
 msgid "In the right pane, this storage device should have 3 volumes."
 msgstr ""
+"Nel riquadro di destra, questo dispositivo di archiviazione dovrebbe avere 3 "
+"volumi."
 
 #. type: Bullet: '   - '
 msgid "1 volume with a **TailsData** label and **Ext4** content."
-msgstr ""
+msgstr "1 volume con etichetta **TailsData** e contenuto **Ext4**."
 
 #. type: Plain text
 #, no-wrap
 msgid "     This volume corresponds to the decrypted version of your Persistent Storage.\n"
 msgstr ""
+"     Questo volume corrisponde alla versione decrittata dell'Archivio "
+"Persistente.\n"
 
 #. type: Bullet: '1. '
 msgid ""
 "In the right pane, click on the **Ext4** volume, which is the one that "
 "corresponds to the decrypted version of your Persistent Storage."
 msgstr ""
+"Nel riquadro di destra, aclicc sul volume **Ext4**, che corrisponde alla "
+"versione decriptata dll'Archivio Persistente."
 
 #. type: Plain text
 #, no-wrap
