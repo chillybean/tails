@@ -1,8 +1,18 @@
-#!/usr/bin/python3 -I
+#!/usr/bin/python3 -IXgil=1
+
+# The "Xgil=1" part of the shebang enforces the GIL. Below in
+# locale_change_handler() we change the environment via os.environ,
+# which ends up calling setenv(3), which is not thread-safe, which is
+# concerning since we execute it from a thread. Our understanding is
+# that since the os module is written in python the GIL makes setting
+# the environment via os.environ safe, which is the reason why we
+# enforce it.
 
 import argparse
+import gettext
 import logging
 import os
+import sys
 from pathlib import Path
 from typing import Optional
 
@@ -12,6 +22,8 @@ import tps
 import tps.logging
 from tps import DBUS_SERVICE_NAME
 from tps.service import Service
+
+gettext.textdomain("tails")
 
 logger = tps.logging.get_logger(__name__)
 
@@ -77,6 +89,33 @@ def main():
         on_name_acquired,
         on_name_lost,
     )
+
+    locale1 = Gio.DBusProxy.new_for_bus_sync(
+        bus_type=Gio.BusType.SYSTEM,
+        flags=Gio.DBusProxyFlags.NONE,
+        info=None,
+        name="org.freedesktop.locale1",
+        object_path="/org/freedesktop/locale1",
+        interface_name="org.freedesktop.locale1",
+        cancellable=None,
+    )  # type: Gio.DBusProxy
+
+    def locale_change_handler(_proxy, changed, _removed):
+        # This is only thread-safe when the GIL is enabled
+        assert sys._is_gil_enabled()  # noqa: SLF001
+        old_locale = os.environ["LANG"]
+        try:
+            for setting in changed["Locale"]:
+                if setting.startswith("LANG="):
+                    _, val = setting.split("=", 1)
+                    os.environ["LANG"] = val
+                    break
+        except (KeyError, ValueError):
+            pass
+        if old_locale != os.environ["LANG"]:
+            logger.info(f"Changed locale: {old_locale} → {os.environ['LANG']}")
+
+    locale1.connect("g-properties-changed", locale_change_handler)
 
     # Run the mainloop until it gets terminated or we get a keyboard
     # interrupt
