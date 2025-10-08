@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
 "POT-Creation-Date: 2025-09-17 11:40+0200\n"
-"PO-Revision-Date: 2025-09-18 17:21+0000\n"
-"Last-Translator: xin <xin@riseup.net>\n"
+"PO-Revision-Date: 2025-10-08 15:19+0000\n"
+"Last-Translator: la_r_go* <largo@tracciabi.li>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -191,6 +191,8 @@ msgid ""
 "Most of the time, repairing the file system will work fine and will be "
 "enough to fix your Persistent Storage."
 msgstr ""
+"La maggior parte delle volte, riparare il file system funzionerà bene e sarà "
+"sufficiente per riparare il tuo Archivio Persistente."
 
 #. type: Plain text
 msgid ""
@@ -199,6 +201,11 @@ msgid ""
 "advanced forensics tools. This recovery process is very technical and you "
 "might need help from someone experienced with data recovery."
 msgstr ""
+"Nei rari casi in cui riparare il file system non funziona, potresti essere "
+"in grado di recuperare alcuni o la maggior parte dei tuoi dati da questa "
+"immagine di partizione utilizzando strumenti forensi digitali. Questo "
+"processo di recupero è molto tecnico e potresti aver bisogno di aiuto da "
+"qualcuno esperto nel recupero dei dati."
 
 #. type: Plain text
 #, no-wrap
@@ -209,12 +216,16 @@ msgstr "[[!toc levels=3]]\n"
 #, no-wrap
 msgid "<h1 id=\"image\">Creating a partition image of your Persistent Storage</h1>\n"
 msgstr ""
+"<h1 id=\"image\">Creare un'immagine della partizione del tuo Archivio "
+"Persistente</h1>\n"
 
 #. type: Plain text
 msgid ""
 "A partition image is a copy of your entire Persistent Storage in a single "
 "file that you can save to an external hard disk from Tails."
 msgstr ""
+"Un'immagine della partizione è una copia dell'intero Archivio Persistente in "
+"un unico file che può essere salvata su un disco rigido esterno da Tails."
 
 #. type: Plain text
 msgid ""
@@ -327,10 +338,12 @@ msgid ""
 "[[Set up an administration password|doc/first_steps/welcome_screen/"
 "administration_password]]."
 msgstr ""
+"[[Imposta una password di amministrazione|doc/first_steps/welcome_screen/"
+"administration_password]]."
 
 #. type: Bullet: '   2. '
 msgid "Choose to start without unlocking your Persistent Storage."
-msgstr ""
+msgstr "Scegli di avviare senza sbloccare il tuo Archivio Persistente."
 
 #. type: Bullet: '1. '
 msgid ""
@@ -343,6 +356,10 @@ msgid ""
 "Persistent Storage. You need as much free space as the size of your "
 "Persistent Storage, usually 8&nbsp;GB less than your Tails USB stick."
 msgstr ""
+"Collega il disco rigido su cui vuoi salvare l'immagine della partizione del "
+"tuo Archivio Persistente. Hai bisogno di tanto spazio libero quanto la "
+"dimensione del tuo Archivio Persistente, di solito 8&nbsp; GB in meno "
+"rispetto alla tua chiavetta USB Tails."
 
 #. type: Plain text
 #, no-wrap
@@ -355,6 +372,9 @@ msgid ""
 "in the sidebar of the *Files* browser and choose *Properties* in the "
 "shortcut menu."
 msgstr ""
+"Clicca con il tasto destro del mouse (su Mac, clicca con due dita) sul nuovo "
+"volume comparso nella barra laterale del browser *File* e scegli *Proprietà* "
+"nel menu di scelta rapida."
 
 #. type: Plain text
 #, no-wrap
@@ -365,6 +385,8 @@ msgstr ""
 #, no-wrap
 msgid "<h3 id=\"identify\">Identifying your Persistent Storage in the <i>Disks</i> utility</h3>\n"
 msgstr ""
+"<h3 id=\"identify\">Identifica il tuo Archivio Persistente nell'utilità "
+"<i>Dischi</i></h3>\n"
 
 #. type: Bullet: '1. '
 msgid ""
@@ -376,23 +398,29 @@ msgid ""
 "In the left pane of the *Disks* utility, identify your Tails USB stick in "
 "the list of storage devices."
 msgstr ""
+"Nel riquadro sinistro dell'utilità *Disks*, identifica la tua chiavetta USB "
+"Tails nell'elenco dei dispositivi di archiviazione."
 
 #. type: Plain text
 #, no-wrap
 msgid "   Verify its brand and size.\n"
-msgstr ""
+msgstr "   Verifica la sua marca e dimensione.\n"
 
 #. type: Bullet: '1. '
 msgid ""
 "In the left pane, click on the storage device that corresponds to your Tails "
 "USB stick."
 msgstr ""
+"Nel riquadro sinistro, clicca sul dispositivo di archiviazione che "
+"corrisponde alla tua chiavetta USB Tails."
 
 #. type: Bullet: '1. '
 msgid ""
 "In the right pane, this storage device should have 2 volumes, corresponding "
 "to 2 partitions on the USB stick."
 msgstr ""
+"Nel riquadro di destra, questo dispositivo di archiviazione dovrebbe avere 2 "
+"volumi, corrispondenti a 2 partizioni sulla chiavetta USB."
 
 #. type: Bullet: '   - '
 msgid "1 volume with a **Tails** label and **FAT** content."
@@ -402,15 +430,18 @@ msgstr ""
 #, no-wrap
 msgid "     This volume corresponds to the system partition of your Tails.\n"
 msgstr ""
+"     Questo volume corrisponde alla partizione di sistema del tuo Tails.\n"
 
 #. type: Bullet: '   - '
 msgid "1 volume with a **TailsData** label and **LUKS** content."
-msgstr ""
+msgstr "1 volume con etichetta **TailsData** e contenuto **LUKS**."
 
 #. type: Plain text
 #, no-wrap
 msgid "     This volume corresponds to the encrypted version of your Persistent Storage.\n"
 msgstr ""
+"     Questo volume corrisponde alla versione cifrata del tuo Archivio "
+"Persistente.\n"
 
 #. type: Plain text
 #, no-wrap
@@ -422,44 +453,57 @@ msgid ""
 "In the right pane, click on the volume that corresponds to your Persistent "
 "Storage."
 msgstr ""
+"Nel riquadro di destra, clicca sul volume che corrisponde al tuo Archivio "
+"Persistente."
 
 #. type: Plain text
 #, no-wrap
 msgid "   Verify that the content of the volume is of type **LUKS Encryption**.\n"
 msgstr ""
+"   Verifica che il contenuto del volume sia di tipo **Crittografia LUKS**.\n"
 
 #. type: Plain text
 #, no-wrap
 msgid "<h3 id=\"unlock\">Unlocking your Persistent Storage in the <i>Disks</i> utility</h3>\n"
 msgstr ""
+"<h3 id=\"unlock\">Sblocca l'Archivio Persistente nell'utilità "
+"<i>Dischi</i></h3>\n"
 
 #. type: Plain text
 msgid ""
 "Before creating the partition image, unlock the encryption to access the "
 "decrypted version of your Persistent Storage. To do so:"
 msgstr ""
+"Prima di creare l'immagine della partizione, sblocca la crittografia per "
+"accedere alla versione decrittata del tuo Archivio Persistente. Per farlo:"
 
 #. type: Bullet: '1. '
 msgid ""
 "Click [[!img lib/unlock.png link=\"no\" class=\"symbolic\" alt=\"Unlock "
 "selected encrypted partition\"]]."
 msgstr ""
+"Clicca su [[!img lib/unlock.png link=\"no\" class=\"symbolic\" alt="
+"\"Sblocca la partizione cifrata selezionata\"]]."
 
 #. type: Bullet: '1. '
 msgid ""
 "In the **Enter passphrase to unlock** dialog, enter the passphrase of your "
 "Persistent Storage."
 msgstr ""
+"Nella finestra di dialogo **Inserisci la frase d'accesso per sbloccare**, "
+"inserisci la frase d'accesso del tuo Archivio Persistente."
 
 #. type: Bullet: '1. '
 msgid "Click **Unlock**."
-msgstr ""
+msgstr "Clicca **Sblocca**."
 
 #. type: Bullet: '1. '
 msgid ""
 "In the **Authentication Required** dialog, enter your administration "
 "password."
 msgstr ""
+"Nella finestra di dialogo **Autenticazione Richiesta**, inserisci la tua "
+"password di amministrazione."
 
 #. type: Plain text
 #, no-wrap
@@ -473,6 +517,11 @@ msgid ""
 "   that decryption is impossible, making all your data completely\n"
 "   unrecoverable.</p>\n"
 msgstr ""
+"   <p>Se lo sblocco fallisce in questo passaggio, il tuo Archivio "
+"Persistente è così danneggiato\n"
+"      che la decrittazione è impossibile, rendendo tutti i tuoi dati "
+"completamente \n"
+"      irrecuperabili.</p>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -484,36 +533,44 @@ msgid ""
 "In the right pane, click on the new volume that appears below the **LUKS** "
 "volume."
 msgstr ""
+"Nel riquadro di destra, clicca sul nuovo volume che compare sotto il volume "
+"**LUKS**."
 
 #. type: Plain text
 #, no-wrap
 msgid "   Verify that the content of the new volume is of type **Ext4**.\n"
-msgstr ""
+msgstr "   Verifica che il contenuto del nuovo volume sia di tipo **Ext4**.\n"
 
 #. type: Plain text
 #, no-wrap
 msgid "   This volume corresponds to the decrypted version of your Persistent Storage.\n"
 msgstr ""
+"   Questo volume corrisponde alla versione decrittata del tuo Archivio "
+"Persistente.\n"
 
 #. type: Bullet: '1. '
 msgid ""
 "Verify that the size of your decrypted Persistent Storage is smaller than "
 "the available free space in the external hard disk."
 msgstr ""
+"Verifica che la dimensione del tuo Archivio Persistente decrittato sia "
+"inferiore allo spazio libero disponibile nel disco rigido esterno."
 
 #. type: Bullet: '1. '
 msgid "Take note of the device name of your Persistent Storage."
-msgstr ""
+msgstr "Prendi nota del nome del dispositivo del tuo Archivio Persistente."
 
 #. type: Plain text
 #, no-wrap
 msgid "   The device name is composed of `/dev/mapper/luks`, followed by letters and numbers.\n"
 msgstr ""
+"   Il nome del dispositivo è composto da `/dev/mapper/luks`, seguito da "
+"lettere e numeri.\n"
 
 #. type: Plain text
 #, no-wrap
 msgid "<h3 id=\"create\">Creating the partition image</h3>\n"
-msgstr ""
+msgstr "<h3 id=\"create\">Creare l'immagine della partizione</h3>\n"
 
 #. type: Bullet: '1. '
 msgid ""
@@ -523,11 +580,11 @@ msgstr ""
 
 #. type: Bullet: '1. '
 msgid "In the **Create Disk Image** dialog:"
-msgstr ""
+msgstr "Nella finestra di dialogo **Crea immagine disco**:"
 
 #. type: Bullet: '   - '
 msgid "In the **Name** field, specify *persistent-storage.img*."
-msgstr ""
+msgstr "Nel campo **Nome**, specifica *persistent-storage.img*."
 
 #. type: Bullet: '   - '
 msgid ""
@@ -538,15 +595,15 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "   Click the **Start Creating** button.\n"
-msgstr ""
+msgstr "   Clicca sul tasto **Inizia a Creare**.\n"
 
 #. type: Bullet: '1. '
 msgid "After the creation of the partition image finishes:"
-msgstr ""
+msgstr "Dopo che la creazione dell'immagine della partizione è completata:"
 
 #. type: Bullet: '   - '
 msgid "If the creation succeeded, shutdown Tails."
-msgstr ""
+msgstr "Se è stata creata con successo, spegni Tails."
 
 #. type: Plain text
 #, no-wrap
@@ -554,6 +611,9 @@ msgid ""
 "     You can now safely start [[recovering data from the Persistent\n"
 "     Storage|fsck#welcome]].\n"
 msgstr ""
+"     A questo punto puoi avviare in modo sicuro il [[recupero dei dati dall'"
+"Archivio\n"
+"          Persistente|fsck#welcome]].\n"
 
 #. type: Bullet: '   - '
 msgid ""
@@ -561,11 +621,16 @@ msgid ""
 "a partition image using `ddrescue` on the command line|fsck#ddrescue]] "
 "instead."
 msgstr ""
+"Se la creazione non è riuscita, prova la seconda tecnica descritta di "
+"seguito per [[creare un'immagine della partizione usando `ddrescue` dalla "
+"riga di comando|fsck#ddrescue]]."
 
 #. type: Plain text
 #, no-wrap
 msgid "<h2 id=\"ddrescue\">Creating a partition image using <span class=\"code\">ddrescue</span> on the command line</h2>\n"
 msgstr ""
+"<h2 id=\"ddrescue\">Creare un'immagine della partizione usando <span class="
+"\"code\">ddrescue</span> dalla riga di comando</h2>\n"
 
 #. type: Plain text
 msgid ""
@@ -573,6 +638,9 @@ msgid ""
 "this second technique using `ddrescue`, which can be more resilient to "
 "hardware failures."
 msgstr ""
+"Se la creazione di un'immagine della partizione con l'utilità *Disks* "
+"fallisce, puoi provare questa seconda tecnica utilizzando `ddrescue`, che "
+"può essere più resistente ai guasti hardware."
 
 #. type: Plain text
 msgid ""
@@ -581,6 +649,10 @@ msgid ""
 "After that, you can run `ddrescue` again to try to copy the parts that "
 "failed the first time."
 msgstr ""
+"L'utilità `ddrescue` tenta di copiare prima le parti dell'Archivio "
+"Persistente che non si guastano e salta quelle che si guastano. Poi, puoi "
+"eseguire nuovamente `ddrescue` per tentare di copiare le parti che non hanno "
+"funzionato la prima volta."
 
 #. type: Bullet: '1. '
 msgid ""
@@ -615,7 +687,7 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "   The output of `ddrescue` looks like this:\n"
-msgstr ""
+msgstr "   L'output di `ddrescue` si presenta così:\n"
 
 #. type: Plain text
 #, fuzzy, no-wrap
@@ -659,10 +731,13 @@ msgid ""
 "   The section about **bad areas** refers to errors reading the data of your\n"
 "   Persistent Storage, most likely because of hardware failures.\n"
 msgstr ""
+"   La sezione relativa alle **aree non valide** si riferisce agli errori di "
+"lettura dei dati del tuo.\n"
+"      Archivio Persistente, molto probabilmente a causa di guasti hardware.\n"
 
 #. type: Bullet: '1. '
 msgid "After `ddrescue` finishes:"
-msgstr ""
+msgstr "Dopo che `ddrescue temina:"
 
 #. type: Bullet: '   - '
 msgid ""
