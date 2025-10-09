@@ -19,6 +19,8 @@ import sys
 import urllib
 from collections.abc import Iterator, Sequence
 from dataclasses import dataclass
+from datetime import UTC, datetime
+from email.utils import parsedate_to_datetime
 
 import debian.debian_support
 import distro_info  # type: ignore[import]
@@ -391,6 +393,14 @@ def get_suites(min_codename: str) -> list:
     return suites
 
 
+def udd_mirror_last_update():
+    return parsedate_to_datetime(
+        requests.head(
+            "https://udd-mirror.debian.net/logs/stamp.txt", timeout=60
+        ).headers["last-modified"]
+    )
+
+
 def main():
     logging.basicConfig(
         level=logging.DEBUG,
@@ -444,6 +454,13 @@ def main():
                 err = e
         else:
             raise err
+
+    udd_mirror_last_update_dt = udd_mirror_last_update()
+    logger.info(
+        "Last successful auto-update of the UDD mirror: %s (%s ago)",
+        udd_mirror_last_update_dt,
+        datetime.now(UTC) - udd_mirror_last_update_dt,
+    )
 
     propose_update = check_build_manifest(build_manifest, config, suites, args.verbose)
 
