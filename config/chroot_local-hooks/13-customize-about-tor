@@ -1,0 +1,26 @@
+#!/bin/sh
+
+set -e
+set -u
+
+echo "Customize the Tor Browser's about:tor page"
+
+tmp="$(mktemp -d)"
+(
+    cd "${tmp}"
+    7z x -tzip /usr/local/lib/tor-browser/omni.ja
+    patch -p1 </usr/share/tails/build/custom-about-tor/omni.patch
+    7z a -mtc=off -tzip -- /usr/local/lib/tor-browser/omni.ja *
+)
+rm -r "${tmp}"
+
+tmp="$(mktemp -d)"
+(
+    cd "${tmp}"
+    7z x -tzip /usr/local/lib/tor-browser/browser/omni.ja
+    patch -p1 </usr/share/tails/build/custom-about-tor/browser-omni.patch
+    7z a -mtc=off -tzip -- /usr/local/lib/tor-browser/browser/omni.ja *
+)
+rm -r "${tmp}"
+
+rm -r /usr/share/tails/build/custom-about-tor/
