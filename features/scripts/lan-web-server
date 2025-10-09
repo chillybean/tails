@@ -31,6 +31,7 @@ class RequestHandler(SimpleHTTPRequestHandler):
 
         if self.path == "/":
             self.send_response(200)
+            self.send_header("Content-Type", "text/html; charset=UTF-8")
             self.end_headers()
             body = f"<head><title>{hello_message}</title></head>" \
                 f"<h1>{hello_message}</h1>"
@@ -43,6 +44,7 @@ class RequestHandler(SimpleHTTPRequestHandler):
             self.end_headers()
         elif self.path == "/captive":
             self.send_response(200)
+            self.send_header("Content-Type", "text/html; charset=UTF-8")
             self.end_headers()
             captive_portal_html_file = Path(git_dir, CAPTIVE_PORTAL_HTML)
             self.wfile.write(captive_portal_html_file.read_bytes())
