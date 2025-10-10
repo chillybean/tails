@@ -138,6 +138,15 @@ update-locale \
     "LC_MEASUREMENT=${TAILS_FORMATS}.UTF-8" \
     "LC_PAPER=${TAILS_FORMATS}.UTF-8"
 
+# Export it, so that commands run later on will have the right LANG already
+export \
+    "LANG=${TAILS_LOCALE_NAME}.UTF-8" \
+    "LC_TIME=${TAILS_FORMATS}.UTF-8" \
+    "LC_NUMERIC=${TAILS_FORMATS}.UTF-8" \
+    "LC_MONETARY=${TAILS_FORMATS}.UTF-8" \
+    "LC_MEASUREMENT=${TAILS_FORMATS}.UTF-8" \
+    "LC_PAPER=${TAILS_FORMATS}.UTF-8"
+
 # Ensure the org.freedesktop.locale1 D-Bus interface updates according
 # to the above changes
 systemctl restart systemd-localed.service
@@ -178,7 +187,10 @@ if [ -z "${TAILS_USER_PASSWORD}" ]; then
     echo "Defaults:amnesia lecture=always" >"${NO_PASSWORD_LECTURE}"
     echo "Defaults:amnesia lecture_file=/usr/share/tails/greeter/no-password-lecture.txt" >>"${NO_PASSWORD_LECTURE}"
     echo "Defaults:amnesia badpass_message=\"The administration password is disabled.\"" >>"${NO_PASSWORD_LECTURE}"
+    /usr/local/lib/polkit-policy-change-message --admin-password-set=no
     log_n_exit "Password variable not found."
+else
+    /usr/local/lib/polkit-policy-change-message --admin-password-set=yes
 fi
 
 # Sets the password
