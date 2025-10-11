@@ -493,7 +493,9 @@ Given /^the Tor Browser (?:has started|starts)$/ do
 end
 
 Given /^the Tor Browser loads about:tor$/ do
-  @screen.wait('TorBrowserAboutTor.png', 60)
+  @screen.wait_any(
+    ['TorBrowserAboutTor.png', 'TorBrowser2025EOYCampaignBanner.png'], 60
+  )
 end
 
 Given /^the Tor Browser loads the (Tails homepage|Tails GitLab)$/ do |page|
