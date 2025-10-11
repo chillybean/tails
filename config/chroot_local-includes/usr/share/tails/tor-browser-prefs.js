@@ -61,3 +61,7 @@ pref("browser.toolbars.bookmarks.visibility", "never");
 // (https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/43693)
 // which we work around through this pref.
 pref("privacy.resistFingerprinting.letterboxing.rememberSize", true);
+
+// Let Tor Browser know that it is running inside Tails, which
+// e.g. enables a more appropriate about:tor page.
+pref("torbrowser.running_in_tails", true);
