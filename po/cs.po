@@ -31,9 +31,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-08 17:35+0200\n"
-"PO-Revision-Date: 2025-09-16 12:02+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"POT-Creation-Date: 2025-10-13 10:37+0200\n"
+"PO-Revision-Date: 2025-10-07 10:02+0000\n"
+"Last-Translator: slrslr <adm@prnet.info>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/tor/tails-gui/cs/"
 ">\n"
 "Language: cs\n"
@@ -748,7 +748,7 @@ msgstr "_Offline režim"
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/additional_settings.py:276
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:399
 msgid "Enable networking (default)"
-msgstr "Povolit síť (default)"
+msgstr "Zapnout síť (výchozí)"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/additional_settings.py:278
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:445
@@ -761,7 +761,7 @@ msgstr "_Nebezpečný prohlížeč"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/additional_settings.py:348
 msgid "Enabled (default)"
-msgstr "Povoleno (výchozí)"
+msgstr "Zapnuto (výchozí)"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/additional_settings.py:350
 msgid "Disabled"
@@ -1700,9 +1700,8 @@ msgid "Set up a password to unlock the screen."
 msgstr "Nastavte heslo pro odemčení obrazovky."
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:147
-#, fuzzy
 msgid "Show Password"
-msgstr "Heslo"
+msgstr "Zobrazit heslo"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:151
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2281
@@ -2022,7 +2021,7 @@ msgstr "Otevřít asistenta připojení k Tor"
 #: config/chroot_local-includes/usr/share/gnome-shell/extensions/torstatus@tails.boum.org/extension.js:51
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2107
 msgid "View Tor Circuits"
-msgstr "Zobrazit Tor okruhy"
+msgstr "Zobrazit trasy Tor"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:348
 #, python-brace-format
@@ -2690,26 +2689,26 @@ msgstr ""
 "Je nemožné se připojit k Toru v Offline režimu.\n"
 "Pro připojení k Toru, restartujte Tails bez Offline režimu."
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:75
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:68
 msgid ""
 "Authentication is required to run the Synaptic Package Manager. Enter the "
 "administration password that you set up in the Welcome Screen."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:79
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:72
 msgid ""
 "Authentication is required to start a Root Console. Enter the administration "
 "password that you set up in the Welcome Screen."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:86
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:79
 msgid ""
 "For better security, no administration password is set up in Tails by "
 "default. To run the Synaptic Package Manager, restart Tails and set up an "
 "administration password in the Welcome Screen."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:92
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:85
 msgid ""
 "For better security, no administration password is set up in Tails by "
 "default. To start a Root Console, restart Tails and set up an administration "
@@ -2922,7 +2921,6 @@ msgstr ""
 "všechny sítě."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:514
-#, fuzzy
 msgid ""
 "The Unsafe Browser allows you to sign in to a network using a captive "
 "portal.\n"
@@ -2938,15 +2936,10 @@ msgstr ""
 "\n"
 "Portál je webová stránka, která se zobrazí, před možností přístupu k "
 "internetu. Tyto portály většinou vyžadují přihlášení k síti nebo zadání "
-"informací, jako je emailová adresa.\n"
+"informací, jako je e-mailová adresa.\n"
 "\n"
-"Nezabezpečený prohlížeč není anynomní a může vést k prozrazení vaší "
-"identity. Používejte jej pouze pro přístup k portálům pro přihlášení k "
-"síti.\n"
-"\n"
-"Nezabezpečený prohlížeč je od verze Tails 5.8 (Prosinec 2022) ve výchozím "
-"stavu zapnut, jelikož se nám podařilo opravit bezpečnostní zranitelnosti pro "
-"které jsme ho vypnuli ve verzi Tails 4.8 (Červen 2020)."
+"Nezabezpečený prohlížeč není anonymní a může vést k prozrazení vaší "
+"identity. Používejte jej pouze pro přihlášení k sítím."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:560
 msgid "Enable the Unsafe Browser (default)"
@@ -3878,9 +3871,10 @@ msgid "Connect to a local network"
 msgstr "Připojit k místní síti"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1725
+#, fuzzy
 msgid ""
 "You are not connected to a local network yet. To be able to connect to the "
-"Tor network, you first need to connect to a Wi-Fi, wire, or mobile network."
+"Tor network, you first need to connect to a Wi-Fi, wired, or mobile network."
 msgstr ""
 "Zatím nejste připojeni k místní síti. Abyste se mohli připojit k síti Tor, "
 "musíte se nejprve připojit k síti Wi-Fi, kabelové nebo mobilní síti."

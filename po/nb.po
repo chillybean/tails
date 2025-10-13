@@ -18,12 +18,14 @@
 # eab1793e5400043c122a2435c33fe68d, 2019
 # 1b09ca809bd1d57b09c4d19f89cfcafa_19f763a <9a173cebe69c399e2bc3c9d455cdd880_367693>, 2015
 # 9d7045af8ca83a89b1b4bf48a2c67786, 2018
+# Weblate <noreply-mt-weblate@weblate.org>, 2025.
+# Telaneo <post@telaneo.net>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-08 17:35+0200\n"
-"PO-Revision-Date: 2025-04-03 14:14+0000\n"
+"POT-Creation-Date: 2025-10-13 10:37+0200\n"
+"PO-Revision-Date: 2025-10-11 11:09+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/tor/"
 "tails-gui/nb_NO/>\n"
@@ -32,7 +34,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -40,6 +42,8 @@ msgid ""
 "{details} Please check your list of additional software or read the system "
 "log to understand the problem."
 msgstr ""
+"{details} Vennligst sjekk listen over tilleggsprogram, eller les "
+"systemloggen for å forstå problemet."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:216
 msgid ""
@@ -89,6 +93,8 @@ msgid ""
 "To install it automatically when starting Tails, you can create a Persistent "
 "Storage and activate the <b>Additional Software</b> feature."
 msgstr ""
+"For å installere det automatisk når du starter Tails kan du opprette en "
+"varig lagringsplass og aktivere <b>Tilleggsprogramvare</b>."
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:103
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:270
@@ -97,9 +103,8 @@ msgid "Create Persistent Storage"
 msgstr "Opprett vedvarende lagring"
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:113
-#, fuzzy
 msgid "Creating your Persistent Storage failed."
-msgstr "Opprettelse av din vedvarende lagring feilet"
+msgstr "Opprettelse av din vedvarende lagringplass feilet."
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:124
 #, python-brace-format
@@ -234,6 +239,10 @@ msgid ""
 "Help us keep your bitcoins safe!\n"
 "\n"
 msgstr ""
+"Tails beskytter lommeboken din.\n"
+"\n"
+"Hjelp oss holde bitcoinene dine trygge!\n"
+"\n"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:149
 msgid "Donate Now"
@@ -245,11 +254,11 @@ msgstr "Senere"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:165
 msgid "Opening Electrum with our donation address..."
-msgstr ""
+msgstr "Åpner Electrum med donasjonsadressen vår..."
 
 #: config/chroot_local-includes/usr/local/bin/electrum:166
 msgid "Thank you for making the Internet a safer place!"
-msgstr ""
+msgstr "Takk for at du gjør internettet tryggere!"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:200
 msgid "Persistence is disabled for Electrum"
@@ -277,27 +286,27 @@ msgstr "_Avslutt"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/DownloadProgress.pm:59
 msgid "Unknown time"
-msgstr ""
+msgstr "Ukjent tid"
 
 #. Translators: Don't translate {count}, it's a place holder and
 #. will be replaced.
 #. y is the short form for years.
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/DownloadProgress.pm:78
-#, fuzzy, perl-brace-format
+#, perl-brace-format
 msgid "1y"
 msgid_plural "{count}y"
-msgstr[0] "1å"
-msgstr[1] ""
+msgstr[0] "1 år"
+msgstr[1] "{count} år"
 
 #. Translators: Don't translate {count}, it's a place holder and
 #. will be replaced.
 #. d is the short form for days.
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/DownloadProgress.pm:82
-#, fuzzy, perl-brace-format
+#, perl-brace-format
 msgid "1d"
 msgid_plural "{count}d"
-msgstr[0] "1d"
-msgstr[1] ""
+msgstr[0] "1 dag"
+msgstr[1] "{count} dager"
 
 #. Translators: Don't translate {count}, it's a place holder and
 #. will be replaced.
@@ -306,8 +315,8 @@ msgstr[1] ""
 #, perl-brace-format
 msgid "1h"
 msgid_plural "{count}h"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 time"
+msgstr[1] "{count} timer"
 
 #. Translators: Don't translate {count}, it's a place holder and
 #. will be replaced.
@@ -316,8 +325,8 @@ msgstr[1] ""
 #, perl-brace-format
 msgid "1m"
 msgid_plural "{count}m"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 minutt"
+msgstr[1] "{count} minutter"
 
 #. Translators: Don't translate {count}, it's a place holder and
 #. will be replaced.
@@ -326,8 +335,8 @@ msgstr[1] ""
 #, perl-brace-format
 msgid "1s"
 msgid_plural "{count}s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 sekund"
+msgstr[1] "{count} sekunder"
 
 #. Translators: don't translate {time}, {downloaded}, {size}
 #. and {speed}, they are placeholders and will be replaced.
@@ -1954,9 +1963,8 @@ msgstr ""
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:49
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:1
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:25
-#, fuzzy
 msgid "Persistent Storage"
-msgstr "Opprett vedvarende lagring"
+msgstr "Varig lagringsplass"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/application.py:56
 #, fuzzy
@@ -2537,26 +2545,26 @@ msgid ""
 "To connect to Tor and the Internet, restart Tails without Offline Mode."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:75
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:68
 msgid ""
 "Authentication is required to run the Synaptic Package Manager. Enter the "
 "administration password that you set up in the Welcome Screen."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:79
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:72
 msgid ""
 "Authentication is required to start a Root Console. Enter the administration "
 "password that you set up in the Welcome Screen."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:86
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:79
 msgid ""
 "For better security, no administration password is set up in Tails by "
 "default. To run the Synaptic Package Manager, restart Tails and set up an "
 "administration password in the Welcome Screen."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:92
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:85
 msgid ""
 "For better security, no administration password is set up in Tails by "
 "default. To start a Root Console, restart Tails and set up an administration "
@@ -3412,7 +3420,7 @@ msgstr "obfs4 (anbefalt)"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:185
 msgid "WebTunnel"
-msgstr ""
+msgstr "WebTunnel"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:208
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1522
@@ -3645,7 +3653,7 @@ msgstr ""
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1725
 msgid ""
 "You are not connected to a local network yet. To be able to connect to the "
-"Tor network, you first need to connect to a Wi-Fi, wire, or mobile network."
+"Tor network, you first need to connect to a Wi-Fi, wired, or mobile network."
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1739
@@ -3808,6 +3816,7 @@ msgid "Clock"
 msgstr "Klokke"
 
 #, fuzzy
+#~| msgid "To start a Root Terminal, you need to authenticate."
 #~ msgid "To start a Root Console, you need to authenticate."
 #~ msgstr "For å starte en root-terminal, må du identitetsbekrefte deg."
 

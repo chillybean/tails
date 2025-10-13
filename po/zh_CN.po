@@ -44,13 +44,14 @@
 # ヨイツの賢狼ホロ, 2018
 # Sketch6580 <sketch6580@users.noreply.hosted.weblate.org>, 2025.
 # mik <mik@users.noreply.hosted.weblate.org>, 2025.
+# Universal <beatboxxx@mail.xstyled.net>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-08 17:35+0200\n"
-"PO-Revision-Date: 2025-09-09 12:02+0000\n"
-"Last-Translator: mik <mik@users.noreply.hosted.weblate.org>\n"
+"POT-Creation-Date: 2025-10-13 10:37+0200\n"
+"PO-Revision-Date: 2025-10-11 13:08+0000\n"
+"Last-Translator: Sketch6580 <sketch6580@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/tor/tails-gui/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -112,7 +113,7 @@ msgid ""
 "To install it automatically when starting Tails, you can create a Persistent "
 "Storage and activate the <b>Additional Software</b> feature."
 msgstr ""
-"要在 Tails 每次启动时安装此软件，你可以创建一个永久存储并启动 <b>附加软件</b>"
+"要在 Tails 每次启动时安装此软件，您可以创建一个永久存储并启动 <b>附加软件</b>"
 "功能。"
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:103
@@ -1636,9 +1637,8 @@ msgid "Set up a password to unlock the screen."
 msgstr "设定解锁屏幕的密码。"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:147
-#, fuzzy
 msgid "Show Password"
-msgstr "密码"
+msgstr "显示密码"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:151
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2281
@@ -2584,26 +2584,26 @@ msgstr ""
 "在脱机模式下无法连接到Tor。\n"
 "要连接到Tor和Internet，请在没有脱机模式的情况下重新启动Tails。"
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:75
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:68
 msgid ""
 "Authentication is required to run the Synaptic Package Manager. Enter the "
 "administration password that you set up in the Welcome Screen."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:79
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:72
 msgid ""
 "Authentication is required to start a Root Console. Enter the administration "
 "password that you set up in the Welcome Screen."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:86
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:79
 msgid ""
 "For better security, no administration password is set up in Tails by "
 "default. To run the Synaptic Package Manager, restart Tails and set up an "
 "administration password in the Welcome Screen."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:92
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:85
 msgid ""
 "For better security, no administration password is set up in Tails by "
 "default. To start a Root Console, restart Tails and set up an administration "
@@ -2713,7 +2713,7 @@ msgstr "挂载;已加密;容器;truecryt"
 msgid ""
 "Configure the additional software installed from your Persistent Storage "
 "when starting Tails"
-msgstr "你设置在 Tails 启动时从永久存储中自动安装的附加软件"
+msgstr "您设置在 Tails 启动时从永久存储中自动安装的附加软件"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop.in.h:3
 msgid "persistent;storage;package;install"
@@ -2807,7 +2807,6 @@ msgid ""
 msgstr "如果您想完全离线工作，您可以禁用所有网络以提高安全性。"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:514
-#, fuzzy
 msgid ""
 "The Unsafe Browser allows you to sign in to a network using a captive "
 "portal.\n"
@@ -2819,16 +2818,12 @@ msgid ""
 "The Unsafe Browser is not anonymous and can deanonymize you. Use it only to "
 "sign in to networks."
 msgstr ""
-"非安全浏览器允许您登录使用了强制门户的网络。\n"
+"非安全浏览器允许您使用强制门户登录网络。\n"
 "\n"
 "强制门户是在您可以访问互联网之前显示的网页。强制门户通常需要您登录网络或输入"
-"邮箱地址等信息。\n"
+"电子邮件地址等信息。\n"
 "\n"
-"非安全浏览器不是匿名的，可以将您去匿名化。请只将它用于登陆网络。\n"
-"\n"
-"在 Tails 5.8 版本（2022 年 12 月发布）中，我们在修复了安全漏洞后重新默认启用"
-"了非安全浏览器。我们在 Tails 4.8 版本（2020 年 6 月发布）因这些漏洞默认禁用了"
-"此功能。"
+"非安全浏览器不是匿名的，可以将您去匿名化。请只将它用于登录网络。"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:560
 msgid "Enable the Unsafe Browser (default)"
@@ -3365,7 +3360,7 @@ msgid ""
 "happen again.\n"
 "Otherwise, we won't be able to troubleshoot and solve it."
 msgstr ""
-"<b>你做了什么导致了这个错误？</b>\n"
+"<b>您做了什么导致了这个错误？</b>\n"
 "描述引起错误的确切步骤，以便我们可以尝试再次发生。\n"
 "否则，我们将无法进行故障排除和解决。"
 
@@ -3379,7 +3374,7 @@ msgid ""
 "So we can answer you or ask for more details."
 msgstr ""
 "<b>电子邮件地址</b>\n"
-"这样我们可以回答你或者询问更多细节。"
+"这样我们可以回答您或者询问更多细节。"
 
 #: ../config/chroot_local-includes/usr/share/whisperback/whisperback.ui.in:480
 msgid "Optional PGP Key…"
@@ -3723,9 +3718,10 @@ msgid "Connect to a local network"
 msgstr "连接至本地网络"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1725
+#, fuzzy
 msgid ""
 "You are not connected to a local network yet. To be able to connect to the "
-"Tor network, you first need to connect to a Wi-Fi, wire, or mobile network."
+"Tor network, you first need to connect to a Wi-Fi, wired, or mobile network."
 msgstr ""
 "您尚未连接到本地网络。 为了能够连接到 Tor 网络，您需要先连接到 Wi-Fi、有线或"
 "移动网络。"
