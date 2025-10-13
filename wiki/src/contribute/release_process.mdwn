@@ -1285,6 +1285,7 @@ Verify that Jenkins reproduced your IUKs
 Run this command to verify that Jenkins reproduced your IUKs:
 
     "${RELEASE_CHECKOUT:?}"/bin/copy-iuks-to-rsync-server-and-verify \
+       --source-version-regexp "${VERSION%%.*}[.].*" \
        --hashes-file "${IUKS_HASHES:?}" \
        --work-dir /srv/tmp \
        --jenkins-build-id "${CANDIDATE_JENKINS_IUKS_BUILD_ID:?}"
