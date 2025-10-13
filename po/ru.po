@@ -46,13 +46,15 @@
 # Maksim_220 Кабанов <law820314@gmail.com>, 2025.
 # "Bucket B. Bucketman" <healtheries_deceptions@simplelogin.com>, 2025.
 # Abduloh Raupov <abdulohraupov@gmail.com>, 2025.
+# A R <andrei@secura.team>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-08 17:35+0200\n"
-"PO-Revision-Date: 2025-08-11 10:02+0000\n"
-"Last-Translator: Abduloh Raupov <abdulohraupov@gmail.com>\n"
+"POT-Creation-Date: 2025-10-13 10:37+0200\n"
+"PO-Revision-Date: 2025-09-22 12:01+0000\n"
+"Last-Translator: \"Bucket B. Bucketman\" "
+"<healtheries_deceptions@simplelogin.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/tor/tails-gui/ru/"
 ">\n"
 "Language: ru\n"
@@ -62,7 +64,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -424,8 +426,7 @@ msgstr ""
 "<b>Ошибка обновления ключа подписи.</b>\\n\\n<b>Это не позволяет определить, "
 "доступно ли обновление на нашем сайте.</b>\\n\\nПроверьте ваше интернет-"
 "соединение и перезапустите Tails, чтобы попробовать снова.\\n\\nЕсли "
-"проблема сохраняется, смотрите:///usr/share/doc/tails/website/doc/upgrade/"
-"error/check.en.html."
+"проблема сохраняется, попробуйте выполнить обновление вручную."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:309
 msgid "Error while downloading the signing key"
@@ -1056,7 +1057,7 @@ msgid ""
 "%(iso_size)dMB ISO + %(overlay_size)dMB overlay > %(free_space)dMB free space"
 msgstr ""
 "Недостаточно свободного места на устройстве.\n"
-"%(iso_size)dMB ISO + %(overlay_size)dMB наложение > %(free_space)dMB "
+"%(iso_size)dМБ ISO + %(overlay_size)dМБ наложение > %(free_space)dМБ "
 "свободного места"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:509
@@ -1618,7 +1619,7 @@ msgstr "О Tails"
 
 #: config/chroot_local-includes/usr/local/bin/tails-about:34
 msgid "Check for Upgrades"
-msgstr "Проверьте наличие обновлений"
+msgstr "Проверить наличие обновлений"
 
 #: config/chroot_local-includes/usr/local/bin/tails-about:57
 msgid "UNRELEASED"
@@ -1710,7 +1711,7 @@ msgstr "Синхронизация системного времени не уд
 
 #: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:26
 msgid "Insufficient Memory Detected"
-msgstr ""
+msgstr "Обнаружен недостаток памяти"
 
 #: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:28
 #, python-brace-format
@@ -1719,6 +1720,9 @@ msgid ""
 "{installed_ram_gb} GB. You might experience reduced performance, "
 "instability, or crashes."
 msgstr ""
+"Tails необходимо {required_ram_gb} ГБ оперативной памяти, но на этом "
+"компьютере имеется лишь {installed_ram_gb} ГБ. Вы можете испытать замедление "
+"в работе системы, нестабильность, аварийные завершения приложений."
 
 #: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:41
 #: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:42
@@ -1734,9 +1738,8 @@ msgid "Set up a password to unlock the screen."
 msgstr "Настройте пароль для разблокировки экрана."
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:147
-#, fuzzy
 msgid "Show Password"
-msgstr "Пароль"
+msgstr "Показать пароль"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:151
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2281
@@ -2595,7 +2598,7 @@ msgid ""
 "Do you really want to restart Tails now?\\n\\nAll your current work will be "
 "lost."
 msgstr ""
-"Вы действительно хотите перезапустить Tails сейчас?\\n\\nВся текущая работа "
+"Вы действительно хотите перезапустить Tails сейчас?\\n\\nВся текущая сессия "
 "будет потеряна."
 
 #: config/chroot_local-includes/usr/local/sbin/unsafe-browser:58
@@ -2738,26 +2741,26 @@ msgstr ""
 "Чтобы подключиться к Tor и сети Интернет, перезапустите Tails без оффлайн-"
 "режима."
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:75
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:68
 msgid ""
 "Authentication is required to run the Synaptic Package Manager. Enter the "
 "administration password that you set up in the Welcome Screen."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:79
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:72
 msgid ""
 "Authentication is required to start a Root Console. Enter the administration "
 "password that you set up in the Welcome Screen."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:86
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:79
 msgid ""
 "For better security, no administration password is set up in Tails by "
 "default. To run the Synaptic Package Manager, restart Tails and set up an "
 "administration password in the Welcome Screen."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:92
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:85
 msgid ""
 "For better security, no administration password is set up in Tails by "
 "default. To start a Root Console, restart Tails and set up an administration "
@@ -2778,12 +2781,11 @@ msgstr "Конфигурация сохранена"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:1
 msgid "Root Console"
-msgstr ""
+msgstr "Root-консоль"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:2
-#, fuzzy
 msgid "Opens a console as the root user"
-msgstr "Открывает терминал как root пользователь"
+msgstr "Открывает консоль как root пользователь"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:3
 msgid "admin"
@@ -2818,25 +2820,23 @@ msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-backup.desktop.in.h:3
 msgid "backup"
-msgstr ""
+msgstr "резервная копия"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-installer.desktop.in.h:2
 msgid "Install, clone, upgrade Tails"
 msgstr "Установить, дублировать, обновить Tails"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-installer.desktop.in.h:3
-#, fuzzy
 msgid "install;clone;upgrade;manual"
-msgstr "Установить, дублировать, обновить Tails"
+msgstr "установить; дублировать; обновить;вручную"
 
 #: ../config/chroot_local-includes/usr/share/applications/tca.desktop.in.h:2
 msgid "Connect Tails to the Tor network"
 msgstr "Подключить Tails к сети Tor"
 
 #: ../config/chroot_local-includes/usr/share/applications/tca.desktop.in.h:3
-#, fuzzy
 msgid "connect;tor;network"
-msgstr "Подключиться к локальной сети"
+msgstr "подключиться;tor;сеть"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:1
 msgid "Tor Browser"
@@ -2847,9 +2847,8 @@ msgid "Anonymous Web Browser"
 msgstr "Анонимный веб-браузер"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:3
-#, fuzzy
 msgid "web;tor;browser"
-msgstr "Tor Browser"
+msgstr "web;tor;браузер"
 
 #: ../config/chroot_local-includes/usr/share/applications/unsafe-browser.desktop.in.h:2
 msgid "Browse the World Wide Web without anonymity"
@@ -2861,7 +2860,7 @@ msgstr "Небезопасный браузер"
 
 #: ../config/chroot_local-includes/usr/share/applications/unsafe-browser.desktop.in.h:4
 msgid "web;captive;portal"
-msgstr ""
+msgstr "web;captive;портал"
 
 #: ../config/chroot_local-includes/usr/share/applications/unlock-veracrypt-volumes.desktop.in.h:2
 msgid "Mount VeraCrypt encrypted file containers and devices"
@@ -2869,7 +2868,7 @@ msgstr "Монтируйте зашифрованные файловые кон�
 
 #: ../config/chroot_local-includes/usr/share/applications/unlock-veracrypt-volumes.desktop.in.h:3
 msgid "mount;encrypted;container;truecryt"
-msgstr ""
+msgstr "монтировать;зашифрованный;контейнер;truecrypt"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop.in.h:2
 msgid ""
@@ -2880,9 +2879,8 @@ msgstr ""
 "хранилища при запуске Tails"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop.in.h:3
-#, fuzzy
 msgid "persistent;storage;package;install"
-msgstr "Удалить постоянное хранилище и переустановить"
+msgstr "постоянное;хранилище;пакет;установить"
 
 #: ../config/chroot_local-includes/usr/share/applications/whisperback.desktop.in.h:1
 msgid "WhisperBack Error Reporting"
@@ -2979,7 +2977,6 @@ msgstr ""
 "подключения для повышения безопасности."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:514
-#, fuzzy
 msgid ""
 "The Unsafe Browser allows you to sign in to a network using a captive "
 "portal.\n"
@@ -3000,11 +2997,7 @@ msgstr ""
 "почты.\n"
 "\n"
 "Небезопасный браузер не анонимен и может деанонимизировать вас. Используйте "
-"его только для авторизации в сети.\n"
-"\n"
-"Небозапасный браузер включён по умолчанию вновь с Tails 5.8 (Декабрь 2022) "
-"после того, как мы исправили уязвимости безопасности, которые стали причиной "
-"его отключения в Tails 4.8 (Июнь 2020)."
+"его только для авторизации в сети."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:560
 msgid "Enable the Unsafe Browser (default)"
@@ -3943,9 +3936,10 @@ msgid "Connect to a local network"
 msgstr "Подключиться к локальной сети"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1725
+#, fuzzy
 msgid ""
 "You are not connected to a local network yet. To be able to connect to the "
-"Tor network, you first need to connect to a Wi-Fi, wire, or mobile network."
+"Tor network, you first need to connect to a Wi-Fi, wired, or mobile network."
 msgstr ""
 "Вы еще не подключены к локальной сети. Чтобы иметь возможность подключиться "
 "к сети Tor, вам сначала необходимо подключиться к Wi-Fi, проводной или "
@@ -3953,7 +3947,7 @@ msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1739
 msgid "Open Wi-Fi Settings"
-msgstr "Откройте настройки Wi-Fi"
+msgstr "Открыть настройки Wi-Fi"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1788
 msgid "Testing Internet access…"
@@ -4115,9 +4109,8 @@ msgstr "Декабрь"
 msgid "Clock"
 msgstr "Часы"
 
-#, fuzzy
 #~ msgid "To start a Root Console, you need to authenticate."
-#~ msgstr "Чтобы запустить root-терминал, необходимо пройти аутентификацию."
+#~ msgstr "Чтобы запустить root-консоль, необходимо пройти аутентификацию."
 
 #~ msgid "_Network Connection"
 #~ msgstr "_Интернет-соединение"

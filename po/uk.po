@@ -22,8 +22,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-08 17:35+0200\n"
-"PO-Revision-Date: 2025-08-21 17:01+0000\n"
+"POT-Creation-Date: 2025-10-13 10:37+0200\n"
+"PO-Revision-Date: 2025-10-11 10:07+0000\n"
 "Last-Translator: Максим Горпиніч <gorpinicmaksim0@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/tor/tails-gui/"
 "uk/>\n"
@@ -35,7 +35,7 @@ msgstr ""
 "11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
-"X-Generator: Weblate 5.13\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -1699,9 +1699,8 @@ msgid "Set up a password to unlock the screen."
 msgstr "Встановіть пароль, щоб розблокувати екран."
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:147
-#, fuzzy
 msgid "Show Password"
-msgstr "Пароль"
+msgstr "Показати пароль"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:151
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2281
@@ -2696,31 +2695,41 @@ msgstr ""
 "Неможливо під'єднатися до Tor в офлайн-режимі.\n"
 "Щоб під'єднатися до Tor та інтернету, перезапустіть Tails без офлайн-режиму."
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:75
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:68
 msgid ""
 "Authentication is required to run the Synaptic Package Manager. Enter the "
 "administration password that you set up in the Welcome Screen."
 msgstr ""
+"Для запуску Synaptic Package Manager потрібна автентифікація. Введіть пароль "
+"адміністратора, який ви встановили на екрані привітання."
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:79
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:72
 msgid ""
 "Authentication is required to start a Root Console. Enter the administration "
 "password that you set up in the Welcome Screen."
 msgstr ""
+"Для запуску кореневої консолі потрібна автентифікація. Введіть пароль "
+"адміністратора, який ви встановили на екрані привітання."
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:86
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:79
 msgid ""
 "For better security, no administration password is set up in Tails by "
 "default. To run the Synaptic Package Manager, restart Tails and set up an "
 "administration password in the Welcome Screen."
 msgstr ""
+"Для кращої безпеки в Tails за замовчуванням не встановлено пароль "
+"адміністратора. Щоб запустити Synaptic Package Manager, перезапустіть Tails "
+"і встановіть пароль адміністратора на екрані привітання."
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:92
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:85
 msgid ""
 "For better security, no administration password is set up in Tails by "
 "default. To start a Root Console, restart Tails and set up an administration "
 "password in the Welcome Screen."
 msgstr ""
+"Для кращої безпеки в Tails за замовчуванням не встановлено пароль "
+"адміністратора. Щоб запустити кореневу консоль, перезапустіть Tails і "
+"встановіть пароль адміністратора на екрані привітання."
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:2
 msgid ""
@@ -2931,7 +2940,6 @@ msgstr ""
 "підвищення безпеки."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:514
-#, fuzzy
 msgid ""
 "The Unsafe Browser allows you to sign in to a network using a captive "
 "portal.\n"
@@ -2943,19 +2951,16 @@ msgid ""
 "The Unsafe Browser is not anonymous and can deanonymize you. Use it only to "
 "sign in to networks."
 msgstr ""
-"Небезпечний браузер дає змогу ввійти в мережу за допомогою порталу "
-"з'єднання.\n"
+"Небезпечний браузер дозволяє вам увійти в мережу за допомогою порталу "
+"авторизації.\n"
 "\n"
-"Портал з'єднання — це вебсторінка, яка показується перед тим, як ви зможете "
-"отримати доступ до інтернету. Портали з'єднання зазвичай вимагають увійти в "
-"мережу або ввести таку інформацію, як адреса електронної пошти.\n"
+"Портал авторизації — це веб-сторінка, яка відображається перед тим, як ви "
+"отримаєте доступ до Інтернету. Портали авторизації зазвичай вимагають від "
+"вас увійти в мережу або ввести таку інформацію, як адреса електронної "
+"пошти.\n"
 "\n"
-"Небезпечний браузер не анонімний і може деанонімізувати вас. Використовуйте "
-"його лише для входу в мережі.\n"
-"\n"
-"Небезпечний браузер знову типово ввімкнено починаючи з Tails 5.8 (грудень "
-"2022), після усунення вразливостей безпеки, через які його було вимкнено в "
-"Tails 4.8 (червень 2020)."
+"Небезпечний браузер не є анонімним і може розкрити вашу анонімність. "
+"Використовуйте його тільки для входу в мережі."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:560
 msgid "Enable the Unsafe Browser (default)"
@@ -3897,9 +3902,10 @@ msgid "Connect to a local network"
 msgstr "Під'єднатися до локальної мережі"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1725
+#, fuzzy
 msgid ""
 "You are not connected to a local network yet. To be able to connect to the "
-"Tor network, you first need to connect to a Wi-Fi, wire, or mobile network."
+"Tor network, you first need to connect to a Wi-Fi, wired, or mobile network."
 msgstr ""
 "Ви ще не під'єднані до локальної мережі. Щоб мати можливість під'єднатися до "
 "мережі Tor, спочатку потрібно під'єднатися до Wi-Fi, дротової або мобільної "

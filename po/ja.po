@@ -35,8 +35,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-08 17:35+0200\n"
-"PO-Revision-Date: 2025-08-22 06:02+0000\n"
+"POT-Creation-Date: 2025-10-13 10:37+0200\n"
+"PO-Revision-Date: 2025-09-21 05:02+0000\n"
 "Last-Translator: Himmel <himmel@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/tor/tails-gui/"
 "ja/>\n"
@@ -45,7 +45,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.13\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -1694,9 +1694,8 @@ msgid "Set up a password to unlock the screen."
 msgstr "画面をロック解除するためのパスワードを設定してください。"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:147
-#, fuzzy
 msgid "Show Password"
-msgstr "パスワード"
+msgstr "パスワードを表示"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:151
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2281
@@ -1733,7 +1732,7 @@ msgstr ""
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:64
 #, sh-format
 msgid "Wi-Fi Disabled"
-msgstr "Wi-Fi が使用不可です"
+msgstr "Wi-Fi が無効です"
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:65
 #, sh-format
@@ -1761,7 +1760,7 @@ msgstr ""
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:71
 #, sh-format
 msgid "Wired Network Disabled"
-msgstr "有線ネットワークが使用不可です"
+msgstr "有線ネットワークが無効です"
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:72
 #, sh-format
@@ -1788,7 +1787,7 @@ msgstr ""
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:87
 msgid "All Networking Disabled"
-msgstr "すべてのネットワークが使用不可です"
+msgstr "すべてのネットワークが無効です"
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:89
 #, sh-format
@@ -2689,26 +2688,26 @@ msgstr ""
 "Tor とインターネットに接続するには、オフラインモードなしで Tails を再起動しま"
 "す。"
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:75
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:68
 msgid ""
 "Authentication is required to run the Synaptic Package Manager. Enter the "
 "administration password that you set up in the Welcome Screen."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:79
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:72
 msgid ""
 "Authentication is required to start a Root Console. Enter the administration "
 "password that you set up in the Welcome Screen."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:86
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:79
 msgid ""
 "For better security, no administration password is set up in Tails by "
 "default. To run the Synaptic Package Manager, restart Tails and set up an "
 "administration password in the Welcome Screen."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:92
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:85
 msgid ""
 "For better security, no administration password is set up in Tails by "
 "default. To start a Root Console, restart Tails and set up an administration "
@@ -2918,7 +2917,6 @@ msgstr ""
 "接続を無効化することができます。"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:514
-#, fuzzy
 msgid ""
 "The Unsafe Browser allows you to sign in to a network using a captive "
 "portal.\n"
@@ -2933,16 +2931,12 @@ msgstr ""
 "安全でないブラウザーを使用すると、キャプティブポータルを使用してネットワーク"
 "にサインインすることができます。\n"
 "\n"
-"キャプティブポータル (ウェブ認証) とは、インターネットにアクセスする前に表示"
-"されるウェブページのことです。キャプティブポータルでは通常、ネットワークにロ"
-"グインするか、メールアドレスなどの情報を入力する必要があります。\n"
+"キャプティブポータルとは、インターネットにアクセスする前に表示されるウェブ"
+"ページのことです。キャプティブポータルでは通常、ネットワークにログインする"
+"か、メールアドレスなどの情報を入力する必要があります。\n"
 "\n"
 "安全でないブラウザーは匿名化を解除し、匿名ではなくなります。そのため、ネット"
-"ワークへのサインインにのみ使用してください。\n"
-"\n"
-"安全でないブラウザーは、脆弱性のために Tails 4.8 (2020年6月) からデフォルトで"
-"無効でしたが、脆弱性を修正した為、Tails 5.8 (2022年12月) より再びデフォルトで"
-"有効になっています。"
+"ワークへのサインインにのみ使用してください。"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:560
 msgid "Enable the Unsafe Browser (default)"
@@ -3876,9 +3870,10 @@ msgid "Connect to a local network"
 msgstr "ローカルネットワークに接続"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1725
+#, fuzzy
 msgid ""
 "You are not connected to a local network yet. To be able to connect to the "
-"Tor network, you first need to connect to a Wi-Fi, wire, or mobile network."
+"Tor network, you first need to connect to a Wi-Fi, wired, or mobile network."
 msgstr ""
 "ローカルネットワークに接続していません。Tor ネットワークに接続するには、最初"
 "に Wi-Fi や有線、モバイルネットワークに接続する必要があります。"
