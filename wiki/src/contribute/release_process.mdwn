@@ -1051,6 +1051,7 @@ the release will be done in a new, dedicated branch.
         -o merge_request.create \
         -o merge_request.draft \
         -o merge_request.target=master \
+        -o merge_request.title="Draft: Publish Tails ${VERSION}" \
         origin "${WEBSITE_RELEASE_BRANCH:?}"
 
 Generate the OpenPGP signatures and Torrents
