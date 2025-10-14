@@ -1154,11 +1154,6 @@ Given /^I start "([^"]+)" via GNOME Activities Overview$/ do |app_name|
   # non-deterministic choice (at least under load). To make the life
   # easier for users of this step, let's collect workarounds here.
   case app_name
-  when 'Console'
-    # "Console" shows both the (non-Root) "Console" and "Root Console"
-    # search results, so let's use a keyword only found in the
-    # former's .desktop file.
-    app_name = 'commandline'
   when 'Persistent Storage'
     # "Persistent Storage" also matches "Back Up Persistent Storage"
     # (tails-backup.desktop).
