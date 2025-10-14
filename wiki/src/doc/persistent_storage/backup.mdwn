@@ -94,9 +94,9 @@ If you prefer updating your backup Tails from a *Console*:
    *Files* browser. Click on it and enter the
    passphrase of your backup Tails to unlock the volume.
 
-1. Execute the following command in a *Root Console*.
+1. Execute the following command in a *Console*.
 
-       rsync -PaSHAXv --del /live/persistence/TailsData_unlocked/ /media/amnesia/TailsData
+       sudo rsync -PaSHAXv --del /live/persistence/TailsData_unlocked/ /media/amnesia/TailsData
 
    When the command finishes, it displays a summary of the data that was
    copied. For example:

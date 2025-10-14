@@ -161,14 +161,13 @@ To install *Dangerzone* as additional software in Tails, you have to:
 
 1. [[Connect to the Tor network|doc/anonymous_internet/tor]].
 
-1. Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Root Console** to open a
-   console with administration rights.
+1. Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Console**.
 
 1. Execute the following commands to install the `dangerzone` package and its dependencies.
 
-   <p class="command-root">apt update</p>
+   <p class="command-root">sudo apt update</p>
 
-   <p class="command-root">apt install dangerzone fuse-overlayfs uidmap</p>
+   <p class="command-root">sudo apt install dangerzone fuse-overlayfs uidmap</p>
 
 1. After the packages are installed, a notification appears to ask if you want
    to install `dangerzone`, `fuse-overlayfs`, and `uidmap` every time you
@@ -176,7 +175,7 @@ To install *Dangerzone* as additional software in Tails, you have to:
 
    Choose to **Install Every Time**.
 
-1. Close the *Root Console*.
+1. Close the *Console*.
 
 <h2 id="test">Convert a test document</h2>
 
