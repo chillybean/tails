@@ -368,13 +368,14 @@ See:
 
 ## Confidential merge requests
 
-When [an issue is confidential](#confidential-issues), we make the Merge Request confidential, too. Confidential Merge Request in
+When [an issue is confidential](#confidential-issues), we make the Merge Request confidential, too. Confidential Merge Requests in
 Gitlab follow a very different path:
- - they don't happen in [[!tails_gitlab tails/tails]], but in [[!tails_gitlab tails/tails-private]]. Both the
+
+ - They don't happen in [[!tails_gitlab tails/tails]], but in [[!tails_gitlab tails/tails-private]]. Both the
    source branch and the target branch must be in tails-private! Beware, if you target a branch on
-   [[!tails_gitlab tails/tails]] then your code will become public
- - when they get merged, they are only merged to tails-private. It's then up to the release manager to merge
-   from tails-private last minute before the release.
+   [[!tails_gitlab tails/tails]] then your code will become public.
+ - When they get merged, they are only merged to tails-private. It's then up to the release manager to merge
+   from tails-private during the release process.
 
 # How to request and provide input
 
