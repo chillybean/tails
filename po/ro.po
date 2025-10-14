@@ -30,8 +30,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-17 10:36+0200\n"
-"PO-Revision-Date: 2025-04-03 14:14+0000\n"
+"POT-Creation-Date: 2025-10-13 10:37+0200\n"
+"PO-Revision-Date: 2025-10-11 10:07+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/tor/tails-gui/"
 "ro/>\n"
@@ -41,7 +41,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -2712,6 +2712,32 @@ msgstr ""
 "Pentru a va conecta la Tor si la internet, reporniti Tails fara Modul "
 "Offline activ."
 
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:68
+msgid ""
+"Authentication is required to run the Synaptic Package Manager. Enter the "
+"administration password that you set up in the Welcome Screen."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:72
+msgid ""
+"Authentication is required to start a Root Console. Enter the administration "
+"password that you set up in the Welcome Screen."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:79
+msgid ""
+"For better security, no administration password is set up in Tails by "
+"default. To run the Synaptic Package Manager, restart Tails and set up an "
+"administration password in the Welcome Screen."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:85
+msgid ""
+"For better security, no administration password is set up in Tails by "
+"default. To start a Root Console, restart Tails and set up an administration "
+"password in the Welcome Screen."
+msgstr ""
+
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:2
 msgid ""
 "Configure which files and application configuration are saved between "
@@ -2852,11 +2878,6 @@ msgstr "feedback;bug;raport;tails;eroare;"
 #: ../config/chroot_local-includes/usr/share/desktop-directories/Tails.directory.in.h:2
 msgid "Tails specific tools"
 msgstr "Unelte specifice Tails"
-
-#: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
-#, fuzzy
-msgid "To start a Root Console, you need to authenticate."
-msgstr "Pentru a porni un terminal ca Root trebuie să vă autentificați."
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.AdditionalSoftware.policy.in.h:1
 msgid "Remove an additional software package"
@@ -3605,7 +3626,7 @@ msgstr "obfs4 (recomandat)"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:185
 msgid "WebTunnel"
-msgstr ""
+msgstr "WebTunnel"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:208
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1522
@@ -3900,9 +3921,10 @@ msgid "Connect to a local network"
 msgstr "Conectati-va la o retea locala"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1725
+#, fuzzy
 msgid ""
 "You are not connected to a local network yet. To be able to connect to the "
-"Tor network, you first need to connect to a Wi-Fi, wire, or mobile network."
+"Tor network, you first need to connect to a Wi-Fi, wired, or mobile network."
 msgstr ""
 "Nu sunteti inca conectati la o retea locala. Pentru a va putea conecta la o "
 "retea Tor, trebuie sa va conectati intai la o retea Wi-Fi, cablata sau "
@@ -4072,6 +4094,11 @@ msgstr "Decembrie"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "Ceas"
+
+#, fuzzy
+#~| msgid "To start a Root Terminal, you need to authenticate."
+#~ msgid "To start a Root Console, you need to authenticate."
+#~ msgstr "Pentru a porni un terminal ca Root trebuie să vă autentificați."
 
 #~ msgid "_Network Connection"
 #~ msgstr "_Conexiune rețea"

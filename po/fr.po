@@ -50,8 +50,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-17 10:36+0200\n"
-"PO-Revision-Date: 2025-09-10 16:01+0000\n"
+"POT-Creation-Date: 2025-10-13 10:37+0200\n"
+"PO-Revision-Date: 2025-10-09 10:07+0000\n"
 "Last-Translator: intrigeri <intrigeri@torproject.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/tor/tails-gui/fr/"
 ">\n"
@@ -1764,9 +1764,8 @@ msgid "Set up a password to unlock the screen."
 msgstr "Définir un mot de passe pour déverrouiller l’écran."
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:147
-#, fuzzy
 msgid "Show Password"
-msgstr "Mot de passe"
+msgstr "Afficher le mot de passe"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:151
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2281
@@ -2777,6 +2776,32 @@ msgstr ""
 "Pour vous connecter à Tor et à Internet, redémarrez Tails sans le mode hors "
 "ligne."
 
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:68
+msgid ""
+"Authentication is required to run the Synaptic Package Manager. Enter the "
+"administration password that you set up in the Welcome Screen."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:72
+msgid ""
+"Authentication is required to start a Root Console. Enter the administration "
+"password that you set up in the Welcome Screen."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:79
+msgid ""
+"For better security, no administration password is set up in Tails by "
+"default. To run the Synaptic Package Manager, restart Tails and set up an "
+"administration password in the Welcome Screen."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:85
+msgid ""
+"For better security, no administration password is set up in Tails by "
+"default. To start a Root Console, restart Tails and set up an administration "
+"password in the Welcome Screen."
+msgstr ""
+
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:2
 msgid ""
 "Configure which files and application configuration are saved between "
@@ -2909,10 +2934,6 @@ msgstr "feedback;retour;commentaire;bogue;bug;relevé;rapport;tails;erreur;"
 msgid "Tails specific tools"
 msgstr "Outils spécifiques à Tails"
 
-#: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
-msgid "To start a Root Console, you need to authenticate."
-msgstr "Vous devez vous authentifier pour lancer une console d'administration."
-
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.AdditionalSoftware.policy.in.h:1
 msgid "Remove an additional software package"
 msgstr "Enlever un paquet logiciel supplémentaire"
@@ -2992,7 +3013,6 @@ msgstr ""
 "vous pouvez désactiver la mise en réseau."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:514
-#, fuzzy
 msgid ""
 "The Unsafe Browser allows you to sign in to a network using a captive "
 "portal.\n"
@@ -3013,11 +3033,7 @@ msgstr ""
 "électronique.\n"
 "\n"
 "Le Navigateur non sécurisé n'est pas anonyme et peut vous désanonymiser. "
-"Utilisez-le uniquement pour vous connecter à des réseaux.\n"
-"\n"
-"Le Navigateur non sécurisé est à nouveau activé par défaut depuis Tails 5.8 "
-"(décembre 2022), après que nous ayons corrigé les failles de sécurité qui "
-"nous avaient amenés à le désactiver par défaut dans Tails 4.8 (juin 2020)."
+"Utilisez-le uniquement pour vous connecter à des réseaux."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:560
 msgid "Enable the Unsafe Browser (default)"
@@ -3725,7 +3741,7 @@ msgstr "Enregistrer le pont dans le stockage persistant"
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1162
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1560
 msgid "_Connect to Tor"
-msgstr "Se _connecter à Tor"
+msgstr "Se connecter à _Tor"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:696
 msgid "Error connecting to Tor"
@@ -3883,8 +3899,7 @@ msgstr ""
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1435
 msgid "<b>_Hide to my local network that I'm connecting to Tor</b>"
 msgstr ""
-"<b>_Cacher pour mon réseau local que je suis en train de me connecter à Tor</"
-"b>"
+"<b>_Cacher à mon réseau local que je suis en train de me connecter à Tor</b>"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1485
 msgid ""
@@ -3976,9 +3991,10 @@ msgid "Connect to a local network"
 msgstr "Se connecter à un réseau local"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1725
+#, fuzzy
 msgid ""
 "You are not connected to a local network yet. To be able to connect to the "
-"Tor network, you first need to connect to a Wi-Fi, wire, or mobile network."
+"Tor network, you first need to connect to a Wi-Fi, wired, or mobile network."
 msgstr ""
 "Vous n’êtes pas encore connecté à un réseau local. Afin de vous connecter au "
 "réseau Tor, vous devez d’abord vous connecter à un réseau Wi-Fi, filaire ou "
@@ -4145,6 +4161,10 @@ msgstr "décembre"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "Horloge"
+
+#~ msgid "To start a Root Console, you need to authenticate."
+#~ msgstr ""
+#~ "Vous devez vous authentifier pour lancer une console d'administration."
 
 #~ msgid "_Network Connection"
 #~ msgstr "Connexion _réseau"

@@ -38,8 +38,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-17 10:36+0200\n"
-"PO-Revision-Date: 2025-09-05 06:01+0000\n"
+"POT-Creation-Date: 2025-10-13 10:37+0200\n"
+"PO-Revision-Date: 2025-09-26 15:02+0000\n"
 "Last-Translator: Kaya Zeren <kayazeren@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/tor/tails-gui/tr/"
 ">\n"
@@ -48,7 +48,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.13.1-rc\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -491,8 +491,8 @@ msgid ""
 "An error occurred while detecting available upgrades.\n"
 "This should not happen. Please report a bug."
 msgstr ""
-"Mevcut yükseltmeler algılanırken bir hata oluştu.\n"
-"Böyle bir şey olmamalı. Lütfen bir hata bildirin."
+"Yayınlanmış güncellemeler belirlenirken bir sorun çıktı.\n"
+"Bu olmamalıydı. Lütfen bu sorunu bildirin."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:476
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:495
@@ -752,7 +752,7 @@ msgstr "Tüm ağ devre dışı bırakılsın"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/additional_settings.py:339
 msgid "_Unsafe Browser"
-msgstr "_Güvenli olmayan Tarayıcı"
+msgstr "_Unsafe  Browser"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/additional_settings.py:348
 msgid "Enabled (default)"
@@ -1684,7 +1684,7 @@ msgstr "Saat eşitlenemedi!"
 
 #: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:26
 msgid "Insufficient Memory Detected"
-msgstr "Yetersiz Bellek Algılandı"
+msgstr "Belleğin yetersiz olduğu algılandı"
 
 #: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:28
 #, python-brace-format
@@ -1693,9 +1693,9 @@ msgid ""
 "{installed_ram_gb} GB. You might experience reduced performance, "
 "instability, or crashes."
 msgstr ""
-"Tails, {required_ram_gb} GB RAM gerektirir, ancak bu bilgisayarda yalnızca "
-"{installed_ram_gb} GB RAM bulunmaktadır. Performans düşüşü, kararsızlık veya "
-"çökmeler yaşayabilirsiniz."
+"Tails için {required_ram_gb} GB RAM bellek gerekir. Ancak bu bilgisayarda "
+"yalnızca {installed_ram_gb} GB RAM var. Başarım düşüşü, kararsızlık veya "
+"çökme gibi sorunlar yaşayabilirsiniz."
 
 #: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:41
 #: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:42
@@ -1711,9 +1711,8 @@ msgid "Set up a password to unlock the screen."
 msgstr "Ekran kilidini açmak için bir parola ayarlayın."
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:147
-#, fuzzy
 msgid "Show Password"
-msgstr "Parola"
+msgstr "Parolayı görüntüle"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:151
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2281
@@ -2711,6 +2710,32 @@ msgstr ""
 "Tor ağı ve İnternet bağlantısı kurmak için çevrim dışı kipi olmadan yeniden "
 "Tails başlatın."
 
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:68
+msgid ""
+"Authentication is required to run the Synaptic Package Manager. Enter the "
+"administration password that you set up in the Welcome Screen."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:72
+msgid ""
+"Authentication is required to start a Root Console. Enter the administration "
+"password that you set up in the Welcome Screen."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:79
+msgid ""
+"For better security, no administration password is set up in Tails by "
+"default. To run the Synaptic Package Manager, restart Tails and set up an "
+"administration password in the Welcome Screen."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:85
+msgid ""
+"For better security, no administration password is set up in Tails by "
+"default. To start a Root Console, restart Tails and set up an administration "
+"password in the Welcome Screen."
+msgstr ""
+
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:2
 msgid ""
 "Configure which files and application configuration are saved between "
@@ -2725,7 +2750,7 @@ msgstr "yapılandırma;kaydedildi"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:1
 msgid "Root Console"
-msgstr "Kök Konsolu"
+msgstr "Root konsolu"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:2
 msgid "Opens a console as the root user"
@@ -2770,7 +2795,7 @@ msgstr "Tails sistemini kur, kopyala, yükselt"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-installer.desktop.in.h:3
 msgid "install;clone;upgrade;manual"
-msgstr "yükle;klonla;yükselt;manuel"
+msgstr "yükle;çoğalt;yükselt;rehber"
 
 #: ../config/chroot_local-includes/usr/share/applications/tca.desktop.in.h:2
 msgid "Connect Tails to the Tor network"
@@ -2790,7 +2815,7 @@ msgstr "Anonim tarayıcı"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:3
 msgid "web;tor;browser"
-msgstr "web;tor;tarayıcı"
+msgstr "internet;tor;tarayıcı"
 
 #: ../config/chroot_local-includes/usr/share/applications/unsafe-browser.desktop.in.h:2
 msgid "Browse the World Wide Web without anonymity"
@@ -2802,7 +2827,7 @@ msgstr "Güvenli olmayan tarayıcı"
 
 #: ../config/chroot_local-includes/usr/share/applications/unsafe-browser.desktop.in.h:4
 msgid "web;captive;portal"
-msgstr "web;kaptif;portal"
+msgstr "internet;oturum;açma"
 
 #: ../config/chroot_local-includes/usr/share/applications/unlock-veracrypt-volumes.desktop.in.h:2
 msgid "Mount VeraCrypt encrypted file containers and devices"
@@ -2810,7 +2835,7 @@ msgstr "VeraCrypt ile şifrelenmiş dosya kapsayıcı ve aygıtlarını bağla"
 
 #: ../config/chroot_local-includes/usr/share/applications/unlock-veracrypt-volumes.desktop.in.h:3
 msgid "mount;encrypted;container;truecryt"
-msgstr "montaj;şifrelenmiş;konteyner;truecryt"
+msgstr "takma;şifrelenmiş;kapsayıcı;truecryt"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop.in.h:2
 msgid ""
@@ -2822,7 +2847,7 @@ msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop.in.h:3
 msgid "persistent;storage;package;install"
-msgstr "kalıcı; depolama; paket; yükleme"
+msgstr "kalıcı;depolama;paket;kur"
 
 #: ../config/chroot_local-includes/usr/share/applications/whisperback.desktop.in.h:1
 msgid "WhisperBack Error Reporting"
@@ -2839,10 +2864,6 @@ msgstr "geri bildirim;sorun;hara;bildirim;tails;"
 #: ../config/chroot_local-includes/usr/share/desktop-directories/Tails.directory.in.h:2
 msgid "Tails specific tools"
 msgstr "Özel Tails araçları"
-
-#: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
-msgid "To start a Root Console, you need to authenticate."
-msgstr "Kök Konsolu başlatmak için kimlik doğrulaması yapmanız gerekir."
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.AdditionalSoftware.policy.in.h:1
 msgid "Remove an additional software package"
@@ -2922,7 +2943,6 @@ msgstr ""
 "ağı devre dışı bırakabilirsiniz."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:514
-#, fuzzy
 msgid ""
 "The Unsafe Browser allows you to sign in to a network using a captive "
 "portal.\n"
@@ -2942,12 +2962,7 @@ msgstr ""
 "\n"
 "Unsafe Browser anonim değildir ve kimliğinizin açığa çıkmasına neden "
 "olabilir. O yüzden yalnızca kısıtlama portallarına oturum açmak için "
-"kullanın.\n"
-"\n"
-"Unsafe Browser Tails 4.8 sürümünde (Haziran 2020) varsayılan olarak "
-"kullanılmasını devre dışı bırakmamıza neden olan güvenlik açıkları "
-"düzeltildikten sonra, Tails 5.8 sürümünden (Aralık 2022) beri yeniden "
-"varsayılan olarak kullanılacak şekilde etkinleştirilmiştir."
+"kullanın."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:560
 msgid "Enable the Unsafe Browser (default)"
@@ -3237,7 +3252,7 @@ msgstr "GnuPG kullanılsın"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:546
 msgid "Pidgin Internet Messenger"
-msgstr "Pidgin İnternet Mesajlaşma Programı"
+msgstr "Pidgin Internet Messenger"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:562
 msgid "Activate Pidgin Internet Messenger"
@@ -3578,12 +3593,10 @@ msgid ""
 "\n"
 "You can use <i>obfs4</i> and <i>WebTunnel</i> bridges in Tails.\n"
 msgstr ""
-"Bridges gizli Tor aktarıcılarıdır. Eğer bulunduğunuz yerde Tor’a erişim "
-"engellenmişse, ilk Tor aktarıcınız olarak bir bridge (köprü) "
-"kullanabilirsiniz.\n"
+"Köprüler gizli Tor aktarıcılarıdır. Bulunduğunuz yerde Tor ağına erişim "
+"engelleniyorsa, ilk Tor aktarıcınız olarak bir köprü kullanabilirsiniz.\n"
 "\n"
-"Tails içinde <i>obfs4</i> ve <i>WebTunnel</i> bridge’lerini "
-"kullanabilirsiniz.\n"
+"Tails ile <i>obfs4</i> ve <i>WebTunnel</i> köprülerini kullanabilirsiniz.\n"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:126
 msgid "<a href=\"doc/anonymous_internet/tor\">Learn more about Tor bridges</a>"
@@ -3601,7 +3614,7 @@ msgstr "obfs4 (önerilir)"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:185
 msgid "WebTunnel"
-msgstr "Web Tüneli"
+msgstr "WebTunnel"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:208
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1522
@@ -3638,7 +3651,7 @@ msgstr "Köprü"
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:416
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1057
 msgid "obfs4 or webtunnel…"
-msgstr "obfs4 veya webtunnel…"
+msgstr "obfs4 ya da webtunnel…"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:489
 msgid "Save bridge to _Persistent Storage"
@@ -3896,9 +3909,10 @@ msgid "Connect to a local network"
 msgstr "Bir yerel ağ bağlantısı kur"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1725
+#, fuzzy
 msgid ""
 "You are not connected to a local network yet. To be able to connect to the "
-"Tor network, you first need to connect to a Wi-Fi, wire, or mobile network."
+"Tor network, you first need to connect to a Wi-Fi, wired, or mobile network."
 msgstr ""
 "Henüz bir yerel ağ ile bağlantı kurmamışsınız. Tor ağı ile bağlantı "
 "kurabilmek için öncelikle bir Wi-Fi, kablo ya da mobil ağı ile bağlantı "
@@ -4065,6 +4079,9 @@ msgstr "Aralık"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "Saat"
+
+#~ msgid "To start a Root Console, you need to authenticate."
+#~ msgstr "Root konsolunu başlatmak için kimliği doğrulamalısınız."
 
 #~ msgid "_Network Connection"
 #~ msgstr "_Ağ bağlantısı"

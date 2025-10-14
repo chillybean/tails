@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-17 10:36+0200\n"
+"POT-Creation-Date: 2025-10-13 10:37+0200\n"
 "PO-Revision-Date: 2025-09-16 15:01+0000\n"
 "Last-Translator: Joseph <mizizang@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/tor/tails-gui/ko/"
@@ -2635,6 +2635,32 @@ msgstr ""
 "오프라인 모드에서는 Tor 접속을 할 수 없습니다.\n"
 "Tor를 통해 인터넷에 연결하려면 Tails를 다시 시작한 뒤 오프라인 모드를 끄세요."
 
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:68
+msgid ""
+"Authentication is required to run the Synaptic Package Manager. Enter the "
+"administration password that you set up in the Welcome Screen."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:72
+msgid ""
+"Authentication is required to start a Root Console. Enter the administration "
+"password that you set up in the Welcome Screen."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:79
+msgid ""
+"For better security, no administration password is set up in Tails by "
+"default. To run the Synaptic Package Manager, restart Tails and set up an "
+"administration password in the Welcome Screen."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:85
+msgid ""
+"For better security, no administration password is set up in Tails by "
+"default. To start a Root Console, restart Tails and set up an administration "
+"password in the Welcome Screen."
+msgstr ""
+
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:2
 msgid ""
 "Configure which files and application configuration are saved between "
@@ -2759,10 +2785,6 @@ msgstr "피드백;버그;보고;tails;오류;"
 #: ../config/chroot_local-includes/usr/share/desktop-directories/Tails.directory.in.h:2
 msgid "Tails specific tools"
 msgstr "Tails 전용 도구"
-
-#: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
-msgid "To start a Root Console, you need to authenticate."
-msgstr "루트 콘솔을 시작하려면 인증하세요."
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.AdditionalSoftware.policy.in.h:1
 msgid "Remove an additional software package"
@@ -3786,9 +3808,10 @@ msgid "Connect to a local network"
 msgstr "로컬 네트워크에 연결하기"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1725
+#, fuzzy
 msgid ""
 "You are not connected to a local network yet. To be able to connect to the "
-"Tor network, you first need to connect to a Wi-Fi, wire, or mobile network."
+"Tor network, you first need to connect to a Wi-Fi, wired, or mobile network."
 msgstr ""
 "아직 로컬 네트워크에 연결되어 있지 않습니다. Tor 네트워크에 연결하려면 먼저 "
 "Wi-Fi, 유선 또는 모바일 네트워크에 연결해야 합니다."
@@ -3954,6 +3977,9 @@ msgstr "12월"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "시간 및 날짜"
+
+#~ msgid "To start a Root Console, you need to authenticate."
+#~ msgstr "루트 콘솔을 시작하려면 인증하세요."
 
 #~ msgid "_Network Connection"
 #~ msgstr "_네트워크 연결"

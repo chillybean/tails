@@ -39,8 +39,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-17 10:36+0200\n"
-"PO-Revision-Date: 2025-08-07 15:02+0000\n"
+"POT-Creation-Date: 2025-10-13 10:37+0200\n"
+"PO-Revision-Date: 2025-10-11 09:44+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/tor/"
 "tails-gui/pt_BR/>\n"
@@ -50,7 +50,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
 "1000000 == 0 ? 1 : 2;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -2744,6 +2744,32 @@ msgstr ""
 "É impossível conectar-se ao Tor no modo offline.\n"
 "Para se conectar ao Tor e à Internet, reinicie o Tails sem o modo offline."
 
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:68
+msgid ""
+"Authentication is required to run the Synaptic Package Manager. Enter the "
+"administration password that you set up in the Welcome Screen."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:72
+msgid ""
+"Authentication is required to start a Root Console. Enter the administration "
+"password that you set up in the Welcome Screen."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:79
+msgid ""
+"For better security, no administration password is set up in Tails by "
+"default. To run the Synaptic Package Manager, restart Tails and set up an "
+"administration password in the Welcome Screen."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:85
+msgid ""
+"For better security, no administration password is set up in Tails by "
+"default. To start a Root Console, restart Tails and set up an administration "
+"password in the Welcome Screen."
+msgstr ""
+
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:2
 msgid ""
 "Configure which files and application configuration are saved between "
@@ -2881,11 +2907,6 @@ msgstr "feedback;bug;problema;relatório;tails;erro;"
 #: ../config/chroot_local-includes/usr/share/desktop-directories/Tails.directory.in.h:2
 msgid "Tails specific tools"
 msgstr "Ferramentas específicas do Tails"
-
-#: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
-#, fuzzy
-msgid "To start a Root Console, you need to authenticate."
-msgstr "Para iniciar um Terminal de Root você precisa se autenticar."
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.AdditionalSoftware.policy.in.h:1
 msgid "Remove an additional software package"
@@ -3639,7 +3660,7 @@ msgstr "obfs4 (recomendado)"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:185
 msgid "WebTunnel"
-msgstr ""
+msgstr "Túnel da Web"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:208
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1522
@@ -3924,9 +3945,10 @@ msgid "Connect to a local network"
 msgstr "Conecte a uma rede local"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1725
+#, fuzzy
 msgid ""
 "You are not connected to a local network yet. To be able to connect to the "
-"Tor network, you first need to connect to a Wi-Fi, wire, or mobile network."
+"Tor network, you first need to connect to a Wi-Fi, wired, or mobile network."
 msgstr ""
 "Você ainda não se conectou a uma rede local. Para poder conectar à rede Tor, "
 "primeiro você precisa se conectar a uma rede Wi-Fi, com fio ou móvel."
@@ -4093,6 +4115,11 @@ msgstr "Dezembro"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "Relógio"
+
+#, fuzzy
+#~| msgid "To start a Root Terminal, you need to authenticate."
+#~ msgid "To start a Root Console, you need to authenticate."
+#~ msgstr "Para iniciar um Terminal de Root você precisa se autenticar."
 
 #~ msgid "_Network Connection"
 #~ msgstr "_Conexão de Rede"

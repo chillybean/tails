@@ -9,7 +9,6 @@ Feature: Browsing the web using the Tor Browser
     And a web server is running on the LAN
     And I capture all network traffic
     When I start the Tor Browser
-    And the Tor Browser loads the startup page
     And I open a page on the LAN web server in the Tor Browser
     Then the Tor Browser shows the "Unable to connect" error
     And no traffic was sent to the web server on the LAN
@@ -20,7 +19,6 @@ Feature: Browsing the web using the Tor Browser
     Then the live user's Downloads directory exists
     And there is a GNOME bookmark for the Downloads directory
     When I start the Tor Browser
-    And the Tor Browser loads the startup page
     Then I can save the current page as "index.html" to the Downloads directory
     And I can print the current page as "output.pdf" to the Downloads directory
 
@@ -28,7 +26,6 @@ Feature: Browsing the web using the Tor Browser
   Scenario: Downloading files with the Tor Browser
     Given I have started Tails from DVD and logged in and the network is connected
     When I start the Tor Browser
-    Then the Tor Browser loads the startup page
     When I download some file in the Tor Browser to the Downloads directory
     Then the file is saved to the Downloads directory
 
@@ -36,14 +33,12 @@ Feature: Browsing the web using the Tor Browser
   Scenario: Playing an Ogg audio track
     Given I have started Tails from DVD and logged in and the network is connected
     When I start the Tor Browser
-    And the Tor Browser loads the startup page
     Then I can listen to an Ogg audio track in Tor Browser
 
   @check_tor_leaks
   Scenario: Watching a WebM video
     Given I have started Tails from DVD and logged in and the network is connected
     When I start the Tor Browser
-    And the Tor Browser loads the startup page
     Then I can watch a WebM video in Tor Browser
 
   Scenario: I can view a file stored in "~/Downloads" but not in ~/.gnupg
@@ -57,7 +52,6 @@ Feature: Browsing the web using the Tor Browser
     And the file "/tmp/synaptic.html" exists
     Given I start monitoring the AppArmor log of "torbrowser_firefox"
     When I start the Tor Browser
-    And the Tor Browser loads the startup page
     And I open the address "file:///home/amnesia/Downloads/synaptic.html" in the Tor Browser
     Then I see "TorBrowserSynapticManual.png" after at most 5 seconds
     And AppArmor has not denied "torbrowser_firefox" from opening "/home/amnesia/Downloads/synaptic.html"
@@ -79,24 +73,23 @@ Feature: Browsing the web using the Tor Browser
   Scenario: The Tor Browser's "New identity" feature works as expected
     Given I have started Tails from DVD and logged in and the network is connected
     When I start the Tor Browser
-    And the Tor Browser loads the startup page
     When I open the address "https://example.com/" in the Tor Browser
     Then Tor Browser displays a "Example Domain" heading on the "Example Domain" page
     And the Tor Browser has 2 tabs open
     When I request a new identity in Tor Browser
-    Then the Tor Browser loads the startup page
+    Then the Tor Browser loads about:tor
     And the Tor Browser has 1 tab open
 
   Scenario: The Tor Browser's circuit view feature works as expected
     Given I have started Tails from DVD and logged in and the network is connected
     When I start the Tor Browser
-    And the Tor Browser loads the startup page
-    Then Tor Browser's circuit view is working
+    And I open the Tails homepage in the Tor Browser
+    Then the Tor Browser loads the Tails homepage
+    And Tor Browser's circuit view is working
 
   Scenario: WebRTC is disabled in Tor Browser
     Given I have started Tails from DVD and logged in and the network is connected
     When I start the Tor Browser
-    And the Tor Browser loads the startup page
     When I open the address "https://net.ipcalf.com/" in the Tor Browser
     Then Tor Browser displays a 'ifconfig | grep inet | grep -v inet6 | cut -d" " -f2 | tail -n1' heading on the "Network IP Address via ipcalf.com" page
     When I open the address "https://mozilla.github.io/webrtc-landing/pc_test.html" in the Tor Browser

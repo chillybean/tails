@@ -31,8 +31,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-17 10:36+0200\n"
-"PO-Revision-Date: 2025-09-06 07:01+0000\n"
+"POT-Creation-Date: 2025-10-13 10:37+0200\n"
+"PO-Revision-Date: 2025-09-17 17:01+0000\n"
 "Last-Translator: Matthaiks <kitynska@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/tor/tails-gui/pl/"
 ">\n"
@@ -43,7 +43,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && "
 "(n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && "
 "n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
-"X-Generator: Weblate 5.13.1-rc\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -1716,9 +1716,8 @@ msgid "Set up a password to unlock the screen."
 msgstr "Ustaw hasło, aby odblokować ekran."
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:147
-#, fuzzy
 msgid "Show Password"
-msgstr "Hasło"
+msgstr "Pokaż hasło"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:151
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2281
@@ -2719,6 +2718,32 @@ msgstr ""
 "Aby połączyć się z siecią Tor i Internetem, uruchom ponownie Tails bez trybu "
 "offline."
 
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:68
+msgid ""
+"Authentication is required to run the Synaptic Package Manager. Enter the "
+"administration password that you set up in the Welcome Screen."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:72
+msgid ""
+"Authentication is required to start a Root Console. Enter the administration "
+"password that you set up in the Welcome Screen."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:79
+msgid ""
+"For better security, no administration password is set up in Tails by "
+"default. To run the Synaptic Package Manager, restart Tails and set up an "
+"administration password in the Welcome Screen."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:85
+msgid ""
+"For better security, no administration password is set up in Tails by "
+"default. To start a Root Console, restart Tails and set up an administration "
+"password in the Welcome Screen."
+msgstr ""
+
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:2
 msgid ""
 "Configure which files and application configuration are saved between "
@@ -2848,10 +2873,6 @@ msgstr "informacja zwrotna;błąd;raport;śledzenie;błąd;"
 msgid "Tails specific tools"
 msgstr "Narzędzia Tails"
 
-#: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
-msgid "To start a Root Console, you need to authenticate."
-msgstr "Aby uruchomić konsolę root, musisz się uwierzytelnić."
-
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.AdditionalSoftware.policy.in.h:1
 msgid "Remove an additional software package"
 msgstr "Usuń dodatkowy pakiet oprogramowania"
@@ -2930,7 +2951,6 @@ msgstr ""
 "sieci w celu zwiększenia bezpieczeństwa."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:514
-#, fuzzy
 msgid ""
 "The Unsafe Browser allows you to sign in to a network using a captive "
 "portal.\n"
@@ -2950,12 +2970,7 @@ msgstr ""
 "do sieci lub wprowadzenia informacji, takich jak adres e-mail.\n"
 "\n"
 "Niebezpieczna przeglądarka nie jest anonimowa i może Cię dezanonimizować. "
-"Używaj jej tylko do logowania się do sieci.\n"
-"\n"
-"Niebezpieczna przeglądarka jest ponownie domyślnie włączona od wersji Tails "
-"5.8 (grudzień 2022 r.), po tym, jak naprawiliśmy luki w zabezpieczeniach, "
-"które zmusiły nas do jej domyślnego wyłączenia w Tails 4.8 (czerwiec 2020 "
-"r.)."
+"Używaj jej tylko do logowania się do sieci."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:560
 msgid "Enable the Unsafe Browser (default)"
@@ -3902,9 +3917,10 @@ msgid "Connect to a local network"
 msgstr "Połącz z siecią lokalną"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1725
+#, fuzzy
 msgid ""
 "You are not connected to a local network yet. To be able to connect to the "
-"Tor network, you first need to connect to a Wi-Fi, wire, or mobile network."
+"Tor network, you first need to connect to a Wi-Fi, wired, or mobile network."
 msgstr ""
 "Nie masz jeszcze połączenia z siecią lokalną. Aby móc połączyć się z siecią "
 "Tor, musisz najpierw połączyć się z siecią Wi-Fi, przewodową lub komórkową."
@@ -4070,6 +4086,9 @@ msgstr "grudzień"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "Zegar"
+
+#~ msgid "To start a Root Console, you need to authenticate."
+#~ msgstr "Aby uruchomić konsolę root, musisz się uwierzytelnić."
 
 #~ msgid "_Network Connection"
 #~ msgstr "_Połączenie sieciowe"

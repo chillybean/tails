@@ -22,6 +22,7 @@ Feature: Localization
     Given I have started Tails from DVD without network and stopped at Tails Greeter's login screen
     When I log in to a new session in <language> (<lang_code>)
     Then the keyboard layout is set to "<layout>"
+    And tpsd is localized to the selected locale
     When the network is plugged
     And Tor is ready
     Then I successfully start the Unsafe Browser
