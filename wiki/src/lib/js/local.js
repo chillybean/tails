@@ -44,4 +44,13 @@ document.addEventListener("DOMContentLoaded", function() {
     svgs[i].src = svgs[i].src.replace(/\.png$/, '.svg');
   }
 
+  /* Persist YEC banner close across pages */
+  let trigger = document.querySelector("#banner-close-button");
+  trigger.addEventListener("change", () => {
+    sessionStorage.setItem("bannerClosed", trigger.checked);
+  });
+  if (sessionStorage.getItem("bannerClosed")) {
+    trigger.checked = sessionStorage.getItem("bannerClosed");
+  }
+
 });
