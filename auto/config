@@ -158,13 +158,6 @@ $RUN_LB_CONFIG \
 install -d config/chroot_local-includes/etc/amnesia/
 install -d config/chroot_local-includes/etc/tails/
 
-# environment
-TAILS_WIKI_SUPPORTED_LANGUAGES="$(ikiwiki-supported-languages ikiwiki.setup)"
-[ -n "$TAILS_WIKI_SUPPORTED_LANGUAGES" ] ||
-    fatal "\$TAILS_WIKI_SUPPORTED_LANGUAGES is empty"
-echo "TAILS_WIKI_SUPPORTED_LANGUAGES='${TAILS_WIKI_SUPPORTED_LANGUAGES}'" \
-    >>config/chroot_local-includes/etc/tails/environment
-
 # os-release
 cat >>config/chroot_local-includes/etc/os-release <<EOF
 NAME="Tails"
