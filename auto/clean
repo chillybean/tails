@@ -4,10 +4,10 @@ set -e
 set -u
 set -x
 
-for dir in dev/pts proc sys var/lib/dpkg ; do
-   if mountpoint -q "chroot/$dir" ; then
-      umount "chroot/$dir"
-   fi
+for dir in dev/pts proc sys var/lib/dpkg; do
+    if mountpoint -q "chroot/$dir"; then
+        umount "chroot/$dir"
+    fi
 done
 
 lb clean noauto "${@}"
@@ -18,17 +18,16 @@ lb clean noauto "${@}"
 rm -f config/binary config/bootstrap config/chroot config/common config/source
 
 # Remove empty directories in config tree
-if ls config/*/ > /dev/null 2>&1 ; then
-	rmdir --ignore-fail-on-non-empty config/*/
+if ls config/*/ >/dev/null 2>&1; then
+    rmdir --ignore-fail-on-non-empty config/*/
 fi
 
 # files copied or created in the config stage
-rm -f config/chroot_local-includes/etc/tails/environment
 rm -f config/chroot_local-includes/usr/share/doc/tails/Changelog
-for list in config/chroot_local-packageslists/*.list ; do
-   if [ "$list" != 'config/chroot_local-packageslists/tails-common.list' ]; then
-      rm -f "$list"
-   fi
+for list in config/chroot_local-packageslists/*.list; do
+    if [ "$list" != 'config/chroot_local-packageslists/tails-common.list' ]; then
+        rm -f "$list"
+    fi
 done
 
 # files copied or created in the build stage
