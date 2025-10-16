@@ -493,16 +493,16 @@ Given /^the Tor Browser (?:has started|starts)$/ do
 end
 
 Given /^the Tor Browser loads about:tor$/ do
-  unless File.exist?('features/images/TorBrowser2025EOYCampaignBannerRTL.png')
+  unless File.exist?('features/images/TorBrowser2025YECBannerRTL.png')
     cmd_helper(['convert',
                 '-flop',
-                'features/images/TorBrowser2025EOYCampaignBanner.png',
-                'features/images/TorBrowser2025EOYCampaignBannerRTL.png',])
+                'features/images/TorBrowser2025YECBanner.png',
+                'features/images/TorBrowser2025YECBannerRTL.png',])
   end
   @screen.wait_any(
     ['TorBrowserAboutTor.png',
-     'TorBrowser2025EOYCampaignBanner.png',
-     'TorBrowser2025EOYCampaignBannerRTL.png',], 60
+     'TorBrowser2025YECBanner.png',
+     'TorBrowser2025YECBannerRTL.png',], 60
   )
 end
 
