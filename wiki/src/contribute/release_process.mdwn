@@ -1051,6 +1051,7 @@ the release will be done in a new, dedicated branch.
         -o merge_request.create \
         -o merge_request.draft \
         -o merge_request.target=master \
+        -o merge_request.title="Draft: Publish Tails ${VERSION}" \
         origin "${WEBSITE_RELEASE_BRANCH:?}"
 
 Generate the OpenPGP signatures and Torrents
@@ -1134,7 +1135,7 @@ To build the IUKS, run this command:
     (
        set -eu
        set -o pipefail
-       WORK_DIR=$(mktemp -d)
+       WORK_DIR=$(mktemp -d tmp.iuks.XXXXXXX)
        TAILS_REMOTE="$(git -C "${RELEASE_CHECKOUT:?}" remote get-url origin)"
        PUPPET_TAILS_REMOTE=$(echo -n "${TAILS_REMOTE:?}" | perl -p -E 's,([:/])tails/tails([.]git)?\z,$1tails/puppet-code$2,')
        cd "${WORK_DIR:?}"
@@ -1284,6 +1285,7 @@ Verify that Jenkins reproduced your IUKs
 Run this command to verify that Jenkins reproduced your IUKs:
 
     "${RELEASE_CHECKOUT:?}"/bin/copy-iuks-to-rsync-server-and-verify \
+       --source-version-regexp "${VERSION%%.*}[.].*" \
        --hashes-file "${IUKS_HASHES:?}" \
        --work-dir /srv/tmp \
        --jenkins-build-id "${CANDIDATE_JENKINS_IUKS_BUILD_ID:?}"
