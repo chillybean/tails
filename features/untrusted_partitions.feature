@@ -8,7 +8,7 @@ Feature: Untrusted partitions
     And I temporarily create a 100 MiB disk named "swap"
     And I create a gpt swap partition on disk "swap"
     And I plug SATA drive "swap"
-    And I temporarily create a 2 GiB disk named "live_hd"
+    And I temporarily create a 2500 MiB disk named "live_hd"
     And I write the Tails ISO image to disk "live_hd"
     And I plug SATA drive "live_hd"
     When I start Tails with network unplugged and I login
