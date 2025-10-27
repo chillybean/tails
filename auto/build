@@ -142,9 +142,8 @@ check whether we're short on actual disk space or on inodes. And then:
    that 10% disk space is available, by deleting as many cache entries
    as necessary, by decreasing age.
 
- - Else, if we're short on inodes: either tune the website cache filesystem's
-   inodes setup to match its actual (which is to store tons of small files),
-   or migrate to storing cache entries as tarballs.
+ - Else, if we're short on inodes: this is unexpected since the
+   cache entries are now stored as zip files. You'll need to investigate.
 
 For more context, see #20150.
 EOF
