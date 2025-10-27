@@ -28,8 +28,7 @@ fi
 
 # get git branch or tag so we can set the basename appropriately.
 GIT_BRANCH="$(git_current_branch)"
-GIT_BASE_BRANCH_COMMIT="$(git rev-parse --verify "$(git_base_branch_head)")"
-GIT_BASE_BRANCH_SHORT_ID="$(git rev-parse --verify --short=10 "$(git_base_branch_head)")"
+GIT_BASE_BRANCH_SHORT_ID="$(echo "$BASE_BRANCH_GIT_COMMIT" | head --bytes=10)"
 if [ -n "${GIT_BRANCH}" ]; then
     CLEAN_GIT_BRANCH=$(echo "$GIT_BRANCH" | sed 's,/,_,g')
     BASE_BRANCH_PART=''
@@ -180,7 +179,7 @@ EOF
     if [ "$GIT_BRANCH" != "$(base_branch)" ]; then
         cat >>config/chroot_local-includes/etc/os-release <<EOF
 TAILS_GIT_BASE_BRANCH="$(base_branch)"
-TAILS_GIT_BASE_COMMIT="$GIT_BASE_BRANCH_COMMIT"
+TAILS_GIT_BASE_COMMIT="$BASE_BRANCH_GIT_COMMIT"
 EOF
     fi
 else
