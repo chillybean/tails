@@ -119,11 +119,6 @@ steps:
 
   - chroot: rootfs
     shell: |
-      sed -e 's/${DISTRIBUTION}/trixie/' /etc/apt/sources.list \\
-        > "/etc/apt/sources.list.d/trixie.list"
-
-  - chroot: rootfs
-    shell: |
       sed -e 's/${DISTRIBUTION}/${DISTRIBUTION}-updates/' /etc/apt/sources.list \\
         > "/etc/apt/sources.list.d/${DISTRIBUTION}-updates.list"
 
@@ -136,11 +131,17 @@ steps:
     contents: |
       deb [signed-by=/usr/share/keyrings/tails-archive-keyring.gpg] http://time-based.snapshots.deb.tails.boum.org/debian-security/${DEBIAN_SECURITY_SERIAL}/ ${DISTRIBUTION}-security main
 
-  - create-file: /etc/apt/preferences.d/ikiwiki
+  - create-file: /etc/apt/preferences.d/${DISTRIBUTION}-backports
     contents: |
-      Package: ikiwiki
-      Pin: release n=trixie
-      Pin-Priority: 1000
+      Package: *
+      Pin: release n=${DISTRIBUTION}-backports
+      Pin-Priority: 100
+
+  # Install po4a from bookworm
+  - chroot: rootfs
+    shell: |
+      sed -e 's/${DISTRIBUTION}/bookworm/' /etc/apt/sources.list \\
+        > "/etc/apt/sources.list.d/bookworm.list"
 
   - create-file: /etc/apt/preferences.d/po4a
     contents: |
@@ -148,16 +149,10 @@ steps:
       Pin: version 0.69-1
       Pin-Priority: 1000
 
-  - create-file: /etc/apt/preferences.d/trixie
+  - create-file: /etc/apt/preferences.d/bookworm
     contents: |
       Package: *
-      Pin: release n=trixie
-      Pin-Priority: 100
-
-  - create-file: /etc/apt/preferences.d/${DISTRIBUTION}-backports
-    contents: |
-      Package: *
-      Pin: release n=${DISTRIBUTION}-backports
+      Pin: release n=bookworm
       Pin-Priority: 100
 
   - chroot: rootfs
