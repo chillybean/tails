@@ -216,5 +216,8 @@ patch \
     data/debootstrap/scripts/debian-common.patch
 sed -i "s,%%topdir%%,$(pwd)," /usr/share/debootstrap/scripts/debian-common
 
-# Make the python library available in Tails
+# Ensure /tmp has correct permissions (in auto/build we will
+# `mkdir -p` some of its subdirectories, so if it does not exist yet
+# by then, it'll be created with the default umask, which will prevent
+# users such as _apt from using it during the build process)
 install -d -m 2777 config/chroot_local-includes/tmp/
