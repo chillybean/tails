@@ -36,12 +36,12 @@ DEBIAN_SECURITY_SERIAL="$(get_serial debian-security)"
 
 # Input keyring contains concatenated armored certificates.  Join them
 # into the standard form for communicating OpenPGP keyrings.
-DEBOOTSTRAP_GNUPG_PUBRING="$(mktemp --tmpdir tmp.debootstrap-gnupg-XXXXXXXX)"
+DEBOOTSTRAP_KEYRING="$(mktemp --tmpdir tmp.debootstrap-gnupg-XXXXXXXX)"
 "${GIT_DIR}/auto/scripts/utils.sh" \
     pgp_flatten_keyring config/chroot_sources/tails.chroot.gpg \
-    >"${DEBOOTSTRAP_GNUPG_PUBRING}"
+    >"${DEBOOTSTRAP_KEYRING}"
 
-trap 'rm --preserve-root=all -rf "${SPECFILE}" "${TARGET_IMG}" "${TARGET_QCOW2}" "${TARGET_FS_TAR}" "${DEBOOTSTRAP_GNUPG_PUBRING}"' EXIT
+trap 'rm --preserve-root=all -rf "${SPECFILE}" "${TARGET_IMG}" "${TARGET_QCOW2}" "${TARGET_FS_TAR}" "${DEBOOTSTRAP_KEYRING}"' EXIT
 
 # Create specification file for vmdb2
 cat >"${SPECFILE}" <<EOF
@@ -74,7 +74,7 @@ steps:
 
   - debootstrap: ${DISTRIBUTION}
     mirror: http://time-based.snapshots.deb.tails.boum.org/debian/${DEBIAN_SERIAL}
-    keyring: ${DEBOOTSTRAP_GNUPG_PUBRING}
+    keyring: ${DEBOOTSTRAP_KEYRING}
     target: rootfs
 
   - virtual-filesystems: rootfs
@@ -82,7 +82,7 @@ steps:
   # Install the archive cert so that we can use it to authenticate the
   # Tails repositories.
   - copy-file: /usr/share/keyrings/tails-archive-keyring.gpg
-    src: ${DEBOOTSTRAP_GNUPG_PUBRING}
+    src: ${DEBOOTSTRAP_KEYRING}
 
   - create-file: /etc/network/interfaces.d/wired
     contents: |
