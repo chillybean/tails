@@ -196,6 +196,7 @@ steps:
       - time
       - udisks2
       - wget
+      - zstd
     tag: rootfs
 
   - chroot: rootfs
