@@ -91,14 +91,12 @@ find \
 DEBOOTSTRAP_OPTIONS="${DEBOOTSTRAP_OPTIONS:-} --keep-debootstrap-dir"
 
 # use our own APT repository's key:
-DEBOOTSTRAP_GNUPG_HOMEDIR=$(mktemp -d)
-gpg --homedir "$DEBOOTSTRAP_GNUPG_HOMEDIR" \
-    --no-tty \
-    --import config/chroot_sources/tails.chroot.gpg
-DEBOOTSTRAP_GNUPG_KEYRING="$DEBOOTSTRAP_GNUPG_HOMEDIR/pubring.kbx"
-[ -e "$DEBOOTSTRAP_GNUPG_KEYRING" ] ||
-    fatal "No debootstrap GnuPG keyring was created."
-DEBOOTSTRAP_OPTIONS="$DEBOOTSTRAP_OPTIONS --keyring=$DEBOOTSTRAP_GNUPG_KEYRING"
+DEBOOTSTRAP_KEYRING="$(mktemp --tmpdir tmp.debootstrap-gnupg-XXXXXXXX)"
+pgp_flatten_keyring config/chroot_sources/tails.chroot.gpg \
+    >"${DEBOOTSTRAP_KEYRING}"
+[ -e "$DEBOOTSTRAP_KEYRING" ] ||
+    fatal "No debootstrap keyring was created."
+DEBOOTSTRAP_OPTIONS="$DEBOOTSTRAP_OPTIONS --keyring=$DEBOOTSTRAP_KEYRING"
 
 export DEBOOTSTRAP_OPTIONS
 
