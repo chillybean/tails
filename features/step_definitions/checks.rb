@@ -41,6 +41,7 @@ def assert_all_keys_are_valid_for_n_months(type, months)
   assert(invalid.empty?,
          "The following #{type} key(s) will not be valid " \
          "in #{months} months: #{invalid.join(', ')}")
+  assert_not_empty(keys, "No #{type} keys.")
 end
 
 def check_key_valid(line, months)
