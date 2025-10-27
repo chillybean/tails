@@ -39,7 +39,7 @@ DEBIAN_SECURITY_SERIAL="$(get_serial debian-security)"
 DEBOOTSTRAP_GNUPG_PUBRING="$(mktemp --tmpdir tmp.debootstrap-gnupg-XXXXXXXX)"
 "${GIT_DIR}/auto/scripts/utils.sh" \
     pgp_flatten_keyring config/chroot_sources/tails.chroot.gpg \
-    > "${DEBOOTSTRAP_GNUPG_PUBRING}"
+    >"${DEBOOTSTRAP_GNUPG_PUBRING}"
 
 trap 'rm --preserve-root=all -rf "${SPECFILE}" "${TARGET_IMG}" "${TARGET_QCOW2}" "${TARGET_FS_TAR}" "${DEBOOTSTRAP_GNUPG_PUBRING}"' EXIT
 
