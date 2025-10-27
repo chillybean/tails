@@ -98,7 +98,7 @@ if ! already_provisioned; then
     echo "I: Upgrading system..."
     /amnesia.git/auto/scripts/utils.sh \
         pgp_flatten_keyring /amnesia.git/config/chroot_sources/tails.binary.gpg \
-        > /etc/apt/trusted.gpg.d/tails.gpg
+        > /usr/share/keyrings/tails-archive-keyring.gpg
     apt-get update
     apt-get -y dist-upgrade
 
