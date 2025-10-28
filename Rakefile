@@ -59,6 +59,11 @@ ENV['ARTIFACTS'] ||= '.'
 
 ENV['APT_SNAPSHOTS_SERIALS'] ||= ''
 
+ENV['TAILS_BUILD_FAILURE_RESCUE'] ||= ''
+ENV['TAILS_DATE_OFFSET'] ||= ''
+ENV['TAILS_OFFLINE_MODE'] ||= ''
+ENV['TAILS_RAM_BUILD'] ||= ''
+
 class CommandError < StandardError
   attr_reader :status, :stderr
 

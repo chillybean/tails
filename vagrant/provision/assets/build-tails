@@ -2,6 +2,8 @@
 # -*- mode: sh; sh-basic-offset: 4; indent-tabs-mode:nil; -*-
 
 set -e
+set -u
+set -o pipefail
 set -x
 
 if [ -n "${TAILS_PROXY:-}" ]; then
