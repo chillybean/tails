@@ -22,11 +22,6 @@ if tails_network_enabled ; then
    /bin/sync --file-system /etc/modprobe.d
 fi
 
-# XXX: add debugging information for #9012 to the Journal
-ls /etc/modprobe.d
-/sbin/lsmod
-ls -l /sys/class/net
-
 # There's a chance that udev won't pick up quickly and automatically
 # changes to /etc/modprobe.d, for example if it monitors that
 # directory via its inode number at the time udev started: the inode
@@ -148,10 +143,6 @@ echo "replayed udev events." >&2
 echo "Waiting for udev events to settle..." >&2
 udevadm settle
 echo "udev events settled." >&2
-
-# XXX: add debugging information for #9012 to the Journal
-/sbin/lsmod
-ls -l /sys/class/net
 
 # Enable and start NetworkManager services
 # No need to manually enable NetworkManager-dispatcher.service,
