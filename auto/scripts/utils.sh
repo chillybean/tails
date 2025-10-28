@@ -1,11 +1,6 @@
-# shellcheck shell=bash
+# shellcheck shell=sh
 
 BASE_BRANCHES="stable testing devel"
-
-if [[ ! -o errexit ]] || [[ ! -o nounset ]]; then
-    echo "This library is meant to be used with 'set -e' and 'set -u'. Exiting..." >&2
-    exit 1
-fi
 
 # Returns "" if in detached head
 git_current_branch() {
