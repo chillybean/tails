@@ -62,6 +62,7 @@ rm -rf cache/stages_rootfs
 # they may be wrong, e.g. if the Git repository was cloned with a strict umask.
 chown 0:0 config/chroot_local-includes/etc/resolv.conf
 chmod -R go+rX config/binary_local-includes/
+chmod -R go-w config/chroot_local-includes/
 chmod -R go+rX config/chroot_local-includes/etc
 chmod 0440 config/chroot_local-includes/etc/sudoers.d/*
 chmod go+rX config/chroot_local-includes/lib

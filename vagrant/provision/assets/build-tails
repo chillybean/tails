@@ -10,6 +10,8 @@ set -x
 # before setting the real BUILD_DIR value
 BUILD_DIR=
 
+umask 022
+
 if [ -n "${TAILS_PROXY:-}" ]; then
     export http_proxy="${TAILS_PROXY}"
 fi
