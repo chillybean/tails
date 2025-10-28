@@ -6,6 +6,10 @@ set -u
 set -o pipefail
 set -x
 
+# Ensure the cleanup function works under `set -u` even when we fail
+# before setting the real BUILD_DIR value
+BUILD_DIR=
+
 if [ -n "${TAILS_PROXY:-}" ]; then
     export http_proxy="${TAILS_PROXY}"
 fi
