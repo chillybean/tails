@@ -199,7 +199,11 @@ When /^I open a new tab in the (.*)$/ do |browser_name|
     # open a pop-up that may obscure the address bar, which would
     # cause a failure below.
     @screen.hide_cursor
-    @screen.wait(info[:address_bar_image], 15)
+    # We lower the sensitivity here because in Tor Browser 15.0, in
+    # some languages (Italian and Spanish), antialiasing of the
+    # address bar text we're looking for differs depending on which
+    # text is displayed *before* the text we're looking for.
+    @screen.wait(info[:address_bar_image], 15, sensitivity: 0.8)
   end
 end
 
