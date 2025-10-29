@@ -52,10 +52,9 @@ class ImageCreationError(Exception):
 
 class ImageCreator(object):
 
-    def __init__(self, iso: str, image: str, free_space: int):
+    def __init__(self, iso: str, image: str):
         self.iso = iso
         self.image = image
-        self.free_space = free_space
         self._loop_device = None  # type: str
         self._partition = None  # type: str
         self._system_partition_size = None  # type: int
@@ -139,7 +138,7 @@ class ImageCreator(object):
 
     def create_empty_image(self):
         logger.info("Creating empty image %r", self.image)
-        image_size = self.system_partition_size + self.free_space
+        image_size = self.system_partition_size
         execute(["dd", "if=/dev/zero", "of=%s" % self.image, "bs=1M", "count=%s" % image_size])
 
     @contextmanager
@@ -342,7 +341,6 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("ISO", help="Path to the ISO")
     parser.add_argument("-d", "--directory", default=".", help="Output directory for the resulting image (the current directory by default)")
-    parser.add_argument("--free-space", type=int, default=0, help="Additional free space (for a persistent volume) in MiB")
     args = parser.parse_args()
     if not args.ISO.endswith(".iso"):
         parser.error("Input file is not an ISO (no .iso extension)")
@@ -356,7 +354,7 @@ def main():
     iso = args.ISO
     image = os.path.realpath(os.path.join(args.directory, os.path.basename(iso).replace(".iso", ".img")))
 
-    image_creator = ImageCreator(iso, image, args.free_space)
+    image_creator = ImageCreator(iso, image)
     image_creator.create_image()
 
 
