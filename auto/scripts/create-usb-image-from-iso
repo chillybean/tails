@@ -31,6 +31,7 @@ PARTITION_LABEL = 'Tails'
 FILESYSTEM_LABEL = 'Tails'
 
 GET_UDISKS_OBJECT_TIMEOUT = 2
+WAIT_FOR_PARTITION_TIMEOUT = 2
 
 # The size of the image (in MiB) will be:
 #
@@ -201,11 +202,21 @@ class ImageCreator(object):
         self._partition = partition
 
     def set_partition_flags(self):
-        # We use sgdisk directly instead of udisks' set_flags method, because the
-        # latter sometimes resets the partition type / partition table type
-        # before Buster's udisks2 + libblockdev 2.15-1
-        # (https://github.com/storaged-project/udisks/issues/418)
-        execute(["/sbin/sgdisk", "--attributes=1:=:%x" % SYSTEM_PARTITION_FLAGS, self.image])
+        logger.info("Setting partition flags")
+
+        start_time = time.perf_counter()
+        while time.perf_counter() - start_time < WAIT_FOR_PARTITION_TIMEOUT:
+            try:
+                self.partition.props.partition.call_set_flags_sync(
+                    arg_flags=SYSTEM_PARTITION_FLAGS,
+                    arg_options=GLib.Variant('a{sv}', None)
+                )
+            except GLib.Error as e:
+                if "GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such interface" in e.message:
+                    time.sleep(0.1)
+                    continue
+                raise
+            return
 
     def format_partition(self):
         logger.info("Formatting partition")
