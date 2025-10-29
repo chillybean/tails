@@ -144,7 +144,7 @@ if is_cmdline_test_enabled test_partitioning_errors fs_resize; then
     exit 1
 fi
 FS_SIZE="$((${SYSTEM_PARTITION_SIZE%M} - 2))"Mi
-fatresize --size="${FS_SIZE}" "${SYSTEM_PARTITION}"
+fatresize --force-yes --size="${FS_SIZE}" "${SYSTEM_PARTITION}"
 settle
 
 # Restore boot code overwritten by fatresize
