@@ -32,13 +32,13 @@ FILESYSTEM_LABEL = 'Tails'
 
 GET_UDISKS_OBJECT_TIMEOUT = 2
 
-# The size of the system partition (in MiB) will be:
+# The size of the image (in MiB) will be:
 #
-#   SYSTEM_PARTITION_ADDITIONAL_SIZE + size of the ISO
+#   IMAGE_ADDITIONAL_SIZE + size of the ISO
 #
-# SYSTEM_PARTITION_ADDITIONAL_SIZE must be large enough to fit
-# the partition table, reserved sectors, and filesystem metadata.
-SYSTEM_PARTITION_ADDITIONAL_SIZE = 10
+# IMAGE_ADDITIONAL_SIZE must be large enough to fit the partition
+# table, reserved sectors, and filesystem metadata.
+IMAGE_ADDITIONAL_SIZE = 10
 
 # We use the syslinux from the chroot here, because it's the same one
 # that will be available to Tails Installer in the running Tails. Using
@@ -57,7 +57,7 @@ class ImageCreator(object):
         self.image = image
         self._loop_device = None  # type: str
         self._partition = None  # type: str
-        self._system_partition_size = None  # type: int
+        self._image_size = None  # type: int
         self.iso_mountpoint = None  # type: str
 
     @property
@@ -74,11 +74,11 @@ class ImageCreator(object):
         return self.try_getting_udisks_object(self._partition)
 
     @property
-    def system_partition_size(self) -> int:
-        if self._system_partition_size is None:
-            self._system_partition_size = get_file_size(self.iso) + SYSTEM_PARTITION_ADDITIONAL_SIZE
+    def image_size(self) -> int:
+        if self._image_size is None:
+            self._image_size = get_file_size(self.iso) + IMAGE_ADDITIONAL_SIZE
 
-        return self._system_partition_size
+        return self._image_size
 
     def try_getting_udisks_object(self, object_path: str) -> UDisks.Object:
         start_time = time.perf_counter()
@@ -138,8 +138,7 @@ class ImageCreator(object):
 
     def create_empty_image(self):
         logger.info("Creating empty image %r", self.image)
-        image_size = self.system_partition_size
-        execute(["dd", "if=/dev/zero", "of=%s" % self.image, "bs=1M", "count=%s" % image_size])
+        execute(["dd", "if=/dev/zero", "of=%s" % self.image, "bs=1M", "count=%s" % self.image_size])
 
     @contextmanager
     def setup_loop_device(self):
@@ -191,7 +190,7 @@ class ImageCreator(object):
         logger.info("Creating partition")
         partition = self.loop_device.props.partition_table.call_create_partition_sync(
             arg_offset=0,
-            arg_size=self.system_partition_size * 2**20,
+            arg_size=0,  # maximal size
             arg_type=ESP_GUID,
             arg_name=PARTITION_LABEL,
             arg_options=GLib.Variant('a{sv}', None)
