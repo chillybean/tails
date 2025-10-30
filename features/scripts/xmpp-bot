@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+import asyncio
 import slixmpp
 import logging
 from argparse import ArgumentParser
@@ -86,14 +87,6 @@ if __name__ == "__main__":
     )
     try:
         otr_bot.connect()
-        try:
-            otr_bot.process()
-        except AttributeError:
-            # Handle recent versions of slixmpp. Once we only support
-            # Debian Trixie or higher we can drop the .process()
-            # attempt (tails#20957).
-            import asyncio
-
-            asyncio.get_event_loop().run_forever()
+        asyncio.get_event_loop().run_forever()
     except KeyboardInterrupt:
         otr_bot.disconnect()
