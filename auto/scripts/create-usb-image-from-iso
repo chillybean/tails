@@ -378,8 +378,8 @@ class ImageCreator:
                         "::syslinux/ldlinux.sys",
                     ]
                 )
-            except subprocess.CalledProcessError:
-                raise ImageCreationError("syslinux installation failed")
+            except subprocess.CalledProcessError as err:
+                raise ImageCreationError("syslinux installation failed") from err
 
     def set_guids(self):
         logger.info("Setting disk and partition GUID")
