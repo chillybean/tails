@@ -209,9 +209,6 @@ task :parse_build_options do
         end
         ENV['TAILS_ACNG_PROXY'] = EXTERNAL_HTTP_PROXY
       end
-    when 'noproxy'
-      ENV['TAILS_PROXY'] = nil
-      ENV['TAILS_PROXY_TYPE'] = 'noproxy'
     when 'offline'
       ENV['TAILS_OFFLINE_MODE'] = '1'
     when /cachewebsite(?:=([a-z]+))?/
