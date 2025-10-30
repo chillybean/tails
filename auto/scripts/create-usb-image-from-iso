@@ -12,7 +12,7 @@ import subprocess
 import gi
 
 gi.require_version("UDisks", "2.0")
-from gi.repository import UDisks, GLib, Gio
+from gi.repository import UDisks, GLib, Gio  # NOQA: E402
 
 
 logger = logging.getLogger(__name__)
