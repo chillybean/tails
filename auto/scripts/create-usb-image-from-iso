@@ -91,7 +91,9 @@ class ImageCreator:
                 return udisks_object
             time.sleep(0.1)
         raise ImageCreationError(
-            "Couldn't get UDisksObject for path '{}' (timeout: {})".format(object_path, GET_UDISKS_OBJECT_TIMEOUT)
+            "Couldn't get UDisksObject for path '{}' (timeout: {})".format(
+                object_path, GET_UDISKS_OBJECT_TIMEOUT
+            )
         )
 
     @contextmanager
