@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-17 10:36+0200\n"
-"PO-Revision-Date: 2025-08-21 16:01+0000\n"
+"POT-Creation-Date: 2025-10-13 10:37+0200\n"
+"PO-Revision-Date: 2025-09-21 23:02+0000\n"
 "Last-Translator: Alan <georgianization@outlook.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/tor/tails-gui/"
 "ka/>\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -1686,9 +1686,8 @@ msgid "Set up a password to unlock the screen."
 msgstr "დააყენეთ პაროლი ეკრანის გასახსნელად."
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:147
-#, fuzzy
 msgid "Show Password"
-msgstr "პაროლი"
+msgstr "პაროლის გამოჩენა"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:151
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2281
@@ -2678,6 +2677,32 @@ msgstr ""
 "Tor-სა და ინტერნეტთან კავშირისთვის ხელახლა გაუშვით Tails კავშირგარეშე "
 "რეჟიმის გარეშე."
 
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:68
+msgid ""
+"Authentication is required to run the Synaptic Package Manager. Enter the "
+"administration password that you set up in the Welcome Screen."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:72
+msgid ""
+"Authentication is required to start a Root Console. Enter the administration "
+"password that you set up in the Welcome Screen."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:79
+msgid ""
+"For better security, no administration password is set up in Tails by "
+"default. To run the Synaptic Package Manager, restart Tails and set up an "
+"administration password in the Welcome Screen."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:85
+msgid ""
+"For better security, no administration password is set up in Tails by "
+"default. To start a Root Console, restart Tails and set up an administration "
+"password in the Welcome Screen."
+msgstr ""
+
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:2
 msgid ""
 "Configure which files and application configuration are saved between "
@@ -2807,10 +2832,6 @@ msgstr "გამოხმაურება;ხარვეზი;მოხს�
 msgid "Tails specific tools"
 msgstr "Tails-ის საგანგებო ხელსაწყოები"
 
-#: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
-msgid "To start a Root Console, you need to authenticate."
-msgstr "ძირეული ბრძანებების გასაშვებად საჭირო იქნება დამოწმება."
-
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.AdditionalSoftware.policy.in.h:1
 msgid "Remove an additional software package"
 msgstr "დამატებითი პროგრამის პაკეტის წაშლა"
@@ -2890,7 +2911,6 @@ msgstr ""
 "წვდომა, უსაფრთხოების ასამაღლებლად."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:514
-#, fuzzy
 msgid ""
 "The Unsafe Browser allows you to sign in to a network using a captive "
 "portal.\n"
@@ -2909,12 +2929,7 @@ msgstr ""
 "რამე მონაცემის შეყვანა, მაგალითად ელფოსტის.\n"
 "\n"
 "დაუცველი ბრაუზერი ვერ უზრუნველყოფს თქვენი ვინაობის გაუმხელობას. გამოიყენეთ "
-"მხოლოდ ქსელში ამგვარად შესვლისას.\n"
-"\n"
-"დაუცველი ბრაუზერი კვლავ ამოქმედებულია ნაგულისხმევად Tails 5.8 ვერსიიდან "
-"(2022 წლის დეკემბრიდან), მას შემდეგ, რაც გამოვასწორეთ უსაფრთხოების "
-"სისუსტეები, რომელთა გამოც ნაგულისხმევად გაუქმებული იყო Tails 4.8 ვერსიიდან "
-"(2020 წლის ივნისიდან)."
+"მხოლოდ ქსელში ამგვარად შესვლისას."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:560
 msgid "Enable the Unsafe Browser (default)"
@@ -3850,9 +3865,10 @@ msgid "Connect to a local network"
 msgstr "ადგილობრივ ქსელთან დაკავშირება"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1725
+#, fuzzy
 msgid ""
 "You are not connected to a local network yet. To be able to connect to the "
-"Tor network, you first need to connect to a Wi-Fi, wire, or mobile network."
+"Tor network, you first need to connect to a Wi-Fi, wired, or mobile network."
 msgstr ""
 "ჯერ არ ხართ დაკავშირებული ადგილობრივ ქსელთან. იმისთვის, რომ შეძლოთ Tor-"
 "ქსელთან მიერთება, პირველ რიგში საჭიროა WiFi, სადენიანი ან მობილური "
@@ -4019,6 +4035,9 @@ msgstr "დეკემბერი"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "საათი"
+
+#~ msgid "To start a Root Console, you need to authenticate."
+#~ msgstr "ძირეული ბრძანებების გასაშვებად საჭირო იქნება დამოწმება."
 
 #~ msgid "_Network Connection"
 #~ msgstr "_ქსელთან კავშირი"

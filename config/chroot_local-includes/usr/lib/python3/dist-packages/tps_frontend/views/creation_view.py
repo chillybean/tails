@@ -1,4 +1,3 @@
-import gettext
 from logging import getLogger
 from gi.repository import Gio, GLib, Gtk
 from typing import TYPE_CHECKING
@@ -8,8 +7,6 @@ from tps_frontend.view import View
 
 if TYPE_CHECKING:
     from tps_frontend.window import Window
-
-gettext.textdomain("tails")
 
 logger = getLogger(__name__)
 
@@ -71,12 +68,7 @@ class CreationView(View):
             self.set_progress(changed_properties["Progress"])
 
     def set_status(self, status: str):
-        # Here we translate strings that we got from tpsd over D-Bus
-        # that are supposed to be translated but isn't since tpsd
-        # starts before we select locale at the Welcome Screen. This
-        # is just a temporary fix until tpsd sends us translated
-        # strings (tails#21210).
-        self.status_label.set_label(gettext.gettext(status))
+        self.status_label.set_label(status)
 
     def set_progress(self, progress: int):
         self.progress_bar.set_fraction(progress / 100)

@@ -482,7 +482,7 @@ class StepConnectProgressMixin:
                         f"error when calling 'lock-bootstrap' via portal: {error}"
                     )
                 if not self.state["hide"]["hide"]:
-                    self.get_object("label_status").set_text(
+                    self.builder.get_object("step_progress_label_status").set_text(
                         _("Synchronizing the system's clock…")
                     )
                     self.app.set_time_from_network(self.cb_system_time_set_from_network)
@@ -534,21 +534,21 @@ class StepConnectProgressMixin:
         def do_tor_connect_config():
             if not self.state["hide"]["bridge"]:
                 self.app.configurator.tor_connection_config.disable_bridges()
-                self.get_object("label_status").set_text(
+                self.builder.get_object("step_progress_label_status").set_text(
                     _("Connecting to Tor without bridges…")
                 )
             elif self.state["bridge"].get("kind", "") == "default":
                 self.app.configurator.tor_connection_config.enable_default_bridges(
                     valid_types=[self.state["bridge"]["default_method"]]
                 )
-                self.get_object("label_status").set_text(
+                self.builder.get_object("step_progress_label_status").set_text(
                     _("Connecting to Tor with default bridges…")
                 )
             elif self.state["bridge"]["bridges"]:
                 self.app.configurator.tor_connection_config.enable_bridges(
                     self.state["bridge"]["bridges"]
                 )
-                self.get_object("label_status").set_text(
+                self.builder.get_object("step_progress_label_status").set_text(
                     _("Connecting to Tor with a custom bridge…")
                 )
             else:
@@ -565,7 +565,7 @@ class StepConnectProgressMixin:
             self.app.configurator.tor_connection_config.enable_default_bridges(
                 valid_types=["obfs4", "webtunnel"]
             )
-            self.get_object("label_status").set_text(
+            self.builder.get_object("step_progress_label_status").set_text(
                 _("Connecting to Tor with default bridges…")
             )
             _apply_proxy()

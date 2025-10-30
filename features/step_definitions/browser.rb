@@ -469,10 +469,7 @@ When /^I start the Tor Browser( in offline mode)?$/ do |offline|
     start_button.click
   end
   step 'the Tor Browser has started'
-  if offline
-    step 'the Tor Browser shows the ' \
-         '"The proxy server is refusing connections" error'
-  end
+  step 'the Tor Browser loads about:tor'
 end
 
 Given /^the Tor Browser (?:has started|starts)$/ do
@@ -495,15 +492,14 @@ Given /^the Tor Browser (?:has started|starts)$/ do
   end
 end
 
-Given /^the Tor Browser loads the (startup page|Tails homepage|Tails GitLab)$/ do |page|
+Given /^the Tor Browser loads about:tor$/ do
+  @screen.wait_any(
+    ['TorBrowserAboutTor.png', 'TorBrowser2025EOYCampaignBanner.png'], 60
+  )
+end
+
+Given /^the Tor Browser loads the (Tails homepage|Tails GitLab)$/ do |page|
   case page
-  when 'startup page'
-    titles = [
-      'Tails',
-      'Tails - Trying a testing version of Tails',
-      'Tails - Welcome to Tails!',
-      'Tails - Dear Tails user,',
-    ]
   when 'Tails homepage'
     titles = ['Tails']
   when 'Tails GitLab'

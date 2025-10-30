@@ -41,13 +41,13 @@ while IFS=: read -r MOZILLA_LOCALE LOCATION; do
     if [ -z "${MOZILLA_LOCALE}" ] || [ -z "${LOCATION}" ]; then
         echo "Something is wrong with ${DESCRIPTIONS_FILE}" >&2
         echo "Description: ${MOZILLA_LOCALE}:${LOCATION}" >&2
-       exit 1
+        exit 1
     fi
 
     if ! locale_is_supported_by_tor_browser "$MOZILLA_LOCALE"; then
         echo "- Skipping localization of ${MOZILLA_LOCALE} for browsers:" \
-             "not supported by Tor Browser"
-	continue
+            "not supported by Tor Browser"
+        continue
     fi
 
     echo "- Localizing ${MOZILLA_LOCALE} for browsers..."
@@ -78,24 +78,10 @@ while IFS=: read -r MOZILLA_LOCALE LOCATION; do
         SPELLCHECKER_LOCALE="en_US"
     fi
     set_mozilla_pref "${LOCALE_PROFILE_FILE}" \
-                          "spellchecker.dictionary" \
-                          "\"${SPELLCHECKER_LOCALE}\"" \
-                           "user_pref"
-    HOMEPAGE="https://tails.net/home/"
-    . /etc/os-release # get $TAILS_CHANNEL and $TAILS_DISTRIBUTION
-    if [ "${TAILS_DISTRIBUTION}" = UNRELEASED ] \
-          || [ "${TAILS_CHANNEL:-stable}" != stable ]; then
-       HOMEPAGE="${HOMEPAGE}testing/"
-    fi
-    if echo "${TAILS_WIKI_SUPPORTED_LANGUAGES}" | grep -qw "${LANG_CODE}"; then
-        HOMEPAGE="${HOMEPAGE}index.${LANG_CODE}.html"
-    fi
-    set_mozilla_pref "${LOCALE_PROFILE_FILE}" \
-                     "browser.startup.homepage" "\"${HOMEPAGE}\"" "user_pref"
-    set_mozilla_pref "${LOCALE_PROFILE_FILE}" \
-                     "browser.startup.homepage.new_identity" "\"${HOMEPAGE}\"" \
-                     "user_pref"
-done < "${DESCRIPTIONS_FILE}"
+        "spellchecker.dictionary" \
+        "\"${SPELLCHECKER_LOCALE}\"" \
+        "user_pref"
+done <"${DESCRIPTIONS_FILE}"
 
 # This directory is not needed after build time.
 rm -r "${BROWSER_LOCALIZATION_DIR}"

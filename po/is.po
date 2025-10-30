@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-17 10:36+0200\n"
-"PO-Revision-Date: 2025-08-31 14:01+0000\n"
+"POT-Creation-Date: 2025-10-13 10:37+0200\n"
+"PO-Revision-Date: 2025-10-10 11:07+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <https://hosted.weblate.org/projects/tor/tails-gui/"
 "is/>\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n % 10 != 1 || n % 100 == 11;\n"
-"X-Generator: Weblate 5.13.1-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -1625,7 +1625,7 @@ msgstr "Mistókst að samstilla klukkuna!"
 
 #: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:26
 msgid "Insufficient Memory Detected"
-msgstr ""
+msgstr "Ónógt minni greindist"
 
 #: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:28
 #, python-brace-format
@@ -1649,9 +1649,8 @@ msgid "Set up a password to unlock the screen."
 msgstr "Settu upp lykilorð til að aflæsa skjánum."
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:147
-#, fuzzy
 msgid "Show Password"
-msgstr "Lykilorð"
+msgstr "Birta lykilorð"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:151
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2281
@@ -2614,6 +2613,32 @@ msgid ""
 "To connect to Tor and the Internet, restart Tails without Offline Mode."
 msgstr ""
 
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:68
+msgid ""
+"Authentication is required to run the Synaptic Package Manager. Enter the "
+"administration password that you set up in the Welcome Screen."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:72
+msgid ""
+"Authentication is required to start a Root Console. Enter the administration "
+"password that you set up in the Welcome Screen."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:79
+msgid ""
+"For better security, no administration password is set up in Tails by "
+"default. To run the Synaptic Package Manager, restart Tails and set up an "
+"administration password in the Welcome Screen."
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:85
+msgid ""
+"For better security, no administration password is set up in Tails by "
+"default. To start a Root Console, restart Tails and set up an administration "
+"password in the Welcome Screen."
+msgstr ""
+
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:2
 msgid ""
 "Configure which files and application configuration are saved between "
@@ -2627,7 +2652,7 @@ msgstr "uppsetning;vistað"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:1
 msgid "Root Console"
-msgstr ""
+msgstr "Rótarstjórnskjár"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:2
 msgid "Opens a console as the root user"
@@ -2635,7 +2660,7 @@ msgstr "Opnar skjáhermi (terminal) sem rótarnotandi/kerfisstjóri"
 
 #: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:3
 msgid "admin"
-msgstr ""
+msgstr "admin"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:1
 msgid "Tails Documentation"
@@ -2647,7 +2672,7 @@ msgstr "Lærðu hvernig á að nota Tails"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:3
 msgid "learn"
-msgstr ""
+msgstr "læra"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-about.desktop.in.h:2
 msgid "Learn more about Tails"
@@ -2743,11 +2768,6 @@ msgstr "umsögn;villa;galli;tails;vandamál;"
 msgid "Tails specific tools"
 msgstr "Sértæk Tails-verkfæri"
 
-#: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.root-console.policy.in.h:1
-msgid "To start a Root Console, you need to authenticate."
-msgstr ""
-"Til að ræsa skipanalínu sem kerfisstjóri (root), verðurðu að auðkenna þig."
-
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.AdditionalSoftware.policy.in.h:1
 msgid "Remove an additional software package"
 msgstr "Fjarlægja viðbótarhugbúnaðarpakka"
@@ -2826,7 +2846,6 @@ msgstr ""
 "öryggi þitt."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:514
-#, fuzzy
 msgid ""
 "The Unsafe Browser allows you to sign in to a network using a captive "
 "portal.\n"
@@ -2848,11 +2867,7 @@ msgstr ""
 "\n"
 "Óöruggi vafrinn veitir ekki nafnleynd og getur ljóstrað upp um raunverulegt "
 "IP-vistfang þitt. Ekki nota óörugga vafrann nema til að skrá þig inn á "
-"aðgangsstjórnunarsíður.\n"
-"\n"
-"Óöruggi vafrinn er aftur sjálfgefið virkur eftir Tails 5.8 (desember 2022), "
-"eftir að við náðum að komast fyrir öryggisgalla sem varð til þess að við "
-"gerðum hann sjálfgefið óvirkann í Tails 4.8 (júní 2020)."
+"aðgangsstjórnunarsíður."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:560
 msgid "Enable the Unsafe Browser (default)"
@@ -3536,7 +3551,7 @@ msgstr "Brú"
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:416
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1057
 msgid "obfs4 or webtunnel…"
-msgstr ""
+msgstr "obfs4 eða webtunnel…"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:489
 msgid "Save bridge to _Persistent Storage"
@@ -3746,7 +3761,7 @@ msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1638
 msgid "No Wi-Fi hardware detected"
-msgstr ""
+msgstr "Ekkert Wi-Fi netkort fannst"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1656
 msgid ""
@@ -3782,9 +3797,10 @@ msgid "Connect to a local network"
 msgstr "Tengjast staðarneti"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1725
+#, fuzzy
 msgid ""
 "You are not connected to a local network yet. To be able to connect to the "
-"Tor network, you first need to connect to a Wi-Fi, wire, or mobile network."
+"Tor network, you first need to connect to a Wi-Fi, wired, or mobile network."
 msgstr ""
 "Þú ert ekki enn með tengingu við staðarnet. Til að geta tengst við Tor-"
 "kerfið, þarftu fyrst að tengjast við Wi-Fi, kapal eða farsímanetkerfi."
@@ -3950,6 +3966,10 @@ msgstr "desember"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "Klukka"
+
+#~ msgid "To start a Root Console, you need to authenticate."
+#~ msgstr ""
+#~ "Til að ræsa skipanalínu sem kerfisstjóri (root), verðurðu að auðkenna þig."
 
 #~ msgid "_Network Connection"
 #~ msgstr "_Nettenging"
