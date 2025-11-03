@@ -410,7 +410,7 @@ https-get-expired-sid:
 Ensure MR from stable into devel:
   rules:
     - if: '$CI_COMMIT_BRANCH == "stable"'
-  image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/python3-gitlab:bookworm
+  image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/python3-gitlab:trixie
   script:
     - |
       ./bin/ensure-merge-request \
