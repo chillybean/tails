@@ -127,15 +127,12 @@ To install *Dangerzone* as additional software in Tails, you have to:
 
    Save your changes and close the *Text Editor*.
 
-1. Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Root Console** to open a
-   console with administration rights.
-
 1. Execute the following commands to configure the *Dangerzone* repository as
    additional APT repository.
 
-   <p class="command-root">mkdir /live/persistence/TailsData_unlocked/apt/sources</p>
+   <p class="command">sudo mkdir /live/persistence/TailsData_unlocked/apt/sources</p>
 
-   <p class="command-root">ln -s /usr/share/tails/apt/dangerzone.sources /live/persistence/TailsData_unlocked/apt/sources/</p>
+   <p class="command">sudo ln -s /usr/share/tails/apt/dangerzone.sources /live/persistence/TailsData_unlocked/apt/sources/</p>
 
    <div class="caution">
 
