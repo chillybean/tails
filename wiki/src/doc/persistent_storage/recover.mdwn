@@ -109,7 +109,7 @@ Persistent Storage from another Tails USB stick and copy its content using
 1. Execute the following command to recover the Persistent Storage of your
    broken Tails to your new Tails:
 
-   <p class="command-root">sudo rsync -PaSHAXv --del /media/amnesia/TailsData/ /live/persistence/TailsData_unlocked</p>
+   <p class="command">sudo rsync -PaSHAXv --del /media/amnesia/TailsData/ /live/persistence/TailsData_unlocked</p>
 
 1. When the command finishes, it displays a summary of the data that was copied. For example:
 
@@ -124,7 +124,7 @@ You can also explore the content of the Persistent Storage on your broken Tails
 from the *Files* browser. To do so, execute the following command from the
 *Console*.
 
-   <p class="command-root">nautilus admin:/media/amnesia/TailsData/</p>
+   <p class="command">nautilus admin:/media/amnesia/TailsData/</p>
 
 <h1 id="image">Recovering from a partition image using forensics tools</h1>
 
