@@ -93,35 +93,6 @@ See <https://gitlab.tails.boum.org/tails/team/-/wikis/responsibilities>.
 
 ## The Tuesday before the release date
 
-### Take care of TBB upgrade
-
-Ask the Tor Browser developers when they expect they'll have
-tarballs ready.
-
-Rationale: we need to coordinate our Tails release with the Tor Browser
-developers to make sure that the Tor Browser we plan to include in our
-release is ready in time for when we build the release image. The
-Friday prior to the release is a good candidate, since it's
-around this time they usually release tarballs for testing, and it
-will still give some time for us to improvise according to their
-"delayed" schedule and arrange a contingency plan (e.g. possibly
-delaying our release a day or two). Asking for a status report a day
-or two earlier than Friday *in addition* won't hurt, too.
-
-<div class="note">
-
-Note: the Tor Browser team Cc's tails-dev@boum.org when sending QA
-requests to tor-qa@lists.torproject.org which makes this easier.
-We are also often notified of any last last-minute rebuilds, better
-ask explicitly the Tor Browser team what their plans are.
-
-</div>
-
-As soon as the new *Tor Browser* tarballs are ready, you may import
-them in a topic branch and trigger CI runs, which will save you
-some precious time on pre-release Monday. See the
-[[Upgrading the Tor Browser|contribute/release_process/tor-browser]]
-page for details.
 
 ### Make sure your build setup works
 
