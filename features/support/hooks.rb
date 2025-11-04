@@ -368,6 +368,12 @@ After('@product') do |scenario|
     elsif [ChutneyBootstrapFailure, TorBootstrapFailure, TimeSyncingError].any? \
           { |c| scenario.exception.is_a?(c) }
       if scenario.exception.is_a?(ChutneyBootstrapFailure)
+        # If Chutney fails to bootstrap all tests using the network
+        # will fail, so let's signal to Cucumber that we want to quit
+        # early. We do it using the same mechanism that is used by
+        # Cucumber's --fail-fast option (see the fail_fast formatter,
+        # /usr/lib/ruby/vendor_ruby/cucumber/formatter/fail_fast.rb)
+        # to quit before running the next scenario.
         Cucumber.wants_to_quit = true
       end
       if File.exist?("#{$config['TMPDIR']}/chutney-data")
