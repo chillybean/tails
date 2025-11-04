@@ -326,3 +326,47 @@ Then /^the Tor Status icon tells me that Tor is( not)? usable$/ do |not_usable|
   picture = not_usable ? 'TorStatusNotUsable' : 'TorStatusUsable'
   @screen.wait("#{picture}.png", 10)
 end
+
+def tor_connections_from_log
+  $vm.execute(
+    'journalctl -u tails-autotest-tor-circuits-log.service ' \
+    '--no-pager --output=json --grep="Stream event for "'
+  ).stdout.lines.reduce([]) do |messages, line|
+    message = JSON.parse(line)
+    messages << message['TOR_TARGET']
+    messages
+  rescue JSON::ParserError
+    true
+  end
+end
+
+Then /^no connection has leaked$/ do
+  assert_equal(0, tor_connections_from_log.size)
+end
+
+Then /^the only connections have been made to my email server$/ do
+  connections = tor_connections_from_log.reduce([]) do |l, addr|
+    if addr.include?(':')
+      l << addr.split(':').first
+    end
+  end
+  assert_false(connections.empty?,
+               'No connections have been logged; ' \
+               'this suggests a problem in tor-circuits-log')
+
+  explicit_servers = $config['Thunderbird']['servers'] || []
+  allowed_servers = if explicit_servers.empty?
+                      [$config['Thunderbird']['address'].split('@').last]
+                    else
+                      explicit_servers
+                    end
+
+  unwanted_connections = []
+  connections.uniq.each do |server|
+    unless allowed_servers.include?(server)
+      unwanted_connections << server
+    end
+  end
+  assert(unwanted_connections.empty?,
+         "Unexpected connections: #{unwanted_connections.join(',')}")
+end
