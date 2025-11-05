@@ -69,14 +69,3 @@ Then /^I cannot run a command as root with pkexec and the standard passwords$/ d
   # Ensure we don't taint the next tests
   $vm.execute('pkill -u amnesia kgx')
 end
-
-When /^I start the Root Console using the administration password$/ do
-  launch_root_console
-end
-
-Then /^the Root Console starts$/ do
-  # Due to tails#21123, where the Root Console was invisible, we need
-  # visual confirmation and cannot use e.g. Dogtail, which still would
-  # "see" the window through the accessibility bus.
-  @screen.wait('RootConsole.png', 10)
-end
