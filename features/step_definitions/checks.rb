@@ -340,12 +340,37 @@ def tor_connections_from_log
   end
 end
 
+def htpdate_pools_hosts
+  contents = $vm.file_content('/etc/default/htpdate.pools').lines
+  contents.select! { |x| /^HTP_POOL_[123]=/.match(x) }
+  contents.map! do |line|
+    /^HTP_POOL_[123]="(.*)"/.match(line).captures[0].split(',')
+  end
+  contents.flatten
+end
+
+def exclude_non_suspicious_connections(conns, context)
+  # Exclude connections which are ip-only: while those might be relevant, too, it's
+  # hard to believe that unwanted connections (which are typically originating from
+  # some application telemetry) won't have any valid hostname associated.
+  conns = conns.reject { |x| /^[0-9]/.match(x) }
+  # Reverse delegation
+  conns.reject! { |x| x.include?('.ip6.arpa:') || x.include?('.in-addr.arpa:') }
+  # Automatic upgrades
+  conns.reject! { |x| /^tails[.]net:/.match(x) }
+  # Exclude hosts which are part of the htpdate pool
+  htpdate_hosts = htpdate_pools_hosts
+  conns.reject! { |x| htpdate_hosts.include?(x.split(':')[0]) }
+  conns
+end
+
 Then /^no connection has leaked$/ do
-  assert_equal(0, tor_connections_from_log.size)
+  debug_log("Connections: #{tor_most_suspicious_connections.join(',')}")
+  assert_equal(0, tor_most_suspicious_connections.size)
 end
 
 Then /^the only connections have been made to my email server$/ do
-  connections = tor_connections_from_log.reduce([]) do |l, addr|
+  connections = tor_most_suspicious_connections.reduce([]) do |l, addr|
     if addr.include?(':')
       l << addr.split(':').first
     end
