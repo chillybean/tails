@@ -3,16 +3,12 @@
 """
 This will only be called when test suite is running.
 
-It will send structured logs to journald with informations about stream events which
+It will send structured logs to journald with information about stream events which
 are relevant for test suite.
 
-The presence of this script is not a security problem, because:
-
- 1. It is only enabled by default in test suite, see ConditionKernelCommandLine=
-
- 2. It requires root privileges anyway
-
- 3. 
+The presence of this script is not a security problem, because it is only enabled by
+default in test suite, see ConditionKernelCommandLine= in the corresponding systemd
+unit.
 """
 
 import logging
