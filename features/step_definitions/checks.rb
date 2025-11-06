@@ -361,16 +361,30 @@ def exclude_non_suspicious_connections(conns, context)
   # Exclude hosts which are part of the htpdate pool
   htpdate_hosts = htpdate_pools_hosts
   conns.reject! { |x| htpdate_hosts.include?(x.split(':')[0]) }
+  if context == :thunderbird
+    expected = [
+      # Used to get addon lists
+      'services.addons.thunderbird.net',
+      # Used in many apparently innocuous area of the code
+      'live.thunderbird.net',
+      # Fake, used to disable various Thunderbird endpoints
+      'thereisnosuchserver.tails.net',
+    ]
+    conns.reject! { |addr| expected.include?(addr.split(':').first) }
+  end
   conns
 end
 
-Then /^no connection has leaked$/ do
-  debug_log("Connections: #{tor_most_suspicious_connections.join(',')}")
-  assert_equal(0, tor_most_suspicious_connections.size)
+Then /^no unexpected connection has leaked$/ do
+  connections = exclude_non_suspicious_connections(tor_connections_from_log,
+                                                   :thunderbird)
+  assert_equal(0, "Unexpected onnections: #{connections.join(',')}")
 end
 
 Then /^the only connections have been made to my email server$/ do
-  connections = tor_most_suspicious_connections.reduce([]) do |l, addr|
+  connections = exclude_non_suspicious_connections(tor_connections_from_log,
+                                                   :thunderbird)
+  connections = connections.reduce([]) do |l, addr|
     if addr.include?(':')
       l << addr.split(':').first
     end
