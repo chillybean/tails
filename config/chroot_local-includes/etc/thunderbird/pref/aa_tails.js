@@ -44,6 +44,19 @@ pref("mailnews.auto_config.guess.sslOnly", true);
 pref("mailnews.auto_config.fetchFromExchange.enabled", false);
 pref("mailnews.auto_config.mx.enabled", false);
 
+// Disable retrieving settings from a remote server
+pref("services.settings.server", "https://thereisnosuchserver.tails.net/");
+
+// Disable Normandy, a service that allows Mozilla to instruct clients to perform a variety of actions to aid
+// the user and gather feedback
+pref("app.normandy.enabled", false);
+
+// Disable fetching the start_page from thunderbird server
+pref("mailnews.start_page.url", "https://thereisnosuchserver.tails.net/");
+
+// Disable geoip services
+pref("browser.region.network.url", "https://thereisnosuchserver.tails.net/");
+
 // The timeout (in seconds) for each guess
 pref("mailnews.auto_config.guess.timeout", 30);
 
@@ -247,6 +260,8 @@ pref("datareporting.healthreport.service.enabled", false);
 pref("datareporting.healthreport.uploadEnabled", false);
 pref("datareporting.policy.dataSubmissionEnabled", false);
 pref("datareporting.healthreport.about.reportUrl", "data:text/plain,");
+pref('datareporting.healthreport.documentServerURI', "https://thereisnosuchserver.tails.net/");
+pref('datareporting.healthreport.logging.consoleEnabled', false);
 
 // https://bugs.torproject.org/16254
 pref("browser.search.countryCode", "US");
