@@ -382,28 +382,24 @@ Then /^no unexpected connection has leaked$/ do
 end
 
 Then /^the only connections have been made to my email server$/ do
-  connections = exclude_non_suspicious_connections(tor_connections_from_log,
+  all_connections = tor_connections_from_log
+  assert_false(all_connections.empty?,
+               'No connections have been logged; ' \
+               'this suggests a problem in tor-circuits-log')
+  connections = exclude_non_suspicious_connections(all_connections,
                                                    :thunderbird)
   connections = connections.reduce([]) do |l, addr|
     if addr.include?(':')
       l << addr.split(':').first
     end
   end
-  assert_false(connections.empty?,
-               'No connections have been logged; ' \
-               'this suggests a problem in tor-circuits-log')
 
-  explicit_servers = $config['Thunderbird']['servers'] || []
-  allowed_servers = if explicit_servers.empty?
-                      [$config['Thunderbird']['address'].split('@').last]
-                    else
-                      explicit_servers
-                    end
+  allowed_servers = $config['Thunderbird']['servers'] || []
+  email_domain = $config['Thunderbird']['address'].split('@').last
 
-  unwanted_connections = []
-  connections.uniq.each do |server|
-    unless allowed_servers.include?(server)
-      unwanted_connections << server
+  unwanted_connections = connections.uniq.each_with_object([]) do |server, l|
+    unless allowed_servers.include?(server) || server.end_with?(".#{email_domain}")
+      l << server
     end
   end
   assert(unwanted_connections.empty?,
