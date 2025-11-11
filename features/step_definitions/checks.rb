@@ -388,7 +388,7 @@ Then /^the only connections have been made to my email server$/ do
                'this suggests a problem in tor-circuits-log')
   connections = exclude_non_suspicious_connections(all_connections,
                                                    :thunderbird)
-  connections = connections.reduce([]) do |l, addr|
+  connections = connections.each_with_object([]) do |addr, l|
     if addr.include?(':')
       l << addr.split(':').first
     end
