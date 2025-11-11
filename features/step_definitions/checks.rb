@@ -341,12 +341,11 @@ def tor_connections_from_log
 end
 
 def htpdate_pools_hosts
-  contents = $vm.file_content('/etc/default/htpdate.pools').lines
-  contents.select! { |x| /^HTP_POOL_[123]=/.match(x) }
-  contents.map! do |line|
-    /^HTP_POOL_[123]="(.*)"/.match(line).captures[0].split(',')
-  end
-  contents.flatten
+  $vm.file_content('/etc/default/htpdate.pools')
+     .lines
+     .select { |x| /^HTP_POOL_[123]=/.match(x) }
+     .map { |line| /^HTP_POOL_[123]="(.*)"/.match(line).captures[0].split(',') }
+     .flatten
 end
 
 def exclude_non_suspicious_connections(conns, context)
