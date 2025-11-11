@@ -377,7 +377,7 @@ end
 Then /^no unexpected connection has leaked$/ do
   connections = exclude_non_suspicious_connections(tor_connections_from_log,
                                                    :thunderbird)
-  assert_equal(0, "Unexpected onnections: #{connections.join(',')}")
+  assert_equal(0, connections.size, "Unexpected connections: #{connections.join(',')}")
 end
 
 Then /^the only connections have been made to my email server$/ do
