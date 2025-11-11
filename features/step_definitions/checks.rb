@@ -330,7 +330,8 @@ end
 def tor_connections_from_log
   $vm.execute(
     'journalctl -u tails-autotest-tor-circuits-log.service ' \
-    '--no-pager --output=json --grep="Stream event for "'
+    '--no-pager --output=json --grep="Stream event for "',
+    debug_log: false
   ).stdout.lines.reduce([]) do |messages, line|
     message = JSON.parse(line)
     messages << message['TOR_TARGET']
