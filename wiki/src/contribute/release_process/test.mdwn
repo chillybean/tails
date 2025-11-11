@@ -115,6 +115,47 @@ Else, if it failed:
 1. report failures to the QA pad
 2. optionally: triage the failure (otherwise the RM will do that)
 
+Image description file
+======================
+
+Only perform this test for a final, stable release.
+
+1. Set environment variables:
+
+   * `ARTIFACTS`: the directory where the images you are testing live
+   * `VERSION`: the version you're trying to reproduce
+
+2. `cd` into a Tails Git clone
+
+3. Check that the hashes and sizes in the image description file
+   match what you are testing:
+
+           (
+           set -eu
+           TAG="$(echo $VERSION | tr '~' '-')"
+           WEBSITE_RELEASE_BRANCH="web/release-$TAG"
+           IDF=wiki/src/install/v2/Tails/amd64/stable/latest.json
+           git fetch origin "$WEBSITE_RELEASE_BRANCH"
+           git show "origin/${WEBSITE_RELEASE_BRANCH}:${IDF}" > latest.json
+           for ext in iso img ; do
+              locally_built_file=$(readlink -f "${ARTIFACTS:?}/tails-amd64-${VERSION:?}.$ext")
+              idf_size=$(cat latest.json | jq ".installations[0].\"installation-paths\" | map(select(.type == \"$ext\"))[0].\"target-files\"[0].size")
+              locally_built_size=$(stat --format='%s' "$locally_built_file")
+              if [ "$idf_size" = "$locally_built_size" ]; then
+                 echo "OK: $ext size matches"
+              else
+                 echo "FAIL: $ext size does not match"
+              fi
+              idf_sha256=$(cat latest.json | jq --raw-output ".installations[0].\"installation-paths\" | map(select(.type == \"$ext\"))[0].\"target-files\"[0].sha256")
+              locally_built_sha256=$(sha256sum "$locally_built_file" | cut -f 1 -d ' ' | tr -d '\n')
+              if [ "$idf_sha256" = "$locally_built_sha256" ]; then
+                 echo "OK: $ext sha256 matches"
+              else
+                 echo "FAIL: $ext sha256 does not match"
+              fi
+           done
+           )
+
 Tor Browser
 ===========
 
