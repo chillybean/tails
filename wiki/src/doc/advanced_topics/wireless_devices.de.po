@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-09-17 11:40+0200\n"
+"POT-Creation-Date: 2025-11-12 12:16+0100\n"
 "PO-Revision-Date: 2024-10-21 08:09+0000\n"
 "Last-Translator: Benjamin Held <Benjamin.Held@protonmail.com>\n"
 "Language-Team: \n"
@@ -74,10 +74,18 @@ msgstr ""
 "first_steps/welcome_screen/administration_password]]."
 
 #. type: Bullet: '1. '
-msgid ""
-"Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Root Console** to open a console "
-"with administration rights."
+msgid "Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Console**."
 msgstr ""
+
+#. type: Bullet: '1. '
+msgid "Execute the following command to open a root console."
+msgstr ""
+
+#. type: Plain text
+#, fuzzy, no-wrap
+#| msgid "   <p class=\"command\">rfkill list</p>\n"
+msgid "   <p class=\"command\">sudo -i</p>\n"
+msgstr "   <p class=\"command\">rfkill list</p>\n"
 
 #. type: Bullet: '1. '
 #, fuzzy
@@ -96,8 +104,9 @@ msgstr ""
 "Befehl aus:"
 
 #. type: Plain text
-#, no-wrap
-msgid "   <p class=\"command\">rfkill list</p>\n"
+#, fuzzy, no-wrap
+#| msgid "   <p class=\"command\">rfkill list</p>\n"
+msgid "   <p class=\"command-root\">rfkill list</p>\n"
 msgstr "   <p class=\"command\">rfkill list</p>\n"
 
 #. type: Plain text
@@ -156,8 +165,9 @@ msgstr ""
 "placeholder\">index</span> durch den im Schritt 2 gefundenen Index:"
 
 #. type: Plain text
-#, no-wrap
-msgid "   <p class=\"command-template\">rfkill unblock <span class=\"command-placeholder\">index</span></p>\n"
+#, fuzzy, no-wrap
+#| msgid "   <p class=\"command-template\">rfkill unblock <span class=\"command-placeholder\">index</span></p>\n"
+msgid "   <p class=\"command-root-template\">rfkill unblock <span class=\"command-placeholder\">index</span></p>\n"
 msgstr "   <p class=\"command-template\">rfkill unblock <span class=\"command-placeholder\">Index</span></p>\n"
 
 #. type: Plain text
@@ -170,8 +180,9 @@ msgstr ""
 "   anders:\n"
 
 #. type: Plain text
-#, no-wrap
-msgid "   <p class=\"command-template\">rfkill unblock 2</p>\n"
+#, fuzzy, no-wrap
+#| msgid "   <p class=\"command-template\">rfkill unblock 2</p>\n"
+msgid "   <p class=\"command-root-template\">rfkill unblock 2</p>\n"
 msgstr "   <p class=\"command-template\">rfkill unblock 2</p>\n"
 
 #. type: Bullet: '1. '
