@@ -907,8 +907,7 @@ Jenkins workers.
    other builds from the _Build Queue_ if needed so it can start
    immediately.
 
-   Set the `MATCHING_JENKINS_IMAGES_BUILD_ID` environment variable to the ID of
-   this build.
+   Take note of the ID of this build.
 
    Note that Jenkins automatically started a build earlier when you
    pushed the tag, but since the versioned APT suite wasn't finished
@@ -920,7 +919,10 @@ Jenkins workers.
    \~2-3 minutes). Jenkins will take
    20-30 minutes to complete the build.
 
-1. This could be a good time for break!
+1. This could be a good time for break until both builds complete!
+
+1. Set the `MATCHING_JENKINS_IMAGES_BUILD_ID` environment variable to the ID of
+   the Jenkins build.
 
 1. Compare the new build manifest with the one from the previous,
    almost-final build:
