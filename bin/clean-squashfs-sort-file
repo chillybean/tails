@@ -21,6 +21,8 @@ perl -ni \
            | \A(?:usr/lib/live/mount/overlay/rw/)?etc/(?:group|gshadow|passwd|shadow)-\s
            | \A(?:usr/lib/live/mount/overlay/rw/)?etc/resolv-over-clearnet[.]conf\s
            | \A(?:usr/lib/live/mount/overlay/rw/)?etc/skel/[.]config/autostart/end-profile[.]desktop\s
+           | \A(?:usr/lib/live/mount/overlay/rw/)?var/log/journal/.*/system.journal\s
+           | \A(?:usr/)lib/firmware/
            | \A(?:usr/)lib/modules/.*/kernel/drivers/(?:cpufreq|net|thermal)/
            | \A(?:usr/)lib/modules/.*/kernel/net/
            | \Ausr/lib/live/mount/overlay/work/work/
@@ -29,9 +31,9 @@ perl -ni \
            | \Arun/
            | \Avar/lib/AccountsService/users/Debian-gdm\s
            | \Avar/lib/flatpak-tails/app/org.boum.tails.TorBrowser/x86_64/stable/
+           | \Avar/lib/flatpak-tails/runtime/org.boum.tails.Platform/x86_64/stable/
            | \Avar/lib/gdm3/[#]\d+\s
            | \Avar/log/live/config[.]pipe\s
            | \Avar/log/htpdate.log\s
-           | \Avar/log/journal/.*/system.journal\s
          )}xms' \
     "$1"
