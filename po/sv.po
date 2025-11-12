@@ -22,13 +22,14 @@
 # 0848eda738c5b7991c82fe32ea145d37_6f8c5b1, 2014
 # WinterFairy <winterfairy@riseup.net>, 2013-2014
 # Nick Wick <NickWick@users.noreply.hosted.weblate.org>, 2025.
+# Mona Lisa <nickwick@users.noreply.hosted.weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-13 10:37+0200\n"
-"PO-Revision-Date: 2025-10-11 11:08+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"POT-Creation-Date: 2025-11-12 11:13+0100\n"
+"PO-Revision-Date: 2025-11-05 08:51+0000\n"
+"Last-Translator: Mona Lisa <nickwick@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/tor/tails-gui/sv/"
 ">\n"
 "Language: sv\n"
@@ -36,7 +37,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 5.14.1-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -1699,9 +1700,8 @@ msgid "Set up a password to unlock the screen."
 msgstr "Ställ in ett lösenord för att låsa upp skärmen."
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:147
-#, fuzzy
 msgid "Show Password"
-msgstr "Lösenord"
+msgstr "Visa lösenord"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:151
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2281
@@ -2695,31 +2695,23 @@ msgstr ""
 "Det är omöjligt att ansluta till Tor i frånkopplat läge.\n"
 "För att ansluta till Tor och Internet, starta om Tails utan frånkopplat läge."
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:68
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:65
 msgid ""
 "Authentication is required to run the Synaptic Package Manager. Enter the "
 "administration password that you set up in the Welcome Screen."
 msgstr ""
+"Autentisering krävs för att köra Synaptic Package Manager. Ange "
+"administratörslösenordet som du ställde in på välkomstskärmen."
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:72
-msgid ""
-"Authentication is required to start a Root Console. Enter the administration "
-"password that you set up in the Welcome Screen."
-msgstr ""
-
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:79
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:71
 msgid ""
 "For better security, no administration password is set up in Tails by "
 "default. To run the Synaptic Package Manager, restart Tails and set up an "
 "administration password in the Welcome Screen."
 msgstr ""
-
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:85
-msgid ""
-"For better security, no administration password is set up in Tails by "
-"default. To start a Root Console, restart Tails and set up an administration "
-"password in the Welcome Screen."
-msgstr ""
+"För bättre säkerhet, inget administratörslösenord är konfigurerat i Tails "
+"som standard. För att köra Synaptic Package Manager, starta om Tails och "
+"konfigurera ett administratörslösenord på välkomstskärmen."
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:2
 msgid ""
@@ -2732,18 +2724,6 @@ msgstr ""
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:3
 msgid "configuration;saved"
 msgstr "konfiguration;sparad"
-
-#: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:1
-msgid "Root Console"
-msgstr "Root-konsol"
-
-#: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:2
-msgid "Opens a console as the root user"
-msgstr "Öppnar en konsol som root-användare"
-
-#: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:3
-msgid "admin"
-msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:1
 msgid "Tails Documentation"
@@ -2930,7 +2910,6 @@ msgstr ""
 "säkerhet."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:514
-#, fuzzy
 msgid ""
 "The Unsafe Browser allows you to sign in to a network using a captive "
 "portal.\n"
@@ -2950,11 +2929,7 @@ msgstr ""
 "anger information som en e-postadress.\n"
 "\n"
 "Den osäkra webbläsaren är inte anonym och kan avanonymisera dig. Använd den "
-"endast för att logga in på nätverk.\n"
-"\n"
-"Den osäkra webbläsaren är aktiverad som standard igen sedan Tails 5.8 "
-"(december 2022), efter att vi åtgärdat säkerhetsbristerna som fick oss att "
-"inaktivera den som standard i Tails 4.8 (juni 2020)."
+"endast för att logga in på nätverk."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:560
 msgid "Enable the Unsafe Browser (default)"
@@ -3890,14 +3865,13 @@ msgid "Connect to a local network"
 msgstr "Anslut till ett lokalt nätverk"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1725
-#, fuzzy
 msgid ""
 "You are not connected to a local network yet. To be able to connect to the "
 "Tor network, you first need to connect to a Wi-Fi, wired, or mobile network."
 msgstr ""
 "Du är inte ansluten till ett lokalt nätverk ännu. För att kunna ansluta till "
-"Tor-nätverket måste du först ansluta till ett Wi-Fi-, trådbundet- eller "
-"mobilnätverk."
+"Tor-nätverket måste du först ansluta till ett Wi-Fi-, trådbundet eller "
+"mobilt nätverk."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1739
 msgid "Open Wi-Fi Settings"
@@ -4060,6 +4034,31 @@ msgstr "December"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "Klocka"
+
+#~ msgid ""
+#~ "Authentication is required to start a Root Console. Enter the "
+#~ "administration password that you set up in the Welcome Screen."
+#~ msgstr ""
+#~ "Autentisering krävs för att starta en rotkonsol. Ange "
+#~ "administratörslösenordet som du ställde in på välkomstskärmen."
+
+#~ msgid ""
+#~ "For better security, no administration password is set up in Tails by "
+#~ "default. To start a Root Console, restart Tails and set up an "
+#~ "administration password in the Welcome Screen."
+#~ msgstr ""
+#~ "För bättre säkerhet, inget administratörslösenord är konfigurerat i Tails "
+#~ "som standard. För att starta en rotkonsol, starta om Tails och "
+#~ "konfigurera ett administratörslösenord på välkomstskärmen."
+
+#~ msgid "Root Console"
+#~ msgstr "Root-konsol"
+
+#~ msgid "Opens a console as the root user"
+#~ msgstr "Öppnar en konsol som root-användare"
+
+#~ msgid "admin"
+#~ msgstr "administratör"
 
 #~ msgid "To start a Root Console, you need to authenticate."
 #~ msgstr "För att starta en root-konsol behöver du autentisera."

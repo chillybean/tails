@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tails\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-09-17 11:40+0200\n"
+"POT-Creation-Date: 2025-11-12 12:16+0100\n"
 "PO-Revision-Date: 2025-09-21 10:19+0000\n"
 "Last-Translator: Chre <tor@renaudineau.org>\n"
 "Language-Team: Tails translators <tails@boum.org>\n"
@@ -164,9 +164,7 @@ msgstr "   </div>\n"
 #. type: Plain text
 #, no-wrap
 msgid "<h1 id=\"updating\">Updating your backup Tails using the <i>Back Up Persistent Storage</i> utility</h1>\n"
-msgstr ""
-"<h1 id=\"updating\">Mettre à jour votre Tails de sauvegarde avec "
-"l'utilitaire <i>Sauvegarde du stockage persistant</i></h1>\n"
+msgstr "<h1 id=\"updating\">Mettre à jour votre Tails de sauvegarde avec l'utilitaire <i>Sauvegarde du stockage persistant</i></h1>\n"
 
 #. type: Bullet: '1. '
 msgid "Start on your current Tails."
@@ -211,15 +209,13 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "<h1 id=\"console\">Updating your backup Tails from a <i>Console</i></h1>\n"
-msgstr ""
-"<h1 id=\"console\">Mettre à jour votre Tails de sauvegarde depuis une "
-"<i>Console</i></h1>\n"
+msgstr "<h1 id=\"console\">Mettre à jour votre Tails de sauvegarde depuis une <i>Console</i></h1>\n"
 
 #. type: Plain text
 msgid "If you prefer updating your backup Tails from a *Console*:"
 msgstr ""
-"Si vous préférez mettre à jour votre Tails de sauvegarde depuis une *Console*"
-" :"
+"Si vous préférez mettre à jour votre Tails de sauvegarde depuis une "
+"*Console* :"
 
 #. type: Bullet: '1. '
 msgid ""
@@ -248,12 +244,15 @@ msgstr ""
 "   phrase de passe de votre Tails de sauvegarde pour déverrouiller le volume.\n"
 
 #. type: Bullet: '1. '
-msgid "Execute the following command in a *Root Console*."
+#, fuzzy
+#| msgid "Execute the following command in a *Root Console*."
+msgid "Execute the following command in a *Console*."
 msgstr "Exécuter la commande suivante dans une *Console d'administration*."
 
 #. type: Plain text
-#, no-wrap
-msgid "       rsync -PaSHAXv --del /live/persistence/TailsData_unlocked/ /media/amnesia/TailsData\n"
+#, fuzzy, no-wrap
+#| msgid "       rsync -PaSHAXv --del /live/persistence/TailsData_unlocked/ /media/amnesia/TailsData\n"
+msgid "   <p class=\"command\">sudo rsync -PaSHAXv --del /live/persistence/TailsData_unlocked/ /media/amnesia/TailsData</p>\n"
 msgstr "       rsync -PaSHAXv --del /live/persistence/TailsData_unlocked/ /media/amnesia/TailsData\n"
 
 #. type: Plain text

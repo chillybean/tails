@@ -22,8 +22,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-13 10:37+0200\n"
-"PO-Revision-Date: 2025-09-18 20:02+0000\n"
+"POT-Creation-Date: 2025-11-12 11:13+0100\n"
+"PO-Revision-Date: 2025-10-13 20:07+0000\n"
 "Last-Translator: 109247019824 "
 "<109247019824@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/tor/tails-gui/"
@@ -215,8 +215,8 @@ msgid ""
 "href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
 "Допълнителен софтуер се инсталира с помощта на <a "
-"href=\"synaptic.desktop\">приложението за пакети Synaptic</a> или <a "
-"href=\"org.gnome.Terminal.desktop\">чрез APT в команден ред</a>."
+"href=\"synaptic.desktop\">приложението за управление на пакети Synaptic</a> "
+"или <a href=\"org.gnome.Terminal.desktop\">чрез APT в команден ред</a>."
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:154
 msgid "_Create persistent storage"
@@ -2696,31 +2696,23 @@ msgstr ""
 "За да се свържете с Tor и интернет, рестартирайте Tails без да включвате "
 "режим без мрежа."
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:68
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:65
 msgid ""
 "Authentication is required to run the Synaptic Package Manager. Enter the "
 "administration password that you set up in the Welcome Screen."
 msgstr ""
+"За да отворите управлението на пакети на Synaptic трябва да се удостоверите. "
+"Въведете паролата на суперпотребителя, която сте задали в началния екран."
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:72
-msgid ""
-"Authentication is required to start a Root Console. Enter the administration "
-"password that you set up in the Welcome Screen."
-msgstr ""
-
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:79
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:71
 msgid ""
 "For better security, no administration password is set up in Tails by "
 "default. To run the Synaptic Package Manager, restart Tails and set up an "
 "administration password in the Welcome Screen."
 msgstr ""
-
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:85
-msgid ""
-"For better security, no administration password is set up in Tails by "
-"default. To start a Root Console, restart Tails and set up an administration "
-"password in the Welcome Screen."
-msgstr ""
+"С оглед на сигурността по подразбиране Tails няма парола за "
+"суперпотребителя. За да отворите управлението на пакети на Synaptic "
+"рестартирайте Tails и задайте парола на суперпотребителя в началния екран."
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:2
 msgid ""
@@ -2733,18 +2725,6 @@ msgstr ""
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:3
 msgid "configuration;saved"
 msgstr "настройка;запазена"
-
-#: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:1
-msgid "Root Console"
-msgstr "Конзола на суперпотребителя"
-
-#: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:2
-msgid "Opens a console as the root user"
-msgstr "Отваря конзола като суперпотребителя"
-
-#: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:3
-msgid "admin"
-msgstr "admin"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:1
 msgid "Tails Documentation"
@@ -3891,7 +3871,6 @@ msgid "Connect to a local network"
 msgstr "Свързване към местната мрежа"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1725
-#, fuzzy
 msgid ""
 "You are not connected to a local network yet. To be able to connect to the "
 "Tor network, you first need to connect to a Wi-Fi, wired, or mobile network."
@@ -4060,6 +4039,31 @@ msgstr "Декември"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "Часовник"
+
+#~ msgid ""
+#~ "Authentication is required to start a Root Console. Enter the "
+#~ "administration password that you set up in the Welcome Screen."
+#~ msgstr ""
+#~ "За да отворите конзолата на суперпотребителя трябва да се удостоверите. "
+#~ "Въведете паролата на администратора, която сте задали в началния екран."
+
+#~ msgid ""
+#~ "For better security, no administration password is set up in Tails by "
+#~ "default. To start a Root Console, restart Tails and set up an "
+#~ "administration password in the Welcome Screen."
+#~ msgstr ""
+#~ "С оглед на сигурността по подразбиране Tails няма парола за "
+#~ "суперпотребителя. За да отворите конзолата на суперпотребителя "
+#~ "рестартирайте Tails и задайте парола на суперпотребителя в началния екран."
+
+#~ msgid "Root Console"
+#~ msgstr "Конзола на суперпотребителя"
+
+#~ msgid "Opens a console as the root user"
+#~ msgstr "Отваря конзола като суперпотребителя"
+
+#~ msgid "admin"
+#~ msgstr "admin"
 
 #~ msgid "To start a Root Console, you need to authenticate."
 #~ msgstr ""

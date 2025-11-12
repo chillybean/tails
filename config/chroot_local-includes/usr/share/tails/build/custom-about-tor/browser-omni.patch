@@ -1,17 +1,17 @@
 diff -Naur browser-omni.orig/actors/AboutTorParent.sys.mjs browser-omni/actors/AboutTorParent.sys.mjs
---- browser-omni.orig/actors/AboutTorParent.sys.mjs	2000-01-01 00:00:00.000000000 +0000
-+++ browser-omni/actors/AboutTorParent.sys.mjs	2025-10-09 09:19:42.584000000 +0000
-@@ -49,6 +49,7 @@
-           ),
-           appLocale,
-           dismissYEC: AboutTorParent.#dismissYEC,
-+          isTails: Services.prefs.getBoolPref("torbrowser.running_in_tails", false),
-         });
-       }
-       case "AboutTor:SetSearchOnionize":
+--- browser-omni.orig/actors/AboutTorParent.sys.mjs	2025-11-10 10:30:00.000000000 +0100
++++ browser-omni/actors/AboutTorParent.sys.mjs	2025-11-11 15:27:50.937672061 +0100
+@@ -69,6 +69,7 @@
+       ),
+       appLocale,
+       dismissYEC: AboutTorParent.#dismissYEC,
++      isTails: Services.prefs.getBoolPref("torbrowser.running_in_tails", false),
+     };
+   }
+ 
 diff -Naur browser-omni.orig/chrome/browser/content/browser/abouttor/aboutTor.css browser-omni/chrome/browser/content/browser/abouttor/aboutTor.css
---- browser-omni.orig/chrome/browser/content/browser/abouttor/aboutTor.css	2000-01-01 00:00:00.000000000 +0000
-+++ browser-omni/chrome/browser/content/browser/abouttor/aboutTor.css	2025-10-09 09:18:37.916000000 +0000
+--- browser-omni.orig/chrome/browser/content/browser/abouttor/aboutTor.css	2025-11-10 10:30:00.000000000 +0100
++++ browser-omni/chrome/browser/content/browser/abouttor/aboutTor.css	2025-11-11 15:26:23.108478823 +0100
 @@ -13,7 +13,9 @@
      "tor-check tor-check tor-check" auto
      ". form ." min-content
@@ -22,7 +22,7 @@ diff -Naur browser-omni.orig/chrome/browser/content/browser/abouttor/aboutTor.cs
      /* End space: unfilled.
       * Reserve 150px for background image.
       * NOTE: Since the body has "auto" height, the other "1fr" flex row will
-@@ -531,3 +534,36 @@
+@@ -532,3 +534,36 @@
      --in-content-button-background-active: var(--yec-button-background-active);
    }
  }
@@ -60,9 +60,9 @@ diff -Naur browser-omni.orig/chrome/browser/content/browser/abouttor/aboutTor.cs
 +  margin-block: 0 1.6em;
 +}
 diff -Naur browser-omni.orig/chrome/browser/content/browser/abouttor/aboutTor.html browser-omni/chrome/browser/content/browser/abouttor/aboutTor.html
---- browser-omni.orig/chrome/browser/content/browser/abouttor/aboutTor.html	2000-01-01 00:00:00.000000000 +0000
-+++ browser-omni/chrome/browser/content/browser/abouttor/aboutTor.html	2025-10-09 09:18:37.924000000 +0000
-@@ -169,6 +170,46 @@
+--- browser-omni.orig/chrome/browser/content/browser/abouttor/aboutTor.html	2025-11-10 10:30:00.000000000 +0100
++++ browser-omni/chrome/browser/content/browser/abouttor/aboutTor.html	2025-11-11 15:26:23.108639320 +0100
+@@ -170,6 +170,46 @@
          ></a>
        </span>
      </p>
@@ -76,7 +76,7 @@ diff -Naur browser-omni.orig/chrome/browser/content/browser/abouttor/aboutTor.ht
 +        <span data-l10n-id="tails-release-notes">
 +          <a
 +            data-l10n-name="tails-release-notes-link"
-+            href="https://tails.net/news/version_7.1"
++            href="https://tails.net/news/version_7.2"
 +            target="_blank"
 +          ></a>
 +        </span>
@@ -109,7 +109,7 @@ diff -Naur browser-omni.orig/chrome/browser/content/browser/abouttor/aboutTor.ht
      <!-- Survey element, initially used for tor-browser#43504. -->
      <article id="survey" class="tor-home-box" aria-labelledby="survey-heading">
        <img
-@@ -190,5 +231,12 @@
+@@ -191,5 +231,12 @@
          iconSrc="chrome://global/skin/icons/close.svg"
        ></moz-button>
      </article>
@@ -123,8 +123,8 @@ diff -Naur browser-omni.orig/chrome/browser/content/browser/abouttor/aboutTor.ht
    </body>
  </html>
 diff -Naur browser-omni.orig/chrome/browser/content/browser/abouttor/aboutTor.js browser-omni/chrome/browser/content/browser/abouttor/aboutTor.js
---- browser-omni.orig/chrome/browser/content/browser/abouttor/aboutTor.js	2000-01-01 00:00:00.000000000 +0000
-+++ browser-omni/chrome/browser/content/browser/abouttor/aboutTor.js	2025-10-09 09:18:37.932000000 +0000
+--- browser-omni.orig/chrome/browser/content/browser/abouttor/aboutTor.js	2025-11-10 10:30:00.000000000 +0100
++++ browser-omni/chrome/browser/content/browser/abouttor/aboutTor.js	2025-11-11 15:26:23.108792881 +0100
 @@ -85,6 +85,7 @@
    _initialized: false,
    _messageData: null,
@@ -159,7 +159,7 @@ diff -Naur browser-omni.orig/chrome/browser/content/browser/abouttor/aboutTor.js
  
      const { updateVersion, updateURL, number } = this._messageData;
  
-@@ -577,9 +583,15 @@
+@@ -602,9 +607,15 @@
      surveyDismissVersion,
      appLocale,
      dismissYEC,
