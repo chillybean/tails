@@ -21,8 +21,8 @@ perl -ni \
            | \A(?:usr/lib/live/mount/overlay/rw/)?etc/(?:group|gshadow|passwd|shadow)-\s
            | \A(?:usr/lib/live/mount/overlay/rw/)?etc/resolv-over-clearnet[.]conf\s
            | \A(?:usr/lib/live/mount/overlay/rw/)?etc/skel/[.]config/autostart/end-profile[.]desktop\s
-           | \Alib/modules/.*/kernel/drivers/(?:cpufreq|net|thermal)/
-           | \Alib/modules/.*/kernel/net/
+           | \A(?:usr/)lib/modules/.*/kernel/drivers/(?:cpufreq|net|thermal)/
+           | \A(?:usr/)lib/modules/.*/kernel/net/
            | \Ausr/lib/live/mount/overlay/work/work/
            | \Ausr/lib/live/mount/rootfs/filesystem.squashfs/etc/os-release\s
            | \Ausr/share/pulseaudio/alsa-mixer/
