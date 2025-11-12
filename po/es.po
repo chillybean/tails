@@ -23,12 +23,13 @@
 # emma peel <emma.peel@riseup.net>, 2025.
 # thorin <thorin88@gmail.com>, 2025.
 # Héctor Ruz Yebra <hector.principal@tutanota.com>, 2025.
+# Weblate <noreply-mt-weblate@weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-13 10:37+0200\n"
-"PO-Revision-Date: 2025-09-14 19:02+0000\n"
+"POT-Creation-Date: 2025-11-12 11:13+0100\n"
+"PO-Revision-Date: 2025-11-08 17:51+0000\n"
 "Last-Translator: Francisco Serrador <fserrador@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/tor/tails-gui/es/"
 ">\n"
@@ -38,7 +39,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n != 0 && n % 1000000 == "
 "0) ? 1 : 2);\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -1606,7 +1607,7 @@ msgstr "Acerca de Tails"
 
 #: config/chroot_local-includes/usr/local/bin/tails-about:34
 msgid "Check for Upgrades"
-msgstr "Comprobar para Modernizaciones"
+msgstr "Buscar actualización"
 
 #: config/chroot_local-includes/usr/local/bin/tails-about:57
 msgid "UNRELEASED"
@@ -1724,9 +1725,8 @@ msgid "Set up a password to unlock the screen."
 msgstr "Establece una contraseña para desbloquear la pantalla."
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:147
-#, fuzzy
 msgid "Show Password"
-msgstr "Contraseña"
+msgstr "Mostrar contraseña"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:151
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2281
@@ -2734,31 +2734,25 @@ msgstr ""
 "Es imposible conectarse a Tor en modo sin conexión.\n"
 "Para conectarse a Tor e Internet, reinicia Tails sin el modo sin conexión."
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:68
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:65
 msgid ""
 "Authentication is required to run the Synaptic Package Manager. Enter the "
 "administration password that you set up in the Welcome Screen."
 msgstr ""
+"Para ejecutar el Gestor de paquetes Synaptic, es necesario autenticarse. "
+"Introduzca la contraseña de administrador que configuró en la pantalla de "
+"bienvenida."
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:72
-msgid ""
-"Authentication is required to start a Root Console. Enter the administration "
-"password that you set up in the Welcome Screen."
-msgstr ""
-
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:79
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:71
 msgid ""
 "For better security, no administration password is set up in Tails by "
 "default. To run the Synaptic Package Manager, restart Tails and set up an "
 "administration password in the Welcome Screen."
 msgstr ""
-
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:85
-msgid ""
-"For better security, no administration password is set up in Tails by "
-"default. To start a Root Console, restart Tails and set up an administration "
-"password in the Welcome Screen."
-msgstr ""
+"Para mayor seguridad, Tails no tiene configurada una contraseña de "
+"administrador por defecto. Para ejecutar el Gestor de Paquetes Synaptic, "
+"reinicia Tails y configura una contraseña de administrador en la pantalla de "
+"bienvenida."
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:2
 msgid ""
@@ -2769,24 +2763,8 @@ msgstr ""
 "las sesiones de trabajo"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:3
-#, fuzzy
 msgid "configuration;saved"
-msgstr "Configuración de las impresoras"
-
-#: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:1
-msgid "Root Console"
-msgstr "Consola Root"
-
-#: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:2
-#, fuzzy
-msgid "Opens a console as the root user"
-msgstr ""
-"Abre una terminal como root, y usa gksu para preguntar por la contraseña de "
-"root"
-
-#: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:3
-msgid "admin"
-msgstr "admin"
+msgstr "configuración;guardado"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:1
 msgid "Tails Documentation"
@@ -2824,18 +2802,16 @@ msgid "Install, clone, upgrade Tails"
 msgstr "Instalar, clonar, actualizar Tails"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-installer.desktop.in.h:3
-#, fuzzy
 msgid "install;clone;upgrade;manual"
-msgstr "Instalar, clonar, actualizar Tails"
+msgstr "instalar;clonar;modernizar;manual"
 
 #: ../config/chroot_local-includes/usr/share/applications/tca.desktop.in.h:2
 msgid "Connect Tails to the Tor network"
 msgstr "Conectar Tails a la red Tor"
 
 #: ../config/chroot_local-includes/usr/share/applications/tca.desktop.in.h:3
-#, fuzzy
 msgid "connect;tor;network"
-msgstr "Conectar a una red local"
+msgstr "conectar;tor;red"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:1
 msgid "Tor Browser"
@@ -2846,9 +2822,8 @@ msgid "Anonymous Web Browser"
 msgstr "Navegador web anónimo"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:3
-#, fuzzy
 msgid "web;tor;browser"
-msgstr "Navegador Tor"
+msgstr "web;tor;navegador"
 
 #: ../config/chroot_local-includes/usr/share/applications/unsafe-browser.desktop.in.h:2
 msgid "Browse the World Wide Web without anonymity"
@@ -2860,7 +2835,7 @@ msgstr "Navegador No Seguro"
 
 #: ../config/chroot_local-includes/usr/share/applications/unsafe-browser.desktop.in.h:4
 msgid "web;captive;portal"
-msgstr ""
+msgstr "web;cautivo;portal"
 
 #: ../config/chroot_local-includes/usr/share/applications/unlock-veracrypt-volumes.desktop.in.h:2
 msgid "Mount VeraCrypt encrypted file containers and devices"
@@ -2869,7 +2844,7 @@ msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/unlock-veracrypt-volumes.desktop.in.h:3
 msgid "mount;encrypted;container;truecryt"
-msgstr ""
+msgstr "montar;cifrado;contenedor;truecrypt"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop.in.h:2
 msgid ""
@@ -2880,9 +2855,8 @@ msgstr ""
 "persistente al iniciar Tails"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop.in.h:3
-#, fuzzy
 msgid "persistent;storage;package;install"
-msgstr "Borrar el Almacenamiento Persistente y reinstalar"
+msgstr "persistente;almacén;paquete;instalar"
 
 #: ../config/chroot_local-includes/usr/share/applications/whisperback.desktop.in.h:1
 msgid "WhisperBack Error Reporting"
@@ -2979,7 +2953,6 @@ msgstr ""
 "redes para aumentar la seguridad."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:514
-#, fuzzy
 msgid ""
 "The Unsafe Browser allows you to sign in to a network using a captive "
 "portal.\n"
@@ -3000,11 +2973,7 @@ msgstr ""
 "correo electrónico.\n"
 "\n"
 "El Navegador No Seguro no es anónimo y puede desanonimizarte. Úsalo solo "
-"para iniciar sesión en las redes.\n"
-"\n"
-"El Navegador No Seguro está activado de forma predeterminada otra vez desde "
-"Tails 5.8 (diciembre de 2022) después de corregir los fallos de seguridad "
-"que nos obligaron a desactivarlo por omisión en Tails 4.8 (junio de 2020)."
+"para iniciar sesión en las redes."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:560
 msgid "Enable the Unsafe Browser (default)"
@@ -3067,9 +3036,8 @@ msgid "Impossible to unlock the Persistent Storage."
 msgstr "Imposible desbloquear el Almacenamiento Persistente."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:563
-#, fuzzy
 msgid "Partitioning Errors"
-msgstr "Errores de particinado en el disco"
+msgstr "Errores de particionado del disco"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:599
 msgid ""
@@ -3630,7 +3598,6 @@ msgid "Configure a Tor bridge"
 msgstr "Configura un puente de Tor"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:106
-#, fuzzy
 msgid ""
 "Bridges are secret Tor relays. Use a bridge as your first Tor relay if "
 "accessing Tor is blocked from where you are.\n"
@@ -3639,7 +3606,9 @@ msgid ""
 msgstr ""
 "Los puentes son repetidores secretos de Tor. Utiliza un puente como tu "
 "primer repetidor Tor si el acceso a Tor está bloqueado desde donde te "
-"encuentras."
+"encuentras.\n"
+"\n"
+"Puedes utilizar puentes <i>obfs4</i> y <i>WebTunnel</i> en Tails.\n"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:126
 msgid "<a href=\"doc/anonymous_internet/tor\">Learn more about Tor bridges</a>"
@@ -3648,7 +3617,7 @@ msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:161
 msgid "Use a _default bridge"
-msgstr "Usa un puente p_redeterminado"
+msgstr "Usar un puente pre_determinado"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:184
 msgid "obfs4 (recommended)"
@@ -3931,7 +3900,6 @@ msgstr ""
 "                "
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1680
-#, fuzzy
 msgid ""
 "\n"
 "<a href=\"doc/anonymous_internet/no-wifi\">\n"
@@ -3939,21 +3907,23 @@ msgid ""
 "</a>\n"
 "                "
 msgstr ""
-"<a href=\"doc/anonymous_internet/tor\">Más información sobre cómo Tails se "
-"conecta a Tor</a>"
+"\n"
+"<a href=\"doc/anonymous_internet/no-wifi\">\n"
+"Aprenda más sobre como solucionar Wi-Fi que no funcione.\n"
+"</a>\n"
+"                           "
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1708
 msgid "Connect to a local network"
 msgstr "Conectar a una red local"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1725
-#, fuzzy
 msgid ""
 "You are not connected to a local network yet. To be able to connect to the "
 "Tor network, you first need to connect to a Wi-Fi, wired, or mobile network."
 msgstr ""
-"No estás conectado a una red local aún. Para conectarte a la red Tor, "
-"primero necesitas conectarte a una red Wi-Fi, cable o móvil."
+"Aún no estás conectado a una red local. Para ser capaz de conectarse a la "
+"red Tor, primero necesitas conectarte a una red Wi-Fi, cableada o móvil."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1739
 #, fuzzy
@@ -4117,6 +4087,32 @@ msgstr "Diciembre"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "Reloj"
+
+#~ msgid ""
+#~ "Authentication is required to start a Root Console. Enter the "
+#~ "administration password that you set up in the Welcome Screen."
+#~ msgstr ""
+#~ "Para iniciar la Consola Root, es necesario autenticarse. Introduce la "
+#~ "contraseña de administrador que configuraste en la pantalla de bienvenida."
+
+#~ msgid ""
+#~ "For better security, no administration password is set up in Tails by "
+#~ "default. To start a Root Console, restart Tails and set up an "
+#~ "administration password in the Welcome Screen."
+#~ msgstr ""
+#~ "Para mayor seguridad, Tails no tiene configurada una contraseña de "
+#~ "administrador por defecto. Para iniciar una consola de administrador, "
+#~ "reinicia Tails y configura una contraseña de administrador en la pantalla "
+#~ "de bienvenida."
+
+#~ msgid "Root Console"
+#~ msgstr "Consola Root"
+
+#~ msgid "Opens a console as the root user"
+#~ msgstr "Abre una consola como el usuario root"
+
+#~ msgid "admin"
+#~ msgstr "admin"
 
 #, fuzzy
 #~| msgid "To start a Root Terminal, you need to authenticate."

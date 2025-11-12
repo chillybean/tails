@@ -50,9 +50,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-13 10:37+0200\n"
-"PO-Revision-Date: 2025-10-09 10:07+0000\n"
-"Last-Translator: intrigeri <intrigeri@torproject.org>\n"
+"POT-Creation-Date: 2025-11-12 11:13+0100\n"
+"PO-Revision-Date: 2025-10-16 07:10+0000\n"
+"Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/tor/tails-gui/fr/"
 ">\n"
 "Language: fr\n"
@@ -2538,7 +2538,7 @@ msgstr "Échec de verrouillage du volume"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/unlock_veracrypt_volumes/volume_list.py:83
 msgid "No file containers added"
-msgstr "Aucun conteneur de fichiers n’a été ajouté"
+msgstr "Aucun fichier conteneur n’a été ajouté"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/unlock_veracrypt_volumes/volume_list.py:99
 msgid "No VeraCrypt devices detected"
@@ -2776,31 +2776,25 @@ msgstr ""
 "Pour vous connecter à Tor et à Internet, redémarrez Tails sans le mode hors "
 "ligne."
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:68
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:65
 msgid ""
 "Authentication is required to run the Synaptic Package Manager. Enter the "
 "administration password that you set up in the Welcome Screen."
 msgstr ""
+"Une authentification est nécessaire pour démarrer le gestionnaire de paquets "
+"Synaptic. Entrez le mot de passe d'administration que vous avez défini dans "
+"l'écran de bienvenue."
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:72
-msgid ""
-"Authentication is required to start a Root Console. Enter the administration "
-"password that you set up in the Welcome Screen."
-msgstr ""
-
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:79
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:71
 msgid ""
 "For better security, no administration password is set up in Tails by "
 "default. To run the Synaptic Package Manager, restart Tails and set up an "
 "administration password in the Welcome Screen."
 msgstr ""
-
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:85
-msgid ""
-"For better security, no administration password is set up in Tails by "
-"default. To start a Root Console, restart Tails and set up an administration "
-"password in the Welcome Screen."
-msgstr ""
+"Pour plus de sécurité, aucun mot de passe d'administration n'est configuré "
+"par défaut dans Tails. Pour démarrer le gestionnaire de paquets Synaptic, "
+"redémarrez Tails et configurez un mot de passe d'administration dans l'écran "
+"de bienvenue."
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:2
 msgid ""
@@ -2813,18 +2807,6 @@ msgstr ""
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:3
 msgid "configuration;saved"
 msgstr "configuration;sauvegardée"
-
-#: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:1
-msgid "Root Console"
-msgstr "Console d'administration"
-
-#: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:2
-msgid "Opens a console as the root user"
-msgstr "Ouvre une console avec les droits d'administration"
-
-#: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:3
-msgid "admin"
-msgstr "admin"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:1
 msgid "Tails Documentation"
@@ -2899,8 +2881,7 @@ msgstr "web;portail;captif"
 
 #: ../config/chroot_local-includes/usr/share/applications/unlock-veracrypt-volumes.desktop.in.h:2
 msgid "Mount VeraCrypt encrypted file containers and devices"
-msgstr ""
-"Monter les conteneurs de fichiers et les périphériques chiffrés VeraCrypt"
+msgstr "Monter les fichiers conteneurs et les périphériques chiffrés VeraCrypt"
 
 #: ../config/chroot_local-includes/usr/share/applications/unlock-veracrypt-volumes.desktop.in.h:3
 msgid "mount;encrypted;container;truecryt"
@@ -3510,7 +3491,7 @@ msgstr "_Redémarrer Tails"
 
 #: ../config/chroot_local-includes/usr/share/tails/unlock-veracrypt-volumes/main.ui.in:61
 msgid "File Containers"
-msgstr "Conteneurs de fichiers"
+msgstr "Fichiers conteneurs"
 
 #: ../config/chroot_local-includes/usr/share/tails/unlock-veracrypt-volumes/main.ui.in:80
 msgid "_Add"
@@ -3518,7 +3499,7 @@ msgstr "_Ajouter"
 
 #: ../config/chroot_local-includes/usr/share/tails/unlock-veracrypt-volumes/main.ui.in:86
 msgid "Add a file container"
-msgstr "Ajouter un conteneur de fichiers"
+msgstr "Ajouter un fichier conteneur"
 
 #: ../config/chroot_local-includes/usr/share/tails/unlock-veracrypt-volumes/main.ui.in:103
 msgid "Partitions and Drives"
@@ -3991,14 +3972,13 @@ msgid "Connect to a local network"
 msgstr "Se connecter à un réseau local"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1725
-#, fuzzy
 msgid ""
 "You are not connected to a local network yet. To be able to connect to the "
 "Tor network, you first need to connect to a Wi-Fi, wired, or mobile network."
 msgstr ""
-"Vous n’êtes pas encore connecté à un réseau local. Afin de vous connecter au "
-"réseau Tor, vous devez d’abord vous connecter à un réseau Wi-Fi, filaire ou "
-"mobile."
+"Vous n’êtes pas encore connecté à un réseau local. Pour pouvoir vous "
+"connecter au réseau Tor, vous devez d’abord vous connecter à un réseau Wi-"
+"Fi, filaire ou mobile."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1739
 msgid "Open Wi-Fi Settings"
@@ -4161,6 +4141,33 @@ msgstr "décembre"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "Horloge"
+
+#~ msgid ""
+#~ "Authentication is required to start a Root Console. Enter the "
+#~ "administration password that you set up in the Welcome Screen."
+#~ msgstr ""
+#~ "Une authentification est nécessaire pour démarrer une console "
+#~ "d'administration. Entrez le mot de passe d'administration que vous avez "
+#~ "défini dans l'écran de bienvenue."
+
+#~ msgid ""
+#~ "For better security, no administration password is set up in Tails by "
+#~ "default. To start a Root Console, restart Tails and set up an "
+#~ "administration password in the Welcome Screen."
+#~ msgstr ""
+#~ "Pour plus de sécurité, aucun mot de passe d'administration n'est "
+#~ "configuré par défaut dans Tails. Pour démarrer une console "
+#~ "d'administration, redémarrez Tails et configurez un mot de passe "
+#~ "d'administration dans l'écran de bienvenue."
+
+#~ msgid "Root Console"
+#~ msgstr "Console d'administration"
+
+#~ msgid "Opens a console as the root user"
+#~ msgstr "Ouvre une console avec les droits d'administration"
+
+#~ msgid "admin"
+#~ msgstr "admin"
 
 #~ msgid "To start a Root Console, you need to authenticate."
 #~ msgstr ""
