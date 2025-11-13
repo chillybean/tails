@@ -35,8 +35,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-13 10:37+0200\n"
-"PO-Revision-Date: 2025-09-21 05:02+0000\n"
+"POT-Creation-Date: 2025-11-12 11:13+0100\n"
+"PO-Revision-Date: 2025-11-03 06:51+0000\n"
 "Last-Translator: Himmel <himmel@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/tor/tails-gui/"
 "ja/>\n"
@@ -45,7 +45,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 5.14.1-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -1746,7 +1746,7 @@ msgstr ""
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:67
 #, sh-format
 msgid "Wired Interface Disabled"
-msgstr "有線インターフェースが無効です"
+msgstr "有線インターフェイスが無効です"
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:68
 #, sh-format
@@ -2688,31 +2688,23 @@ msgstr ""
 "Tor とインターネットに接続するには、オフラインモードなしで Tails を再起動しま"
 "す。"
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:68
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:65
 msgid ""
 "Authentication is required to run the Synaptic Package Manager. Enter the "
 "administration password that you set up in the Welcome Screen."
 msgstr ""
+"Synaptic パッケージマネージャーを実行するには認証が必要です。ウェルカム画面で"
+"設定した管理者パスワードを入力してください。"
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:72
-msgid ""
-"Authentication is required to start a Root Console. Enter the administration "
-"password that you set up in the Welcome Screen."
-msgstr ""
-
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:79
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:71
 msgid ""
 "For better security, no administration password is set up in Tails by "
 "default. To run the Synaptic Package Manager, restart Tails and set up an "
 "administration password in the Welcome Screen."
 msgstr ""
-
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:85
-msgid ""
-"For better security, no administration password is set up in Tails by "
-"default. To start a Root Console, restart Tails and set up an administration "
-"password in the Welcome Screen."
-msgstr ""
+"セキュリティ強化のため、既定では Tails に管理者パスワードは設定されていませ"
+"ん。Synaptic パッケージマネージャーを実行するには、Tails を再起動し、ウェルカ"
+"ム画面で管理者パスワードを設定してください。"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:2
 msgid ""
@@ -2723,18 +2715,6 @@ msgstr "作業セッション間で保持するファイルとアプリケーシ
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:3
 msgid "configuration;saved"
 msgstr "構成;保存済み"
-
-#: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:1
-msgid "Root Console"
-msgstr "Root コンソール"
-
-#: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:2
-msgid "Opens a console as the root user"
-msgstr "root ユーザーとしてコンソールを開きます"
-
-#: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:3
-msgid "admin"
-msgstr "管理者"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:1
 msgid "Tails Documentation"
@@ -2891,7 +2871,7 @@ msgid ""
 "generally safer as it helps you hide your geographical location. But it "
 "might also create connectivity problems or look suspicious."
 msgstr ""
-"MAC アドレスの匿名化は、ローカルネットワークからネットワークインターフェース "
+"MAC アドレスの匿名化は、ローカルネットワークからネットワークインターフェイス "
 "(Wi-Fi または有線) のシリアル番号を隠します。MAC アドレスの匿名化は、地理的な"
 "位置を隠すことができるため、通常は安全です。しかし、接続性に問題が生じたり、"
 "不審に思われたりする可能性もあります。"
@@ -3870,7 +3850,6 @@ msgid "Connect to a local network"
 msgstr "ローカルネットワークに接続"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1725
-#, fuzzy
 msgid ""
 "You are not connected to a local network yet. To be able to connect to the "
 "Tor network, you first need to connect to a Wi-Fi, wired, or mobile network."
@@ -4039,6 +4018,31 @@ msgstr "12月"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "時刻"
+
+#~ msgid ""
+#~ "Authentication is required to start a Root Console. Enter the "
+#~ "administration password that you set up in the Welcome Screen."
+#~ msgstr ""
+#~ "Root コンソールを起動するには認証が必要です。ウェルカム画面で設定した管理"
+#~ "者パスワードを入力してください。"
+
+#~ msgid ""
+#~ "For better security, no administration password is set up in Tails by "
+#~ "default. To start a Root Console, restart Tails and set up an "
+#~ "administration password in the Welcome Screen."
+#~ msgstr ""
+#~ "セキュリティ強化のため、既定では Tails に管理者パスワードは設定されていま"
+#~ "せん。Root コンソールを起動するには、Tails を再起動し、ウェルカム画面で管"
+#~ "理者パスワードを設定してください。"
+
+#~ msgid "Root Console"
+#~ msgstr "Root コンソール"
+
+#~ msgid "Opens a console as the root user"
+#~ msgstr "root ユーザーとしてコンソールを開きます"
+
+#~ msgid "admin"
+#~ msgstr "管理者"
 
 #~ msgid "To start a Root Console, you need to authenticate."
 #~ msgstr "Root コンソールを開始するには認証する必要があります。"

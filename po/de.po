@@ -40,13 +40,14 @@
 # Will Smith <info@belvenservices.com>, 2018
 # Weblate <noreply-mt-weblate@weblate.org>, 2025.
 # pocegoj750fdge <pocegoj750@evoxury.com>, 2025.
+# Ümit Ci <umitinsan@protonmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-13 10:37+0200\n"
-"PO-Revision-Date: 2025-09-21 10:02+0000\n"
-"Last-Translator: curtisb <curtisbaltimore@protonmail.com>\n"
+"POT-Creation-Date: 2025-11-12 11:13+0100\n"
+"PO-Revision-Date: 2025-11-10 03:51+0000\n"
+"Last-Translator: Ümit Ci <umitinsan@protonmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/tor/tails-gui/de/"
 ">\n"
 "Language: de\n"
@@ -54,7 +55,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -2655,7 +2656,7 @@ msgstr ""
 #: ../config/chroot_local-includes/usr/share/applications/unsafe-browser.desktop.in.h:1
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:498
 msgid "Unsafe Browser"
-msgstr "Unsicherer Browser"
+msgstr "Das Unsichere Browser"
 
 #: config/chroot_local-includes/usr/local/sbin/unsafe-browser:100
 msgid ""
@@ -2773,31 +2774,24 @@ msgstr ""
 "Um sich mit Tor und dem Internet zu verbinden, starte Tails ohne Offline-"
 "Modus neu."
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:68
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:65
 msgid ""
 "Authentication is required to run the Synaptic Package Manager. Enter the "
 "administration password that you set up in the Welcome Screen."
 msgstr ""
+"Zum Ausführen des Synaptic Package Managers ist eine Authentifizierung "
+"erforderlich. Gib das Administratorpasswort ein, das du im "
+"Begrüßungsbildschirm eingerichtet hast."
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:72
-msgid ""
-"Authentication is required to start a Root Console. Enter the administration "
-"password that you set up in the Welcome Screen."
-msgstr ""
-
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:79
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:71
 msgid ""
 "For better security, no administration password is set up in Tails by "
 "default. To run the Synaptic Package Manager, restart Tails and set up an "
 "administration password in the Welcome Screen."
 msgstr ""
-
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:85
-msgid ""
-"For better security, no administration password is set up in Tails by "
-"default. To start a Root Console, restart Tails and set up an administration "
-"password in the Welcome Screen."
-msgstr ""
+"Aus Sicherheitsgründen ist in Tails standardmäßig kein Administratorpasswort "
+"eingerichtet. Um den Synaptic Package Manager auszuführen, starte Tails neu "
+"und richte im Begrüßungsbildschirm ein Administratorpasswort ein."
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:2
 msgid ""
@@ -2810,18 +2804,6 @@ msgstr ""
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:3
 msgid "configuration;saved"
 msgstr "Konfiguration;gespeichert"
-
-#: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:1
-msgid "Root Console"
-msgstr "Root Konsole"
-
-#: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:2
-msgid "Opens a console as the root user"
-msgstr "Öffnet eine Konsole als Root-Benutzer"
-
-#: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:3
-msgid "admin"
-msgstr "Admin"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:1
 msgid "Tails Documentation"
@@ -3985,7 +3967,6 @@ msgid "Connect to a local network"
 msgstr "Mit dem lokalen Netzwerk verbinden"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1725
-#, fuzzy
 msgid ""
 "You are not connected to a local network yet. To be able to connect to the "
 "Tor network, you first need to connect to a Wi-Fi, wired, or mobile network."
@@ -4155,6 +4136,33 @@ msgstr "Dezember"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "Uhr"
+
+#~ msgid ""
+#~ "Authentication is required to start a Root Console. Enter the "
+#~ "administration password that you set up in the Welcome Screen."
+#~ msgstr ""
+#~ "Zum Starten einer Root-Konsole ist eine Authentifizierung erforderlich. "
+#~ "Gib das Administratorpasswort ein, das du im Begrüßungsbildschirm "
+#~ "eingerichtet hast."
+
+#~ msgid ""
+#~ "For better security, no administration password is set up in Tails by "
+#~ "default. To start a Root Console, restart Tails and set up an "
+#~ "administration password in the Welcome Screen."
+#~ msgstr ""
+#~ "Aus Sicherheitsgründen ist in Tails standardmäßig kein "
+#~ "Administratorpasswort eingerichtet. Um eine Root-Konsole zu starten, "
+#~ "starte Tails neu und richte im Begrüßungsbildschirm ein "
+#~ "Administratorpasswort ein."
+
+#~ msgid "Root Console"
+#~ msgstr "Root Konsole"
+
+#~ msgid "Opens a console as the root user"
+#~ msgstr "Öffnet eine Konsole als Root-Benutzer"
+
+#~ msgid "admin"
+#~ msgstr "Admin"
 
 #~ msgid "To start a Root Console, you need to authenticate."
 #~ msgstr ""

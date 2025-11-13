@@ -38,13 +38,15 @@
 # Alessio <alexio-dev@proton.me>, 2025.
 # Lupo Cosentino <boots-bounce-hazy@duck.com>, 2025.
 # emma peel <emma.peel@riseup.net>, 2025.
+# Alberto Giuliani <albertogiuliani2008@gmail.com>, 2025.
+# Weblate <noreply-mt-weblate@weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-13 10:37+0200\n"
-"PO-Revision-Date: 2025-10-11 11:08+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"POT-Creation-Date: 2025-11-12 11:13+0100\n"
+"PO-Revision-Date: 2025-11-04 16:51+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/tor/tails-gui/it/"
 ">\n"
 "Language: it\n"
@@ -53,7 +55,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
 "1 : 2;\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 5.14.1-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -402,17 +404,16 @@ msgid "bytes"
 msgstr "bytes"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:295
-#, fuzzy
 msgid ""
 "<b>An error occurred while updating the signing key.</b>\\n\\n<b>This "
 "prevents determining whether an upgrade is available from our website.</"
 "b>\\n\\nCheck your network connection and restart Tails.\\n\\nIf the problem "
 "persists, try doing a manual upgrade."
 msgstr ""
-"<b>An error occurred while updating the signing key.</b>\\n\\n<b>This "
-"prevents determining whether an upgrade is available from our website.</"
-"b>\\n\\nCheck your network connection and restart Tails.\\n\\nIf the problem "
-"persists, try doing a manual upgrade."
+"<b>Un errore si è verificato durante l'aggiornamento della chiave di firma.</"
+"b>\\n\\n<b>Questo impedisce di determinare la disponibilità di un "
+"aggiornamento dal nostro sito.</b>\\n\\nControlla la tua rete e rilancia "
+"Tails.\\n\\nSe il problema persiste prova a fare un aggiornamento manuale."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:309
 msgid "Error while downloading the signing key"
@@ -1547,28 +1548,28 @@ msgstr ""
 "USB."
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:26
-#, fuzzy
 msgid ""
 "We recommend that you create a backup of your Tails using <i>Tails Cloner</"
 "i> to migrate to a new USB stick."
-msgstr "Ti consigliamo di reinstallare Tails su una chiave USB diversa."
+msgstr ""
+"Ti raccomandiamo di creare un backup del tuo Tails utilizzando <i>Clonatore "
+"di Tails</i> per trasferirsi su una nuova chiavetta USB."
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:33
-#, fuzzy
 msgid "Open Tails Cloner"
-msgstr "Clonatore di Tails"
+msgstr "Apri Tails Cloner"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:42
-#, fuzzy
 msgid "Creation of Persistent Storage has been disabled."
-msgstr "Creazione dell'archiviazione persistente fallita."
+msgstr "La creazione dell'archiviazione persistente è ststa disattivata."
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:44
-#, fuzzy
 msgid ""
 "We recommend that you reinstall Tails from scratch. If the error persists, "
 "reinstall on a new USB stick."
-msgstr "Ti consigliamo di reinstallare Tails su una chiave USB diversa."
+msgstr ""
+"Ti consigliamo di reinstallare Tails da zero. Nel caso l'errore persista, "
+"reinstallalo su una chiave USB diversa."
 
 #: config/chroot_local-includes/usr/src/perl5lib/lib/Tails/RunningSystem.pm:207
 #: config/chroot_local-includes/usr/local/bin/tails-upgrade-frontend-wrapper:79
@@ -1717,7 +1718,7 @@ msgstr "Sincronizzazione orologio fallita!"
 
 #: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:26
 msgid "Insufficient Memory Detected"
-msgstr ""
+msgstr "Memoria insufficiente rilevata"
 
 #: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:28
 #, python-brace-format
@@ -1726,6 +1727,9 @@ msgid ""
 "{installed_ram_gb} GB. You might experience reduced performance, "
 "instability, or crashes."
 msgstr ""
+"Tails richiede {required_ram_gb} GB di RAM, ma questo computer ne ha solo "
+"{installed_ram_gb} GB. Potresti notare prestazioni ridotte, instabilità o "
+"arresti improvvisi."
 
 #: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:41
 #: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:42
@@ -1741,9 +1745,8 @@ msgid "Set up a password to unlock the screen."
 msgstr "Imposta una password per sbloccare lo schermo."
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:147
-#, fuzzy
 msgid "Show Password"
-msgstr "Password"
+msgstr "Mostra Password"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:151
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2281
@@ -2714,7 +2717,6 @@ msgid "Your message has been sent."
 msgstr "Messaggio inviato."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:248
-#, fuzzy
 msgid "An error occurred during encryption."
 msgstr "Un errore è avvenuto durante la cifratura."
 
@@ -2746,30 +2748,17 @@ msgstr ""
 "È impossibile connettersi a Tor in modalità offline.\n"
 "Per connetterti a Tor e ad internet, riavvia Tails senza modalità offline."
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:68
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:65
 msgid ""
 "Authentication is required to run the Synaptic Package Manager. Enter the "
 "administration password that you set up in the Welcome Screen."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:72
-msgid ""
-"Authentication is required to start a Root Console. Enter the administration "
-"password that you set up in the Welcome Screen."
-msgstr ""
-
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:79
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:71
 msgid ""
 "For better security, no administration password is set up in Tails by "
 "default. To run the Synaptic Package Manager, restart Tails and set up an "
 "administration password in the Welcome Screen."
-msgstr ""
-
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:85
-msgid ""
-"For better security, no administration password is set up in Tails by "
-"default. To start a Root Console, restart Tails and set up an administration "
-"password in the Welcome Screen."
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:2
@@ -2784,20 +2773,6 @@ msgstr ""
 #, fuzzy
 msgid "configuration;saved"
 msgstr "Configurazione stampanti"
-
-#: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:1
-msgid "Root Console"
-msgstr ""
-
-#: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:2
-#, fuzzy
-msgid "Opens a console as the root user"
-msgstr ""
-"Apre un terminale come utente root, usando gksu per richiedere la password"
-
-#: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:3
-msgid "admin"
-msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:1
 msgid "Tails Documentation"
@@ -4116,6 +4091,11 @@ msgstr "Dicembre"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "Orologio"
+
+#, fuzzy
+#~ msgid "Opens a console as the root user"
+#~ msgstr ""
+#~ "Apre un terminale come utente root, usando gksu per richiedere la password"
 
 #, fuzzy
 #~| msgid "To start a Root Terminal, you need to authenticate."

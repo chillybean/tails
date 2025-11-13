@@ -24,9 +24,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-13 10:37+0200\n"
-"PO-Revision-Date: 2025-10-11 11:08+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"POT-Creation-Date: 2025-11-12 11:13+0100\n"
+"PO-Revision-Date: 2025-10-22 14:02+0000\n"
+"Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/tor/tails-gui/fi/"
 ">\n"
 "Language: fi\n"
@@ -244,6 +244,10 @@ msgid ""
 "Help us keep your bitcoins safe!\n"
 "\n"
 msgstr ""
+"Tails suojaa lompakkoasi.\n"
+"\n"
+"Auta meitä pitämään bitcoinisi turvassa!\n"
+"\n"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:149
 msgid "Donate Now"
@@ -370,18 +374,16 @@ msgid "bytes"
 msgstr "tavua"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:295
-#, fuzzy
 msgid ""
 "<b>An error occurred while updating the signing key.</b>\\n\\n<b>This "
 "prevents determining whether an upgrade is available from our website.</"
 "b>\\n\\nCheck your network connection and restart Tails.\\n\\nIf the problem "
 "persists, try doing a manual upgrade."
 msgstr ""
-"<b>Kirjautumisavainta päivittäessä tapahtui virhe.</b>\\n\\n<b>Tämän takia "
-"ei tiedetä, onko päivitys saatavilla verkkosivultamme.</b>\\n\\nTarkista "
-"verkkoyhteytesi ja yritä taas päivitystä käynnistämällä Tails uudelleen."
-"\\n\\nJos pulma jatkuu, siirry tiedostoon file:///usr/share/doc/tails/"
-"website/doc/upgrade/error/check.en.html"
+"<b>Allekirjoitusavaimen päivityksessä tapahtui virhe.</b>\\n\\n<b>Tämä estää "
+"sen määrittämisen, onko päivitys saatavilla verkkosivustoltamme.</"
+"b>\\n\\nTarkista verkkoyhteytesi ja käynnistä Tails uudelleen.\\n\\nJos "
+"ongelma jatkuu, kokeile manuaalista päivitystä."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:309
 msgid "Error while downloading the signing key"
@@ -392,7 +394,6 @@ msgid "Error while checking for upgrades"
 msgstr "Virhe tarkistettaessa päivityksiä"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:344
-#, fuzzy
 msgid ""
 "<b>Could not determine whether an upgrade is available from our website.</"
 "b>\n"
@@ -401,13 +402,11 @@ msgid ""
 "\n"
 "If the problem persists, try doing a manual upgrade."
 msgstr ""
-"<b>Päivityksen saatavuuden määritteleminen webbisivultamme epäonnistui.</b>\n"
+"<b>Ei voitu määrittää, onko päivitystä saatavilla verkkosivustoltamme.</b>\n"
 "\n"
-"Tarkista verkkoyhteytesi ja yritä taas päivitystä käynnistämällä Tails "
-"uudelleen.\n"
+"Tarkista verkkoyhteytesi ja käynnistä Tails uudelleen.\n"
 "\n"
-"Jos pulma jatkuu, siirry tiedostoon file:///usr/share/doc/tails/website/doc/"
-"upgrade/error/check.en.html"
+"Jos ongelma jatkuu, kokeile manuaalista päivitystä."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:359
 msgid "no automatic upgrade is available from our website for this version"
@@ -446,9 +445,8 @@ msgid ""
 msgstr ""
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:414
-#, fuzzy
 msgid "Tails is up to date"
-msgstr "Järjestelmä on ajan tasalla"
+msgstr "Tails on ajan tasalla"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:420
 msgid "This version of Tails is outdated, and may have security issues."
@@ -474,13 +472,12 @@ msgstr ""
 "muistista, mutta vain {free_memory} on käytettävissä."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:473
-#, fuzzy
 msgid ""
 "An error occurred while detecting available upgrades.\n"
 "This should not happen. Please report a bug."
 msgstr ""
-"Virhe etsittäessä päivityksiä.\n"
-"Tätä ei pitäisi tapahtua. Ilmoita ohjelmointivirheestä."
+"Saatavilla olevien päivitysten tunnistuksessa tapahtui virhe.\n"
+"Tämän ei pitäisi tapahtua. Ilmoita viasta."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:476
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:495
@@ -689,17 +686,16 @@ msgstr ""
 "Turvallisuussyistä verkkoyhteys on nyt estetty."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:855
-#, fuzzy
 msgid ""
 "<b>An error occurred while installing the upgrade.</b>\\n\\nYour Tails "
 "device needs to be repaired and might be unable to restart.\\n\\nPlease "
 "follow the instructions at file:///usr/share/doc/tails/website/doc/upgrade/"
 "error/install.en.html"
 msgstr ""
-"<b>Tapahtui virhe päivityksen asennuksen aikana.</b>\\n\\nTails-laitteesi "
-"tarvitsee korjausta ja sen uudelleenkäynnistys ei ehkä onnistu.\\n\\nNoudata "
-"osoitteen file:///usr/share/doc/tails/website/doc/upgrade/error/"
-"install.en.html ohjeita"
+"<b>Päivityksen asennuksessa tapahtui virhe.</b>\\n\\nTails-laitteesi on "
+"korjattava, eikä se välttämättä käynnisty uudelleen.\\n\\nNoudata ohjeita "
+"kohdassa file:///usr/share/doc/tails/website/doc/upgrade/error/"
+"install.en.html"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:860
 msgid "Error while installing the upgrade"
@@ -807,9 +803,8 @@ msgid "This might take a long time..."
 msgstr "Tässä saattaa kestää kauan..."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:500
-#, fuzzy
 msgid "Failed to repair the file system of your Persistent Storage."
-msgstr "Pysyvän tallennustilan määrittäminen epäonnistui"
+msgstr "Pysyvän tallennustilan tiedostojärjestelmän korjaaminen epäonnistui."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:502
 msgid "Start Tails to send an error report and learn how to recover your data."
@@ -857,11 +852,12 @@ msgid "Incorrect passphrase. Please try again."
 msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:813
-#, fuzzy
 msgid ""
 "Error reading data from your Persistent Storage. The hardware of your USB "
 "stick is probably failing."
-msgstr "USB-muistisi on luultavasti hajoamassa."
+msgstr ""
+"Virhe luettaessa tietoja pysyvästä tallennustilasta. USB-tikkusi laitteisto "
+"on todennäköisesti viallinen."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:815
 msgid "Start Tails to learn how to recover your data."
@@ -890,23 +886,21 @@ msgid "Repair File System"
 msgstr "Korjaa tiedostojärjestelmä"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:838
-#, fuzzy
 msgid "Create Partition Image"
-msgstr "Luo pysyvä tallennustila"
+msgstr "Luo osiokuva"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:849
-#, fuzzy
 msgid ""
 "Start Tails to learn how to create a partition image of your Persistent "
 "Storage."
-msgstr "Pysyvän tallennustilan luonti epäonnistui"
+msgstr ""
+"Käynnistä Tails oppiaksesi luomaan osiokuvan pysyvästä tallennustilastasi."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:858
-#, fuzzy
 msgid "Failed to unlock the Persistent Storage due to file system errors."
 msgstr ""
-"Pysyvän tallennustilan salauksen avaaminen epäonnistui. Käynnistä Tails ja "
-"lähetä virheilmoitus."
+"Pysyvän tallennustilan lukituksen avaaminen epäonnistui "
+"tiedostojärjestelmävirheiden vuoksi."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:867
 msgid ""
@@ -933,9 +927,8 @@ msgstr ""
 "virheilmoitus."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:893
-#, fuzzy
 msgid "Upgrading the Persistent Storage. This might take a while…"
-msgstr "Päivitetään pysyvää tallennustilaa. Tämä voi kestää jonkin aikaa…"
+msgstr "Pysyvän tallennustilan päivittäminen. Tämä voi kestää jonkin aikaa…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/settings/persistence.py:125
 msgid "Error unlocking Persistent Storage: {}"
@@ -1052,7 +1045,7 @@ msgstr ""
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1027
 #, python-format
 msgid "Unsupported filesystem: %s"
-msgstr "Tiedostojärjestelmä, jota ei tueta: %s"
+msgstr "Ei-tuettu tiedostojärjestelmä: %s"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:723
 #, python-format
@@ -1479,9 +1472,8 @@ msgid "Learn More"
 msgstr "Opi lisää"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:18
-#, fuzzy
 msgid "Partitioning Error"
-msgstr "Osiot ja asemat"
+msgstr "Osiointivirhe"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:19
 msgid "Errors were detected in the partitioning of your Tails USB stick."
@@ -1496,21 +1488,20 @@ msgstr ""
 "Cloneria</i>tehdäksesi uuden USB-muistin."
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:33
-#, fuzzy
 msgid "Open Tails Cloner"
-msgstr "Tails-asennusohjelma"
+msgstr "Avaa Tails Cloner"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:42
-#, fuzzy
 msgid "Creation of Persistent Storage has been disabled."
-msgstr "Pysyvän tallennustilan luonti epäonnistui."
+msgstr "Pysyvän tallennustilan luominen on poistettu käytöstä."
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:44
-#, fuzzy
 msgid ""
 "We recommend that you reinstall Tails from scratch. If the error persists, "
 "reinstall on a new USB stick."
-msgstr "Suosittelemme asentamaan Tails:in uudelleen toiselle USB-muistille."
+msgstr ""
+"Suosittelemme, että asennat Tailsin uudelleen alusta alkaen. Jos virhe "
+"jatkuu, asenna se uudelleen uudelle USB-tikulle."
 
 #: config/chroot_local-includes/usr/src/perl5lib/lib/Tails/RunningSystem.pm:207
 #: config/chroot_local-includes/usr/local/bin/tails-upgrade-frontend-wrapper:79
@@ -1677,9 +1668,8 @@ msgid "Set up a password to unlock the screen."
 msgstr "Aseta salasana avataksesi näyton."
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:147
-#, fuzzy
 msgid "Show Password"
-msgstr "Salasana"
+msgstr "Näytä salasana"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:151
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2281
@@ -1736,9 +1726,9 @@ msgid ""
 msgstr ""
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:71
-#, fuzzy, sh-format
+#, sh-format
 msgid "Wired Network Disabled"
-msgstr "Kaikki verkkoyhteydet otettu pois käytöstä"
+msgstr "Kiinteä verkko poistettu käytöstä"
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:72
 #, sh-format
@@ -1760,9 +1750,8 @@ msgid ""
 msgstr ""
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:87
-#, fuzzy
 msgid "All Networking Disabled"
-msgstr "Kaikki verkkoyhteydet otettu pois käytöstä"
+msgstr "Kaikki verkkoyhteydet pois käytöstä"
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:89
 #, sh-format
@@ -1865,11 +1854,11 @@ msgstr "Virheellinen: {exception}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:299
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:823
-#, fuzzy
 msgid ""
 "You need to configure a WebTunnel or an obfs4 bridge to hide that you are "
 "using Tor"
-msgstr "Sinun tulee määrittää obfs4-silta piilottaaksesi Tor-käyttösi"
+msgstr ""
+"Sinun on määritettävä WebTunnel tai obfs4-silta piilottaaksesi Torin käytön"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:354
 msgid "Failed to configure your Persistent Storage"
@@ -1985,9 +1974,8 @@ msgid "Tor Status"
 msgstr "Tor-tila"
 
 #: config/chroot_local-includes/usr/share/gnome-shell/extensions/torstatus@tails.boum.org/extension.js:47
-#, fuzzy
 msgid "Open Tor Connection Assistant"
-msgstr "Avaa Tor-yhteys"
+msgstr "Avaa Tor-yhteysavustaja"
 
 #: config/chroot_local-includes/usr/share/gnome-shell/extensions/torstatus@tails.boum.org/extension.js:51
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2107
@@ -2632,9 +2620,8 @@ msgid "Your message has been sent."
 msgstr "Viestisi on lähetetty."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:248
-#, fuzzy
 msgid "An error occurred during encryption."
-msgstr "Salauksen aikana sattui virhe."
+msgstr "Salaamisen aikana tapahtui virhe."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:317
 msgid "This doesn't seem to be a valid URL or OpenPGP key."
@@ -2666,30 +2653,17 @@ msgstr ""
 "Muodostaaksesi yhteyden Tor:iin ja internettiin, uudelleenkäynnistä Tails "
 "ilman Offline-tilaa."
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:68
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:65
 msgid ""
 "Authentication is required to run the Synaptic Package Manager. Enter the "
 "administration password that you set up in the Welcome Screen."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:72
-msgid ""
-"Authentication is required to start a Root Console. Enter the administration "
-"password that you set up in the Welcome Screen."
-msgstr ""
-
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:79
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:71
 msgid ""
 "For better security, no administration password is set up in Tails by "
 "default. To run the Synaptic Package Manager, restart Tails and set up an "
 "administration password in the Welcome Screen."
-msgstr ""
-
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:85
-msgid ""
-"For better security, no administration password is set up in Tails by "
-"default. To start a Root Console, restart Tails and set up an administration "
-"password in the Welcome Screen."
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:2
@@ -2701,23 +2675,8 @@ msgstr ""
 "välillä"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:3
-#, fuzzy
 msgid "configuration;saved"
-msgstr "Tulostimien asetukset"
-
-#: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:1
-msgid "Root Console"
-msgstr ""
-
-#: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:2
-#, fuzzy
-msgid "Opens a console as the root user"
-msgstr ""
-"Avaa päätteen korkeimpana käyttäjänä käyttäen gksua salasanan kysymiseen"
-
-#: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:3
-msgid "admin"
-msgstr "järjestelmänvalvoja"
+msgstr "kokoonpano;tallennettu"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:1
 msgid "Tails Documentation"
@@ -2753,18 +2712,16 @@ msgid "Install, clone, upgrade Tails"
 msgstr "Asenna, kopioi, päivitä Tails"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-installer.desktop.in.h:3
-#, fuzzy
 msgid "install;clone;upgrade;manual"
-msgstr "Asenna, kopioi, päivitä Tails"
+msgstr "asenna; kloonaa; päivitä; manuaalinen"
 
 #: ../config/chroot_local-includes/usr/share/applications/tca.desktop.in.h:2
 msgid "Connect Tails to the Tor network"
 msgstr "Yhdistä Tails Tor-verkkoon"
 
 #: ../config/chroot_local-includes/usr/share/applications/tca.desktop.in.h:3
-#, fuzzy
 msgid "connect;tor;network"
-msgstr "Yhdistä paikalliseen verkkoon"
+msgstr "yhdistä;tor;verkko"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:1
 msgid "Tor Browser"
@@ -2775,9 +2732,8 @@ msgid "Anonymous Web Browser"
 msgstr "Anonyymi webbiselain"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:3
-#, fuzzy
 msgid "web;tor;browser"
-msgstr "Tor-selain"
+msgstr "web;tor;browser"
 
 #: ../config/chroot_local-includes/usr/share/applications/unsafe-browser.desktop.in.h:2
 msgid "Browse the World Wide Web without anonymity"
@@ -2808,9 +2764,8 @@ msgstr ""
 "käynnistät Tailsin"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop.in.h:3
-#, fuzzy
 msgid "persistent;storage;package;install"
-msgstr "Poista pysyvä tallennustila ja uudelleenasenna"
+msgstr "pysyvä; tallennustila; paketti; asenna"
 
 #: ../config/chroot_local-includes/usr/share/applications/whisperback.desktop.in.h:1
 msgid "WhisperBack Error Reporting"
@@ -2906,7 +2861,6 @@ msgstr ""
 "verkkoyhteydet lisätäksesi tietoturvaa."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:514
-#, fuzzy
 msgid ""
 "The Unsafe Browser allows you to sign in to a network using a captive "
 "portal.\n"
@@ -2918,19 +2872,14 @@ msgid ""
 "The Unsafe Browser is not anonymous and can deanonymize you. Use it only to "
 "sign in to networks."
 msgstr ""
-"Suojaamaton selain mahdollistaa verkkoon liittymisen paikallisessa "
-"portaalissa.\n"
+"Unsafe Browserin avulla voit kirjautua verkkoon captive-portaalin avulla.\n"
 "\n"
-"Paikallinen portaali on verkkosivu, joka näytetään ennen pääsyä Internetiin. "
-"Ne vaativat yleensä kirjautumisen verkkoon tai sähköpostiosoitteen kaltaisen "
-"tunnistetiedon.\n"
+"Captive-portaali on verkkosivu, joka näytetään ennen kuin voit käyttää "
+"internetiä. Captive-portaalit vaativat yleensä kirjautumista verkkoon tai "
+"tietojen, kuten sähköpostiosoitteen, antamista.\n"
 "\n"
-"Suojaamaton selain ei ole anonyymi ja voi paljastaa sinut. Käytä sitä vain "
-"liittyessäsi verkkoihin.\n"
-"\n"
-"Suojaamaton selain on Tails 4.8 -version (Kesäkuu 2020) oletusarvoisuuden "
-"poiston jälkeen palautettu takaisin oletusarvoiseksi Tails 5.8 -version "
-"(Joulukuu 2022) tietoturvakorjausten jälkeen."
+"Unsafe Browser ei ole anonyymi ja voi kumota sinua koskevan anonymisoinnin. "
+"Käytä sitä vain verkkoihin kirjautumiseen."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:560
 msgid "Enable the Unsafe Browser (default)"
@@ -2992,9 +2941,8 @@ msgid "Impossible to unlock the Persistent Storage."
 msgstr "Pysyvän tallennustilan avaaminen mahdotonta."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:563
-#, fuzzy
 msgid "Partitioning Errors"
-msgstr "Osiot ja asemat"
+msgstr "Osiointivirheet"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:599
 msgid ""
@@ -3547,15 +3495,16 @@ msgid "Configure a Tor bridge"
 msgstr "Määritä Tor-silta"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:106
-#, fuzzy
 msgid ""
 "Bridges are secret Tor relays. Use a bridge as your first Tor relay if "
 "accessing Tor is blocked from where you are.\n"
 "\n"
 "You can use <i>obfs4</i> and <i>WebTunnel</i> bridges in Tails.\n"
 msgstr ""
-"Sillat ovat salaisia Tor-välityspalvelimia. Käytä siltaa ensimmäisenä Tor-"
-"välityspalvelimenasi, jos pääsy Toriin on estetty siellä missä olet."
+"Sillat ovat salaisia Tor-releitä. Käytä siltaa ensimmäisenä Tor-releenä jos "
+"Tor-yhteys on estetty sijaintisi perusteella.\n"
+"\n"
+"Voit käyttää <i>obfs4</i>- ja <i>WebTunnel</i>-siltoja Tailsissa.\n"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:126
 msgid "<a href=\"doc/anonymous_internet/tor\">Learn more about Tor bridges</a>"
@@ -3858,17 +3807,15 @@ msgid "Connect to a local network"
 msgstr "Yhdistä paikalliseen verkkoon"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1725
-#, fuzzy
 msgid ""
 "You are not connected to a local network yet. To be able to connect to the "
 "Tor network, you first need to connect to a Wi-Fi, wired, or mobile network."
 msgstr ""
-"Et ole vielä yhteydessä lähiverkkoon. Jotta voit muodostaa yhteyden Tor-"
+"Et ole vielä yhdistynyt lähiverkkoon. Jotta voit muodostaa yhteyden Tor-"
 "verkkoon, sinun on ensin muodostettava yhteys Wi-Fi-, langalliseen tai "
 "mobiiliverkkoon."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1739
-#, fuzzy
 msgid "Open Wi-Fi Settings"
 msgstr "Avaa Wi-Fi-asetukset"
 
@@ -4029,6 +3976,12 @@ msgstr "Joulukuu"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "Kello"
+
+#~ msgid "Opens a console as the root user"
+#~ msgstr "Avaa konsolin käyttäjänä root"
+
+#~ msgid "admin"
+#~ msgstr "järjestelmänvalvoja"
 
 #, fuzzy
 #~| msgid "To start a Root Terminal, you need to authenticate."

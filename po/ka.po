@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-13 10:37+0200\n"
-"PO-Revision-Date: 2025-09-21 23:02+0000\n"
+"POT-Creation-Date: 2025-11-12 11:13+0100\n"
+"PO-Revision-Date: 2025-10-15 13:02+0000\n"
 "Last-Translator: Alan <georgianization@outlook.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/tor/tails-gui/"
 "ka/>\n"
@@ -46,7 +46,7 @@ msgstr "ჩანაწერების ჩვენება"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:222
 msgid "Configure"
-msgstr "გამართვა"
+msgstr "გაწყობა"
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:57
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:95
@@ -2677,31 +2677,23 @@ msgstr ""
 "Tor-სა და ინტერნეტთან კავშირისთვის ხელახლა გაუშვით Tails კავშირგარეშე "
 "რეჟიმის გარეშე."
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:68
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:65
 msgid ""
 "Authentication is required to run the Synaptic Package Manager. Enter the "
 "administration password that you set up in the Welcome Screen."
 msgstr ""
+"დამოწმებაა საჭირო, კრებულების Synaptic-სამართავი რომ გაიხსნას. მიუთითეთ "
+"მმართველის პაროლი, საწყისი ეკრანიდან რომ დააყენეთ."
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:72
-msgid ""
-"Authentication is required to start a Root Console. Enter the administration "
-"password that you set up in the Welcome Screen."
-msgstr ""
-
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:79
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:71
 msgid ""
 "For better security, no administration password is set up in Tails by "
 "default. To run the Synaptic Package Manager, restart Tails and set up an "
 "administration password in the Welcome Screen."
 msgstr ""
-
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:85
-msgid ""
-"For better security, no administration password is set up in Tails by "
-"default. To start a Root Console, restart Tails and set up an administration "
-"password in the Welcome Screen."
-msgstr ""
+"გაუმჯობესებული უსაფრთხოებისთვის ნაგულისხმევად მმართველის პაროლით არაა Tails. "
+"კრებულების Synaptic-სამართავი რომ გაეშვას, ხელახლა გაუშვით Tails და მიუთითეთ "
+"მმართველის პაროლი საწყისი ეკრანიდან."
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:2
 msgid ""
@@ -2714,18 +2706,6 @@ msgstr ""
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:3
 msgid "configuration;saved"
 msgstr "გამართვა;შენახული"
-
-#: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:1
-msgid "Root Console"
-msgstr "ძირეული ბრძანებები"
-
-#: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:2
-msgid "Opens a console as the root user"
-msgstr "გახსნის ბრძანებების შესაყვანს ძირეული მომხმარებლით"
-
-#: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:3
-msgid "admin"
-msgstr "ხელმძღვანელი"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:1
 msgid "Tails Documentation"
@@ -3865,13 +3845,12 @@ msgid "Connect to a local network"
 msgstr "ადგილობრივ ქსელთან დაკავშირება"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1725
-#, fuzzy
 msgid ""
 "You are not connected to a local network yet. To be able to connect to the "
 "Tor network, you first need to connect to a Wi-Fi, wired, or mobile network."
 msgstr ""
-"ჯერ არ ხართ დაკავშირებული ადგილობრივ ქსელთან. იმისთვის, რომ შეძლოთ Tor-"
-"ქსელთან მიერთება, პირველ რიგში საჭიროა WiFi, სადენიანი ან მობილური "
+"ჯერ არ ხართ დაკავშირებული ადგილობრივ ქსელთან. რომ შეძლოთ Tor-ქსელთან "
+"მიერთება, პირველ რიგში გესაჭიროებათ WiFi, სადენიანი ან მობილური "
 "ინტერნეტკავშირი."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1739
@@ -4035,6 +4014,31 @@ msgstr "დეკემბერი"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "საათი"
+
+#~ msgid ""
+#~ "Authentication is required to start a Root Console. Enter the "
+#~ "administration password that you set up in the Welcome Screen."
+#~ msgstr ""
+#~ "დამოწმებაა საჭირო, ძირეული ბრძანებების არე რომ გაიხსნას. მიუთითეთ "
+#~ "მმართველის პაროლი, საწყისი ეკრანიდან რომ დააყენეთ."
+
+#~ msgid ""
+#~ "For better security, no administration password is set up in Tails by "
+#~ "default. To start a Root Console, restart Tails and set up an "
+#~ "administration password in the Welcome Screen."
+#~ msgstr ""
+#~ "გაუმჯობესებული უსაფრთხოებისთვის ნაგულისხმევად მმართველის პაროლით არაა "
+#~ "Tails. ძირეული ბრძანებების არე რომ გაიხსნას, ხელახლა გაუშვით Tails და "
+#~ "დააყენეთ მმართველის პაროლი საწყისი ეკრანიდან."
+
+#~ msgid "Root Console"
+#~ msgstr "ძირეული ბრძანებები"
+
+#~ msgid "Opens a console as the root user"
+#~ msgstr "გახსნის ბრძანებების შესაყვანს ძირეული მომხმარებლით"
+
+#~ msgid "admin"
+#~ msgstr "ხელმძღვანელი"
 
 #~ msgid "To start a Root Console, you need to authenticate."
 #~ msgstr "ძირეული ბრძანებების გასაშვებად საჭირო იქნება დამოწმება."
