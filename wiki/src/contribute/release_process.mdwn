@@ -2190,6 +2190,7 @@ Check that you are indeed preparing a final release:
         cd "${RELEASE_CHECKOUT:?}" && \
         git fetch origin && \
         git checkout stable && \
+        git merge origin/stable && \
         git merge origin/master
 
    Note: After a final *major* release is published, it's normal to
