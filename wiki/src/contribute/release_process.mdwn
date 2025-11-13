@@ -1986,6 +1986,7 @@ complete successfully:
         git commit config/base_branch \
           -m "Ensure base branch on 'master' remains 'stable'"
       git push origin devel:devel
+      git commit --allow-empty -m "Publish Tails ${VERSION:?}"
       git push origin \
           -o merge_request.auto_merge \
           "${WEBSITE_RELEASE_BRANCH:?}"
