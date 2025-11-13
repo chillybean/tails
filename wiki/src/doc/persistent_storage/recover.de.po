@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2025-09-17 11:40+0200\n"
+"POT-Creation-Date: 2025-11-12 12:16+0100\n"
 "PO-Revision-Date: 2025-01-14 17:57+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -307,9 +307,7 @@ msgstr ""
 #| "     **Root Terminal**\n"
 #| "   </span>\n"
 #| "   to open a terminal with administration rights.\n"
-msgid ""
-"Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Root Console** to open a console "
-"with administration rights."
+msgid "Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Console**."
 msgstr ""
 "1. Wählen Sie\n"
 "   <span class=\"menuchoice\">\n"
@@ -328,8 +326,9 @@ msgstr ""
 "defekten Tails auf Ihr neues Tails wiederherzustellen:"
 
 #. type: Plain text
-#, no-wrap
-msgid "   <p class=\"command-root\">rsync -PaSHAXv --del /media/amnesia/TailsData/ /live/persistence/TailsData_unlocked</p>\n"
+#, fuzzy, no-wrap
+#| msgid "   <p class=\"command-root\">rsync -PaSHAXv --del /media/amnesia/TailsData/ /live/persistence/TailsData_unlocked</p>\n"
+msgid "   <p class=\"command\">sudo rsync -PaSHAXv --del /media/amnesia/TailsData/ /live/persistence/TailsData_unlocked</p>\n"
 msgstr "   <p class=\"command-root\">rsync -PaSHAXv --del /media/amnesia/TailsData/ /live/persistence/TailsData_unlocked</p>\n"
 
 #. type: Bullet: '1. '
@@ -366,15 +365,16 @@ msgstr ""
 msgid ""
 "You can also explore the content of the Persistent Storage on your broken "
 "Tails from the *Files* browser. To do so, execute the following command from "
-"the *Root Console*."
+"the *Console*."
 msgstr ""
 "Sie können auch den Inhalt des beständigen Datenspeichers auf Ihrem defekten "
 "Tails über den *Dateien*-Browser erkunden. Führen Sie dazu den folgenden "
 "Befehl im *Root-Terminal* aus:"
 
 #. type: Plain text
-#, no-wrap
-msgid "   <p class=\"command-root\">nautilus</p>\n"
+#, fuzzy, no-wrap
+#| msgid "   <p class=\"command-root\">nautilus</p>\n"
+msgid "   <p class=\"command\">nautilus admin:/media/amnesia/TailsData/</p>\n"
 msgstr "   <p class=\"command-root\">nautilus</p>\n"
 
 #. type: Plain text

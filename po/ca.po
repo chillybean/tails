@@ -23,13 +23,15 @@
 # Toni Hermoso Pulido <toniher@softcatala.cat>, 2020
 # Vte A.F <viarfer3@inf.upv.es>, 2017
 # emma peel <emma.peel@riseup.net>, 2025.
+# victor dargallo <victordargallo@disroot.org>, 2025.
+# Weblate <noreply-mt-weblate@weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-13 10:37+0200\n"
-"PO-Revision-Date: 2025-10-11 09:44+0000\n"
-"Last-Translator: emma peel <emma.peel@riseup.net>\n"
+"POT-Creation-Date: 2025-11-12 11:13+0100\n"
+"PO-Revision-Date: 2025-10-23 23:02+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/tor/tails-gui/ca/"
 ">\n"
 "Language: ca\n"
@@ -37,7 +39,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 5.14.1-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -234,7 +236,6 @@ msgid "_Create persistent storage"
 msgstr "_Crea l'Emmagatzematge Persistent"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:62
-#, fuzzy
 msgid ""
 "Tails needs donations to keep everybody free and safe online.\n"
 "\n"
@@ -245,8 +246,6 @@ msgstr ""
 "\n"
 "Tot ajuda en la nostra lluita contra la vigilància i la censura!\n"
 "\n"
-"<a href=\"file:///usr/share/doc/tails/website/donate.ca.html#expenses\">Com "
-"gastem els nostres diners.</a>"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:72
 msgid ""
@@ -255,6 +254,10 @@ msgid ""
 "Help us keep your bitcoins safe!\n"
 "\n"
 msgstr ""
+"Tails protegeix la vostra cartera.\n"
+"\n"
+"Ajudeu-nos a mantenir els vostres bitcoins segurs!\n"
+"\n"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:149
 msgid "Donate Now"
@@ -381,7 +384,6 @@ msgid "bytes"
 msgstr "bytes"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:295
-#, fuzzy
 msgid ""
 "<b>An error occurred while updating the signing key.</b>\\n\\n<b>This "
 "prevents determining whether an upgrade is available from our website.</"
@@ -391,9 +393,8 @@ msgstr ""
 "<b>S'ha produït un error en actualitzar la clau de signatura.</"
 "b>\\n\\n<b>Això evita que es pugui determinar si hi ha disponible una "
 "actualització des del nostre lloc web.</b>\\n\\nComproveu la connexió de "
-"xarxa i reinicieu Tails per intentar actualtizar una altra vegada.\\n\\nSi "
-"el problema persisteix, aneu a file:///usr/share/doc/tails/website/doc/"
-"upgrade/error/check.ca.html"
+"xarxa i reinicieu Tails.\\n\\nSi el problema persisteix, intenteu fer una "
+"actualització manual."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:309
 msgid "Error while downloading the signing key"
@@ -404,7 +405,6 @@ msgid "Error while checking for upgrades"
 msgstr "S'ha produït un error mentre es cercaven actualitzacions"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:344
-#, fuzzy
 msgid ""
 "<b>Could not determine whether an upgrade is available from our website.</"
 "b>\n"
@@ -414,13 +414,11 @@ msgid ""
 "If the problem persists, try doing a manual upgrade."
 msgstr ""
 "<b>No es pot determinar si hi ha una actualització disponible del nostre "
-"lloc web</b>.\n"
+"lloc web.</b>\n"
 "\n"
-"Reviseu la connexió de xarxa i reinicieu Tails per intentar actualitzar-lo "
-"de nou.\n"
+"Reviseu la connexió de xarxa i reinicieu Tails.\n"
 "\n"
-"Si el problema continua, vegeu file:///usr/share/doc/tails/website/doc/"
-"upgrade/error/check.en.html"
+"Si el problema continua, intenteu fer una actualització manual."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:359
 msgid "no automatic upgrade is available from our website for this version"
@@ -460,11 +458,11 @@ msgid ""
 "You are currently running the latest version. There is no upgrade "
 "available.\n"
 msgstr ""
+"Esteu usant la darrera versió. No hi ha cap actualització disponible.\n"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:414
-#, fuzzy
 msgid "Tails is up to date"
-msgstr "El sistema està actualitzat"
+msgstr "Tails està actualitzat"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:420
 msgid "This version of Tails is outdated, and may have security issues."
@@ -491,7 +489,6 @@ msgstr ""
 "lliure, però només hi ha {free_memory} disponible."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:473
-#, fuzzy
 msgid ""
 "An error occurred while detecting available upgrades.\n"
 "This should not happen. Please report a bug."
@@ -587,15 +584,12 @@ msgid "Downloading the upgrade to {name} {version}..."
 msgstr "S'està baixant l'actualització a {name} {version}..."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:711
-#, fuzzy
 msgid ""
 "<b>The upgrade could not be downloaded.</b>\\n\\nCheck your network "
 "connection, and restart Tails to try upgrading again."
 msgstr ""
 "<b>L'actualització no s'ha pogut baixar.</b>\\n\\nReviseu la connexió en "
-"xarxa i reinicieu el Tails per intentar actualitzar-lo un altre cop.\\n\\nSi "
-"el problema persisteix, vegeu file:///usr/share/doc/tails/website/doc/"
-"upgrade/error/download.en.html"
+"xarxa i reinicieu el Tails per intentar actualitzar-lo un altre cop."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:714
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:729
@@ -710,7 +704,6 @@ msgstr ""
 "Per motius de seguretat, la connexió de xarxa està desactivada."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:855
-#, fuzzy
 msgid ""
 "<b>An error occurred while installing the upgrade.</b>\\n\\nYour Tails "
 "device needs to be repaired and might be unable to restart.\\n\\nPlease "
@@ -720,7 +713,7 @@ msgstr ""
 "<b>S'ha produït un error en instal·lar l'actualització.</b>\\n\\nEl "
 "dispositiu Tails s' ha de reparar i pot ser que no pugui reiniciar-se."
 "\\n\\nSeguiu les instruccions que hi ha a file:///usr/share/doc/tails/"
-"website/doc/upgrade/error/install.en.html"
+"website/doc/upgrade/error/install.ca.html"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:860
 msgid "Error while installing the upgrade"
@@ -1617,9 +1610,8 @@ msgid "About Tails"
 msgstr "Quant a Tails"
 
 #: config/chroot_local-includes/usr/local/bin/tails-about:34
-#, fuzzy
 msgid "Check for Upgrades"
-msgstr "S'ha produït un error mentre es cercaven actualitzacions"
+msgstr "Comprova les actualitzacions"
 
 #: config/chroot_local-includes/usr/local/bin/tails-about:57
 msgid "UNRELEASED"
@@ -1710,7 +1702,7 @@ msgstr "S'ha produït un error en sincronitzar el rellotge!"
 
 #: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:26
 msgid "Insufficient Memory Detected"
-msgstr ""
+msgstr "S'ha detectat memòria insuficient"
 
 #: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:28
 #, python-brace-format
@@ -1719,6 +1711,9 @@ msgid ""
 "{installed_ram_gb} GB. You might experience reduced performance, "
 "instability, or crashes."
 msgstr ""
+"Tails requereix {required_ram_gb} GB de memòria RAM, però aquest ordinador "
+"només té {installed_ram_gb} GB. És possible que experimenteu pitjor "
+"rendiment, inestabilitat o fallades."
 
 #: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:41
 #: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:42
@@ -1734,9 +1729,8 @@ msgid "Set up a password to unlock the screen."
 msgstr "Establiu una contrasenya per a desblocar la pantalla."
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:147
-#, fuzzy
 msgid "Show Password"
-msgstr "Contrasenya"
+msgstr "Mostra la contrasenya"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:151
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2281
@@ -1933,11 +1927,12 @@ msgstr "No vàlid: {exception}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:299
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:823
-#, fuzzy
 msgid ""
 "You need to configure a WebTunnel or an obfs4 bridge to hide that you are "
 "using Tor"
-msgstr "Heu de configurar un pont obfs4 per ocultar que esteu utilitzant Tor"
+msgstr ""
+"Heu de configurar un pont WebTunnel o obfs4 per ocultar que esteu utilitzant "
+"Tor"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:354
 msgid "Failed to configure your Persistent Storage"
@@ -2707,7 +2702,6 @@ msgid "Your message has been sent."
 msgstr "El missatge s'ha enviat."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:248
-#, fuzzy
 msgid "An error occurred during encryption."
 msgstr "S'ha produït un error durant l'encriptació."
 
@@ -2740,31 +2734,24 @@ msgstr ""
 "Per connectar-vos a Tor i a Internet, reinicieu Tails sense el mode fora de "
 "línia."
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:68
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:65
 msgid ""
 "Authentication is required to run the Synaptic Package Manager. Enter the "
 "administration password that you set up in the Welcome Screen."
 msgstr ""
+"Cal autenticar-se per executar el gestor de paquets Synaptic. Introduïu la "
+"contrasenya d'administrador que heu configurat a la Pantalla de Benvinguda."
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:72
-msgid ""
-"Authentication is required to start a Root Console. Enter the administration "
-"password that you set up in the Welcome Screen."
-msgstr ""
-
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:79
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:71
 msgid ""
 "For better security, no administration password is set up in Tails by "
 "default. To run the Synaptic Package Manager, restart Tails and set up an "
 "administration password in the Welcome Screen."
 msgstr ""
-
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:85
-msgid ""
-"For better security, no administration password is set up in Tails by "
-"default. To start a Root Console, restart Tails and set up an administration "
-"password in the Welcome Screen."
-msgstr ""
+"Per a una millor seguretat, Tails no té una contrasenya d'administrador "
+"configurada per defecte. Per executar el gestor de paquets Synaptic, "
+"reinicieu Tails i configureu una contrasenya d'administrador a la Pantalla "
+"de Benvinguda."
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:2
 msgid ""
@@ -2775,24 +2762,8 @@ msgstr ""
 "de treball"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:3
-#, fuzzy
 msgid "configuration;saved"
-msgstr "Configuració d'impressores"
-
-#: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:1
-msgid "Root Console"
-msgstr ""
-
-#: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:2
-#, fuzzy
-msgid "Opens a console as the root user"
-msgstr ""
-"Obriu la terminal com a superusuari, usant l'ordre gksu per demanar la "
-"contrasenya"
-
-#: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:3
-msgid "admin"
-msgstr ""
+msgstr "configuració;desat"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:1
 msgid "Tails Documentation"
@@ -2804,7 +2775,7 @@ msgstr "Com usar Tails"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:3
 msgid "learn"
-msgstr ""
+msgstr "aprendre"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-about.desktop.in.h:2
 msgid "Learn more about Tails"
@@ -2823,25 +2794,23 @@ msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-backup.desktop.in.h:3
 msgid "backup"
-msgstr ""
+msgstr "Còpia de seguretat"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-installer.desktop.in.h:2
 msgid "Install, clone, upgrade Tails"
 msgstr "Instal·lar, clonar, actualitzar Tails"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-installer.desktop.in.h:3
-#, fuzzy
 msgid "install;clone;upgrade;manual"
-msgstr "Instal·lar, clonar, actualitzar Tails"
+msgstr "instal·lar;clonar;actualitzar;actualització;manual"
 
 #: ../config/chroot_local-includes/usr/share/applications/tca.desktop.in.h:2
 msgid "Connect Tails to the Tor network"
 msgstr "Connecteu Tails a la xarxa Tor"
 
 #: ../config/chroot_local-includes/usr/share/applications/tca.desktop.in.h:3
-#, fuzzy
 msgid "connect;tor;network"
-msgstr "Connecteu-vos a una xarxa local"
+msgstr "connexió;tor;xarxa"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:1
 msgid "Tor Browser"
@@ -2852,9 +2821,8 @@ msgid "Anonymous Web Browser"
 msgstr "Navegador web anònim"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:3
-#, fuzzy
 msgid "web;tor;browser"
-msgstr "Navegador Tor"
+msgstr "web;tor;navegador"
 
 #: ../config/chroot_local-includes/usr/share/applications/unsafe-browser.desktop.in.h:2
 msgid "Browse the World Wide Web without anonymity"
@@ -2866,7 +2834,7 @@ msgstr "Navegador Web Insegur"
 
 #: ../config/chroot_local-includes/usr/share/applications/unsafe-browser.desktop.in.h:4
 msgid "web;captive;portal"
-msgstr ""
+msgstr "web;captiu;portal"
 
 #: ../config/chroot_local-includes/usr/share/applications/unlock-veracrypt-volumes.desktop.in.h:2
 msgid "Mount VeraCrypt encrypted file containers and devices"
@@ -2874,7 +2842,7 @@ msgstr "Munta els dispositius i contenidors de fitxers xifrats VeraCrypt"
 
 #: ../config/chroot_local-includes/usr/share/applications/unlock-veracrypt-volumes.desktop.in.h:3
 msgid "mount;encrypted;container;truecryt"
-msgstr ""
+msgstr "muntar;encriptat;xifrat;contenidor;truecryt"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop.in.h:2
 msgid ""
@@ -2885,9 +2853,8 @@ msgstr ""
 "Persistent al iniciar Tails"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop.in.h:3
-#, fuzzy
 msgid "persistent;storage;package;install"
-msgstr "Suprimeix l'Emmagatzematge Persistent i torna a instal·lar"
+msgstr "persistent;emmagatzematge;paquet;instal·lació"
 
 #: ../config/chroot_local-includes/usr/share/applications/whisperback.desktop.in.h:1
 msgid "WhisperBack Error Reporting"
@@ -2984,7 +2951,6 @@ msgstr ""
 "xarxes per augmentar la seguretat."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:514
-#, fuzzy
 msgid ""
 "The Unsafe Browser allows you to sign in to a network using a captive "
 "portal.\n"
@@ -3004,12 +2970,7 @@ msgstr ""
 "introduïu informació com ara una adreça de correu electrònic.\n"
 "\n"
 "El Navegador Insegur no és anònim i us pot desanonimitzar. Utilitzeu-lo "
-"només per iniciar la sessió a les xarxes.\n"
-"\n"
-"El Navegador Insegur s'ha tornat a activar de manera predeterminada des de "
-"Tails 5.8 (desembre de 2022), després que vam solucionar les vulnerabilitats "
-"de seguretat que ens feien desactivar-lo de manera predeterminada a Tails "
-"4.8 (juny de 2020)."
+"només per iniciar la sessió a les xarxes."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:560
 msgid "Enable the Unsafe Browser (default)"
@@ -3633,7 +3594,6 @@ msgid "Configure a Tor bridge"
 msgstr "Configureu un pont de Tor"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:106
-#, fuzzy
 msgid ""
 "Bridges are secret Tor relays. Use a bridge as your first Tor relay if "
 "accessing Tor is blocked from where you are.\n"
@@ -3641,7 +3601,9 @@ msgid ""
 "You can use <i>obfs4</i> and <i>WebTunnel</i> bridges in Tails.\n"
 msgstr ""
 "Els ponts són repetidors de Tor secrets. Utilitzeu un pont com a primer "
-"repetidor de Tor si l'accés a Tor està bloquejat des d'on et trobes."
+"repetidor de Tor si l'accés a Tor està bloquejat des d'on us trobeu.\n"
+"\n"
+"Podeu usar ponts <i>obfs4</i> i <i>WebTunnel</i> a Tails.\n"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:126
 msgid "<a href=\"doc/anonymous_internet/tor\">Learn more about Tor bridges</a>"
@@ -3696,7 +3658,7 @@ msgstr "Pont"
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:416
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1057
 msgid "obfs4 or webtunnel…"
-msgstr ""
+msgstr "obfs4 o webtunnel…"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:489
 msgid "Save bridge to _Persistent Storage"
@@ -3911,7 +3873,7 @@ msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1638
 msgid "No Wi-Fi hardware detected"
-msgstr ""
+msgstr "No s'ha detectat maquinari de Wi-Fi"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1656
 msgid ""
@@ -3927,9 +3889,19 @@ msgid ""
 " • Buy a USB Wi-Fi adapter that works in Tails.\n"
 "                "
 msgstr ""
+"Tails no ha pogut trobar cap interfície Wi-Fi al vostre ordinador. Si el "
+"vostre ordinador té una interfície Wi-Fi, potser no funciona a Tails.\n"
+"\n"
+"Per connectar-vos a Internet podeu provar de:\n"
+"\n"
+" • Utilitzar un cable Ethernet en lloc de Wi-Fi. Les interfícies per cable "
+"funcionen de manera molt més fiable que el Wi-Fi a Tails.\n"
+" • Utilitzar la connexió per USB per compartir la connexió Wi-Fi o de dades "
+"mòbils del vostre telèfon mitjançant un cable.\n"
+" • Comprar un adaptador USB de Wi-Fi que sigui compatible amb Tails.\n"
+"                "
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1680
-#, fuzzy
 msgid ""
 "\n"
 "<a href=\"doc/anonymous_internet/no-wifi\">\n"
@@ -3937,15 +3909,17 @@ msgid ""
 "</a>\n"
 "                "
 msgstr ""
-"<a href=\"doc/anonymous_internet/tor\">Més informació sobre com es connecta "
-"Tails a Tor</a>"
+"\n"
+"<a href=\"doc/anonymous_internet/no-wifi\">\n"
+"Més informació sobre com solucionar problemes de Wi-Fi.\n"
+"</a>\n"
+"                "
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1708
 msgid "Connect to a local network"
 msgstr "Connecteu-vos a una xarxa local"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1725
-#, fuzzy
 msgid ""
 "You are not connected to a local network yet. To be able to connect to the "
 "Tor network, you first need to connect to a Wi-Fi, wired, or mobile network."
@@ -3954,9 +3928,8 @@ msgstr ""
 "xarxa Tor, primer heu de connectar-vos a una xarxa Wi-Fi, cable o mòbil."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1739
-#, fuzzy
 msgid "Open Wi-Fi Settings"
-msgstr "Obre la configuració de Wi-Fi"
+msgstr "Obre els paràmetres de Wi-Fi"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1788
 msgid "Testing Internet access…"
@@ -4115,6 +4088,33 @@ msgstr "desembre"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "Rellotge"
+
+#~ msgid ""
+#~ "Authentication is required to start a Root Console. Enter the "
+#~ "administration password that you set up in the Welcome Screen."
+#~ msgstr ""
+#~ "Cal autenticar-se per iniciar una consola d'administrador. Introduïu la "
+#~ "contrasenya d'administrador que heu configurat a la Pantalla de "
+#~ "Benvinguda."
+
+#~ msgid ""
+#~ "For better security, no administration password is set up in Tails by "
+#~ "default. To start a Root Console, restart Tails and set up an "
+#~ "administration password in the Welcome Screen."
+#~ msgstr ""
+#~ "Per a una millor seguretat, Tails no té una contrasenya d'administrador "
+#~ "configurada per defecte. Per executar el terminal d'administrador, "
+#~ "reinicieu Tails i configureu una contrasenya d'administrador a la "
+#~ "Pantalla de Benvinguda."
+
+#~ msgid "Root Console"
+#~ msgstr "Terminal d'administrador"
+
+#~ msgid "Opens a console as the root user"
+#~ msgstr "Obre un terminal com a administrador"
+
+#~ msgid "admin"
+#~ msgstr "administrador"
 
 #, fuzzy
 #~| msgid "To start a Root Terminal, you need to authenticate."

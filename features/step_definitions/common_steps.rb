@@ -1056,7 +1056,7 @@ def switch_input_source
 end
 
 def launch_app(desktop_file_name, app_name, user: LIVE_USER, timeout: 30,
-               check_started: true, pkexec_root: false)
+               check_started: true)
   # We use systemd-run to launch the app, because we want the app to run
   # in the active systemd login session, so that polkit rules for active
   # sessions apply to it.
@@ -1065,13 +1065,11 @@ def launch_app(desktop_file_name, app_name, user: LIVE_USER, timeout: 30,
          '/usr/local/bin/gtk-abspath-launch',
          "/usr/share/applications/#{desktop_file_name}",].join(' ')
   $vm.execute(cmd, user:)
-  deal_with_polkit_prompt(@sudo_password) if pkexec_root
   return unless check_started
 
   app = nil
-  dogtail_user = pkexec_root ? 'root' : user
   try_for(timeout) do
-    app = Dogtail::Application.new(app_name, user: dogtail_user)
+    app = Dogtail::Application.new(app_name)
   end
   app
 end
@@ -1088,15 +1086,6 @@ def launch_console(**opts)
   launch_app(
     'org.gnome.Console.desktop',
     'kgx',
-    **opts
-  )
-end
-
-def launch_root_console(**opts)
-  launch_app(
-    'root-console.desktop',
-    'kgx',
-    pkexec_root: true,
     **opts
   )
 end
@@ -1165,11 +1154,6 @@ Given /^I start "([^"]+)" via GNOME Activities Overview$/ do |app_name|
   # non-deterministic choice (at least under load). To make the life
   # easier for users of this step, let's collect workarounds here.
   case app_name
-  when 'Console'
-    # "Console" shows both the (non-Root) "Console" and "Root Console"
-    # search results, so let's use a keyword only found in the
-    # former's .desktop file.
-    app_name = 'commandline'
   when 'Persistent Storage'
     # "Persistent Storage" also matches "Back Up Persistent Storage"
     # (tails-backup.desktop).

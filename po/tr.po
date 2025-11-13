@@ -38,8 +38,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-13 10:37+0200\n"
-"PO-Revision-Date: 2025-09-26 15:02+0000\n"
+"POT-Creation-Date: 2025-11-12 11:13+0100\n"
+"PO-Revision-Date: 2025-10-26 03:02+0000\n"
 "Last-Translator: Kaya Zeren <kayazeren@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/tor/tails-gui/tr/"
 ">\n"
@@ -48,7 +48,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 5.14.1-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -524,7 +524,7 @@ msgid ""
 msgstr ""
 "<b>{name} {version} sürümüne güncellemeniz gerekli.</b>\n"
 "\n"
-"Bu sürüm hakkında ayrıntılı bilgi almak için, {details_url} adresine "
+"Bu sürüm ile ilgili ayrıntılı bilgi almak için, {details_url} adresine "
 "bakabilirsiniz.\n"
 "\n"
 "Bu güncelleme sırasında açık tüm uygulamaları kapatmanız önerilir.\n"
@@ -560,7 +560,7 @@ msgid ""
 msgstr ""
 "<b>Güncel {name} sürümüne el ile güncellemelisiniz.</b>\n"
 "\n"
-"Bu sürüm hakkında ayrıntılı bilgi almak için {details_url} adresine "
+"Bu sürüm ile ilgili ayrıntılı bilgi almak için {details_url} adresine "
 "bakabilirsiniz\n"
 "\n"
 "Aygıtınız bu yeni Tails sürümüne otomatik olarak güncellenemez: "
@@ -1925,12 +1925,12 @@ msgstr ""
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:417
 msgid "Failed to scan QR code. Try with more light or closer to the camera."
 msgstr ""
-"QR kodu taranamadı. Daha iyi bir aydınlatma ile ve kamerayı yaklaştırarak "
+"Kare kod taranamadı. Daha iyi bir aydınlatma ile ve kamerayı yaklaştırarak "
 "yeniden deneyin."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:428
 msgid "Invalid QR code. Try sending another email and scanning again."
-msgstr "QR kodu geçersiz. Başka bir e-posta göndermeyi ve taramayı deneyin."
+msgstr "Kare kod geçersiz. Başka bir e-posta göndermeyi ve taramayı deneyin."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:486
 msgid "Synchronizing the system's clock…"
@@ -1994,7 +1994,7 @@ msgid ""
 "If connecting to Tor fails, you will have to wait again until the end of the "
 "progress bar to be able to troubleshoot your connection."
 msgstr ""
-"Tails, Tor bağlantı yardımcısını kapattıktan sonra da Tor bağlantısı kurmayı "
+"Tails, Tor Bağlantı Yardımcısı kapatıldıktan sonra da Tor bağlantısı kurmayı "
 "sürdürecek.\n"
 "\n"
 "Tor bağlantısı kurulamazsa, bağlantı sorununu gidermek için ilerleme "
@@ -2030,7 +2030,7 @@ msgstr "Tor durumu"
 
 #: config/chroot_local-includes/usr/share/gnome-shell/extensions/torstatus@tails.boum.org/extension.js:47
 msgid "Open Tor Connection Assistant"
-msgstr "Tor bağlantı yardımcısını aç"
+msgstr "Tor Bağlantı Yardımcısını aç"
 
 #: config/chroot_local-includes/usr/share/gnome-shell/extensions/torstatus@tails.boum.org/extension.js:51
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2107
@@ -2710,31 +2710,24 @@ msgstr ""
 "Tor ağı ve İnternet bağlantısı kurmak için çevrim dışı kipi olmadan yeniden "
 "Tails başlatın."
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:68
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:65
 msgid ""
 "Authentication is required to run the Synaptic Package Manager. Enter the "
 "administration password that you set up in the Welcome Screen."
 msgstr ""
+"Synaptic paket yöneticisini çalıştırmak için kimlik doğrulaması gereklidir. "
+"Karşılama ekranında ayarladığınız yönetim parolasını yazın."
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:72
-msgid ""
-"Authentication is required to start a Root Console. Enter the administration "
-"password that you set up in the Welcome Screen."
-msgstr ""
-
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:79
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:71
 msgid ""
 "For better security, no administration password is set up in Tails by "
 "default. To run the Synaptic Package Manager, restart Tails and set up an "
 "administration password in the Welcome Screen."
 msgstr ""
-
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:85
-msgid ""
-"For better security, no administration password is set up in Tails by "
-"default. To start a Root Console, restart Tails and set up an administration "
-"password in the Welcome Screen."
-msgstr ""
+"Daha iyi güvenlik sağlamak için, Tails üzerinde varsayılan olarak herhangi "
+"bir yönetim parolası ayarlanmaz. Synaptic paket yöneticisini çalıştırmak "
+"için Tails sistemini yeniden başlatın ve karşılama ekranından bir yönetim "
+"parolası ayarlayın."
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:2
 msgid ""
@@ -2747,18 +2740,6 @@ msgstr ""
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:3
 msgid "configuration;saved"
 msgstr "yapılandırma;kaydedildi"
-
-#: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:1
-msgid "Root Console"
-msgstr "Root konsolu"
-
-#: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:2
-msgid "Opens a console as the root user"
-msgstr "Root kullanıcısı ile bir konsol açar"
-
-#: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:3
-msgid "admin"
-msgstr "yönetici"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:1
 msgid "Tails Documentation"
@@ -2774,7 +2755,7 @@ msgstr "öğren"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-about.desktop.in.h:2
 msgid "Learn more about Tails"
-msgstr "Tails hakkında ayrıntılı bilgi alın"
+msgstr "Tails ile ilgili ayrıntılı bilgi alın"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-backup.desktop.in.h:1
 msgid "Back Up Persistent Storage"
@@ -3313,8 +3294,8 @@ msgid ""
 "<a href=\"doc/persistent_storage\">Learn more about the Persistent Storage.</"
 "a>"
 msgstr ""
-"<a href=\"doc/persistent_storage\">Kalıcı depolama birimi hakkında ayrıntılı "
-"bilgi alın</a>"
+"<a href=\"doc/persistent_storage\">Kalıcı depolama birimi ile ilgili "
+"ayrıntılı bilgi alın</a>"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/locked_view.ui.in:52
 msgid ""
@@ -3398,8 +3379,8 @@ msgstr ""
 "• Tarayıcı yer imleriniz\n"
 "• ve bunun gibi diğer bilgiler\n"
 "\n"
-"<a href=\"doc/persistent_storage\">Kalıcı depolama birimi hakkında ayrıntılı "
-"bilgi alın</a>"
+"<a href=\"doc/persistent_storage\">Kalıcı depolama birimi ile ilgili "
+"ayrıntılı bilgi alın</a>"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:92
 msgid ""
@@ -3601,7 +3582,7 @@ msgstr ""
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:126
 msgid "<a href=\"doc/anonymous_internet/tor\">Learn more about Tor bridges</a>"
 msgstr ""
-"<a href=\"doc/anonymous_internet/tor\">Tor köprüleri hakkında ayrıntılı "
+"<a href=\"doc/anonymous_internet/tor\">Tor köprüleri ile ilgili ayrıntılı "
 "bilgi alın</a>"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:161
@@ -3633,11 +3614,11 @@ msgid ""
 msgstr ""
 "Telefonunuzu ve bir Gmail ya da Riseup e-posta adresi kullanarak "
 "<tt>bridges@torproject.org</tt> adresine boş bir e-posta gönderin. Otomatik "
-"olarak verilen yanıtın ekindeki QR kodunu tarayın."
+"olarak verilen yanıtın ekindeki kare kodu tarayın."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:276
 msgid "Scan _QR code"
-msgstr "_QR kodunu tara"
+msgstr "_Kare kodu tara"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:377
 msgid "_Enter a bridge that you already know"
@@ -3739,11 +3720,11 @@ msgid ""
 msgstr ""
 "Bir köprü almak için, telefonunuzu ve bir Gmail ya da Riseup e-posta "
 "adresini kullanarak <tt>bridges@torproject.org</tt> adresine boş bir e-posta "
-"gönderin. Otomatik olarak verilen yanıtın ekindeki QR kodunu tarayın."
+"gönderin. Otomatik olarak verilen yanıtın ekindeki kare kodu tarayın."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1018
 msgid "Scan QR Code"
-msgstr "QR kodunu tara"
+msgstr "Kare kodu tara"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1149
 msgid ""
@@ -3909,7 +3890,6 @@ msgid "Connect to a local network"
 msgstr "Bir yerel ağ bağlantısı kur"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1725
-#, fuzzy
 msgid ""
 "You are not connected to a local network yet. To be able to connect to the "
 "Tor network, you first need to connect to a Wi-Fi, wired, or mobile network."
@@ -4079,6 +4059,32 @@ msgstr "Aralık"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "Saat"
+
+#~ msgid ""
+#~ "Authentication is required to start a Root Console. Enter the "
+#~ "administration password that you set up in the Welcome Screen."
+#~ msgstr ""
+#~ "Bir Root konsolu açmak için kimlik doğrulaması gereklidir. Karşılama "
+#~ "ekranında ayarladığınız yönetim parolasını yazın."
+
+#~ msgid ""
+#~ "For better security, no administration password is set up in Tails by "
+#~ "default. To start a Root Console, restart Tails and set up an "
+#~ "administration password in the Welcome Screen."
+#~ msgstr ""
+#~ "Daha iyi güvenlik sağlamak için, Tails üzerinde varsayılan olarak "
+#~ "herhangi bir yönetim parolası ayarlanmaz. Bir Root konsolu açmak için "
+#~ "Tails sistemini yeniden başlatın ve karşılama ekranından bir yönetim "
+#~ "parolası ayarlayın."
+
+#~ msgid "Root Console"
+#~ msgstr "Root konsolu"
+
+#~ msgid "Opens a console as the root user"
+#~ msgstr "Root kullanıcısı ile bir konsol açar"
+
+#~ msgid "admin"
+#~ msgstr "yönetici"
 
 #~ msgid "To start a Root Console, you need to authenticate."
 #~ msgstr "Root konsolunu başlatmak için kimliği doğrulamalısınız."

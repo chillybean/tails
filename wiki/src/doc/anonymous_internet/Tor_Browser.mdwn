@@ -71,7 +71,7 @@ the [XDG Desktop Portals](https://flatpak.github.io/xdg-desktop-portal/) of
 <p>When opening files from the <i>/usr</i> or <i>/etc</i> folders in Tor
 Browser, Tor Browser displays the following error:</p>
 
-<p class="command">Access to the file was denied</p>
+<pre>Access to the file was denied</pre>
 
 </div>
 
@@ -179,9 +179,20 @@ For example, you can set the security level to *Safest* to disable JavaScript co
 The security level is set to *Standard* by default which gives
 the most usable experience.
 
-To change the security level, select the [[!img security-level.png
-link="no" class="symbolic"]] icon on the right of the address bar
-and choose **Settings**.
+To change the security level:
+
+1. Select the [[!img security-level.png link="no" class="symbolic"]] icon on
+   the right of the address bar.
+
+1. Select **Settings** in the **Security level** menu.
+
+1. In the **Security Level** settings, select **Change**.
+
+1. Select a new security level.
+
+1. **Save and restart** to apply the change.
+
+   All windows and tabs will be closed when restarting.
 
 [[!img security-levels.png class="screenshot" alt=""]]
 

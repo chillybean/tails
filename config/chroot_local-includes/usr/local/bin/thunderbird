@@ -31,6 +31,9 @@ start_thunderbird() {
     # Enabling Wayland support to make (among other things) the GNOME
     # on-screen keyboard work.
     export MOZ_ENABLE_WAYLAND=1
+    # This is necessary for services.settings.server to be honored,
+    # which we set in aa_tails.js to disable the remote settings and telemetry mechanism
+    export MOZ_REMOTE_SETTINGS_DEVTOOLS=1
     unset SESSION_MANAGER
     reconfigure_profile
     exec /usr/bin/thunderbird --class "Thunderbird" -profile "${PROFILE}" "${@}"

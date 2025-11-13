@@ -61,8 +61,20 @@ def browser_url_entry
   end
 end
 
-def get_current_browser_url
-  browser_url_entry.text
+# Get the URL that is currently opened in Tor Browser. If
+# as_displayed is true, returns the URL as displayed by the Tor
+# Browser. The most important effect is that https:// is omitted.
+# Else (the default) it will return the actual URL
+def get_current_browser_url(as_displayed: false)
+  address = browser_url_entry.text
+  if address.empty? || address.start_with?('about:')
+    return address
+  end
+
+  if !as_displayed && !(address['://'])
+    address = "https://#{address}"
+  end
+  address
 end
 
 def set_browser_url(url)
@@ -72,7 +84,7 @@ def set_browser_url(url)
     # Just matching against any entry could be racy if some other
     # entry had focus when calling this step, but address bar is
     # probably the only entry inside a tool bar.
-    focused.roleName == 'entry' && focused.parent.parent.roleName == 'tool bar'
+    focused.roleName == 'entry' && focused.parent.parent.parent.roleName == 'tool bar'
   end
   # We're retrying to workaround #19237.
   #
@@ -82,11 +94,11 @@ def set_browser_url(url)
   retry_action(10) do
     @screen.press('ctrl', 'a')
     _, selection_length = browser_url_entry.get_text_selection_range
-    assert_equal(get_current_browser_url.length, selection_length)
+    assert_equal(get_current_browser_url(as_displayed: true).length, selection_length)
     @screen.press('backspace')
     assert_true(get_current_browser_url.empty?)
     @screen.paste(url)
-    assert_equal(get_current_browser_url, url)
+    assert_equal(get_current_browser_url(as_displayed: true), url)
   end
 end
 
@@ -126,7 +138,7 @@ def tor_browser_application_info(defaults)
     'echo ${TBB_INSTALL}/firefox.real', libs: 'tor-browser'
   ).stdout.chomp
   cmd_regex = "#{binary} .* -profile " \
-              "/home/#{user}/\.tor-browser/profile\.default"
+              "/home/#{user}/\.tor-browser/profile\.default( .*)?"
   defaults.merge(
     {
       user:,
@@ -146,7 +158,7 @@ def unsafe_browser_application_info(defaults)
     'echo ${TBB_INSTALL}/firefox.unsafe-browser', libs: 'tor-browser'
   ).stdout.chomp
   cmd_regex = "#{binary} .* " \
-              "--profile /home/#{user}/\.unsafe-browser/profile\.default"
+              "--profile /home/#{user}/\.unsafe-browser/profile\.default( .*)?"
   defaults.merge(
     {
       user:,
@@ -183,7 +195,15 @@ When /^I open a new tab in the (.*)$/ do |browser_name|
   info = xul_application_info(browser_name)
   retry_action(2) do
     @screen.click(info[:new_tab_button_image])
-    @screen.wait(info[:address_bar_image], 15)
+    # The cursor will likely be on the newly opened tab which will
+    # open a pop-up that may obscure the address bar, which would
+    # cause a failure below.
+    @screen.hide_cursor
+    # We lower the sensitivity here because in Tor Browser 15.0, in
+    # some languages (Italian and Spanish), antialiasing of the
+    # address bar text we're looking for differs depending on which
+    # text is displayed *before* the text we're looking for.
+    @screen.wait(info[:address_bar_image], 15, sensitivity: 0.8)
   end
 end
 
@@ -215,10 +235,21 @@ When /^I open the address "([^"]*)" in the (.* Browser)( without waiting)?$/ do 
   end
 end
 
+def tor_browser_name
+  tbb_version_json = JSON.parse(
+    $vm.file_content('/usr/local/lib/tor-browser/tbb_version.json')
+  )
+  if tbb_version_json['channel'] == 'alpha'
+    'Tor Browser Alpha'
+  else
+    'Tor Browser'
+  end
+end
+
 def page_has_loaded_in_the_tor_browser(page_titles)
   page_titles = [page_titles] if page_titles.instance_of?(String)
   assert_equal(Array, page_titles.class)
-  browser_name = 'Tor Browser'
+  browser_name = tor_browser_name
   if $language == 'German'
     reload_action = 'Neu laden'
     separator = '–'
@@ -423,6 +454,7 @@ Then(/^the screen keyboard works in Tor Browser$/) do
   when 'Persian'
     osk_key_images = ['ScreenKeyboardKeyCommaPersian.png',
                       'ScreenKeyboardKeyCommaPersian_alt.png',]
+    browser_bar_x = 'BrowserAddressBarCommaRTL.png'
   end
   step 'I start the Tor Browser'
   step 'I open a new tab in the Tor Browser'
@@ -493,8 +525,16 @@ Given /^the Tor Browser (?:has started|starts)$/ do
 end
 
 Given /^the Tor Browser loads about:tor$/ do
+  unless File.exist?('features/images/TorBrowser2025YECBannerRTL.png')
+    cmd_helper(['convert',
+                '-flop',
+                'features/images/TorBrowser2025YECBanner.png',
+                'features/images/TorBrowser2025YECBannerRTL.png',])
+  end
   @screen.wait_any(
-    ['TorBrowserAboutTor.png', 'TorBrowser2025EOYCampaignBanner.png'], 60
+    ['TorBrowserAboutTor.png',
+     'TorBrowser2025YECBanner.png',
+     'TorBrowser2025YECBannerRTL.png',], 60
   )
 end
 
@@ -554,9 +594,9 @@ When /^I (can|cannot) save the current page as "([^"]+[.]html)" to the (.*) (dir
 end
 
 When /^I request a new identity in Tor Browser$/ do
-  @torbrowser.child('Tor Browser', roleName: 'button').press
+  @torbrowser.child(tor_browser_name, roleName: 'button').press
   @torbrowser.child('New identity', roleName: 'button').press
-  @torbrowser.child('Restart Tor Browser', roleName: 'button').press
+  @torbrowser.child("Restart #{tor_browser_name}", roleName: 'button').press
 end
 
 Then /^the Tor Browser has (\d+) tabs? open$/ do |expected_tab_count|
