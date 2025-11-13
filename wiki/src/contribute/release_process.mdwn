@@ -1987,7 +1987,7 @@ complete successfully:
           -m "Ensure base branch on 'master' remains 'stable'"
       git push origin devel:devel
       git push origin \
-          -o merge_request.merge_when_pipeline_succeeds \
+          -o merge_request.auto_merge \
           "${WEBSITE_RELEASE_BRANCH:?}"
     )
 
