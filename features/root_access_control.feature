@@ -15,8 +15,3 @@ Feature: Root access control enforcement
     Then I cannot run a command as root with sudo and the standard passwords
     And I cannot run a command as root with pkexec and the standard passwords
     Then I cannot login as root using su with the standard passwords
-
-  Scenario: The Root Console starts
-    Given I have started Tails from DVD without network and logged in with an administration password
-    When I start the Root Console using the administration password
-    Then the Root Console starts

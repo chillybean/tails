@@ -6,9 +6,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2025-09-17 11:40+0200\n"
-"PO-Revision-Date: 2025-09-21 10:19+0000\n"
-"Last-Translator: Chre <tor@renaudineau.org>\n"
+"POT-Creation-Date: 2025-11-12 12:16+0100\n"
+"PO-Revision-Date: 2025-10-16 06:19+0000\n"
+"Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -88,11 +88,15 @@ msgid ""
 "   Doing a manual upgrade of your broken Tails might allow you to start your\n"
 "   USB stick again and use your Persistent Storage like before.\n"
 msgstr ""
+"   Faire une mise à jour manuelle de votre Tails endommagé peut vous permettre de démarrer\n"
+"   à nouveau votre clé USB et d'utiliser votre stockage persistant comme avant.\n"
 
 #. type: Bullet: '1. '
 msgid ""
 "[[Unlocking from another Tails and copying using `rsync`|recover#rsync]]"
 msgstr ""
+"[[Déverrouiller depuis un autre système Tails et copier les données via "
+"`rsync`|recover#rsync]]"
 
 #. type: Plain text
 #, no-wrap
@@ -118,33 +122,39 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "<h1 id=\"upgrade\">Doing a manual upgrade</h1>\n"
-msgstr ""
+msgstr "<h1 id=\"upgrade\">Faire une mise à jour manuelle</h1>\n"
 
 #. type: Plain text
 msgid ""
 "Doing a manual upgrade of your broken Tails might allow you to start your "
 "USB stick again and use your Persistent Storage like before."
 msgstr ""
+"Faire une mise à jour manuelle de votre Tails endommagé peut vous permettre "
+"de démarrer votre clé USB à nouveau et d'utiliser votre stockage persistant "
+"comme avant."
 
 #. type: Plain text
 msgid "Refer to our instructions on how to do a manual upgrade, either:"
 msgstr ""
+"Référez vous à nos instructions sur comment faire une mise à jour manuelle "
+"suivant votre système :"
 
 #. type: Bullet: '- '
 msgid "[[Downloading and upgrading from Windows|upgrade/windows]]"
-msgstr ""
+msgstr "[[Téléchargement et mise à jour depuis Windows|upgrade/windows]]"
 
 #. type: Bullet: '- '
 msgid "[[Downloading and upgrading from macOS|upgrade/mac]]"
-msgstr ""
+msgstr "[[Téléchargement et mise à jour depuis macOS|upgrade/mac]]"
 
 #. type: Bullet: '- '
 msgid "[[Downloading and upgrading from Linux|upgrade/linux]]"
-msgstr ""
+msgstr "[[Téléchargement et mise à jour depuis Linux|upgrade/linux]]"
 
 #. type: Bullet: '- '
 msgid "[[Upgrading by cloning from another Tails|doc/upgrade/#clone]]"
 msgstr ""
+"[[Mise à jour par clonage depuis un autre système Tails|doc/upgrade/#clone]]"
 
 #. type: Plain text
 #, no-wrap
@@ -267,9 +277,11 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '1. '
-msgid ""
-"Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Root Console** to open a console "
-"with administration rights."
+#, fuzzy
+#| msgid ""
+#| "Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Root Console** to open a console "
+#| "with administration rights."
+msgid "Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Console**."
 msgstr ""
 "Choisissez **Applications&nbsp;▸ Outils système&nbsp;▸ Console "
 "d'administration** pour ouvrir une console avec les droits d'administration."
@@ -283,8 +295,9 @@ msgstr ""
 "Tails endommagé vers votre nouveau Tails :"
 
 #. type: Plain text
-#, no-wrap
-msgid "   <p class=\"command-root\">rsync -PaSHAXv --del /media/amnesia/TailsData/ /live/persistence/TailsData_unlocked</p>\n"
+#, fuzzy, no-wrap
+#| msgid "   <p class=\"command-root\">rsync -PaSHAXv --del /media/amnesia/TailsData/ /live/persistence/TailsData_unlocked</p>\n"
+msgid "   <p class=\"command\">sudo rsync -PaSHAXv --del /media/amnesia/TailsData/ /live/persistence/TailsData_unlocked</p>\n"
 msgstr "   <p class=\"command-root\">rsync -PaSHAXv --del /media/amnesia/TailsData/ /live/persistence/TailsData_unlocked</p>\n"
 
 #. type: Bullet: '1. '
@@ -316,18 +329,24 @@ msgstr ""
 "   se trouve votre Tails endommagé.\n"
 
 #. type: Plain text
+#, fuzzy
+#| msgid ""
+#| "You can also explore the content of the Persistent Storage on your broken "
+#| "Tails from the *Files* browser. To do so, execute the following command "
+#| "from the *Root Console*."
 msgid ""
 "You can also explore the content of the Persistent Storage on your broken "
 "Tails from the *Files* browser. To do so, execute the following command from "
-"the *Root Console*."
+"the *Console*."
 msgstr ""
 "Vous pouvez également explorer le contenu du stockage persistant de votre "
 "Tails endommagé depuis le navigateur de *Fichiers*. Pour ce faire, exécutez "
 "la commande suivante depuis la *Console d'administration*."
 
 #. type: Plain text
-#, no-wrap
-msgid "   <p class=\"command-root\">nautilus</p>\n"
+#, fuzzy, no-wrap
+#| msgid "   <p class=\"command-root\">nautilus</p>\n"
+msgid "   <p class=\"command\">nautilus admin:/media/amnesia/TailsData/</p>\n"
 msgstr "   <p class=\"command-root\">nautilus</p>\n"
 
 #. type: Plain text
@@ -348,6 +367,9 @@ msgid ""
 "instructions on [[recovering data from the Persistent Storage when it has "
 "file system errors|fsck]]:"
 msgstr ""
+"Nous ne fournissons pas d'instructions étape par étape, mais vous pouvez "
+"adapter nos instructions sur la [[récupération de données depuis le stockage "
+"persistant lorsqu'il a des erreurs de système de fichiers|fsck]] :"
 
 #. type: Bullet: '1. '
 msgid ""

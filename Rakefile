@@ -33,6 +33,7 @@ VAGRANT_PATH = File.expand_path('vagrant', __dir__)
 STABLE_BRANCH_NAMES = ['stable', 'testing'].freeze
 
 EXPORTED_VARIABLES = [
+  'JENKINS_URL',
   'MKSQUASHFS_OPTIONS',
   'APT_SNAPSHOTS_SERIALS',
   'TAILS_ACNG_PROXY',
@@ -62,6 +63,7 @@ ENV['APT_SNAPSHOTS_SERIALS'] ||= ''
 ENV['TAILS_BUILD_FAILURE_RESCUE'] ||= ''
 ENV['TAILS_DATE_OFFSET'] ||= ''
 ENV['TAILS_OFFLINE_MODE'] ||= ''
+ENV['TAILS_PROXY_TYPE'] ||= 'vmproxy'
 ENV['TAILS_RAM_BUILD'] ||= ''
 
 class CommandError < StandardError
@@ -214,9 +216,6 @@ task :parse_build_options do
         end
         ENV['TAILS_ACNG_PROXY'] = EXTERNAL_HTTP_PROXY
       end
-    when 'noproxy'
-      ENV['TAILS_PROXY'] = nil
-      ENV['TAILS_PROXY_TYPE'] = 'noproxy'
     when 'offline'
       ENV['TAILS_OFFLINE_MODE'] = '1'
     when /cachewebsite(?:=([a-z]+))?/

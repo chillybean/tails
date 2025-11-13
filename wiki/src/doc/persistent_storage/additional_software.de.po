@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tails\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-09-17 11:40+0200\n"
+"POT-Creation-Date: 2025-11-12 12:16+0100\n"
 "PO-Revision-Date: 2025-09-21 10:19+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: Tails translators <tails@boum.org>\n"
@@ -713,18 +713,29 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '1. '
-msgid ""
-"Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Root Console** to open a console "
-"with administration rights."
+#, fuzzy
+#| msgid ""
+#| "To see which packages are installed automatically every time you start "
+#| "Tails, choose **Applications&nbsp;▸ System Tools&nbsp;▸ Additional "
+#| "Software**."
+msgid "Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Console**."
 msgstr ""
+"Um zu sehen, welche Pakete automatisch mit dem Tails start installiert "
+"werden, wählen Sie <span class=\"menuchoice\">    <span "
+"class=\"guimenu\">Anwendungen</span>&nbsp;▸    <span "
+"class=\"guisubmenu\">Systemwerkzeuge</span>&nbsp;▸    <span "
+"class=\"guimenuitem\">Zusätzliche Software</span></span>."
 
 #. type: Bullet: '1. '
-msgid "Execute the following command:"
+#, fuzzy
+#| msgid "Execute the following command:"
+msgid "Execute the following command."
 msgstr "Führen Sie den folgenden Befehl aus:"
 
 #. type: Plain text
-#, no-wrap
-msgid "   <p class=\"command\">apt clean</p>\n"
+#, fuzzy, no-wrap
+#| msgid "   <p class=\"command\">apt clean</p>\n"
+msgid "   <p class=\"command\">sudo apt clean</p>\n"
 msgstr "   <p class=\"command\">apt clean</p>\n"
 
 #. type: Title =
@@ -825,21 +836,33 @@ msgstr ""
 #. type: Bullet: '1. '
 msgid ""
 "Correct the ownership and permissions of your additional `sources.list` "
-"files to be owned by `root` and only readable by others. For example:"
+"files to be owned by `root` and only readable by others. For example, "
+"execute the following commands."
 msgstr ""
 
 #. type: Plain text
-#, no-wrap
-msgid ""
-"       chown root:root /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list\n"
-"       chmod 644 /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list\n"
-msgstr ""
-"       chown root:root /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list\n"
-"       chmod 644 /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list\n"
+#, fuzzy, no-wrap
+#| msgid "   <p class=\"command\">sudo install -d -m 755 /live/persistence/TailsData_unlocked/apt-sources.list.d</p>\n"
+msgid "   <p class=\"command\">sudo chown root:root /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list</p>\n"
+msgstr "   <p class=\"command\">sudo install -d -m 755 /live/persistence/TailsData_unlocked/apt-sources.list.d</p>\n"
+
+#. type: Plain text
+#, fuzzy, no-wrap
+#| msgid "   <p class=\"command\">sudo install -d -m 755 /live/persistence/TailsData_unlocked/apt-sources.list.d</p>\n"
+msgid "   <p class=\"command\">sudo chmod 644 /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list</p>\n"
+msgstr "   <p class=\"command\">sudo install -d -m 755 /live/persistence/TailsData_unlocked/apt-sources.list.d</p>\n"
 
 #. type: Bullet: '1. '
 msgid "Restart Tails to apply the changes."
 msgstr ""
+
+#, no-wrap
+#~ msgid ""
+#~ "       chown root:root /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list\n"
+#~ "       chmod 644 /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list\n"
+#~ msgstr ""
+#~ "       chown root:root /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list\n"
+#~ "       chmod 644 /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list\n"
 
 #~ msgid ""
 #~ "Choose <span class=\"menuchoice\"> <span class=\"guimenu\">Applications</"

@@ -21,13 +21,16 @@ This technique uses the command line.
 
 1. When starting Tails, [[set up an administration password|doc/first_steps/welcome_screen/administration_password]].
 
-1. Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Root Console** to open a
-   console with administration rights.
+1. Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Console**.
+
+1. Execute the following command to open a root console.
+
+   <p class="command">sudo -i</p>
 
 1. To find out the index of the wireless device that you want to enable,
    execute the following command:
 
-   <p class="command">rfkill list</p>
+   <p class="command-root">rfkill list</p>
 
    For example, the command could return the following:
 
@@ -50,17 +53,17 @@ This technique uses the command line.
    execute the following command. Replace
    <span class="command-placeholder">index</span> with the index found at step 2:
 
-   <p class="command-template">rfkill unblock <span class="command-placeholder">index</span></p>
+   <p class="command-root-template">rfkill unblock <span class="command-placeholder">index</span></p>
 
    Here is an example of the command to execute. Yours is probably
    different:
 
-   <p class="command-template">rfkill unblock 2</p>
+   <p class="command-root-template">rfkill unblock 2</p>
 
 1. To verify that the wireless device is enabled,
    execute the following command again:
 
-   <p class="command">rfkill list</p>
+   <p class="command-root">rfkill list</p>
 
    This output should be very similar to the one of step 2, but
    the device enabled at step 3 should not be soft

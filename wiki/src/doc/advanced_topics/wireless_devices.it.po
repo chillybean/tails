@@ -7,21 +7,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-09-17 11:40+0200\n"
-"PO-Revision-Date: 2024-09-26 21:06+0000\n"
-"Last-Translator: xin <xin@riseup.net>\n"
+"POT-Creation-Date: 2025-11-12 12:16+0100\n"
+"PO-Revision-Date: 2025-10-08 22:19+0000\n"
+"Last-Translator: _ignifugo <ignifugo@insicuri.net>\n"
 "Language-Team: ita <transitails@inventati.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.3\n"
+"X-Generator: Weblate 5.13.2\n"
 
 #. type: Plain text
 #, no-wrap
 msgid "[[!meta title=\"Enabling a wireless device\"]]\n"
-msgstr ""
+msgstr "[[!meta title=\"Attivare un dispositivo wireless\"]]\n"
 
 #. type: Plain text
 msgid "When Tails starts, Wi-Fi, WWAN, and WiMAX devices are enabled."
@@ -69,28 +69,35 @@ msgid ""
 "When starting Tails, [[set up an administration password|doc/first_steps/"
 "welcome_screen/administration_password]]."
 msgstr ""
+"Quando si avvia Tails, [[imposta una password di amministrazione|doc/"
+"first_steps/welcome_screen/administration_password]]."
 
 #. type: Bullet: '1. '
-msgid ""
-"Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Root Console** to open a console "
-"with administration rights."
+msgid "Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Console**."
 msgstr ""
 
 #. type: Bullet: '1. '
-#, fuzzy
-#| msgid ""
-#| "To verify that the wireless device is enabled, execute the following "
-#| "command in the root terminal again:"
+msgid "Execute the following command to open a root console."
+msgstr ""
+
+#. type: Plain text
+#, fuzzy, no-wrap
+#| msgid "   <p class=\"command\">rfkill list</p>\n"
+msgid "   <p class=\"command\">sudo -i</p>\n"
+msgstr "   <p class=\"command\">rfkill list</p>\n"
+
+#. type: Bullet: '1. '
 msgid ""
 "To find out the index of the wireless device that you want to enable, "
 "execute the following command:"
 msgstr ""
-"Per verificare che il dispositivo wireless sia attivato, esegui di nuovo il "
-"comando seguente nel terminale root:"
+"Per trovare l'indice del dispositivo wireless che vuoi attivare, esegui il "
+"seguente comando:"
 
 #. type: Plain text
-#, no-wrap
-msgid "   <p class=\"command\">rfkill list</p>\n"
+#, fuzzy, no-wrap
+#| msgid "   <p class=\"command\">rfkill list</p>\n"
+msgid "   <p class=\"command-root\">rfkill list</p>\n"
 msgstr "   <p class=\"command\">rfkill list</p>\n"
 
 #. type: Plain text
@@ -135,21 +142,19 @@ msgstr ""
 "   probabilmente differenti.\n"
 
 #. type: Bullet: '1. '
-#, fuzzy
-#| msgid ""
-#| "To enable the wireless device, execute the following command in the root "
-#| "terminal, replacing `[index]` with the index found at step 2:"
 msgid ""
 "To enable the wireless device, execute the following command. Replace <span "
 "class=\"command-placeholder\">index</span> with the index found at step 2:"
 msgstr ""
-"Per attivare il dispositivo wireless, esegui il comando seguente nel "
-"terminale root, sostituendo `[indice]` con l'indice trovato al passaggio 2:"
+"Per attivare il dispositivo wireless, esegui il comando seguente, "
+"sostituendo <span class=\"command-placeholder\">indice</span> con l'indice "
+"trovato al passaggio 2:"
 
 #. type: Plain text
-#, no-wrap
-msgid "   <p class=\"command-template\">rfkill unblock <span class=\"command-placeholder\">index</span></p>\n"
-msgstr ""
+#, fuzzy, no-wrap
+#| msgid "   <p class=\"command-template\">rfkill unblock 2</p>\n"
+msgid "   <p class=\"command-root-template\">rfkill unblock <span class=\"command-placeholder\">index</span></p>\n"
+msgstr "   <p class=\"command-template\">rfkill unblock 2</p>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -161,21 +166,18 @@ msgstr ""
 "   differente:\n"
 
 #. type: Plain text
-#, no-wrap
-msgid "   <p class=\"command-template\">rfkill unblock 2</p>\n"
+#, fuzzy, no-wrap
+#| msgid "   <p class=\"command-template\">rfkill unblock 2</p>\n"
+msgid "   <p class=\"command-root-template\">rfkill unblock 2</p>\n"
 msgstr "   <p class=\"command-template\">rfkill unblock 2</p>\n"
 
 #. type: Bullet: '1. '
-#, fuzzy
-#| msgid ""
-#| "To verify that the wireless device is enabled, execute the following "
-#| "command in the root terminal again:"
 msgid ""
 "To verify that the wireless device is enabled, execute the following command "
 "again:"
 msgstr ""
 "Per verificare che il dispositivo wireless sia attivato, esegui di nuovo il "
-"comando seguente nel terminale root:"
+"comando seguente:"
 
 #. type: Plain text
 #, no-wrap

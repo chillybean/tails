@@ -17,6 +17,8 @@ def chutney_status_log(cmd)
              'waiting for bootstrap (might take a few minutes)'
            when 'done'
              'started!'
+           when 'failed'
+             'failed to bootstrap despite retrying, aborting run'
            else
              return
            end
@@ -27,9 +29,6 @@ def chutney_env
   {
     'CHUTNEY_LISTEN_ADDRESS' => $vmnet.bridge_ip_address.to_s,
     'CHUTNEY_DATA_DIR'       => "#{$config['TMPDIR']}/chutney-data",
-    # The default value (60s) is too short for "chutney wait_for_bootstrap"
-    # to succeed reliably.
-    'CHUTNEY_START_TIME'     => ENV['CHUTNEY_START_TIME'] || '600',
     'CHUTNEY_TOR_SANDBOX'    => '0',
   }
 end
@@ -70,6 +69,14 @@ rescue CommandFailed
   false
 else
   true
+end
+
+def wait_until_chutney_is_working
+  assert_not_nil($chutney_bootstraping)
+  $chutney_bootstraping.lock
+  raise $chutney_bootstrap_failure unless $chutney_bootstrap_failure.nil?
+ensure
+  $chutney_bootstraping.unlock
 end
 
 def kill_chutney_processes(sigkill: false)
@@ -159,21 +166,38 @@ want to delete Chutney's data directory and all test suite snapshots:
     chutney_data_dir_cleanup unless KEEP_CHUTNEY
   end
 
+  Thread.new do
+    ensure_chutney_bootstraps
+  rescue StandardError => e
+    chutney_status_log('failed')
+    $chutney_bootstrap_failure = e
+  end
+
   $chutney_initialized = true
 end
 
-def wait_until_chutney_is_working
-  return if $chutney_working
+# rubocop:disable Metrics/AbcSize
+def ensure_chutney_bootstraps
+  return unless $chutney_bootstraping.nil?
 
-  initialize_chutney
+  $chutney_bootstraping = Mutex.new
+  $chutney_bootstraping.lock
 
-  # Documentation: submodules/chutney/README, "Waiting for the network" section
+  restart_chutney = proc do
+    debug_log('Chutney failed to bootstrap, retrying...')
+    chutney_cmd('stop')
+    chutney_cmd('start')
+  end
+
   begin
-    chutney_cmd('wait_for_bootstrap', output_in_exception: false)
-  rescue CommandFailed => e
+    retry_action(2, recovery_proc: restart_chutney) do
+      # Documentation: submodules/chutney/README, "Waiting for the network" section
+      chutney_cmd('wait_for_bootstrap', output_in_exception: false)
+    end
+  rescue MaxRetriesFailure => e
     # The output from this command is massive, so let's just keep the
     # last status report from the failed command's output.
-    message = "#{e.message}\n#{e.command_output[/^Bootstrap failed:.*/m]}"
+    message = "#{e.cause.message}\n#{e.cause.command_output[/^Bootstrap failed:.*/m]}"
     raise ChutneyBootstrapFailure, message
   end
 
@@ -212,7 +236,10 @@ def wait_until_chutney_is_working
 
   chutney_status_log('done')
   $chutney_working = true
+ensure
+  $chutney_bootstraping.unlock
 end
+# rubocop:enable Metrics/AbcSize
 
 def configure_simulated_Tor_network # rubocop:disable Naming/MethodName
   # At the moment this function essentially assumes that we boot with 'the

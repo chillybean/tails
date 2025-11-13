@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-09-17 11:40+0200\n"
-"PO-Revision-Date: 2025-09-21 10:19+0000\n"
-"Last-Translator: xin <xin@riseup.net>\n"
+"POT-Creation-Date: 2025-11-12 12:16+0100\n"
+"PO-Revision-Date: 2025-10-10 13:19+0000\n"
+"Last-Translator: victor dargallo <victordargallo@disroot.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
@@ -278,16 +278,12 @@ msgstr ""
 "first_steps/welcome_screen/administration_password]]."
 
 #. type: Bullet: '1. '
-#, fuzzy
-#| msgid ""
-#| "Choose **Applications&nbsp;▸ Persistent Storage** to open the Persistent "
-#| "Storage settings."
 msgid ""
 "Choose **Apps&nbsp;▸ Tails&nbsp;▸ Persistent Storage** to open the "
 "Persistent Storage settings."
 msgstr ""
-"Trieu **Aplicacions&nbsp;▸ Emmagatzematge Persistent** per obrir la "
-"configuració de l'Emmagatzematge Persistent."
+"Seleccioneu **Aplicacions&nbsp;▸ Tails&nbsp;▸ Emmagatzematge Persistent** "
+"per obrir la configuració de l'Emmagatzematge Persistent."
 
 #. type: Plain text
 #, no-wrap
@@ -309,9 +305,7 @@ msgstr "   Tanqueu la configuració de l'Emmagatzematge Persistent.\n"
 #| msgid ""
 #| "Choose **Applications&nbsp;▸ System Tools&nbsp;▸ Root Terminal** to open "
 #| "a terminal with administration rights."
-msgid ""
-"Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Console** to open a console without "
-"administration rights."
+msgid "Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Console**."
 msgstr ""
 "Trieu **Aplicacions&nbsp;▸ Eines del sistema&nbsp;▸ Terminal "
 "d'administrador** per obrir un terminal amb drets d'administració."
@@ -325,8 +319,9 @@ msgstr ""
 "Persistent a l'*Editor de text* amb drets d'administració."
 
 #. type: Plain text
-#, no-wrap
-msgid "       gnome-text-editor admin:///live/persistence/TailsData_unlocked/persistence.conf\n"
+#, fuzzy, no-wrap
+#| msgid "       gnome-text-editor admin:///live/persistence/TailsData_unlocked/persistence.conf\n"
+msgid "       gnome-text-editor admin:/live/persistence/TailsData_unlocked/persistence.conf\n"
 msgstr "       gnome-text-editor admin:///live/persistence/TailsData_unlocked/persistence.conf\n"
 
 #. type: Plain text
@@ -365,18 +360,6 @@ msgid "   Save your changes and close the *Text Editor*.\n"
 msgstr "   Deseu els canvis i tanqueu l'*Editor de text*.\n"
 
 #. type: Bullet: '1. '
-#, fuzzy
-#| msgid ""
-#| "Choose **Applications&nbsp;▸ System Tools&nbsp;▸ Root Terminal** to open "
-#| "a terminal with administration rights."
-msgid ""
-"Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Root Console** to open a console "
-"with administration rights."
-msgstr ""
-"Trieu **Aplicacions&nbsp;▸ Eines del sistema&nbsp;▸ Terminal "
-"d'administrador** per obrir un terminal amb drets d'administració."
-
-#. type: Bullet: '1. '
 msgid ""
 "Execute the following commands to configure the *Dangerzone* repository as "
 "additional APT repository."
@@ -385,13 +368,15 @@ msgstr ""
 "repositori APT addicional."
 
 #. type: Plain text
-#, no-wrap
-msgid "   <p class=\"command-root\">mkdir /live/persistence/TailsData_unlocked/apt/sources</p>\n"
+#, fuzzy, no-wrap
+#| msgid "   <p class=\"command-root\">mkdir /live/persistence/TailsData_unlocked/apt/sources</p>\n"
+msgid "   <p class=\"command\">sudo mkdir /live/persistence/TailsData_unlocked/apt/sources</p>\n"
 msgstr "   <p class=\"command-root\">mkdir /live/persistence/TailsData_unlocked/apt/sources</p>\n"
 
 #. type: Plain text
-#, no-wrap
-msgid "   <p class=\"command-root\">ln -s /usr/share/tails/apt/dangerzone.sources /live/persistence/TailsData_unlocked/apt/sources/</p>\n"
+#, fuzzy, no-wrap
+#| msgid "   <p class=\"command-root\">ln -s /usr/share/tails/apt/dangerzone.sources /live/persistence/TailsData_unlocked/apt/sources/</p>\n"
+msgid "   <p class=\"command\">sudo ln -s /usr/share/tails/apt/dangerzone.sources /live/persistence/TailsData_unlocked/apt/sources/</p>\n"
 msgstr "   <p class=\"command-root\">ln -s /usr/share/tails/apt/dangerzone.sources /live/persistence/TailsData_unlocked/apt/sources/</p>\n"
 
 #. type: Plain text
@@ -456,13 +441,15 @@ msgstr ""
 "seves dependències."
 
 #. type: Plain text
-#, no-wrap
-msgid "   <p class=\"command-root\">apt update</p>\n"
+#, fuzzy, no-wrap
+#| msgid "   <p class=\"command-root\">apt update</p>\n"
+msgid "   <p class=\"command\">sudo apt update</p>\n"
 msgstr "   <p class=\"command-root\">apt update</p>\n"
 
 #. type: Plain text
-#, no-wrap
-msgid "   <p class=\"command-root\">apt install dangerzone fuse-overlayfs uidmap</p>\n"
+#, fuzzy, no-wrap
+#| msgid "   <p class=\"command-root\">apt install dangerzone fuse-overlayfs uidmap</p>\n"
+msgid "   <p class=\"command\">sudo apt install dangerzone fuse-overlayfs uidmap</p>\n"
 msgstr "   <p class=\"command-root\">apt install dangerzone fuse-overlayfs uidmap</p>\n"
 
 #. type: Bullet: '1. '
@@ -483,7 +470,7 @@ msgstr "   Trieu **Instal·la cada vegada**.\n"
 #. type: Bullet: '1. '
 #, fuzzy
 #| msgid "Close the *Root Terminal*."
-msgid "Close the *Root Console*."
+msgid "Close the *Console*."
 msgstr "Tanqueu el *Terminal d'administrador*."
 
 #. type: Plain text
@@ -604,6 +591,17 @@ msgid ""
 "<p>You can use several applications included in Tails to [[edit the safe\n"
 "PDF|sensitive_documents/pdf]] produced by <i>Dangerzone</i>.</p>\n"
 msgstr ""
+
+#, fuzzy
+#~| msgid ""
+#~| "Choose **Applications&nbsp;▸ System Tools&nbsp;▸ Root Terminal** to open "
+#~| "a terminal with administration rights."
+#~ msgid ""
+#~ "Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Root Console** to open a console "
+#~ "with administration rights."
+#~ msgstr ""
+#~ "Trieu **Aplicacions&nbsp;▸ Eines del sistema&nbsp;▸ Terminal "
+#~ "d'administrador** per obrir un terminal amb drets d'administració."
 
 #~ msgid ""
 #~ "Choose **Applications&nbsp;▸ Utilities&nbsp;▸ Terminal** to open a "

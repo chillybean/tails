@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tails\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-09-17 11:40+0200\n"
+"POT-Creation-Date: 2025-11-12 12:16+0100\n"
 "PO-Revision-Date: 2025-09-21 10:19+0000\n"
 "Last-Translator: Chre <tor@renaudineau.org>\n"
 "Language-Team: Tails translators <tails@boum.org>\n"
@@ -564,8 +564,7 @@ msgid ""
 "  of the application that you want to open.\n"
 msgstr ""
 "  Exécutez la commande suivante dans une *Console*. Remplacez\n"
-"  <span class=\"command-placeholder\">application</span> par la ligne de "
-"commande de\n"
+"  <span class=\"command-placeholder\">application</span> par la ligne de commande de\n"
 "  l'application que vous voulez ouvrir.\n"
 
 #. type: Plain text
@@ -754,20 +753,23 @@ msgstr ""
 "pouvez libérer de la place dans votre stockage persistant :"
 
 #. type: Bullet: '1. '
-msgid ""
-"Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Root Console** to open a console "
-"with administration rights."
+#, fuzzy
+#| msgid "Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Additional Software**."
+msgid "Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Console**."
 msgstr ""
-"Choisissez **Applications&nbsp;▸ Outils système&nbsp;▸ Console "
-"d'administration** pour ouvrir une console avec les droits d'administration."
+"Choisissez **Applications&nbsp;▸ Outils système&nbsp;▸ Logiciels "
+"supplémentaires**."
 
 #. type: Bullet: '1. '
-msgid "Execute the following command:"
+#, fuzzy
+#| msgid "Execute the following command:"
+msgid "Execute the following command."
 msgstr "Exécutez la commande suivante :"
 
 #. type: Plain text
-#, no-wrap
-msgid "   <p class=\"command\">apt clean</p>\n"
+#, fuzzy, no-wrap
+#| msgid "   <p class=\"command\">apt clean</p>\n"
+msgid "   <p class=\"command\">sudo apt clean</p>\n"
 msgstr "   <p class=\"command\">apt clean</p>\n"
 
 #. type: Title =
@@ -791,10 +793,8 @@ msgid ""
 "Tails and might install software that has not even been approved by Debian. Be even more careful\n"
 "with what you install.</p>\n"
 msgstr ""
-"<p>Configurer des dépôts APT supplémentaires peut mettre en péril la "
-"sécurité de votre\n"
-"Tails et pourrait installer des logiciels n'ayant pas été approuvés par "
-"Debian. Faites encore plus attention\n"
+"<p>Configurer des dépôts APT supplémentaires peut mettre en péril la sécurité de votre\n"
+"Tails et pourrait installer des logiciels n'ayant pas été approuvés par Debian. Faites encore plus attention\n"
 "à ce que vous installez.</p>\n"
 
 #. type: Plain text
@@ -858,8 +858,7 @@ msgid ""
 "   with the following content:\n"
 msgstr ""
 "   Par exemple, pour ajouter\n"
-"   les sections `non-free` de Debian 13 (Trixie), les backports et les mises "
-"à jour\n"
+"   les sections `non-free` de Debian 13 (Trixie), les backports et les mises à jour\n"
 "   de sécurité, vous pouvez créer un fichier nommé\n"
 "   */live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list*\n"
 "   avec le contenu suivant :\n"
@@ -885,26 +884,50 @@ msgstr ""
 "   suivants : lettres, chiffres, tiret bas, trait d'union et point.\n"
 
 #. type: Bullet: '1. '
+#, fuzzy
+#| msgid ""
+#| "Correct the ownership and permissions of your additional `sources.list` "
+#| "files to be owned by `root` and only readable by others. For example:"
 msgid ""
 "Correct the ownership and permissions of your additional `sources.list` "
-"files to be owned by `root` and only readable by others. For example:"
+"files to be owned by `root` and only readable by others. For example, "
+"execute the following commands."
 msgstr ""
 "Corrigez la propriété et les permissions de votre fichier `sources.list` "
 "supplémentaire pour qu'il soit la propriété de `root` et en lecture seule "
 "pour les autres. Par exemple :"
 
 #. type: Plain text
-#, no-wrap
-msgid ""
-"       chown root:root /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list\n"
-"       chmod 644 /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list\n"
-msgstr ""
-"       chown root:root /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list\n"
-"       chmod 644 /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list\n"
+#, fuzzy, no-wrap
+#| msgid "   <p class=\"command\">sudo install -d -m 755 /live/persistence/TailsData_unlocked/apt-sources.list.d</p>\n"
+msgid "   <p class=\"command\">sudo chown root:root /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list</p>\n"
+msgstr "   <p class=\"command\">sudo install -d -m 755 /live/persistence/TailsData_unlocked/apt-sources.list.d</p>\n"
+
+#. type: Plain text
+#, fuzzy, no-wrap
+#| msgid "   <p class=\"command\">sudo install -d -m 755 /live/persistence/TailsData_unlocked/apt-sources.list.d</p>\n"
+msgid "   <p class=\"command\">sudo chmod 644 /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list</p>\n"
+msgstr "   <p class=\"command\">sudo install -d -m 755 /live/persistence/TailsData_unlocked/apt-sources.list.d</p>\n"
 
 #. type: Bullet: '1. '
 msgid "Restart Tails to apply the changes."
 msgstr "Redémarrez Tails pour appliquer les changements."
+
+#~ msgid ""
+#~ "Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Root Console** to open a console "
+#~ "with administration rights."
+#~ msgstr ""
+#~ "Choisissez **Applications&nbsp;▸ Outils système&nbsp;▸ Console "
+#~ "d'administration** pour ouvrir une console avec les droits "
+#~ "d'administration."
+
+#, no-wrap
+#~ msgid ""
+#~ "       chown root:root /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list\n"
+#~ "       chmod 644 /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list\n"
+#~ msgstr ""
+#~ "       chown root:root /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list\n"
+#~ "       chmod 644 /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list\n"
 
 #~ msgid "Using <span class=\"application\">Additional Software</span>:"
 #~ msgstr ""

@@ -6,16 +6,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2025-09-17 11:40+0200\n"
-"PO-Revision-Date: 2025-08-21 19:57+0000\n"
-"Last-Translator: xin <xin@riseup.net>\n"
+"POT-Creation-Date: 2025-11-12 12:16+0100\n"
+"PO-Revision-Date: 2025-10-08 15:19+0000\n"
+"Last-Translator: la_r_go* <largo@tracciabi.li>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.3\n"
+"X-Generator: Weblate 5.13.2\n"
 
 #. type: Plain text
 #, fuzzy, no-wrap
@@ -81,6 +81,8 @@ msgid ""
 "We are presenting here 3 recovery techniques that work in different cases. "
 "We recommend that you try the 3 techniques one after the other."
 msgstr ""
+"Qui presentiamo 3 tecniche di recupero che funzionano in casi diversi. Ti "
+"consigliamo di provare le 3 tecniche una dopo l'altra."
 
 #. type: Bullet: '1. '
 msgid "[[Doing a manual upgrade|recover#upgrade]]"
@@ -179,51 +181,35 @@ msgstr ""
 "rotto."
 
 #. type: Bullet: '1. '
-#, fuzzy
-#| msgid ""
-#| "Restart on your new Tails, set up an [[administration password|doc/"
-#| "first_steps/welcome_screen/administration_password]], and unlock the "
-#| "Persistent Storage."
 msgid ""
 "When starting Tails, [[set up an administration password|doc/first_steps/"
 "welcome_screen/administration_password]]."
 msgstr ""
-"Riavvia il tuo nuovo Tails, imposta una [[password di amministrazione|doc/"
-"first_steps/welcome_screen/administration_password]] e sblocca L'Archivio "
-"Persistente."
+"Quando si avvia Tails, [[imposta una password di amministrazione|doc/"
+"first_steps/welcome_screen/administration_password]]."
 
 #. type: Bullet: '1. '
 msgid "[[Create a Persistent Storage.|persistent_storage/create]]"
 msgstr ""
 
 #. type: Bullet: '1. '
-#, fuzzy
-#| msgid ""
-#| "   When the Persistent Storage settings shows the list of possible "
-#| "features,\n"
-#| "   click **Save** and exit.\n"
 msgid ""
 "Close the Persistent Storage settings after creation, when the list of "
 "features is displayed."
 msgstr ""
-"   Quando le impostazioni dell'Archivio Persistente mostrano la lista delle "
-"funzionalità possibili,\n"
-"   fai clic su **Salva** e esci.\n"
+"Chiudi le impostazioni dell'Archivio Persistente dopo averlo creato, quando "
+"viene visualizzato l'elenco delle funzioni."
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid ""
-#| "   The process described below overrides the configuration of the Persistent\n"
-#| "   Storage. So, it does not matter which features you turn on when creating\n"
-#| "   the Persistent Storage.\n"
+#, no-wrap
 msgid ""
 "   The process described below overwrites the contents and configuration of the new Persistent\n"
 "   Storage. So, it does not matter which features you turn on after creating\n"
 "   the Persistent Storage.\n"
 msgstr ""
-"   Il processo descritto di seguito sovrascrive la configurazione dell'Archivio\n"
-"   Persistente. Quindi, non importa quali caratteristiche si attivano quando si crea\n"
-"   l'Archivio Persistente.\n"
+"   La procedura descritta di seguito sovrascrive il contenuto e la configurazione del nuovo Archivio\n"
+"      Persistente. Non è importante quali funzioni siano state attivate dopo la creazione\n"
+"      dell'Archivio Persistente.\n"
 
 #. type: Plain text
 #, no-wrap
@@ -323,9 +309,7 @@ msgstr ""
 #| "     **Root Terminal**\n"
 #| "   </span>\n"
 #| "   to open a terminal with administration rights.\n"
-msgid ""
-"Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Root Console** to open a console "
-"with administration rights."
+msgid "Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Console**."
 msgstr ""
 "1. Scegli\n"
 "   <span class=\"menuchoice\">\n"
@@ -348,8 +332,9 @@ msgstr ""
 "rotto sul tuo nuovo Tails:"
 
 #. type: Plain text
-#, no-wrap
-msgid "   <p class=\"command-root\">rsync -PaSHAXv --del /media/amnesia/TailsData/ /live/persistence/TailsData_unlocked</p>\n"
+#, fuzzy, no-wrap
+#| msgid "   <p class=\"command-root\">rsync -PaSHAXv --del /media/amnesia/TailsData/ /live/persistence/TailsData_unlocked</p>\n"
+msgid "   <p class=\"command\">sudo rsync -PaSHAXv --del /media/amnesia/TailsData/ /live/persistence/TailsData_unlocked</p>\n"
 msgstr "   <p class=\"command-root\">rsync -PaSHAXv --del /media/amnesia/TailsData/ /live/persistence/TailsData_unlocked</p>\n"
 
 #. type: Bullet: '1. '
@@ -399,12 +384,13 @@ msgstr ""
 msgid ""
 "You can also explore the content of the Persistent Storage on your broken "
 "Tails from the *Files* browser. To do so, execute the following command from "
-"the *Root Console*."
+"the *Console*."
 msgstr ""
 
 #. type: Plain text
-#, no-wrap
-msgid "   <p class=\"command-root\">nautilus</p>\n"
+#, fuzzy, no-wrap
+#| msgid "   <p class=\"command-root\">nautilus</p>\n"
+msgid "   <p class=\"command\">nautilus admin:/media/amnesia/TailsData/</p>\n"
 msgstr "   <p class=\"command-root\">nautilus</p>\n"
 
 #. type: Plain text

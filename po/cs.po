@@ -31,8 +31,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-13 10:37+0200\n"
-"PO-Revision-Date: 2025-10-07 10:02+0000\n"
+"POT-Creation-Date: 2025-11-12 11:13+0100\n"
+"PO-Revision-Date: 2025-11-02 17:51+0000\n"
 "Last-Translator: slrslr <adm@prnet.info>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/tor/tails-gui/cs/"
 ">\n"
@@ -42,7 +42,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n "
 "<= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 5.14.1-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -1949,7 +1949,7 @@ msgstr "Úspěšně připojeno k Toru"
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:666
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2066
 msgid "You can now browse the Internet anonymously and uncensored."
-msgstr "Nyní můžete procházet internet anonymně a bez cenzury."
+msgstr "Nyní můžete prohlížet internet anonymně a bez cenzury."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:738
 msgid "This local network seems to be blocking access to Tor."
@@ -2689,31 +2689,23 @@ msgstr ""
 "Je nemožné se připojit k Toru v Offline režimu.\n"
 "Pro připojení k Toru, restartujte Tails bez Offline režimu."
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:68
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:65
 msgid ""
 "Authentication is required to run the Synaptic Package Manager. Enter the "
 "administration password that you set up in the Welcome Screen."
 msgstr ""
+"Ke spuštění Správce balíčků Synaptic je vyžadováno ověření. Zadejte heslo "
+"správce, které jste nastavili na úvodní obrazovce."
 
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:72
-msgid ""
-"Authentication is required to start a Root Console. Enter the administration "
-"password that you set up in the Welcome Screen."
-msgstr ""
-
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:79
+#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:71
 msgid ""
 "For better security, no administration password is set up in Tails by "
 "default. To run the Synaptic Package Manager, restart Tails and set up an "
 "administration password in the Welcome Screen."
 msgstr ""
-
-#: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:85
-msgid ""
-"For better security, no administration password is set up in Tails by "
-"default. To start a Root Console, restart Tails and set up an administration "
-"password in the Welcome Screen."
-msgstr ""
+"Z důvodu větší bezpečnosti není v systému Tails ve výchozím stavu nastaveno "
+"žádné heslo správce. Chcete-li spustit správce balíčků Synaptic, restartujte "
+"Tails a nastavte heslo správce na úvodní obrazovce."
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:2
 msgid ""
@@ -2726,18 +2718,6 @@ msgstr ""
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:3
 msgid "configuration;saved"
 msgstr "nastavení;uloženo"
-
-#: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:1
-msgid "Root Console"
-msgstr "Root terminál"
-
-#: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:2
-msgid "Opens a console as the root user"
-msgstr "Otevře terminál pod účtem root"
-
-#: ../config/chroot_local-includes/usr/share/applications/root-console.desktop.in.h:3
-msgid "admin"
-msgstr "správce"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:1
 msgid "Tails Documentation"
@@ -2798,7 +2778,7 @@ msgstr "web;tor;prohlížeč"
 
 #: ../config/chroot_local-includes/usr/share/applications/unsafe-browser.desktop.in.h:2
 msgid "Browse the World Wide Web without anonymity"
-msgstr "Procházet World Wide Web bez anonymity"
+msgstr "Prohlížet World Wide Web bez anonymity"
 
 #: ../config/chroot_local-includes/usr/share/applications/unsafe-browser.desktop.in.h:3
 msgid "Unsafe Web Browser"
@@ -3720,7 +3700,7 @@ msgstr ""
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1603
 msgid ""
 "Everything you do on the Internet from Tails goes through the Tor network."
-msgstr "Cokoli děláte na internetu přes Tails prochází přes síť Tor."
+msgstr "Cokoli děláte na internetu přes Tails, prochází přes síť Tor."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1209
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1618
@@ -3871,7 +3851,6 @@ msgid "Connect to a local network"
 msgstr "Připojit k místní síti"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1725
-#, fuzzy
 msgid ""
 "You are not connected to a local network yet. To be able to connect to the "
 "Tor network, you first need to connect to a Wi-Fi, wired, or mobile network."
@@ -4040,6 +4019,31 @@ msgstr "Prosinec"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "Hodiny"
+
+#~ msgid ""
+#~ "Authentication is required to start a Root Console. Enter the "
+#~ "administration password that you set up in the Welcome Screen."
+#~ msgstr ""
+#~ "Ke spuštění Root konzole je vyžadováno ověření. Zadejte heslo správce, "
+#~ "které jste nastavili na úvodní obrazovce."
+
+#~ msgid ""
+#~ "For better security, no administration password is set up in Tails by "
+#~ "default. To start a Root Console, restart Tails and set up an "
+#~ "administration password in the Welcome Screen."
+#~ msgstr ""
+#~ "Pro větší bezpečnost není v Tails ve výchozím stavu nastaveno žádné heslo "
+#~ "správce. Chcete-li spustit Root konzoli, restartujte systém Tails a "
+#~ "nastavte heslo správce na úvodní obrazovce."
+
+#~ msgid "Root Console"
+#~ msgstr "Root terminál"
+
+#~ msgid "Opens a console as the root user"
+#~ msgstr "Otevře terminál pod účtem root"
+
+#~ msgid "admin"
+#~ msgstr "správce"
 
 #~ msgid "To start a Root Console, you need to authenticate."
 #~ msgstr "Pro spuštění root terminálu se musíte ověřit."

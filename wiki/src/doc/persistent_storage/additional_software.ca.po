@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-09-17 11:40+0200\n"
-"PO-Revision-Date: 2025-09-21 10:19+0000\n"
-"Last-Translator: xin <xin@riseup.net>\n"
+"POT-Creation-Date: 2025-11-12 12:16+0100\n"
+"PO-Revision-Date: 2025-10-06 22:19+0000\n"
+"Last-Translator: victor dargallo <victordargallo@disroot.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
@@ -789,7 +789,7 @@ msgstr ""
 
 #. type: Bullet: '  - '
 msgid "Using *Synaptic*:"
-msgstr ""
+msgstr "Utilitzant el *Synaptic*:"
 
 #. type: Bullet: '    1. '
 msgid ""
@@ -838,18 +838,29 @@ msgstr ""
 "espai al vostre Emmagatzematge Persistent:"
 
 #. type: Bullet: '1. '
-msgid ""
-"Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Root Console** to open a console "
-"with administration rights."
+#, fuzzy
+#| msgid ""
+#| "To see which packages are installed automatically every time you start "
+#| "Tails, choose **Applications&nbsp;▸ System Tools&nbsp;▸ Additional "
+#| "Software**."
+msgid "Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Console**."
 msgstr ""
+"Per veure quins paquets s'instal·len automàticament cada vegada que inicieu "
+"Tails, trieu <span class=\"menuchoice\">    <span "
+"class=\"guimenu\">Aplicacions</span>&nbsp;▸    <span "
+"class=\"guisubmenu\">Eines del sistema</span>&nbsp;▸    <span "
+"class=\"guimenuitem\">Programari Addicional</span></span>."
 
 #. type: Bullet: '1. '
-msgid "Execute the following command:"
+#, fuzzy
+#| msgid "Execute the following command:"
+msgid "Execute the following command."
 msgstr "Executeu l'ordre següent:"
 
 #. type: Plain text
-#, no-wrap
-msgid "   <p class=\"command\">apt clean</p>\n"
+#, fuzzy, no-wrap
+#| msgid "   <p class=\"command\">apt clean</p>\n"
+msgid "   <p class=\"command\">sudo apt clean</p>\n"
 msgstr "   <p class=\"command\">apt clean</p>\n"
 
 #. type: Title =
@@ -979,26 +990,42 @@ msgstr ""
 "   caràcters: lletres, dígits, guió baix, guionet i punt.\n"
 
 #. type: Bullet: '1. '
+#, fuzzy
+#| msgid ""
+#| "Correct the ownership and permissions of your additional `sources.list` "
+#| "files to be owned by `root` and only readable by others. For example:"
 msgid ""
 "Correct the ownership and permissions of your additional `sources.list` "
-"files to be owned by `root` and only readable by others. For example:"
+"files to be owned by `root` and only readable by others. For example, "
+"execute the following commands."
 msgstr ""
 "Corregiu la propietat i els permisos dels vostres fitxers `sources.list` "
 "addicionals perquè siguin propietat de `root` i només els puguin llegir "
 "altres. Per exemple:"
 
 #. type: Plain text
-#, no-wrap
-msgid ""
-"       chown root:root /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list\n"
-"       chmod 644 /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list\n"
-msgstr ""
-"       chown root:root /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list\n"
-"       chmod 644 /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list\n"
+#, fuzzy, no-wrap
+#| msgid "   <p class=\"command\">sudo install -d -m 755 /live/persistence/TailsData_unlocked/apt-sources.list.d</p>\n"
+msgid "   <p class=\"command\">sudo chown root:root /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list</p>\n"
+msgstr "   <p class=\"command\">sudo install -d -m 755 /live/persistence/TailsData_unlocked/apt-sources.list.d</p>\n"
+
+#. type: Plain text
+#, fuzzy, no-wrap
+#| msgid "   <p class=\"command\">sudo install -d -m 755 /live/persistence/TailsData_unlocked/apt-sources.list.d</p>\n"
+msgid "   <p class=\"command\">sudo chmod 644 /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list</p>\n"
+msgstr "   <p class=\"command\">sudo install -d -m 755 /live/persistence/TailsData_unlocked/apt-sources.list.d</p>\n"
 
 #. type: Bullet: '1. '
 msgid "Restart Tails to apply the changes."
 msgstr "Reinicieu Tails per aplicar els canvis."
+
+#, no-wrap
+#~ msgid ""
+#~ "       chown root:root /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list\n"
+#~ "       chmod 644 /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list\n"
+#~ msgstr ""
+#~ "       chown root:root /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list\n"
+#~ "       chmod 644 /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list\n"
 
 #~ msgid "Using <span class=\"application\">Additional Software</span>:"
 #~ msgstr ""

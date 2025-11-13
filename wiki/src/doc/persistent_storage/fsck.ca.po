@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
 "POT-Creation-Date: 2025-09-17 11:40+0200\n"
-"PO-Revision-Date: 2025-09-18 17:21+0000\n"
-"Last-Translator: xin <xin@riseup.net>\n"
+"PO-Revision-Date: 2025-10-06 22:19+0000\n"
+"Last-Translator: victor dargallo <victordargallo@disroot.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
@@ -777,6 +777,9 @@ msgid ""
 "If bad areas were reported, try leaving your USB stick to rest for some "
 "minutes and executing the same `ddrescue` command again to copy more data."
 msgstr ""
+"Si s'han informat àrees defectuoses, proveu de deixar reposar el vostre "
+"llapis USB durant uns minuts i executar de nou la mateixa ordre `ddrescue` "
+"per copiar més dades."
 
 #. type: Plain text
 #, no-wrap
@@ -784,6 +787,10 @@ msgid ""
 "     We recommend that you replace your USB stick and [[copy the partition image\n"
 "     to a new USB stick|fsck#copy]] after you execute `ddrescue` several times.\n"
 msgstr ""
+"     Us recomanem que substituïu el vostre llapis USB i [[copieu la imatge "
+"de la partició\n"
+"     a un llapis USB nou|fsck#copy]] després d'executar `ddrescue` diverses "
+"vegades.\n"
 
 #. type: Bullet: '   - '
 msgid ""
@@ -791,10 +798,14 @@ msgid ""
 "several executions of the `ddrescue` command, it means that all the data "
 "that could be rescued was copied to the partition image."
 msgstr ""
+"Si no s'ha informat de cap àrea defectuosa o si s'ha informat de les "
+"mateixes àrees defectuoses després de diverses execucions de l'ordre "
+"`ddrescue`, vol dir que totes les dades que es podrien rescatar s'han copiat "
+"a la imatge de la partició."
 
 #. type: Bullet: '1. '
 msgid "Shut down Tails."
-msgstr ""
+msgstr "Apagueu Tails."
 
 #. type: Plain text
 #, no-wrap
@@ -802,17 +813,23 @@ msgid ""
 "   You can now safely start [[recovering data from the Persistent\n"
 "   Storage|fsck#welcome]].\n"
 msgstr ""
+"   Ara podeu començar amb seguretat a [[recuperar dades de\n"
+"   l'Emmagatzematge Persistent|fsck#welcome]].\n"
 
 #. type: Plain text
 #, no-wrap
 msgid "<h1 id=\"recover\">Recovering data from the Persistent Storage</h1>\n"
 msgstr ""
+"<h1 id=\"recover\">Recuperació de dades de l'Emmagatzematge Persistent</h1>\n"
 
 #. type: Plain text
 msgid ""
 "After [[creating a partition image|fsck#image]], you can safely try to "
 "recover data from your Persistent Storage without risking erasing more data."
 msgstr ""
+"Després de [[crear una imatge de partició|fsck#image]], podeu intentar "
+"recuperar dades del vostre Emmagatzematge Persistent sense arriscar-vos a "
+"esborrar més dades."
 
 #. type: Plain text
 msgid ""
@@ -825,6 +842,8 @@ msgstr ""
 #. type: Bullet: '1. '
 msgid "[[Repairing the file system from the Welcome Screen|fsck#welcome]]"
 msgstr ""
+"[[Reparació del sistema de fitxers des de la Pantalla de "
+"Benvinguda|fsck#welcome]]"
 
 #. type: Plain text
 #, no-wrap
@@ -832,10 +851,14 @@ msgid ""
 "   If the hardware of your USB stick is not failing, repairing the file system\n"
 "   from the Welcome Screen is likely the easiest technique.\n"
 msgstr ""
+"   Si el maquinari del vostre llapis USB no falla, és probable que la "
+"tècnica\n"
+"   més senzilla sigui reparar el sistema de fitxers des de la Pantalla de "
+"Benvinguda.\n"
 
 #. type: Bullet: '1. '
 msgid "[[Copying the partition image to a new USB stick|fsck#copy]]"
-msgstr ""
+msgstr "[[Còpia de la imatge de la partició a un nou llapis USB|fsck#copy]]"
 
 #. type: Plain text
 #, no-wrap
@@ -844,6 +867,11 @@ msgid ""
 "   repair the file system of your Persistent Storage after copying the\n"
 "   partition image to a new USB stick.\n"
 msgstr ""
+"   Si el maquinari del vostre llapis USB falla, és possible que encara "
+"pugueu\n"
+"   reparar el sistema de fitxers del vostre Emmagatzematge Persistent "
+"després\n"
+"   de copiar la imatge de la partició a un llapis USB nou.\n"
 
 #. type: Bullet: '1. '
 msgid "[[Analyzing the partition image using *Autopsy*|fsck#autopsy]]"
@@ -855,11 +883,17 @@ msgid ""
 "   [*Autopsy*](https://www.autopsy.com/) is an advanced digital forensics tool\n"
 "   that allows recovering files, even from broken file systems.\n"
 msgstr ""
+"   L'[*Autopsy*](https://www.autopsy.com/) és una eina forense digital "
+"avançada\n"
+"   que permet recuperar fitxers, fins i tot dels sistemes de fitxers "
+"trencats.\n"
 
 #. type: Plain text
 #, no-wrap
 msgid "<h2 id=\"welcome\">Repairing the file system from the Welcome Screen</h2>\n"
 msgstr ""
+"<h2 id=\"welcome\">Reparació del sistema de fitxers des de la Pantalla de "
+"Benvinguda</h2>\n"
 
 #. type: Plain text
 msgid ""
@@ -877,6 +911,8 @@ msgstr "Inicieu al llapis USB de Tails que té errors del sistema de fitxers."
 #. type: Bullet: '1. '
 msgid "In the Welcome Screen, try to unlock the Persistent Storage."
 msgstr ""
+"A la Pantalla de Benvinguda, intenteu desbloquejar l'Emmagatzematge "
+"Persistent."
 
 #. type: Bullet: '1. '
 msgid ""
@@ -898,6 +934,8 @@ msgstr "S'inicia la reparació del sistema de fitxers."
 #, no-wrap
 msgid "   The repair can take a long time, from a few seconds to several hours.\n"
 msgstr ""
+"   La reparació pot trigar molt de temps, des d'uns segons fins a diverses "
+"hores.\n"
 
 #. type: Plain text
 #, no-wrap
@@ -905,6 +943,9 @@ msgid ""
 "   If the repair takes more than a day, shutdown Tails and try [[analyzing the\n"
 "   partition image using *Autopsy*|fsck#autopsy]] instead.\n"
 msgstr ""
+"   Si la reparació triga més d'un dia, tanqueu Tails i proveu d'[[analitzar "
+"la\n"
+"   imatge de la partició amb l'*Autopsy*|fsck#autopsy]].\n"
 
 #. type: Plain text
 #, no-wrap
@@ -913,13 +954,15 @@ msgstr "   [[!img repairing.png class=\"screenshot\" alt=\"\"]]\n"
 
 #. type: Bullet: '1. '
 msgid "After the repair finishes:"
-msgstr ""
+msgstr "Un cop finalitzada la reparació:"
 
 #. type: Bullet: '   - '
 msgid ""
 "If the repair succeeded, start Tails and verify the content of your "
 "Persistent Storage."
 msgstr ""
+"Si la reparació s'ha realitzat correctament, inicieu Tails i verifiqueu el "
+"contingut del vostre Emmagatzematge Persistent."
 
 #. type: Plain text
 #, no-wrap
@@ -930,6 +973,8 @@ msgstr "     <div class=\"tip\">\n"
 #, no-wrap
 msgid "     <p>We recommend that you keep the partition image for some time.</p>\n"
 msgstr ""
+"     <p>Us recomanem que mantingueu la imatge de la partició durant un "
+"temps.</p>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -938,6 +983,11 @@ msgid ""
 "     might be able to recover them by [[analyzing the partition image using\n"
 "     <i>Autopsy</i>|fsck#autopsy]].</p>\n"
 msgstr ""
+"     <p>Si més endavant us adoneu que alguns fitxers falten o estan danyats,"
+"\n"
+"     és possible que els pugueu recuperar [[analitzant la imatge de la "
+"partició\n"
+"     amb l'<i>Autopsy</i>|fsck#autopsy]].</p>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -949,11 +999,15 @@ msgid ""
 "If the repair failed, try to [[copy the partition image to a new USB stick|"
 "fsck#copy]] as described below."
 msgstr ""
+"Si la reparació ha fallat, proveu de "
+"[[copiar la imatge de la partició a un nou llapis USB|fsck#copy]] tal com es "
+"descriu a continuació."
 
 #. type: Plain text
 #, no-wrap
 msgid "<h2 id=\"copy\">Copying the partition image to a new USB stick</h2>\n"
 msgstr ""
+"<h2 id=\"copy\">Copiar la imatge de la partició a un nou llapis USB</h2>\n"
 
 #. type: Plain text
 msgid ""
@@ -961,24 +1015,31 @@ msgid ""
 "repair the file system of your Persistent Storage after copying the "
 "partition image to a new USB stick."
 msgstr ""
+"Si el maquinari del vostre llapis USB falla, és possible que encara pugueu "
+"reparar el sistema de fitxers del vostre Emmagatzematge Persistent després "
+"de copiar la imatge de la partició a un llapis USB nou."
 
 #. type: Plain text
 #, no-wrap
 msgid "<h3 id=\"install\">Creating a new Tails USB stick with Persistent Storage</h3>\n"
 msgstr ""
+"<h3 id=\"install\">Creació d'un nou llapis USB de Tails amb Emmagatzematge "
+"Persistent</h3>\n"
 
 #. type: Bullet: '1. '
 msgid "[[Install Tails|install]] on a new USB stick."
-msgstr ""
+msgstr "[[Instal·leu Tails|install]] en un nou llapis USB."
 
 #. type: Plain text
 #, no-wrap
 msgid "   The new USB stick must be at least as large as your current Tails USB stick.\n"
 msgstr ""
+"   El nou llapis USB ha de ser almenys tan gran com el vostre llapis USB de "
+"Tails actual.\n"
 
 #. type: Bullet: '1. '
 msgid "Start on the new Tails."
-msgstr ""
+msgstr "Inicieu al vostre nou Tails."
 
 #. type: Bullet: '1. '
 msgid ""
@@ -990,7 +1051,7 @@ msgstr ""
 
 #. type: Bullet: '1. '
 msgid "Create a Persistent Storage on the new Tails."
-msgstr ""
+msgstr "Creeu un Emmagatzematge Persistent al nou Tails."
 
 #. type: Bullet: '1. '
 msgid ""
@@ -1015,37 +1076,48 @@ msgstr ""
 #, no-wrap
 msgid "<h3 id=\"restore\">Copying the partition image onto the new USB stick</h3>\n"
 msgstr ""
+"<h3 id=\"restore\">Copiar la imatge de la partició al nou llapis USB</h3>\n"
 
 #. type: Bullet: '1. '
 msgid ""
 "In the left pane of the *Disks* utility, identify your new Tails USB stick "
 "in the list of storage devices."
 msgstr ""
+"Al panell esquerre de la utilitat *Discs*, identifiqueu el vostre nou llapis "
+"USB de Tails a la llista de dispositius d'emmagatzematge."
 
 #. type: Bullet: '1. '
 msgid ""
 "In the left pane, click on the storage device that corresponds to your new "
 "Tails USB stick."
 msgstr ""
+"Al panell esquerre, feu clic al dispositiu d'emmagatzematge que correspon al "
+"vostre nou llapis USB de Tails."
 
 #. type: Bullet: '1. '
 msgid "In the right pane, this storage device should have 3 volumes."
 msgstr ""
+"Al panell dret, aquest dispositiu d'emmagatzematge hauria de tenir tres "
+"volums."
 
 #. type: Bullet: '   - '
 msgid "1 volume with a **TailsData** label and **Ext4** content."
-msgstr ""
+msgstr "Un volum amb una etiqueta **TailsData** i amb contingut **Ext4**."
 
 #. type: Plain text
 #, no-wrap
 msgid "     This volume corresponds to the decrypted version of your Persistent Storage.\n"
 msgstr ""
+"     Aquest volum correspon a la versió desxifrada del vostre Emmagatzematge "
+"Persistent.\n"
 
 #. type: Bullet: '1. '
 msgid ""
 "In the right pane, click on the **Ext4** volume, which is the one that "
 "corresponds to the decrypted version of your Persistent Storage."
 msgstr ""
+"Al panell dret, feu clic al volum **Ext4**, que és el que correspon a la "
+"versió desencriptada del vostre Emmagatzematge Persistent."
 
 #. type: Plain text
 #, no-wrap
@@ -1060,12 +1132,17 @@ msgid ""
 "class=\"symbolic\" alt=\"Unmount selected partition\"]] button to unmount "
 "the Persistent Storage."
 msgstr ""
+"Feu clic al botó [[!img lib/media-playback-stop.png link=\"no\" class="
+"\"symbolic\" alt=\"Desmunta la partició seleccionada\"]] per desmuntar "
+"l'Emmagatzematge Persistent."
 
 #. type: Bullet: '1. '
 msgid ""
 "Plug in the hard disk on which you saved the partition image of your "
 "Persistent Storage."
 msgstr ""
+"Connecteu el disc dur on heu desat la imatge de partició del vostre "
+"Emmagatzematge Persistent."
 
 #. type: Bullet: '1. '
 msgid ""
@@ -1086,11 +1163,14 @@ msgstr ""
 #. type: Bullet: '1. '
 msgid "After the restoration finishes, restart on the new Tails USB stick."
 msgstr ""
+"Un cop finalitzada la restauració, reinicieu el nou llapis USB de Tails."
 
 #. type: Plain text
 #, no-wrap
 msgid "<h3 id=\"fix\">Fixing the file system errors on the new USB stick</h3>\n"
 msgstr ""
+"<h3 id=\"fix\">Solucionar els errors del sistema de fitxers al nou llapis "
+"USB</h3>\n"
 
 #. type: Bullet: '1. '
 msgid ""
@@ -1103,22 +1183,31 @@ msgid ""
 "If the repair failed, try to [[analyze the partition image using *Autopsy*|"
 "fsck#copy]] as described below."
 msgstr ""
+"Si la reparació ha fallat, proveu d'"
+"[[analitzar la imatge de la partició amb l'*Autopsy*|fsck#copy]] tal com es "
+"descriu a continuació."
 
 #. type: Plain text
 #, no-wrap
 msgid "<h2 id=\"autopsy\">Analyzing the partition image using <i>Autopsy</i></h2>\n"
 msgstr ""
+"<h2 id=\"autopsy\">Analitzar la imatge de la partició mitjançant "
+"l'<i>Autopsy</i></h2>\n"
 
 #. type: Plain text
 msgid ""
 "[*Autopsy*](https://www.autopsy.com/) is an advanced digital forensics tool "
 "that allows recovering files, even from broken file systems."
 msgstr ""
+"L'[*Autopsy*](https://www.autopsy.com/) és una eina forense digital avançada "
+"que permet recuperar fitxers, fins i tot dels sistemes de fitxers trencats."
 
 #. type: Plain text
 #, no-wrap
 msgid "*Autopsy* is open source and available for free on Windows, macOS, and Linux.\n"
 msgstr ""
+"L'*Autopsy* és de codi obert i està disponible gratuïtament a Windows, macOS "
+"i Linux.\n"
 
 #. type: Plain text
 msgid ""
@@ -1127,12 +1216,18 @@ msgid ""
 "*Autopsy* in Tails. But, *Autopsy* is easier to install in Windows than in "
 "Tails."
 msgstr ""
+"Per evitar deixar rastres del contingut del vostre Emmagatzematge Persistent "
+"al sistema operatiu on s'utilitza l'*Autopsy*, us recomanem que utilitzeu "
+"l'*Autopsy* a Tails. Però, l'*Autopsy* és més fàcil d'instal·lar a Windows "
+"que a Tails."
 
 #. type: Plain text
 msgid ""
 "We are not providing step-by-step instructions on how to install and use "
 "*Autopsy*."
 msgstr ""
+"No oferim instruccions pas a pas sobre com instal·lar i utilitzar "
+"l'*Autopsy*."
 
 #. type: Plain text
 msgid ""
@@ -1140,35 +1235,42 @@ msgid ""
 "recommend that you get help from someone with more experience with Linux and "
 "data recovery."
 msgstr ""
+"Si no us sentiu segur instal·lant i utilitzant l'*Autopsy* pel vostre "
+"compte, us recomanem que demaneu ajuda a algú amb més experiència amb Linux "
+"i amb la recuperació de dades."
 
 #. type: Plain text
 msgid ""
 "You can also read the [Autopsy User Documentation](http://sleuthkit.org/"
 "autopsy/docs/user-docs/latest)."
 msgstr ""
+"També podeu llegir la [Documentació d'usuari de l'Autopsy](http://"
+"sleuthkit.org/autopsy/docs/user-docs/latest)."
 
 #. type: Title ###
 #, no-wrap
 msgid "Installing *Autopsy* in Tails"
-msgstr ""
+msgstr "Instal·lació d'*Autopsy* a Tails"
 
 #. type: Plain text
 msgid "The general steps are:"
-msgstr ""
+msgstr "Els passos generals són:"
 
 #. type: Bullet: '1. '
 msgid ""
 "From the [download page](https://www.autopsy.com/download/), download the 2 "
 "binaries needed to run *Autopsy*:"
 msgstr ""
+"Des de la [pàgina de baixada](https://www.autopsy.com/download/), baixeu els "
+"dos fitxers binaris necessaris per executar l'*Autopsy*:"
 
 #. type: Bullet: '   - '
 msgid "The DEB file of *The Sleuth Kit*."
-msgstr ""
+msgstr "El fitxer DEB de *The Sleuth Kit*."
 
 #. type: Bullet: '   - '
 msgid "The ZIP file of *Autopsy*."
-msgstr ""
+msgstr "El fitxer ZIP de l'*Autopsy*."
 
 #. type: Bullet: '1. '
 msgid ""
@@ -1176,6 +1278,9 @@ msgid ""
 "github.com/sleuthkit/autopsy/blob/develop/Running_Linux_OSX.md), download "
 "the 2 scripts needed for the installation:"
 msgstr ""
+"Des de les [instruccions d'instal·lació de l'*Autopsy* per a Linux](https://"
+"github.com/sleuthkit/autopsy/blob/develop/Running_Linux_OSX.md), baixeu els "
+"dos scripts necessaris per a la instal·lació:"
 
 #. type: Bullet: '   - '
 msgid "`install_prereqs_ubuntu.sh`"
@@ -1243,32 +1348,36 @@ msgstr "   <p class=\"command\">/home/amnesia/Persistent/autopsy/autopsy-4.21.0/
 msgid ""
 "When starting for the first time, *Autopsy* freezes on **Starting modules**."
 msgstr ""
+"Quan s'inicia per primera vegada, l'*Autopsy* es bloqueja a **Starting "
+"modules**."
 
 #. type: Plain text
 #, no-wrap
 msgid "   Press **Enter** to continue.\n"
-msgstr ""
+msgstr "   Premeu **Retorn** per continuar.\n"
 
 #. type: Title ###
 #, no-wrap
 msgid "Using *Autopsy* to analyze the partition image"
-msgstr ""
+msgstr "Utilitzar l'*Autopsy* per analitzar la imatge de la partició"
 
 #. type: Bullet: '1. '
 msgid "Start *Autopsy*."
-msgstr ""
+msgstr "Inicieu l'*Autopsy*."
 
 #. type: Bullet: '1. '
 msgid "Open a new case."
-msgstr ""
+msgstr "Obriu un cas nou."
 
 #. type: Bullet: '1. '
 msgid "Add the partition image of the Persistent Storage as a data source."
 msgstr ""
+"Afegiu la imatge de partició de l'Emmagatzematge Persistent com a font de "
+"dades."
 
 #. type: Bullet: '1. '
 msgid "*Autopsy* analyzes the data source."
-msgstr ""
+msgstr "L'*Autopsy* analitza la font de dades."
 
 #. type: Plain text
 #, no-wrap
@@ -1277,6 +1386,9 @@ msgid ""
 "   different ways in the left sidebar, for example, both as a file system tree\n"
 "   and by type of files.\n"
 msgstr ""
+"   Un cop finalitzada l'anàlisi, els fitxers que s'han recuperat es mostren\n"
+"   de diferents maneres a la barra lateral esquerra, per exemple, com\n"
+"   a arbre del sistema de fitxers o per tipus de fitxers.\n"
 
 #. type: Plain text
 #, no-wrap
@@ -1285,7 +1397,7 @@ msgstr ""
 
 #. type: Bullet: '1. '
 msgid "Extract the files that you want to recover to the case folder."
-msgstr ""
+msgstr "Extraieu els fitxers que voleu recuperar a la carpeta del cas."
 
 #~ msgid "Choose **Applications&nbsp;▸ Files** to open the *Files* utility."
 #~ msgstr ""
