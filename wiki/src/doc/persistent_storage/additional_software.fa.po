@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-09-17 11:40+0200\n"
+"POT-Creation-Date: 2025-11-12 12:16+0100\n"
 "PO-Revision-Date: 2024-05-10 17:53+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: Persian <http://weblate.451f.org:8889/projects/tails/"
@@ -607,18 +607,16 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '1. '
-msgid ""
-"Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Root Console** to open a console "
-"with administration rights."
+msgid "Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Console**."
 msgstr ""
 
 #. type: Bullet: '1. '
-msgid "Execute the following command:"
+msgid "Execute the following command."
 msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid "   <p class=\"command\">apt clean</p>\n"
+msgid "   <p class=\"command\">sudo apt clean</p>\n"
 msgstr ""
 
 #. type: Title =
@@ -712,14 +710,20 @@ msgstr ""
 #. type: Bullet: '1. '
 msgid ""
 "Correct the ownership and permissions of your additional `sources.list` "
-"files to be owned by `root` and only readable by others. For example:"
+"files to be owned by `root` and only readable by others. For example, "
+"execute the following commands."
 msgstr ""
 
 #. type: Plain text
-#, no-wrap
-msgid ""
+#, fuzzy, no-wrap
+msgid "   <p class=\"command\">sudo chown root:root /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list</p>\n"
+msgstr ""
 "       chown root:root /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list\n"
 "       chmod 644 /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list\n"
+
+#. type: Plain text
+#, fuzzy, no-wrap
+msgid "   <p class=\"command\">sudo chmod 644 /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list</p>\n"
 msgstr ""
 "       chown root:root /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list\n"
 "       chmod 644 /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list\n"
@@ -752,8 +756,8 @@ msgstr ""
 #~ "است. روی تیلز مانند هر سیستم دبیان دیگری می‌توان نرم‌افزارهای دیگری نیز نصب "
 #~ "کرد. تنها می‌توان نرم‌افزارهایی نصب کرد برای دبیان بسته‌بندی شده باشند. برای "
 #~ "فهمیدن این که آیا یک نرم‌افزار برای دبیان بسته‌بندی شده یا نه و برای یافتن "
-#~ "نام بستهٔ نرم‌افزاری مرتبط می‌توانید در [[مجموعهٔ بسته‌های دبیان|https://www."
-#~ "debian.org/distrib/packages]] دنبال آن بگردید."
+#~ "نام بستهٔ نرم‌افزاری مرتبط می‌توانید در [[مجموعهٔ بسته‌های دبیان|https://"
+#~ "www.debian.org/distrib/packages]] دنبال آن بگردید."
 
 #~ msgid ""
 #~ "Since Tails is amnesic, any additional software package needs to be "
