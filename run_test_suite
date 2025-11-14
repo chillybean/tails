@@ -8,6 +8,7 @@ NAME=$(basename "${0}")
 
 GENERAL_DEPENDENCIES="
 cucumber
+dbus-x11
 devscripts
 dnsmasq-base
 ffmpeg
@@ -215,6 +216,9 @@ start_xvfb() {
         XFWM4_WRAPPER="sudo --user=$USER --login --"
     else
         XFWM4_WRAPPER=""
+    fi
+    if [ -z "${DBUS_SESSION_BUS_ADDRESS:-}" ]; then
+        XFWM4_WRAPPER="${XFWM4_WRAPPER} dbus-launch --"
     fi
     ${XFWM4_WRAPPER} xfwm4 --display="$TARGET_DISPLAY" 2>/dev/null &
     # Hide the mouse cursor so it won't be in the way when we are
