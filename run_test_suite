@@ -207,7 +207,16 @@ start_xvfb() {
     echo "Virtual X framebuffer started on display ${TARGET_DISPLAY}"
     # Start an X11 Window Manager that has enough functionality so
     # virt-viewer can run without issue (fullscreen mode etc.)
-    xfwm4 --display="$TARGET_DISPLAY" 2>/dev/null &
+    if [ -n "${SUDO_COMMAND:-}" ]; then
+        # When this script is started with sudo then xfwm4 fails to
+        # start, complaining about "Xfconf could not be initialized"
+        # and "Missing data from default files", which is avoided if
+        # started like this:
+        XFWM4_WRAPPER="sudo --user=$USER --login --"
+    else
+        XFWM4_WRAPPER=""
+    fi
+    ${XFWM4_WRAPPER} xfwm4 --display="$TARGET_DISPLAY" 2>/dev/null &
     # Hide the mouse cursor so it won't be in the way when we are
     # trying to match images.
     unclutter -display "$TARGET_DISPLAY" -root -idle 0.1 >/dev/null 2>&1 &
