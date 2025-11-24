@@ -26,9 +26,14 @@ class KeyboardSetting(CleartextStorageMixin, LocalizationSetting):
     # will not work.
     # See also KeyboardSetting
     __gproperties__: ClassVar[dict] = {
-            "saveEnabled": (bool, "saveEnabled", "Whether data can be written to disk", False,
-                       GObject.ParamFlags.READWRITE),
-            }
+        "saveEnabled": (
+            bool,
+            "saveEnabled",
+            "Whether data can be written to disk",
+            False,
+            GObject.ParamFlags.READWRITE,
+        ),
+    }
 
     def __init__(self):
         super().__init__()

@@ -39,12 +39,19 @@ def set_cleartext_storage(key: str, value):
         return
     cmd = ["/usr/bin/sudo", "-n", "/usr/local/bin/tails-cleartext-storage", "save", key]
     print(f"Running {cmd}")
-    content = json.dumps(value).encode('utf8')
+    content = json.dumps(value).encode("utf8")
     subprocess.run(cmd, input=content, check=True)
+
 
 def unset_cleartext_storage(key: str):
     if not is_tails_media_writable():
         return
-    cmd = ["/usr/bin/sudo", "-n", "/usr/local/bin/tails-cleartext-storage", "delete", key]
+    cmd = [
+        "/usr/bin/sudo",
+        "-n",
+        "/usr/local/bin/tails-cleartext-storage",
+        "delete",
+        key,
+    ]
     print(f"Running {cmd}")
     subprocess.run(cmd, check=True)

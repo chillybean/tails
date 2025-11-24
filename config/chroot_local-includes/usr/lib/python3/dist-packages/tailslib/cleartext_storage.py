@@ -31,12 +31,14 @@ class CleartextStorage:
             with (self.basedir / key).open(mode) as buf:
                 buf.write(value)
 
+
 @contextlib.contextmanager
 def mount_rw(mountpoint: str | Path):
     run(["/usr/bin/mount", "-o", "remount,rw", str(mountpoint)], check=True)
     try:
         yield
     finally:
-            run(
-                ["/usr/bin/mount", "-o", "remount,ro", str(mountpoint)], check=True,
-            )
+        run(
+            ["/usr/bin/mount", "-o", "remount,ro", str(mountpoint)],
+            check=True,
+        )

@@ -138,7 +138,7 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
         self.toolbutton_settings_add = builder.get_object("toolbutton_settings_add")
         self.listbox_settings = builder.get_object("listbox_settings")
         self.listbox_region = builder.get_object("listbox_region")
-        self.region_save_switch = builder.get_object('save_language_keyboard_switch')
+        self.region_save_switch = builder.get_object("save_language_keyboard_switch")
         self.button_start = builder.get_object("button_start")
         self.headerbar = builder.get_object("headerbar")
 
@@ -192,15 +192,18 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
         # Region
 
         for setting in [
-                self.greeter.localisationsettings.keyboard,
-                self.greeter.localisationsettings.language,
-                ]:
-            setting.connect("notify::saveEnabled", self.cb_language_or_keyboard_loaded_changed)
-            self.cb_language_or_keyboard_loaded_changed(setting, None, user_data="__init__")
+            self.greeter.localisationsettings.keyboard,
+            self.greeter.localisationsettings.language,
+        ]:
+            setting.connect(
+                "notify::saveEnabled", self.cb_language_or_keyboard_loaded_changed
+            )
+            self.cb_language_or_keyboard_loaded_changed(
+                setting, None, user_data="__init__"
+            )
 
         if not is_tails_media_writable():
             self.region_save_switch.set_sensitive(False)
-
 
         # Persistent Storage
         self.tps_upgrade_failed = False
@@ -731,28 +734,32 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
 
         setting.apply()
 
-    def cb_language_or_keyboard_loaded_changed(self, setting, paramspec, user_data=None):
+    def cb_language_or_keyboard_loaded_changed(
+        self, setting, paramspec, user_data=None
+    ):
         # This callbacks keep the UI in sync with the save state
-        save_enabled = setting.get_property('saveEnabled')
-        logging.info("Region settings loaded (from %s) %s saving",
-                     user_data,
-                     "" if save_enabled else "not")
+        save_enabled = setting.get_property("saveEnabled")
+        logging.info(
+            "Region settings loaded (from %s) %s saving",
+            user_data,
+            "" if save_enabled else "not",
+        )
         self.region_save_switch.set_state(save_enabled)
         self.region_save_switch.set_active(save_enabled)
 
     def cb_save_language_keyboard_switch_changed(self, widget, user_data=None):
         settings = [
-                self.greeter.localisationsettings.keyboard,
-                self.greeter.localisationsettings.language,
-                ]
+            self.greeter.localisationsettings.keyboard,
+            self.greeter.localisationsettings.language,
+        ]
         if not widget.get_active():
             for setting in settings:
-                setting.set_property('saveEnabled', False)
+                setting.set_property("saveEnabled", False)
             return True
 
-        logging.info("Widget save active=%s state=%s",
-                     widget.get_active(),
-                     widget.get_state())
+        logging.info(
+            "Widget save active=%s state=%s", widget.get_active(), widget.get_state()
+        )
         dialog = MessageDialog(
             message_type=Gtk.MessageType.QUESTION,
             title=_("Language and Keyboard layout"),
@@ -766,13 +773,15 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
             destructive=False,
         )
         dialog.set_transient_for(self)
+
         def on_save_language_dialog_response(dialog, response):
             dialog.destroy()
             if response == Gtk.ResponseType.OK:
                 for setting in settings:
-                    setting.set_property('saveEnabled', True)
+                    setting.set_property("saveEnabled", True)
                 return
             widget.set_active(False)
+
         dialog.connect("response", on_save_language_dialog_response)
         dialog.show_all()
 
