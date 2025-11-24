@@ -125,7 +125,7 @@ fi
 . /var/lib/gdm3/settings/transient/tails.language || log_n_exit "Language settings file not found."
 . /var/lib/gdm3/settings/persistent/tails.formats || log_n_exit "Formats settings file not found."
 . /var/lib/gdm3/settings/transient/tails.keyboard || log_n_exit "Keyboard settings file not found."
-if [ -z "${TAILS_LOCALE_NAME}" ] ; then
+if [ -z "${TAILS_LOCALE_NAME}" ]; then
     log_n_exit "Locale variable not found."
 fi
 

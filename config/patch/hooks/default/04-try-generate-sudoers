@@ -15,7 +15,7 @@ if ! /usr/local/lib/generate-sudoers --help; then
 fi
 
 if [ -z "${TARGET_ROOT:-}" ]; then
-  TARGET_ROOT="/"
+    TARGET_ROOT="/"
 fi
 
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -25,5 +25,5 @@ DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 . "${DIR}/../../lib/lib.sh"
 
 run_with_plymouth_msg "patch: Generating sudoers.d" /usr/local/lib/generate-sudoers \
-	--config-dir "${GIT_REPO}/${INCLUDES_DIR}etc/generate-sudoers.d/" \
-	--output-dir "${TARGET_ROOT}etc/sudoers.d/"
+    --config-dir "${GIT_REPO}/${INCLUDES_DIR}etc/generate-sudoers.d/" \
+    --output-dir "${TARGET_ROOT}etc/sudoers.d/"
