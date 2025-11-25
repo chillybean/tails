@@ -198,7 +198,7 @@ module Dogtail
     end
 
     def methods
-      run("print(dir(#{@var}))").stdout.chomp
+      run("print('\t'.join(dir(#{@var})))").stdout.chomp.split("\t")
     end
 
     def get_field(key)
