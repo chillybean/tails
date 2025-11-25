@@ -478,7 +478,7 @@ When /^I save the language and keyboard options$/ do
 
   greeter
     .child('Question', roleName: 'alert')
-    .child(translate('Save Unencrypted'), roleName: 'push button')
+    .child(translate('Save Unencrypted'), roleName: 'button')
     .click
 end
 
