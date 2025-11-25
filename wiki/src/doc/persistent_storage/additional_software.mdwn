@@ -341,8 +341,9 @@ example, to install packages from the `non-free` section of Debian. To do so:
    with the following content:
 
        deb tor+http://ftp.us.debian.org/debian/ trixie non-free
+       deb tor+http://security.debian.org/ trixie-security non-free
+       deb tor+http://ftp.us.debian.org/debian/ trixie-updates non-free
        deb tor+http://ftp.us.debian.org/debian/ trixie-backports non-free
-       deb tor+http://security.debian.org/ trixie/updates non-free
 
    File names must end with *.list* and must only contain the following
    characters: letters, digits, underscore, hyphen, and period.
