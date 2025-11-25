@@ -206,20 +206,7 @@ you need to set a bunch of environment variables.
 
         "${EDITOR:?}" ~/.config/tails/release_management/current.yml
 
-3. Ensure there's a `iuks/v2` directory under the directory you specified for
-   `isos` in `~/.config/tails/release_management/local.yml`.
-
-
-        python3 <<EOF
-        import yaml,os
-        from pathlib import Path
-        fpath = Path(os.path.expanduser("~/.config/tails/release_management/local.yml"))
-        isos = Path(yaml.safe_load(fpath.open())["isos"])
-        iuks = isos / "iuks/v2"
-        if not iuks.exists(): raise Exception("IUKS dir '%s' not found" % iuks)
-        EOF
-
-4. Generate the resulting environment variables and export them into your
+3. Generate the resulting environment variables and export them into your
    environment:
 
         . $(./bin/rm-config generate-environment --stage base)
@@ -902,7 +889,7 @@ Note:
 Build the final images
 ----------------------
 
-Expected time: 30-75 minutes depending on your computer and the available
+Expected time: 30-45 minutes depending on your computer and the available
 Jenkins workers.
 
 1. Build the final images:
@@ -920,8 +907,7 @@ Jenkins workers.
    other builds from the _Build Queue_ if needed so it can start
    immediately.
 
-   Set the `MATCHING_JENKINS_IMAGES_BUILD_ID` environment variable to the ID of
-   this build.
+   Take note of the ID of this build.
 
    Note that Jenkins automatically started a build earlier when you
    pushed the tag, but since the versioned APT suite wasn't finished
@@ -930,11 +916,13 @@ Jenkins workers.
 
 1. Make sure the Jenkins build is right: you can recognize this is the case,
    when you see Jenkins start building the website (which should happen in
-   \~2-3 minutes, at least on `dragon` and `iguana`). Jenkins will take
-   20-65 minutes to complete the build, depending on the `isoworkerN`
-   that is used.
+   \~2-3 minutes). Jenkins will take
+   20-30 minutes to complete the build.
 
-1. This could be a good time for break!
+1. This could be a good time for break until both builds complete!
+
+1. Set the `MATCHING_JENKINS_IMAGES_BUILD_ID` environment variable to the ID of
+   the Jenkins build.
 
 1. Compare the new build manifest with the one from the previous,
    almost-final build:
@@ -1774,12 +1762,10 @@ Lead the internal manual testing to conclusion
 1. If you were the one running the [automated test suite](#run-automated-tests),
    check its results.
 
-1. Triage test results (except for the reproducibility test), reproduce bugs as
+1. Triage test results, reproduce bugs as
    needed, decide what the next step is and make sure it happens: add to known
    issues? file an issue? release blocker? improve the test description (steps,
    expected outcome)?
-
-<a id="reproducibility-final-check"></a>
 
 Prepare announcements and blog posts
 ====================================
@@ -2000,8 +1986,9 @@ complete successfully:
         git commit config/base_branch \
           -m "Ensure base branch on 'master' remains 'stable'"
       git push origin devel:devel
+      git commit --allow-empty -m "Publish Tails ${VERSION:?}"
       git push origin \
-          -o merge_request.merge_when_pipeline_succeeds \
+          -o merge_request.auto_merge \
           "${WEBSITE_RELEASE_BRANCH:?}"
     )
 
@@ -2183,41 +2170,44 @@ Check that you are indeed preparing a final release:
    reduce our usage by deleting stuff, or asking them to give us more
    space.
 
-1. Delete Git branches that were merged:
+1. Update your local `$MASTER_CHECKOUT`
 
         cd "${MASTER_CHECKOUT:?}" && \
         git checkout master && \
         git fetch && \
         git merge origin/master && \
-        git submodule update --init && \
-        bare_repo=$(mktemp -d) && \
-        git clone --bare --reference "${MASTER_CHECKOUT:?}" \
-           git@gitlab-ssh.tails.boum.org:tails/tails \
-           "${bare_repo:?}" && \
-        PYTHONPATH=lib/python3 ./bin/delete-merged-git-branches \
-           --repo "${bare_repo:?}" && \
-        rm -rf "${bare_repo:?}"
+        git submodule update --init
 
 1. Remove UDFs for versions that were never released:
 
         cd "${MASTER_CHECKOUT:?}" && \
         git checkout master && \
-        ./bin/remove-unused-udfs --before-version "${VERSION:?}"
-
-   Explanation: the post-release APT repository steps from the previous stable
-   release will usually have had us prepare for an emergency release that was
-   never made.
+        ./bin/remove-unused-udfs --before-version "${VERSION:?}" && \
+        git push origin master
 
 1. Pull `master` back and merge it into `stable`:
 
         cd "${RELEASE_CHECKOUT:?}" && \
         git fetch origin && \
         git checkout stable && \
+        git merge origin/stable && \
         git merge origin/master
 
    Note: After a final *major* release is published, it's normal to
    leave the `testing` branch alone: it will only become relevant
    again when the next freeze starts.
+
+1. Delete Git branches that were merged:
+
+        cd "${RELEASE_CHECKOUT:?}" && \
+        git checkout stable && \
+        bare_repo=$(mktemp -d) && \
+        git clone --bare --reference "${RELEASE_CHECKOUT:?}" \
+           git@gitlab-ssh.tails.boum.org:tails/tails \
+           "${bare_repo:?}" && \
+        PYTHONPATH=lib/python3 ./bin/delete-merged-git-branches \
+           --repo "${bare_repo:?}" && \
+        rm -rf "${bare_repo:?}"
 
 1. Put the `stable` Git branch and the corresponding APT suite
    in the desired shape:
@@ -2256,7 +2246,9 @@ Check that you are indeed preparing a final release:
 1. Check if the version number of the last entry in `devel`'s `debian/changelog` matches
    the next major release, so that
    next builds from the `devel` branch do not use the APT suite meant
-   for the last release; if this is not the case yet, run:
+   for the last release.
+
+   If this is not the case yet, run:
 
         cd "${RELEASE_CHECKOUT}" && \
         git checkout devel && \
