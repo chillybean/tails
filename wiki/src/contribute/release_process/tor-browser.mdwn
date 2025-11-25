@@ -178,6 +178,67 @@ Finally:
 
 3. [[Update the Tor Browser Flatpak metadata|tor-browser#update-flatpak-metadata]]
 
+Refresh custom about:tor patches
+================================
+
+As an initial setup that you only have to do once, get yourself a
+local checkout of `tor-browser.git`, add intrigeri's remote, and get a
+checkout of the development branch for the about:tor patches:
+
+    git clone git@gitlab.torproject.org:tpo/applications/tor-browser.git
+    cd tor-browser
+    git remote add intrigeri git@gitlab.torproject.org:intrigeri/tor-browser.git
+    git fetch intrigeri
+    git checkout -b 44201-allow-tails-to-customize-about-tor-esr128 \
+        intrigeri/44201-allow-tails-to-customize-about-tor-esr128
+
+Make sure we're up-to-date:
+
+    git fetch origin
+    git fetch intrigeri
+    git checkout 44201-allow-tails-to-customize-about-tor-esr128
+    git reset --hard intrigeri/44201-allow-tails-to-customize-about-tor-esr128
+
+Set some inputs in the environment:
+
+    TAILS_GIT_REPO=/path/to/your/tails.git
+    # Set TAILS_VERSION to the version of Tails this Tor Browser release will
+    # end up in
+    TAILS_VERSION=7.2
+    # Set TAG to the name of the tag for the Tor Browser release you want to
+    # refresh the patches against
+    TAG=tor-browser-140.5.0esr-15.0-1-build2
+
+Rebase and resolve conflicts:
+
+    git rebase "${TAG:?}"
+
+Bump Tails version number:
+
+    sed -i "s@href=\"https://tails.net/news/version_[^\"]*\"@href=\"https://tails.net/news/version_${TAILS_VERSION:?}\"@" \
+        browser/components/abouttor/content/aboutTor.html
+    sed -i "s@You are running Tails \S\+. @You are running Tails ${TAILS_VERSION:?}. @" \
+        toolkit/locales/en-US/toolkit/global/tor-browser.ftl
+    git commit -m "Bump Tails version to ${TAILS_VERSION:?}" \
+        browser/components/abouttor/content/aboutTor.html toolkit/locales/en-US/toolkit/global/tor-browser.ftl
+
+Push updated branch:
+
+    git push -f intrigeri HEAD
+
+Generate refreshed patches:
+
+    git diff ${TAG:?}.. -- '*' ':!toolkit/locales/' \
+        | sed 's@^\(---\|+++\) \([^/]\+\)/browser/components/abouttor/content/@\1 \2/chrome/browser/content/browser/abouttor/@' \
+        | sed 's@^\(---\|+++\) \([^/]\+\)/browser/components/abouttor/@\1 \2/actors/@' \
+        > "${TAILS_GIT_REPO:?}"/config/chroot_local-includes/usr/share/tails/build/custom-about-tor/browser-omni.patch
+    git diff $TAG.. -- toolkit/locales \
+        | sed 's@^\(---\|+++\) \([^/]\+\)/toolkit/locales/@\1 \2/localization/@' \
+        > "${TAILS_GIT_REPO:?}"/config/chroot_local-includes/usr/share/tails/build/custom-about-tor/omni.patch
+    cd "${TAILS_GIT_REPO:?}"
+    git commit -m "Tor Browser: refresh custom about:tor patches onto ${TAG:?} for Tails ${TAILS_VERSION:?}" \
+        config/chroot_local-includes/usr/share/tails/build/custom-about-tor
+
 <a id="sync-wrapper-scripts">
 
 Sync with the upstream wrapper scripts
