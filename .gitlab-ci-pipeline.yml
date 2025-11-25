@@ -368,6 +368,8 @@ check-target-branch-for-rm-config-change:
   rules:
     - if: $CI_PIPELINE_SOURCE != "merge_request_event"
       when: never
+    - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == "master"
+      when: never
     - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"
       when: never
     - changes:
