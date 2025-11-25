@@ -1,18 +1,28 @@
-diff -Naur browser-omni.orig/actors/AboutTorParent.sys.mjs browser-omni/actors/AboutTorParent.sys.mjs
---- browser-omni.orig/actors/AboutTorParent.sys.mjs	2025-11-10 10:30:00.000000000 +0100
-+++ browser-omni/actors/AboutTorParent.sys.mjs	2025-11-11 15:27:50.937672061 +0100
-@@ -69,6 +69,7 @@
+diff --git a/browser/components/abouttor/AboutTorParent.sys.mjs b/browser/components/abouttor/AboutTorParent.sys.mjs
+index 8449722c3b03..9d6a97e61b46 100644
+--- a/actors/AboutTorParent.sys.mjs
++++ b/actors/AboutTorParent.sys.mjs
+@@ -10,6 +10,7 @@ ChromeUtils.defineESModuleGetters(lazy, {
+ const initializedActors = new Set();
+ const onionizePref = "torbrowser.homepage.search.onionize";
+ const surveyDismissVersionPref = "torbrowser.homepage.survey.dismiss_version";
++const tailsPref = "torbrowser.running_in_tails";
+ 
+ /**
+  * Actor parent class for the about:tor page.
+@@ -69,6 +70,7 @@ export class AboutTorParent extends JSWindowActorParent {
        ),
        appLocale,
        dismissYEC: AboutTorParent.#dismissYEC,
-+      isTails: Services.prefs.getBoolPref("torbrowser.running_in_tails", false),
++      isTails: Services.prefs.getBoolPref(tailsPref, false),
      };
    }
  
-diff -Naur browser-omni.orig/chrome/browser/content/browser/abouttor/aboutTor.css browser-omni/chrome/browser/content/browser/abouttor/aboutTor.css
---- browser-omni.orig/chrome/browser/content/browser/abouttor/aboutTor.css	2025-11-10 10:30:00.000000000 +0100
-+++ browser-omni/chrome/browser/content/browser/abouttor/aboutTor.css	2025-11-11 15:26:23.108478823 +0100
-@@ -13,7 +13,9 @@
+diff --git a/browser/components/abouttor/content/aboutTor.css b/browser/components/abouttor/content/aboutTor.css
+index 5d41df503550..82a43329c227 100644
+--- a/chrome/browser/content/browser/abouttor/aboutTor.css
++++ b/chrome/browser/content/browser/abouttor/aboutTor.css
+@@ -13,7 +13,9 @@ body {
      "tor-check tor-check tor-check" auto
      ". form ." min-content
      "message message message" auto
@@ -22,7 +32,7 @@ diff -Naur browser-omni.orig/chrome/browser/content/browser/abouttor/aboutTor.cs
      /* End space: unfilled.
       * Reserve 150px for background image.
       * NOTE: Since the body has "auto" height, the other "1fr" flex row will
-@@ -532,3 +534,36 @@
+@@ -532,3 +534,36 @@ body.show-yec h1 {
      --in-content-button-background-active: var(--yec-button-background-active);
    }
  }
@@ -59,9 +69,10 @@ diff -Naur browser-omni.orig/chrome/browser/content/browser/abouttor/aboutTor.cs
 +  grid-area: check;
 +  margin-block: 0 1.6em;
 +}
-diff -Naur browser-omni.orig/chrome/browser/content/browser/abouttor/aboutTor.html browser-omni/chrome/browser/content/browser/abouttor/aboutTor.html
---- browser-omni.orig/chrome/browser/content/browser/abouttor/aboutTor.html	2025-11-10 10:30:00.000000000 +0100
-+++ browser-omni/chrome/browser/content/browser/abouttor/aboutTor.html	2025-11-11 15:26:23.108639320 +0100
+diff --git a/browser/components/abouttor/content/aboutTor.html b/browser/components/abouttor/content/aboutTor.html
+index 292537056b33..f9d9cb61f31f 100644
+--- a/chrome/browser/content/browser/abouttor/aboutTor.html
++++ b/chrome/browser/content/browser/abouttor/aboutTor.html
 @@ -170,6 +170,46 @@
          ></a>
        </span>
@@ -122,10 +133,11 @@ diff -Naur browser-omni.orig/chrome/browser/content/browser/abouttor/aboutTor.ht
 +    </p>
    </body>
  </html>
-diff -Naur browser-omni.orig/chrome/browser/content/browser/abouttor/aboutTor.js browser-omni/chrome/browser/content/browser/abouttor/aboutTor.js
---- browser-omni.orig/chrome/browser/content/browser/abouttor/aboutTor.js	2025-11-10 10:30:00.000000000 +0100
-+++ browser-omni/chrome/browser/content/browser/abouttor/aboutTor.js	2025-11-11 15:26:23.108792881 +0100
-@@ -85,6 +85,7 @@
+diff --git a/browser/components/abouttor/content/aboutTor.js b/browser/components/abouttor/content/aboutTor.js
+index bfd6123cddd9..0eb1c8bd4510 100644
+--- a/chrome/browser/content/browser/abouttor/aboutTor.js
++++ b/chrome/browser/content/browser/abouttor/aboutTor.js
+@@ -85,6 +85,7 @@ const MessageArea = {
    _initialized: false,
    _messageData: null,
    _isStable: null,
@@ -133,7 +145,7 @@ diff -Naur browser-omni.orig/chrome/browser/content/browser/abouttor/aboutTor.js
    _torConnectEnabled: null,
  
    /**
-@@ -103,11 +104,13 @@
+@@ -103,11 +104,13 @@ const MessageArea = {
     * @param {boolean} isStable - Whether this is the stable release version.
     * @param {boolean} torConnectEnabled - Whether TorConnect is enabled, and
     *   therefore the Tor process was configured with about:torconnect.
@@ -148,7 +160,7 @@ diff -Naur browser-omni.orig/chrome/browser/content/browser/abouttor/aboutTor.js
      this._update();
    },
  
-@@ -127,7 +130,9 @@
+@@ -127,7 +130,9 @@ const MessageArea = {
      // Set heading.
      document.body.classList.toggle("is-testing", !this._isStable);
  
@@ -159,7 +171,7 @@ diff -Naur browser-omni.orig/chrome/browser/content/browser/abouttor/aboutTor.js
  
      const { updateVersion, updateURL, number } = this._messageData;
  
-@@ -602,9 +607,15 @@
+@@ -602,9 +607,15 @@ window.addEventListener("InitialData", event => {
      surveyDismissVersion,
      appLocale,
      dismissYEC,
