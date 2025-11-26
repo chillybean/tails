@@ -232,9 +232,22 @@ Generate refreshed patches:
         | sed 's@^\(---\|+++\) \([^/]\+\)/browser/components/abouttor/content/@\1 \2/chrome/browser/content/browser/abouttor/@' \
         | sed 's@^\(---\|+++\) \([^/]\+\)/browser/components/abouttor/@\1 \2/actors/@' \
         > "${TAILS_GIT_REPO:?}"/config/chroot_local-includes/usr/share/tails/build/custom-about-tor/browser-omni.patch
-    git diff $TAG.. -- toolkit/locales \
-        | sed 's@^\(---\|+++\) \([^/]\+\)/toolkit/locales/@\1 \2/localization/@' \
-        > "${TAILS_GIT_REPO:?}"/config/chroot_local-includes/usr/share/tails/build/custom-about-tor/omni.patch
+    tor_browser_git="$(pwd)/.git"
+    tmp="$(mktemp -d)"
+    (
+        for f in $(git diff --name-only  ${TAG:?}.. -- toolkit/locales); do
+            dirname=$(dirname "${f}" | sed 's@toolkit/locales/@localization/@')
+            filename=$(basename "${f}")
+            cd ${tmp}
+            mkdir -p a/"${dirname}" b/"${dirname}"
+            git --git-dir="${tor_browser_git}" show "${TAG:?}":"${f}" | sed '/^#/d' \
+                > a/"${dirname}/${filename}"
+            git --git-dir="${tor_browser_git}" show HEAD:"${f}" | sed '/^#/d' \
+                > b/"${dirname}/${filename}"
+        done
+        diff -Naur a b > "${TAILS_GIT_REPO:?}"/config/chroot_local-includes/usr/share/tails/build/custom-about-tor/omni.patch
+    )
+    rm -r "${tmp}"
     cd "${TAILS_GIT_REPO:?}"
     git commit -m "Tor Browser: refresh custom about:tor patches onto ${TAG:?} for Tails ${TAILS_VERSION:?}" \
         config/chroot_local-includes/usr/share/tails/build/custom-about-tor
