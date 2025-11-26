@@ -1732,7 +1732,7 @@ end
 # In many cases this is superior to a naive "journalctl | grep", which
 # will find itself because tails-autotest-remote-shell logs the
 # commands its executes.
-def systemd_journal_includes(message, options: [], matches: [], regexp: false)
+def systemd_journal_includes?(message, options: [], matches: [], regexp: false)
   if regexp
     options.append("--grep='#{message}'")
   else
