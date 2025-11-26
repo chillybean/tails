@@ -1613,7 +1613,7 @@ Given /^I set all Greeter options to non-default values$/ do
   # workaround to the problem.
 end
 
-Then /^all Greeter options are set to (non-)?default values$/ do |non_default|
+Then /^all Persistent Greeter options are set to (non-)?default values$/ do |non_default|
   settings = $vm.execute_successfully(
     'grep -h "^TAILS_" /var/lib/gdm3/settings/persistent/tails.* | ' \
     'grep -v "^TAILS_.*PASSWORD" | LC_ALL=C sort'
@@ -1621,13 +1621,9 @@ Then /^all Greeter options are set to (non-)?default values$/ do |non_default|
   if non_default
     expected = <<~EXPECTED
       TAILS_FORMATS=de_DE
-      TAILS_LOCALE_NAME=de_DE
       TAILS_MACSPOOF_ENABLED=false
       TAILS_NETWORK=false
       TAILS_UNSAFE_BROWSER_ENABLED=false
-      TAILS_XKBLAYOUT=de
-      TAILS_XKBMODEL=pc105
-      TAILS_XKBVARIANT=
     EXPECTED
     $vm.execute_successfully(
       'grep "^TAILS_USER_PASSWORD=\'.\+\'$" ' \
@@ -1654,7 +1650,6 @@ Then /^all Greeter options are set to (non-)?default values$/ do |non_default|
 end
 
 Then /^(no )?persistent Greeter options were restored$/ do |no|
-  $language, $lang_code = greeter_language
   # Our Dogtail wrapper code automatically translates strings to $language
   settings_restored = greeter
                       .child?('Settings were loaded from the Persistent Storage.',

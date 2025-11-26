@@ -105,13 +105,13 @@ Feature: Tails persistence
     Then no persistent Greeter options were restored
     When I set all Greeter options to non-default values
     And I log in to a new session in German (de) after having activated the Persistent Storage
-    Then all Greeter options are set to non-default values
+    Then all Persistent Greeter options are set to non-default values
     When I cold reboot the computer
     And the computer reboots Tails
     Given I enable persistence
     Then persistent Greeter options were restored
     When I log in to a new session after having activated the Persistent Storage
-    Then all Greeter options are set to non-default values
+    Then all Persistent Greeter options are set to non-default values
 
   Scenario: Changing the Persistent Storage passphrase
     Given I have started Tails without network from a USB drive with a persistent partition enabled and logged in
