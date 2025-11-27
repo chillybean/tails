@@ -1330,8 +1330,7 @@ When /^AppArmor has (not )?denied "([^"]+)" from opening "([^"]+)"$/ do |anti_te
         options: ["--since='#{@apparmor_profile_monitoring_start[profile]}'"],
         matches: ['SYSLOG_IDENTIFIER=kernel']
       )
-      assert(audit_log.empty? == (anti_test ? true : false))
-      true
+      audit_log.empty? == (anti_test ? true : false)
     end
   rescue Timeout::Error, Test::Unit::AssertionFailedError => e
     raise e, "AppArmor has #{anti_test ? '' : 'not '}denied the operation"
