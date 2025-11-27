@@ -1628,15 +1628,17 @@ end
 Then /^tpsd is localized to the selected locale$/ do
   locale = $vm.execute_successfully('echo $LANG').stdout.chomp
   tpsd_locale_changes = systemd_journal(
-    "Changed locale: .* → #{locale}", regexp: true,
+    'Changed locale: .*',
+    regexp:  true,
     options: ['--unit=tails-persistent-storage.service'],
     matches: ['SYSLOG_IDENTIFIER=tpsd']
   )
-  if locale == 'en_US.UTF-8'
-    assert_equal('', tpsd_locale_changes)
-  else
-    assert_not_equal('', tpsd_locale_changes)
-  end
+  # If we never change from the default locale nothing will be logged
+  next if locale == 'en_US.UTF-8' && tpsd_locale_changes.empty?
+
+  assert_not_nil(
+    tpsd_locale_changes.split("\n").last[/Changed locale: .* → #{locale}/]
+  )
 end
 
 Given /^I create a directory "(\S+)"$/ do |path|
