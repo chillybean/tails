@@ -181,6 +181,10 @@ Finally:
 Refresh custom about:tor patches
 ================================
 
+<a id="rebase-about-tor-branch"></a>
+
+### Rebase tor-browser.git branch
+
 First, let's set some inputs in the environment:
 
     TAILS_GIT_REPO=/path/to/your/tails.git
@@ -229,6 +233,8 @@ Bump Tails version number:
 Push updated branch:
 
     git push -f intrigeri HEAD
+
+### Generate patches for tails.git
 
 Generate refreshed patches:
 
