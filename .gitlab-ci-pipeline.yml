@@ -370,6 +370,8 @@ check-target-branch-for-rm-config-change:
       when: never
     - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == "master"
       when: never
+    - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == "stable"
+      when: never
     - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"
       when: never
     - changes:
