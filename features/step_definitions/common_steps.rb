@@ -1627,10 +1627,11 @@ end
 
 Then /^tpsd is localized to the selected locale$/ do
   locale = $vm.execute_successfully('echo $LANG').stdout.chomp
-  tpsd_locale_changes = $vm.execute(
-    'journalctl -o cat -u tails-persistent-storage.service ' \
-   "--grep='Changed locale: .* → #{locale}' SYSLOG_IDENTIFIER=tpsd"
-  ).stdout.strip
+  tpsd_locale_changes = systemd_journal(
+    "Changed locale: .* → #{locale}", regexp: true,
+    options: ['--unit=tails-persistent-storage.service'],
+    matches: ['SYSLOG_IDENTIFIER=tpsd']
+  )
   if locale == 'en_US.UTF-8'
     assert_equal('', tpsd_locale_changes)
   else
