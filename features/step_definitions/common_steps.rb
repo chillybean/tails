@@ -1324,11 +1324,12 @@ When /^AppArmor has (not )?denied "([^"]+)" from opening "([^"]+)"$/ do |anti_te
   )
   begin
     try_for(10, delay: 1) do
-      audit_log = $vm.execute(
-        'journalctl --full --no-pager ' \
-        "--since='#{@apparmor_profile_monitoring_start[profile]}' " \
-        "SYSLOG_IDENTIFIER=kernel | grep -w '#{audit_line_regex}'"
-      ).stdout.chomp
+      audit_log = systemd_journal(
+        audit_line_regex,
+        regexp:  true,
+        options: ["--since='#{@apparmor_profile_monitoring_start[profile]}'"],
+        matches: ['SYSLOG_IDENTIFIER=kernel']
+      )
       assert(audit_log.empty? == (anti_test ? true : false))
       true
     end

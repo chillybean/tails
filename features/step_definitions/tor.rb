@@ -210,7 +210,7 @@ def firewall_has_dropped_packet_to?(host, proto: nil, port: nil, uid: nil, gid: 
   regex << "UID=#{uid}" if uid
   regex << "GID=#{gid}" if gid
   regex = regex.join('\s(?:.*\s)?')
-  $vm.execute("journalctl --dmesg --output=cat | grep -qP '#{regex}'").success?
+  systemd_journal_includes?(regex, regexp: true)
 end
 
 When /^I open an untorified (TCP|UDP|ICMP) connection to (\S*)(?: on port (\d+))?$/ do |proto, host, port|
