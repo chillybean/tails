@@ -181,12 +181,25 @@ Finally:
 Refresh custom about:tor patches
 ================================
 
+First, let's set some inputs in the environment:
+
+    TAILS_GIT_REPO=/path/to/your/tails.git
+    # If you don't have a local checkout of tor-browser.git, see below
+    TOR_BROWSER_GIT_REPO=/path/to/your/tor-browser.git
+    # Set TAILS_VERSION to the version of Tails this Tor Browser release will
+    # end up in
+    TAILS_VERSION=7.2
+    # Set TAG to the name of the tag for the Tor Browser release you want to
+    # refresh the patches against
+    TAG=tor-browser-140.5.0esr-15.0-1-build2
+
 As an initial setup that you only have to do once, get yourself a
 local checkout of `tor-browser.git`, add intrigeri's remote, and get a
 checkout of the development branch for the about:tor patches:
 
     git clone git@gitlab.torproject.org:tpo/applications/tor-browser.git
     cd tor-browser
+    TOR_BROWSER_GIT_REPO=$(pwd)
     git remote add intrigeri git@gitlab.torproject.org:intrigeri/tor-browser.git
     git fetch intrigeri
     git checkout -b 44201-allow-tails-to-customize-about-tor-esr128 \
@@ -194,20 +207,11 @@ checkout of the development branch for the about:tor patches:
 
 Make sure we're up-to-date:
 
+    cd "${TOR_BROWSER_GIT_REPO:?}"
     git fetch origin
     git fetch intrigeri
     git checkout 44201-allow-tails-to-customize-about-tor-esr128
     git reset --hard intrigeri/44201-allow-tails-to-customize-about-tor-esr128
-
-Set some inputs in the environment:
-
-    TAILS_GIT_REPO=/path/to/your/tails.git
-    # Set TAILS_VERSION to the version of Tails this Tor Browser release will
-    # end up in
-    TAILS_VERSION=7.2
-    # Set TAG to the name of the tag for the Tor Browser release you want to
-    # refresh the patches against
-    TAG=tor-browser-140.5.0esr-15.0-1-build2
 
 Rebase and resolve conflicts:
 
@@ -228,29 +232,8 @@ Push updated branch:
 
 Generate refreshed patches:
 
-    git diff ${TAG:?}.. -- '*' ':!toolkit/locales/' \
-        | sed 's@^\(---\|+++\) \([^/]\+\)/browser/components/abouttor/content/@\1 \2/chrome/browser/content/browser/abouttor/@' \
-        | sed 's@^\(---\|+++\) \([^/]\+\)/browser/components/abouttor/@\1 \2/actors/@' \
-        > "${TAILS_GIT_REPO:?}"/config/chroot_local-includes/usr/share/tails/build/custom-about-tor/browser-omni.patch
-    tor_browser_git="$(pwd)/.git"
-    tmp="$(mktemp -d)"
-    (
-        for f in $(git diff --name-only  ${TAG:?}.. -- toolkit/locales); do
-            dirname=$(dirname "${f}" | sed 's@toolkit/locales/@localization/@')
-            filename=$(basename "${f}")
-            cd ${tmp}
-            mkdir -p a/"${dirname}" b/"${dirname}"
-            git --git-dir="${tor_browser_git}" show "${TAG:?}":"${f}" | sed '/^#/d' \
-                > a/"${dirname}/${filename}"
-            git --git-dir="${tor_browser_git}" show HEAD:"${f}" | sed '/^#/d' \
-                > b/"${dirname}/${filename}"
-        done
-        diff -Naur a b > "${TAILS_GIT_REPO:?}"/config/chroot_local-includes/usr/share/tails/build/custom-about-tor/omni.patch
-    )
-    rm -r "${tmp}"
     cd "${TAILS_GIT_REPO:?}"
-    git commit -m "Tor Browser: refresh custom about:tor patches onto ${TAG:?} for Tails ${TAILS_VERSION:?}" \
-        config/chroot_local-includes/usr/share/tails/build/custom-about-tor
+    bin/generate-about-tor-patches "${TAG:?}" "${TOR_BROWSER_GIT_REPO:?}"
 
 <a id="sync-wrapper-scripts">
 
