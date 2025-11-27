@@ -35,11 +35,11 @@ class FormatsSetting(LocalizationSetting):
     def load(self) -> tuple[str, bool]:
         try:
             settings = read_settings(self.settings_file)
-        except FileNotFoundError:
+        except FileNotFoundError as exc:
             raise SettingNotFoundError(
                 "No persistent formats settings file found (path: %s)"
                 % self.settings_file
-            )
+            ) from exc
 
         formats = settings.get("TAILS_FORMATS")
         if formats is None:

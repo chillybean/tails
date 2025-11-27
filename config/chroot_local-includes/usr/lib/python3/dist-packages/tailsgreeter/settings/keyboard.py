@@ -2,6 +2,7 @@ import gi
 import logging
 from typing import Optional, ClassVar
 
+import tailsgreeter.config
 from tailsgreeter.settings import SettingNotFoundError
 from tailsgreeter.settings.localization import (
     LocalizationSetting,
@@ -37,6 +38,7 @@ class KeyboardSetting(CleartextStorageMixin, LocalizationSetting):
 
     def __init__(self):
         super().__init__()
+        self.legacy_settings_file = tailsgreeter.config.legacy_keyboard_setting_path
         self.xkbinfo = GnomeDesktop.XkbInfo()
 
     def serialize(self, value: str, is_default: bool):

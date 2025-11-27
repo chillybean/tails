@@ -47,6 +47,10 @@ persistent_settings_dir = "/var/lib/gdm3/settings/persistent"
 # /var/lib/gdm3/settings/persistent.
 transient_settings_dir = "/var/lib/gdm3/settings/transient"
 
+# Legacy: these were created before tails#5501, but we still want to read them
+legacy_language_setting_path = os.path.join(persistent_settings_dir, "tails.language")
+legacy_keyboard_setting_path = os.path.join(persistent_settings_dir, "tails.keyboard")
+
 # File where the session formats setting is stored
 formats_setting_path = os.path.join(persistent_settings_dir, "tails.formats")
 

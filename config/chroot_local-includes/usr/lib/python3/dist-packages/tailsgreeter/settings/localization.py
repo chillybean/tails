@@ -26,7 +26,7 @@ from gi.repository import GObject  # noqa: E402
 
 import tailsgreeter.utils  # noqa: E402
 from tailsgreeter.settings import SettingNotFoundError  # noqa: E402
-from tailsgreeter.settings.utils import write_settings  # noqa: E402
+from tailsgreeter.settings.utils import read_settings, write_settings  # noqa: E402
 
 
 if TYPE_CHECKING:
@@ -66,12 +66,26 @@ class CleartextStorageMixin:
         self.log.debug("load")
         try:
             value = tailsgreeter.utils.get_cleartext_storage(self.SETTINGS_KEY)
+            loaded_from_cleartext = True
         except SettingNotFoundError:
-            return {}
-        else:
-            self.log.info("Successfully loaded %s (%s)", self.SETTINGS_KEY, value)
-            self.set_property("saveEnabled", True)
-            return value
+            try:
+                value = read_settings(self.legacy_settings_file)
+                loaded_from_cleartext = False
+            except FileNotFoundError:
+                self.log.debug("No %s setting found", self.SETTINGS_KEY)
+                return {}
+            self.log.info("No cleartext settings %s found, loaded from Persistent Storage",
+                          self.SETTINGS_KEY)
+
+            # When we load a legacy setting, we don't want to propose users to save it
+            # unencrypted immediately so we set this to true.
+            # The user is still *able* to do this, they just need to flip the Save
+            # switch.
+            value['IS_DEFAULT'] = 'true'
+
+        self.log.info("Successfully loaded %s (%s)", self.SETTINGS_KEY, value)
+        self.set_property("saveEnabled", loaded_from_cleartext)
+        return value
 
     def save(self, *args, **kwargs):
         data = self.serialize(*args, **kwargs)

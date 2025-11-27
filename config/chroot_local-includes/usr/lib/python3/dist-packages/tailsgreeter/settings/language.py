@@ -22,6 +22,7 @@ import logging
 import locale
 from typing import ClassVar
 
+import tailsgreeter.config
 from tailsgreeter.settings import SettingNotFoundError
 from tailsgreeter.settings.localization import (
     CleartextStorageMixin,
@@ -58,6 +59,7 @@ class LanguageSetting(CleartextStorageMixin, LocalizationSetting):
 
     def __init__(self, locales: list[str]):
         super().__init__()
+        self.legacy_settings_file = tailsgreeter.config.legacy_language_setting_path
         self.locales = locales
         self._user_account = None
 
