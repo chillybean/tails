@@ -39,9 +39,8 @@ class CircuitsLogger:
         if event.target and event.target not in self.logged_events:
             self.logged_events.add(event.target)
             systemd.journal.send(
-                f"Stream event for {event.target} ({event.reason})",
+                f"Stream event for {event.target}",
                 PRIORITY=syslog.LOG_DEBUG,
-                TOR_REASON=event.reason,
                 TOR_TARGET=event.target,
             )
 
