@@ -79,6 +79,9 @@ class CircuitsLogger:
                 logging.error("Error connecting (%s), retrying", exc)  # noqa: TRY400
                 time.sleep(1)
                 continue
+            except KeyboardInterrupt:
+                logging.info("SIGINT received, quitting...")
+                break
 
 
 if __name__ == "__main__":
