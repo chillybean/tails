@@ -6,10 +6,6 @@ set -u
 set -o pipefail
 set -x
 
-# Ensure the cleanup function works under `set -u` even when we fail
-# before setting the real BUILD_DIR value
-BUILD_DIR=
-
 umask 022
 
 if [ -n "${TAILS_PROXY:-}" ]; then
@@ -42,7 +38,7 @@ as_root_do() {
 }
 
 cleanup() {
-    [ -n "${BUILD_DIR}" ] || return 0
+    [ -n "${BUILD_DIR:-}" ] || return 0
     cd /
     remove_build_dirs
     sudo rm -rf "${BUILD_DIR}"
