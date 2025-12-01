@@ -12,45 +12,6 @@ def post_vm_start_hook
   @screen.click(@screen.w - 1, @screen.h / 2)
 end
 
-# See tails/tails#20054 for details
-def work_around_issue20054(confirm: false)
-  return if $vm.execute('systemctl is-active spice-vdagentd.socket').success?
-
-  debug_log('Issue #20054: spice-vdagentd.socket is inactive')
-  error = 'udscs_connect: Could not connect: No such file or directory'
-  regex = "spice-vdagent\[[0-9]+\]: #{error}"
-  if $vm.execute("journalctl | grep --quiet --extended-regexp '#{regex}'").success?
-    debug_log('Issue #20054: the journal contains the suspicious error message: ' \
-              "#{error}")
-  end
-  if confirm
-    begin
-      greeter.child('Start Tails', roleName: 'button').grabFocus
-    rescue StandardError => e
-      debug_log('Issue #20054: Dogtail failed to focus the Greeter ⇒ bug confirmed ' \
-                "(got exception #{e.class}: #{e.message})")
-    else
-      debug_log('Issue #20054: Dogtail successfully focused the Greeter, which is ' \
-                'unexpected')
-      return
-    end
-  end
-  debug_log('Issue #20054: Applying workaround ...')
-  $vm.execute_successfully('systemctl restart spice-vdagentd.socket')
-  if confirm # rubocop:disable Style/GuardClause
-    begin
-      greeter.child('Start Tails', roleName: 'button').grabFocus
-    rescue StandardError => e
-      debug_log('Issue #20054: Dogtail failed to focus the Greeter after recovering ' \
-                'spice-vdagentd ⇒ our proposed fix is not enough ' \
-                "(got exception #{e.class}: #{e.message}")
-    else
-      debug_log('Issue #20054: Dogtail successfully focused the Greeter, our fix ' \
-                'was enough')
-    end
-  end
-end
-
 def gnome_activities_overview_image
   case $language
   when 'Arabic', 'Persian'
@@ -66,17 +27,11 @@ def post_snapshot_restore_hook(snapshot_name, num_try)
 
   $vm.wait_until_remote_shell_is_up
 
-  if snapshot_name.end_with?('tails-greeter')
-    pattern = 'TailsGreeter.png'
-    work_around_issue20054(confirm: true)
-  else
-    pattern = gnome_activities_overview_image
-    # We skip attempting to confirm issue #20054 in this general case
-    # since we don't know what (suitable) application to test Dogtail
-    # with, and we might use a non-English locale which would make it
-    # more complicated to use Dogtail.
-    work_around_issue20054(confirm: false)
-  end
+  pattern = if snapshot_name.end_with?('tails-greeter')
+              'TailsGreeter.png'
+            else
+              gnome_activities_overview_image
+            end
 
   begin
     try_for(10, delay: 0) do
@@ -492,7 +447,6 @@ Given /^the computer (?:re)?boots Tails$/ do
                         .child(roleName: 'notification')
                         .child('System was put in unsafe mode', roleName: 'label')
                         .click
-    work_around_issue20054(confirm: true)
   end
 end
 
