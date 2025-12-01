@@ -233,6 +233,7 @@ class TailsInstallerCreator:
             "is_device_big_enough_for_upgrade": True,
             "is_device_big_enough_for_reinstall": True,
             "removable": drive.props.removable,
+            "read_only": getattr(block.props, "read_only", False),
         }
 
         # Check non-removable drives
