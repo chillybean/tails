@@ -353,7 +353,12 @@ def exclude_non_suspicious_connections(conns, context)
   # Exclude connections which are ip-only: while those might be relevant, too, it's
   # hard to believe that unwanted connections (which are typically originating from
   # some application telemetry) won't have any valid hostname associated.
-  conns = conns.reject { |x| /^[0-9]/.match(x) }
+  conns.reject! do |x|
+    IPAddr.new(x.split(':').first.split('.$').first)
+  rescue IPAddr::InvalidAddressError
+    false
+  end
+
   # Reverse delegation
   conns.reject! { |x| x.include?('.ip6.arpa:') || x.include?('.in-addr.arpa:') }
   # Automatic upgrades
