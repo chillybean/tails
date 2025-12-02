@@ -349,7 +349,18 @@ def htpdate_pools_hosts
      .flatten
 end
 
-def exclude_non_suspicious_connections(conns, context)
+def thunderbird_non_suspicious_connections
+  [
+    # Used to get addon lists
+    'addons.thunderbird.net', 'services.addons.thunderbird.net',
+    # Used in many apparently innocuous area of the code
+    'live.thunderbird.net',
+    # Fake, used to disable various Thunderbird endpoints
+    'thereisnosuchserver.tails.net',
+  ]
+end
+
+def exclude_non_suspicious_connections(conns, expected_hosts: [])
   # Exclude connections which are ip-only: while those might be relevant, too, it's
   # hard to believe that unwanted connections (which are typically originating from
   # some application telemetry) won't have any valid hostname associated.
@@ -366,23 +377,13 @@ def exclude_non_suspicious_connections(conns, context)
   # Exclude hosts which are part of the htpdate pool
   htpdate_hosts = htpdate_pools_hosts
   conns.reject! { |x| htpdate_hosts.include?(x.split(':')[0]) }
-  if context == :thunderbird
-    expected = [
-      # Used to get addon lists
-      'addons.thunderbird.net', 'services.addons.thunderbird.net',
-      # Used in many apparently innocuous area of the code
-      'live.thunderbird.net',
-      # Fake, used to disable various Thunderbird endpoints
-      'thereisnosuchserver.tails.net',
-    ]
-    conns.reject! { |addr| expected.include?(addr.split(':').first) }
-  end
+  conns.reject! { |addr| expected_hosts.include?(addr.split(':').first) }
   conns
 end
 
 Then /^no unexpected connection has leaked$/ do
   connections = exclude_non_suspicious_connections(tor_connections_from_log,
-                                                   :thunderbird)
+                                                   expected_hosts: thunderbird_non_suspicious_connections)
   assert_equal(0, connections.size, "Unexpected connections: #{connections.join(',')}")
 end
 
@@ -392,7 +393,7 @@ Then /^the only connections have been made to my email server$/ do
                'No connections have been logged; ' \
                'this suggests a problem in tor-circuits-log')
   connections = exclude_non_suspicious_connections(all_connections,
-                                                   :thunderbird)
+                                                   expected_hosts: thunderbird_non_suspicious_connections)
   hosts = connections.map { |addr| addr.split(':').first }
 
   allowed_servers = $config['Thunderbird']['servers'] || []
