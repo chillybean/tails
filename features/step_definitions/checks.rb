@@ -393,16 +393,12 @@ Then /^the only connections have been made to my email server$/ do
                'this suggests a problem in tor-circuits-log')
   connections = exclude_non_suspicious_connections(all_connections,
                                                    :thunderbird)
-  connections = connections.each_with_object([]) do |addr, l|
-    if addr.include?(':')
-      l << addr.split(':').first
-    end
-  end
+  hosts = connections.map { |addr| addr.split(':').first }
 
   allowed_servers = $config['Thunderbird']['servers'] || []
   email_domain = $config['Thunderbird']['address'].split('@').last
 
-  unwanted_connections = connections.uniq.reject do |server|
+  unwanted_connections = hosts.uniq.reject do |server|
     allowed_servers.include?(server) ||
       server == email_domain ||
       server.end_with?(".#{email_domain}")
