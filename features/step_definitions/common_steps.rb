@@ -1736,15 +1736,18 @@ end
 # will find itself because tails-autotest-remote-shell logs the
 # commands its executes.
 def systemd_journal(message, options: [], matches: [], regexp: false)
+  # We avoid modifying the caller's data
+  final_options = options.clone
+  final_matches = matches.clone
   if regexp
-    options.append("--grep='#{message}'")
+    final_options.append("--grep='#{message}'")
   else
-    matches.append("MESSAGE='#{message}'")
+    final_matches.append("MESSAGE='#{message}'")
   end
   $vm.execute(
     'journalctl --boot --output=cat ' \
-    "#{options.join(' ')} " \
-    "#{matches.join(' ')}"
+    "#{final_options.join(' ')} " \
+    "#{final_matches.join(' ')}"
   ).stdout
 end
 
