@@ -1736,6 +1736,9 @@ end
 # will find itself because tails-autotest-remote-shell logs the
 # commands its executes.
 def systemd_journal(message, options: [], matches: [], regexp: false)
+  # Below we'll quote this string with apostrophes when passed to the
+  # shell, so let's escape: ' → \'
+  message.gsub!("'", "\\\\'")
   # We avoid modifying the caller's data
   final_options = options.clone
   final_matches = matches.clone
