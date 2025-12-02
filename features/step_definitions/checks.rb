@@ -402,13 +402,12 @@ Then /^the only connections have been made to my email server$/ do
   allowed_servers = $config['Thunderbird']['servers'] || []
   email_domain = $config['Thunderbird']['address'].split('@').last
 
-  unwanted_connections = connections.uniq.each_with_object([]) do |server, l|
-    next if allowed_servers.include?(server) ||
-            server == email_domain ||
-            server.end_with?(".#{email_domain}")
-
-    l << server
+  unwanted_connections = connections.uniq.reject do |server|
+    allowed_servers.include?(server) ||
+      server == email_domain ||
+      server.end_with?(".#{email_domain}")
   end
+
   assert(unwanted_connections.empty?,
          "Unexpected connections: #{unwanted_connections.join(',')}")
 end
