@@ -361,24 +361,29 @@ def thunderbird_non_suspicious_connections
 end
 
 def exclude_non_suspicious_connections(conns, expected_hosts: [])
-  # Exclude connections which are ip-only: while those might be relevant, too, it's
-  # hard to believe that unwanted connections (which are typically originating from
-  # some application telemetry) won't have any valid hostname associated.
-  conns.reject! do |x|
-    IPAddr.new(x.split(':').first.split('.$').first)
-  rescue IPAddr::InvalidAddressError
+  conns.reject do |addr|
+    host = addr.split(':').first
+
+    # Exclude connections which are ip-only: while those might be relevant, too, it's
+    # hard to believe that unwanted connections (which are typically originating from
+    # some application telemetry) won't have any valid hostname associated.
+    begin
+      IPAddr.new(host.split('.$').first)
+      next true
+    rescue IPAddr::InvalidAddressError
+      # this means that the host is not an IP, which is what we actually want
+    end
+
+    # Reverse delegation
+    next true if host.include?('.ip6.arpa') || host.include?('.in-addr.arpa')
+    # Automatic upgrades
+    next true if host == 'tails.net'
+    # Exclude hosts which are part of the htpdate pool
+    next true if htpdate_pools_hosts.include?(host)
+    next true if expected_hosts.include?(host)
+
     false
   end
-
-  # Reverse delegation
-  conns.reject! { |x| x.include?('.ip6.arpa:') || x.include?('.in-addr.arpa:') }
-  # Automatic upgrades
-  conns.reject! { |x| /^tails[.]net:/.match(x) }
-  # Exclude hosts which are part of the htpdate pool
-  htpdate_hosts = htpdate_pools_hosts
-  conns.reject! { |x| htpdate_hosts.include?(x.split(':')[0]) }
-  conns.reject! { |addr| expected_hosts.include?(addr.split(':').first) }
-  conns
 end
 
 Then /^no unexpected connection has leaked$/ do
