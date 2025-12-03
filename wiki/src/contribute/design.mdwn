@@ -1108,6 +1108,18 @@ significantly degrades the Flatpak sandbox it allows Tor Browser's
 sandbox to run fully, which includes its own seccomp filter that is
 tailored to Tor Browser's specific needs.
 
+By running inside the Flatpak sandbox the filesystem exposed to Tor
+Browser is separated from the "host" one; it's an empty mount
+namespace with a tmpfs as root that is inaccessible from the host,
+except the parts that are explicitly bind-mounted in, either
+automatically by `flatpak run` itself (primarily essentials like
+`/dev`, `/proc`, `/usr`, etc. but also stuff needed for various
+Flatpak features, e.g. `/run` and `~/.var/app`) or as specified by the
+`org.boum.tails.TorBrowser` metadata, which in Tails is completely
+overridden:
+
+- [[!tails_gitweb config/chroot_local-includes/var/lib/flatpak/overrides/org.boum.tails.TorBrowser]]
+
 #### Tor Browser execution chain
 
 The chain of wrappers to achieve this, which is rather complex, is
