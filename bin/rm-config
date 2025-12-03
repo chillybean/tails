@@ -12,6 +12,7 @@ from pathlib import Path
 
 import yaml
 from voluptuous import Any, Schema
+from voluptuous.error import MultipleInvalid, Invalid
 from voluptuous.validators import (
     And,
     Date,
@@ -125,7 +126,10 @@ class Config:
         self.data = self.load_config_files()
         self.data.update(self.generate_config())
         log.debug("Configuration:\n%s", self.data)
-        self.validate()
+        try:
+            self.validate()
+        except Invalid:
+            sys.exit(1)
 
     def load_config_files(self):
         """
@@ -226,7 +230,15 @@ class Config:
     def validate(self):
         """Checks that the configuration is valid, else raise exception"""
         schema = self.schema()
-        schema(self.data)
+        try:
+            schema(self.data)
+        except MultipleInvalid as exc:
+            for error in exc.errors:
+                print(f"ERROR: {error.path} {error}", file=sys.stderr)
+            raise
+        except Invalid as exc:
+            print(f"ERROR: {exc.path} {error}")
+            raise
 
     def to_shell(self):
         """
