@@ -47,15 +47,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
   /* Display logic functions */
 
-  function toggleJavaScriptBitTorrent(method) {
-    if (method === "javascript") {
-      show(document.getElementById("javascript-verification-tip"));
-    }
-    else if (method === "bittorrent") {
-      hide(document.getElementById("javascript-verification-tip"));
-    }
-  }
-
   function showVerifyButton() {
     hide(document.getElementById("verifying-download"));
     show(document.getElementById("verify-button"));
@@ -193,16 +184,7 @@ document.addEventListener("DOMContentLoaded", function() {
   document.getElementById("download-iso").onclick = function(e) { download(e, this); }
 
   function download(e, elm) {
-    toggleJavaScriptBitTorrent("javascript");
     resetVerificationResult();
-  }
-
-  // BitTorrent download
-  document.getElementById("download-img-torrent").onclick = function(e) { downloadTorrent(e, this); }
-  document.getElementById("download-iso-torrent").onclick = function(e) { downloadTorrent(e, this); }
-
-  function downloadTorrent(e, elm) {
-    toggleJavaScriptBitTorrent("bittorrent");
   }
 
   // Download again after failure
@@ -210,7 +192,6 @@ document.addEventListener("DOMContentLoaded", function() {
   document.getElementById("download-iso-again").onclick = function(e) { downloadAgain(e, this); }
 
   function downloadAgain(e, elm) {
-    toggleJavaScriptBitTorrent("javascript");
     resetVerificationResult();
     showVerifyButton();
   }
