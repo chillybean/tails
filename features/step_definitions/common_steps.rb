@@ -1324,13 +1324,13 @@ When /^AppArmor has (not )?denied "([^"]+)" from opening "([^"]+)"$/ do |anti_te
   )
   begin
     try_for(10, delay: 1) do
-      audit_log = $vm.execute(
-        'journalctl --full --no-pager ' \
-        "--since='#{@apparmor_profile_monitoring_start[profile]}' " \
-        "SYSLOG_IDENTIFIER=kernel | grep -w '#{audit_line_regex}'"
-      ).stdout.chomp
-      assert(audit_log.empty? == (anti_test ? true : false))
-      true
+      audit_log = systemd_journal(
+        audit_line_regex,
+        regexp:  true,
+        options: ["--since='#{@apparmor_profile_monitoring_start[profile]}'"],
+        matches: ['SYSLOG_IDENTIFIER=kernel']
+      )
+      audit_log.empty? == (anti_test ? true : false)
     end
   rescue Timeout::Error, Test::Unit::AssertionFailedError => e
     raise e, "AppArmor has #{anti_test ? '' : 'not '}denied the operation"
@@ -1627,15 +1627,18 @@ end
 
 Then /^tpsd is localized to the selected locale$/ do
   locale = $vm.execute_successfully('echo $LANG').stdout.chomp
-  tpsd_locale_changes = $vm.execute(
-    'journalctl -o cat -u tails-persistent-storage.service ' \
-   "--grep='Changed locale: .* → #{locale}' SYSLOG_IDENTIFIER=tpsd"
-  ).stdout.strip
-  if locale == 'en_US.UTF-8'
-    assert_equal('', tpsd_locale_changes)
-  else
-    assert_not_equal('', tpsd_locale_changes)
-  end
+  tpsd_locale_changes = systemd_journal(
+    'Changed locale: .*',
+    regexp:  true,
+    options: ['--unit=tails-persistent-storage.service'],
+    matches: ['SYSLOG_IDENTIFIER=tpsd']
+  )
+  # If we never change from the default locale nothing will be logged
+  next if locale == 'en_US.UTF-8' && tpsd_locale_changes.empty?
+
+  assert_not_nil(
+    tpsd_locale_changes.split("\n").last[/Changed locale: .* → #{locale}/]
+  )
 end
 
 Given /^I create a directory "(\S+)"$/ do |path|
@@ -1732,18 +1735,27 @@ end
 # In many cases this is superior to a naive "journalctl | grep", which
 # will find itself because tails-autotest-remote-shell logs the
 # commands its executes.
-def systemd_journal_includes(message, options: [], matches: [], regexp: false)
+def systemd_journal(message, options: [], matches: [], regexp: false)
+  # Below we'll quote this string with apostrophes when passed to the
+  # shell, so let's escape: ' → \'
+  message.gsub!("'", "\\\\'")
+  # We avoid modifying the caller's data
+  final_options = options.clone
+  final_matches = matches.clone
   if regexp
-    options.append("--grep='#{message}'")
+    final_options.append("--grep='#{message}'")
   else
-    matches.append("MESSAGE='#{message}'")
+    final_matches.append("MESSAGE='#{message}'")
   end
   $vm.execute(
     'journalctl --boot --output=cat ' \
-    "#{options.join(' ')} " \
-    "#{matches.join(' ')} " \
-    '| wc -l'
-  ).stdout.to_i.positive?
+    "#{final_options.join(' ')} " \
+    "#{final_matches.join(' ')}"
+  ).stdout
+end
+
+def systemd_journal_includes?(*args, **opts)
+  !systemd_journal(*args, **opts).empty?
 end
 
 Then /^WhisperBack is prefilled for (.*) with summary: "(.*)"$/ do |app, summary|
