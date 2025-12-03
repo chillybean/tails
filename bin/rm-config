@@ -42,6 +42,7 @@ IsImgFile = And(IsFile(), Match(re.compile(r".*[.]img$")))
 STAGE_SCHEMA = {
     "base": {
         "tails_signature_key": InputStr,
+        "isos_git": IsDir(),
         "isos": IsDir(),
         "artifacts": IsDir(),
         "master_checkout": IsDir(),

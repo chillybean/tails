@@ -1150,7 +1150,7 @@ To build the IUKS, run this command:
            --tails-git-remote "file://${RELEASE_CHECKOUT:?}/.git"             \
            --tails-git-commit "${TAG:?}"                                      \
            --source-date-epoch "${SOURCE_DATE_EPOCH:?}"                       \
-           --local-isos-dir "${ISOS:?}"                                       \
+           --local-isos-dir "${ISOS_GIT:?}"                                       \
            --tmp-dir "${TMPDIR:-${OUR_TMPDIR}}"                                        \
            --output-dir "${IUKS_DIR:?}"                                       \
            --source-versions "${IUK_SOURCE_VERSIONS:?}"                       \
