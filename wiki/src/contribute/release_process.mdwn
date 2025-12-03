@@ -209,7 +209,7 @@ you need to set a bunch of environment variables.
 3. Generate the resulting environment variables and export them into your
    environment:
 
-        . $(./bin/rm-config generate-environment --stage base)
+        eval $(./bin/rm-config generate-environment --stage base)
 
 ### Notes
 
@@ -709,7 +709,7 @@ Build the almost-final images
    3. Generate the resulting environment variables and export them
       into your environment:
 
-        . $(./bin/rm-config generate-environment --stage built-almost-final)
+        eval $(./bin/rm-config generate-environment --stage built-almost-final)
 
 SquashFS file order
 ===================
@@ -838,7 +838,7 @@ Finalize and tag the release
 1. Generate the resulting environment variables and export them
    into your environment:
 
-        . $(./bin/rm-config generate-environment --stage finalized-changelog)
+        eval $(./bin/rm-config generate-environment --stage finalized-changelog)
 
 1. Tag the release:
 
@@ -968,7 +968,7 @@ Then:
 3. Generate the resulting environment variables and export them
    into your environment:
 
-       . $(./bin/rm-config generate-environment --stage reproduced-images)
+       eval $(./bin/rm-config generate-environment --stage reproduced-images)
 
 ### If there is a hash mismatch
 
@@ -1252,7 +1252,7 @@ Build the Incremental Upgrade Kits on Jenkins
    1. Generate the resulting environment variables and export them
       into your environment:
 
-          . $(./bin/rm-config generate-environment --stage built-iuks)
+          eval $(./bin/rm-config generate-environment --stage built-iuks)
 
 5. Wait until the `build_IUKs` build completes successfully.
    It should take about 15 minutes for each member of

@@ -7,7 +7,6 @@ import re
 import shlex
 import subprocess
 import sys
-import tempfile
 from pathlib import Path
 
 import yaml
@@ -275,10 +274,7 @@ def generate_environment(stage: str):
     """
     log.debug("Generating environment for stage '%s'", stage)
     config = Config(stage=stage)
-    shell_snippet = tempfile.NamedTemporaryFile(delete=False)
-    with open(shell_snippet.name, "w") as shell_snippet_fd:
-        shell_snippet_fd.write(config.to_shell())
-    print(shell_snippet.name)
+    print(config.to_shell())
 
 
 def validate_configuration(stage: str):
