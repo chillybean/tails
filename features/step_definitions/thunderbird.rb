@@ -230,3 +230,35 @@ Then(/^the screen keyboard works in Thunderbird$/) do
   # since Thunderbird 128, so use a slightly lower sensitivity.
   @screen.wait(thunderbird_x, 20, sensitivity: 0.8)
 end
+
+Then /^no unexpected connection has leaked from Thunderbird$/ do
+  connections = exclude_non_suspicious_connections(
+    tor_connections_from_log,
+    expected_hosts: thunderbird_non_suspicious_connections
+  )
+  assert_equal(0, connections.size, "Unexpected connections: #{connections.join(',')}")
+end
+
+Then /^the only connections have been made to my email server$/ do
+  all_connections = tor_connections_from_log
+  assert_false(all_connections.empty?,
+               'No connections have been logged; ' \
+               'this suggests a problem in tor-circuits-log')
+  connections = exclude_non_suspicious_connections(
+    all_connections,
+    expected_hosts: thunderbird_non_suspicious_connections
+  )
+  hosts = connections.map { |addr| addr.split(':').first }
+
+  allowed_servers = $config['Thunderbird']['servers'] || []
+  email_domain = $config['Thunderbird']['address'].split('@').last
+
+  unwanted_connections = hosts.uniq.reject do |server|
+    allowed_servers.include?(server) ||
+      server == email_domain ||
+      server.end_with?(".#{email_domain}")
+  end
+
+  assert(unwanted_connections.empty?,
+         "Unexpected connections: #{unwanted_connections.join(',')}")
+end

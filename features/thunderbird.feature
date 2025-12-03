@@ -14,7 +14,7 @@ Feature: Thunderbird email client
     When I open Thunderbird's Add-ons Manager
     And I open the Extensions tab
     Then I see that no add-ons are enabled in Thunderbird
-    And no unexpected connection has leaked
+    And no unexpected connection has leaked from Thunderbird
 
   Scenario: I can send emails, and receive emails over IMAP
     When I enter my email credentials into the autoconfiguration wizard
