@@ -146,7 +146,7 @@ class Config:
         tails_signature_key = self.data["tails_signature_key"]
         tag = version.replace("~", "-")
         release_branch = "testing" if self.data["major_release"] == 1 else "stable"
-        iuks_dir = Path(self.data["isos"]) / "iuks/v2"
+        iuks_dir = Path(self.data["iuks_dir"])
         iuks_dir.mkdir(parents=True, exist_ok=True)
         iuk_hashes = Path(iuks_dir) / ("to_%s.sha256sum" % version)
         iuk_source_versions = (
