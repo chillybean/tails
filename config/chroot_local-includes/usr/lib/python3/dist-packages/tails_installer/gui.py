@@ -597,10 +597,9 @@ class TailsInstallerWindow(Gtk.ApplicationWindow):
                     continue
                 # Skip ROM devices
                 if info["read_only"]:
-                    message = _(
-                        'The device "%(pretty_name)s"'
-                        " is read-only."
-                    ) % {"pretty_name": pretty_name}
+                    message = _('The device "%(pretty_name)s" is read-only.') % {
+                        "pretty_name": pretty_name
+                    }
                     self.status(message)
                     continue
                 # Skip too small devices, but inform the user
