@@ -19,9 +19,9 @@ else
 fi
 
 cd "$(git rev-parse --show-toplevel)"
-sed -i "s@href=\"https://tails.net/news/version_[^\"]*\"@href=\"https://tails.net/news/version_${TAILS_VERSION}\"@" \
+sed -i --regexp-extended "s@href=\"https://tails[.]net/news/version_[^\"]*\"@href=\"https://tails.net/news/version_${TAILS_VERSION}\"@" \
     "${FILE1}"
-sed -i "s@You are running Tails \S\+. @You are running Tails ${TAILS_VERSION}. @" \
+sed -i --regexp-extended "s@You are running Tails \S+[.] @You are running Tails ${TAILS_VERSION}. @" \
     "${FILE2}"
 git commit -m "about:tor: bump Tails version to ${TAILS_VERSION}" "${FILE1}" "${FILE2}"
 git show
