@@ -309,7 +309,7 @@ class DecryptFailureError(Exception):
     pass
 
 
-WHISPERBACKID_RE = re.compile(r"""Bug report: ([a-z0-9]{20,32})\b""")
+WHISPERBACKID_RE = re.compile(r""".*Bug report: ([a-z0-9]{20,32})\b""")
 
 
 def parse_email(fname: Path) -> WhisperbackReport:
