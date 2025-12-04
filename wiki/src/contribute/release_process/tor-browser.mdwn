@@ -268,9 +268,8 @@ What follows assumes:
  - Your current working directory is the checkout of `tor-browser.git`
    that you are developing your changes in.
  - `TAILS_GIT_REPO` is set to the path to a checkout of `tails.git`.
- - `TOR_BROWSER_TMP` is set to the path to the root directory of an
-   extracted Tor Browser tarball that you want to test your changes
-   inside.
+ - `TOR_BROWSER_TARBALL` is set to the path to a Tor Browser tarball
+   that you want to test your changes with.
  - `sudo apt install 7zip`
 
 ### Modify files
@@ -283,10 +282,9 @@ These are the relevant files in `tor-browser.git`:
  - User-visible strings
    - `toolkit/locales/en-US/toolkit/global/tor-browser.ftl`
 
-You can inject your modified files into the extracted Tor Browser and
-see how they look like this:
+You can test your changes like this:
 
-    "${TAILS_GIT_REPO:?}"/bin/test-about-tor-customization "${TOR_BROWSER_TMP:?}"
+    "${TAILS_GIT_REPO:?}"/bin/test-about-tor-customization "${TOR_BROWSER_TARBALL:?}"
 
 ### Submit your changes upstream
 
