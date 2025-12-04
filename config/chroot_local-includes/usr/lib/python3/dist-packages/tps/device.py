@@ -48,7 +48,12 @@ MINIMUM_PBKDF_MEMORY_KIB = 256 * 1024
 
 # This is the maximum value that's chosen by cryptsetup by default and
 # it's low enough that even the lowest-end devices we support (3 GiB
-# RAM) can still unlock the Persistent Storage at the Welcome Screen.
+# RAM) can still unlock the Persistent Storage:
+#  - at the Welcome Screen;
+#  - logged into GNOME in another Tails
+#    (https://tails.net/doc/persistent_storage/recover/#rsync)
+#    as of Tails 7.2;
+#  - from another operating system, that likely will have swap.
 DESIRED_PBKDF_MEMORY_KIB = 1 * 1024 * 1024
 
 
