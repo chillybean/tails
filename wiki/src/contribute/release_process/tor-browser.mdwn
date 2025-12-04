@@ -265,44 +265,28 @@ it is actually pretty easy and once done once (for a given version),
 
 What follows assumes:
 
- - The current working directory is the root directory of an extracted Tor Browser tarball.
+ - Your current working directory is the checkout of `tor-browser.git`
+   that you are developing your changes in.
+ - `TAILS_GIT_REPO` is set to the path to a checkout of `tails.git`.
+ - `TOR_BROWSER_TMP` is set to the path to the root directory of an
+   extracted Tor Browser tarball that you want to test your changes
+   inside.
  - `sudo apt install 7zip`
 
 ### Modify files
 
-#### Page contents (HTML, JS, CSS, images)
+These are the relevant files in `tor-browser.git`:
 
-1. Extract the files:
+ - Page contents (HTML, JS, CSS, images):
+   - `./browser/components/abouttor/content/`
+   - `./browser/components/abouttor/AboutTorParent.sys.mjs`
+ - User-visible strings
+   - `toolkit/locales/en-US/toolkit/global/tor-browser.ftl`
 
-           7z x Browser/browser/omni.ja chrome/browser/content/browser/abouttor/
+You can inject your modified files into the extracted Tor Browser and
+see how they look like this:
 
-2. Modify the files in `./chrome/browser/content/browser/abouttor/`
-
-3. Re-inject the modified files into the archive:
-
-           7z a -mtc=off -tzip -- Browser/browser/omni.ja \
-               chrome/browser/content/browser/abouttor/
-
-4. Start Tor Browser, test, go back to step 2, rinse and repeat.
-
-In Git, these files live in `browser/components/abouttor/content/`.
-
-#### User-visible strings
-
-1. Extract the files:
-
-           7z x Browser/omni.ja localization/en-US/toolkit/global/tor-browser.ftl
-
-2. Modify `./localization/en-US/toolkit/global/tor-browser.ftl`
-
-3. Re-inject the modified file into the archive:
-
-           7z a -mtc=off -tzip -- Browser/omni.ja \
-               localization/en-US/toolkit/global/tor-browser.ftl
-
-4. Start Tor Browser, test, go back to step 2, rinse and repeat.
-
-In Git, this file lives in `toolkit/locales/en-US/toolkit/global/tor-browser.ftl`.
+    "${TAILS_GIT_REPO:?}"/bin/test-about-tor-customization "${TOR_BROWSER_TMP:?}"
 
 ### Submit your changes upstream
 
