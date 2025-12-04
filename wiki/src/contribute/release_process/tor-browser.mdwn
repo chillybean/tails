@@ -201,6 +201,8 @@ As an initial setup that you only have to do once, get yourself a
 local checkout of `tor-browser.git`, add intrigeri's remote, and get a
 checkout of the development branch for the about:tor patches:
 
+    (
+    set -eu
     git clone git@gitlab.torproject.org:tpo/applications/tor-browser.git
     cd tor-browser
     TOR_BROWSER_GIT_REPO=$(pwd)
@@ -208,14 +210,21 @@ checkout of the development branch for the about:tor patches:
     git fetch intrigeri
     git checkout -b 44201-allow-tails-to-customize-about-tor-esr128 \
         intrigeri/44201-allow-tails-to-customize-about-tor-esr128
+    )
+
+Make `tor-browser.git` your working directory:
+
+    cd "${TOR_BROWSER_GIT_REPO:?}"
 
 Make sure we're up-to-date:
 
-    cd "${TOR_BROWSER_GIT_REPO:?}"
+    (
+    set -eu
     git fetch origin
     git fetch intrigeri
     git checkout 44201-allow-tails-to-customize-about-tor-esr128
     git reset --hard intrigeri/44201-allow-tails-to-customize-about-tor-esr128
+    )
 
 Rebase and resolve conflicts:
 
