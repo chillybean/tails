@@ -414,13 +414,7 @@ If you did not import the new Tor Browser yet, [[do so now|tor-browser]].
 In any case, ensure that the about:tor patches reference the
 to-be-released version of Tails:
 
-    sed -i "s@href=\"https://tails.net/news/version_[^\"]*\"@href=\"https://tails.net/news/version_${VERSION}\"@" \
-        config/chroot_local-includes/usr/share/tails/build/custom-about-tor/browser-omni.patch
-    sed -i "s@You are running Tails \S\+. @You are running Tails ${VERSION}. @" \
-        config/chroot_local-includes/usr/share/tails/build/custom-about-tor/omni.patch
-    git commit -m "Tor Browser: refresh about:tor patches for Tails ${VERSION:?}" \
-        config/chroot_local-includes/usr/share/tails/build/custom-about-tor/ \
-        && git show || :
+    bin/bump-tails-version-in-about-tor "${VERSION:?}"
 
 Update PO files
 ---------------

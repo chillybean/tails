@@ -223,12 +223,7 @@ Rebase and resolve conflicts:
 
 Bump Tails version number:
 
-    sed -i "s@href=\"https://tails.net/news/version_[^\"]*\"@href=\"https://tails.net/news/version_${TAILS_VERSION:?}\"@" \
-        browser/components/abouttor/content/aboutTor.html
-    sed -i "s@You are running Tails \S\+. @You are running Tails ${TAILS_VERSION:?}. @" \
-        toolkit/locales/en-US/toolkit/global/tor-browser.ftl
-    git commit -m "Bump Tails version to ${TAILS_VERSION:?}" \
-        browser/components/abouttor/content/aboutTor.html toolkit/locales/en-US/toolkit/global/tor-browser.ftl
+    "${TAILS_GIT_REPO:?}"/bin/bump-tails-version-in-about-tor "${TAILS_VERSION:?}"
 
 Push updated branch:
 
