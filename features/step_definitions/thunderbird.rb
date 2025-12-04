@@ -231,6 +231,17 @@ Then(/^the screen keyboard works in Thunderbird$/) do
   @screen.wait(thunderbird_x, 20, sensitivity: 0.8)
 end
 
+def thunderbird_non_suspicious_connections
+  [
+    # Used to get addon lists
+    'addons.thunderbird.net', 'services.addons.thunderbird.net',
+    # Used in many apparently innocuous area of the code
+    'live.thunderbird.net',
+    # Fake, used to disable various Thunderbird endpoints
+    'thereisnosuchserver.tails.net',
+  ]
+end
+
 Then /^no unexpected connection has leaked from Thunderbird$/ do
   connections = exclude_non_suspicious_connections(
     tor_connections_from_log,
