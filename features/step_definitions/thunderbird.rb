@@ -237,8 +237,6 @@ def thunderbird_non_suspicious_connections
     'addons.thunderbird.net', 'services.addons.thunderbird.net',
     # Used in many apparently innocuous area of the code
     'live.thunderbird.net',
-    # Fake, used to disable various Thunderbird endpoints
-    'thereisnosuchserver.tails.net',
   ]
 end
 

@@ -30,7 +30,7 @@ pref("toolkit.telemetry.enabled", false);
 // Actually disable telemetry altogether
 pref("toolkit.telemetry.unified", false);
 // Just to be on the safe side, we set the telemetry server to a non existent one:
-pref("toolkit.telemetry.server", "https://thereisnosuchserver.tails.net/");
+pref("toolkit.telemetry.server", "");
 
 // Only allow SSL channels when fetching from the ISP.
 pref("mailnews.auto_config.fetchFromISP.sslOnly", true);
@@ -45,17 +45,17 @@ pref("mailnews.auto_config.fetchFromExchange.enabled", false);
 pref("mailnews.auto_config.mx.enabled", false);
 
 // Disable retrieving settings from a remote server
-pref("services.settings.server", "https://thereisnosuchserver.tails.net/");
+pref("services.settings.server", "");
 
 // Disable Normandy, a service that allows Mozilla to instruct clients to perform a variety of actions to aid
 // the user and gather feedback
 pref("app.normandy.enabled", false);
 
 // Disable fetching the start_page from thunderbird server
-pref("mailnews.start_page.url", "https://thereisnosuchserver.tails.net/");
+pref("mailnews.start_page.url", "");
 
 // Disable geoip services
-pref("browser.region.network.url", "https://thereisnosuchserver.tails.net/");
+pref("browser.region.network.url", "");
 
 // The timeout (in seconds) for each guess
 pref("mailnews.auto_config.guess.timeout", 30);
@@ -260,7 +260,7 @@ pref("datareporting.healthreport.service.enabled", false);
 pref("datareporting.healthreport.uploadEnabled", false);
 pref("datareporting.policy.dataSubmissionEnabled", false);
 pref("datareporting.healthreport.about.reportUrl", "data:text/plain,");
-pref('datareporting.healthreport.documentServerURI', "https://thereisnosuchserver.tails.net/");
+pref('datareporting.healthreport.documentServerURI', "");
 pref('datareporting.healthreport.logging.consoleEnabled', false);
 
 // https://bugs.torproject.org/16254
