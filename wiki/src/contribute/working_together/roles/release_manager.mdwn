@@ -39,8 +39,13 @@ See <https://gitlab.tails.boum.org/tails/team/-/wikis/responsibilities>.
   with the correct due date. If it is not, create a merge request against
   [[!tails_gitlab tails/gitlab-config]] to fix it.
 
-- Create an issue with the `Tails Team` label,
-  about upgrading Tor Browser in the release your shift is about.
+- Create issues with the `Tails Team` label:
+  - for upgrading Tor Browser in the release your shift is about.
+  - for refreshing the about:tor patches for the same Tor Browser
+    release, linking to [[the
+    instructions|contribute/release_process/tor-browser#rebase-about-tor-branch]].
+    Set the Due Date to the Thursday of the week before the Tails
+    release.
 
 - Ensure there's [an issue about
   writing the release notes](https://gitlab.tails.boum.org/tails/tails/-/issues?scope=all&state=opened&label_name[]=Core%20Work%3ATechnical%20writing&search=release+notes). This also applies to betas and release
@@ -85,7 +90,7 @@ See <https://gitlab.tails.boum.org/tails/team/-/wikis/responsibilities>.
 
 ## Continuously during your shift
 
-- Monitor test suite results on the release branch.
+∅
 
 ## Two weeks after the beginning of your shift
 
@@ -93,13 +98,13 @@ See <https://gitlab.tails.boum.org/tails/team/-/wikis/responsibilities>.
 
 ## The Tuesday before the release date
 
-
 ### Make sure your build setup works
 
 This is not a mandatory step. However, it's suggested that you do this, especially if more than a week passed
-since you build a Tails image.
+since you've built a Tails image.
 
-You just need to make sure that `rake build` will work, so on Monday you can expect less glitches to happen.
+You just need to make sure that `rake build` works, so there's one less possible
+glitch that can happen during the release process.
 
 ## Make the release happen
 

@@ -538,6 +538,72 @@ Given /^the Tor Browser loads about:tor$/ do
   )
 end
 
+# Try to debug tails#20297 ("The proxy server is refusing connections"
+# after Tor has bootstrapped).
+# rubocop:disable Metrics/MethodLength
+# rubocop:disable Metrics/AbcSize
+def debug_issue20297
+  debug_log('Issue #20297: we hit it!')
+  debug_log($vm.execute('ss -tlpn').stdout)
+  debug_log("Jenkins node name: #{cmd_helper('hostname -A')}")
+  debug_log("System DNS resolver: #{Resolv::DNS::Config.default_config_hash}")
+  debug_log('DNS resolution (Ruby Resolv) of tails.net: ' \
+            "#{Resolv.getaddresses('tails.net')}")
+  debug_log('DNS resolution (host command) of tails.net: ' \
+            "#{cmd_helper('host -t a tails.net')}")
+  debug_log("DNS resolution of tails.net inside Tails: #{$vm.execute(
+    'host -t a tails.net', user: LIVE_USER
+  ).stdout}")
+  debug_log("Issue #20297: checking if Tor Browser's SocksPort is working")
+  begin
+    c = nil
+    Timeout.timeout(5) do
+      c = $vm.execute(
+        '/usr/bin/printf "\x05\x01\x00\r\n" | nc -v 10.200.1.1 9050', user: LIVE_USER
+      )
+    end
+  rescue Timeout::Error
+    debug_log("Issue #20297: SocksPort didn't respond within 5 seconds")
+  else
+    debug_log("Issue #20297: netcat said: #{c.stderr}")
+    if c.stdout == "\x05\x00"
+      debug_log('Issue #20297: SocksPort seems to be working')
+    else
+      debug_log('Issue #20297: SocksPort responded with something unexpected: ' \
+                "#{c.stdout.bytes.pack('c*').inspect}")
+    end
+  end
+  begin
+    debug_log('Issue #20297: trying to open https://tails.net/ in the Tor Browser ' \
+              'after restarting Tor')
+    $vm.execute_successfully('systemctl stop tor@default.service')
+    try_for(30) do
+      $vm.execute(
+        '/bin/systemctl --quiet is-active tails-tor-has-bootstrapped.target'
+      ).failure?
+    end
+    $vm.execute_successfully('systemctl start tor@default.service')
+    wait_until_tor_is_working
+  rescue StandardError
+    debug_log('Issue #20297: failed to restart Tor, not retrying to reopen in ' \
+              'Tor Browser')
+  else
+    begin
+      step 'I open the address "https://tails.net/" in the Tor Browser'
+      page_has_loaded_in_the_tor_browser(['Tails'])
+      debug_log('Issue #20297: restarting Tor WORKS!')
+    rescue StandardError
+      debug_log('Issue #20297: restarting Tor did not help')
+    ensure
+      @screen.press('ctrl', 'w')
+    end
+  end
+rescue StandardError
+  # Ignore all uncaught exceptions, we did our best
+end
+# rubocop:enable Metrics/AbcSize
+# rubocop:enable Metrics/MethodLength
+
 Given /^the Tor Browser loads the (Tails homepage|Tails GitLab)$/ do |page|
   case page
   when 'Tails homepage'
@@ -547,7 +613,15 @@ Given /^the Tor Browser loads the (Tails homepage|Tails GitLab)$/ do |page|
   else
     raise "Unsupported page: #{page}"
   end
-  page_has_loaded_in_the_tor_browser(titles)
+  begin
+    page_has_loaded_in_the_tor_browser(titles)
+  rescue RuntimeError => e
+    if @torbrowser.child?('The proxy server is refusing connections',
+                          roleName: 'heading', retry: false)
+      debug_issue20297
+    end
+    raise e
+  end
 end
 
 Given /^I add a bookmark to eff.org in the Tor Browser$/ do

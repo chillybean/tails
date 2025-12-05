@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-11-12 12:16+0100\n"
-"PO-Revision-Date: 2025-10-08 15:19+0000\n"
-"Last-Translator: la_r_go* <largo@tracciabi.li>\n"
+"POT-Creation-Date: 2025-11-25 14:39+0000\n"
+"PO-Revision-Date: 2025-11-26 18:29+0000\n"
+"Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: ita <transitails@inventati.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -555,10 +555,9 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid "   <p class=\"command\">torsocks mumble</p>\n"
+#, no-wrap
 msgid "  <p class=\"command\">torsocks mumble</p>\n"
-msgstr "   <p class=\"command\">torsocks mumble</p>\n"
+msgstr "  <p class=\"command\">torsocks mumble</p>\n"
 
 #. type: Title ###
 #, no-wrap
@@ -748,10 +747,9 @@ msgstr ""
 "Esegui il comando seguente:"
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid "   <p class=\"command\">apt clean</p>\n"
+#, no-wrap
 msgid "   <p class=\"command\">sudo apt clean</p>\n"
-msgstr "   <p class=\"command\">apt clean</p>\n"
+msgstr "   <p class=\"command\">sudo apt clean</p>\n"
 
 #. type: Title =
 #, no-wrap
@@ -842,12 +840,14 @@ msgstr "Scrivi i tuoi file `sources.list` supplementari nella cartella <span cla
 #, no-wrap
 msgid ""
 "       deb tor+http://ftp.us.debian.org/debian/ trixie non-free\n"
+"       deb tor+http://security.debian.org/ trixie-security non-free\n"
+"       deb tor+http://ftp.us.debian.org/debian/ trixie-updates non-free\n"
 "       deb tor+http://ftp.us.debian.org/debian/ trixie-backports non-free\n"
-"       deb tor+http://security.debian.org/ trixie/updates non-free\n"
 msgstr ""
 "       deb tor+http://ftp.us.debian.org/debian/ trixie non-free\n"
+"       deb tor+http://security.debian.org/ trixie-security non-free\n"
+"       deb tor+http://ftp.us.debian.org/debian/ trixie-updates non-free\n"
 "       deb tor+http://ftp.us.debian.org/debian/ trixie-backports non-free\n"
-"       deb tor+http://security.debian.org/ trixie/updates non-free\n"
 
 #. type: Plain text
 #, no-wrap
@@ -871,16 +871,14 @@ msgstr ""
 "sola lettura per gli altri. Ad esempio:"
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid "   <p class=\"command\">sudo install -d -m 755 /live/persistence/TailsData_unlocked/apt-sources.list.d</p>\n"
+#, no-wrap
 msgid "   <p class=\"command\">sudo chown root:root /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list</p>\n"
-msgstr "   <p class=\"command\">sudo install -d -m 755 /live/persistence/TailsData_unlocked/apt-sources.list.d</p>\n"
+msgstr "   <p class=\"command\">sudo chown root:root /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list</p>\n"
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid "   <p class=\"command\">sudo install -d -m 755 /live/persistence/TailsData_unlocked/apt-sources.list.d</p>\n"
+#, no-wrap
 msgid "   <p class=\"command\">sudo chmod 644 /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list</p>\n"
-msgstr "   <p class=\"command\">sudo install -d -m 755 /live/persistence/TailsData_unlocked/apt-sources.list.d</p>\n"
+msgstr "   <p class=\"command\">sudo chmod 644 /live/persistence/TailsData_unlocked/apt-sources.list.d/non-free.list</p>\n"
 
 #. type: Bullet: '1. '
 msgid "Restart Tails to apply the changes."

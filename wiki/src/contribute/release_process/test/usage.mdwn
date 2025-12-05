@@ -242,5 +242,11 @@ These settings are required for `thunderbird.feature`.  The format is:
     Thunderbird:
       address:  user@example.com
       password: trustno1
+      servers:  null
 
 The email account's inbox must contain at least one email at all times.
+
+The `servers` field is optional. You can set it to a list of hostnames that the test suite is then expected to
+connect to. This is useful when your account is, say, `jane@example.com` but the autoconfiguration points to,
+say, `imap.example.net`: the test suite is smart enough to automatically allow every subdomain of your email
+address, but it wouldn't know what to do in this case.
