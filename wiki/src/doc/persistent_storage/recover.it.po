@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2025-11-12 12:16+0100\n"
 "PO-Revision-Date: 2025-12-06 23:29+0000\n"
-"Last-Translator: _ignifugo <ignifugo@insicuri.net>\n"
+"Last-Translator: la_r_go* <largo@tracciabi.li>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -144,6 +144,9 @@ msgid ""
 "Doing a manual upgrade of your broken Tails might allow you to start your "
 "USB stick again and use your Persistent Storage like before."
 msgstr ""
+"L'aggiornamento manuale di Tails rotto potrebbe consentire di avviare "
+"nuovamente la chiavetta USB e di utilizzare l'Archivio Persistente come "
+"prima."
 
 #. type: Plain text
 msgid "Refer to our instructions on how to do a manual upgrade, either:"
@@ -333,19 +336,15 @@ msgstr ""
 "       total size is 32.30M  speedup is 1.00\n"
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid ""
-#| "You can now eject the **TailsData** volume in the\n"
-#| "*Files* browser and unplug the USB stick that\n"
-#| "has your broken Tails on it.\n"
+#, no-wrap
 msgid ""
 "   You can now eject the **TailsData** volume in the\n"
 "   *Files* browser and unplug the USB stick that\n"
 "   has your broken Tails on it.\n"
 msgstr ""
-"Ora puoi espellere il volume **TailsData** volume nel\n"
-"*File* browser ed espellere la penna USB che  contiene\n"
-"il tuo Tails rotto.\n"
+"   Ora puoi espellere il volume **TailsData** nel\n"
+"      *File* browser e scollegare la chiavetta USB che contiene\n"
+"      il tuo Tails rotto.\n"
 
 #. type: Plain text
 msgid ""
@@ -363,6 +362,8 @@ msgstr "   <p class=\"command\">nautilus admin:/media/amnesia/TailsData/</p>\n"
 #, no-wrap
 msgid "<h1 id=\"image\">Recovering from a partition image using forensics tools</h1>\n"
 msgstr ""
+"<h1 id=\"image\">Recupero da un'immagine della partizione con strumenti "
+"forensi</h1>\n"
 
 #. type: Plain text
 msgid ""
@@ -370,6 +371,9 @@ msgid ""
 "might be able to recover some or most of your data from a partition image "
 "using advanced forensics tools."
 msgstr ""
+"Se non riesci a sbloccare il tuo Archivio Persistente da un'altra chiavetta "
+"USB Tails , puoi recuperare alcuni o la maggior parte dei dati da "
+"un'immagine della partizione utilizzando strumenti forensi avanzati."
 
 #. type: Plain text
 msgid ""
@@ -377,18 +381,17 @@ msgid ""
 "instructions on [[recovering data from the Persistent Storage when it has "
 "file system errors|fsck]]:"
 msgstr ""
+"Non diamo istruzioni passo passo, ma puoi adattare le nostre istruzioni sul "
+"[[recupero dei dati dall'Archivio Persistente quando presenta errori del "
+"file system|fsck]]:"
 
 #. type: Bullet: '1. '
-#, fuzzy
-#| msgid ""
-#| "Execute the following command to rescue the Persistent Storage of your "
-#| "broken Tails to your new Tails:"
 msgid ""
 "Start on your new Tails and save a partition image of the Persistent Storage "
 "of your broken Tails to an external hard disk."
 msgstr ""
-"Esegui il seguente comando per salvare l'Archivio Persistente del tuo Tails "
-"rotto sul tuo nuovo Tails:"
+"Avvia il nuovo Tails e salva un'immagine della partizione dell'Archivio "
+"Persistente del Tails rotto su un disco rigido esterno."
 
 #. type: Plain text
 #, no-wrap
@@ -396,10 +399,13 @@ msgid ""
 "   Try the technique using the [[*Disks* utility|fsck#disks]] first, then the\n"
 "   technique using [[`ddrescue`|fsck#ddrescue]] if needed.\n"
 msgstr ""
+"   Prova prima la tecnica con [[*Disks* utility|fsck#disks]], poi la\n"
+"       tecnica con [[`ddrescue`|fsck#ddrescue]] se necessario.\n"
 
 #. type: Bullet: '1. '
 msgid "After you create the partition image, try to recover your data."
 msgstr ""
+"Dopo aver creato l'immagine della partizione, prova a recuperare i dati."
 
 #. type: Plain text
 #, no-wrap
@@ -408,6 +414,10 @@ msgid ""
 "   stick|fsck#copy]] first, then the technique using\n"
 "   [[*Autopsy*|fsck#autopsy]].\n"
 msgstr ""
+"   Prova prima la tecnica di [[copiare l'immagine della partizione su una "
+"nuova chiavetta USB\n"
+"      stick|fsck#copy]], poi la tecnica che prevede l'uso di\n"
+"      [[*Autopsy*|fsck#autopsy]].\n"
 
 #, no-wrap
 #~ msgid "<!-- XXX: These instructions should be kept in sync with backup.mdwn -->\n"
