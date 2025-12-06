@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2025-09-17 11:40+0200\n"
-"PO-Revision-Date: 2025-09-18 16:10+0000\n"
-"Last-Translator: xin <xin@riseup.net>\n"
+"PO-Revision-Date: 2025-12-05 23:29+0000\n"
+"Last-Translator: _ignifugo <ignifugo@insicuri.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -84,14 +84,13 @@ msgid "-->\n"
 msgstr "-->\n"
 
 #. type: Plain text
-#, fuzzy
 msgid ""
 "You cannot access the Internet from Tails until you are connected to Tor. "
 "For example, *Tor Browser* displays the error message `The proxy server is "
 "refusing connections` until you are connected to Tor."
 msgstr ""
-"Non puoi accedere a Internet da Tails finché non sei connesso a Tor. Per "
-"esempio, *Tor Browser* visualizza il messaggio di errore `Server Proxy "
+"Non puoi accedere a Internet da Tails finché non sei connesso a Tor. Ad "
+"esempio, *Tor Browser* visualizza il messaggio di errore `Il server proxy "
 "rifiuta le connessioni` finché non sei connesso a Tor."
 
 #. type: Plain text
@@ -169,7 +168,6 @@ msgid "<h1 id=\"bridges\">Tor relays and bridges</h1>\n"
 msgstr "<h1 id=\"bridges\">Relè e ponti Tor</h1>\n"
 
 #. type: Bullet: '- '
-#, fuzzy
 msgid "**Public Tor relays**"
 msgstr "**Relè Tor pubblici**"
 
@@ -194,9 +192,8 @@ msgstr ""
 "  online sicura e anonima.\n"
 
 #. type: Bullet: '- '
-#, fuzzy
 msgid "**Tor bridges**"
-msgstr "- **Tor bridges**"
+msgstr "**Tor bridges**"
 
 #. type: Plain text
 #, no-wrap
@@ -369,6 +366,10 @@ msgid ""
 "      <p>Tails uses the [[default <i>obfs4</i> bridges from <i>Tor\n"
 "      Browser</i>|https://gitlab.torproject.org/tpo/applications/tor-browser-build/-/blob/main/projects/tor-expert-bundle/pt_config.json?ref_type=heads]].</p>\n"
 msgstr ""
+"      <p>Tails utilizza i [[default <i>obfs4</i> bridges da <i>Tor\n"
+"            Browser</i>|https://gitlab.torproject.org/tpo/applications/"
+"tor-browser-build/-/blob/main/projects/tor-expert-bundle/"
+"pt_config.json?ref_type=heads]].</p>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -406,15 +407,14 @@ msgstr ""
 "sembrare sospetto a qualcuno che controlla la tua connessione Internet."
 
 #. type: Plain text
-#, fuzzy
 msgid ""
 "When you choose this option, Tails will only connect to Tor after you "
 "configure a custom Tor bridge. Bridges are secret Tor relays that hide that "
 "you are connecting to Tor."
 msgstr ""
 "Quando scegli questa opzione, Tails si connetterà a Tor solo dopo aver "
-"configurato un ponte Tor. I ponti sono relè Tor segreti che nascondono che "
-"ti stai connettendo a Tor."
+"configurato un bridge Tor personalizzato. I bridge sono relè Tor segreti che "
+"nascondono la tua connessione a Tor."
 
 #. type: Plain text
 #, no-wrap
@@ -446,9 +446,8 @@ msgstr ""
 "utilizzando un captive portal|unsafe_browser]]."
 
 #. type: Bullet: '- '
-#, fuzzy
 msgid "Default bridges are not available."
-msgstr "- I ponti predefiniti non sono disponibili."
+msgstr "I bridge predefiniti non sono disponibili."
 
 #. type: Plain text
 #, no-wrap
@@ -471,7 +470,7 @@ msgid "<p>In the future, we will make it easier to use a custom bridge by:</p>\n
 msgstr "<p>In futuro, renderemo più facile usare un ponte personalizzato:</p>\n"
 
 #. type: Plain text
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "<ul>\n"
 "<li>Allowing you to request a bridge from Tails by solving a CAPTCHA. ([[!tails_ticket 15331]])</li>\n"
@@ -479,7 +478,8 @@ msgid ""
 "</ul>\n"
 msgstr ""
 "<ul>\n"
-"<li>Permette di richiedere un ponte a Tails risolvendo un CAPTCHA. ([[!tails_ticket 15331]])</li>\n"
+"<li>Permette di richiedere un ponte a Tails risolvendo un CAPTCHA. ("
+"[[!tails_ticket 15331]])</li>\n"
 "<li>Supporto <i>snowflake</i> ponti. ([[!tails_ticket 5494]])</li>\n"
 "</ul>\n"
 
@@ -510,22 +510,21 @@ msgstr ""
 "notifica:"
 
 #. type: Bullet: '  - '
-#, fuzzy
 msgid ""
 "[[!img lib/symbolic/tor-connected.png alt=\"Onion icon\" link=\"no\" "
 "class=\"symbolic\"]] You are connected to Tor."
 msgstr ""
-"[[!img lib/symbolic/tor-connected.png alt=\"Onion icon\" link=no "
-"class=symbolic]] Sei connessa a Tor."
+"[[!img lib/symbolic/tor-connected.png alt=\"Onion icon\" link=no class="
+"\"symbolic\"]] Sei connessa a Tor."
 
 #. type: Bullet: '  - '
-#, fuzzy
 msgid ""
 "[[!img lib/symbolic/tor-disconnected.png alt=\"Onion icon that is crossed "
 "out\" link=\"no\" class=\"symbolic\"]] You are not connected to Tor."
 msgstr ""
-"[[!img lib/symbolic/tor-disconnected.png alt=\"Onion icon that is crossed "
-"out\" link=no class=\"symbolic\"]] Non sei connessa a Tor."
+"[[!img lib/symbolic/tor-disconnected.png alt="
+"\"Onion icon that is crossed out\" link=\"no\" class=\"symbolic\"]] Non sei "
+"connessa a Tor."
 
 #. type: Plain text
 msgid ""
@@ -533,6 +532,9 @@ msgid ""
 "applications, click on the Tor status icon and choose **View Tor Circuits**. "
 "Learn more about [[managing Tor circuits|circuits]]."
 msgstr ""
+"Per visualizzare l'elenco dei circuiti Tor utilizzati dalle diverse "
+"applicazioni, clicca sull'icona di stato di Tor e scegli **Visualizza "
+"Circuiti Tor**. Scopri di più su [[gestione dei circuiti Tor|circuits]]."
 
 #, fuzzy
 #~ msgid ""
