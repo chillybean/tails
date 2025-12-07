@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2025-11-12 12:16+0100\n"
-"PO-Revision-Date: 2025-11-14 01:26+0000\n"
-"Last-Translator: xin <xin@riseup.net>\n"
+"PO-Revision-Date: 2025-12-06 23:29+0000\n"
+"Last-Translator: la_r_go* <largo@tracciabi.li>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -18,16 +18,13 @@ msgstr ""
 "X-Generator: Weblate 5.13.2\n"
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid "[[!meta title=\"Rescuing your Persistent Storage from a broken Tails\"]]\n"
+#, no-wrap
 msgid "[[!meta title=\"Recovering data from the Persistent Storage when Tails doesn't start\"]]\n"
-msgstr "[[!meta title=\"Recupera il tuo Archivio Persistente da una Tails rotta\"]]\n"
+msgstr ""
+"[[!meta title="
+"\"Recuperare i dati dall'Archivio Persistente quando Tails non si avvia\"]]\n"
 
 #. type: Plain text
-#, fuzzy
-#| msgid ""
-#| "If your Tails becomes broken, for example, it no longer starts, you can "
-#| "follow these instructions to try to rescue your Persistent Storage."
 msgid ""
 "If your Tails becomes broken, for example, if it no longer starts, follow "
 "these instructions to recover data from your Persistent Storage."
@@ -47,6 +44,11 @@ msgid ""
 "to unlock, refer to our instructions on [[recovering data from the Persistent\n"
 "Storage when it has file system errors|fsck]].</p>\n"
 msgstr ""
+"<p>Se invece la chiavetta USB Tails si avvia ma l'Archivio Persistente non "
+"riesce\n"
+"a sbloccarsi, fai riferimento alle nostre istruzioni sul [[recupero dei dati "
+"dall'Archivio\n"
+"Persistente quando ha errori di file system|fsck]].</p>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -59,22 +61,19 @@ msgid "<div class=\"tip\">\n"
 msgstr "<div class=\"tip\">\n"
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid ""
-#| "<p>It is advisable to keep a current backup of your Persistent Storage. To learn\n"
-#| "how to create a backup of your Persistent Storage, see our [[instructions on\n"
-#| "how to back up your Persistent Storage to another Tails USB\n"
-#| "stick|doc/first_steps/persistence/backup]].</p>\n"
+#, no-wrap
 msgid ""
 "<p>We recommend you always keep a current backup of your Persistent Storage. To learn\n"
 "how to create a backup of your Persistent Storage, see our [[instructions on\n"
 "how to back up your Persistent Storage to another Tails USB\n"
 "stick|backup]].</p>\n"
 msgstr ""
-"<p>Ti consigliamo di mantenere un backup del tuo Archivio Persistente attuale. Per imparare\n"
-"come creare un backup del tuo Archivio Persistente, vedi le nostre [[istruzioni su\n"
-"come fare il backup del tuo Archivio Persistente su un'altra chiavetta USB di Tails\n"
-"stick|doc/first_steps/persistence/backup]]</p>\n"
+"<p>Ti consigliamo di mantenere sempre un backup aggiornato del tuo Archivio "
+"Persistente. Per sapere\n"
+"come creare un backup del tuo Archivio Persistente, consulta le nostre [["
+"istruzioni su\n"
+"come eseguire il backup dell'Archivio Persistente su un'altra chiavetta USB\n"
+"Tails|backup]].</p>\n"
 
 #. type: Plain text
 msgid ""
@@ -86,7 +85,7 @@ msgstr ""
 
 #. type: Bullet: '1. '
 msgid "[[Doing a manual upgrade|recover#upgrade]]"
-msgstr ""
+msgstr "[[Eseguire un aggiornamento manuale|recover#upgrade]]"
 
 #. type: Plain text
 #, no-wrap
@@ -94,11 +93,14 @@ msgid ""
 "   Doing a manual upgrade of your broken Tails might allow you to start your\n"
 "   USB stick again and use your Persistent Storage like before.\n"
 msgstr ""
+"   L'aggiornamento manuale di Tails potrebbe consentirti di avviare "
+"nuovamente la\n"
+"      chiavetta USB e di utilizzare l'Archivio Persistente come prima.\n"
 
 #. type: Bullet: '1. '
 msgid ""
 "[[Unlocking from another Tails and copying using `rsync`|recover#rsync]]"
-msgstr ""
+msgstr "[[Sblocca da un altro Tails e copia usando `rsync`|recover#rsync]]"
 
 #. type: Plain text
 #, no-wrap
@@ -107,11 +109,17 @@ msgid ""
 "   Persistent Storage from another Tails USB stick and copy its content using\n"
 "   `rsync` on the command line.\n"
 msgstr ""
+"   Se l'aggiornamento manuale non funziona, puoi sbloccare l' \n"
+"      Archivio Persistente da un'altra chiavetta USB di Tails e copiarne il "
+"contenuto usando\n"
+"      `rsync` sulla linea di comando.\n"
 
 #. type: Bullet: '1. '
 msgid ""
 "[[Recovering from a partition image using forensics tools|recover#image]]"
 msgstr ""
+"[[Recuperare da un'immagine di partizione con strumenti "
+"forensi|recover#image]]"
 
 #. type: Plain text
 #, no-wrap
@@ -120,42 +128,54 @@ msgid ""
 "   might be able to recover some or most of your data from a partition image\n"
 "   using advanced forensics tools.\n"
 msgstr ""
+"   Se lo sblocco dell'Archivio Persistente da un'altra chiavetta USB Tails "
+"non riesce,\n"
+"       potresti essere in grado di recuperare alcuni o la maggior parte dei "
+"dati da un'immagine della partizione\n"
+"      utilizzando strumenti forensi avanzati.\n"
 
 #. type: Plain text
 #, no-wrap
 msgid "<h1 id=\"upgrade\">Doing a manual upgrade</h1>\n"
-msgstr ""
+msgstr "<h1 id=\"upgrade\">Eseguire un aggiornamento manuale</h1>\n"
 
 #. type: Plain text
 msgid ""
 "Doing a manual upgrade of your broken Tails might allow you to start your "
 "USB stick again and use your Persistent Storage like before."
 msgstr ""
+"L'aggiornamento manuale di Tails rotto potrebbe consentire di avviare "
+"nuovamente la chiavetta USB e di utilizzare l'Archivio Persistente come "
+"prima."
 
 #. type: Plain text
 msgid "Refer to our instructions on how to do a manual upgrade, either:"
 msgstr ""
+"Consulta le nostre istruzioni su come eseguire un aggiornamento manuale, "
+"oppure:"
 
 #. type: Bullet: '- '
 msgid "[[Downloading and upgrading from Windows|upgrade/windows]]"
-msgstr ""
+msgstr "[[Scaricare e aggiornare da Windows|aggiornare/windows]]"
 
 #. type: Bullet: '- '
 msgid "[[Downloading and upgrading from macOS|upgrade/mac]]"
-msgstr ""
+msgstr "[[Scaricare e aggiornare da macOS|upgrade/mac]]"
 
 #. type: Bullet: '- '
 msgid "[[Downloading and upgrading from Linux|upgrade/linux]]"
-msgstr ""
+msgstr "[[Scaricare e aggiornare da Linux|upgrade/linux]]"
 
 #. type: Bullet: '- '
 msgid "[[Upgrading by cloning from another Tails|doc/upgrade/#clone]]"
-msgstr ""
+msgstr "[[Aggiornare tramite clonazione da un altro Tails|doc/upgrade/#clone]]"
 
 #. type: Plain text
 #, no-wrap
 msgid "<h1 id=\"rsync\">Unlocking from another Tails and copying using <span class=\"code\">rsync</span></h1>\n"
 msgstr ""
+"<h1 id=\"rsync\">Sbloccare da un altro Tails e copiare utilizzando <span "
+"class=\"code\">rsync</span></h1>\n"
 
 #. type: Plain text
 msgid ""
@@ -163,41 +183,38 @@ msgid ""
 "Persistent Storage from another Tails USB stick and copy its content using "
 "`rsync` on the command line."
 msgstr ""
+"Se l'aggiornamento manuale non funziona, puoi sbloccare l'Archivio "
+"Persistentee da un'altra chiavetta USB Tails e copiarne il contenuto usando "
+"`rsync` sulla riga di comando."
 
 #. type: Bullet: '1. '
-#, fuzzy
-#| msgid ""
-#| "Install Tails on a new USB stick on which you want to rescue your "
-#| "Persistent Storage. Make sure that this new USB stick is at least as "
-#| "large as the USB stick that has your broken Tails on it."
 msgid ""
 "Install Tails on a new USB stick onto which you want to recover your "
 "Persistent Storage. Make sure that this new USB stick is at least as large "
 "as the USB stick that has your broken Tails on it."
 msgstr ""
-"Installa Tails su una nuova chiavetta USB su cui vuoi salvare il tuo "
-"Archivio Persistente . Assicurati che questa nuova chiavetta USB abbia una "
-"Capacità di memoria almeno quanto la chiavetta USB che contiene il tuo Tails "
-"rotto."
+"Installare Tails su una nuova chiavetta USB su cui desideri ripristinare "
+"l'Archivio Persistente. Assicurarti che questa nuova chiavetta USB sia "
+"grande almeno quanto la chiavetta USB su cui si trova Tails rotto."
 
 #. type: Bullet: '1. '
 msgid ""
 "When starting Tails, [[set up an administration password|doc/first_steps/"
 "welcome_screen/administration_password]]."
 msgstr ""
-"Quando si avvia Tails, [[imposta una password di amministrazione|doc/"
+"Quando avvii Tails, [[imposta una password di amministrazione|doc/"
 "first_steps/welcome_screen/administration_password]]."
 
 #. type: Bullet: '1. '
 msgid "[[Create a Persistent Storage.|persistent_storage/create]]"
-msgstr ""
+msgstr "[[Crea un Archivio Persistente.|persistent_storage/create]]"
 
 #. type: Bullet: '1. '
 msgid ""
 "Close the Persistent Storage settings after creation, when the list of "
 "features is displayed."
 msgstr ""
-"Chiudi le impostazioni dell'Archivio Persistente dopo averlo creato, quando "
+"Chiudere le impostazioni dell'Archivio Persistente dopo la creazione, quando "
 "viene visualizzato l'elenco delle funzioni."
 
 #. type: Plain text
@@ -217,19 +234,17 @@ msgid "   <div class=\"caution\">\n"
 msgstr "   <div class=\"caution\">\n"
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid ""
-#| "   Make sure that all applications are closed before continuing with these\n"
-#| "   instructions. Otherwise, the Persistent Storage might not be properly\n"
-#| "   rescued from your broken Tails.\n"
+#, no-wrap
 msgid ""
 "   <p>Make sure that all applications are closed before continuing with these\n"
 "   instructions. Otherwise, the Persistent Storage might not be properly\n"
 "   recovered from your broken Tails.</p>\n"
 msgstr ""
-"   Assicurati che tutte le applicazioni siano chiuse prima di continuare con queste\n"
-"   istruzioni. Altrimenti l'Archivio Persistente potrebbe non essere correttamente\n"
-"   salvato dal tuo Tails rotto.\n"
+"   <p>Assicurarti che tutte le applicazioni siano chiuse prima di continuare "
+"con queste\n"
+"       istruzioni. In caso contrario, l'Archivio Persistente potrebbe non "
+"essere recuperata\n"
+"       correttamente dal tuo Tails rotto.</p>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -237,55 +252,37 @@ msgid "   </div>\n"
 msgstr "   </div>\n"
 
 #. type: Bullet: '1. '
-#, fuzzy
-#| msgid ""
-#| "1. Choose\n"
-#| "   <span class=\"menuchoice\">\n"
-#| "     **Applications**&nbsp;▸\n"
-#| "     **Accessories**&nbsp;▸\n"
-#| "     **Files**</span>\n"
-#| "   to open the *Files* browser.\n"
 msgid ""
 "Choose **Apps&nbsp;▸ Accessories&nbsp;▸ Files** to open the *Files* browser."
 msgstr ""
-"1. Seleziona\n"
-"   <span class=\"menuchoice\">\n"
-"     **Applicazioni**&nbsp;▸\n"
-"     **Accessori**&nbsp;▸\n"
-"     **File**</span>\n"
-"   per aprire il navigatore di *File*.\n"
+"1. Seleziona **Applicazioni&nbsp;▸ Accessori&nbsp;▸ Files**  per aprire il "
+"navigatore di *File*."
 
 #. type: Bullet: '1. '
 msgid "Plug in the USB stick that has your broken Tails on it."
 msgstr "Inserisci la chiavetta USB che contiene il tuo Tails rotto."
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid ""
-#| "   A new encrypted volume appears in the sidebar of the\n"
-#| "   *Files* browser. Click on it and enter the\n"
-#| "   passphrase of your broken Tails to unlock the volume.\n"
+#, no-wrap
 msgid ""
 "   If the Persistent Storage of your broken Tails is recognized,\n"
 "   a new encrypted volume appears in the sidebar of the\n"
 "   *Files* browser. Click on it and enter the\n"
 "   passphrase of your broken Tails to unlock the volume.\n"
 msgstr ""
-"   Un nuovo volume cifrato appare nella barra laterale del\n"
-"   <span class=\"applicazione\">File</span> del browser. Fai clic su di esso e inserisci la\n"
-"   passphrase del tuo Tails rotto per sbloccare il volume.\n"
+"   Se l'Archivio Persistente del tuo Tails rotto viene riconosciuto,\n"
+"      un nuovo volume cifrato appare nella barra laterale del \n"
+"      browser dei *File*. Clicca sopra e inserisci la\n"
+"      frase d'accesso del Tails rotto per sbloccare il volume.\n"
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid ""
-#| "   The Persistent Storage of your broken Tails shows up as\n"
-#| "   **TailsData**.\n"
+#, no-wrap
 msgid ""
 "   The Persistent Storage of your broken Tails shows up as\n"
 "   **TailsData**.\n"
 msgstr ""
-"   L'Archivio Persistente  del tuo Tails rotto si presente come\n"
-"   **TailsData**.\n"
+"   L'Archivio Persistente del tuo Tails rotto viene visualizzato come\n"
+"      **TailsData**.\n"
 
 #. type: Plain text
 #, no-wrap
@@ -298,38 +295,21 @@ msgid ""
 "   <p>If no encrypted volume appears, try [[recovering from a partition image\n"
 "   using forensics tools|recover#image]].</p>\n"
 msgstr ""
+"   <p>Se non si visualizza alcun volume cifrato, prova a [[recuperare da "
+"un'immagine di partizione\n"
+"      usando strumenti forensi|recuperare#image]].</p>\n"
 
 #. type: Bullet: '1. '
-#, fuzzy
-#| msgid ""
-#| "1. Choose\n"
-#| "   <span class=\"menuchoice\">\n"
-#| "     **Applications**&nbsp;▸\n"
-#| "     **System Tools**&nbsp;▸\n"
-#| "     **Root Terminal**\n"
-#| "   </span>\n"
-#| "   to open a terminal with administration rights.\n"
 msgid "Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Console**."
-msgstr ""
-"1. Scegli\n"
-"   <span class=\"menuchoice\">\n"
-"     **Applicationi**&nbsp;▸\n"
-"     **Strumenti di sistema**&nbsp;▸\n"
-"     **Root Terminal**\n"
-"   </span>\n"
-"   per aprire un terminale con permessi di amministrazione.\n"
+msgstr "1. Scegli **Applicazioni&nbsp;▸ Strumenti di Sistema&nbsp;▸ Console**."
 
 #. type: Bullet: '1. '
-#, fuzzy
-#| msgid ""
-#| "Execute the following command to rescue the Persistent Storage of your "
-#| "broken Tails to your new Tails:"
 msgid ""
 "Execute the following command to recover the Persistent Storage of your "
 "broken Tails to your new Tails:"
 msgstr ""
-"Esegui il seguente comando per salvare l'Archivio Persistente del tuo Tails "
-"rotto sul tuo nuovo Tails:"
+"Esegui il seguente comando per ripristinare l'Archivio Persistente del Tails "
+"rotto sul nuovo Tails:"
 
 #. type: Plain text
 #, no-wrap
@@ -339,10 +319,6 @@ msgstr ""
 "live/persistence/TailsData_unlocked</p>\n"
 
 #. type: Bullet: '1. '
-#, fuzzy
-#| msgid ""
-#| "When the command finishes, it displays a summary of the data that was "
-#| "copied. For example:"
 msgid ""
 "When the command finishes, it displays a summary of the data that was "
 "copied. For example:"
@@ -351,35 +327,24 @@ msgstr ""
 "esempio:"
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid ""
-#| "<pre>\n"
-#| "sent 32.32M bytes  received 1.69K bytes  21.55M bytes/sec\n"
-#| "total size is 32.30M  speedup is 1.00\n"
-#| "</pre>\n"
+#, no-wrap
 msgid ""
 "       sent 32.32M bytes  received 1.69K bytes  21.55M bytes/sec\n"
 "       total size is 32.30M  speedup is 1.00\n"
 msgstr ""
-"<pre>\n"
-"sent 32.32M bytes  received 1.69K bytes  21.55M bytes/sec\n"
-"total size is 32.30M  speedup is 1.00\n"
-"</pre>\n"
+"       sent 32.32M bytes  received 1.69K bytes  21.55M bytes/sec\n"
+"       total size is 32.30M  speedup is 1.00\n"
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid ""
-#| "You can now eject the **TailsData** volume in the\n"
-#| "*Files* browser and unplug the USB stick that\n"
-#| "has your broken Tails on it.\n"
+#, no-wrap
 msgid ""
 "   You can now eject the **TailsData** volume in the\n"
 "   *Files* browser and unplug the USB stick that\n"
 "   has your broken Tails on it.\n"
 msgstr ""
-"Ora puoi espellere il volume **TailsData** volume nel\n"
-"*File* browser ed espellere la penna USB che  contiene\n"
-"il tuo Tails rotto.\n"
+"   Ora puoi espellere il volume **TailsData** nel\n"
+"      *File* browser e scollegare la chiavetta USB che contiene\n"
+"      il tuo Tails rotto.\n"
 
 #. type: Plain text
 msgid ""
@@ -397,6 +362,8 @@ msgstr "   <p class=\"command\">nautilus admin:/media/amnesia/TailsData/</p>\n"
 #, no-wrap
 msgid "<h1 id=\"image\">Recovering from a partition image using forensics tools</h1>\n"
 msgstr ""
+"<h1 id=\"image\">Recupero da un'immagine della partizione con strumenti "
+"forensi</h1>\n"
 
 #. type: Plain text
 msgid ""
@@ -404,6 +371,9 @@ msgid ""
 "might be able to recover some or most of your data from a partition image "
 "using advanced forensics tools."
 msgstr ""
+"Se non riesci a sbloccare il tuo Archivio Persistente da un'altra chiavetta "
+"USB Tails , puoi recuperare alcuni o la maggior parte dei dati da "
+"un'immagine della partizione utilizzando strumenti forensi avanzati."
 
 #. type: Plain text
 msgid ""
@@ -411,18 +381,17 @@ msgid ""
 "instructions on [[recovering data from the Persistent Storage when it has "
 "file system errors|fsck]]:"
 msgstr ""
+"Non diamo istruzioni passo passo, ma puoi adattare le nostre istruzioni sul "
+"[[recupero dei dati dall'Archivio Persistente quando presenta errori del "
+"file system|fsck]]:"
 
 #. type: Bullet: '1. '
-#, fuzzy
-#| msgid ""
-#| "Execute the following command to rescue the Persistent Storage of your "
-#| "broken Tails to your new Tails:"
 msgid ""
 "Start on your new Tails and save a partition image of the Persistent Storage "
 "of your broken Tails to an external hard disk."
 msgstr ""
-"Esegui il seguente comando per salvare l'Archivio Persistente del tuo Tails "
-"rotto sul tuo nuovo Tails:"
+"Avvia il nuovo Tails e salva un'immagine della partizione dell'Archivio "
+"Persistente del Tails rotto su un disco rigido esterno."
 
 #. type: Plain text
 #, no-wrap
@@ -430,10 +399,13 @@ msgid ""
 "   Try the technique using the [[*Disks* utility|fsck#disks]] first, then the\n"
 "   technique using [[`ddrescue`|fsck#ddrescue]] if needed.\n"
 msgstr ""
+"   Prova prima la tecnica con [[*Disks* utility|fsck#disks]], poi la\n"
+"       tecnica con [[`ddrescue`|fsck#ddrescue]] se necessario.\n"
 
 #. type: Bullet: '1. '
 msgid "After you create the partition image, try to recover your data."
 msgstr ""
+"Dopo aver creato l'immagine della partizione, prova a recuperare i dati."
 
 #. type: Plain text
 #, no-wrap
@@ -442,6 +414,10 @@ msgid ""
 "   stick|fsck#copy]] first, then the technique using\n"
 "   [[*Autopsy*|fsck#autopsy]].\n"
 msgstr ""
+"   Prova prima la tecnica di [[copiare l'immagine della partizione su una "
+"nuova chiavetta USB\n"
+"      stick|fsck#copy]], poi la tecnica che prevede l'uso di\n"
+"      [[*Autopsy*|fsck#autopsy]].\n"
 
 #, no-wrap
 #~ msgid "<!-- XXX: These instructions should be kept in sync with backup.mdwn -->\n"
