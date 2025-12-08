@@ -95,6 +95,14 @@ sgdisk \
 settle
 log_end_msg
 
+# The "last usable block" encoded by sgdisk when it repartitioned
+# above is closer to the beginning of the disk than where libparted
+# thinks it could actually be, which then makes some parted operations
+# fail, or ask confirmation (e.g. fatresize). Let's fix this to avoid
+# such problems. For details,
+# see 01e72edcb47fe3570a182688b42e7157186924d6.
+parted --script --fix "${PARENT_DEVICE}" print free
+
 if is_cmdline_test_enabled test_partitioning_errors guid; then
     sgdisk --disk-guid="${ORIG_DISK_GUID}" "${PARENT_DEVICE}"
 fi
@@ -134,14 +142,6 @@ settle
 # restore the boot code later
 dd if="${SYSTEM_PARTITION}" of=/tmp/vbr bs=512 count=1
 settle
-
-# The "last usable block" encoded by sgdisk when it repartitioned
-# above is closer to the beginning of the disk than where libparted
-# thinks it could actually be, which then makes some parted operations
-# fail, or ask confirmation (e.g. fatresize). Let's fix this to avoid
-# such problems. For details,
-# see 01e72edcb47fe3570a182688b42e7157186924d6.
-parted --script --fix "${PARENT_DEVICE}" print free
 
 # Grow the filesystem
 # Note that fatresize resets partition attributes
