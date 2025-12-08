@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
 "POT-Creation-Date: 2025-10-02 10:14+0000\n"
-"PO-Revision-Date: 2025-10-16 08:19+0000\n"
+"PO-Revision-Date: 2025-12-07 18:29+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -76,6 +76,10 @@ msgid ""
 "<p>To create new <i>VeraCrypt</i> volumes, do so outside of Tails. See\n"
 "[[VeraCrypt: Beginner's Tutorial|https://veracrypt.io/en/Beginner%27s%20Tutorial.html]].</p>\n"
 msgstr ""
+"<p>La création de nouveaux volumes <i>VeraCrypt</i> se fait en dehors de "
+"Tails. Voir\n"
+"[[VeraCrypt: Beginner's Tutorial|https://veracrypt.io/en/"
+"Beginner%27s%20Tutorial.html]] (en anglais).</p>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -172,7 +176,7 @@ msgid ""
 "To unlock a *VeraCrypt* volume, you might need the following parameters, "
 "depending on the options that were selected when the volume was created:"
 msgstr ""
-"Pour déverrouiller un volume *VeraCrypt*, vous pourrez avoir besoin des "
+"Pour déverrouiller un volume *VeraCrypt*, vous pourriez avoir besoin des "
 "paramètres suivants, en fonction des options qui ont été sélectionnées lors "
 "de la création du volume :"
 
@@ -308,8 +312,8 @@ msgstr ""
 #. type: Bullet: '1. '
 msgid "Click **Open** to open the volume in the *Files* browser."
 msgstr ""
-"Cliquer sur **Ouvrir** pour ouvrir le volume dans le navigateur de "
-"*fichiers*."
+"Cliquez sur **Ouvrir** pour ouvrir le volume dans le navigateur de "
+"*Fichiers*."
 
 #. type: Plain text
 #, no-wrap
@@ -329,18 +333,13 @@ msgstr ""
 "l'utilitaire *Disques*."
 
 #. type: Bullet: '1. '
-#, fuzzy
-#| msgid ""
-#| "Choose **[[!img lib/open-menu.png alt=\"\" class=symbolic "
-#| "link=\"no\"]]&nbsp;▸ Attach Disk Image&hellip;** from the top navigation "
-#| "bar."
 msgid ""
 "Choose **[[!img lib/open-menu.png link=\"no\" class=\"symbolic\" "
 "alt=\"\"]]&nbsp;▸ Attach Disk Image** from the top navigation bar."
 msgstr ""
-"Choisir **[[!img lib/open-menu.png alt=\"\" class=symbolic "
-"link=\"no\"]]&nbsp;▸ Attacher l'image disque&hellip;** dans la barre de "
-"navigation en haut."
+"Choisissez **"
+"[[!img lib/open-menu.png link=\"no\" class=\"symbolic\" alt=\"\"]]&nbsp;▸ "
+"Attacher l’image disque** dans la barre de navigation en haut."
 
 #. type: Bullet: '1. '
 msgid "In the **Select Disk Image to Attach** dialog:"
@@ -351,9 +350,9 @@ msgid ""
 "Unselect the **Set up read-only loop device** check box in the bottom-left "
 "corner if you want to modify the content of the file container."
 msgstr ""
-"Désélectionner la case <span class=\"guilabel\">Définir le périphérique "
-"boucle en lecture seule</span> dans le coin en bas à gauche si vous voulez "
-"modifier le contenu du fichier conteneur."
+"Désélectionnez la case **Définir le périphérique boucle en lecture seule** "
+"dans le coin en bas à gauche si vous voulez modifier le contenu du fichier "
+"conteneur."
 
 #. type: Plain text
 #, no-wrap
@@ -363,8 +362,8 @@ msgstr "     [[!img read-only.png class=\"screenshot\" alt=\"\"]]\n"
 #. type: Bullet: '   - '
 msgid "Choose **All Files** in the file filter in the bottom-right corner."
 msgstr ""
-"Choisir **Tous les fichiers** dans le filtre de fichier dans le coin en bas "
-"à droite."
+"Choisissez **Tous les fichiers** dans le filtre de fichier dans le coin en "
+"bas à droite."
 
 #. type: Plain text
 #, no-wrap
@@ -375,18 +374,16 @@ msgstr "     [[!img all-files.png class=\"screenshot\" alt=\"\"]]\n"
 msgid ""
 "Navigate to the folder containing the file container that you want to open."
 msgstr ""
-"Naviguer jusqu'au dossier contenant le fichier conteneur que vous voulez "
+"Naviguez jusqu'au dossier contenant le fichier conteneur que vous voulez "
 "ouvrir."
 
 #. type: Bullet: '   - '
 msgid "Select the file container and click **Attach**."
-msgstr ""
-"Sélectionner le fichier conteneur et cliquez sur <span "
-"class=\"bold\">Attacher</span>."
+msgstr "Sélectionnez le fichier conteneur et cliquez sur **Attacher**."
 
 #. type: Bullet: '1. '
 msgid "A first dialog appears to unlock the container."
-msgstr ""
+msgstr "Une première fenêtre apparaît pour déverrouiller le conteneur."
 
 #. type: Plain text
 #, no-wrap
@@ -395,18 +392,22 @@ msgstr "   [[!img authentication.png class=\"screenshot\" alt=\"Authentification
 
 #. type: Bullet: '1. '
 msgid "Select **Cancel**."
-msgstr ""
+msgstr "Sélectionnez **Annuler**."
 
 #. type: Plain text
 #, no-wrap
 msgid "   It is impossible to use keyfiles with this first dialog.\n"
 msgstr ""
+"   Il est impossible d'utiliser des fichiers clés avec cette première "
+"fenêtre.\n"
 
 #. type: Bullet: '1. '
 msgid ""
 "A second dialog called **Set options to unlock** appears to unlock the "
 "container."
 msgstr ""
+"Une seconde fenêtre appelée **Définir les options de déverrouillage** "
+"apparaît pour déverrouiller le conteneur."
 
 #. type: Plain text
 #, no-wrap
@@ -414,10 +415,9 @@ msgid "   [[!img options.png class=\"screenshot\" alt=\"\"]]\n"
 msgstr "   [[!img options.png class=\"screenshot\" alt=\"\"]]\n"
 
 #. type: Bullet: '1. '
-#, fuzzy
-#| msgid "Open your *VeraCrypt* volumes from the **Places** menu."
 msgid "Open your *VeraCrypt* volume from the sidebar of the *Files* menu."
-msgstr "Ouvrez vos volumes *VeraCrypt* depuis le menu **Emplacements**."
+msgstr ""
+"Ouvrez votre volume *VeraCrypt* depuis la barre latérale du menu *Fichiers*."
 
 #. type: Title =
 #, no-wrap
@@ -454,7 +454,7 @@ msgstr ""
 #. type: Bullet: '1. '
 msgid "In the left pane, select the drive that corresponds to your hard disk."
 msgstr ""
-"Dans le panneau gauche, sélectionnez le lecteur qui correspond à votre "
+"Dans le panneau de gauche, sélectionnez le lecteur qui correspond à votre "
 "disque dur."
 
 #. type: Bullet: '1. '
@@ -462,7 +462,7 @@ msgid ""
 "In the right pane, select the partition that corresponds to your *VeraCrypt* "
 "volume."
 msgstr ""
-"Dans le panneau droit, sélectionner la partition qui correspond à votre "
+"Dans le panneau de droite, sélectionnez la partition qui correspond à votre "
 "volume *VeraCrypt*."
 
 #. type: Plain text
@@ -475,9 +475,9 @@ msgid ""
 "Click the [[!img lib/unlock.png alt=\"Unlock selected encrypted partition\" "
 "class=\"symbolic\" link=\"no\"]] button in the right pane."
 msgstr ""
-"Cliquer sur le bouton [[!img lib/unlock.png alt="
+"Cliquez sur le bouton [[!img lib/unlock.png alt="
 "\"Déverrouiller la partition chiffrée sélectionnée\" class=\"symbolic\" link="
-"\"no\"]] dans le panneau droit."
+"\"no\"]] dans le panneau de droite."
 
 #. type: Bullet: '1. '
 msgid "Select the file system that appears below the unlocked volume."
@@ -490,7 +490,7 @@ msgid ""
 "Click the [[!img lib/media-playback-start.png alt=\"Mount selected "
 "partition\" class=\"symbolic\" link=\"no\"]] button to mount the volume."
 msgstr ""
-"Cliquer sur le bouton [[!img lib/media-playback-start.png alt="
+"Cliquez sur le bouton [[!img lib/media-playback-start.png alt="
 "\"Monter la partition sélectionnée\" class=\"symbolic\" link=\"no\"]] pour "
 "monter le volume."
 
@@ -499,8 +499,8 @@ msgid ""
 "Click on the */media/amnesia/* link in the right pane to open the volume in "
 "the *Files* browser."
 msgstr ""
-"Cliquez sur le lien */media/amnesia/* dans le panneau droit pour ouvrir le "
-"volume dans le navigateur de *Fichiers*."
+"Cliquez sur le lien */media/amnesia/* dans le panneau de droite pour ouvrir "
+"le volume dans le navigateur de *Fichiers*."
 
 #. type: Plain text
 #, no-wrap
