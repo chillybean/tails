@@ -14,7 +14,7 @@ from tailsgreeter.settings.utils import read_settings, write_settings
 gi.require_version("GObject", "2.0")
 gi.require_version("GnomeDesktop", "3.0")
 gi.require_version("Gtk", "3.0")
-from gi.repository import GObject, GnomeDesktop, Gtk
+from gi.repository import GObject, GnomeDesktop, Gtk  # noqa: E402
 
 
 class FormatsSetting(LocalizationSetting):
@@ -56,7 +56,8 @@ class FormatsSetting(LocalizationSetting):
 
     def get_tree(self) -> Gtk.TreeStore:
         treestore = Gtk.TreeStore(
-            GObject.TYPE_STRING, GObject.TYPE_STRING  # id
+            GObject.TYPE_STRING,
+            GObject.TYPE_STRING,  # id
         )  # name
 
         country_codes = list(self.locales_per_country.keys())
@@ -120,9 +121,7 @@ class FormatsSetting(LocalizationSetting):
         if native_name == localized_name:
             return native_name
         else:
-            return "{native} ({localized})".format(
-                native=native_name, localized=localized_name
-            )
+            return f"{native_name} ({localized_name})"
 
     @staticmethod
     def _locale_name(locale_code: str) -> str:
@@ -144,19 +143,11 @@ class FormatsSetting(LocalizationSetting):
                 language_name_native == language_name_locale
                 and country_name_native == country_name_locale
             ):
-                return "{country} - {language}".format(
-                    language=language_name_native.capitalize(),
-                    country=country_name_native,
-                )
+                return f"{country_name_native} - {language_name_native.capitalize()}"
             else:
                 return (
-                    "{country} - {language} "
-                    "({local_country} - {local_language})".format(
-                        language=language_name_native.capitalize(),
-                        country=country_name_native,
-                        local_language=language_name_locale.capitalize(),
-                        local_country=country_name_locale,
-                    )
+                    f"{country_name_native} - {language_name_native.capitalize()} "
+                    f"({country_name_locale} - {language_name_locale.capitalize()})"
                 )
         except AttributeError:
             return locale_code

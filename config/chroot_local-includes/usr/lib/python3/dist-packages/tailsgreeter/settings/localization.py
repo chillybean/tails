@@ -74,14 +74,16 @@ class CleartextStorageMixin:
             except FileNotFoundError:
                 self.log.debug("No %s setting found", self.SETTINGS_KEY)
                 return {}
-            self.log.info("No cleartext settings %s found, loaded from Persistent Storage",
-                          self.SETTINGS_KEY)
+            self.log.info(
+                "No cleartext settings %s found, loaded from Persistent Storage",
+                self.SETTINGS_KEY,
+            )
 
             # When we load a legacy setting, we don't want to propose users to save it
             # unencrypted immediately so we set this to true.
             # The user is still *able* to do this, they just need to flip the Save
             # switch.
-            value['IS_DEFAULT'] = 'true'
+            value["IS_DEFAULT"] = "true"
 
         self.log.info("Successfully loaded %s (%s)", self.SETTINGS_KEY, value)
         self.set_property("saveEnabled", loaded_from_cleartext)
