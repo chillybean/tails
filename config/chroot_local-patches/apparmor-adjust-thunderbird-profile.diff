@@ -8,7 +8,7 @@
    #include <abstractions/dconf>
    #include <abstractions/dri-enumerate>
    #include <abstractions/gnome>
-@@ -27,7 +26,6 @@
+@@ -27,10 +26,13 @@
    #include <abstractions/p11-kit>
    #include <abstractions/private-files>
    #include <abstractions/ssl_certs>
@@ -16,6 +16,13 @@
    #include <abstractions/ubuntu-browsers.d/java>
    #include <abstractions/ubuntu-helpers>
  
++  # Needed for sandboxing via unprivileged user namespaces
++  userns,
++  capability sys_admin,
++
+   # Backported from the mesa abstraction, available in AppArmor >2.13
+   # System files
+   /dev/dri/ r, # libGLX_mesa.so calls drmGetDevice2()
 @@ -52,7 +50,9 @@
  
    # Allow opening attachments
