@@ -228,7 +228,7 @@ Make sure we're up-to-date:
 
 Rebase and resolve conflicts:
 
-    git rebase "${TAG:?}"
+    git rebase --onto="${TAG:?}" "$(git describe --tags --abbrev=0)"
 
 Bump Tails version number:
 
