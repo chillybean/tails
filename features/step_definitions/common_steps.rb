@@ -1814,4 +1814,13 @@ Then(/^the Greeter's language is set to (.*)$/) do |lang|
                         .children(roleName: 'label')
                         .find { |node| node.name.include?("#{lang} - ") }
   assert_not_nil(language_row)
+  # That's a good moment to refresh this information, so the next steps don't fail
+  $language, $lang_code = greeter_language
+end
+
+Then(/^the Greeter's formats is set to (.*)$/) do |lang|
+  formats_row = greeter.children(roleName: 'list item')[2]
+                       .children(roleName: 'label')
+                       .find { |node| node.name.include?("#{lang} - ") }
+  assert_not_nil(formats_row)
 end

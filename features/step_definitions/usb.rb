@@ -669,7 +669,6 @@ end
 
 Given /^I try to enable persistence( with the changed passphrase)?$/ do |with_changed_passphrase|
   passphrase_entry = greeter.child(roleName: 'password text')
-  passphrase_entry.grabFocus
   password = if with_changed_passphrase
                @changed_persistence_password
              else
@@ -718,17 +717,30 @@ Given /^I enable persistence but something goes wrong during the LUKS header upg
 end
 
 def greeter_language
-  english_label = 'English - United States'
-  german_label = 'Deutsch - Deutschland (German - Germany)'
-  try_for(30) do
-    greeter.child(english_label, roleName: 'label', retry: false)
+  settings = nil
+  values = [
     # We have to set the language to '' for English, setting it to
     # 'English' doesn't work.
-    return '', 'en'
-  rescue Dogtail::Failure
-    greeter.child(german_label, roleName: 'label', retry: false)
-    return 'German', 'de'
+    ['English - United States', ['', 'en']],
+    ['Deutsch - Deutschland (German - Germany)', ['German', 'de']],
+    ['Italiano - Italia (Italian - Italy)', ['Italian', 'it']],
+  ]
+  try_for(30) do
+    success = false
+    values.each do |label, language_settings|
+      begin
+        greeter.child(label, roleName: 'label', retry: false)
+      rescue Dogtail::Failure
+        next
+      end
+      settings = language_settings
+      success = true
+      break
+    end
+    success
   end
+
+  settings
 end
 
 def tails_persistence_unlocked?
@@ -1575,7 +1587,10 @@ When(/^I manually store legacy localization settings in Persistent Storage$/) do
                  'TAILS_LOCALE_NAME=de_DE',
                  'IS_DEFAULT=false',
                ],
-               'formats'  => 'TAILS_FORMATS=de_DE',
+               'formats'  => [
+                 'TAILS_FORMATS=fr_FR',
+                 'IS_DEFAULT=false',
+               ],
                'keyboard' => [
                  'TAILS_XKBLAYOUT=de',
                  'TAILS_XKBMODEL=pc105',

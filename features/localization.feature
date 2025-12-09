@@ -85,8 +85,10 @@ Feature: Localization
     # The second boot verifies that the legacy setting still works
     And I start Tails from USB drive "__internal" with network unplugged
     Then the Greeter's language is set to English
+    And the Greeter's formats is set to United States
     When I enable persistence
     Then the Greeter's language is set to German
+    And the Greeter's formats is set to France
     When I set the language to Italian (it)
     Then the language has not been saved in cleartext storage
     When I save the language and keyboard options
@@ -95,3 +97,7 @@ Feature: Localization
     # The third boot verifies that cleartext has priority
     And I start Tails from USB drive "__internal" with network unplugged
     Then the Greeter's language is set to Italian
+    And the Greeter's formats is set to Italy
+    When I enable persistence
+    # formats are loaded from persistence
+    Then the Greeter's formats is set to France
