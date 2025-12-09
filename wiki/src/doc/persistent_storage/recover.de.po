@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2025-11-12 12:16+0100\n"
+"POT-Creation-Date: 2025-12-09 23:49+0000\n"
 "PO-Revision-Date: 2025-11-14 01:26+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -133,13 +133,21 @@ msgid "<h1 id=\"upgrade\">Doing a manual upgrade</h1>\n"
 msgstr "<h1 id=\"upgrade\">Durchführen eines manuellen Upgrades</h1>\n"
 
 #. type: Plain text
-msgid ""
-"Doing a manual upgrade of your broken Tails might allow you to start your "
-"USB stick again and use your Persistent Storage like before."
+#, no-wrap
+msgid "<!-- Indented to deduplicate with same sentence earlier. -->\n"
 msgstr ""
-"Ein manuelles Upgrade Ihres defekten Tails könnte es Ihnen ermöglichen, "
-"Ihren USB-Stick wieder zu starten und den beständigen Datenspeicher wie "
-"zuvor zu nutzen."
+
+#. type: Plain text
+#, fuzzy, no-wrap
+#| msgid ""
+#| "   Doing a manual upgrade of your broken Tails might allow you to start your\n"
+#| "   USB stick again and use your Persistent Storage like before.\n"
+msgid ""
+"   Doing a manual upgrade of your broken Tails might allow you to start your USB\n"
+"   stick again and use your Persistent Storage like before.\n"
+msgstr ""
+"   Ein manuelles Upgrade Ihres defekten Tails könnte es Ihnen ermöglichen, \n"
+"      Ihren USB-Stick erneut zu starten und Ihren beständigen Datenspeicher wie zuvor zu verwenden.\n"
 
 #. type: Plain text
 msgid "Refer to our instructions on how to do a manual upgrade, either:"
@@ -328,9 +336,7 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "   <p class=\"command\">sudo rsync -PaSHAXv --del /media/amnesia/TailsData/ /live/persistence/TailsData_unlocked</p>\n"
-msgstr ""
-"   <p class=\"command\">sudo rsync -PaSHAXv --del /media/amnesia/TailsData/ /"
-"live/persistence/TailsData_unlocked</p>\n"
+msgstr "   <p class=\"command\">sudo rsync -PaSHAXv --del /media/amnesia/TailsData/ /live/persistence/TailsData_unlocked</p>\n"
 
 #. type: Bullet: '1. '
 msgid ""
@@ -422,6 +428,14 @@ msgid ""
 "   stick|fsck#copy]] first, then the technique using\n"
 "   [[*Autopsy*|fsck#autopsy]].\n"
 msgstr "   Versuchen Sie zuerst die Technik, um [[das Partition-Abbild auf einen neuen USB-Stick zu kopieren|fsck#copy]], und verwenden Sie dann die Technik mit [[*Autopsy*|fsck#autopsy]].\n"
+
+#~ msgid ""
+#~ "Doing a manual upgrade of your broken Tails might allow you to start your "
+#~ "USB stick again and use your Persistent Storage like before."
+#~ msgstr ""
+#~ "Ein manuelles Upgrade Ihres defekten Tails könnte es Ihnen ermöglichen, "
+#~ "Ihren USB-Stick wieder zu starten und den beständigen Datenspeicher wie "
+#~ "zuvor zu nutzen."
 
 #, no-wrap
 #~ msgid "<!-- XXX: These instructions should be kept in sync with backup.mdwn -->\n"
