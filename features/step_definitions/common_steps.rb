@@ -450,6 +450,20 @@ Given /^the computer (?:re)?boots Tails$/ do
   end
 end
 
+Given /^I set the formats to "(.*)"$/ do |region|
+  try_for(30) do
+    greeter.child(description: 'Configure Formats').grabFocus
+    @screen.press('Return')
+    # Give Gtk some time to open the popover
+    sleep(1)
+    # Check if the popover is open
+    greeter.child?('Search', roleName: 'text', retry: false)
+  end
+  greeter.child('Search', roleName: 'text').text = region
+  sleep(2) # Gtk needs some time to filter the results
+  greeter.child('Search', roleName: 'text').activate
+end
+
 Given /^I set the language to (.*) \((.*)\)$/ do |lang, lang_code|
   $language = lang
   $lang_code = lang_code

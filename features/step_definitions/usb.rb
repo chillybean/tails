@@ -1635,7 +1635,7 @@ Then /^all Persistent Greeter options are set to (non-)?default values$/ do |non
   ).stdout
   if non_default
     expected = <<~EXPECTED
-      TAILS_FORMATS=de_DE
+      TAILS_FORMATS=de_BE
       TAILS_MACSPOOF_ENABLED=false
       TAILS_NETWORK=false
       TAILS_UNSAFE_BROWSER_ENABLED=false
