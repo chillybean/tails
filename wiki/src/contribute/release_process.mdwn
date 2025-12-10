@@ -1126,7 +1126,7 @@ To build the IUKS, run this command:
     (
        set -eu
        set -o pipefail
-       WORK_DIR=$(mktemp -d tmp.iuks.XXXXXXX)
+       WORK_DIR=$(mktemp -d /tmp/tmp.iuks.XXXXXXX)
        TAILS_REMOTE="$(git -C "${RELEASE_CHECKOUT:?}" remote get-url origin)"
        PUPPET_TAILS_REMOTE=$(echo -n "${TAILS_REMOTE:?}" | perl -p -E 's,([:/])tails/tails([.]git)?\z,$1tails/puppet-code$2,')
        cd "${WORK_DIR:?}"
