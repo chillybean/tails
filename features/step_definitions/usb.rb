@@ -724,6 +724,7 @@ def greeter_language
     ['English - United States', ['', 'en']],
     ['Deutsch - Deutschland (German - Germany)', ['German', 'de']],
     ['Italiano - Italia (Italian - Italy)', ['Italian', 'it']],
+    ['Français - France (French - France)', ['French', 'fr']],
   ]
   try_for(30) do
     success = false
