@@ -362,6 +362,9 @@ Follow this part ONLY if you are preparing a bugfix release.
 Look at [[!tails_gitlab tails/tails-private]]. If anything was merged there during the current development
 cycle, you need to merge.
 
+    git fetch tails-private && \
+    git log origin/"${RELEASE_BRANCH:?}"..tails-private/"${RELEASE_BRANCH:?}"
+
 Set base branch
 ==================
 
