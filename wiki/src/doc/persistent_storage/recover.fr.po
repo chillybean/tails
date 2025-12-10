@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2025-11-12 12:16+0100\n"
+"POT-Creation-Date: 2025-12-09 23:58+0000\n"
 "PO-Revision-Date: 2025-12-07 20:29+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -88,17 +88,15 @@ msgid ""
 "   Doing a manual upgrade of your broken Tails might allow you to start your\n"
 "   USB stick again and use your Persistent Storage like before.\n"
 msgstr ""
-"   Faire une mise à jour manuelle de votre Tails endommagé pourrait vous "
-"permettre de démarrer\n"
-"   à nouveau votre clé USB et d'utiliser votre stockage persistant comme "
-"avant.\n"
+"   Faire une mise à jour manuelle de votre Tails endommagé pourrait vous permettre de démarrer\n"
+"   à nouveau votre clé USB et d'utiliser votre stockage persistant comme avant.\n"
 
 #. type: Bullet: '1. '
 msgid ""
 "[[Unlocking from another Tails and copying using `rsync`|recover#rsync]]"
 msgstr ""
-"[[Déverrouiller depuis un autre Tails et copier les données avec "
-"`rsync`|recover#rsync]]"
+"[[Déverrouiller depuis un autre Tails et copier les données avec `rsync`|"
+"recover#rsync]]"
 
 #. type: Plain text
 #, no-wrap
@@ -107,10 +105,8 @@ msgid ""
 "   Persistent Storage from another Tails USB stick and copy its content using\n"
 "   `rsync` on the command line.\n"
 msgstr ""
-"   Si faire une mise à jour manuelle ne fonctionne pas, vous pourriez être "
-"en mesure de déverrouiller votre\n"
-"   stockage persistant depuis une autre clé USB Tails et de copier son "
-"contenu en utilisant\n"
+"   Si faire une mise à jour manuelle ne fonctionne pas, vous pourriez être en mesure de déverrouiller votre\n"
+"   stockage persistant depuis une autre clé USB Tails et de copier son contenu en utilisant\n"
 "   `rsync` depuis la ligne de commande.\n"
 
 #. type: Bullet: '1. '
@@ -127,10 +123,8 @@ msgid ""
 "   might be able to recover some or most of your data from a partition image\n"
 "   using advanced forensics tools.\n"
 msgstr ""
-"   Si le déverrouillage de votre stockage persistant depuis une autre clé "
-"USB Tails échoue, vous\n"
-"   pourriez être en mesure de récupérer une part plus ou moins importante de "
-"vos données depuis une image de partition\n"
+"   Si le déverrouillage de votre stockage persistant depuis une autre clé USB Tails échoue, vous\n"
+"   pourriez être en mesure de récupérer une part plus ou moins importante de vos données depuis une image de partition\n"
 "   en utilisant des outils d'investigation avancés.\n"
 
 #. type: Plain text
@@ -139,13 +133,21 @@ msgid "<h1 id=\"upgrade\">Doing a manual upgrade</h1>\n"
 msgstr "<h1 id=\"upgrade\">Faire une mise à jour manuelle</h1>\n"
 
 #. type: Plain text
-msgid ""
-"Doing a manual upgrade of your broken Tails might allow you to start your "
-"USB stick again and use your Persistent Storage like before."
+#, no-wrap
+msgid "<!-- Indented to deduplicate with same sentence earlier. -->\n"
 msgstr ""
-"Faire une mise à jour manuelle de votre Tails endommagé pourrait vous "
-"permettre de démarrer à nouveau votre clé USB et d'utiliser votre stockage "
-"persistant comme avant."
+
+#. type: Plain text
+#, fuzzy, no-wrap
+#| msgid ""
+#| "   Doing a manual upgrade of your broken Tails might allow you to start your\n"
+#| "   USB stick again and use your Persistent Storage like before.\n"
+msgid ""
+"   Doing a manual upgrade of your broken Tails might allow you to start your USB\n"
+"   stick again and use your Persistent Storage like before.\n"
+msgstr ""
+"   Faire une mise à jour manuelle de votre Tails endommagé pourrait vous permettre de démarrer\n"
+"   à nouveau votre clé USB et d'utiliser votre stockage persistant comme avant.\n"
 
 #. type: Plain text
 msgid "Refer to our instructions on how to do a manual upgrade, either:"
@@ -172,20 +174,7 @@ msgstr "[[Mise à jour par clonage depuis un autre Tails|doc/upgrade/#clone]]"
 #. type: Plain text
 #, no-wrap
 msgid "<h1 id=\"rsync\">Unlocking from another Tails and copying using <span class=\"code\">rsync</span></h1>\n"
-msgstr ""
-"<h1 id=\"rsync\">Déverrouillage depuis un autre Tails et copie avec <span "
-"class=\"code\">rsync</span></h1>\n"
-
-#. type: Plain text
-msgid ""
-"If doing a manual upgrade doesn't work, you might be able to unlock your "
-"Persistent Storage from another Tails USB stick and copy its content using "
-"`rsync` on the command line."
-msgstr ""
-"Si faire une mise à jour manuelle ne fonctionne pas, vous pourriez être en "
-"mesure de déverrouiller votre stockage persistant depuis une autre clé USB "
-"Tails et de copier son contenu en utilisant `rsync` depuis la ligne de "
-"commande."
+msgstr "<h1 id=\"rsync\">Déverrouillage depuis un autre Tails et copie avec <span class=\"code\">rsync</span></h1>\n"
 
 #. type: Bullet: '1. '
 msgid ""
@@ -294,8 +283,7 @@ msgid ""
 "   <p>If no encrypted volume appears, try [[recovering from a partition image\n"
 "   using forensics tools|recover#image]].</p>\n"
 msgstr ""
-"   <p>Si aucun volume chiffré n'apparaît, essayez de [[récupérer depuis une "
-"image de partition\n"
+"   <p>Si aucun volume chiffré n'apparaît, essayez de [[récupérer depuis une image de partition\n"
 "   en utilisant des outils d'investigation|recover#image]].</p>\n"
 
 #. type: Bullet: '1. '
@@ -313,9 +301,7 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "   <p class=\"command\">sudo rsync -PaSHAXv --del /media/amnesia/TailsData/ /live/persistence/TailsData_unlocked</p>\n"
-msgstr ""
-"   <p class=\"command\">sudo rsync -PaSHAXv --del /media/amnesia/TailsData/ /"
-"live/persistence/TailsData_unlocked</p>\n"
+msgstr "   <p class=\"command\">sudo rsync -PaSHAXv --del /media/amnesia/TailsData/ /live/persistence/TailsData_unlocked</p>\n"
 
 #. type: Bullet: '1. '
 msgid ""
@@ -363,20 +349,7 @@ msgstr "   <p class=\"command\">nautilus admin:/media/amnesia/TailsData/</p>\n"
 #. type: Plain text
 #, no-wrap
 msgid "<h1 id=\"image\">Recovering from a partition image using forensics tools</h1>\n"
-msgstr ""
-"<h1 id=\"image\">Récupération depuis une image de partition en utilisant des "
-"outils d'investigation</h1>\n"
-
-#. type: Plain text
-msgid ""
-"If unlocking your Persistent Storage from another Tails USB stick fails, you "
-"might be able to recover some or most of your data from a partition image "
-"using advanced forensics tools."
-msgstr ""
-"Si le déverrouillage de votre stockage persistant depuis une autre clé USB "
-"Tails échoue, vous pourriez être en mesure de récupérer une part plus ou "
-"moins importante de vos données depuis une image de partition en utilisant "
-"des outils d'investigation avancés."
+msgstr "<h1 id=\"image\">Récupération depuis une image de partition en utilisant des outils d'investigation</h1>\n"
 
 #. type: Plain text
 msgid ""
@@ -420,6 +393,34 @@ msgstr ""
 "   Essayez d'abord la technique de [[copier l'image de partition sur une nouvelle clé\n"
 "  USB|fsck#copy]], puis la technique utilisant\n"
 "  [[*Autopsy*|fsck#autopsy]].\n"
+
+#~ msgid ""
+#~ "If doing a manual upgrade doesn't work, you might be able to unlock your "
+#~ "Persistent Storage from another Tails USB stick and copy its content "
+#~ "using `rsync` on the command line."
+#~ msgstr ""
+#~ "Si faire une mise à jour manuelle ne fonctionne pas, vous pourriez être "
+#~ "en mesure de déverrouiller votre stockage persistant depuis une autre clé "
+#~ "USB Tails et de copier son contenu en utilisant `rsync` depuis la ligne "
+#~ "de commande."
+
+#~ msgid ""
+#~ "If unlocking your Persistent Storage from another Tails USB stick fails, "
+#~ "you might be able to recover some or most of your data from a partition "
+#~ "image using advanced forensics tools."
+#~ msgstr ""
+#~ "Si le déverrouillage de votre stockage persistant depuis une autre clé "
+#~ "USB Tails échoue, vous pourriez être en mesure de récupérer une part plus "
+#~ "ou moins importante de vos données depuis une image de partition en "
+#~ "utilisant des outils d'investigation avancés."
+
+#~ msgid ""
+#~ "Doing a manual upgrade of your broken Tails might allow you to start your "
+#~ "USB stick again and use your Persistent Storage like before."
+#~ msgstr ""
+#~ "Faire une mise à jour manuelle de votre Tails endommagé pourrait vous "
+#~ "permettre de démarrer à nouveau votre clé USB et d'utiliser votre "
+#~ "stockage persistant comme avant."
 
 #, no-wrap
 #~ msgid "<!-- XXX: These instructions should be kept in sync with backup.mdwn -->\n"
