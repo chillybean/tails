@@ -1162,9 +1162,9 @@ To build the IUKS, run this command:
            --jobs "${JOBS:?}"                                                 \
            2>&1 | tee "$IUK_CREATION_LOG"
     ) && \
-     cd "${IUKS_DIR:?}" && \
-     sha256sum Tails_amd64_*_to_${VERSION:?}.iuk > "${IUKS_HASHES:?}" && \
-     rm -rf "${WORK_DIR:?}"
+    cd "${IUKS_DIR:?}" && \
+    sha256sum Tails_amd64_*_to_${VERSION:?}.iuk > "${IUKS_HASHES:?}" && \
+    rm -rf "${WORK_DIR:?}"
     )
 
 This command takes a long time. In parallel, while it is running,
