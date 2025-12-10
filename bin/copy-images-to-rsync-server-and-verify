@@ -49,3 +49,6 @@ ssh rsync.lizard <<EOF
   sudo mv tails-amd64-${VERSION:?}.{iso,img}* \
           /srv/rsync/tails/tails/${DIST:?}/tails-amd64-${VERSION:?}
 EOF
+
+"$(dirname "$0")"/update-trace-time \
+    "Updating trace file after uploading the ISO and USB images for ${VERSION:?}."

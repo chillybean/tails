@@ -1566,7 +1566,9 @@ Upload the ISO and USB image signatures to our rsync server:
     scp "${ISO_PATH:?}.sig" "${IMG_PATH:?}.sig" rsync.lizard:
 
 Copy the ISO and USB images to our rsync server, verify their signature,
-move them in place with proper ownership and permissions:
+move them in place with proper ownership and permissions and update
+the time in `project/trace` file on our rsync server and on the live
+website (even for a release candidate):
 
     cd "${RELEASE_CHECKOUT:?}" && \
     ./bin/copy-images-to-rsync-server-and-verify \
@@ -1574,12 +1576,6 @@ move them in place with proper ownership and permissions:
         --dist "${DIST:?}" \
         --release-branch "${RELEASE_BRANCH:?}" \
         --matching-jenkins-images-build-id "${MATCHING_JENKINS_IMAGES_BUILD_ID:?}"
-
-Update the time in `project/trace` file on our rsync server
-and on the live website (even for a release candidate):
-
-	./bin/update-trace-time \
-       "Updating trace file after uploading the ISO and USB images for ${VERSION:?}."
 
 At this stage, either IUKs were reproduced by Jenkins and left on the
 rsync server in a temporary location, or you must wait until the
