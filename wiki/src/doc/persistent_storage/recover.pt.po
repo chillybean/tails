@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2025-11-12 12:16+0100\n"
+"POT-Creation-Date: 2025-12-09 23:58+0000\n"
 "PO-Revision-Date: 2025-11-14 01:26+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -111,9 +111,15 @@ msgid "<h1 id=\"upgrade\">Doing a manual upgrade</h1>\n"
 msgstr ""
 
 #. type: Plain text
+#, no-wrap
+msgid "<!-- Indented to deduplicate with same sentence earlier. -->\n"
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
 msgid ""
-"Doing a manual upgrade of your broken Tails might allow you to start your "
-"USB stick again and use your Persistent Storage like before."
+"   Doing a manual upgrade of your broken Tails might allow you to start your USB\n"
+"   stick again and use your Persistent Storage like before.\n"
 msgstr ""
 
 #. type: Plain text
@@ -139,13 +145,6 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "<h1 id=\"rsync\">Unlocking from another Tails and copying using <span class=\"code\">rsync</span></h1>\n"
-msgstr ""
-
-#. type: Plain text
-msgid ""
-"If doing a manual upgrade doesn't work, you might be able to unlock your "
-"Persistent Storage from another Tails USB stick and copy its content using "
-"`rsync` on the command line."
 msgstr ""
 
 #. type: Bullet: '1. '
@@ -249,9 +248,7 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "   <p class=\"command\">sudo rsync -PaSHAXv --del /media/amnesia/TailsData/ /live/persistence/TailsData_unlocked</p>\n"
-msgstr ""
-"   <p class=\"command\">sudo rsync -PaSHAXv --del /media/amnesia/TailsData/ /"
-"live/persistence/TailsData_unlocked</p>\n"
+msgstr "   <p class=\"command\">sudo rsync -PaSHAXv --del /media/amnesia/TailsData/ /live/persistence/TailsData_unlocked</p>\n"
 
 #. type: Bullet: '1. '
 msgid ""
@@ -298,13 +295,6 @@ msgstr "   <p class=\"command\">nautilus admin:/media/amnesia/TailsData/</p>\n"
 #. type: Plain text
 #, no-wrap
 msgid "<h1 id=\"image\">Recovering from a partition image using forensics tools</h1>\n"
-msgstr ""
-
-#. type: Plain text
-msgid ""
-"If unlocking your Persistent Storage from another Tails USB stick fails, you "
-"might be able to recover some or most of your data from a partition image "
-"using advanced forensics tools."
 msgstr ""
 
 #. type: Plain text
