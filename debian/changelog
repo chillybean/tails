@@ -1,3 +1,253 @@
+tails (7.3.1) unstable; urgency=medium
+
+  * Upgrade Thunderbird to 1:140.5.0esr-1~deb13u1
+
+  * Upgrade to Tor Browser 15.0.3 based on ESR 140.6 (tails/tails!2638)
+
+    Closes issues:
+      - Upgrade to Tor Browser 15.0.3 based on ESR 140.6 (tails/tails#21299)
+
+    Commits:
+      - Use correct order of arguments
+      - Tor Browser: refresh custom about:tor patches onto tor-
+        browser-140.6.0esr-15.0-1-build4
+      - Improve rebase instruction
+      - Fetch Tor Browser from our own archive
+      - Upgrade Tor Browser to 15.0.3 (refs: tails#21299)
+
+  * Bump debian APT snapshot so we get firmware-nonfree 20251111-1
+    (tails/tails!2622)
+
+    Closes issues:
+      - needed-package-updates: firmware-nonfree 20251021-1 → 20251111-1
+        (tails/tails#21315)
+
+    Commits:
+      - Bump debian APT snapshot so we get firmware-nonfree 20251111-1
+
+  * Upgrade tor to 0.4.8.21 (tails/tails!2605)
+
+    Closes issues:
+      - Upgrade to tor 0.4.8.21 (tails/tails#21306)
+
+    Commits:
+      - Bump APT snapshot for the torproject archive: upgrade to tor 0.4.8.21
+
+  * Document how to refresh Tails' custom about:tor patches (tails/tails!2602)
+
+    Closes issues:
+      - Document and automate updating our about:tor customization patch series
+        (tails/tails#21265)
+
+    Commits:
+      - Move back about:tor customization instructions to the UX page
+      - Future-proof in case pipes are added later
+      - Improve regular expressions
+      - Drop useless chaining under set -e
+      - Use a freshly extracted Tor Browser when testing about:tor customization
+      - Adapt instructions for customizing about:tor to be based on tor-browser.git
+      - Move all instruction about about:tor to the same place
+      - Adjust header level
+      - Run in subshell + set -eu
+      - Refactor more shell code from instructions into its own script
+      - Set suitable Due Date for issue about rebasing about:tor patches
+      - ShellCheck: disable check that is false for dash since Debian Trixie
+      - RM role: create issue for rebasing about:tor patches (refs: tails#21265)
+      - Refactor shell code from instructions into its own script
+      - Release process: ensure that the about:tor patches refer to the correct version
+      - Tor Browser: refresh custom about:tor patches onto tor-
+        browser-140.5.0esr-15.0-1-build2 for Tails 7.2
+      - Strip comments from .tld files before generating diff
+      - Tor Browser: refresh custom about:tor patches onto tor-
+        browser-140.5.0esr-15.0-1-build2 for Tails 7.2
+      - Tor Browser: document how to refresh Tails' custom about:tor patches (refs:
+        tails#21265)
+      - Link to l10n doc
+      - Document how to depend on the time/date
+      - Document how to modify about:tor
+
+  * Upgrade to Trixie 13.2 and tor 0.4.8.20 (tails/tails!2592)
+
+    Closes issues:
+      - Upgrade to Trixie 13.2 (tails/tails#21167)
+      - Upgrade to tor 0.4.8.20 (tails/tails#21296)
+
+    Commits:
+      - Bump APT snapshot for the "torproject" archive: upgrade to tor 0.4.8.20
+      - Bump APT snapshot for the "debian" archive: upgrade to Trixie 13.2
+
+  * Automatically test that Thunderbird doesn't connect to unwanted services
+    (tails/tails!2565)
+
+    Commits:
+      - Test suite: move step definition for improved scoping
+      - update doc for new configuration field
+      - move steps to thunderbird.rb, for more scoping
+      - rubocop reformatting
+      - don't modify exclude_non_suspicious_connections arguments
+      - refactor exclude_non_suspicious_connections
+      - No connection should be without a colon
+      - simplify code
+      - Properly check for IPv4
+      - remove useless event.reason field
+      - terminate cleanly
+      - allow connecting to the email domain server
+      - allow Thunderbird connections to addons.thunderbird.net
+      - suppress logging command output
+      - Fix the assertion logic
+      - refactor: make code more ruby-esque
+      - follow rubocop tip
+      - subdomains of email-address domain are allowed
+      - Check if Thunderbird connects to telemetry
+      - Exclude Thunderbird-specific allowed connections
+      - Most obvious false positives are excluded
+      - Check if Thunderbird leaks connections to Telemetry
+
+  * Ignore tags from 3rd-party repos (tails/tails!2636)
+
+    Closes issues:
+      - Release process should not be impacted by tags fetched from third-party Git
+        repositories (tails/tails#21295)
+
+    Commits:
+      - improve spelling
+      - Make iuk-source-versions safe wrt 3rd-party remotes providing tags
+
+  * Thunderbird: configure empty URLs for telemetry etc (tails/tails!2625)
+
+    Closes issues:
+      - Thunderbird: configure empty URLs for telemetry (etc) instead of
+        thereisnosuchserver.tails.net (tails/tails#21331)
+
+    Commits:
+      - Clarify comment
+      - Thunderbird: set various "phone-home" URLs to empty string (refs: tails#21331)
+
+  * tps: expand comment to ensure developers have all relevant use cases in mind
+    (tails/tails!2623)
+
+    Commits:
+      - tps: expand comment to ensure developers have all relevant use cases in mind
+
+  * Be more specific about the directory layout we support for the release process
+    (tails/tails!2618)
+
+    Commits:
+      - don't clutter /tmp/ with rm-config temporary files
+      - rm-config: better error reporting
+      - IUKs are built using isos.git as source
+      - iuks_dir is set explicitly
+
+  * Test suite: drop workaround for spice-vdagent (tails/tails!2609)
+
+    Closes issues:
+      - Drop test suite workaround for spice-vdagent not connecting (tails/tails#21314)
+
+    Commits:
+      - Test suite: drop workaround for spice-vdagent
+
+  * Test suite: refactor how the journal is greped (tails/tails!2608)
+
+    Closes issues:
+      - Test suite: use systemd_journal_includes in "tpsd is localized to the selected
+        locale" (tails/tails#21267)
+
+    Commits:
+      - Test suite: escape apostrophes to avoid quoting issues in the shell
+      - Test suite: avoid modifying caller's data
+      - Test suite: simplify
+      - Test suite: use helpers for journal grep:ing in more places (refs: tails#21267)
+      - Test suite: log when we're waiting for Chutney at the synchronization point
+      - Test suite: improve correctness of tpsd locale change check
+      - Test suite: use systemd_journal instead of custom command (refs: tails#21267)
+      - Test suite: refactor
+      - Test suite: follow ruby pattern about boolean methods
+
+  * Fix "truecryt" typo (tails/tails!2603)
+
+    Commits:
+      - Fix "truecryt" typo
+
+  * GitLab CI: don't fail if a MR modifies rm-config but source branch is master
+    (tails/tails!2599)
+
+    Commits:
+      - GitLab CI: don't fail if a MR modifies rm-config but source branch is master
+
+  * frontdesk-visible WhisperBack improvements (tails/tails!2597)
+
+    Commits:
+      - don't miss emails flagged as spam
+      - resolve SyntaxWarning
+      - whisperback email: omit empty sections
+
+  * Disable gnome-keyring-daemon.socket for Debian-gdm user (tails/tails!2595)
+
+    Closes issues:
+      - Long delay in Welcome Screen on Trixie for developers (tails/tails#21103)
+
+    Commits:
+      - Disable gnome-keyring-daemon.socket for Debian-gdm user
+
+  * Release process improvements from 7.2 (tails/tails!2586)
+
+    Commits:
+      - Release process: make layout less error-prone
+      - Release process: also pick up remote changes to the stable branch
+      - Release process: adjust to support my local setup
+      - Release process: remove obsolete explanation
+      - Release process: ensure we have something to push so push options are honored
+      - Release process: replace deprecated option with current one
+      - Release QA: remove obsolete leftovers
+      - Release process: don't ask the RM to do stuff in a shell that's not available
+        yet
+      - Release process: stop assuming lizard isoworkers
+      - Improve SquashFS sort file cleanup
+      - Adjust SquashFS sort file cleanup to merged-/usr
+      - Enable pipefail in 1 more shell script
+      - RM role: fix grammar and remove hard-coded reference to previous release
+        schedule
+      - Release process: ensure iuks_dir exists, rather than just checking
+
+  * Test suite: run xfwm4 in the test suite's X virtual framebuffer
+    (tails/tails!2585)
+
+    Closes issues:
+      - virt-viewer 11.0 breaks our test suite (tails/tails#19064)
+
+    Commits:
+      - Test suite: bump images for new virt-viewer fullscreen mode (refs: tails#19064)
+      - Test suite: ensure dbus is running for xfwm4
+      - Test suite: assert that a window manager is running before starting virt-viewer
+      - Test suite: make xfwm4 not crash when test suite is started with sudo
+      - Test suite: run xfwm4 in the test suite's X virtual framebuffer
+
+  * Tor Browser: use XDG cache directory outside of ~/.var/app/ (tails/tails!2550)
+
+    Closes issues:
+      - Tor Browser cache persists when custom Flatpak persistence is enabled
+        (tails/tails#21220)
+
+    Commits:
+      - Update submodule after torbrowser-launcher!16 was merged
+      - Clarify what filesystem the cache will be on
+      - Clarify how Tor Browser's filesystem is sandboxed as a Flatpak
+      - Tor Browser: use XDG cache directory outside of ~/.var/app/
+
+  * GitLab CI: have "Ensure MR from stable into devel" use the
+    python3-gitlab:trixie image (tails/tails!2545)
+
+    Commits:
+      - GitLab CI: have "Ensure MR from stable into devel" use the
+        python3-gitlab:trixie image
+
+  * Test suite: add debugging for #20297 (tails/tails!2044)
+
+    Commits:
+      - Test suite: add debugging for tails#20297
+
+ -- Tails developers <tails@boum.org>  Wed, 10 Dec 2025 15:32:08 +0100
+
 tails (7.2) unstable; urgency=medium
 
   * Upgrade Thunderbird to 1:140.4.0esr-1~deb13u1

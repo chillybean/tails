@@ -326,3 +326,51 @@ Then /^the Tor Status icon tells me that Tor is( not)? usable$/ do |not_usable|
   picture = not_usable ? 'TorStatusNotUsable' : 'TorStatusUsable'
   @screen.wait("#{picture}.png", 10)
 end
+
+def tor_connections_from_log
+  $vm.execute(
+    'journalctl -u tails-autotest-tor-circuits-log.service ' \
+    '--no-pager --output=json --grep="Stream event for "',
+    debug_log: false
+  ).stdout.lines.reduce([]) do |messages, line|
+    message = JSON.parse(line)
+    messages << message['TOR_TARGET']
+    messages
+  rescue JSON::ParserError
+    true
+  end
+end
+
+def htpdate_pools_hosts
+  $vm.file_content('/etc/default/htpdate.pools')
+     .lines
+     .select { |x| /^HTP_POOL_[123]=/.match(x) }
+     .map { |line| /^HTP_POOL_[123]="(.*)"/.match(line).captures[0].split(',') }
+     .flatten
+end
+
+def exclude_non_suspicious_connections(conns, expected_hosts: [])
+  conns.reject do |addr|
+    host = addr.split(':').first
+
+    # Exclude connections which are ip-only: while those might be relevant, too, it's
+    # hard to believe that unwanted connections (which are typically originating from
+    # some application telemetry) won't have any valid hostname associated.
+    begin
+      IPAddr.new(host.split('.$').first)
+      next true
+    rescue IPAddr::InvalidAddressError
+      # this means that the host is not an IP, which is what we actually want
+    end
+
+    # Reverse delegation
+    next true if host.include?('.ip6.arpa') || host.include?('.in-addr.arpa')
+    # Automatic upgrades
+    next true if host == 'tails.net'
+    # Exclude hosts which are part of the htpdate pool
+    next true if htpdate_pools_hosts.include?(host)
+    next true if expected_hosts.include?(host)
+
+    false
+  end
+end

@@ -15,6 +15,12 @@ class Display
   end
 
   def start
+    assert_nothing_raised(
+      'No window manager is running which is required by virt-viewer'
+    ) do
+      cmd_helper(['pgrep', '--uid', Process.uid.to_s, '-f',
+                  "xfwm4 --display=#{@x_display}",])
+    end
     @virtviewer = IO.popen(['virt-viewer',
                             '--direct',
                             '--kiosk',

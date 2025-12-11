@@ -16,13 +16,14 @@
 # vargaviktor <viktor.varga@gmail.com>, 2013,2015,2018-2022
 # Daniel <weblate@raffdich.ru>, 2025.
 # Viktor Varga <viktor.varga@gmail.com>, 2025.
+# Weblate <noreply-mt-weblate@weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-12 11:13+0100\n"
-"PO-Revision-Date: 2025-10-11 09:44+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"POT-Creation-Date: 2025-12-10 11:42+0100\n"
+"PO-Revision-Date: 2025-12-10 10:00+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/tor/tails-gui/"
 "hu/>\n"
 "Language: hu\n"
@@ -30,7 +31,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -66,8 +67,7 @@ msgstr "{packages} csomagok hozzáadása a további szoftvereihez?"
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:61
 msgid ""
 "To install it automatically from your persistent storage when starting Tails."
-msgstr ""
-"Automatikus telepítéshez, a tartós tárolójából, amikor elindítja a Tails-t."
+msgstr "Automatikus telepítés a tartós tárolójából a Tails-t indításakor"
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:64
 msgid "Install Every Time"
@@ -89,8 +89,8 @@ msgid ""
 "To install it automatically when starting Tails, you can create a Persistent "
 "Storage and activate the <b>Additional Software</b> feature."
 msgstr ""
-"Az automatikus telepítéshez, amikor a Tails indul, létrehozhat egy tartós "
-"tárolót és aktiválni tudja a <b>További szoftverek</b> szolgáltatást."
+"A Tails indulásakor az automatikus telepítéséhez, létrehozhat egy Tartós "
+"tárolót és aktiválhatja a <b>További szoftverek</b> szolgáltatást."
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:103
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:270
@@ -99,7 +99,6 @@ msgid "Create Persistent Storage"
 msgstr "Tartós tároló létrehozása"
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:113
-#, fuzzy
 msgid "Creating your Persistent Storage failed."
 msgstr "Tartós tároló létrehozása sikertelen."
 
@@ -135,7 +134,7 @@ msgstr "Eltávolít"
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:178
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:483
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:836
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:737
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:744
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:128
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:376
 msgid "Cancel"
@@ -171,7 +170,7 @@ msgstr "A további szoftverei frissítése sikertelen"
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:127
 msgid "Installing your additional software from persistent storage..."
-msgstr "A további szoftverek telepítése a tartós tárolóból..."
+msgstr "A további szoftverei telepítése a tartós tárolóból..."
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:128
 msgid "This can take several minutes."
@@ -248,17 +247,15 @@ msgstr "Később"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:165
 msgid "Opening Electrum with our donation address..."
-msgstr "Electrum megnyitása a mi címünkkel..."
+msgstr "Electrum megnyitása a mi adományozási címünkkel..."
 
 #: config/chroot_local-includes/usr/local/bin/electrum:166
 msgid "Thank you for making the Internet a safer place!"
 msgstr "Köszönjük, hogy segítesz az Internet biztonságosabbá tételében!"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:200
-#, fuzzy
 msgid "Persistence is disabled for Electrum"
-msgstr ""
-"A kapcsolatok közötti állapotmegőrzés kikapcsol az Electrum használatakor."
+msgstr "Az állapotmegőrzés kikapcsolt az Electrum-hoz"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:202
 msgid ""
@@ -365,7 +362,6 @@ msgid "bytes"
 msgstr "bájt"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:295
-#, fuzzy
 msgid ""
 "<b>An error occurred while updating the signing key.</b>\\n\\n<b>This "
 "prevents determining whether an upgrade is available from our website.</"
@@ -373,10 +369,9 @@ msgid ""
 "persists, try doing a manual upgrade."
 msgstr ""
 "<b>Hiba történt az aláíró kulcs frissítésekor.</b>\\n\\n<b>Ez megakadályozza "
-"azt, hogy eldöntsük, hogy a weboldalunkról származik-e.</b>\\n\\nEllenőrizze "
-"hálózati kapcsolatát és indítsa újra a Tails-t új frissítési próbálkozáshoz."
-"\\n\\nHa a probléma fennáll, tekinse meg a következőt file:///usr/share/doc/"
-"tails/website/doc/upgrade/error/check.en.html"
+"azt, hogy eldöntsük, hogy egy frissítés a weboldalunkról származik-e.</"
+"b>\\n\\nEllenőrizze hálózati kapcsolatát és indítsa újra a Tails-t.\\n\\nHa "
+"a probléma továbbra is fennáll, próbáljon kézzel frissíteni."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:309
 msgid "Error while downloading the signing key"
@@ -387,7 +382,6 @@ msgid "Error while checking for upgrades"
 msgstr "Hiba frissítések ellenőrzése közben"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:344
-#, fuzzy
 msgid ""
 "<b>Could not determine whether an upgrade is available from our website.</"
 "b>\n"
@@ -396,13 +390,11 @@ msgid ""
 "\n"
 "If the problem persists, try doing a manual upgrade."
 msgstr ""
-"<b>Nem lehet meghatározni van-e elérhető frissítés a weboldalunkon</b>\n"
+"<b>Nem lehet meghatározni van-e elérhető frissítés a weboldalunkon.</b>\n"
 "\n"
-"Ellenőrizze a hálózati kapcsolatot, indítsa újra a Tails-t majd próbálja "
-"frissíteni ismét.\n"
+"Ellenőrizze a hálózati kapcsolatát és indítsa újra a Tails-t.\n"
 "\n"
-"Ha a probléma még mindig jelen van nézze meg ezt: file:///usr/share/doc/"
-"tails/website/doc/upgrade/error/check.en.html"
+"Ha a probléma továbbra is fennáll, próbáljon kézzel frissíteni."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:359
 msgid "no automatic upgrade is available from our website for this version"
@@ -410,21 +402,19 @@ msgstr "nincs elérhető automatikus frissítés a weboldalunkon ehhez a verzió
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:365
 msgid "your device was not created using a USB image or Tails Cloner"
-msgstr "az eszköze nem egy USB kép vagy Tails telepítő által készült"
+msgstr "az eszköze nem egy USB kép alapján vagy a Tails Cloner-rel készült"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:370
 msgid "Tails was started from a DVD or a read-only device"
 msgstr "A Tails DVD-ről vagy egy csak olvasható eszközről lett indítva"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:375
-#, fuzzy
 msgid "there is not enough free space on the Tails system partition"
-msgstr "nincs elég szabad hely a Tails partíción."
+msgstr "nincs elég szabad hely a Tails rendszer partíción"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:380
-#, fuzzy
 msgid "not enough memory is available on this system"
-msgstr "nincs elég szabad memória a rendszerben."
+msgstr "nincs elég szabad memória a rendszerben"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:385
 #, perl-brace-format
@@ -439,12 +429,11 @@ msgstr "A rendszer naprakész"
 msgid ""
 "You are currently running the latest version. There is no upgrade "
 "available.\n"
-msgstr ""
+msgstr "Jelenleg az aktuális verziót futtatod. Nincs elérhető frissítés.\n"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:414
-#, fuzzy
 msgid "Tails is up to date"
-msgstr "A rendszer naprakész"
+msgstr "A Tails naprakész"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:420
 msgid "This version of Tails is outdated, and may have security issues."
@@ -470,13 +459,12 @@ msgstr ""
 "{free_memory} memória elérhető."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:473
-#, fuzzy
 msgid ""
 "An error occurred while detecting available upgrades.\n"
 "This should not happen. Please report a bug."
 msgstr ""
 "Hiba történt az elérhető frissítések keresése közben.\n"
-"Ennek nem kellene megtörténnie. Kérjük jelentse a hibát."
+"Ennek nem kellene megtörténnie. Kérjük jelentsen be egy hibát."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:476
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:495
@@ -541,6 +529,14 @@ msgid ""
 "\n"
 "To learn how to do a manual upgrade, go to {manual_upgrade_url}"
 msgstr ""
+"<b>Kézi frissítést kell végrehajtanod a(z) {name} legutolsó verziójára.</b>\n"
+"\n"
+"További információkért erről a verzióról menj a {details_url} oldalra\n"
+"\n"
+"Nem lehetséges az automatikus frissítése a Tail verziódnak az új verzióra: "
+"{explanation}.\n"
+"\n"
+"A kézi frissítés lépéseihez menj a {manual_upgrade_url} oldalra"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:537
 msgid "New version available"
@@ -556,15 +552,12 @@ msgid "Downloading the upgrade to {name} {version}..."
 msgstr "{name} {version} frissítés letöltése..."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:711
-#, fuzzy
 msgid ""
 "<b>The upgrade could not be downloaded.</b>\\n\\nCheck your network "
 "connection, and restart Tails to try upgrading again."
 msgstr ""
-"<b>A frissítést nem lehet letölteni</b>\\n\\nEllenőrizze a hálózati "
-"kapcsolatot, indítsa újra a Tails-t, majd próbálja újra.\\n\\nHa a probléma "
-"még mindig fennáll nézze meg ezt: file:///usr/share/doc/tails/website/doc/"
-"upgrade/error/download.en.html"
+"<b>A frissítést nem lehet letölteni.</b>\\n\\nEllenőrizze a hálózati "
+"kapcsolatot, indítsa újra a Tails-t, majd próbálja újra."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:714
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:729
@@ -589,7 +582,6 @@ msgid "Failed to create temporary download directory"
 msgstr "Nem lehet létrehozni az ideiglenes letöltési könyvtárat"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:755
-#, fuzzy
 msgid ""
 "The upgrade was successfully downloaded.\n"
 "\n"
@@ -597,11 +589,11 @@ msgid ""
 "\n"
 "Please save your work and close all other applications."
 msgstr ""
-"A frissítés sikeresen letöltött\n"
+"A frissítés sikeresen letöltött.\n"
 "\n"
-"A hálózati kapcsolat tiltásra kerül a frissítés alkalmazásakor\n"
+"A hálózati kapcsolat tiltásra kerül a frissítés alkalmazásakor.\n"
 "\n"
-"Kérjük mentse le a munkáját és zárjon be minden alkalmazást"
+"Kérjük mentse le a munkáját és zárjon be minden alkalmazást."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:760
 msgid "Upgrade successfully downloaded"
@@ -673,12 +665,11 @@ msgid ""
 "\n"
 "For security reasons, the network connection is now disabled."
 msgstr ""
-"<b>A Tails készülékének frissítése folyamatban van...</b>\n"
+"<b>A Tails eszközének frissítése folyamatban van...</b>\n"
 "\n"
 "Biztonsági okok miatt a hálózat le lett tiltva."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:855
-#, fuzzy
 msgid ""
 "<b>An error occurred while installing the upgrade.</b>\\n\\nYour Tails "
 "device needs to be repaired and might be unable to restart.\\n\\nPlease "
@@ -759,27 +750,26 @@ msgid "Off (default)"
 msgstr "Ki (alapértelmezett)"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:174
-#, fuzzy
 msgid "Persistent Storage Still Locked"
-msgstr "Tartós tároló létrehozása"
+msgstr "A Tartós tároló még mindig zárolt"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:176
 msgid ""
 "Do you really want to start Tails without unlocking your Persistent Storage?"
 msgstr ""
-"Biztos, hogy el akarod indítani Tails-t anélkül, hogy feloldanád a Tartós "
+"Biztos, hogy el akarod indítani Tails-t, anélkül, hogy feloldanád a Tartós "
 "tárolót?"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:179
 msgid "Start Without Persistent Storage"
-msgstr "Indítás tartós tároló nélkül"
+msgstr "Indítás Tartós tároló nélkül"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:247
 msgid ""
 "Impossible to unlock the Persistent Storage because the USB stick is read-"
 "only."
 msgstr ""
-"Lehetetlen feloldani a Tartós tárolót mert az USB kulcs csak olvasható."
+"Lehetetlen feloldani a Tartós tárolót, mert az USB tároló csak olvasható."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:408
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:440
@@ -792,9 +782,8 @@ msgid "Checking the file system…"
 msgstr "Fájlrendszer ellenőrzése…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:481
-#, fuzzy
 msgid "Repairing the File System"
-msgstr "Fájlrendszer ellenőrzése…"
+msgstr "Fájlrendszer javítása"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:482
 #, fuzzy
@@ -802,23 +791,27 @@ msgid "This might take a long time..."
 msgstr "Ez egy kis időt vehet igénybe..."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:500
-#, fuzzy
 msgid "Failed to repair the file system of your Persistent Storage."
-msgstr "Tartós Tár beállítása sikertelen"
+msgstr "Tartós tároló beállítása sikertelen"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:502
 msgid "Start Tails to send an error report and learn how to recover your data."
 msgstr ""
+"Indítsd el a Tails-t, hogy hibajelentést küldhess és megtudd, hogyan "
+"állíthatod helyre az adataid."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:516
 msgid "File System Repaired Successfully"
-msgstr ""
+msgstr "A fájl rendszer javítása sikeres"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:518
 msgid ""
 "It's possible that some data was lost during the repair. Please check the "
 "contents of your Persistent Storage and restore any lost data from a backup."
 msgstr ""
+"Elképzelhető, hogy valamennyi adat elveszett a helyreállítás során. Kérjük "
+"ellenőrizd a tartalmát a Tartós tárolódnak és állítsd helyre az elveszett "
+"adatot egy mentésből."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:522
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:32
@@ -835,33 +828,37 @@ msgstr ""
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:758
 msgid "Start Tails and open the Persistent Storage settings to find out more."
 msgstr ""
-"Indítsa el Tails-t és nyissa meg a Tartós Tároló beállításait hogy többet "
+"Indítsa el Tails-t és nyissa meg a Tartós tároló beállításait hogy többet "
 "megtudjon."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:787
-#, fuzzy
 msgid ""
 "Your Persistent Storage is unlocked. Its content will be available until you "
 "shut down Tails."
-msgstr "A tartós tára nyitva. Indítsa újra a Tails-t a visszazárásához."
+msgstr ""
+"A Tartós tárolód nyitva. A tartalma elérhető addig, amíg le nem állítod a "
+"Tails-t."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:802
 msgid "Incorrect passphrase. Please try again."
-msgstr ""
+msgstr "Hibás jelszó. Kérjük próbálja újra."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:813
 msgid ""
 "Error reading data from your Persistent Storage. The hardware of your USB "
 "stick is probably failing."
 msgstr ""
+"Hiba a Tartós tárolóból olvasás során. Az USB tárolód hardvere valószínűleg "
+"hibás."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:815
 msgid "Start Tails to learn how to recover your data."
 msgstr ""
+"Indítsd el a Tails-t, hogy megtudd, hogyan tudod helyreállítani az adataidat."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:826
 msgid "File System Errors"
-msgstr ""
+msgstr "Fájlrendszer hibák"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:828
 msgid ""
@@ -879,7 +876,7 @@ msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:837
 msgid "Repair File System"
-msgstr ""
+msgstr "Fájlrendszer javítás"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:838
 #, fuzzy
@@ -887,17 +884,15 @@ msgid "Create Partition Image"
 msgstr "Tartós tároló létrehozása"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:849
-#, fuzzy
 msgid ""
 "Start Tails to learn how to create a partition image of your Persistent "
 "Storage."
-msgstr "Tartós Tár beállítása sikertelen"
+msgstr "Tartós tároló beállítása sikertelen"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:858
-#, fuzzy
 msgid "Failed to unlock the Persistent Storage due to file system errors."
 msgstr ""
-"Tartós Tároló feloldása sikertelen. Kérjük, indítsa el Tails-t és küldjön "
+"Tartós tároló feloldása sikertelen. Kérjük, indítsa el Tails-t és küldjön "
 "hibajelentést."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:867
@@ -905,7 +900,7 @@ msgid ""
 "Failed to upgrade the Persistent Storage. Please start Tails and send an "
 "error report."
 msgstr ""
-"Nem sikerült frissíteni a Tartós Tárolót. Kérjük, indítsa el a Tails-t, és "
+"Nem sikerült frissíteni a Tartós tárolót. Kérjük, indítsa el a Tails-t, és "
 "küldjön hibajelentést."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:874
@@ -913,22 +908,20 @@ msgid ""
 "Failed to unlock the Persistent Storage. Please start Tails and send an "
 "error report."
 msgstr ""
-"Tartós Tároló feloldása sikertelen. Kérjük, indítsa el Tails-t és küldjön "
+"Tartós tároló feloldása sikertelen. Kérjük, indítsa el Tails-t és küldjön "
 "hibajelentést."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:882
-#, fuzzy
 msgid ""
 "Failed to activate the Persistent Storage. Please start Tails and send an "
 "error report."
 msgstr ""
-"Nem sikerült aktiválni a Tartós Tárolót. Kérjük, indítsa el a Tails-t, és "
+"Nem sikerült aktiválni a Tartós tárolót. Kérjük, indítsa el a Tails-t, és "
 "küldjön hibajelentést"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:893
-#, fuzzy
 msgid "Upgrading the Persistent Storage. This might take a while…"
-msgstr "Tartós Tároló frissítése. Ez eltarthat egy darabig…"
+msgstr "Tartós tároló frissítése. Ez eltarthat egy darabig…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/settings/persistence.py:125
 msgid "Error unlocking Persistent Storage: {}"
@@ -939,18 +932,17 @@ msgid "Error upgrading Persistent Storage: {}"
 msgstr "Tartós tároló frissítési hiba: {}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/settings/persistence.py:176
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "Failed to activate some features of the Persistent Storage: {features}."
-msgstr "A Tartós tárolónak néhány funkciója beállítása sikertelen: {}."
+msgstr "A Tartós tároló néhány funkciójának beállítása sikertelen: {features}."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/settings/persistence.py:181
 msgid "Error activating Persistent Storage: {}"
 msgstr "Tartós tároló aktiválási hiba: {}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/settings/persistence.py:202
-#, fuzzy
 msgid "Failed to abort when repairing Persistent Storage filesystem: {}"
-msgstr "Tartós Tár beállítása sikertelen"
+msgstr "Sikertelen megszakítás a Tartós tároló fájlrendszer javításának: {}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/region_settings.py:191
 msgid "_Language"
@@ -964,21 +956,21 @@ msgstr "_Formátumok"
 msgid "_Keyboard Layout"
 msgstr "_Billentyűzet kiosztás"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:321
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:322
 #, python-format
 msgid "Unable to write on %(device)s, skipping."
 msgstr "Nem lehet írni a(z) %(device)s, kihagyva."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:370
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:371
 #, fuzzy, python-format
 msgid "Wrote to device at %(speed)d MB/s"
 msgstr "Az eszközre %(speed)d MB/sec sebességel sikeresen írva."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:382
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:383
 msgid "Extracting live image to the target device..."
-msgstr "Élő képfájl kibontása a cél eszközre..."
+msgstr "Live képfájl kibontása a cél eszközre..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:477
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:478
 #, python-format
 msgid ""
 "There was a problem executing the following command: `%(command)s`.\n"
@@ -987,7 +979,7 @@ msgstr ""
 "Hiba történt a következő parancs futtatásakor: ` %(command)s`.\n"
 "Egy részletesebb hiba bejegyzés készült a \"%(filename)s \"fájlba."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:496
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:497
 #, python-format
 msgid ""
 "Not enough free space on device.\n"
@@ -997,153 +989,152 @@ msgstr ""
 "%(iso_size)dMB ISO + %(overlay_size)dMB átfedésben > %(free_space)dMB szabad "
 "hely"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:509
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:510
 #, python-format
 msgid "Creating %sMB persistent overlay"
 msgstr "%sMb állandó tárhely létrehozása"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:575
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:576
 #, python-format
 msgid "Unable to copy %(infile)s to %(outfile)s: %(message)s"
 msgstr "Nem tudom másolni a %(infile)s a %(outfile)s: %(message)s"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:588
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:589
 msgid "Removing existing Tails system"
 msgstr "A meglévő Tails rendszer eltávolítása"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:599
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:600
 #, python-format
 msgid "Unable to remove file from previous Tails system: %(message)s"
 msgstr ""
 "Sikertelen a fájl eltávolítása a korábbi Tails rendszerből: %(message)s"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:609
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:610
 #, python-format
 msgid "Unable to chmod %(file)s: %(message)s"
 msgstr "chmod végrehajtása sikertelen %(file)s: %(message)s"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:617
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:618
 #, python-format
 msgid "Unable to remove directory from previous Tails system: %(message)s"
 msgstr ""
 "Sikertelen a könyvtár eltávolítása a korábbi Tails rendszerből: %(message)s"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:668
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:669
 #, python-format
 msgid "Cannot find device %s"
 msgstr "A(z) %s eszköz nem található"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:704
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1024
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:705
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1025
 msgid "Unknown filesystem.  Your device may need to be reformatted."
 msgstr "Ismeretlen fájlrendszer.  Szükséges lehet az eszköz újraformázása."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:707
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1027
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:708
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1028
 #, python-format
 msgid "Unsupported filesystem: %s"
 msgstr "Nem támogatott fájlrendszer: %s"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:723
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:724
 #, python-format
 msgid "Unknown GLib exception while trying to mount device: %(message)s"
-msgstr "Ismeretlen GLib kívétel az eszköz csatlakoztatásakor:%(message)s"
+msgstr "Ismeretlen GLib kivétel az eszköz csatlakoztatásakor:%(message)s"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:730
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:731
 #, python-format
 msgid "Unable to mount device: %(message)s"
-msgstr "%(message)s csatolása nem lehetséges"
+msgstr "%(message)s eszköz csatolása nem lehetséges"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:735
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:736
 msgid "No mount points found"
 msgstr "Nem található csatolási pont"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:805
-#, fuzzy
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:806
 msgid "Target device has opened files"
-msgstr "Az eszközre %(speed)d MB/sec sebességel sikeresen írva."
+msgstr "A cél eszköz megnyitotta a fájlokat"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:833
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:834
 #, python-format
 msgid "Mount %s exists after unmounting"
 msgstr "%s csatolás létezik lecsatolás után"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:864
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:865
 #, python-format
 msgid "Partitioning device %(device)s"
-msgstr "A %(device)s eszköz partícionálása"
+msgstr "A(z) %(device)s eszköz partícionálása"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1008
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1009
 #, python-format
 msgid "Unsupported device '%(device)s', please report a bug."
-msgstr "Nem támogatott eszköz '%(device)s', kérjük jelentse a hibát."
+msgstr "Nem támogatott eszköz '%(device)s', kérjük jelentsen be egy hibát."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1011
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1012
 msgid "Trying to continue anyway."
 msgstr "Próbálja folytatni."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1020
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1021
 msgid "Verifying filesystem..."
 msgstr "Fájlrendszer ellenőrzése…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1043
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1044
 #, python-format
 msgid "Unable to change volume label: %s"
 msgstr "%s meghajtó címkéje nem változtatható meg"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1049
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1050
 msgid "Installing bootloader..."
 msgstr "Bootloader telepítése..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1057
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1058
 #, python-format
 msgid "Removing %(file)s"
 msgstr "%(file)s eltávolítása"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1086
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1087
 msgid "Cloning Persistent Storage..."
-msgstr "Tartós Tároló klónolása..."
+msgstr "Tartós Tároló klónozása..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1169
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1170
 #, python-format
 msgid "%s already bootable"
 msgstr "%s már bootolható"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1190
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1191
 msgid "Unable to find partition"
 msgstr "Nem található partíció"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1212
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1213
 #, python-format
 msgid "Formatting %(device)s as FAT32"
 msgstr "A %(device)s formázása FAT32-re"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1289
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1290
 #, python-format
 msgid "Reading extracted MBR from %s"
 msgstr "Kicsomagolt MBR beolvása innen:%s"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1294
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1295
 #, python-format
 msgid "Could not read the extracted MBR from %(path)s"
 msgstr "Erről a helyről:%(path)s nem olvasható a kicsomagolt MBR"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1308
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1309
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1310
 #, python-format
 msgid "Resetting Master Boot Record of %s"
 msgstr "A %s Master Boot Recordjának alaphelyzetbe állítása"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1313
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1314
 #, python-format
 msgid "Writing random seed to LBA 34 of %s"
-msgstr ""
+msgstr "Random seed írása a(z) %s LBA 34 részébe"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1320
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1321
 msgid "Drive is a loopback, skipping MBR reset"
-msgstr "Az egység egy hurok, az MBR alaphelyzetbe állítás átugrása"
+msgstr "Az lemezegység egy hurok, az MBR alaphelyzetbe állítás átugrása"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1324
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1325
 msgid "Synchronizing data on disk..."
 msgstr "Adat lemezre szinkronizálása..."
 
@@ -1152,6 +1143,9 @@ msgid ""
 "Unable to clone because the target USB stick is being used. Close all open "
 "files on the target USB stick, restart Tails Cloner, and try to clone again."
 msgstr ""
+"Nem lehetséges a klónozás, mert a cél USB tároló használatban van. Zárj be "
+"minden fájlt a cél USB tárolón, indítsd újra a Tails Cloner-t és próbáld "
+"újra a klónozást."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:189
 msgid ""
@@ -1164,7 +1158,7 @@ msgstr ""
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:234
 #, python-format
 msgid "Cloning complete! (%s)"
-msgstr "Klónolás kész! (%s)"
+msgstr "Klónozás kész! (%s)"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:239
 msgid "Tails installation failed!"
@@ -1173,7 +1167,7 @@ msgstr "A Tails telepítése sikertelen!"
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:341
 #: ../config/chroot_local-includes/usr/share/applications/tails-installer.desktop.in.h:1
 msgid "Tails Cloner"
-msgstr "Tails telepítő"
+msgstr "Tails Cloner"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:393
 #: ../config/chroot_local-includes/usr/share/tails-installer/tails-installer.ui.in:164
@@ -1195,7 +1189,7 @@ msgid "Manual Upgrade Instructions"
 msgstr "Kézi frissítés útmutató"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:465
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:723
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:730
 #: ../config/chroot_local-includes/usr/share/tails-installer/tails-installer.ui.in:374
 msgid "Install"
 msgstr "Telepít"
@@ -1228,6 +1222,8 @@ msgid ""
 "Clone the current Persistent Storage\n"
 "Impossible to clone the Persistent Storage because it is locked."
 msgstr ""
+"Az aktuális Tartós tároló klónozása\n"
+"Nem lehetséges a Tartós tároló klónozása, mert zárolt."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:550
 #: ../config/chroot_local-includes/usr/share/tails-installer/tails-installer.ui.in:180
@@ -1240,6 +1236,8 @@ msgid ""
 "Clone the current Persistent Storage\n"
 "You can only choose to reinstall when cloning the Persistent Storage."
 msgstr ""
+"Az aktuális Tartós tár klónozása\n"
+"Csak az újratelepítést választhatod, ha klónozod a Tartós tárolót."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:591
 #, python-format
@@ -1252,53 +1250,55 @@ msgstr ""
 "Tails nem fog elindulni rajta. Kérjük próbálja meg a telepítést egy másik "
 "modellen."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:601
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:600
+#, python-format
+msgid "The device \"%(pretty_name)s\" is read-only."
+msgstr ""
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:608
 #, python-format
 msgid ""
 "The device \"%(pretty_name)s\" is too small to install Tails (at least "
 "%(size)s GB is required)."
 msgstr ""
-"A'z' \"%(pretty_name)s\" eszköz túl kicsi a Tails telepítéséhez (legalább "
+"A(z) \"%(pretty_name)s\" eszköz túl kicsi a Tails telepítéséhez (legalább "
 "%(size)s GB szükséges)."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:616
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:623
 #, python-format
 msgid ""
 "To upgrade device \"%(pretty_name)s\" from this Tails, you need to use a "
 "downloaded Tails ISO image:\n"
 "%(dl_url)s"
 msgstr ""
-"Az eszköz frissítéséhez \"%(pretty_name)s\" ebből a Tailsből, egy letöltött "
+"Az eszköz frissítéséhez \"%(pretty_name)s\" ebből a Tails-ből, egy letöltött "
 "Tails ISO képet kell használnia:\n"
 "%(dl_url)s"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:637
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:644
 #, fuzzy
 msgid "No device suitable to install Tails could be found"
 msgstr "Nem található olyan eszköz amire a Tails telepíthető lenne."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:640
-#, fuzzy, python-format
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:647
+#, python-format
 msgid "Plug in a USB stick of at least %0.1f GB."
-msgstr ""
-"Csatlakoztasson egy USB meghajtót vagy SD kártyát amin legalább ennyi hely "
-"van:%0.1fGB"
+msgstr "Csatlakoztasson egy USB meghajtót, amin legalább %0.1fGB hely van."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:653
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:660
 msgid "An error happened while installing Tails"
 msgstr "Hiba történt a Tails telepítése közben"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:710
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:717
 msgid "Installation complete!"
 msgstr "Telepítés kész!"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:766
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:773
 #, python-format
 msgid "%(parent_size)s %(vendor)s %(model)s device (%(device)s)"
 msgstr "%(parent_size)s%(vendor)s%(model)s eszköz(%(device)s)"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:779
-#, fuzzy
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:786
 msgid ""
 "\n"
 "\n"
@@ -1306,13 +1306,13 @@ msgid ""
 msgstr ""
 "\n"
 "\n"
-"Az USB kulcson lévő állandó tárhely el fog veszni."
+"Az USB tárolón lévő Tartós tároló el fog veszni."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:781
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:788
 msgid "Delete Persistent Storage and Reinstall"
 msgstr "Tartós tár törlése és újratelepítés"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:783
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:790
 msgid ""
 "\n"
 "\n"
@@ -1320,26 +1320,26 @@ msgid ""
 msgstr ""
 "\n"
 "\n"
-"Minden adat erről az USB kulcsról el fog veszni."
+"Minden adat erről az USB tárolóról el fog veszni."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:784
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:791
 msgid "Delete All Data and Install"
 msgstr "Minden adat törlése és telepítés"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:785
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:792
 #, python-format
 msgid "%(description)s%(delete_message)s"
 msgstr "%(description)s%(delete_message)s"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:790
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:797
 msgid "Confirm the target USB stick"
 msgstr "Erősítse meg a cél USB meghajtót"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:820
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:827
 msgid "Unable to mount device"
 msgstr "Nem lehetséges az eszköz csatolása"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:849
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:856
 msgid ""
 "The selected file is unreadable. Please fix its permissions or select "
 "another file."
@@ -1347,7 +1347,7 @@ msgstr ""
 "A kijelölt fájl nem olvasható. Változtassa meg a jogosultságokat vagy "
 "válasszon egy másik fájlt."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:859
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:866
 msgid ""
 "Unable to use the selected file.  You may have better luck if you move your "
 "ISO to the root of your drive (ie: C:\\)"
@@ -1355,7 +1355,7 @@ msgstr ""
 "Nem lehet a kiválasztott fájlt használni. Szerencsésebb lenne az ISO fájlt a "
 "meghajtó gyökerébe mozgatni (pl: C:\\)"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:868
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:875
 #, python-format
 msgid "%(filename)s selected"
 msgstr "%(filename)s kiválasztva"
@@ -1396,13 +1396,12 @@ msgid "Skipping \"%(filename)s\""
 msgstr "\"%(filename)s\" kihagyása"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/utils.py:63
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "There was a problem executing `%(cmd)s`.%(out)s\n"
 "%(err)s"
 msgstr ""
-"Probléma lépett fel `%(cmd)s` végrehajtása közben\n"
-"%(out)s\n"
+"Probléma lépett fel `%(cmd)s` végrehajtása közben. %(out)s\n"
 "%(err)s"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/utils.py:144
@@ -1436,24 +1435,23 @@ msgstr "Az su tiltott. Használjon sudo-t helyette."
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:3
 msgid "Error Reading Data from Tails USB Stick"
-msgstr ""
+msgstr "Hiba a Tails USB tároló adatainak olvasásakor"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:4
 msgid "The hardware of your USB stick is probably failing."
-msgstr ""
+msgstr "Az USB tárolód hardvere valószínűleg hibás."
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:5
 msgid "We recommend that you reinstall Tails on a different USB stick."
-msgstr ""
+msgstr "Javasoljuk, hogy telepítse újra a Tails-t egy másik USB tárolóra."
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:7
-#, fuzzy
 msgid ""
 "We recommend that you reinstall Tails on a different USB stick\n"
 "and recover the data from your Persistent Storage as soon as possible."
 msgstr ""
-"Hogy így tehessen, telepítse a Tail-st egy USB pendrive-ra és hozzon létre "
-"tartós tárolót."
+"Hogy így tehessen, telepítse a Tails-t egy USB tárolóra és hozzon létre "
+"rajta Tartós tárolót."
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:10
 msgid "Dismiss"
@@ -1481,9 +1479,8 @@ msgid ""
 msgstr ""
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:33
-#, fuzzy
 msgid "Open Tails Cloner"
-msgstr "Tails telepítő"
+msgstr "A Tails klónozó megnyitása"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:42
 #, fuzzy
@@ -1560,7 +1557,7 @@ msgstr "Hiba frissítések ellenőrzése közben"
 
 #: config/chroot_local-includes/usr/local/bin/tails-about:57
 msgid "UNRELEASED"
-msgstr ""
+msgstr "KIADATLAN"
 
 #: config/chroot_local-includes/usr/local/bin/tails-about:64
 #, python-format
@@ -1652,7 +1649,7 @@ msgstr "Az óra szinkronizálása nem sikerült!"
 
 #: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:26
 msgid "Insufficient Memory Detected"
-msgstr ""
+msgstr "Túl kevés memória érzékelve"
 
 #: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:28
 #, python-brace-format
@@ -1661,6 +1658,9 @@ msgid ""
 "{installed_ram_gb} GB. You might experience reduced performance, "
 "instability, or crashes."
 msgstr ""
+"A Tails-nek {required_ram_gb} GB RAM szükséges, de ebben a számítógépben "
+"csak {installed_ram_gb} GB memória található. Elképzelhető, hogy csökken a "
+"teljesítmény, instabilitás, vagy összeomlás jelentkezik."
 
 #: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:41
 #: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:42
@@ -1701,7 +1701,7 @@ msgstr "Ismert biztonsági problémák"
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:60
 #, sh-format
 msgid "Wi-Fi Interface Disabled"
-msgstr ""
+msgstr "Wi-Fi interfész letiltva"
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:61
 #, sh-format
@@ -1709,11 +1709,13 @@ msgid ""
 "MAC address anonymization failed for one of your Wi-Fi interfaces, so it is "
 "temporarily disabled."
 msgstr ""
+"A MAC cím anonimizálás sikertelen valamelyik Wi-Fi interfészed felé, így "
+"átmenetileg letiltásra került."
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:64
-#, fuzzy, sh-format
+#, sh-format
 msgid "Wi-Fi Disabled"
-msgstr "Kikapcsol"
+msgstr "Wi-Fi tiltva"
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:65
 #, sh-format
@@ -1721,11 +1723,13 @@ msgid ""
 "MAC address anonymization failed for your Wi-Fi interface, so it is "
 "temporarily disabled."
 msgstr ""
+"A MAC cím anonimizálás sikertelen a Wi-Fi interfész felé, így átmenetileg "
+"letiltásra került."
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:67
 #, sh-format
 msgid "Wired Interface Disabled"
-msgstr ""
+msgstr "Vezetékes interfész letiltva"
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:68
 #, sh-format
@@ -1733,11 +1737,13 @@ msgid ""
 "MAC address anonymization failed for one of your wired interfaces, so it is "
 "temporarily disabled."
 msgstr ""
+"A MAC cím anonimizálás sikertelen egy vezetékes interfész felé, így "
+"átmenetileg letiltásra került."
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:71
-#, fuzzy, sh-format
+#, sh-format
 msgid "Wired Network Disabled"
-msgstr "Minden hálózat letiltva"
+msgstr "Vezetékes hálózat letiltva"
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:72
 #, sh-format
@@ -1745,11 +1751,13 @@ msgid ""
 "MAC address anonymization failed for your wired interface, so it is "
 "temporarily disabled."
 msgstr ""
+"A MAC cím anonimizálás sikertelen a vezetékes interfész felé, így "
+"átmenetileg letiltásra került."
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:74
-#, fuzzy, sh-format
+#, sh-format
 msgid "Network Interface Disabled"
-msgstr "Hálózati kártya ${nic} letiltva"
+msgstr "Hálózati kártya letiltva"
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:75
 #, sh-format
@@ -1757,6 +1765,8 @@ msgid ""
 "MAC address anonymization failed for one of your network interfaces, so it "
 "is temporarily disabled."
 msgstr ""
+"A MAC cím anonimizálás sikertelen valamelyik hálózati interfészed felé, így "
+"átmenetileg letiltásra került."
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:87
 #, fuzzy
@@ -1764,24 +1774,22 @@ msgid "All Networking Disabled"
 msgstr "Minden hálózat letiltva"
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:89
-#, fuzzy, sh-format
+#, sh-format
 msgid ""
 "MAC address anonymization failed for one of your network interfaces. The "
 "error recovery also failed, so all networking is disabled."
 msgstr ""
-"A MAC cím anonimizálás a(z) ${nic_name} (${nic}) hálózati kártyán sikertelen "
-"volt. A hibaelhárítás is sikertelen volt, így a hálózat lett tiltva.\n"
-"Újraindíthatja a Tails-t és letilthatja a MAC cím anonimizálást."
+"A MAC cím anonimizálás valamelyik hálózati kártyán sikertelen volt. A "
+"hibaelhárítás is sikertelen volt, így a hálózat le lett tiltva."
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:92
-#, fuzzy, sh-format
+#, sh-format
 msgid ""
 "MAC address anonymization failed for your network interface. The error "
 "recovery also failed, so all networking is disabled."
 msgstr ""
-"A MAC cím anonimizálás a(z) ${nic_name} (${nic}) hálózati kártyán sikertelen "
-"volt. A hibaelhárítás is sikertelen volt, így a hálózat lett tiltva.\n"
-"Újraindíthatja a Tails-t és letilthatja a MAC cím anonimizálást."
+"A MAC cím anonimizálás a hálózati kártyán sikertelen volt. A hibaelhárítás "
+"is sikertelen volt, így a hálózat lett tiltva."
 
 #: config/chroot_local-includes/usr/local/bin/tails-upgrade-frontend-wrapper:37
 #, fuzzy, python-brace-format
@@ -1876,23 +1884,26 @@ msgstr "obfs4 hidat kell használnia, hogy elrejtse a Tor használatát"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:354
 msgid "Failed to configure your Persistent Storage"
-msgstr "Tartós Tár beállítása sikertelen"
+msgstr "Tartós tároló beállítása sikertelen"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:406
 msgid "Failed to detect a webcam. Maybe your webcam is too old."
-msgstr ""
+msgstr "Sikertelen a webkamera észlelése. Lehet a webkamera túl régi."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:417
 msgid "Failed to scan QR code. Try with more light or closer to the camera."
 msgstr ""
+"Sikertelen a QR kód olvasása. Próbáld meg több fénynél vagy közelebb a "
+"kamerához."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:428
 msgid "Invalid QR code. Try sending another email and scanning again."
 msgstr ""
+"Érvénytelen QR kód. Próbálj meg küldeni egy másik emailt és olvasd le újra."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:486
 msgid "Synchronizing the system's clock…"
-msgstr ""
+msgstr "A rendszeróra szinkronizálása…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:538
 msgid "Connecting to Tor without bridges…"
@@ -1909,7 +1920,7 @@ msgstr "Csatlakozás a Tor-hoz egyedi híddal…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:660
 msgid "Connected to Tor successfully with bridges"
-msgstr ""
+msgstr "Sikeresen csatlakozva a Tor-hoz hidakkal"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:662
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2041
@@ -1996,7 +2007,7 @@ msgstr "Tor kapcsolatok megnyitása"
 msgid "View Tor Circuits"
 msgstr "Tor áramkörök megtekintése"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:348
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:353
 #, python-brace-format
 msgid ""
 "Only {available_memory} KiB of memory is available, need at least "
@@ -2005,37 +2016,37 @@ msgid ""
 "Try again after closing some applications or rebooting."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:362
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:367
 #, fuzzy
 msgid "Creating a partition for the Persistent Storage..."
 msgstr "Hozzáférési jogosultságok javítása a tartós köteten."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:384
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:389
 msgid ""
 "Initializing the LUKS encryption... The computer might stop responding for a "
 "few seconds."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:415
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:420
 msgid "Unlocking the encryption..."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:423
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:428
 #, fuzzy
 msgid "Formatting the file system..."
 msgstr "Fájlrendszer ellenőrzése…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:441
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:446
 #, fuzzy
 msgid "Activating the Persistent Storage..."
 msgstr "Tartós tároló létrehozása"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:446
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:451
 #, fuzzy
 msgid "Finishing setting up the Persistent Storage..."
 msgstr "Tartós tároló létrehozása"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:699
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:704
 msgid ""
 "Can't unmount Persistent Storage, some process is still using it. Please "
 "close all applications that could be accessing it and try again. If that "
@@ -2043,7 +2054,7 @@ msgid ""
 "unlocking it."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:732
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:737
 msgid ""
 "Not enough memory to change the passphrase of the Persistent Storage. Try "
 "again after closing some applications or rebooting."
@@ -2073,9 +2084,8 @@ msgid "Could not find the WhisperBack application"
 msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:94
-#, fuzzy
 msgid "Delete Data…"
-msgstr "Törlés"
+msgstr "Adattörlés…"
 
 #. Translators: Don't translate {feature}, it's a placeholder
 #. and will be replaced.
@@ -2180,9 +2190,8 @@ msgstr ""
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/change_passphrase_dialog.py:37
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:8
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:56
-#, fuzzy
 msgid "Change Passphrase"
-msgstr "Jelmondat megjelenítése"
+msgstr "Jelszómódosítás"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/change_passphrase_dialog.py:92
 #, fuzzy
@@ -2191,13 +2200,12 @@ msgstr "A jelszavak nem egyeznek"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/change_passphrase_dialog.py:103
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/change_passphrase_dialog.py:113
-#, fuzzy
 msgid "Changing the passphrase failed"
-msgstr "Jelmondat megjelenítése"
+msgstr "A jelszó módosítása sikertelen"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/change_passphrase_dialog.py:114
 msgid "An error occurred while changing the passphrase."
-msgstr ""
+msgstr "Hiba történt a jelszó módosításakor."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/passphrase_strength_hint.py:44
 msgid "Weak"
@@ -2205,7 +2213,7 @@ msgstr "Gyenge"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/passphrase_strength_hint.py:47
 msgid "Fair"
-msgstr "Türhetőnek"
+msgstr "Türhető"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/passphrase_strength_hint.py:50
 msgid "Good"
@@ -2274,9 +2282,8 @@ msgid "_Delete Persistent Storage"
 msgstr "Tartós tároló létrehozása"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:202
-#, fuzzy
 msgid "Deleting your Persistent Storage..."
-msgstr "Tartós tároló létrehozása"
+msgstr "A Tartós tárolód törlése..."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:221
 msgid "_OK"
@@ -2292,30 +2299,25 @@ msgid "Please wait"
 msgstr "Kérlek várj"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:261
-#, fuzzy
 msgid "Not enough memory to create Persistent Storage"
-msgstr "Tartós tároló létrehozása"
+msgstr "Nincs elég memória a Tartós tároló létrehozásához"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:268
-#, fuzzy
 msgid "Failed to create Persistent Storage"
-msgstr "Tartós Tár beállítása sikertelen"
+msgstr "Tartós tároló létrehozása sikertelen"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:269
-#, fuzzy
 msgid "An error occurred while creating the Persistent Storage."
-msgstr "Titkosított _Tartós tár"
+msgstr "Hiba a Tartós tároló létrehozásakor."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:289
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:296
-#, fuzzy
 msgid "Error deleting Persistent Storage"
-msgstr "Titkosított _Tartós tár"
+msgstr "Hiba a Tartós tároló törlésekor"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:297
-#, fuzzy
 msgid "An error occurred while deleting the Persistent Storage."
-msgstr "Titkosított _Tartós tár"
+msgstr "Hiba történt a Tartós tároló törlésekor."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:334
 msgid "Details (command output)"
@@ -2493,7 +2495,7 @@ msgstr "Válasszon fájl konténert"
 
 #: config/chroot_local-includes/usr/local/sbin/unsafe-browser:47
 msgid "The Unsafe Browser was disabled in the Welcome Screen.\\n\\n"
-msgstr ""
+msgstr "Az Unsafe Browser tiltott a kezdőképernyőn.\\n\\n"
 
 #: config/chroot_local-includes/usr/local/sbin/unsafe-browser:50
 msgid ""
@@ -2587,44 +2589,44 @@ msgstr "Email küldése"
 msgid "This could take a while..."
 msgstr "Ez egy kis időt vehet igénybe..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:197
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:199
 msgid "The contact email address doesn't seem valid."
 msgstr "A kontakt email cím nem tűnik érvényesnek."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:218
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:220
 msgid "Unable to send the mail: SMTP error."
 msgstr "Sikertelen email küldés: SMTP hiba."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:220
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:222
 msgid "Unable to connect to the server."
 msgstr "Nem lehetséges a kapcsolódás a szerverhez."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:222
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:224
 #, fuzzy
 msgid "Tor is not ready yet"
 msgstr "A Tor még nem áll készen a működésre"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:224
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:226
 msgid "Unable to create or to send the mail."
 msgstr "Az email létrehozása vagy küldése sikertelen."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:229
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:231
 msgid ""
 "\n"
 "\n"
 "Make sure that you are connected to Tor and click send again."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:239
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:241
 msgid "Your message has been sent."
 msgstr "Az üzenete elküldésre került."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:248
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:250
 #, fuzzy
 msgid "An error occurred during encryption."
 msgstr "Hiba történt a titkosítás során."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:317
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:319
 msgid "This doesn't seem to be a valid URL or OpenPGP key."
 msgstr "Nem tűnik érvényes URL-nek, vagy OpenPGP kulcsnak."
 
@@ -2693,9 +2695,8 @@ msgid "Learn more about Tails"
 msgstr "Tudjon meg többet a Tails-ről"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-backup.desktop.in.h:1
-#, fuzzy
 msgid "Back Up Persistent Storage"
-msgstr "Tartós tároló létrehozása"
+msgstr "Tartós tároló mentése"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-backup.desktop.in.h:2
 msgid ""
@@ -2755,22 +2756,20 @@ msgid "Mount VeraCrypt encrypted file containers and devices"
 msgstr "Veracrypt titkosított fájl konténer és eszköz csatolása"
 
 #: ../config/chroot_local-includes/usr/share/applications/unlock-veracrypt-volumes.desktop.in.h:3
-msgid "mount;encrypted;container;truecryt"
+msgid "mount;encrypted;container;truecrypt"
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop.in.h:2
-#, fuzzy
 msgid ""
 "Configure the additional software installed from your Persistent Storage "
 "when starting Tails"
 msgstr ""
-"Konfigurálja a további szoftvereit, amit a tartós tárolójáról telepít, "
+"Konfigurálja a további szoftvereit, amit a Tartós tárolójáról telepít, "
 "amikor elindul a Tails"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop.in.h:3
-#, fuzzy
 msgid "persistent;storage;package;install"
-msgstr "Tartós tár törlése és újratelepítés"
+msgstr "tartós;tároló;csomag;telepítés"
 
 #: ../config/chroot_local-includes/usr/share/applications/whisperback.desktop.in.h:1
 msgid "WhisperBack Error Reporting"
@@ -2902,9 +2901,8 @@ msgid "Disable the Unsafe Browser"
 msgstr "Az Unsafe Browser engedélyezése"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:46
-#, fuzzy
 msgid "Settings were loaded from the Persistent Storage."
-msgstr "A beállítások betöltésre kerültek a tartós tárolóból."
+msgstr "A beállítások betöltésre kerültek a Tartós tárolóból."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:98
 msgid "Welcome to Tails!"
@@ -2912,7 +2910,7 @@ msgstr "Köszöntjük a Tails-ben!"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:131
 msgid "Language and Formats"
-msgstr ""
+msgstr "Nyelvek és formátumok"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:167
 msgid "Default Settings"
@@ -2920,9 +2918,8 @@ msgstr "Alapbeállítások"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:225
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:337
-#, fuzzy
 msgid "_Persistent Storage"
-msgstr "Tartós tároló létrehozása"
+msgstr "_Tartós tároló"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:245
 msgid ""
@@ -2932,28 +2929,25 @@ msgid ""
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:272
-#, fuzzy
 msgid "Create and configure a Persistent Storage after starting Tails"
 msgstr ""
-"Automatikus telepítéshez, a  tartós tárolójából, amikor elindítja a Tails-t."
+"Hozzon létre és állítson be egy Tartós tárolót a Tails indítását követően"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:364
 msgid "Show Passphrase"
-msgstr "Jelmondat megjelenítése"
+msgstr "Jelszó megjelenítése"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:421
-#, fuzzy
 msgid "Enter your passphrase"
-msgstr "Jelszó ellenőrzése:"
+msgstr "Adja meg jelszavát"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:436
 msgid "Unlock Encryption"
 msgstr "Titkosítás feloldása"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:503
-#, fuzzy
 msgid "Impossible to unlock the Persistent Storage."
-msgstr "Tartós Tár beállítása sikertelen"
+msgstr "A Tartós tároló feloldása nem lehetséges."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:563
 #, fuzzy
@@ -2996,39 +2990,34 @@ msgid "Network Configuration"
 msgstr "Hálózati konfiguráció"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:95
-#, fuzzy
 msgid "Current _Passphrase"
-msgstr "Jelszó:"
+msgstr "Aktuális _jelszó"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:131
-#, fuzzy
 msgid "_New Passphrase"
-msgstr "Jelmondat megjelenítése"
+msgstr "_Új jelszó"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:179
-#, fuzzy
 msgid "_Confirm New Passphrase"
-msgstr "Jelmondat megjelenítése"
+msgstr "Új jelszó _megerősítése"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:215
-#, fuzzy
 msgid "_Show Passphrases"
-msgstr "Jelmondat megjelenítése"
+msgstr "Jelszó meg_jelenítése"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:253
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:301
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:161
 msgid "The passphrases do not match"
-msgstr "A jelmondatok nem egyeznek"
+msgstr "A jelszavak nem egyeznek"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:317
 msgid "Ch_ange"
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/deleted_view.ui.in:21
-#, fuzzy
 msgid "The Persistent Storage was successfully deleted."
-msgstr "Tartós tár törlése és újratelepítés"
+msgstr "A Tartós tároló sikeresen törölve."
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/deleted_view.ui.in:32
 msgid "_Close"
@@ -3247,13 +3236,11 @@ msgid ""
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:825
-#, fuzzy
 msgid ""
 "<a href=\"doc/persistent_storage\">Learn more about the Persistent Storage.</"
 "a>"
 msgstr ""
-"A híd elmentéséhez <a href=\"doc/first_steps/persistence\">oldja fel a "
-"Tartós Tárat</a>."
+"<a href=\"doc/persistent_storage\">Tudj meg többet a Tartós tárolóról.</a>"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/locked_view.ui.in:52
 msgid ""
@@ -3287,15 +3274,13 @@ msgstr "Jelszó:"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:205
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:65
-#, fuzzy
 msgid "Confirm:"
-msgstr "Megerősít"
+msgstr "Megerősítés:"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:325
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:185
-#, fuzzy
 msgid "_Show Passphrase"
-msgstr "Jelmondat megjelenítése"
+msgstr "Jelszó meg_jelenítése"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:375
 #, fuzzy
@@ -3337,14 +3322,12 @@ msgid "Co_ntinue"
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:29
-#, fuzzy
 msgid "_Delete…"
-msgstr "Törlés"
+msgstr "_Törlés…"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:49
-#, fuzzy
 msgid "_Change Passphrase…"
-msgstr "Jelmondat megjelenítése"
+msgstr "Jelszó _módosítása…"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:66
 #, fuzzy
@@ -3392,14 +3375,12 @@ msgid "Detach this volume"
 msgstr "Kötet leválasztása"
 
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:8
-#, fuzzy
 msgid "Choose Passphrase"
-msgstr "Jelmondat megjelenítése"
+msgstr "Jelszó választása"
 
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:30
-#, fuzzy
 msgid "Choose the passphrase for the cloned Persistent Storage."
-msgstr "Válassz jelszót a tartós kötet védelméhez."
+msgstr "Válassz jelszót a klónozott Tartós tárolóhoz."
 
 #: ../config/chroot_local-includes/usr/share/tails-installer/tails-installer.ui.in:281
 msgid "Target USB stick:"
@@ -3456,9 +3437,8 @@ msgid ""
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/whisperback/whisperback.ui.in:480
-#, fuzzy
 msgid "Optional PGP Key…"
-msgstr "opcionális PGP kulcs"
+msgstr "Opcionális PGP kulcs…"
 
 #: ../config/chroot_local-includes/usr/share/whisperback/whisperback.ui.in:505
 #, fuzzy
@@ -3506,7 +3486,6 @@ msgid "Configure a Tor bridge"
 msgstr "Tor híd konfigurálása"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:106
-#, fuzzy
 msgid ""
 "Bridges are secret Tor relays. Use a bridge as your first Tor relay if "
 "accessing Tor is blocked from where you are.\n"
@@ -3514,7 +3493,9 @@ msgid ""
 "You can use <i>obfs4</i> and <i>WebTunnel</i> bridges in Tails.\n"
 msgstr ""
 "A hidak titkos Tor relék. Használjon egy hidat az első Tor reléjének, ha a "
-"Tor-hoz hozzáférés blokkolt onnan, ahol Ön van."
+"Tor-hoz hozzáférés blokkolt onnan, ahol Ön van\n"
+"\n"
+"Használhat <i>obfs4</i> és <i>WebTunnel</i> hidakat a Tails-ben.\n"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:126
 msgid "<a href=\"doc/anonymous_internet/tor\">Learn more about Tor bridges</a>"
@@ -3544,17 +3525,14 @@ msgid "_Ask for a Tor bridge by email"
 msgstr "• Híd emailen keresztül"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:263
-#, fuzzy
 msgid ""
 "Send an empty email to <tt>bridges@torproject.org</tt> from a Gmail or "
 "Riseup email address with your phone and scan the QR code that is attached "
 "to the automatic reply."
 msgstr ""
-"Híd kéréséhez küldhet egy üres emailt a\n"
-"<tt>bridges@torproject.org</tt> címre Gmail vagy Riseup email címről.\n"
-"\n"
-"Például elküldheti az emailt telefonjáról, majd Tails-be begépelheti a híd "
-"adatait.\n"
+"Küldjön egy üres emailt a <tt>bridges@torproject.org</tt> címre Gmail vagy "
+"Riseup email címről a telefonjáról, majd olvassa le a QR kódot ami az "
+"automatikus válaszhoz csatolt."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:276
 msgid "Scan _QR code"
@@ -3576,11 +3554,11 @@ msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:489
 msgid "Save bridge to _Persistent Storage"
-msgstr "Híd mentése a _Tartós Tárba"
+msgstr "Híd mentése a _Tartós tárolóba"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:514
 msgid "Save bridge to Persistent Storage"
-msgstr "Híd mentése a Tartós Tárba"
+msgstr "Híd mentése a Tartós tárolóba"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:654
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1162
@@ -3655,17 +3633,14 @@ msgstr ""
 "Tails automatikusan felismeri, hogy szüksége van-e hidakra a helyi hálózatán."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:995
-#, fuzzy
 msgid ""
 "To get a bridge, send an empty email to <tt>bridges@torproject.org</tt> from "
 "a Gmail or Riseup email address with your phone and scan the QR code that is "
 "attached to the automatic reply."
 msgstr ""
-"Híd kéréséhez küldhet egy üres emailt a\n"
-"<tt>bridges@torproject.org</tt> címre Gmail vagy Riseup email címről.\n"
-"\n"
-"Például elküldheti az emailt telefonjáról, majd Tails-be begépelheti a híd "
-"adatait.\n"
+"Híd kéréséhez küldjön egy üres emailt a <tt>bridges@torproject.org</tt> "
+"címre Gmail vagy Riseup email címről a telefonjáról és olvassa le a QR kódot "
+"ami az automatikus válaszhoz lett csatolva."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1018
 msgid "Scan QR Code"
@@ -3789,7 +3764,7 @@ msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1638
 msgid "No Wi-Fi hardware detected"
-msgstr ""
+msgstr "Nem észlelhető Wi-Fi hardver"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1656
 msgid ""
@@ -3807,7 +3782,6 @@ msgid ""
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1680
-#, fuzzy
 msgid ""
 "\n"
 "<a href=\"doc/anonymous_internet/no-wifi\">\n"
@@ -3815,22 +3789,23 @@ msgid ""
 "</a>\n"
 "                "
 msgstr ""
-"<a href=\"doc/anonymous_internet/tor\">Tudjon meg többet arról, hogyan "
-"csatlakozik a Tails a Tor-hoz</a>"
+"\n"
+"<a href=\"doc/anonymous_internet/no-wifi\">\n"
+"Tudjon meg többet a Wi-Fi nem működik probléma hibaelhárításáról.\n"
+"</a>\n"
+"                "
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1708
 msgid "Connect to a local network"
 msgstr "Csatlakozás a helyi hálózathoz"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1725
-#, fuzzy
 msgid ""
 "You are not connected to a local network yet. To be able to connect to the "
 "Tor network, you first need to connect to a Wi-Fi, wired, or mobile network."
 msgstr ""
-"Még nincs csatlakozva egy helyi hálózathoz.\\n\\nAz Unsafe Browser "
-"indításához először csatlakoznia kell egy Wi-Fi, vezetékes vagy mobil "
-"hálózathoz."
+"Még nincs csatlakozva egy helyi hálózathoz. A Tor hálózathoz csatlakozáshoz "
+"először csatlakoznia kell egy Wi-Fi, vezetékes vagy mobil hálózathoz."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1739
 #, fuzzy
@@ -3997,6 +3972,8 @@ msgid "Clock"
 msgstr "Óra"
 
 #, fuzzy
+#~| msgid ""
+#~| "Opens a terminal as the root user, using gksu to ask for the password"
 #~ msgid "Opens a console as the root user"
 #~ msgstr ""
 #~ "Indít egy terminált root felhasználóként, a gsku-val kérve a jelszót"

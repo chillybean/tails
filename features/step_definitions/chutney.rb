@@ -73,6 +73,7 @@ end
 
 def wait_until_chutney_is_working
   assert_not_nil($chutney_bootstraping)
+  chutney_status_log('wait_for_bootstrap')
   $chutney_bootstraping.lock
   raise $chutney_bootstrap_failure unless $chutney_bootstrap_failure.nil?
 ensure

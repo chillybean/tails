@@ -184,6 +184,8 @@ class WhisperBackUI:
             )
         message_text = ""
         for title, part in zip(titles, parts, strict=True):
+            if not part.strip():
+                continue
             message_text += title + "\n" + "-" * len(title) + "\n\n"
             message_text += f"{part}\n\n"
         message_text += "\n\n\n"

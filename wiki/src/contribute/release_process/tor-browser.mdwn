@@ -178,6 +178,73 @@ Finally:
 
 3. [[Update the Tor Browser Flatpak metadata|tor-browser#update-flatpak-metadata]]
 
+Refresh custom about:tor patches
+================================
+
+<a id="rebase-about-tor-branch"></a>
+
+## Rebase tor-browser.git branch
+
+First, let's set some inputs in the environment:
+
+    TAILS_GIT_REPO=/path/to/your/tails.git
+    # If you don't have a local checkout of tor-browser.git, see below
+    TOR_BROWSER_GIT_REPO=/path/to/your/tor-browser.git
+    # Set TAILS_VERSION to the version of Tails this Tor Browser release will
+    # end up in
+    TAILS_VERSION=7.2
+    # Set TAG to the name of the tag for the Tor Browser release you want to
+    # refresh the patches against
+    TAG=tor-browser-140.5.0esr-15.0-1-build2
+
+As an initial setup that you only have to do once, get yourself a
+local checkout of `tor-browser.git`, add intrigeri's remote, and get a
+checkout of the development branch for the about:tor patches:
+
+    (
+    set -eu
+    git clone git@gitlab.torproject.org:tpo/applications/tor-browser.git
+    cd tor-browser
+    TOR_BROWSER_GIT_REPO=$(pwd)
+    git remote add intrigeri git@gitlab.torproject.org:intrigeri/tor-browser.git
+    git fetch intrigeri
+    git checkout -b 44201-allow-tails-to-customize-about-tor-esr128 \
+        intrigeri/44201-allow-tails-to-customize-about-tor-esr128
+    )
+
+Make `tor-browser.git` your working directory:
+
+    cd "${TOR_BROWSER_GIT_REPO:?}"
+
+Make sure we're up-to-date:
+
+    (
+    set -eu
+    git fetch origin
+    git fetch intrigeri
+    git checkout 44201-allow-tails-to-customize-about-tor-esr128
+    git reset --hard intrigeri/44201-allow-tails-to-customize-about-tor-esr128
+    )
+
+Rebase and resolve conflicts:
+
+    git rebase --onto="${TAG:?}" "$(git describe --tags --abbrev=0)"
+
+Bump Tails version number:
+
+    "${TAILS_GIT_REPO:?}"/bin/bump-tails-version-in-about-tor "${TAILS_VERSION:?}"
+
+Push updated branch:
+
+    git push -f intrigeri HEAD
+
+## Generate patches for tails.git
+
+Generate refreshed patches:
+
+    cd "${TAILS_GIT_REPO:?}"
+    bin/generate-about-tor-patches "${TOR_BROWSER_GIT_REPO:?}" "${TAG:?}"
+
 <a id="sync-wrapper-scripts">
 
 Sync with the upstream wrapper scripts

@@ -3,7 +3,7 @@
 set -e
 set -u
 
-IGNORED_TAGS=""
+IGNORED_TAGS="7.3"
 
 major_version() {
     local version="$1"
@@ -27,8 +27,14 @@ member() {
 RELEASING_VERSION="$1"
 RELEASING_MAJOR_VERSION=$(major_version "$RELEASING_VERSION")
 
+tags() {
+    # While a simple "git tag" might seem equally effective, it will misbehave
+    # if you have third-party remotes that have tags. See tails#21295
+    git ls-remote --tags origin | grep --perl-regexp --only-matching '\trefs/tags/\K[0-9][^^]*$'
+}
+
 (
-    git tag | while read -r tag; do
+    tags | while read -r tag; do
         # shellcheck disable=SC2086
         if member "$tag" $IGNORED_TAGS; then
             continue

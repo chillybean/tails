@@ -1384,10 +1384,9 @@ Then /^the Upgrader considers the system as up-to-date$/ do
       'systemctl --user status tails-upgrade-frontend.service',
       user: LIVE_USER
     )
-    up_to_date_regexp = 'tails-upgrade-frontend-wrapper\[[0-9]+\]: ' \
-                        'The system is up-to-date'
-    $vm.execute_successfully(
-      "journalctl | grep -q -E '#{up_to_date_regexp}'"
+    systemd_journal_includes?(
+      'The system is up-to-date',
+      matches: ['SYSLOG_IDENTIFIER=tails-upgrade-frontend-wrapper']
     )
   end
 end
@@ -1813,9 +1812,10 @@ Given(/^the Persistent Storage filesystem is corrupted beyond what e2fsck can re
 end
 
 Then(/^the filesystem of the Persistent Storage was repaired$/) do
-  $vm.execute_successfully(
-    'journalctl -u tails-persistent-storage.service | ' \
-      'grep -q "e2fsck corrected file system errors"'
+  systemd_journal_includes?(
+    'e2fsck corrected file system errors',
+    regexp:  true,
+    options: ['--unit=tails-persistent-storage.service']
   )
 end
 

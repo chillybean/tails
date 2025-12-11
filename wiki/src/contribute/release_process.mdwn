@@ -411,6 +411,11 @@ Upgrade Tor Browser
 
 If you did not import the new Tor Browser yet, [[do so now|tor-browser]].
 
+In any case, ensure that the about:tor patches reference the
+to-be-released version of Tails:
+
+    bin/bump-tails-version-in-about-tor "${VERSION:?}"
+
 Update PO files
 ---------------
 
