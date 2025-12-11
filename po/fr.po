@@ -50,7 +50,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-12 11:13+0100\n"
+"POT-Creation-Date: 2025-12-10 11:42+0100\n"
 "PO-Revision-Date: 2025-10-16 07:10+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/tor/tails-gui/fr/"
@@ -167,7 +167,7 @@ msgstr "Supprimer"
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:178
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:483
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:836
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:737
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:744
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:128
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:376
 msgid "Cancel"
@@ -1040,21 +1040,21 @@ msgstr "_Formats"
 msgid "_Keyboard Layout"
 msgstr "Disposition du _clavier"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:321
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:322
 #, python-format
 msgid "Unable to write on %(device)s, skipping."
 msgstr "Impossible d’écrire sur %(device)s, passage à l’étape suivante."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:370
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:371
 #, python-format
 msgid "Wrote to device at %(speed)d MB/s"
 msgstr "Écriture sur le périphérique effectuée à %(speed)d Mo/s"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:382
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:383
 msgid "Extracting live image to the target device..."
 msgstr "Extraction de l’image live vers le périphérique cible…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:477
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:478
 #, python-format
 msgid ""
 "There was a problem executing the following command: `%(command)s`.\n"
@@ -1065,7 +1065,7 @@ msgstr ""
 "Un journal d’erreurs plus détaillé a été écrit dans le fichier "
 "`%(filename)s`."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:496
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:497
 #, python-format
 msgid ""
 "Not enough free space on device.\n"
@@ -1075,159 +1075,159 @@ msgstr ""
 "ISO de %(iso_size)d Mo + %(overlay_size)d Mo réservé pour la persistance > "
 "%(free_space)d Mo d’espace libre"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:509
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:510
 #, python-format
 msgid "Creating %sMB persistent overlay"
 msgstr "Création de l’espace réservé pour la persistance de %s Mo"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:575
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:576
 #, python-format
 msgid "Unable to copy %(infile)s to %(outfile)s: %(message)s"
 msgstr "Impossible de copier %(infile)s vers %(outfile)s : %(message)s"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:588
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:589
 msgid "Removing existing Tails system"
 msgstr "Suppression du système Tails existant"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:599
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:600
 #, python-format
 msgid "Unable to remove file from previous Tails system: %(message)s"
 msgstr ""
 "Impossible de supprimer le fichier du système Tails précédent : %(message)s"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:609
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:610
 #, python-format
 msgid "Unable to chmod %(file)s: %(message)s"
 msgstr "Impossible de changer les droits (chmod) de %(file)s : %(message)s"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:617
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:618
 #, python-format
 msgid "Unable to remove directory from previous Tails system: %(message)s"
 msgstr ""
 "Impossible de supprimer le répertoire du système Tails précédent : "
 "%(message)s"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:668
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:669
 #, python-format
 msgid "Cannot find device %s"
 msgstr "Le périphérique %s est introuvable"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:704
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1024
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:705
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1025
 msgid "Unknown filesystem.  Your device may need to be reformatted."
 msgstr ""
 "Le système de fichiers est inconnu. Votre périphérique doit peut-être être "
 "reformaté."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:707
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1027
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:708
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1028
 #, python-format
 msgid "Unsupported filesystem: %s"
 msgstr "Système de fichiers non pris en charge : %s"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:723
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:724
 #, python-format
 msgid "Unknown GLib exception while trying to mount device: %(message)s"
 msgstr ""
 "Exception GLib inconnue lors de la tentative de montage du périphérique : "
 "%(message)s"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:730
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:731
 #, python-format
 msgid "Unable to mount device: %(message)s"
 msgstr "Impossible de monter le périphérique : %(message)s"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:735
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:736
 msgid "No mount points found"
 msgstr "Aucun point de montage n’a été trouvé"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:805
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:806
 msgid "Target device has opened files"
 msgstr "Le périphérique cible a des fichiers ouverts"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:833
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:834
 #, python-format
 msgid "Mount %s exists after unmounting"
 msgstr "Le montage %s existe après démontage"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:864
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:865
 #, python-format
 msgid "Partitioning device %(device)s"
 msgstr "Partitionnement du périphérique %(device)s"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1008
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1009
 #, python-format
 msgid "Unsupported device '%(device)s', please report a bug."
 msgstr ""
 "Périphérique « %(device)s » non pris en charge, veuillez signaler le bogue."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1011
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1012
 msgid "Trying to continue anyway."
 msgstr "Nous tentons de poursuivre quand même."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1020
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1021
 msgid "Verifying filesystem..."
 msgstr "Vérification du système de fichiers…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1043
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1044
 #, python-format
 msgid "Unable to change volume label: %s"
 msgstr "Impossible de modifier l'étiquette du volume : %s"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1049
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1050
 msgid "Installing bootloader..."
 msgstr "Installation du chargeur de démarrage…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1057
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1058
 #, python-format
 msgid "Removing %(file)s"
 msgstr "Suppression de %(file)s"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1086
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1087
 msgid "Cloning Persistent Storage..."
 msgstr "Clonage du stockage persistant..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1169
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1170
 #, python-format
 msgid "%s already bootable"
 msgstr "%s est déjà amorçable"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1190
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1191
 msgid "Unable to find partition"
 msgstr "Impossible de trouver la partition"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1212
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1213
 #, python-format
 msgid "Formatting %(device)s as FAT32"
 msgstr "Formatage de %(device)s en FAT32"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1289
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1290
 #, python-format
 msgid "Reading extracted MBR from %s"
 msgstr "Lecture du MBR extrait de %s"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1294
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1295
 #, python-format
 msgid "Could not read the extracted MBR from %(path)s"
 msgstr "Impossible de lire le MBR extrait de %(path)s"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1308
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1309
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1310
 #, python-format
 msgid "Resetting Master Boot Record of %s"
 msgstr "Réinitialisation de l’enregistrement d’amorçage maître (MBR) de %s"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1313
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1314
 #, python-format
 msgid "Writing random seed to LBA 34 of %s"
 msgstr "Écriture d'une graine aléatoire dans le LBA 34 de %s"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1320
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1321
 msgid "Drive is a loopback, skipping MBR reset"
 msgstr ""
 "Le périphérique est une boucle, la réinitialisation du MBR sera ignorée"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1324
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:1325
 msgid "Synchronizing data on disk..."
 msgstr "Synchronisation des données sur le disque…"
 
@@ -1281,7 +1281,7 @@ msgid "Manual Upgrade Instructions"
 msgstr "Instructions de mise à jour manuelle"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:465
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:723
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:730
 #: ../config/chroot_local-includes/usr/share/tails-installer/tails-installer.ui.in:374
 msgid "Install"
 msgstr "Installer"
@@ -1341,7 +1341,12 @@ msgstr ""
 "fabricant et le démarrage de Tails échouera sur cette clé. Veuillez tenter "
 "d’installer Tails sur un modèle différent."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:601
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:600
+#, python-format
+msgid "The device \"%(pretty_name)s\" is read-only."
+msgstr ""
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:608
 #, python-format
 msgid ""
 "The device \"%(pretty_name)s\" is too small to install Tails (at least "
@@ -1350,7 +1355,7 @@ msgstr ""
 "Le périphérique « %(pretty_name)s » est trop petit pour installer Tails (au "
 "moins %(size)s Go sont exigés)."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:616
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:623
 #, python-format
 msgid ""
 "To upgrade device \"%(pretty_name)s\" from this Tails, you need to use a "
@@ -1361,29 +1366,29 @@ msgstr ""
 "vous devez utiliser une image ISO Tails téléchargée :\n"
 "%(dl_url)s"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:637
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:644
 msgid "No device suitable to install Tails could be found"
 msgstr "Aucun périphérique adapté n’a été trouvé pour installer Tails"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:640
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:647
 #, python-format
 msgid "Plug in a USB stick of at least %0.1f GB."
 msgstr "Branchez une clé USB d'au moins %0.1f Go."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:653
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:660
 msgid "An error happened while installing Tails"
 msgstr "Une erreur est survenue lors de l’installation de Tails"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:710
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:717
 msgid "Installation complete!"
 msgstr "L’installation est terminée !"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:766
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:773
 #, python-format
 msgid "%(parent_size)s %(vendor)s %(model)s device (%(device)s)"
 msgstr "Périphérique %(vendor)s %(model)s %(parent_size)s (%(device)s)"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:779
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:786
 msgid ""
 "\n"
 "\n"
@@ -1393,11 +1398,11 @@ msgstr ""
 "\n"
 "Le stockage persistant de cette clé USB sera perdu."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:781
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:788
 msgid "Delete Persistent Storage and Reinstall"
 msgstr "Supprimer le stockage persistant et réinstaller"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:783
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:790
 msgid ""
 "\n"
 "\n"
@@ -1407,24 +1412,24 @@ msgstr ""
 "\n"
 "Toutes les données de cette clé USB seront perdues."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:784
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:791
 msgid "Delete All Data and Install"
 msgstr "Supprimer toutes les données et installer"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:785
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:792
 #, python-format
 msgid "%(description)s%(delete_message)s"
 msgstr "%(description)s%(delete_message)s"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:790
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:797
 msgid "Confirm the target USB stick"
 msgstr "Confirmer la clé USB cible"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:820
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:827
 msgid "Unable to mount device"
 msgstr "Impossible de monter le périphérique"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:849
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:856
 msgid ""
 "The selected file is unreadable. Please fix its permissions or select "
 "another file."
@@ -1432,7 +1437,7 @@ msgstr ""
 "Le fichier sélectionné est illisible. Veuillez changer ses droits ou "
 "sélectionner un autre fichier."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:859
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:866
 msgid ""
 "Unable to use the selected file.  You may have better luck if you move your "
 "ISO to the root of your drive (ie: C:\\)"
@@ -1440,7 +1445,7 @@ msgstr ""
 "Impossible d’utiliser le fichier sélectionné.  Vous pourriez avoir plus de "
 "chance en déplaçant l’ISO sur la racine de votre disque (c.-à-d : C:\\)"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:868
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:875
 #, python-format
 msgid "%(filename)s selected"
 msgstr "%(filename)s est sélectionné"
@@ -2098,7 +2103,7 @@ msgstr "Ouvrir l'assistant de connexion à Tor"
 msgid "View Tor Circuits"
 msgstr "Visualiser les circuits Tor"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:348
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:353
 #, python-brace-format
 msgid ""
 "Only {available_memory} KiB of memory is available, need at least "
@@ -2111,11 +2116,11 @@ msgstr ""
 "\n"
 "Réessayez après avoir fermé certaines applications ou redémarré."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:362
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:367
 msgid "Creating a partition for the Persistent Storage..."
 msgstr "Création d'une partition pour le stockage persistant..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:384
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:389
 msgid ""
 "Initializing the LUKS encryption... The computer might stop responding for a "
 "few seconds."
@@ -2123,23 +2128,23 @@ msgstr ""
 "Initialisation du chiffrement LUKS... Il se peut que l'ordinateur ne réponde "
 "plus pendant quelques secondes."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:415
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:420
 msgid "Unlocking the encryption..."
 msgstr "Déverrouillage du chiffrement..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:423
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:428
 msgid "Formatting the file system..."
 msgstr "Formatage du système de fichiers..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:441
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:446
 msgid "Activating the Persistent Storage..."
 msgstr "Activation du stockage persistant..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:446
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:451
 msgid "Finishing setting up the Persistent Storage..."
 msgstr "Fin de la configuration du stockage persistant..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:699
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:704
 msgid ""
 "Can't unmount Persistent Storage, some process is still using it. Please "
 "close all applications that could be accessing it and try again. If that "
@@ -2151,7 +2156,7 @@ msgstr ""
 "réessayer. Si cela ne fonctionne pas, redémarrez Tails et essayez de "
 "supprimer le stockage persistant sans le déverrouiller."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:732
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:737
 msgid ""
 "Not enough memory to change the passphrase of the Persistent Storage. Try "
 "again after closing some applications or rebooting."
@@ -2709,27 +2714,27 @@ msgstr "Envoi du courriel"
 msgid "This could take a while..."
 msgstr "Cela peut prendre du temps…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:197
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:199
 msgid "The contact email address doesn't seem valid."
 msgstr "L’adresse courriel de contact ne semble pas valide."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:218
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:220
 msgid "Unable to send the mail: SMTP error."
 msgstr "Impossible d’envoyer le courriel : erreur SMTP."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:220
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:222
 msgid "Unable to connect to the server."
 msgstr "Impossible de se connecter au serveur."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:222
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:224
 msgid "Tor is not ready yet"
 msgstr "Tor n’est pas encore prêt"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:224
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:226
 msgid "Unable to create or to send the mail."
 msgstr "Impossible de créer ou d’envoyer le courriel."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:229
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:231
 msgid ""
 "\n"
 "\n"
@@ -2739,15 +2744,15 @@ msgstr ""
 "\n"
 "Assurez-vous d'être connecté à Tor et cliquez sur envoyer à nouveau."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:239
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:241
 msgid "Your message has been sent."
 msgstr "Votre message a été envoyé."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:248
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:250
 msgid "An error occurred during encryption."
 msgstr "Une erreur est survenue lors du chiffrement."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:317
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:319
 msgid "This doesn't seem to be a valid URL or OpenPGP key."
 msgstr "Cela ne semble être ni une URL ni une clé OpenPGP valide."
 
@@ -2884,7 +2889,8 @@ msgid "Mount VeraCrypt encrypted file containers and devices"
 msgstr "Monter les fichiers conteneurs et les périphériques chiffrés VeraCrypt"
 
 #: ../config/chroot_local-includes/usr/share/applications/unlock-veracrypt-volumes.desktop.in.h:3
-msgid "mount;encrypted;container;truecryt"
+#, fuzzy
+msgid "mount;encrypted;container;truecrypt"
 msgstr "monter;conteneur;chiffré;truecryt"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop.in.h:2

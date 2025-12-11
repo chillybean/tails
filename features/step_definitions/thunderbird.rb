@@ -235,10 +235,9 @@ def thunderbird_non_suspicious_connections
   [
     # Used to get addon lists
     'addons.thunderbird.net', 'services.addons.thunderbird.net',
-    # Used in many apparently innocuous area of the code
+    # Used for many things, in particular the account auto config
+    # database (mailnews.auto_config_url pref)
     'live.thunderbird.net',
-    # Fake, used to disable various Thunderbird endpoints
-    'thereisnosuchserver.tails.net',
   ]
 end
 

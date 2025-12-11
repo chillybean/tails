@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
 "POT-Creation-Date: 2025-10-13 11:00+0200\n"
-"PO-Revision-Date: 2025-08-09 15:41+0000\n"
-"Last-Translator: _ignifugo <ignifugo@insicuri.net>\n"
+"PO-Revision-Date: 2025-12-08 13:29+0000\n"
+"Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: ita <transitails@inventati.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.3\n"
+"X-Generator: Weblate 5.13.2\n"
 
 #. type: Plain text
 #, no-wrap
@@ -34,15 +34,11 @@ msgid "Reading and writing emails"
 msgstr "- Leggere e scrivere email"
 
 #. type: Bullet: '- '
-#, fuzzy
-#| msgid ""
-#| "- Reading [[!wikipedia RSS]] and [[!wikipedia Atom_(Web_standard) "
-#| "desc=\"Atom\"]] feeds for news and blogs"
 msgid ""
 "Reading [[!wikipedia RSS]] and [[!wikipedia Atom_(Web_standard) "
 "desc=\"Atom\"]] feeds for news and blogs"
 msgstr ""
-"- Leggere feed [[!wikipedia_it RSS]] e [[!wikipedia_it Atom]] da siti "
+"Leggere feed [[!wikipedia_it RSS]] e [[!wikipedia_it Atom]] da siti "
 "d'informazione e blog"
 
 #. type: Plain text
@@ -103,6 +99,10 @@ msgid ""
 "<p>The <a href=\"https://support.mozilla.org/en-US/kb/instant-messaging-and-chat\">chat\n"
 "features of <i>Thunderbird</i></a> don't work in Tails.</p>\n"
 msgstr ""
+"<p>Le funzionalità di <a href="
+"\"https://support.mozilla.org/it/kb/messaggistica-istantanea-chat\""
+">messaggistica istantanea e chat\n"
+"di <i>Thunderbird</i></a> non funzionano su Tails.</p>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -216,6 +216,8 @@ msgstr "<h2>Gmail</h2>\n"
 #, no-wrap
 msgid "<p>You can use your Gmail account with <i>Thunderbird</i> in Tails.</p>\n"
 msgstr ""
+"<p>Puoi usare la tua casella di posta Gmail con <i>Thunderbird</i> in "
+"Tails.</p>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -231,17 +233,33 @@ msgid ""
 "  </li>\n"
 "</ol>\n"
 msgstr ""
+"<ol>\n"
+"     <li>\n"
+"          <p>Assicurati di aver attivato l'Autenticazione a 2-Fattori nel "
+"tuo account Gmail.</p>\n"
+"          <p>Vedi <a href="
+"\"https://support.google.com/accounts/answer/185839\">Google Account Aiuto:\n"
+"Autenticazione a 2-Fattori</a>.</p>\n"
+"     </li>\n"
+"     <li>\n"
+"          <p>Configura il nuovo account come IMAP quando <i>Thunderbird</i> "
+"ti chiede di\n"
+"          scegliere tra POP o IMAP.</p>\n"
+"     </li>\n"
+"</ol>\n"
 
 #. type: Plain text
 #, no-wrap
 msgid "<h1 id=\"news\">Reading RSS and Atom news feeds</h1>\n"
-msgstr ""
+msgstr "<h1 id=\"news\">Leggere feed RSS ed Atom</h1>\n"
 
 #. type: Plain text
 msgid ""
 "On top of reading emails, you can read news feeds that use the RSS and Atom "
 "standards in *Thunderbird*."
 msgstr ""
+"Oltre a leggere le email, puoi leggere su *Thunderbird* le notizie che "
+"sfruttano gli standard RSS ed Atom."
 
 #. type: Plain text
 msgid "To create a feed account:"
@@ -312,12 +330,13 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid "- Reading [[!wikipedia RSS]] and [[!wikipedia Atom_(Web_standard) desc=\"Atom\"]] feeds for news and blogs"
+#, no-wrap
 msgid ""
 "   [[!wikipedia RSS]] and [[!wikipedia Atom (web standard) desc=\"Atom\"]] are\n"
 "   similar standards and their differences don't really matter to readers.\n"
-msgstr "- Leggere feed [[!wikipedia_it RSS]] e [[!wikipedia_it Atom]] da siti d'informazione e blog"
+msgstr ""
+"   [[!wikipedia_it RSS]] e [[!wikipedia_it Atom]] sono\n"
+"   standard simili e le loro differenze non cambiano l'esperienza utente.\n"
 
 #. type: Bullet: '1. '
 msgid "Click **Add**."
@@ -439,14 +458,7 @@ msgid "<h1 id=\"language\">Using Thunderbird in your language</h1>\n"
 msgstr "<h1 id=\"language\">Uso di Thunderbird nella tua lingua</h1>\n"
 
 #. type: Plain text
-#, fuzzy, no-wrap
-#| msgid ""
-#| "To use *Thunderbird* in your language, you can\n"
-#| "install the <span class=\"command\">thunderbird-l10n-<span class=\"command-placeholder\">lang</span></span>\n"
-#| "package using the [[Additional Software|doc/first_steps/additional_software]]\n"
-#| "feature. Replace <span class=\"command-placeholder\">lang</span> with the code\n"
-#| "for your language. For example, <span class=\"command\">es</span> for Spanish or\n"
-#| "<span class=\"command\">de</span> for German.\n"
+#, no-wrap
 msgid ""
 "To use *Thunderbird* in another language, you can\n"
 "install the <code>thunderbird-l10n-<span class=\"command-placeholder\">lang</span></code>\n"
@@ -454,12 +466,13 @@ msgid ""
 "feature. Replace <span class=\"command-placeholder\">lang</span> with the code\n"
 "for your language. For example, `vi` for Vietnamese.\n"
 msgstr ""
-"Per usare *Thunderbird* nella tua lingua, puoi\n"
-"installare il pacchetto <span class=\"command\">thunderbird-l10n-<span class=\"command-placeholder\">lang</span></span>\n"
-"utilizzando la funzionalità [[Software aggiuntivo|doc/first_steps/additional_software]].\n"
+"Per usare *Thunderbird* in un'altra lingua, puoi\n"
+"installare il pacchetto <code>thunderbird-l10n-<span class=\"command-"
+"placeholder\">lang</span></code>\n"
+"utilizzando la funzionalità "
+"[[Software aggiuntivo|persistent_storage/additional_software]].\n"
 "Sostituisci <span class=\"command-placeholder\">lang</span> con il codice\n"
-"della tua lingua. Ad esempio, <span class=\"command\">es</span> per lo spagnolo o\n"
-"<span class=\"command\">de</span> per il tedesco.\n"
+"della tua lingua. Ad esempio, `vi` per vietnamita.\n"
 
 #. type: Plain text
 msgid ""
@@ -467,6 +480,9 @@ msgid ""
 "French, Hindi, Bahasa Indonesia, Italian, Portuguese, Russian, Turkish, and "
 "Simplified Chinese."
 msgstr ""
+"Tails include già pacchetti linguistici per arabo, tedesco, spagnolo, farsi, "
+"francese, hindi, bahasa Indonesia, italiano, portoghese, russo, turco e "
+"cinese semplificato."
 
 #. type: Plain text
 msgid ""
@@ -474,6 +490,9 @@ msgid ""
 "packages.debian.org/search?keywords=thunderbird-"
 "l10n&searchon=names&suite=stable&section=all)"
 msgstr ""
+"[Elenco delle lingue disponibili in *Thunderbird*](https://"
+"packages.debian.org/search?keywords=thunderbird-"
+"l10n&searchon=names&suite=stable&section=all)"
 
 #. type: Plain text
 #, no-wrap
@@ -512,8 +531,8 @@ msgid ""
 "See also the official [OpenPGP in Thunderbird - HOWTO and FAQ](https://"
 "support.mozilla.org/kb/openpgp-thunderbird-howto-and-faq)."
 msgstr ""
-"Vedi anche la guida ufficiale [OpenPGP in Thunderbird - HOWTO and FAQ]"
-"(https://support.mozilla.org/kb/openpgp-thunderbird-howto-and-faq)."
+"Vedi anche la guida ufficiale [OpenPGP in Thunderbird](https://"
+"support.mozilla.org/it/kb/openpgp-thunderbird)."
 
 #. type: Plain text
 #, no-wrap
@@ -563,16 +582,12 @@ msgstr ""
 "Primaria**."
 
 #. type: Bullet: '1. '
-#, fuzzy
-#| msgid ""
-#| "In the **Change Primary Password** dialog, enter your Primary Password "
-#| "and click **Ok**."
 msgid ""
 "In the **Primary Password** dialog, enter your Primary Password and click "
 "**OK**."
 msgstr ""
-"Nella finestra di dialogo **Cambia Password Primaria**, inserisci la tua "
-"Password Primaria e clicca **Ok**."
+"Nella finestra di dialogo **Password Principale**, inserisci la tua Password "
+"Principale e clicca **Ok**."
 
 #. type: Plain text
 #, no-wrap
@@ -670,16 +685,12 @@ msgstr ""
 "**Importa una Chiave OpenPGP esistente** e fai clic su **Continua**."
 
 #. type: Bullet: '1. '
-#, fuzzy
-#| msgid ""
-#| "Click the **Select File to Import…** button and choose the private key "
-#| "that your exported from *Kleopatra* utility."
 msgid ""
 "Click the **Select File to Import…** button and choose the private key that "
 "your exported from *Kleopatra*."
 msgstr ""
-"Fai clic su **Seleziona file da importare...** e scegli la chiave privata "
-"che hai esportato dall'utilità *Kleopatra*."
+"Clicca sul tasto **Seleziona file da importare...** e scegli la chiave "
+"privata che hai esportato da *Kleopatra*."
 
 #. type: Bullet: '1. '
 msgid ""
@@ -727,15 +738,11 @@ msgstr ""
 "nuova chiave privata OpenPGP  e scegli **Crittografia End-to-End**."
 
 #. type: Bullet: '1. '
-#, fuzzy
-#| msgid ""
-#| "In the **Create a Personal OpenPGP Key** dialog, choose **Create a new "
-#| "OpenPGP Key**."
 msgid ""
 "In the **Add a Personal OpenPGP Key** dialog, choose **Create a new OpenPGP "
 "Key**."
 msgstr ""
-"Nella finestra di dialogo **Crea una Chiave Personale OpenPGP ** scegli "
+"Nella finestra di dialogo **Aggiungi una Chiave Personale OpenPGP ** scegli "
 "**Crea una nuova chiave OpenPGP**."
 
 #. type: Bullet: '1. '

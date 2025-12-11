@@ -7,11 +7,11 @@ import re
 import shlex
 import subprocess
 import sys
-import tempfile
 from pathlib import Path
 
 import yaml
 from voluptuous import Any, Schema
+from voluptuous.error import MultipleInvalid, Invalid
 from voluptuous.validators import (
     And,
     Date,
@@ -42,6 +42,7 @@ IsImgFile = And(IsFile(), Match(re.compile(r".*[.]img$")))
 STAGE_SCHEMA = {
     "base": {
         "tails_signature_key": InputStr,
+        "isos_git": IsDir(),
         "isos": IsDir(),
         "artifacts": IsDir(),
         "master_checkout": IsDir(),
@@ -124,7 +125,10 @@ class Config:
         self.data = self.load_config_files()
         self.data.update(self.generate_config())
         log.debug("Configuration:\n%s", self.data)
-        self.validate()
+        try:
+            self.validate()
+        except Invalid:
+            sys.exit(1)
 
     def load_config_files(self):
         """
@@ -146,7 +150,7 @@ class Config:
         tails_signature_key = self.data["tails_signature_key"]
         tag = version.replace("~", "-")
         release_branch = "testing" if self.data["major_release"] == 1 else "stable"
-        iuks_dir = Path(self.data["isos"]) / "iuks/v2"
+        iuks_dir = Path(self.data["iuks_dir"])
         iuks_dir.mkdir(parents=True, exist_ok=True)
         iuk_hashes = Path(iuks_dir) / ("to_%s.sha256sum" % version)
         iuk_source_versions = (
@@ -225,7 +229,15 @@ class Config:
     def validate(self):
         """Checks that the configuration is valid, else raise exception"""
         schema = self.schema()
-        schema(self.data)
+        try:
+            schema(self.data)
+        except MultipleInvalid as exc:
+            for error in exc.errors:
+                print(f"ERROR: {error.path} {error}", file=sys.stderr)
+            raise
+        except Invalid as exc:
+            print(f"ERROR: {exc.path} {error}")
+            raise
 
     def to_shell(self):
         """
@@ -262,10 +274,7 @@ def generate_environment(stage: str):
     """
     log.debug("Generating environment for stage '%s'", stage)
     config = Config(stage=stage)
-    shell_snippet = tempfile.NamedTemporaryFile(delete=False)
-    with open(shell_snippet.name, "w") as shell_snippet_fd:
-        shell_snippet_fd.write(config.to_shell())
-    print(shell_snippet.name)
+    print(config.to_shell())
 
 
 def validate_configuration(stage: str):

@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2025-11-12 12:16+0100\n"
-"PO-Revision-Date: 2025-11-14 01:26+0000\n"
+"POT-Creation-Date: 2025-12-09 23:58+0000\n"
+"PO-Revision-Date: 2025-12-10 11:29+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ca\n"
@@ -129,13 +129,21 @@ msgid "<h1 id=\"upgrade\">Doing a manual upgrade</h1>\n"
 msgstr "<h1 id=\"upgrade\">Fer una actualització manual</h1>\n"
 
 #. type: Plain text
+#, no-wrap
+msgid "<!-- Indented to deduplicate with same sentence earlier. -->\n"
+msgstr "<!-- Indented to deduplicate with same sentence earlier. -->\n"
+
+#. type: Plain text
+#, fuzzy, no-wrap
+#| msgid ""
+#| "   Doing a manual upgrade of your broken Tails might allow you to start your\n"
+#| "   USB stick again and use your Persistent Storage like before.\n"
 msgid ""
-"Doing a manual upgrade of your broken Tails might allow you to start your "
-"USB stick again and use your Persistent Storage like before."
+"   Doing a manual upgrade of your broken Tails might allow you to start your USB\n"
+"   stick again and use your Persistent Storage like before.\n"
 msgstr ""
-"Fer una actualització manual del vostre Tails trencat, us pot permetre "
-"tornar a iniciar el vostre llapis USB i utilitzar el vostre Emmagatzematge "
-"Persistent com abans."
+"   Fer una actualització manual del vostre Tails trencat, us pot permetre iniciar el vostre\n"
+"   llapis USB de nou i utilitzar el vostre Emmagatzematge Persistent com abans.\n"
 
 #. type: Plain text
 msgid "Refer to our instructions on how to do a manual upgrade, either:"
@@ -172,16 +180,6 @@ msgstr ""
 #, no-wrap
 msgid "<h1 id=\"rsync\">Unlocking from another Tails and copying using <span class=\"code\">rsync</span></h1>\n"
 msgstr "<h1 id=\"rsync\">Desbloqueig des d'un altre Tails i còpia mitjançant <span class=\"code\">rsync</span></h1>\n"
-
-#. type: Plain text
-msgid ""
-"If doing a manual upgrade doesn't work, you might be able to unlock your "
-"Persistent Storage from another Tails USB stick and copy its content using "
-"`rsync` on the command line."
-msgstr ""
-"Si fer una actualització manual no funciona, és possible que pugueu "
-"desbloquejar el vostre Emmagatzematge Persistent des d'un altre llapis USB "
-"de Tails i copiar-ne el contingut mitjançant `rsync` a la línia d'ordres."
 
 #. type: Bullet: '1. '
 msgid ""
@@ -327,9 +325,7 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "   <p class=\"command\">sudo rsync -PaSHAXv --del /media/amnesia/TailsData/ /live/persistence/TailsData_unlocked</p>\n"
-msgstr ""
-"   <p class=\"command\">sudo rsync -PaSHAXv --del /media/amnesia/TailsData/ /"
-"live/persistence/TailsData_unlocked</p>\n"
+msgstr "   <p class=\"command\">sudo rsync -PaSHAXv --del /media/amnesia/TailsData/ /live/persistence/TailsData_unlocked</p>\n"
 
 #. type: Bullet: '1. '
 msgid ""
@@ -386,17 +382,6 @@ msgstr "<h1 id=\"image\">Recuperació d'una imatge de partició mitjançant eine
 
 #. type: Plain text
 msgid ""
-"If unlocking your Persistent Storage from another Tails USB stick fails, you "
-"might be able to recover some or most of your data from a partition image "
-"using advanced forensics tools."
-msgstr ""
-"Si falla el desbloqueig del vostre Emmagatzematge Persistent d'un altre "
-"llapis USB de Tails, és possible que pugueu recuperar part o la majoria de "
-"les vostres dades d'una imatge de partició mitjançant eines forenses "
-"avançades."
-
-#. type: Plain text
-msgid ""
 "We are not providing step-by-step instructions, but you can adapt our "
 "instructions on [[recovering data from the Persistent Storage when it has "
 "file system errors|fsck]]:"
@@ -438,6 +423,34 @@ msgstr ""
 "   Proveu la tècnica per [[copiar la imatge de la partició a un nou llapis\n"
 "   USB|fsck#copy]] primer, després la tècnica utilitzant\n"
 "   l'[[*Autopsy*|fsck#autopsia]].\n"
+
+#~ msgid ""
+#~ "If doing a manual upgrade doesn't work, you might be able to unlock your "
+#~ "Persistent Storage from another Tails USB stick and copy its content "
+#~ "using `rsync` on the command line."
+#~ msgstr ""
+#~ "Si fer una actualització manual no funciona, és possible que pugueu "
+#~ "desbloquejar el vostre Emmagatzematge Persistent des d'un altre llapis "
+#~ "USB de Tails i copiar-ne el contingut mitjançant `rsync` a la línia "
+#~ "d'ordres."
+
+#~ msgid ""
+#~ "If unlocking your Persistent Storage from another Tails USB stick fails, "
+#~ "you might be able to recover some or most of your data from a partition "
+#~ "image using advanced forensics tools."
+#~ msgstr ""
+#~ "Si falla el desbloqueig del vostre Emmagatzematge Persistent d'un altre "
+#~ "llapis USB de Tails, és possible que pugueu recuperar part o la majoria "
+#~ "de les vostres dades d'una imatge de partició mitjançant eines forenses "
+#~ "avançades."
+
+#~ msgid ""
+#~ "Doing a manual upgrade of your broken Tails might allow you to start your "
+#~ "USB stick again and use your Persistent Storage like before."
+#~ msgstr ""
+#~ "Fer una actualització manual del vostre Tails trencat, us pot permetre "
+#~ "tornar a iniciar el vostre llapis USB i utilitzar el vostre "
+#~ "Emmagatzematge Persistent com abans."
 
 #, no-wrap
 #~ msgid "<!-- XXX: These instructions should be kept in sync with backup.mdwn -->\n"
