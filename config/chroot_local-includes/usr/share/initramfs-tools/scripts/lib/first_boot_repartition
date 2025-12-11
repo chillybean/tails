@@ -102,6 +102,7 @@ log_end_msg
 # such problems. For details,
 # see 01e72edcb47fe3570a182688b42e7157186924d6.
 parted --script --fix "${PARENT_DEVICE}" print free
+settle
 
 if is_cmdline_test_enabled test_partitioning_errors guid; then
     sgdisk --disk-guid="${ORIG_DISK_GUID}" "${PARENT_DEVICE}"
