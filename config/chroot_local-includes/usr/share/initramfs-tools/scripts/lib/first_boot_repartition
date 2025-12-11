@@ -78,7 +78,6 @@ fi
 log_begin_msg "Updating partition table"
 if is_cmdline_test_enabled test_partitioning_errors part_resize; then
     sgdisk \
-        --align-end \
         --move-second-header \
         --randomize-guids \
         --change-name=1:Tails \
@@ -86,7 +85,6 @@ if is_cmdline_test_enabled test_partitioning_errors part_resize; then
     exit 1
 fi
 sgdisk \
-    --align-end \
     --move-second-header \
     --randomize-guids \
     --delete=1 \
