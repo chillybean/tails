@@ -185,6 +185,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   function download(e, elm) {
     resetVerificationResult();
+    showVerifyButton();
   }
 
   // Download again after failure
