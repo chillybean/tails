@@ -183,16 +183,11 @@ document.addEventListener("DOMContentLoaded", function() {
   document.getElementById("download-img").onclick = function(e) { download(e, this); }
   document.getElementById("download-iso").onclick = function(e) { download(e, this); }
 
-  function download(e, elm) {
-    resetVerificationResult();
-    showVerifyButton();
-  }
-
   // Download again after failure
-  document.getElementById("download-img-again").onclick = function(e) { downloadAgain(e, this); }
-  document.getElementById("download-iso-again").onclick = function(e) { downloadAgain(e, this); }
+  document.getElementById("download-img-again").onclick = function(e) { download(e, this); }
+  document.getElementById("download-iso-again").onclick = function(e) { download(e, this); }
 
-  function downloadAgain(e, elm) {
+  function download(e, elm) {
     resetVerificationResult();
     showVerifyButton();
   }
