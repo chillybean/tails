@@ -173,22 +173,25 @@ fi
 
 if [ "${TAILS_OFFLINE_MODE}" != 1 ]; then
     as_root_do timedatectl set-ntp true
+    set +x
     echo -n "Waiting for the time to be synchronized..."
     while ! ntp_synchronized; do
         sleep 1
         echo -n "."
     done
     echo " done."
+    set -x
 fi
 if [ -n "$TAILS_DATE_OFFSET" ]; then
     as_root_do timedatectl set-ntp false
-
+    set +x
     echo -n "Waiting for NTP to be disabled..."
     while ntp_enabled; do
         sleep 1
         echo -n "."
     done
     echo " done."
+    set -x
 
     DESIRED_DATE=$(date --utc --date="${TAILS_DATE_OFFSET} days" '+%F %T')
     echo "Setting system time to ${DESIRED_DATE}"
