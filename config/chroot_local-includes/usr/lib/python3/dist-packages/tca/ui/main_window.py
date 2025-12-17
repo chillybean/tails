@@ -1141,7 +1141,7 @@ class TCAMainWindow(
 
     def get_object(self, name: str):
         """
-        Get an object from glade file.
+        Get an object from the Gtk.Builder UI definition.
 
         This is a shortcut over self.builder.get_object which takes steps into account
         """
