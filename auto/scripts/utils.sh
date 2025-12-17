@@ -52,22 +52,6 @@ git_on_a_tag() {
     [ -n "$(git_current_tag)" ]
 }
 
-git_only_doc_changes_since() {
-    local commit non_doc_diff
-    commit="$(git_commit_from_ref "${1}")"
-    non_doc_diff="$(
-        git diff \
-            "${commit}"... \
-            -- \
-            '*' \
-            ':!/wiki' \
-            ':!/ikiwiki.setup' \
-            ':!*.po'
-    )"
-
-    [ -z "${non_doc_diff}" ]
-}
-
 base_branch() {
     head -n1 config/base_branch
 }

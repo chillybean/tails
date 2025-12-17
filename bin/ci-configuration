@@ -1,0 +1,153 @@
+#!/usr/bin/python3
+
+import argparse
+import functools
+import os
+import subprocess
+import sys
+import tomllib
+from pathlib import Path
+
+from pydantic import BaseModel
+
+
+class TestConfiguration(BaseModel):
+    skip: bool = False
+    force_all_tests: bool = False
+    tests: list[str] = []
+    real_Tor: bool = False
+
+
+class BuildConfiguration(BaseModel):
+    skip: bool = False
+
+
+class ConfigFile(BaseModel):
+    test: TestConfiguration = TestConfiguration()
+    build: BuildConfiguration = BuildConfiguration()
+
+
+@functools.lru_cache(1)
+def get_current_branch() -> str:
+    return (
+        subprocess.check_output(["/usr/bin/git", "branch", "--show-current"], text=True)
+        .rstrip("\n")
+        .replace("/", "-")
+        .replace("+", "-")
+    )
+
+
+@functools.lru_cache(1)
+def git_on_a_tag() -> bool:
+    proc = subprocess.run(
+        ["auto/scripts/utils.sh", "git_on_a_tag"],  # noqa: S607
+        check=False,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+    )
+    return proc.returncode == 0
+
+
+def git_only_doc_changes_since(ref: str) -> bool:
+    commit = subprocess.check_output(
+        ["/usr/bin/git", "rev-parse", "--verify", ref],
+        stderr=subprocess.DEVNULL,
+        text=True,
+    ).strip()
+    cmd = [
+        "/usr/bin/git",
+        "diff",
+        f"{commit}...",
+        "--",
+        "*",
+        ":!/wiki",
+        ":!/ikiwiki.setup",
+        ":!*.po",
+    ]
+    diff = subprocess.check_output(cmd, text=True)
+    return bool(diff)
+
+
+class GetConfigurationCLI:
+    def __init__(self):
+        self.args = None
+
+    def get_parser(self) -> argparse.ArgumentParser:
+        p = argparse.ArgumentParser()
+        sub = p.add_subparsers(dest="command")
+        sub.add_parser("should-build", help="Returns 1 if build.skip is True")
+        sub.add_parser("should-test", help="Returns 1 if test.skip is True")
+        run = sub.add_parser("run-test", help="Print test options, one per line")
+        run.add_argument("cucumber_args", nargs="*")
+        return p
+
+    def main(self):
+        self.args = self.get_parser().parse_args()
+        config_file = Path("ci/configure/") / f"{get_current_branch()}.toml"
+        if config_file.exists():
+            with config_file.open("rb") as buf:
+                raw_data = tomllib.load(buf)
+            config = ConfigFile(**raw_data)
+        else:
+            config = ConfigFile()
+
+        match self.args.command:
+            case "should-build":
+                sys.exit(int(config.build.skip))
+            case "should-test":
+                sys.exit(
+                    int(config.test.skip or get_current_branch().startswith("wip/"))
+                )
+            case "run-test":
+                self.run_test(config)
+
+    def run_test(self, config: ConfigFile):
+        cmdline = [
+            "cucumber",
+            "--expand",
+            *self.get_cucumber_options(config.test),
+            *self.args.cucumber_args,
+        ]
+        env = self.get_cucumber_environment(config.test)
+        proc = subprocess.run(cmdline, check=False, env={**os.environ, **env})
+        sys.exit(proc.returncode)
+
+    def get_cucumber_environment(self, config: TestConfiguration) -> dict[str, str]:
+        if not os.getenv("JENKINS_URL"):
+            return {}
+        environment = {}
+        if config.real_Tor:
+            environment["DISABLE_CHUTNEY"] = "yes"
+        return environment
+
+    def get_cucumber_options(self, config: TestConfiguration) -> list[str]:
+        if not os.getenv("JENKINS_URL"):
+            return []
+
+        if config.real_Tor:
+            options = ["--tag", "@supports_real_tor"]
+        elif (
+            config.force_all_tests
+            or get_current_branch() in ["testing", "devel"]
+            or git_on_a_tag()
+            or os.getenv("ALL_TESTS", "yes")
+        ):
+            options = []
+        else:
+            options = ["--tag", "~@fragile", "--tag", "~@skip_by_default"]
+
+        if os.environ["UPSTREAMJOB_GIT_COMMIT"] != os.environ[
+            "UPSTREAMJOB_GIT_BASE_BRANCH_HEAD"
+        ] and git_only_doc_changes_since(
+            os.environ["UPSTREAMJOB_GIT_BASE_BRANCH_HEAD"],
+        ):
+            options.extend(["--tag", "@doc"])
+
+        if config.tests:
+            options = [*options, *config.tests]
+
+        return options
+
+
+if __name__ == "__main__":
+    GetConfigurationCLI().main()
