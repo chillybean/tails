@@ -20,7 +20,6 @@ from collections import OrderedDict
 import gi
 import logging
 import locale
-from typing import ClassVar
 
 import tailsgreeter.config
 from tailsgreeter.settings import SettingNotFoundError
@@ -43,19 +42,6 @@ from gi.repository import GLib, GObject, GnomeDesktop, Gtk  # NOQA: E402
 
 class LanguageSetting(CleartextStorageMixin, LocalizationSetting):
     SETTINGS_KEY = "language"
-
-    # This should really belong to CleartextStorageMixin, but for some reason that
-    # will not work.
-    # See also KeyboardSetting
-    __gproperties__: ClassVar[dict] = {
-        "saveEnabled": (
-            bool,
-            "saveEnabled",
-            "Whether data can be written to disk",
-            False,
-            GObject.ParamFlags.READWRITE,
-        ),
-    }
 
     def __init__(self, locales: list[str]):
         super().__init__()

@@ -19,7 +19,7 @@
 import gi
 import logging
 import pycountry
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, ClassVar
 
 gi.require_version("GObject", "2.0")
 from gi.repository import GObject  # noqa: E402
@@ -56,7 +56,17 @@ class LocalizationSetting(GObject.Object):
         pass
 
 
-class CleartextStorageMixin:
+class CleartextStorageMixin(GObject.Object):
+    __gproperties__: ClassVar[dict] = {
+        "saveEnabled": (
+            bool,
+            "saveEnabled",
+            "Whether data can be written to disk",
+            False,
+            GObject.ParamFlags.READWRITE,
+        ),
+    }
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.save_enabled = False
