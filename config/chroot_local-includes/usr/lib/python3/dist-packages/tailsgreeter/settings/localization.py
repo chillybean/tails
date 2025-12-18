@@ -82,10 +82,10 @@ class CleartextStorageMixin(GObject.Object):
                 value = read_settings(self.legacy_settings_file)
                 loaded_from_cleartext = False
             except FileNotFoundError:
-                self.log.debug("No %s setting found", self.SETTINGS_KEY)
+                self.log.debug("No %s legacy setting found", self.SETTINGS_KEY)
                 return {}
             self.log.info(
-                "No cleartext settings %s found, loaded from Persistent Storage",
+                "No cleartext %s setting found, loaded from Persistent Storage instead",
                 self.SETTINGS_KEY,
             )
 
