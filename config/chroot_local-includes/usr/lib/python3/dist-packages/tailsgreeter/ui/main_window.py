@@ -773,6 +773,7 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
             ok_label=_("Save Unencrypted"),
             destructive=False,
         )
+        dialog.set_modal(True)
         dialog.set_transient_for(self)
 
         def on_save_language_dialog_response(dialog, response):
