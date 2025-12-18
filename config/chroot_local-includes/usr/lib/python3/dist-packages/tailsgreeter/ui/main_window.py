@@ -740,7 +740,8 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
         # This callbacks keep the UI in sync with the save state
         save_enabled = setting.get_property("saveEnabled")
         logging.info(
-            "Region settings loaded (from %s) %s saving",
+            "%s loaded (from %s) %s saving",
+            setting.__class__.__name__,
             user_data,
             "" if save_enabled else "not",
         )
