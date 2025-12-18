@@ -73,7 +73,6 @@ class CleartextStorageMixin(GObject.Object):
         self.last_saved_value = None  # if any value has been saved, this will be non-None, allowing us to force a save_to_disk
 
     def load(self):
-        self.log.debug("load")
         try:
             value = tailsgreeter.utils.get_cleartext_storage(self.SETTINGS_KEY)
             loaded_from_cleartext = True
