@@ -65,6 +65,7 @@ class GreeterApplication:
     This class is the greeter dbus service"""
 
     def __init__(self):
+        self.initialization_complete = False
         self.session = None
         self.forced = False
         self.postponed = False
@@ -130,6 +131,7 @@ class GreeterApplication:
 
         # Inhibit the session being marked as idle
         self.inhibit_idle()
+        self.initialization_complete = True
 
     def translate_to(self, lang):
         """Translate all windows to target language"""

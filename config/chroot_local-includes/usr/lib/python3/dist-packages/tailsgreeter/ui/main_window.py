@@ -753,6 +753,11 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
             self.greeter.localisationsettings.keyboard,
             self.greeter.localisationsettings.language,
         ]
+        if not self.greeter.initialization_complete:
+            # We won't show the dialog for changes happening to widgets before the user
+            # had a chance to interact with the window
+            return True
+
         if not widget.get_active():
             for setting in settings:
                 setting.set_property("saveEnabled", False)
