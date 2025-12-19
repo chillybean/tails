@@ -243,6 +243,8 @@ Make sure all the shift preparation steps, in the
 been done. Fill the gaps if needed, otherwise the release process will be
 blocked later.
 
+<a id="dsa-check"></a>
+
 Coordinate with Debian security updates
 ---------------------------------------
 
@@ -815,6 +817,8 @@ Jenkins workers.
 Sanity check
 ------------
 
+### Tor Browser
+
 Verify that the Tor Browser release used in Tails still is the most
 recent. Also look if there's a new `-buildX` tag (e.g.
 `tor-browser-60.3.0esr-8.0-1-build1`) for the Firefox version the Tor
@@ -827,6 +831,13 @@ Browser we want to ship is based on in these Git repositories:
 A new tag may indicate that a new Tor Browser release or rebuild is imminent.
 
 Better catch this before people spend time doing manual tests.
+
+### Recent DSAs
+
+Check for [recent DSAs](#dsa-check) again. If there are important
+fixes you have to rebuild the almost-final images and make sure the
+fixed packages are installed. Updating the SquashFS file order is only
+required to be redone if a new kernel was installed.
 
 Finalize and tag the release
 ----------------------------
@@ -1509,8 +1520,10 @@ Upload images
 Sanity check
 ------------
 
-Verify once more that the Tor Browser we ship is still the most recent (see
-above).
+* Verify once more that the Tor Browser we ship is still the most
+  recent (see above).
+
+* Check for [recent DSAs](#dsa-check) again.
 
 Delete obsolete IUKs
 --------------------
@@ -1980,6 +1993,8 @@ Sanity checks
 
 * Verify once more that the Tor Browser we ship is still the most recent (see
   above).
+
+* Check for [recent DSAs](#dsa-check) again.
 
 Push
 ----
