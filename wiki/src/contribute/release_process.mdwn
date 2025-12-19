@@ -251,12 +251,15 @@ be delegated to them.
 
 Look at the [list of upcoming Debian Security Advisories (DSA)][DSA needed]
 found in the Debian [security tracker][web]'s [Git repository][git] and in
-the [debian-security-announce mailing list][ml].
+the [debian-security-announce mailing list][ml]. Looking at recent
+commits in [the Git history][DSA needed history] can reveal DSAs that
+just have been assigned but that haven't been published yet.
 
 [ml]: https://lists.debian.org/debian-security-announce/recent
 [web]: https://security-tracker.debian.org/tracker/
 [git]: https://salsa.debian.org/security-tracker-team/security-tracker
 [DSA needed]: https://salsa.debian.org/security-tracker-team/security-tracker/blob/master/data/dsa-needed.txt
+[DSA needed history]: https://salsa.debian.org/security-tracker-team/security-tracker/-/commits/master/data/dsa-needed.txt
 
 Rationale: we don't want to release Tails and learn 2 days later about
 important security issues fixed by Debian security updates. In some cases, it
