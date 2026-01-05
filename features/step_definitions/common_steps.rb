@@ -1832,7 +1832,7 @@ Then(/^the Greeter's language is set to (.*)$/) do |lang|
   $language, $lang_code = greeter_language
 end
 
-Then(/^the Greeter's formats is set to (.*)$/) do |lang|
+Then(/^the Welcome Screen's formats is set to (.*)$/) do |lang|
   formats_row = greeter.children(roleName: 'list item')[2]
                        .children(roleName: 'label')
                        .find { |node| node.name.include?("#{lang} - ") }
