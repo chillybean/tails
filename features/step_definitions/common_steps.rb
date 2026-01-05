@@ -485,14 +485,14 @@ end
 
 When /^I save the language and keyboard options in cleartext storage$/ do
   greeter
-    .child(translate('Save'), roleName: 'label')
+    .child('Save', roleName: 'label')
     .parent
     .child(roleName: 'toggle button')
     .toggle
 
   greeter
     .child('Question', roleName: 'alert')
-    .child(translate('Save Unencrypted'), roleName: 'button')
+    .child('Save Unencrypted', roleName: 'button')
     .click
 end
 
