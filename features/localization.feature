@@ -66,7 +66,7 @@ Feature: Localization
   Scenario: Tails stores localization preferences when it's asked to
     Given I have started Tails without network from a USB drive without a persistent partition and stopped at Tails Greeter's login screen
     When I set the language to Italian (it)
-    And I save the language and keyboard options
+    And I save the language and keyboard options in cleartext storage
     Then the "it" language and keyboard have been saved in cleartext storage
     When I set the language to French (fr)
     Then the "fr" language and keyboard have been saved in cleartext storage
@@ -91,7 +91,7 @@ Feature: Localization
     And the Welcome Screen's formats is set to France
     When I set the language to Italian (it)
     Then the language and keyboard have not been saved in cleartext storage
-    When I save the language and keyboard options
+    When I save the language and keyboard options in cleartext storage
     Then the "it" language and keyboard have been saved in cleartext storage
     And I shutdown Tails and wait for the computer to power off
     # The third boot verifies that cleartext has priority

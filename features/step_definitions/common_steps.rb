@@ -483,7 +483,7 @@ Given /^I set the language to (.*) \((.*)\)$/ do |lang, lang_code|
   greeter.child('Search', roleName: 'text').activate
 end
 
-When /^I save the language and keyboard options$/ do
+When /^I save the language and keyboard options in cleartext storage$/ do
   greeter
     .child(translate('Save'), roleName: 'label')
     .parent
