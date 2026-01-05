@@ -1822,7 +1822,7 @@ Then /^the "(\w\w)" language has been saved in cleartext storage$/ do |lang|
   assert_equal(expected_keyboard, keyboard['TAILS_XKBLAYOUT'])
 end
 
-Then(/^the Greeter's language is set to (.*)$/) do |lang|
+Then(/^the Welcome Screen's language is set to (.*)$/) do |lang|
   language_row = greeter.children(roleName: 'list item')
                         .first
                         .children(roleName: 'label')

@@ -61,7 +61,7 @@ Feature: Localization
     Then the language has not been saved in cleartext storage
     When I shutdown Tails and wait for the computer to power off
     And I start Tails from USB drive "__internal" with network unplugged
-    Then the Greeter's language is set to English
+    Then the Welcome Screen's language is set to English
 
   Scenario: Tails stores localization preferences when it's asked to
     Given I have started Tails without network from a USB drive without a persistent partition and stopped at Tails Greeter's login screen
@@ -73,7 +73,7 @@ Feature: Localization
     And I shutdown Tails and wait for the computer to power off
     And I start Tails from USB drive "__internal" with network unplugged
     Then the "fr" language has been saved in cleartext storage
-    And the Greeter's language is set to French
+    And the Welcome Screen's language is set to French
 
   Scenario: Cleartext localization preferences have priority over Persistent Storage
     Given I have started Tails without network from a USB drive without a persistent partition and logged in
@@ -84,10 +84,10 @@ Feature: Localization
     When I shutdown Tails and wait for the computer to power off
     # The second boot verifies that the legacy setting still works
     And I start Tails from USB drive "__internal" with network unplugged
-    Then the Greeter's language is set to English
+    Then the Welcome Screen's language is set to English
     And the Welcome Screen's formats is set to United States
     When I enable persistence
-    Then the Greeter's language is set to German
+    Then the Welcome Screen's language is set to German
     And the Welcome Screen's formats is set to France
     When I set the language to Italian (it)
     Then the language has not been saved in cleartext storage
@@ -96,7 +96,7 @@ Feature: Localization
     And I shutdown Tails and wait for the computer to power off
     # The third boot verifies that cleartext has priority
     And I start Tails from USB drive "__internal" with network unplugged
-    Then the Greeter's language is set to Italian
+    Then the Welcome Screen's language is set to Italian
     And the Welcome Screen's formats is set to Italy
     When I enable persistence
     # formats are loaded from persistence
