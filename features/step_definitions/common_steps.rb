@@ -1797,7 +1797,7 @@ Then /^WhisperBack is prefilled for (.*) with summary: "(.*)"$/ do |app, summary
                prefilled_text)
 end
 
-Then /^the language has not been saved in cleartext storage$/ do
+Then /^the language and keyboard have not been saved in cleartext storage$/ do
   # Give it some time, otherwise the subsequent tests could pass just because
   # the file hasn't been created *yet*
   sleep 2
@@ -1805,7 +1805,7 @@ Then /^the language has not been saved in cleartext storage$/ do
   assert_false($vm.file_exist?('/usr/lib/live/mount/medium/storage/keyboard'))
 end
 
-Then /^the "(\w\w)" language has been saved in cleartext storage$/ do |lang|
+Then /^the "(\w\w)" language and keyboard have been saved in cleartext storage$/ do |lang|
   expected_keyboard = lang
   expected_locale = { 'it' => 'it_IT', 'fr' => 'fr_FR' }[lang]
   try_for(10) do
