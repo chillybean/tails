@@ -99,7 +99,7 @@ Packages
 
 To release Tails you'll need some packages installed:
 
-* `oathtool gitlab-cli j2cli intltool jq tidy libnotify-bin mktorrent podman pwgen python3-bs4 python3-debian python3-git python3-gitlab python3-jinja2 python3-html2text python3-sh python3-toml python3-voluptuous transmission-cli moreutils wl-clipboard rename i18nspector sqopv`
+* `oathtool gitlab-cli j2cli intltool jq tidy libnotify-bin podman pwgen python3-bs4 python3-debian python3-git python3-gitlab python3-jinja2 python3-html2text python3-sh python3-toml python3-voluptuous moreutils wl-clipboard rename i18nspector sqopv`
 
   Note: if the Debian version you are running does not include all required
   Go packages, such as [[!debpts podman]], you should be able to install
@@ -1050,8 +1050,8 @@ the release will be done in a new, dedicated branch.
         -o merge_request.title="Draft: Publish Tails ${VERSION}" \
         origin "${WEBSITE_RELEASE_BRANCH:?}"
 
-Generate the OpenPGP signatures and Torrents
-============================================
+Generate the OpenPGP signatures
+===============================
 
 Run the following command
 to create a directory with a suitable name, go there, move the built
@@ -1061,11 +1061,6 @@ images and with a `.sig` extension):
 
     ./bin/generate-images-signatures
 
-Then, create `.torrent` files and check the generated `.torrent`
-files metadata:
-
-    ./bin/generate-torrents
-
 Get the internal manual testing started
 =======================================
 
@@ -1074,7 +1069,7 @@ Tell testers that they can start testing. Remember to encrypt and sign your emai
     ./bin/automailer.py <<EOF
     To: rm@tails.net, sajolida@pimienta.org
     Subject: Testing Tails ${VERSION:?}
-    X-Attach: $(/bin/ls -1 "$ISOS/tails-amd64-${VERSION:?}/tails-amd64-${VERSION:?}.packages" "$ISOS/tails-amd64-${VERSION:?}/"tails-amd64-${VERSION:?}.{iso,img}.sig "$ISOS/tails-amd64-${VERSION:?}".{iso,img}.torrent | tr '\n' ,)
+    X-Attach: $(/bin/ls -1 "$ISOS/tails-amd64-${VERSION:?}/tails-amd64-${VERSION:?}.packages" "$ISOS/tails-amd64-${VERSION:?}/"tails-amd64-${VERSION:?}.{iso,img}.sig | tr '\n' ,)
 
     You can now download the images, verify them using the attached signatures, and start testing:
 
@@ -1084,8 +1079,6 @@ Tell testers that they can start testing. Remember to encrypt and sign your emai
 
         gpg --verify tails-amd64-${VERSION:?}.img.sig tails-amd64-${VERSION:?}.img
         gpg --verify tails-amd64-${VERSION:?}.iso.sig tails-amd64-${VERSION:?}.iso
-
-    Please note that the attached Torrents don't work yet.
     EOF
 
 Send a message on Matrix, too:
@@ -1604,54 +1597,6 @@ If, at a later stage of the process, you realize Mirrorbits is still not
 "noticing" that mirrors are up-to-date, don't be afraid of restarting
 the Mirrorbits service again.
 
-## Announce, seed and test the Torrents
-
-First, to make space for the new files, remove the previous stable release from
-our BitTorrent seed:
-
-1. Get the previous release's _Transmission_ IDs (ISO and USB image, use
-   comma-separated values) with:
-
-         ssh bittorrent.lizard transmission-remote --list \
-             | grep --fixed-strings "tails-amd64-${PREVIOUS_VERSION:?}-i"
-
-1. Delete the Torrents (`PREVIOUS_VERSION_TRANSMISSION_IDS` must be a
-   comma-separated list of IDs, based on the previous command):
-
-         ssh bittorrent.lizard transmission-remote \
-             -t "${PREVIOUS_VERSION_TRANSMISSION_IDS:?}" --remove-and-delete
-
-1. Finally, check that everything looks good:
-
-         ssh bittorrent.lizard transmission-remote --list
-
-Check if there's enough space on our Bittorrent seed to import the new
-ISO and USB images:
-
-    ssh bittorrent.lizard df -h /var/lib/transmission-daemon/downloads
-
-If not, list already running Torrents:
-
-    ssh bittorrent.lizard transmission-remote --list
-
-… set `$ID` to the oldest one and delete it (do this both for the ISO and USB images):
-
-    ssh bittorrent.lizard transmission-remote -t "${ID:?}" --remove-and-delete
-
-… and finally check disk space again:
-
-    ssh bittorrent.lizard df -h /var/lib/transmission-daemon/downloads
-
-Now you can announce and seed the Torrents for the release you're preparing:
-
-    ./bin/announce-and-seed-torrents
-
-Test that you can start downloading the ISO and USB images with a BitTorrent client.
-It can take a few dozen minutes before this works.
-
-Manual testers can now do the "Torrents" part of the manual test
-suite, so delete "⚠ Wait until the Release Manager […]" in that
-section on the testing pad.
 
 <a id="run-automated-tests"></a>
 
@@ -1846,11 +1791,10 @@ Skip this part if preparing a final release:
 
     [ "${DIST:?}" = alpha ]
 
-Copy the signatures and the Torrents into the website repository:
+Copy the signatures into the website repository:
 
 	cp "${ISO_PATH:?}.sig" \
 	   "${IMG_PATH:?}.sig" \
-	   "${ISOS:?}/tails-amd64-${VERSION:?}".{iso,img}.torrent \
 	   "${RELEASE_CHECKOUT:?}/wiki/src/torrents/files/"
 
 If our [[contribute/working_together/roles/technical_writer]] did not
