@@ -66,6 +66,7 @@ rm -rf cache/stages_rootfs
 # they may be wrong, e.g. if the Git repository was cloned with a strict umask.
 chown 0:0 config/chroot_local-includes/etc/resolv.conf
 chmod -R go+rX config/binary_local-includes/
+chmod -R go-w config/chroot_local-includes/
 chmod -R go+rX config/chroot_local-includes/etc
 chmod 0440 config/chroot_local-includes/etc/sudoers.d/*
 chmod go+rX config/chroot_local-includes/lib
@@ -95,14 +96,10 @@ find \
 DEBOOTSTRAP_OPTIONS="${DEBOOTSTRAP_OPTIONS:-} --keep-debootstrap-dir"
 
 # use our own APT repository's key:
-DEBOOTSTRAP_GNUPG_HOMEDIR=$(mktemp -d)
-gpg --homedir "$DEBOOTSTRAP_GNUPG_HOMEDIR" \
-    --no-tty \
-    --import config/chroot_sources/tails.chroot.gpg
-DEBOOTSTRAP_GNUPG_KEYRING="$DEBOOTSTRAP_GNUPG_HOMEDIR/pubring.kbx"
-[ -e "$DEBOOTSTRAP_GNUPG_KEYRING" ] ||
-    fatal "No debootstrap GnuPG keyring was created."
-DEBOOTSTRAP_OPTIONS="$DEBOOTSTRAP_OPTIONS --keyring=$DEBOOTSTRAP_GNUPG_KEYRING"
+DEBOOTSTRAP_KEYRING="$(mktemp --tmpdir tmp.debootstrap-gnupg-XXXXXXXX)"
+pgp_flatten_keyring config/chroot_sources/tails.chroot.gpg \
+    >"${DEBOOTSTRAP_KEYRING}"
+DEBOOTSTRAP_OPTIONS="$DEBOOTSTRAP_OPTIONS --keyring=$DEBOOTSTRAP_KEYRING"
 
 export DEBOOTSTRAP_OPTIONS
 
@@ -116,19 +113,19 @@ if [ "${TAILS_WEBSITE_CACHE:-0}" = 1 ]; then
     export WEBSITE_DEST_DIR=.
     export WEBSITE_CACHE_BASEDIR
 
-    echo "Website cache filesystem usage before migration:"
+    echo "I: Website cache filesystem usage before migration:"
     df "$WEBSITE_CACHE_BASEDIR"
     df --inodes "$WEBSITE_CACHE_BASEDIR"
 
     website-cache migrate
 
-    echo "Website cache filesystem usage before garbage collection:"
+    echo "I: Website cache filesystem usage before garbage collection:"
     df "$WEBSITE_CACHE_BASEDIR"
     df --inodes "$WEBSITE_CACHE_BASEDIR"
 
     website-cache gc
 
-    echo "Website cache filesystem usage after garbage collection:"
+    echo "I: Website cache filesystem usage after garbage collection:"
     df "$WEBSITE_CACHE_BASEDIR"
     df --inodes "$WEBSITE_CACHE_BASEDIR"
 
@@ -136,8 +133,8 @@ if [ "${TAILS_WEBSITE_CACHE:-0}" = 1 ]; then
     if ! website-cache get "$WEBSITE_CACHE_KEY"; then
         ./build-website
         WEBSITE_BUILD_DIR="config/chroot_local-includes/usr/share/doc/tails/website"
-        echo "Website cache entry size: $(du --apparent-size --summarize "${WEBSITE_BUILD_DIR}" | cut -f1)"
-        echo "Website cache entry inodes: $(du --inodes --summarize "${WEBSITE_BUILD_DIR}" | cut -f1)"
+        echo "I: Website cache entry size: $(du --apparent-size --summarize "${WEBSITE_BUILD_DIR}" | cut -f1)"
+        echo "I: Website cache entry inodes: $(du --inodes --summarize "${WEBSITE_BUILD_DIR}" | cut -f1)"
 
         if ! website-cache put "$WEBSITE_CACHE_KEY"; then
             # Delete incomplete cache entry
@@ -150,15 +147,14 @@ check whether we're short on actual disk space or on inodes. And then:
    that 10% disk space is available, by deleting as many cache entries
    as necessary, by decreasing age.
 
- - Else, if we're short on inodes: either tune the website cache filesystem's
-   inodes setup to match its actual (which is to store tons of small files),
-   or migrate to storing cache entries as tarballs.
+ - Else, if we're short on inodes: this is unexpected since the
+   cache entries are now stored as zip files. You'll need to investigate.
 
 For more context, see #20150.
 EOF
             exit 1
         fi
-        echo "Website cache filesystem usage after storing new cache entry:"
+        echo "I: Website cache filesystem usage after storing new cache entry:"
         df "$WEBSITE_CACHE_BASEDIR"
         df --inodes "$WEBSITE_CACHE_BASEDIR"
     fi

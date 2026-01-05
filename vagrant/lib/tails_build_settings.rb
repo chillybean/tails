@@ -24,7 +24,7 @@ end
 
 # The builder VM's platform
 ARCHITECTURE = 'amd64'.freeze
-DISTRIBUTION = 'bookworm'.freeze
+DISTRIBUTION = 'trixie'.freeze
 
 # The name of the Vagrant box
 def box_name

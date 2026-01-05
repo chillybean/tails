@@ -1,8 +1,12 @@
 #!/bin/sh
-# -*- mode: sh; sh-basic-offset: 8; tab-width: 8; indent-tabs-mode:t; -*-
+# -*- mode: sh; sh-basic-offset: 4; indent-tabs-mode:nil; -*-
 
 set -e
+set -u
+set -o pipefail
 set -x
+
+umask 022
 
 if [ -n "${TAILS_PROXY:-}" ]; then
     export http_proxy="${TAILS_PROXY}"
@@ -34,7 +38,7 @@ as_root_do() {
 }
 
 cleanup() {
-    [ -n "${BUILD_DIR}" ] || return 0
+    [ -n "${BUILD_DIR:-}" ] || return 0
     cd /
     remove_build_dirs
     sudo rm -rf "${BUILD_DIR}"
