@@ -2,10 +2,26 @@
 
 [[!toc levels=2]]
 
+<a id="obs-studio"></a>
+
+Recording a screencast using *OBS Studio*
+-----------------------------------------
+
+Recording the screen with a screencast has the following advantages over
+recording with an external camera:
+
+- Better image quality
+- Lighter setup
+- Allows recording remove sessions
+
+[[*OBS Studio*|https://obsproject.com/]] is multi-platform, easy to use,
+reliable, and allows recording both your microphone and the system sound, which
+other screencast software do not.
+
 <a id="cheese"></a>
 
-Recording with a camera using *Cheese*
-=====================================================================
+Recording an external camera using *Cheese*
+-------------------------------------------
 
 Recording the screen with an external camera has the following
 advantages over recording with a screencast:
@@ -34,8 +50,8 @@ IPEVO](https://www.ipevo.com/) works fine from Tails.
 
 <a id="ffmpeg"></a>
 
-FFmpeg
-======
+Recording an external camera using *FFmpeg*
+-------------------------------------------
 
 When *Cheese* is not reliable enough, *FFmpeg* can be an alternative.
 
@@ -50,14 +66,3 @@ When *Cheese* is not reliable enough, *FFmpeg* can be an alternative.
 1. Execute the following command:
 
        ffmpeg -f pulse -i default -f v4l2 -video_size 1280x720 -i /dev/video0 record-$(date +%F-%H%M%S).mp4
-
-<a id="screencast"></a>
-
-Recording a screencast
-======================
-
-Recording the screen with a [[screencast|doc/sensitive_documents/screenshot_and_screencast]] has the following advantages over
-recording with an external camera:
-
-- Better image quality
-- Lighter setup
