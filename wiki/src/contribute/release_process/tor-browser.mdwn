@@ -193,9 +193,6 @@ First, let's set some inputs in the environment:
     # Set TAILS_VERSION to the version of Tails this Tor Browser release will
     # end up in
     TAILS_VERSION=7.2
-    # Set TAG to the name of the tag for the Tor Browser release you want to
-    # refresh the patches against
-    TAG=tor-browser-140.5.0esr-15.0-1-build2
 
 As an initial setup that you only have to do once, get yourself a
 local checkout of `tor-browser.git`, add intrigeri's remote, and get a
@@ -226,9 +223,19 @@ Make sure we're up-to-date:
     git reset --hard intrigeri/44201-allow-tails-to-customize-about-tor
     )
 
+Choose which branch or tag you want to refresh the patches against.
+If a tag was created already, use it:
+
+    ONTO=tor-browser-140.5.0esr-15.0-1-build2
+
+Else, if the rebased Tor Browser branch has already been pushed but not tagged,
+use the branch:
+
+    ONTO=origin/tor-browser-140.7.0esr-15.0-1
+
 Rebase and resolve conflicts:
 
-    git rebase --onto="${TAG:?}" "$(git describe --tags --abbrev=0)"
+    git rebase --onto="${ONTO:?}" "$(git describe --tags --abbrev=0)"
 
 Bump Tails version number:
 
@@ -243,7 +250,7 @@ Push updated branch:
 Generate refreshed patches:
 
     cd "${TAILS_GIT_REPO:?}"
-    bin/generate-about-tor-patches "${TOR_BROWSER_GIT_REPO:?}" "${TAG:?}"
+    bin/generate-about-tor-patches "${TOR_BROWSER_GIT_REPO:?}" "${ONTO:?}"
 
 <a id="sync-wrapper-scripts">
 
