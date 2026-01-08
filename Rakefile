@@ -176,7 +176,7 @@ def system_cpus
   File.read('/proc/cpuinfo').scan(/^processor\s+:/).count
 end
 
-ENV['TAILS_WEBSITE_CACHE'] = releasing? ? '0' : '1'
+ENV['TAILS_WEBSITE_CACHE'] = releasing? ? 'no' : 'yes'
 
 task :parse_build_options do
   options = []
@@ -222,14 +222,14 @@ task :parse_build_options do
       value = Regexp.last_match(1)
       if releasing?
         warn "Building a release ⇒ ignoring #{opt} build option"
-        ENV['TAILS_WEBSITE_CACHE'] = '0'
+        ENV['TAILS_WEBSITE_CACHE'] = 'no'
       else
         value = 'yes' if value.nil?
         case value
         when 'yes'
-          ENV['TAILS_WEBSITE_CACHE'] = '1'
+          ENV['TAILS_WEBSITE_CACHE'] = 'yes'
         when 'no'
-          ENV['TAILS_WEBSITE_CACHE'] = '0'
+          ENV['TAILS_WEBSITE_CACHE'] = 'no'
         else
           raise "Unsupported value for cachewebsite option: #{value}"
         end

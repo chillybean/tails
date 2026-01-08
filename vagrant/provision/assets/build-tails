@@ -12,7 +12,7 @@ if [ -n "${TAILS_PROXY:-}" ]; then
     export http_proxy="${TAILS_PROXY}"
 fi
 
-if [ "${TAILS_WEBSITE_CACHE}" = 1 ]; then
+if [ "${TAILS_WEBSITE_CACHE}" = "yes" ]; then
     export WEBSITE_CACHE_BASEDIR=/var/cache/tails-website
 fi
 
