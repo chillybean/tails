@@ -1281,7 +1281,7 @@ class ConnectionProgress:
     """
     This class "handles" the progress bar in the final screen.
 
-    Probably the right approach would have been to subclass Gtk.ProgressBar, but subclassing and glade are
+    Probably the right approach would have been to subclass Gtk.ProgressBar, but subclassing and GtkBuilder are
     hard to combine.
     """
 
