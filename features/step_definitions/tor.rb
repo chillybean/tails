@@ -701,7 +701,7 @@ When /^I configure (?:some|the) (persistent )?(\w+) bridges (from a QR code )?in
         # we'd like to use btn.labelee, which is the semantic way to reach
         # the text entry
         # (for details, see label-for and labelled-by accessibility relations
-        # in main.ui.in, aka. "Label For" and "Labeled By" in Glade)
+        # in main.ui.in)
         # however, this doesn't seem to work anymore
         bridge_entry = tor_connection_assistant.child(roleName: 'text')
         bridge_entry.text = bridges.first[:line]
