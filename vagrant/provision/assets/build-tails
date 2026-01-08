@@ -198,7 +198,7 @@ fi
 shrink_acng_cache "${TAILS_PROXY_TYPE}"
 
 BUILD_DIR=$(mktemp -d /tmp/tails-build.XXXXXXXX)
-if [ "${TAILS_RAM_BUILD}" ]; then
+if [ "${TAILS_RAM_BUILD}" = "yes" ]; then
     as_root_do mount -t tmpfs -o "noatime,size=100%,mode=0770,uid=root,gid=${USER}" tmpfs "${BUILD_DIR}"
 fi
 as_root_do rsync -a "${TAILS_GIT_DIR}"/ "${BUILD_DIR}"/
