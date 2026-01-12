@@ -104,7 +104,7 @@ class GetConfigurationCLI:
                 sys.exit(int(config.build.skip))
             case "should-test":
                 sys.exit(
-                    int(config.test.skip or get_current_branch().startswith("wip/"))
+                    int(config.test.skip)
                 )
             case "run-test":
                 self.run_test(config)
