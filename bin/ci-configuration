@@ -89,7 +89,7 @@ class GetConfigurationCLI:
     def main(self):
         self.args = self.get_parser().parse_args()
         config_file = (
-            Path("ci/configure/")
+            Path("config/ci/per_branch/")
             / f"{normalize_branch_name(get_current_branch())}.toml"
         )
         if config_file.exists():

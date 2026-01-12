@@ -54,7 +54,7 @@ It's sometimes desirable to configure CI for a specific branch. Typical usecases
  - disabling CI (ie: to avoid wasting Jenkins' cpu cycles)
  - forcing all tests to be run, including `@fragile` ones
 
-To do so, you can create `ci/configure/${branch}.toml`.
+To do so, you can create `config/ci/per_branch/${branch}.toml`.
 
 Example: disable all CI
 
