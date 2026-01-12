@@ -99,5 +99,6 @@ Feature: Localization
     Then the Welcome Screen's language is set to Italian
     And the Welcome Screen's formats is set to Italy
     When I enable persistence
-    # formats are loaded from persistence
+    # Only formats are loaded from persistence
     Then the Welcome Screen's formats is set to France
+    And the Welcome Screen's language is set to Italian
