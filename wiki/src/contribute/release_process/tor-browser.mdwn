@@ -106,11 +106,10 @@ Ensure you include the "-buildN" part. Add it if it's missing.
 </div>
 
 Set `TBB_TAILS_TICKET` to the number of the ticket about updating Tor
-Browser, and `TBB_IMPORT_BRANCH` to the branch we'll work on, which
-must include the `-force-all-tests` suffix:
+Browser, and `TBB_IMPORT_BRANCH` to the branch we'll work on:
 
     TBB_TAILS_TICKET=123456
-    TBB_IMPORT_BRANCH=${TBB_TAILS_TICKET:?}-tor-browser-${TBB_VERSION%%-*}-force-all-tests
+    TBB_IMPORT_BRANCH=${TBB_TAILS_TICKET:?}-tor-browser-${TBB_VERSION%%-*}
 
 If `$TBB_IMPORT_BRANCH` already exists, fetch it and check it out:
 
@@ -119,6 +118,10 @@ If `$TBB_IMPORT_BRANCH` already exists, fetch it and check it out:
 Else, create it and check it out:
 
     git checkout -b ${TBB_IMPORT_BRANCH:?} origin/stable
+
+Configure CI to run all tests:
+
+    echo -e "[test]\nforce_all_tests = true" > "config/ci/per_branch/$(git branch --show-current).toml"
 
 Set `TBB_SIGNER_SUFFIX` to the nickname of the Tor Browser developer who signed
 the `sha256sums-unsigned-build.txt` file, preceded by a dash; the detached

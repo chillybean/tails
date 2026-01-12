@@ -27,31 +27,42 @@ Once this new version is available in our APT snapshots, a Tails Team
 member (you!) gathers the data that will inform our decision, and prepares
 the upgrade:
 
-1. Fork a branch off `stable` called `NNNNN-tor-X.Y-force-all-tests`.
+0. Set `branch=NNNNN-tor-X.Y`
 
-2. `OLD_SERIAL="$(cat config/APT_snapshots.d/torproject/serial)"`
+1. Fork a branch off `stable` called `${branch:?}`
 
-3. On that branch, bump `config/APT_snapshots.d/torproject/serial` to a snapshot
+2. Create `config/ci/per_branch/${branch:?}.toml` and set it to
+
+   ```
+   [test]
+   force_all_tests = true
+   ```
+
+   `git add config/ci/per_branch/${branch:?}.toml && git commit -m "Set this branch to run all tests" `
+
+3. `OLD_SERIAL="$(cat config/APT_snapshots.d/torproject/serial)"`
+
+4. On that branch, bump `config/APT_snapshots.d/torproject/serial` to a snapshot
    that's recent enough to include the relevant new version of `tor`:
 
        auto/scripts/apt-snapshots-serials get-latest torproject \
        | cut -d' ' -f2 \
        > config/APT_snapshots.d/torproject/serial
 
-4. [[Bump the expiration
+5. [[Bump the expiration
    date|contribute/APT_repository/time-based_snapshots/#bump-expiration-date]]
    for the snapshot of the `torproject` archive that you've switched the
    branch _to_. Set the same expiration date as the one for the snapshot
    of the `torproject` archive that you've switched the branch _from_.
    See tip below.
 
-5. Push this new branch to our CI.
+6. Push this new branch to our CI.
 
-6. Compare the Jenkins build and test results to the ones for our
+7. Compare the Jenkins build and test results to the ones for our
    `stable` branch. What follows assumes that these CI results look good.
    If they don't, more work is needed.
 
-7. Submit your branch for review via our [[usual
+8. Submit your branch for review via our [[usual
    process|contribute/merge_policy#submit]].
 
 

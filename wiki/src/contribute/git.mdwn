@@ -165,11 +165,19 @@ should be forked off the devel branch.
 
 If you intend to work on a branch not really meant to be proposed to a
 merge at first, like an experimenting branch that you still want to push
-to share with other developers, you can prefix its name by the keyword
-`wip/`.  It will make it clear to everyone that this branch shouldn't be
-merged before being renamed, and our Jenkins instance
-[[!tails_gitweb_puppet_code site/profile/files/tails/jenkins/master/generate_tails_iso_jobs desc="will not build"]]
- nor test it.
+to share with other developers, you can disable CI by setting `config/ci/per_branch/$branch.toml` to
+
+```toml
+[test]
+skip = true
+[build]
+skip = true
+```
+
+Our Jenkins instance
+[[!tails_gitweb bin/ci-configuration desc="will not build"]]
+[[!tails_gitweb_puppet_control site/profile/files/tails/jenkins/master/generate_tails_iso_jobs desc="nor test"]]
+ it.
 
 <a id="promotion-material"></a>
 
