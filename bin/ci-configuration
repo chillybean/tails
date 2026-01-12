@@ -80,8 +80,8 @@ class GetConfigurationCLI:
     def get_parser(self) -> argparse.ArgumentParser:
         p = argparse.ArgumentParser()
         sub = p.add_subparsers(dest="command")
-        sub.add_parser("should-build", help="Returns 1 if build.skip is True")
-        sub.add_parser("should-test", help="Returns 1 if test.skip is True")
+        sub.add_parser("should-build", help="Return 1 if build.skip is True")
+        sub.add_parser("should-test", help="Return 1 if test.skip is True")
         run = sub.add_parser("run-test", help="Print test options, one per line")
         run.add_argument("cucumber_args", nargs="*")
         return p
