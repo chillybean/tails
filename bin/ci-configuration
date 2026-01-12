@@ -33,12 +33,13 @@ class ConfigFile(BaseModel):
 
 @functools.lru_cache(1)
 def get_current_branch() -> str:
-    return (
-        subprocess.check_output(["/usr/bin/git", "branch", "--show-current"], text=True)
-        .rstrip("\n")
-        .replace("/", "-")
-        .replace("+", "-")
+    return subprocess.check_output(
+        ["/usr/bin/git", "branch", "--show-current"], text=True
     )
+
+
+def normalize_branch_name(branch: str) -> str:
+    return branch.rstrip("\n").replace("/", "-").replace("+", "-")
 
 
 @functools.lru_cache(1)
@@ -87,7 +88,10 @@ class GetConfigurationCLI:
 
     def main(self):
         self.args = self.get_parser().parse_args()
-        config_file = Path("ci/configure/") / f"{get_current_branch()}.toml"
+        config_file = (
+            Path("ci/configure/")
+            / f"{normalize_branch_name(get_current_branch())}.toml"
+        )
         if config_file.exists():
             with config_file.open("rb") as buf:
                 raw_data = tomllib.load(buf)
