@@ -56,7 +56,24 @@ It's sometimes desirable to configure CI for a specific branch. Typical usecases
 
 To do so, you can create `ci/configure/${branch}.toml`.
 
-[[!tails_gitweb bin/ci-configuration]]
+Example: disable all CI
+
+```toml
+[test]
+skip = true
+[build]
+skip = true
+```
+
+Example: force all tests
+
+```toml
+[test]
+force_all_tests = true
+```
+
+Have a look at [[!tails_gitweb bin/ci-configuration]] (specifically the classes inheriting from
+`BaseModel`) to have a list of possible options you can use.
 
 ### Run without Chutney
 
