@@ -57,7 +57,7 @@ if [ "${TAILS_PROXY_TYPE}" = "vmproxy" ]; then
     systemctl restart apt-cacher-ng.service
 fi
 
-if [ "$TAILS_WEBSITE_CACHE" = 1 ]; then
+if [ "$TAILS_WEBSITE_CACHE" = "yes" ]; then
     echo "I: Configuring website cache directory..."
     if [ "${TAILS_PROXY_TYPE}" = "vmproxy" ]; then
         WEBSITE_CACHE_DISK=/dev/vdc
