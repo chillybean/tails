@@ -112,7 +112,11 @@ must include the `-force-all-tests` suffix:
     TBB_TAILS_TICKET=123456
     TBB_IMPORT_BRANCH=${TBB_TAILS_TICKET:?}-tor-browser-${TBB_VERSION%%-*}-force-all-tests
 
-Check out the new branch:
+If `$TBB_IMPORT_BRANCH` already exists, fetch it and check it out:
+
+    git checkout -b ${TBB_IMPORT_BRANCH:?} origin/${TBB_IMPORT_BRANCH:?}
+
+Else, create it and check it out:
 
     git checkout -b ${TBB_IMPORT_BRANCH:?} origin/stable
 
@@ -183,6 +187,14 @@ Finally:
 Refresh custom about:tor patches
 ================================
 
+## Prepare your tails.git clone
+
+If you're doing this as part of the bigger "Upgrade Tor Browser in Tails"
+process: you're already good.
+
+Else, create and checkout a branch for the "Upgrade to Tor Browser XXX based on
+ESR YYY" process that you, or a team mate, will soon go take care of.
+
 ## Rebase the tor-browser.git branch
 
 First, let's set some inputs in the environment:
@@ -247,10 +259,24 @@ Push updated branch:
 
 ## Generate patches for tails.git
 
-Generate refreshed patches:
+Generate refreshed patches and commit them to `tails.git`:
 
     cd "${TAILS_GIT_REPO:?}"
     bin/generate-about-tor-patches "${TOR_BROWSER_GIT_REPO:?}" "${ONTO:?}"
+
+## Share your results
+
+If you're doing this as part of the bigger "Upgrade Tor Browser in Tails"
+process: skip this section.
+
+Else:
+
+1. Push the `tails.git` branch you've just committed to, creating a draft MR.
+2. Make the draft MR close the relevant "Upgrade to Tor Browser XXX based on ESR YYY"
+   and "Refresh about:tor patches for Tails N.M" issues.
+3. Assign the draft MR to the person who is committed to "Upgrade to Tor Browser
+   XXX based on ESR YYY"
+4. Move the "Refresh about:tor patches for Tails N.M" issue to `~"Needs Validation"`.
 
 <a id="sync-wrapper-scripts">
 
