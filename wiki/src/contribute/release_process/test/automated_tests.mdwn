@@ -48,6 +48,16 @@ are tagged `@fragile`, if the images under test were built:
 Therefore, to ask Jenkins to run the full test suite on your topic
 branch, give it a name that ends `-force-all-tests`.
 
+### Configure CI per-branch
+
+It's sometimes desirable to configure CI for a specific branch. Typical usecases are:
+ - disabling CI (ie: to avoid wasting Jenkins' cpu cycles)
+ - forcing all tests to be run, including `@fragile` ones
+
+To do so, you can create `ci/configure/${branch}.toml`.
+
+[[!tails_gitweb bin/ci-configuration]]
+
 ### Run without Chutney
 
 Chutney, which creates a "virtual" Tor network, is used by default.
