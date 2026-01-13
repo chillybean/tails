@@ -15,17 +15,11 @@ places:
  - Weblate's [staging website](https://staging.tails.net/) uses its
    own configuration file, which is managed by Puppet.
 
-When you update [[!tails_gitweb ikiwiki.setup]]:
+When you update [[!tails_gitweb ikiwiki.setup]], ask a Tails Team member to submit
+your changes as a MR against the relevant files:
 
-1. `git clone https://gitlab.tails.boum.org/tails/puppet-code.git` and apply the
-   same changes to the ikiwiki configuration used by Weblate's staging website:
-
-   - [[!tails_gitweb_puppet_code site/profile/templates/tails/website/ikiwiki.setup.epp]]
-   - [[!tails_gitweb_puppet_code site/profile/files/tails/website/ikiwiki-libdir/IkiWiki/Plugin/sidebar2.pm]]
-
-2. Submit these production website configuration changes to the
-   [[sysadmins team|https://gitlab.torproject.org/tpo/tpa/team/-/wikis/tails/role-description]],
-   as a merge request.
+ - <https://gitlab.torproject.org/tpo/tpa/puppet-control/-/blob/production/site/profile/templates/tails/website/ikiwiki.setup.epp>.
+ - <https://gitlab.torproject.org/tpo/tpa/puppet-control/-/blob/production/site/profile/files/tails/website/ikiwiki-libdir/IkiWiki/Plugin/sidebar2.pm>
 
 Don't bother coordinating the merge of these 2 sets of changes. They can be
 merged in any order without causing major trouble. What matters is that these
