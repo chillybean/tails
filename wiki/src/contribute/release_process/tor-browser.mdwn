@@ -112,7 +112,11 @@ must include the `-force-all-tests` suffix:
     TBB_TAILS_TICKET=123456
     TBB_IMPORT_BRANCH=${TBB_TAILS_TICKET:?}-tor-browser-${TBB_VERSION%%-*}-force-all-tests
 
-Check out the new branch:
+If `$TBB_IMPORT_BRANCH` already exists, fetch it and check it out:
+
+    git checkout -b ${TBB_IMPORT_BRANCH:?} origin/${TBB_IMPORT_BRANCH:?}
+
+Else, create it and check it out:
 
     git checkout -b ${TBB_IMPORT_BRANCH:?} origin/stable
 
@@ -178,24 +182,29 @@ Finally:
 
 3. [[Update the Tor Browser Flatpak metadata|tor-browser#update-flatpak-metadata]]
 
+<a id="refresh-about-tor-patches"></a>
+
 Refresh custom about:tor patches
 ================================
 
-<a id="rebase-about-tor-branch"></a>
+## Prepare your tails.git clone
 
-## Rebase tor-browser.git branch
+If you're doing this as part of the bigger "Upgrade Tor Browser in Tails"
+process: you're already good.
+
+Else, create and checkout a branch for the "Upgrade to Tor Browser XXX based on
+ESR YYY" process that you, or a team mate, will soon go take care of.
+
+## Rebase the tor-browser.git branch
 
 First, let's set some inputs in the environment:
 
-    TAILS_GIT_REPO=/path/to/your/tails.git
+    TAILS_GIT_REPO="$HOME/tails/git"
     # If you don't have a local checkout of tor-browser.git, see below
     TOR_BROWSER_GIT_REPO=/path/to/your/tor-browser.git
     # Set TAILS_VERSION to the version of Tails this Tor Browser release will
     # end up in
     TAILS_VERSION=7.2
-    # Set TAG to the name of the tag for the Tor Browser release you want to
-    # refresh the patches against
-    TAG=tor-browser-140.5.0esr-15.0-1-build2
 
 As an initial setup that you only have to do once, get yourself a
 local checkout of `tor-browser.git`, add intrigeri's remote, and get a
@@ -208,8 +217,8 @@ checkout of the development branch for the about:tor patches:
     TOR_BROWSER_GIT_REPO=$(pwd)
     git remote add intrigeri git@gitlab.torproject.org:intrigeri/tor-browser.git
     git fetch intrigeri
-    git checkout -b 44201-allow-tails-to-customize-about-tor-esr128 \
-        intrigeri/44201-allow-tails-to-customize-about-tor-esr128
+    git checkout -b 44201-allow-tails-to-customize-about-tor \
+        intrigeri/44201-allow-tails-to-customize-about-tor
     )
 
 Make `tor-browser.git` your working directory:
@@ -222,13 +231,23 @@ Make sure we're up-to-date:
     set -eu
     git fetch origin
     git fetch intrigeri
-    git checkout 44201-allow-tails-to-customize-about-tor-esr128
-    git reset --hard intrigeri/44201-allow-tails-to-customize-about-tor-esr128
+    git checkout 44201-allow-tails-to-customize-about-tor
+    git reset --hard intrigeri/44201-allow-tails-to-customize-about-tor
     )
+
+Choose which branch or tag you want to refresh the patches against.
+If a tag was created already, use it:
+
+    ONTO=tor-browser-140.5.0esr-15.0-1-build2
+
+Else, if the rebased Tor Browser branch has already been pushed but not tagged,
+use the branch:
+
+    ONTO=origin/tor-browser-140.7.0esr-15.0-1
 
 Rebase and resolve conflicts:
 
-    git rebase --onto="${TAG:?}" "$(git describe --tags --abbrev=0)"
+    git rebase --onto="${ONTO:?}" "$(git describe --tags --abbrev=0)"
 
 Bump Tails version number:
 
@@ -240,10 +259,24 @@ Push updated branch:
 
 ## Generate patches for tails.git
 
-Generate refreshed patches:
+Generate refreshed patches and commit them to `tails.git`:
 
     cd "${TAILS_GIT_REPO:?}"
-    bin/generate-about-tor-patches "${TOR_BROWSER_GIT_REPO:?}" "${TAG:?}"
+    bin/generate-about-tor-patches "${TOR_BROWSER_GIT_REPO:?}" "${ONTO:?}"
+
+## Share your results
+
+If you're doing this as part of the bigger "Upgrade Tor Browser in Tails"
+process: skip this section.
+
+Else:
+
+1. Push the `tails.git` branch you've just committed to, creating a draft MR.
+2. Make the draft MR close the relevant "Upgrade to Tor Browser XXX based on ESR YYY"
+   and "Refresh about:tor patches for Tails N.M" issues.
+3. Assign the draft MR to the person who is committed to "Upgrade to Tor Browser
+   XXX based on ESR YYY"
+4. Move the "Refresh about:tor patches for Tails N.M" issue to `~"Needs Validation"`.
 
 <a id="sync-wrapper-scripts">
 
