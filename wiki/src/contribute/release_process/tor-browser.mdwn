@@ -121,7 +121,7 @@ Else, create it and check it out:
 
 Configure CI to run all tests:
 
-    echo -e "[test]\nforce_all_tests = true" > "config/ci/per_branch/$(git branch --show-current).toml"
+    echo -e "[test]\nforce_all_tests = true" > "config/ci/per_branch/${TBB_IMPORT_BRANCH:?}.toml"
 
 Set `TBB_SIGNER_SUFFIX` to the nickname of the Tor Browser developer who signed
 the `sha256sums-unsigned-build.txt` file, preceded by a dash; the detached
