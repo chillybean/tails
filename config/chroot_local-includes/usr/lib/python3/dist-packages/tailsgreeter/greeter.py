@@ -17,16 +17,19 @@
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>
 #
 
+import contextlib
 import gettext
 import gi
 import logging
 import os
 from pathlib import Path
 
+from tailslib.persistence import is_tails_media_writable
+
 from tailsgreeter import config
 from tailsgreeter.config import persistent_settings_dir, transient_settings_dir
 from tailsgreeter.gdmclient import GdmClient
-from tailsgreeter.settings import localization
+from tailsgreeter.settings import localization, SettingNotFoundError
 from tailsgreeter.settings.admin import AdminSetting
 from tailsgreeter.settings.localization_settings import LocalisationSettings
 from tailsgreeter.settings.macspoof import MacSpoofSetting
@@ -62,6 +65,7 @@ class GreeterApplication:
     This class is the greeter dbus service"""
 
     def __init__(self):
+        self.initialization_complete = False
         self.session = None
         self.forced = False
         self.postponed = False
@@ -95,12 +99,14 @@ class GreeterApplication:
         self.network_setting = NetworkSetting()
         self.unsafe_browser_setting = UnsafeBrowserSetting()
 
+        language_settings_ui = LanguageSettingUI(
+            self.localisationsettings.language, self.on_language_changed
+        )
+        keyboard_settings_ui = KeyboardSettingUI(self.localisationsettings.keyboard)
         # Initialize the settings
         self.settings = GreeterSettingsCollection(
-            LanguageSettingUI(
-                self.localisationsettings.language, self.on_language_changed
-            ),
-            KeyboardSettingUI(self.localisationsettings.keyboard),
+            language_settings_ui,
+            keyboard_settings_ui,
             FormatsSettingUI(self.localisationsettings.formats),
             AdminSettingUI(self.admin_setting),
             MACSpoofSettingUI(self.macspoof_setting),
@@ -112,11 +118,20 @@ class GreeterApplication:
         self.mainwindow = GreeterMainWindow(self, persistence, self.settings)
 
         # Apply the default settings
+        logging.info("Applying default settings")
         for setting in self.settings:
             setting.apply()
 
+        if is_tails_media_writable():
+            logging.info("Loading cleartext settings...")
+            with contextlib.suppress(SettingNotFoundError):
+                language_settings_ui.load()
+            with contextlib.suppress(SettingNotFoundError):
+                keyboard_settings_ui.load()
+
         # Inhibit the session being marked as idle
         self.inhibit_idle()
+        self.initialization_complete = True
 
     def translate_to(self, lang):
         """Translate all windows to target language"""
