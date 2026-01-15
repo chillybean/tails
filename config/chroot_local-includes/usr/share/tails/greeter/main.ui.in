@@ -107,111 +107,153 @@
                 <property name="position">0</property>
               </packing>
             </child>
-          </object>
-          <packing>
+        </object>
+        <packing>
             <property name="expand">True</property>
             <property name="fill">True</property>
             <property name="position">0</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkBox" id="box_language">
+        </packing>
+    </child>
+    <child>
+        <object class="GtkBox" id="box_language">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="orientation">vertical</property>
             <property name="spacing">6</property>
             <child>
-              <object class="GtkBox" id="box_language_header">
-                <property name="visible">True</property>
-                <property name="can-focus">False</property>
-                <child>
-                  <object class="GtkLabel" id="label_language_header_title">
+                <object class="GtkBox" id="box_language_header">
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
-                    <property name="label" translatable="yes">Language and Formats</property>
-                    <attributes>
-                      <attribute name="weight" value="bold"/>
-                    </attributes>
-                  </object>
-                  <packing>
+                    <child>
+                        <object class="GtkLabel" id="label_language_header_title">
+                            <property name="visible">True</property>
+                            <property name="can-focus">False</property>
+                            <property name="label" translatable="yes">Language and Formats</property>
+                            <attributes>
+                                <attribute name="weight" value="bold"/>
+                            </attributes>
+                        </object>
+                        <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                        </packing>
+                    </child>
+                    <child>
+                        <object class="GtkLinkButton" id="linkbutton_language_help">
+                            <property name="visible">True</property>
+                            <property name="can-focus">False</property>
+                            <property name="receives-default">True</property>
+                            <property name="relief">none</property>
+                            <property name="uri">doc/first_steps/welcome_screen.en.html#locale</property>
+                            <signal name="activate-link" handler="cb_linkbutton_help_activate" swapped="no"/>
+                            <child>
+                                <object class="GtkImage" id="image_language_help">
+                                    <property name="visible">True</property>
+                                    <property name="can-focus">False</property>
+                                    <property name="icon-name">tails-help</property>
+                                </object>
+                            </child>
+                        </object>
+                        <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">1</property>
+                        </packing>
+                    </child>
+                    <child>
+                        <object class="GtkLabel" id="label_language_header_status">
+                            <property name="can-focus">False</property>
+                            <property name="label" translatable="yes">Default Settings</property>
+                            <attributes>
+                                <attribute name="style" value="italic"/>
+                            </attributes>
+                        </object>
+                        <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">2</property>
+                        </packing>
+                    </child>
+                </object>
+                <packing>
                     <property name="expand">False</property>
                     <property name="fill">True</property>
                     <property name="position">0</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkLinkButton" id="linkbutton_language_help">
+                </packing>
+            </child>
+            <child>
+                <object class="GtkFrame" id="frame_language">
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
-                    <property name="receives-default">True</property>
-                    <property name="relief">none</property>
-                    <property name="uri">doc/first_steps/welcome_screen.en.html#locale</property>
-                    <signal name="activate-link" handler="cb_linkbutton_help_activate" swapped="no"/>
+                    <property name="label-xalign">0</property>
+                    <property name="shadow-type">in</property>
                     <child>
-                      <object class="GtkImage" id="image_language_help">
-                        <property name="visible">True</property>
-                        <property name="can-focus">False</property>
-                        <property name="icon-name">tails-help</property>
-                      </object>
+                        <object class="GtkListBox" id="listbox_region">
+                            <property name="visible">True</property>
+                            <property name="can-focus">False</property>
+                            <signal name="row-activated" handler="cb_listbox_region_row_activated" swapped="no"/>
+                        </object>
                     </child>
-                  </object>
-                  <packing>
+                </object>
+                <packing>
                     <property name="expand">False</property>
                     <property name="fill">True</property>
                     <property name="position">1</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkLabel" id="label_language_header_status">
-                    <property name="can-focus">False</property>
-                    <property name="label" translatable="yes">Default Settings</property>
-                    <attributes>
-                      <attribute name="style" value="italic"/>
-                    </attributes>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">2</property>
-                  </packing>
-                </child>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">0</property>
-              </packing>
+                </packing>
             </child>
             <child>
-              <object class="GtkFrame" id="frame_language">
-                <property name="visible">True</property>
-                <property name="can-focus">False</property>
-                <property name="label-xalign">0</property>
-                <property name="shadow-type">in</property>
-                <child>
-                  <object class="GtkListBox" id="listbox_region">
+                <object class="GtkBox" id="save_language_keyboard_box">
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
-                    <signal name="row-activated" handler="cb_listbox_region_row_activated" swapped="no"/>
-                  </object>
-                </child>
-                <child type="label_item">
-                  <placeholder/>
-                </child>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">1</property>
-              </packing>
+                    <property name="valign">center</property>
+                    <property name="halign">end</property>
+                    <property name="margin-start">6</property>
+                    <property name="spacing">6</property>
+                    <child>
+                        <object class="GtkLabel" id="save_language_keyboard_label">
+                            <property name="visible">True</property>
+                            <property name="can-focus">False</property>
+                            <property name="label" translatable="yes">Save</property>
+                            <property name="use-underline">False</property>
+                            <accessibility>
+                                <relation type="label-for" target="save_language_keyboard_switch"/>
+                            </accessibility>
+                        </object>
+                        <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                        </packing>
+                    </child>
+                    <child>
+                        <object class="GtkSwitch" id="save_language_keyboard_switch">
+                            <property name="visible">True</property>
+                            <property name="can-focus">True</property>
+                            <property name="halign">end</property>
+                            <property name="valign">center</property>
+                            <signal name="state-set" handler="cb_save_language_keyboard_switch_changed" swapped="no"/>
+                            <child internal-child="accessible">
+                                <object class="AtkObject" id="save_language_keyboard_switch-atkobject">
+                                    <property name="AtkObject::accessible-name" translatable="yes">Save</property>
+                                </object>
+                            </child>
+                        </object>
+                        <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">1</property>
+                        </packing>
+                    </child>
+                </object>
             </child>
-          </object>
-          <packing>
+        </object>
+        <packing>
             <property name="expand">True</property>
             <property name="fill">True</property>
             <property name="position">1</property>
-          </packing>
-        </child>
+        </packing>
+    </child>
         <child>
           <object class="GtkBox" id="box_storagecreate">
             <property name="can-focus">False</property>

@@ -1,3 +1,483 @@
+tails (7.4) unstable; urgency=medium
+
+  * Upgrade to Linux 6.12.63
+
+  * Upgrade Thunderbird to 1:140.6.0esr-1~deb13u1
+
+  * Upgrade to Tor Browser 15.0.4 based on ESR 140.7 (tails/tails!2692)
+
+    Closes issues:
+      - Upgrade to Tor Browser 15.0.4 based on ESR 140.7 (tails/tails#21345)
+      - Refresh about:tor patches for Tails 7.4 (tails/tails#21346)
+
+    Commits:
+      - Refresh org.boum.tails.TorBrowser flatpak manifest
+      - Upgrade Tor Browser to 15.0.4-build1 (refs: tails#21345)
+      - Tor Browser: refresh custom about:tor patches onto tor-
+        browser-140.7.0esr-15.0-1-build1
+
+  * Upgrade to Trixie 13.3 (tails/tails!2691)
+
+    Closes issues:
+      - Upgrade to Trixie 13.3 (tails/tails#21168)
+      - Kleopatra no longer opens .gpg files after double-clicking in Tails 7.0+
+        (tails/tails#21281)
+      - Trying to unlock VeraCrypt volume with  wrong password can crash GNOME Shell
+        (tails/tails#21286)
+
+    Commits:
+      - Cleanup
+      - Enable the 21168-trixie-13.3-force-all-tests APT overlay (refs: #21168).
+      - Bump APT snapshots for Vagrant box
+      - Upgrade to Trixie 13.3
+
+  * CI: ignore carl9170fw 1.9.9-690-gc6e7ab0-0.1 (irrelevant changes)
+    (tails/tails!2678)
+
+    Closes issues:
+      - Update src:carl9170fw or ignore the new version (tails/tails#21368)
+
+    Commits:
+      - CI: ignore carl9170fw 1.9.9-690-gc6e7ab0-0.1 (irrelevant changes)
+
+  * Fix a variety of problems in the about:tor patches refresh process
+    (tails/tails!2688)
+
+    Commits:
+      - Use consistent example (aka. default) value for TAILS_GIT_REPO
+      - Document collaboration process between the 2 steps of upgrading Tor Browser
+      - Improve phrasing
+      - Point to the correct section of the process
+      - about:tor process: support rebasing onto an untagged branch and fix steps order
+      - about:tor process: use the correct branch
+
+  * GitLab CI: upgrade "Ensure MR from master into stable" to Trixie container
+    (tails/tails!2685)
+
+    Closes issues:
+      - GitLab CI "Ensure MR from master into stable" job: use Debian 13 (Trixie)
+        container (tails/tails#21371)
+
+    Commits:
+      - GitLab CI: upgrade "Ensure MR from master into stable" to Trixie container
+
+  * Take down YEC (tails/tails!2681)
+
+    Commits:
+      - Take down YEC
+      - Point to checklist
+
+  * Thunderbird AppArmor policy: fix the sandbox by allowing user namespaces
+    (tails/tails!2675)
+
+    Closes issues:
+      - Thunderbird's sandbox is degraded due to user namespace creation being blocked
+        (tails/tails#21334)
+
+    Commits:
+      - Thunderbird AppArmor policy: fix the sandbox by allowing user namespaces
+
+  * Rakefile: export empty variables too (tails/tails!2674)
+
+    Closes issues:
+      - Build fails when `TAILS_BUILD_OPTIONS` contains `noram` (tails/tails#21367)
+
+    Commits:
+      - Use 'yes' and 'no' as the possible values of 'TAILS_WEBSITE_CACHE'
+      - Use 'yes' and 'no' as the possible values of 'TAILS_RAM_BUILD'
+
+  * Switch to new candidate, cleaner fix for no-overview GNOME extension (refs:
+    tails#21205) (tails/tails!2669)
+
+    Commits:
+      - Try new fix for no-overview GNOME extension (refs: tails#21205)
+
+  * Migrate language from Glade to GtkBuilder (tails/tails!2661)
+
+    Commits:
+      - update comment still mentioning glade
+      - Remove Glade-specific doc
+      - Use a better definition for "Glade files" now that it isn't in Debian
+
+  * Upgrade Chutney (2025Q4) (tails/chutney!6)
+
+    Commits:
+      - Bump shadow commit
+      - network-config-tests-diff: don't ignore installed packages
+      - network-config-tests-diff: use venv for both executions
+      - network-config-tests-diff: put shadow logs in named subdirs
+      - Additional launcher doc-comments
+      - Add test test_basic_ssh to test ssh launcher
+      - LocalNodeBuilder: ensure we communicate with monitored tor process
+      - LocalLauncher.launch_detached: provide a stdin fileno
+      - Add NodeConfig.launcher_backend
+      - Add SshLauncher
+      - get_tor_version: better error message on failure
+      - Launcher: add the cwd parameter
+      - Launcher: remove unused bufsize parameter
+      - Launcher: force usage of capture_strategy
+      - Launcher.launch_detached: force most args to be specified by name
+      - Create our own abstract Popen object
+      - ChutneyMissingBinaryError: refactor to single initializer
+      - Make Launcher abstract and add a LocalLauncher implementation
+      - Replace Launcher.launch_process
+      - Replace Launcher.run's capture_output with capture_strategy
+      - Add KnownBins to encapsulate knowledge about known bins
+      - Implement Launcher.run using Launcher.popen
+      - Add Launcher.popen
+      - Launcher.run: only support text-mode
+      - chutney.launcher: replace usage of `universal_newlines` with `text`
+      - Move subprocess launching to chutney.launcher.Launcher
+      - shellcheck-tests.sh: use bash and set pipefail
+      - CI unit-tests: install chutney and its python deps
+      - unit-tests.sh: use pipefail
+      - chutney-as-module-tests: test offsetted addresses with ipv6
+      - chutney-as-module-tests.py: drop unused IPv6Address import
+      - chutney-as-module-tests.py: format
+      - chutney-as-module-tests: add .py suffix so that linters find it
+      - CI: run chutney-as-module-tests
+      - chutney-as-module-tests: add test_offsetted_addresses
+      - chutney-as-module-tests: simplify using Network.bootstrap
+      - chutney-as-module-tests: factor out base node configs
+      - chutney-as-module-tests: add setUp and tearDown overrides
+      - chutney-as-module-tests: use unittest framework
+      - start new chutney-as-module-tests suite
+      - TorNet.as_jsonable_dict: export ip and ipv6_addr
+      - Add NodeConfig.address_assignment_strategy
+      - Node: add and use ip and ipv6_addr properties
+      - LocalNodeBuilder._generate_hs_state: set DataDirectory
+      - CI: rebuild arti when feature list changes
+      - CI: build arti with features required for restricted discovery
+      - Add network hs-v3-rd-arti
+      - Implement restricted discovery hs for tor backend
+      - LocalArtiNodeController.updateLastStatus: detect if oniondesc won't be
+        published
+      - verify: use auth'd clients to connect to restricted-discovery hs
+      - Network.configure: register restricted discovery client keys
+      - Only call preConfig once for each Node
+      - Implement LocalArtiNodeBuilder.set_hs_client_pubkey
+      - Add NodeBuilder.set_hs_client_pubkey
+      - implement LocalArtiNodeBuilder.get_hs_client_pubkey
+      - Add NodeBuilder.get_hs_client_pubkey
+      - Add NodeConfig.hs_client_restricted_discovery_server_tags
+      - Add config option hs_restricted_discovery
+      - LocalNodeBuilder._generate_hs_state: warn periodically if taking too long
+      - Make hidden service hostname available after preConfig step
+      - torrc: use NodeConfig.hs_directory instead of hard-coding 'hidden_service'
+      - Add LocalNodeBuilder._get_hs_hostname_path
+      - LocalNodeBuilder: generate hidden service state during config
+      - LocalArtiNodeBuilder: generate hs key if needed when fetching address
+      - Add `*.egg-info/` to gitignore
+      - ci: Bump arti
+      - arti: Advertise dirports in prop330 fashion
+      - CI: update black to 25.1.0
+      - CI: update flake8 to 7.3.0
+      - CI: bump mypy to 1.17.1
+      - LocalNodeController: ensure we don't try to destructure "None"
+      - LocalNodeController: don't assume a Collection supports set operations
+      - TorNet: conditionally import by python version
+      - LocalArtiNodeController: handle missing sqlite tables
+      - tor controller: avoid key errors when processing descriptors
+      - arti: Advertise dirports in arti.toml
+      - Traffic.py: improve timeout/cancellation behavior
+      - Improve CHUTNEY_PATH comments/errors
+      - Fix deprecation warning about importlib.abc.Traversable.
+      - TrafficTester: don't record "send" success until flush completes
+      - TrafficTester: record remaining bytes to send
+      - TrafficTester: record bytes remaining to receive and check
+
+  * Upgrade Chutney (2025Q4) (tails/tails!2655)
+
+    Closes issues:
+      - Upgrade Chutney (2025Q4) (tails/tails#21064)
+
+    Commits:
+      - Test suite: require new dependency for chutney (refs: tails#21064)
+      - Chutney: update to current upstream at fb0bff1ffad593314a2692aa0f1d65db6f0251c9
+
+  * Release process improvements post-7.3.1 (tails/tails!2652)
+
+    Commits:
+      - Release process: move trace bumping into relevant script
+      - Indentation
+      - Release process: fix variable scoping issue
+      - Release process: create temporary directory under /tmp
+      - Release process: automate++
+      - Restore improvements that were lost in Git history re-write of tails!2618
+
+  * Publish Tails 7.3.1 (tails/tails!2649)
+
+    Commits:
+      - Publish Tails 7.3.1
+      - Releasing version 7.3.1
+      - Update various website source files for 7.3.1
+      - Write release notes for 7.3.1
+      - Update image description file for download verification
+      - Update upgrade-description files.
+      - Mark Tails 7.3.1 as released.
+      - Update version and date for 7.3.1.
+      - Update changelog for 7.3.1.
+      - about:tor: bump Tails version to 7.3.1
+      - Add the aborted 7.3 to IGNORED_TAGS
+      - Mark Tails 7.3 as released.
+      - Updating SquashFS sort file
+      - Update version and date for 7.3.
+      - Update changelog for 7.3.
+      - Update PO files.
+      - Use correct order of arguments
+      - Tor Browser: refresh custom about:tor patches onto tor-
+        browser-140.6.0esr-15.0-1-build4
+      - Improve rebase instruction
+      - improve spelling
+      - Fetch Tor Browser from our own archive
+      - Upgrade Tor Browser to 15.0.3 (refs: tails#21299)
+      - Make iuk-source-versions safe wrt 3rd-party remotes providing tags
+      - Update submodule after torbrowser-launcher!16 was merged
+      - Clarify what filesystem the cache will be on
+      - Clarify comment
+      - Thunderbird: set various "phone-home" URLs to empty string (refs: tails#21331)
+      - tps: expand comment to ensure developers have all relevant use cases in mind
+      - Bump debian APT snapshot so we get firmware-nonfree 20251111-1
+      - Move back about:tor customization instructions to the UX page
+      - Future-proof in case pipes are added later
+      - Improve regular expressions
+      - Drop useless chaining under set -e
+      - Use a freshly extracted Tor Browser when testing about:tor customization
+      - Adapt instructions for customizing about:tor to be based on tor-browser.git
+      - ruff format
+      - Tails Cloner: filter read-only drives
+      - Move all instruction about about:tor to the same place
+      - Adjust header level
+      - Run in subshell + set -eu
+      - Refactor more shell code from instructions into its own script
+      - Set suitable Due Date for issue about rebasing about:tor patches
+      - Test suite: move step definition for improved scoping
+      - Clarify how Tor Browser's filesystem is sandboxed as a Flatpak
+      - Test suite: add debugging for tails#20297
+      - update doc for new configuration field
+      - move steps to thunderbird.rb, for more scoping
+      - rubocop reformatting
+      - don't modify exclude_non_suspicious_connections arguments
+      - refactor exclude_non_suspicious_connections
+      - No connection should be without a colon
+      - simplify code
+      - Test suite: escape apostrophes to avoid quoting issues in the shell
+      - Test suite: avoid modifying caller's data
+      - Test suite: simplify
+      - Test suite: use helpers for journal grep:ing in more places (refs: tails#21267)
+      - Test suite: log when we're waiting for Chutney at the synchronization point
+      - Test suite: improve correctness of tpsd locale change check
+      - Test suite: use systemd_journal instead of custom command (refs: tails#21267)
+      - Test suite: refactor
+      - Test suite: follow ruby pattern about boolean methods
+      - Properly check for IPv4
+      - remove useless event.reason field
+      - terminate cleanly
+      - allow connecting to the email domain server
+      - allow Thunderbird connections to addons.thunderbird.net
+      - suppress logging command output
+      - Fix the assertion logic
+      - refactor: make code more ruby-esque
+      - follow rubocop tip
+      - subdomains of email-address domain are allowed
+      - Check if Thunderbird connects to telemetry
+      - Exclude Thunderbird-specific allowed connections
+      - Most obvious false positives are excluded
+      - Check if Thunderbird leaks connections to Telemetry
+      - don't miss emails flagged as spam
+      - resolve SyntaxWarning
+      - whisperback email: omit empty sections
+      - ShellCheck: disable check that is false for dash since Debian Trixie
+      - Test suite: drop workaround for spice-vdagent
+      - GitLab CI: don't fail if a MR modifies rm-config but source branch is stable
+      - RM role: create issue for rebasing about:tor patches (refs: tails#21265)
+      - Refactor shell code from instructions into its own script
+      - Release process: ensure that the about:tor patches refer to the correct version
+      - Tor Browser: refresh custom about:tor patches onto tor-
+        browser-140.5.0esr-15.0-1-build2 for Tails 7.2
+      - Strip comments from .tld files before generating diff
+      - Tor Browser: refresh custom about:tor patches onto tor-
+        browser-140.5.0esr-15.0-1-build2 for Tails 7.2
+      - Tor Browser: document how to refresh Tails' custom about:tor patches (refs:
+        tails#21265)
+      - Bump APT snapshot for the torproject archive: upgrade to tor 0.4.8.21
+      - Fix "truecryt" typo
+      - Disable gnome-keyring-daemon.socket for Debian-gdm user
+      - Test suite: bump images for new virt-viewer fullscreen mode (refs: tails#19064)
+      - Test suite: ensure dbus is running for xfwm4
+      - Test suite: assert that a window manager is running before starting virt-viewer
+      - Test suite: make xfwm4 not crash when test suite is started with sudo
+      - Test suite: run xfwm4 in the test suite's X virtual framebuffer
+      - Bump APT snapshot for the "torproject" archive: upgrade to tor 0.4.8.20
+      - Bump APT snapshot for the "debian" archive: upgrade to Trixie 13.2
+      - Add dummy changelog entry for 7.3.
+      - Tor Browser: use XDG cache directory outside of ~/.var/app/
+      - Link to l10n doc
+      - Document how to depend on the time/date
+      - Document how to modify about:tor
+
+  * Use 24-hour time format (tails/tails!2646)
+
+    Closes issues:
+      - Use 24-hour time format (tails/tails#21342)
+
+    Commits:
+      - Use 24-hour time format
+
+  * Remove support for BitTorrent download (tails/tails!2633)
+
+    Closes issues:
+      - Support for BitTorrent v2 in our Torrents (tails/tails#17983)
+      - Consider providing a magnet link for BitTorrent download (tails/tails#9191)
+
+    Commits:
+      - Rephrase and explain
+      - Remove broken link
+      - Remove dead code
+      - Rephrase
+      - Consistency
+      - Remove extra vertical space
+      - Remove duplicated code
+      - Fix display of "Verify" button
+      - Adapt to removal of BitTorrent
+      - Don't remove files which doesn't exist anymore
+      - shfmt
+      - update translations
+      - Remove BitTorrent from RM configuration
+      - Remove bittorrent-related js code
+      - don't generate torrents in the release process anymore
+      - more removal of torrents from RM and Mirrors
+      - clarify that bittorrent files are no longer provided
+      - remove bits of website that are torrent-related
+      - remove torrents from release process and mirrors
+      - stop announcing torrents to users
+
+  * Upgrade Vagrant box to Trixie and misc build system improvements
+    (tails/tails!2543)
+
+    Closes issues:
+      - Migrate away from deprecated apt-key(8): Vagrant box (tails/tails#19701)
+      - Fails to build reproducibly when base branch state changes between builds
+        (tails/tails#21179)
+      - Upgrade Vagrant basebox to Debian Trixie (tails/tails#20249)
+      - Stop pretending you can build a Debian package out of tails.git
+        (tails/tails#20778)
+
+    Commits:
+      - Revert "first_boot_repartition: align the end of the updated system partition"
+      - Ensure /tmp permissions are correct
+      - first_boot_repartition: align the end of the updated system partition
+      - first_boot_repartition: settle after modifying the partition table
+      - Move `parted --fix` earlier
+      - shfmt
+      - partitioning: include parted in initrd
+      - Ensure our partition table is correct from parted's point-of-view
+      - Be less noisy
+      - ruff format
+      - Fix ruff B904
+      - Update codestyle, thanks to ruff's guidance
+      - Silence ruff false positive
+      - ruff format
+      - Ensure fatresize does not block the boot with an interactive question
+      - create-usb-image-from-iso: revert workarounds not needed since years
+      - create-usb-image-from-iso: fix confusion between image size and system
+        partition size
+      - create-usb-image-from-iso: remove unused --free-space option
+      - Sort .shellcheckrc
+      - Release process: improve formatting
+      - shfmt
+      - shellcheck: allow pipefail in sh scripts, since we can now assume Trixie
+      - Drop deduplication via hardlinks of /usr/share/doc: SquashFS compression does
+        it
+      - Fix comment phrasing
+      - Consistently don't assume we're in /
+      - Revert "Increase logging for tails-unblock-network."
+      - Stop pretending you can build a Debian package out of tails.git
+      - Don't make included files group-writeable int the SquashFS
+      - Make script more robust
+      - Add "set -u" and "set -o pipefail" to a couple build scripts
+      - Remove useless checks: this script works fine under dash without set -e and set
+        -u
+      - Update Emacs modeline to match current formatting standard
+      - Don't pollute the build output with "set -x" output meant for runtime
+      - Make output of auto/build more consistent
+      - Update error message
+      - Remove useless check
+      - Make debootstrap keyring compatible with sqv
+      - Make variable name reflect contents
+      - Fix reproducible build when base branch state changes between builds
+      - Vagrant box: install zstd for faster initramfs compression
+      - Upgrade Vagrant box to Trixie
+      - Fix comment
+      - shfmt
+      - Don't add our key to the list that's trusted or all repositories
+      - Improve test.
+      - Avoid deprecated apt-key in the basebox build.
+      - Do not use proprietary keybox format to exchange trust roots.
+
+  * Save keyboard and language options (tails/tails!2180)
+
+    Closes issues:
+      - Persistent Storage feature: language and keyboard layout in Welcome Screen
+        (tails/tails#5501)
+
+    Commits:
+      - Be more specific in the expected test result
+      - remove useless calls to translate()
+      - clarify that language and keyboard are being saved in cleartext storage
+      - clarify when tests also validate keyboard
+      - Greeter's language → Welcome Screen's language
+      - Greeter's formats → Welcome Screen's
+      - Improve design, avoid using deprecated "Greeter" term
+      - Don't show confirmation dialog before user action
+      - Set confirmation dialog to be modal
+      - More informative log message
+      - Remove useless debug messages
+      - Improve debug messages
+      - Refactor
+      - test detects French language in Welcome Screen
+      - ruff format
+      - fix tests: formats only get restored when they are manually set
+      - test explicitly what happens to formats
+      - support both cleartext and encrypted settings for language and keyboard
+      - adapt test to the changes in greeter options
+      - change test image for the Tails Greeter
+      - makes the `methods` method a bit more usable
+      - fix dogtail code
+      - ruff format
+      - shfmt
+      - fix spelling
+      - test interaction with Persistent Storage
+      - improve log messages
+      - disable Save switch for ISOs
+      - generate-sudoers can be early-patched
+      - don't hardcode language
+      - some more typing in greeter
+      - fix ruby in test suite
+      - When data is loaded from disk, Save is enabled
+      - save/delete data when toggling the Save switch
+      - add "delete" to tails-cleartext-storage
+      - Make test suite match language less strictly
+      - only saves when the user says so
+      - add a Save button
+      - Prepare test suite for Save toggle button
+      - more ruff fixes
+      - ruff automatic fix+format
+      - clearer logging for save()
+      - Settings have their own logger
+      - writes to both disk and transient settings dir
+      - Simplify return types
+      - bypass tails-cleartext-storage if run from ISO
+      - Automated tests for tails#5501
+      - move more logic to CleartextStorageMixin
+      - greeter settings actually read cleartext storage
+      - load/write data from greeter
+      - building blocks for #5501
+      - Revert "draft changes for #5501"
+      - draft changes for #5501
+
+ -- Tails developers <tails@boum.org>  Wed, 14 Jan 2026 12:26:45 +0100
+
 tails (7.3.1) unstable; urgency=medium
 
   * Upgrade Thunderbird to 1:140.5.0esr-1~deb13u1

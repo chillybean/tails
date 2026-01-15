@@ -450,6 +450,20 @@ Given /^the computer (?:re)?boots Tails$/ do
   end
 end
 
+Given /^I set the formats to "(.*)"$/ do |region|
+  try_for(30) do
+    greeter.child(description: 'Configure Formats').grabFocus
+    @screen.press('Return')
+    # Give Gtk some time to open the popover
+    sleep(1)
+    # Check if the popover is open
+    greeter.child?('Search', roleName: 'text', retry: false)
+  end
+  greeter.child('Search', roleName: 'text').text = region
+  sleep(2) # Gtk needs some time to filter the results
+  greeter.child('Search', roleName: 'text').activate
+end
+
 Given /^I set the language to (.*) \((.*)\)$/ do |lang, lang_code|
   $language = lang
   $lang_code = lang_code
@@ -457,7 +471,8 @@ Given /^I set the language to (.*) \((.*)\)$/ do |lang, lang_code|
   # so Dogtail is unable to click it directly. We let it grab focus
   # and activate it via the keyboard instead.
   try_for(30) do
-    greeter.child(description: 'Configure Language').click
+    greeter.child(description: 'Configure Language').grabFocus
+    @screen.press('Return')
     # Give Gtk some time to open the language popover
     sleep(1)
     # Check if the language popover is open
@@ -466,6 +481,19 @@ Given /^I set the language to (.*) \((.*)\)$/ do |lang, lang_code|
   greeter.child('Search', roleName: 'text').text = lang
   sleep(2) # Gtk needs some time to filter the results
   greeter.child('Search', roleName: 'text').activate
+end
+
+When /^I save the language and keyboard options in cleartext storage$/ do
+  greeter
+    .child('Save', roleName: 'label')
+    .parent
+    .child(roleName: 'toggle button')
+    .toggle
+
+  greeter
+    .child('Question', roleName: 'alert')
+    .child('Save Unencrypted', roleName: 'button')
+    .click
 end
 
 Given /^I log in to a new session(?: in ([^ ]*) \(([^ ]*)\))?( without activating the Persistent Storage)?( after having activated the Persistent Storage| expecting no warning about the Persistent Storage not being activated)?$/ do |lang, lang_code, expect_warning, expect_no_warning|
@@ -1767,4 +1795,46 @@ Then /^WhisperBack is prefilled for (.*) with summary: "(.*)"$/ do |app, summary
                                                    showingOnly: false).text
   assert_equal("Bug-specific app: #{app}\nBug-specific summary: #{summary}\n",
                prefilled_text)
+end
+
+Then /^the language and keyboard have not been saved in cleartext storage$/ do
+  # Give it some time, otherwise the subsequent tests could pass just because
+  # the file hasn't been created *yet*
+  sleep 2
+  assert_false($vm.file_exist?('/usr/lib/live/mount/medium/storage/language'))
+  assert_false($vm.file_exist?('/usr/lib/live/mount/medium/storage/keyboard'))
+end
+
+Then /^the "(\w\w)" language and keyboard have been saved in cleartext storage$/ do |lang|
+  expected_keyboard = lang
+  expected_locale = { 'it' => 'it_IT', 'fr' => 'fr_FR' }[lang]
+  try_for(10) do
+    $vm.file_exist?('/usr/lib/live/mount/medium/storage/language') && \
+      $vm.file_exist?('/usr/lib/live/mount/medium/storage/keyboard')
+  end
+  language = JSON.parse(
+    $vm.file_content('/usr/lib/live/mount/medium/storage/language')
+  )
+  keyboard = JSON.parse(
+    $vm.file_content('/usr/lib/live/mount/medium/storage/keyboard')
+  )
+  assert_equal(expected_locale, language['TAILS_LOCALE_NAME'])
+  assert_equal(expected_keyboard, keyboard['TAILS_XKBLAYOUT'])
+end
+
+Then(/^the Welcome Screen's language is set to (.*)$/) do |lang|
+  language_row = greeter.children(roleName: 'list item')
+                        .first
+                        .children(roleName: 'label')
+                        .find { |node| node.name.include?("#{lang} - ") }
+  assert_not_nil(language_row)
+  # That's a good moment to refresh this information, so the next steps don't fail
+  $language, $lang_code = greeter_language
+end
+
+Then(/^the Welcome Screen's formats is set to (.*)$/) do |lang|
+  formats_row = greeter.children(roleName: 'list item')[2]
+                       .children(roleName: 'label')
+                       .find { |node| node.name.include?("#{lang} - ") }
+  assert_not_nil(formats_row)
 end

@@ -50,7 +50,7 @@ Vagrant.configure('2') do |config|
 
     domain.memory = if ENV['TAILS_BUILD_MEMORY']
                       ENV['TAILS_BUILD_MEMORY'].to_i
-                    elsif ENV['TAILS_RAM_BUILD']
+                    elsif ENV['TAILS_RAM_BUILD'] == 'yes'
                       vm_memory_for_ram_builds
                     else
                       vm_memory_for_disk_builds(cpus)
@@ -62,7 +62,7 @@ Vagrant.configure('2') do |config|
         path: 'apt-cacher-ng-data.qcow2'
       )
     end
-    if ENV['TAILS_WEBSITE_CACHE'] == '1'
+    if ENV['TAILS_WEBSITE_CACHE'] == 'yes'
       domain.storage(
         :file, size: '3G', allow_existing: true,
         path: 'tails-website-cache.qcow2'

@@ -7,9 +7,9 @@
 # =====
 #
 # * /etc/live/config.d/username.conf : $LIVE_USERNAME
-# * /var/lib/gdm3/settings/persistent/tails.language: $TAILS_LOCALE_NAME
+# * /var/lib/gdm3/settings/transient/tails.language: $TAILS_LOCALE_NAME
 # * /var/lib/gdm3/settings/persistent/tails.formats: $TAILS_FORMATS
-# * /var/lib/gdm3/settings/persistent/tails.keyboard: $TAILS_XKBMODEL,
+# * /var/lib/gdm3/settings/transient/tails.keyboard: $TAILS_XKBMODEL,
 #   $TAILS_XKBLAYOUT, $TAILS_XKBVARIANT, $TAILS_XKBOPTIONS
 # * /var/lib/gdm3/settings/persistent/tails.password : $TAILS_USER_PASSWORD
 
@@ -122,9 +122,9 @@ fi
 ### Localization
 
 # Import locale settings
-. /var/lib/gdm3/settings/persistent/tails.language || log_n_exit "Language settings file not found."
+. /var/lib/gdm3/settings/transient/tails.language || log_n_exit "Language settings file not found."
 . /var/lib/gdm3/settings/persistent/tails.formats || log_n_exit "Formats settings file not found."
-. /var/lib/gdm3/settings/persistent/tails.keyboard || log_n_exit "Keyboard settings file not found."
+. /var/lib/gdm3/settings/transient/tails.keyboard || log_n_exit "Keyboard settings file not found."
 if [ -z "${TAILS_LOCALE_NAME}" ]; then
     log_n_exit "Locale variable not found."
 fi
