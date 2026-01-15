@@ -669,7 +669,6 @@ end
 
 Given /^I try to enable persistence( with the changed passphrase)?$/ do |with_changed_passphrase|
   passphrase_entry = greeter.child(roleName: 'password text')
-  passphrase_entry.grabFocus
   password = if with_changed_passphrase
                @changed_persistence_password
              else
@@ -718,17 +717,31 @@ Given /^I enable persistence but something goes wrong during the LUKS header upg
 end
 
 def greeter_language
-  english_label = 'English - United States'
-  german_label = 'Deutsch - Deutschland (German - Germany)'
-  try_for(30) do
-    greeter.child(english_label, roleName: 'label', retry: false)
+  settings = nil
+  values = [
     # We have to set the language to '' for English, setting it to
     # 'English' doesn't work.
-    return '', 'en'
-  rescue Dogtail::Failure
-    greeter.child(german_label, roleName: 'label', retry: false)
-    return 'German', 'de'
+    ['English - United States', ['', 'en']],
+    ['Deutsch - Deutschland (German - Germany)', ['German', 'de']],
+    ['Italiano - Italia (Italian - Italy)', ['Italian', 'it']],
+    ['Français - France (French - France)', ['French', 'fr']],
+  ]
+  try_for(30) do
+    success = false
+    values.each do |label, language_settings|
+      begin
+        greeter.child(label, roleName: 'label', retry: false)
+      rescue Dogtail::Failure
+        next
+      end
+      settings = language_settings
+      success = true
+      break
+    end
+    success
   end
+
+  settings
 end
 
 def tails_persistence_unlocked?
@@ -1568,6 +1581,30 @@ Given /^I install a Tails USB image to the (\d+) MiB disk with GNOME Disks$/ do 
   end
 end
 
+When(/^I manually store legacy localization settings in Persistent Storage$/) do
+  base = '/live/persistence/TailsData_unlocked/greeter-settings/'
+  $vm.execute_successfully("mkdir -p #{base}")
+  settings = { 'language' => [
+                 'TAILS_LOCALE_NAME=de_DE',
+                 'IS_DEFAULT=false',
+               ],
+               'formats'  => [
+                 'TAILS_FORMATS=fr_FR',
+                 'IS_DEFAULT=false',
+               ],
+               'keyboard' => [
+                 'TAILS_XKBLAYOUT=de',
+                 'TAILS_XKBMODEL=pc105',
+                 'TAILS_XKBVARIANT=',
+                 'IS_DEFAULT=false',
+               ], }
+  settings.each do |section, contents|
+    fpath = "#{base}tails.#{section}"
+    $vm.file_overwrite(fpath, contents)
+    $vm.execute_successfully("chown Debian-gdm: #{fpath}")
+  end
+end
+
 Given /^I set all Greeter options to non-default values$/ do
   # We sleep between each option to give the UI time to update,
   # otherwise we might detect the + button or language entry before it
@@ -1592,21 +1629,17 @@ Given /^I set all Greeter options to non-default values$/ do
   # workaround to the problem.
 end
 
-Then /^all Greeter options are set to (non-)?default values$/ do |non_default|
+Then /^all Persistent Greeter options are set to (non-)?default values$/ do |non_default|
   settings = $vm.execute_successfully(
     'grep -h "^TAILS_" /var/lib/gdm3/settings/persistent/tails.* | ' \
     'grep -v "^TAILS_.*PASSWORD" | LC_ALL=C sort'
   ).stdout
   if non_default
     expected = <<~EXPECTED
-      TAILS_FORMATS=de_DE
-      TAILS_LOCALE_NAME=de_DE
+      TAILS_FORMATS=de_BE
       TAILS_MACSPOOF_ENABLED=false
       TAILS_NETWORK=false
       TAILS_UNSAFE_BROWSER_ENABLED=false
-      TAILS_XKBLAYOUT=de
-      TAILS_XKBMODEL=pc105
-      TAILS_XKBVARIANT=
     EXPECTED
     $vm.execute_successfully(
       'grep "^TAILS_USER_PASSWORD=\'.\+\'$" ' \
@@ -1633,7 +1666,6 @@ Then /^all Greeter options are set to (non-)?default values$/ do |non_default|
 end
 
 Then /^(no )?persistent Greeter options were restored$/ do |no|
-  $language, $lang_code = greeter_language
   # Our Dogtail wrapper code automatically translates strings to $language
   settings_restored = greeter
                       .child?('Settings were loaded from the Persistent Storage.',

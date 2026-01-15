@@ -23,7 +23,7 @@ Usual solutions are:
   OpenPGP Web of Trust, this technique ultimately relies on a correct
   download of the signing key and signature, and thus on HTTPS.
 
-Tails provides 3 mechanisms for users to verify the image downloaded
+Tails provides 2 mechanisms for users to verify the image downloaded
 through a third party mirror, while relying on cryptographic information
 fetched from our website through HTTPS.
 
@@ -31,12 +31,6 @@ fetched from our website through HTTPS.
 
    The main verification mechanism relies on JavaScript code on the
    download page. See below for more details.
-
-1. BitTorrent download
-
-   The Torrent file downloaded through HTTPS from our website includes a
-   checksum of the image. BitTorrent clients automatically verify this
-   checksum when the download finishes.
 
 1. OpenPGP signature
 
@@ -77,10 +71,10 @@ Goals
 -----
 
   - Provide a simple, automated, and cross-platform technique to verify
-    USB and ISO images of the current version of Tails.
+    an up-to-date USB or ISO image.
 
-  - Allow verifying any current Tails image: downloaded over BitTorrent,
-    copied from a friend, downloaded from one of our mirrors.
+  - Allow verifying any up-to-date USB or ISO image, either
+    downloaded from one of our mirrors or copied from a friend.
 
 Non goals
 ---------

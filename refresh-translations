@@ -71,7 +71,7 @@ JAVASCRIPT_PROGS=" \
     /usr/share/gnome-shell/extensions/status-menu-helper@tails.boum.org/extension.js \
     /usr/share/gnome-shell/extensions/torstatus@tails.boum.org/extension.js \
 "
-GLADE_UI="\
+GTKBUILDER_UI="\
     /usr/share/tails/additional-software/configuration-window.ui \
 "
 
@@ -282,7 +282,9 @@ for prog in $PERL_PROGS; do create_pot "$prog" Perl; done
 for prog in $PYTHON_PROGS; do create_pot "$prog" Python; done
 for prog in $SHELL_PROGS; do create_pot "$prog" Shell; done
 for prog in $JAVASCRIPT_PROGS; do create_pot "$prog" JavaScript; done
-for prog in $GLADE_UI; do create_pot "$prog" Glade; done
+# GtkBuilder UI Description files are called "Glade" by xgettext, even though Glade as a project is archived
+# since at least 2025.
+for prog in $GTKBUILDER_UI; do create_pot "$prog" Glade; done
 intltool_update_pot
 
 # If left out files are detected, intltool-update --maintain writes

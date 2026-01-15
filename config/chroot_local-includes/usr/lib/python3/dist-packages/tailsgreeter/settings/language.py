@@ -24,6 +24,7 @@ import locale
 import tailsgreeter.config
 from tailsgreeter.settings import SettingNotFoundError
 from tailsgreeter.settings.localization import (
+    CleartextStorageMixin,
     LocalizationSetting,
     language_from_locale,
     country_from_locale,
@@ -39,12 +40,14 @@ gi.require_version("Gtk", "3.0")
 from gi.repository import GLib, GObject, GnomeDesktop, Gtk  # NOQA: E402
 
 
-class LanguageSetting(LocalizationSetting):
+class LanguageSetting(CleartextStorageMixin, LocalizationSetting):
+    SETTINGS_KEY = "language"
+
     def __init__(self, locales: list[str]):
         super().__init__()
+        self.legacy_settings_file = tailsgreeter.config.legacy_language_setting_path
         self.locales = locales
         self._user_account = None
-        self.settings_file = tailsgreeter.config.language_setting_path
 
         self.lang_codes = self._languages_from_locales(locales)
         self.locales_per_language = self._make_language_to_locale_dict(locales)
@@ -52,30 +55,18 @@ class LanguageSetting(LocalizationSetting):
             self.lang_codes
         )
 
-    def save(self, language: str, is_default: bool):
-        write_settings(
-            self.settings_file,
-            {
-                "TAILS_LOCALE_NAME": language,
-                "IS_DEFAULT": is_default,
-            },
-        )
+    def serialize(self, language: str, is_default: bool):
+        return {
+            "TAILS_LOCALE_NAME": language,
+            "IS_DEFAULT": is_default,
+        }
 
     def load(self) -> tuple[str, bool]:
-        try:
-            settings = read_settings(self.settings_file)
-        except FileNotFoundError as err:
-            raise SettingNotFoundError(
-                "No persistent language settings file found (path: %s)"
-                % self.settings_file
-            ) from err
+        settings = super().load()
 
         language = settings.get("TAILS_LOCALE_NAME")
         if language is None:
-            raise SettingNotFoundError(
-                "No language setting found in settings file (path: %s)"
-                % self.settings_file
-            )
+            raise SettingNotFoundError("No language setting found")
 
         is_default = settings.get("IS_DEFAULT") == "true"
         logging.debug(

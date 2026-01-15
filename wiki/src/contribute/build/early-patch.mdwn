@@ -151,6 +151,14 @@ Examples of useful packages to drop in here are:
   `.in` files. As an example `.desktop.in` files do not work properly
   because the translatable keys are prefixed with an `_`.
 
+### 04-try-generate-sudoers
+
+Run `generate-sudoers` again. This allows the developer to edit files in
+`config/chroot_local-includes/etc/generate-sudoers.d/` and see the result in action.
+
+**Note:** generate-sudoers relies on packages that are not available in Tails runtime.
+For this hook to succeed, you need to have those packages in `config/patch/packages/TAILS-SUITE`
+
 ### 05-bind-rw-includes
 
 The files inside `config/patch/rw-includes` are bind-mounted into and
