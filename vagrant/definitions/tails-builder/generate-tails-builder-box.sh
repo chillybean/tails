@@ -95,6 +95,9 @@ steps:
       echo ${HOSTNAME} > /etc/hostname
       echo 127.0.0.1 ${HOSTNAME} >> /etc/hosts
 
+  - create-file: /etc/systemd/system/tmp.mount
+    contents: |
+
   - create-file: /etc/apt/apt.conf.d/99recommends
     contents: |
       APT::Install-Recommends "false";
