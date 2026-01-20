@@ -1812,14 +1812,18 @@ Then /^the "(\w\w)" language and keyboard have been saved in cleartext storage$/
     $vm.file_exist?('/usr/lib/live/mount/medium/storage/language') && \
       $vm.file_exist?('/usr/lib/live/mount/medium/storage/keyboard')
   end
-  language = JSON.parse(
-    $vm.file_content('/usr/lib/live/mount/medium/storage/language')
-  )
-  keyboard = JSON.parse(
-    $vm.file_content('/usr/lib/live/mount/medium/storage/keyboard')
-  )
-  assert_equal(expected_locale, language['TAILS_LOCALE_NAME'])
-  assert_equal(expected_keyboard, keyboard['TAILS_XKBLAYOUT'])
+  try_for(10) do
+    language = JSON.parse(
+      $vm.file_content('/usr/lib/live/mount/medium/storage/language')
+    )
+    expected_locale == language['TAILS_LOCALE_NAME']
+  end
+  try_for(10) do
+    keyboard = JSON.parse(
+      $vm.file_content('/usr/lib/live/mount/medium/storage/keyboard')
+    )
+    expected_keyboard == keyboard['TAILS_XKBLAYOUT']
+  end
 end
 
 Then(/^the Welcome Screen's language is set to (.*)$/) do |lang|
