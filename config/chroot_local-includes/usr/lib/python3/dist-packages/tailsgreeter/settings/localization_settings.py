@@ -55,7 +55,7 @@ class LocalisationSettings:
             self.set_language(self.pending_set_language)
 
         if self._usermanager_loaded_cb:
-            self._usermanager_loaded_cb()
+            glib_idle_add_once(lambda: self._usermanager_loaded_cb())
 
     def set_language(self, language_code: str) -> bool:
         if not self.user_account:
