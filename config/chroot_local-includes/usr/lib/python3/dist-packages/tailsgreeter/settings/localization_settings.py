@@ -1,6 +1,7 @@
-import gi
 import logging
-from typing import Callable
+from collections.abc import Callable
+
+import gi
 
 import tailsgreeter.config
 from tailsgreeter.settings.formats import FormatsSetting
@@ -8,10 +9,10 @@ from tailsgreeter.settings.keyboard import KeyboardSetting
 from tailsgreeter.settings.language import LanguageSetting
 
 gi.require_version("AccountsService", "1.0")
-from gi.repository import AccountsService
+from gi.repository import AccountsService  # noqa: E402
 
 
-class LocalisationSettings(object):
+class LocalisationSettings:
     """Controller for localisation settings"""
 
     def __init__(self, usermanager_loaded_cb: Callable):
@@ -24,7 +25,8 @@ class LocalisationSettings(object):
 
         self._actusermanager = AccountsService.UserManager.get_default()
         self._actusermanager_loadedid = self._actusermanager.connect(
-            "notify::is-loaded", self.__on_usermanager_loaded
+            "notify::is-loaded",
+            self.__on_usermanager_loaded,
         )
 
         self.language = LanguageSetting(locales)
@@ -37,11 +39,11 @@ class LocalisationSettings(object):
 
     @staticmethod
     def _get_locales() -> list[str]:
-        with open(tailsgreeter.config.supported_locales_path, "r") as f:
+        with open(tailsgreeter.config.supported_locales_path) as f:
             return [line.rstrip("\n") for line in f.readlines()]
 
     def __on_usermanager_loaded(self, manager, pspec, data=None):
-        logging.debug("Received AccountsManager signal is-loaded")
+        logging.info("Received AccountsManager signal is-loaded")
         user_account = manager.get_user(tailsgreeter.config.LUSER)
         self.language._user_account = user_account
 
