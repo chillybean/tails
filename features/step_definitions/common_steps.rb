@@ -1838,3 +1838,8 @@ Then(/^the Welcome Screen's formats is set to (.*)$/) do |lang|
                        .find { |node| node.name.include?("#{lang} - ") }
   assert_not_nil(formats_row)
 end
+
+Then(/^the language is set to (.*)$/) do |language|
+  lang = { 'French' => 'fr_FR.UTF-8' }[language]
+  assert_equal(lang, $vm.execute_successfully('echo $LANG').stdout.chomp)
+end
