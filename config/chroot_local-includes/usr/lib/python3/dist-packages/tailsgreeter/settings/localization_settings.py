@@ -1,3 +1,4 @@
+import locale
 import logging
 from collections.abc import Callable
 
@@ -7,6 +8,7 @@ import tailsgreeter.config
 from tailsgreeter.settings.formats import FormatsSetting
 from tailsgreeter.settings.keyboard import KeyboardSetting
 from tailsgreeter.settings.language import LanguageSetting
+from tailsgreeter.utils import glib_idle_add_once
 
 gi.require_version("AccountsService", "1.0")
 from gi.repository import AccountsService  # noqa: E402
@@ -28,8 +30,10 @@ class LocalisationSettings:
             "notify::is-loaded",
             self.__on_usermanager_loaded,
         )
+        self.user_account = None
+        self.pending_set_language = None
 
-        self.language = LanguageSetting(locales)
+        self.language = LanguageSetting(locales, self)
         self.keyboard = KeyboardSetting()
         self.formats = FormatsSetting(locales)
 
@@ -45,7 +49,29 @@ class LocalisationSettings:
     def __on_usermanager_loaded(self, manager, pspec, data=None):
         logging.info("Received AccountsManager signal is-loaded")
         user_account = manager.get_user(tailsgreeter.config.LUSER)
-        self.language._user_account = user_account
+        self.user_account = user_account
+
+        if self.pending_set_language:
+            self.set_language(self.pending_set_language)
 
         if self._usermanager_loaded_cb:
             self._usermanager_loaded_cb()
+
+    def set_language(self, language_code: str) -> bool:
+        if not self.user_account:
+            logging.warning("AccountsManager not ready, enqueuing for later")
+            self.pending_set_language = language_code
+            return False
+
+        normalized_code = locale.normalize(
+            language_code + "." + locale.getpreferredencoding()
+        )
+        logging.info("Setting session language to %s", normalized_code)
+
+        # For some reason, this produces the following warning, but
+        # the language is actually applied.
+        #     AccountsService-WARNING **: 19:29:39.181: SetLanguage for language de_DE.UTF-8 failed:
+        #     GDBus.Error:org.freedesktop.Accounts.Error.PermissionDenied: Not authorized
+        glib_idle_add_once(lambda: self.user_account.set_language(normalized_code))
+
+        return True
