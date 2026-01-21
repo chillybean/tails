@@ -99,7 +99,7 @@ Packages
 
 To release Tails you'll need some packages installed:
 
-* `oathtool gitlab-cli j2cli intltool jq tidy libnotify-bin mktorrent podman pwgen python3-bs4 python3-debian python3-git python3-gitlab python3-jinja2 python3-html2text python3-sh python3-toml python3-voluptuous transmission-cli moreutils wl-clipboard rename i18nspector sqopv`
+* `oathtool gitlab-cli j2cli intltool jq tidy libnotify-bin podman pwgen python3-bs4 python3-debian python3-git python3-gitlab python3-jinja2 python3-html2text python3-sh python3-toml python3-voluptuous moreutils wl-clipboard rename i18nspector sqopv`
 
   Note: if the Debian version you are running does not include all required
   Go packages, such as [[!debpts podman]], you should be able to install
@@ -369,6 +369,9 @@ Follow this part ONLY if you are preparing a bugfix release.
 
 Look at [[!tails_gitlab tails/tails-private]]. If anything was merged there during the current development
 cycle, you need to merge.
+
+    git fetch tails-private && \
+    git log origin/"${RELEASE_BRANCH:?}"..tails-private/"${RELEASE_BRANCH:?}"
 
 Set base branch
 ==================
@@ -1066,8 +1069,8 @@ the release will be done in a new, dedicated branch.
         -o merge_request.title="Draft: Publish Tails ${VERSION}" \
         origin "${WEBSITE_RELEASE_BRANCH:?}"
 
-Generate the OpenPGP signatures and Torrents
-============================================
+Generate the OpenPGP signatures
+===============================
 
 Run the following command
 to create a directory with a suitable name, go there, move the built
@@ -1077,11 +1080,6 @@ images and with a `.sig` extension):
 
     ./bin/generate-images-signatures
 
-Then, create `.torrent` files and check the generated `.torrent`
-files metadata:
-
-    ./bin/generate-torrents
-
 Get the internal manual testing started
 =======================================
 
@@ -1090,7 +1088,7 @@ Tell testers that they can start testing. Remember to encrypt and sign your emai
     ./bin/automailer.py <<EOF
     To: rm@tails.net, sajolida@pimienta.org
     Subject: Testing Tails ${VERSION:?}
-    X-Attach: $(/bin/ls -1 "$ISOS/tails-amd64-${VERSION:?}/tails-amd64-${VERSION:?}.packages" "$ISOS/tails-amd64-${VERSION:?}/"tails-amd64-${VERSION:?}.{iso,img}.sig "$ISOS/tails-amd64-${VERSION:?}".{iso,img}.torrent | tr '\n' ,)
+    X-Attach: $(/bin/ls -1 "$ISOS/tails-amd64-${VERSION:?}/tails-amd64-${VERSION:?}.packages" "$ISOS/tails-amd64-${VERSION:?}/"tails-amd64-${VERSION:?}.{iso,img}.sig | tr '\n' ,)
 
     You can now download the images, verify them using the attached signatures, and start testing:
 
@@ -1100,8 +1098,6 @@ Tell testers that they can start testing. Remember to encrypt and sign your emai
 
         gpg --verify tails-amd64-${VERSION:?}.img.sig tails-amd64-${VERSION:?}.img
         gpg --verify tails-amd64-${VERSION:?}.iso.sig tails-amd64-${VERSION:?}.iso
-
-    Please note that the attached Torrents don't work yet.
     EOF
 
 Send a message on Matrix, too:
@@ -1143,11 +1139,11 @@ Verify there's enough free disk space in `$IUKS_DIR`:
 To build the IUKS, run this command:
 
     (
+    WORK_DIR=$(mktemp -d /tmp/tmp.iuks.XXXXXXX)
     IUK_CREATION_LOG=$(mktemp --tmpdir=/var/tmp wrap_tails_create_iuks.XXXXXXXX.log)
     (
        set -eu
        set -o pipefail
-       WORK_DIR=$(mktemp -d tmp.iuks.XXXXXXX)
        TAILS_REMOTE="$(git -C "${RELEASE_CHECKOUT:?}" remote get-url origin)"
        PUPPET_TAILS_REMOTE=$(echo -n "${TAILS_REMOTE:?}" | perl -p -E 's,([:/])tails/tails([.]git)?\z,$1tails/puppet-code$2,')
        cd "${WORK_DIR:?}"
@@ -1183,9 +1179,9 @@ To build the IUKS, run this command:
            --jobs "${JOBS:?}"                                                 \
            2>&1 | tee "$IUK_CREATION_LOG"
     ) && \
-     cd "${IUKS_DIR:?}" && \
-     sha256sum Tails_amd64_*_to_${VERSION:?}.iuk > "${IUKS_HASHES:?}" && \
-     rm -rf "${WORK_DIR:?}"
+    cd "${IUKS_DIR:?}" && \
+    sha256sum Tails_amd64_*_to_${VERSION:?}.iuk > "${IUKS_HASHES:?}" && \
+    rm -rf "${WORK_DIR:?}"
     )
 
 This command takes a long time. In parallel, while it is running,
@@ -1589,7 +1585,9 @@ Upload the ISO and USB image signatures to our rsync server:
     scp "${ISO_PATH:?}.sig" "${IMG_PATH:?}.sig" rsync.lizard:
 
 Copy the ISO and USB images to our rsync server, verify their signature,
-move them in place with proper ownership and permissions:
+move them in place with proper ownership and permissions and update
+the time in `project/trace` file on our rsync server and on the live
+website (even for a release candidate):
 
     cd "${RELEASE_CHECKOUT:?}" && \
     ./bin/copy-images-to-rsync-server-and-verify \
@@ -1597,12 +1595,6 @@ move them in place with proper ownership and permissions:
         --dist "${DIST:?}" \
         --release-branch "${RELEASE_BRANCH:?}" \
         --matching-jenkins-images-build-id "${MATCHING_JENKINS_IMAGES_BUILD_ID:?}"
-
-Update the time in `project/trace` file on our rsync server
-and on the live website (even for a release candidate):
-
-	./bin/update-trace-time \
-       "Updating trace file after uploading the ISO and USB images for ${VERSION:?}."
 
 At this stage, either IUKs were reproduced by Jenkins and left on the
 rsync server in a temporary location, or you must wait until the
@@ -1626,54 +1618,6 @@ If, at a later stage of the process, you realize Mirrorbits is still not
 "noticing" that mirrors are up-to-date, don't be afraid of restarting
 the Mirrorbits service again.
 
-## Announce, seed and test the Torrents
-
-First, to make space for the new files, remove the previous stable release from
-our BitTorrent seed:
-
-1. Get the previous release's _Transmission_ IDs (ISO and USB image, use
-   comma-separated values) with:
-
-         ssh bittorrent.lizard transmission-remote --list \
-             | grep --fixed-strings "tails-amd64-${PREVIOUS_VERSION:?}-i"
-
-1. Delete the Torrents (`PREVIOUS_VERSION_TRANSMISSION_IDS` must be a
-   comma-separated list of IDs, based on the previous command):
-
-         ssh bittorrent.lizard transmission-remote \
-             -t "${PREVIOUS_VERSION_TRANSMISSION_IDS:?}" --remove-and-delete
-
-1. Finally, check that everything looks good:
-
-         ssh bittorrent.lizard transmission-remote --list
-
-Check if there's enough space on our Bittorrent seed to import the new
-ISO and USB images:
-
-    ssh bittorrent.lizard df -h /var/lib/transmission-daemon/downloads
-
-If not, list already running Torrents:
-
-    ssh bittorrent.lizard transmission-remote --list
-
-… set `$ID` to the oldest one and delete it (do this both for the ISO and USB images):
-
-    ssh bittorrent.lizard transmission-remote -t "${ID:?}" --remove-and-delete
-
-… and finally check disk space again:
-
-    ssh bittorrent.lizard df -h /var/lib/transmission-daemon/downloads
-
-Now you can announce and seed the Torrents for the release you're preparing:
-
-    ./bin/announce-and-seed-torrents
-
-Test that you can start downloading the ISO and USB images with a BitTorrent client.
-It can take a few dozen minutes before this works.
-
-Manual testers can now do the "Torrents" part of the manual test
-suite, so delete "⚠ Wait until the Release Manager […]" in that
-section on the testing pad.
 
 <a id="run-automated-tests"></a>
 
@@ -1708,7 +1652,7 @@ You probably already know how to do that, but keep this in mind:
 Automatically re-run failures
 --------------------------------
 
-The file test-rerun.sh will help you rerunning the test suite automatically, which avoids wasting CPU.
+The file `test-rerun.sh` will help you rerunning the test suite automatically, which avoids wasting CPU.
 
 ```sh
 cp bin/test-rerun.sh ../
@@ -1720,7 +1664,6 @@ Tweak it: the `tmpdir` might especially need some customization based on your di
 export VERSION ISOS PREVIOUS_STABLE_VERSION
 ../test-rerun.sh
 ```
-
 
 Public testing
 ==============
@@ -1869,11 +1812,10 @@ Skip this part if preparing a final release:
 
     [ "${DIST:?}" = alpha ]
 
-Copy the signatures and the Torrents into the website repository:
+Copy the signatures into the website repository:
 
 	cp "${ISO_PATH:?}.sig" \
 	   "${IMG_PATH:?}.sig" \
-	   "${ISOS:?}/tails-amd64-${VERSION:?}".{iso,img}.torrent \
 	   "${RELEASE_CHECKOUT:?}/wiki/src/torrents/files/"
 
 If our [[contribute/working_together/roles/technical_writer]] did not
@@ -2010,7 +1952,7 @@ complete successfully:
       cd "${RELEASE_CHECKOUT:?}"
       git checkout "${WEBSITE_RELEASE_BRANCH:?}"
       echo "stable" > config/base_branch
-      git diff-index --quiet HEAD config/base_branch || \
+      git diff --quiet HEAD config/base_branch || \
         git commit config/base_branch \
           -m "Ensure base branch on 'master' remains 'stable'"
       git push origin devel:devel

@@ -60,7 +60,11 @@ ENV['ARTIFACTS'] ||= '.'
 
 ENV['APT_SNAPSHOTS_SERIALS'] ||= ''
 
+ENV['TAILS_BUILD_FAILURE_RESCUE'] ||= ''
+ENV['TAILS_DATE_OFFSET'] ||= ''
+ENV['TAILS_OFFLINE_MODE'] ||= ''
 ENV['TAILS_PROXY_TYPE'] ||= 'vmproxy'
+ENV['TAILS_RAM_BUILD'] ||= 'no'
 
 class CommandError < StandardError
   attr_reader :status, :stderr
@@ -172,7 +176,7 @@ def system_cpus
   File.read('/proc/cpuinfo').scan(/^processor\s+:/).count
 end
 
-ENV['TAILS_WEBSITE_CACHE'] = releasing? ? '0' : '1'
+ENV['TAILS_WEBSITE_CACHE'] = releasing? ? 'no' : 'yes'
 
 task :parse_build_options do
   options = []
@@ -190,9 +194,9 @@ task :parse_build_options do
     case opt
     # Memory build settings
     when 'ram'
-      ENV['TAILS_RAM_BUILD'] = '1'
+      ENV['TAILS_RAM_BUILD'] = 'yes'
     when 'noram'
-      ENV['TAILS_RAM_BUILD'] = nil
+      ENV['TAILS_RAM_BUILD'] = 'no'
     # Bootstrap cache settings
     # HTTP proxy settings
     when 'extproxy'
@@ -218,14 +222,14 @@ task :parse_build_options do
       value = Regexp.last_match(1)
       if releasing?
         warn "Building a release ⇒ ignoring #{opt} build option"
-        ENV['TAILS_WEBSITE_CACHE'] = '0'
+        ENV['TAILS_WEBSITE_CACHE'] = 'no'
       else
         value = 'yes' if value.nil?
         case value
         when 'yes'
-          ENV['TAILS_WEBSITE_CACHE'] = '1'
+          ENV['TAILS_WEBSITE_CACHE'] = 'yes'
         when 'no'
-          ENV['TAILS_WEBSITE_CACHE'] = '0'
+          ENV['TAILS_WEBSITE_CACHE'] = 'no'
         else
           raise "Unsupported value for cachewebsite option: #{value}"
         end
@@ -282,7 +286,7 @@ task :ensure_enough_free_memory do
 
   cpus = ENV['TAILS_BUILD_CPUS'].to_i
   free_memory = capture_command('free', '--mebi').first.split[12].to_i
-  required_memory = if ENV['TAILS_RAM_BUILD']
+  required_memory = if ENV['TAILS_RAM_BUILD'] == 'yes'
                       vm_memory_for_ram_builds
                     else
                       vm_memory_for_disk_builds(cpus)
@@ -295,7 +299,7 @@ task :ensure_enough_free_memory do
       #{free_memory} MB is free but #{required_memory} MB is required.
 
     END_OF_MESSAGE
-    message += if ENV['TAILS_RAM_BUILD']
+    message += if ENV['TAILS_RAM_BUILD'] == 'yes'
                  <<-END_OF_MESSAGE.gsub(/^ */, '')
       Try again with the `noram` option added to the TAILS_BUILD_OPTIONS
       environment variable to force a slower on-disk build.

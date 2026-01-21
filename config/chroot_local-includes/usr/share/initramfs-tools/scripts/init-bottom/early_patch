@@ -1,9 +1,5 @@
 #!/bin/sh
 
-# Enable xtrace with timestamp
-export PS4='$(date "+%H:%M:%S.%3N") '
-set -x
-
 PREREQS=""
 
 prereqs() { echo "$PREREQS"; }
@@ -14,6 +10,10 @@ prereqs)
     exit 0
     ;;
 esac
+
+# Enable xtrace with timestamp
+export PS4='$(date "+%H:%M:%S.%3N") '
+set -x
 
 set -eu
 

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Tails\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
 "POT-Creation-Date: 2025-10-02 09:33+0000\n"
-"PO-Revision-Date: 2025-11-11 02:25+0000\n"
+"PO-Revision-Date: 2026-01-16 18:29+0000\n"
 "Last-Translator: victor dargallo <victordargallo@disroot.org>\n"
 "Language-Team: Spanish <https://translate.tails.net/projects/tails/"
 "first_stepsindex/es/>\n"
@@ -30,6 +30,11 @@ msgid ""
 "they are not reliable enough on modern storage devices, such as USB sticks "
 "and Solid-State Drives (SSDs)."
 msgstr ""
+"Anteriormente, Tails incluía herramientas para *borrar* archivos y espacio "
+"disponible en disco. Hemos eliminado estas herramientas en Tails 6.0 ("
+"febrero de 2024), porque creemos que no son lo suficientemente fiables en "
+"dispositivos de almacenamiento modernos, como memorias USB y unidades de "
+"estado sólido (SSD)."
 
 #. type: Plain text
 msgid ""
@@ -45,16 +50,18 @@ msgstr "[[!toc levels=2]]\n"
 #. type: Plain text
 #, no-wrap
 msgid "<h1 id=\"risks\">Limitations of file deletion</h1>\n"
-msgstr ""
+msgstr "<h1 id=\"risks\">Limitaciones de la eliminación de archivos</h1>\n"
 
 #. type: Plain text
 msgid "See also [[!wikipedia Data_erasure desc=\"Wikipedia: Data Erasure\"]]."
 msgstr ""
+"Véase también [[!wikipedia Data_erasure desc=\"Wikipedia: Borrado de datos\"]"
+"]."
 
 #. type: Plain text
 #, no-wrap
 msgid "<h2 id=\"delete\">Deleting a file does not erase its content</h2>\n"
-msgstr ""
+msgstr "<h2 id=\"delete\">Eliminar un archivo no borra su contenido</h2>\n"
 
 #. type: Plain text
 msgid ""
@@ -70,6 +77,11 @@ msgid ""
 "However, the content of the deleted file remains on the device until the "
 "operating system reuses the space for another file."
 msgstr ""
+"En su lugar, los sistemas operativos sólo marcan el espacio utilizado por el "
+"archivo eliminado como disponible para futuros archivos, porque es mucho más "
+"rápido hacerlo. Sin embargo, el contenido del archivo eliminado permanece en "
+"el dispositivo hasta que el sistema operativo reutiliza el espacio para otro "
+"archivo."
 
 #. type: Plain text
 #, no-wrap
@@ -190,24 +202,34 @@ msgid ""
 "When all the data on your device is encrypted, data recovery tools can only "
 "recover encrypted data that is useless without your passphrase."
 msgstr ""
+"Cuando todos los datos de tu dispositivo están encriptados, las herramientas "
+"de recuperación de datos sólo pueden recuperar los datos encriptados que son "
+"inútiles sin tu contraseña."
 
 #. type: Plain text
 msgid ""
 "To better protect deleted files from data recovery, you can reformat your "
 "device and create another encryption with a different passphrase."
 msgstr ""
+"Para proteger mejor los archivos borrados de la recuperación de datos, "
+"puedes reformatear el dispositivo y crear otro cifrado con una contraseña "
+"diferente."
 
 #. type: Bullet: '- '
 msgid ""
 "For compatibility with Tails only or with another Linux, use [[LUKS "
 "encrypted volumes|encrypted_volumes]]."
 msgstr ""
+"Para la compatibilidad sólo con Tails o con otro Linux, usa "
+"[[volúmenes cifrados con LUKS|encrypted_volumes]]."
 
 #. type: Bullet: '- '
 msgid ""
 "For compatibility with Windows or macOS, use [[VeraCrypt encrypted volumes|"
 "veracrypt]]."
 msgstr ""
+"Para la compatibilidad con Windows o macOS, usa "
+"[[volúmenes cifrados con VeraCrypt|veracrypt]]."
 
 #. type: Plain text
 #, no-wrap
@@ -215,6 +237,8 @@ msgid ""
 "<p>Take into account that you could be forced or tricked to give out your\n"
 "passphrase.</p>\n"
 msgstr ""
+"<p>Ten en cuenta que podrías ser forzado o engañado para dar tu\n"
+"contraseña.</p>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -235,19 +259,24 @@ msgid ""
 "secure_deletion#spare]], overwriting the entire device is especially "
 "important if the device is not encrypted."
 msgstr ""
+"Incluso si algunos datos pudieran recuperarse de "
+"[[células de memoria de repuesto|secure_deletion#spare]], sobrescribir todo "
+"el dispositivo es especialmente importante si el dispositivo no está cifrado."
 
 #. type: Plain text
 msgid "To do so:"
-msgstr ""
+msgstr "Para ello:"
 
 #. type: Bullet: '1. '
 msgid "Open the *Disks* utility."
-msgstr ""
+msgstr "Abre la utilidad *Discos*."
 
 #. type: Plain text
 #, no-wrap
 msgid "   All the current storage devices are listed in the left pane.\n"
 msgstr ""
+"   Todos los dispositivos de almacenamiento actuales aparecen en el panel "
+"izquierdo.\n"
 
 #. type: Bullet: '1. '
 msgid "Plug in the device that you want to reformat and overwrite."
@@ -268,6 +297,8 @@ msgid ""
 "Check that the brand and size of the device in the right pane corresponds to "
 "your device."
 msgstr ""
+"Comprueba que la marca y el tamaño del dispositivo que aparecen en el panel "
+"derecho se corresponden con tu dispositivo."
 
 #. type: Bullet: '1. '
 #, fuzzy
@@ -285,10 +316,8 @@ msgstr ""
 "título, y elige **Mostrar archivos ocultos**."
 
 #. type: Bullet: '1. '
-#, fuzzy
-#| msgid "In the **Format Disk** dialog:"
 msgid "In the **Format Disk** dialog:"
-msgstr "En el diálogo **Formatea Disco**:"
+msgstr "En el diálogo **Formatea el disco**:"
 
 #. type: Bullet: '   - '
 #, fuzzy

@@ -31,8 +31,6 @@ if [ "$DIST" = stable ]; then # preparing a final release
             >wiki/src/inc/stable_amd64_${type:?}_url_https.html
         echo "https://tails.net/torrents/files/${filename:?}.sig" \
             >wiki/src/inc/stable_amd64_${type:?}_sig_url.html
-        echo "https://tails.net/torrents/files/${filename:?}.torrent" \
-            >wiki/src/inc/stable_amd64_${type:?}_torrent_url.html
     done
     git commit wiki/src/inc/ -m "Update version and date for ${VERSION:?}."
 fi

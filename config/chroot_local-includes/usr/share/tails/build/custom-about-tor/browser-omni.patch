@@ -19,7 +19,7 @@ index 8449722c3b03..9d6a97e61b46 100644
    }
  
 diff --git a/browser/components/abouttor/content/aboutTor.css b/browser/components/abouttor/content/aboutTor.css
-index 5d41df503550..82a43329c227 100644
+index 5140aac1aa78..e02685765650 100644
 --- a/chrome/browser/content/browser/abouttor/aboutTor.css
 +++ b/chrome/browser/content/browser/abouttor/aboutTor.css
 @@ -13,7 +13,9 @@ body {
@@ -32,7 +32,7 @@ index 5d41df503550..82a43329c227 100644
      /* End space: unfilled.
       * Reserve 150px for background image.
       * NOTE: Since the body has "auto" height, the other "1fr" flex row will
-@@ -532,3 +534,36 @@ body.show-yec h1 {
+@@ -525,3 +527,36 @@ body.show-yec h1 {
      --in-content-button-background-active: var(--yec-button-background-active);
    }
  }
@@ -70,10 +70,10 @@ index 5d41df503550..82a43329c227 100644
 +  margin-block: 0 1.6em;
 +}
 diff --git a/browser/components/abouttor/content/aboutTor.html b/browser/components/abouttor/content/aboutTor.html
-index 292537056b33..57205a5c7e69 100644
+index 4e181d41d9bf..53a01cfdd38f 100644
 --- a/chrome/browser/content/browser/abouttor/aboutTor.html
 +++ b/chrome/browser/content/browser/abouttor/aboutTor.html
-@@ -170,6 +170,46 @@
+@@ -162,6 +162,46 @@
          ></a>
        </span>
      </p>
@@ -87,7 +87,7 @@ index 292537056b33..57205a5c7e69 100644
 +        <span data-l10n-id="tails-release-notes">
 +          <a
 +            data-l10n-name="tails-release-notes-link"
-+            href="https://tails.net/news/version_7.3.1"
++            href="https://tails.net/news/version_7.4"
 +            target="_blank"
 +          ></a>
 +        </span>
@@ -120,7 +120,7 @@ index 292537056b33..57205a5c7e69 100644
      <!-- Survey element, initially used for tor-browser#43504. -->
      <article id="survey" class="tor-home-box" aria-labelledby="survey-heading">
        <img
-@@ -191,5 +231,12 @@
+@@ -183,5 +223,12 @@
          iconSrc="chrome://global/skin/icons/close.svg"
        ></moz-button>
      </article>
@@ -134,7 +134,7 @@ index 292537056b33..57205a5c7e69 100644
    </body>
  </html>
 diff --git a/browser/components/abouttor/content/aboutTor.js b/browser/components/abouttor/content/aboutTor.js
-index bfd6123cddd9..0eb1c8bd4510 100644
+index 8b718027d0b4..01c9676f2584 100644
 --- a/chrome/browser/content/browser/abouttor/aboutTor.js
 +++ b/chrome/browser/content/browser/abouttor/aboutTor.js
 @@ -85,6 +85,7 @@ const MessageArea = {
@@ -171,7 +171,7 @@ index bfd6123cddd9..0eb1c8bd4510 100644
  
      const { updateVersion, updateURL, number } = this._messageData;
  
-@@ -602,9 +607,15 @@ window.addEventListener("InitialData", event => {
+@@ -574,9 +579,15 @@ window.addEventListener("InitialData", event => {
      surveyDismissVersion,
      appLocale,
      dismissYEC,
