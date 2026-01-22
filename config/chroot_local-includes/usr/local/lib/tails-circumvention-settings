@@ -2,16 +2,24 @@
 
 import json
 import requests
+import sys
 
 
 MOAT_SERVICE_URL = "https://bridges.torproject.org/moat"
 MOAT_SERVICE_SETTINGS_URL = f"{MOAT_SERVICE_URL}/circumvention/settings"
 
 
-def get_settings():
-    response = requests.get(MOAT_SERVICE_SETTINGS_URL, timeout=10)
+def get_settings(region=None):
+    post_options = {}
+    if region:
+        post_options["data"] = json.dumps({"country": region})
+    response = requests.get(MOAT_SERVICE_SETTINGS_URL, timeout=10, **post_options)
     return json.loads(response.content)
 
 
 if __name__ == "__main__":
-    print(json.dumps(get_settings()))
+    try:
+        region = sys.argv[1]
+    except IndexError:
+        region = None
+    print(json.dumps(get_settings(region=region)))
