@@ -1,20 +1,108 @@
 #!/usr/bin/python3 -I
 
 import json
+import os
+import pwd
 import requests
+import subprocess
 import sys
+import tempfile
+
+from tailslib import CLEARNET_USERNAME
 
 
 MOAT_SERVICE_URL = "https://bridges.torproject.org/moat"
 MOAT_SERVICE_SETTINGS_URL = f"{MOAT_SERVICE_URL}/circumvention/settings"
+MOAT_FRONT = "vuejs.org"
+MOAT_REFLECTOR = "https://bespoke-strudel-c243cc.netlify.app"
+
+
+def mk_switch_user_fn(user):
+    pwd_user = pwd.getpwnam(user)
+
+    def switch_user():
+        os.initgroups(user, pwd_user.pw_gid)
+        os.setgid(pwd_user.pw_gid)
+        os.setuid(pwd_user.pw_uid)
+
+    return switch_user
+
+
+def meek_credentials():
+    # We escape \=; as required by section 3.5 in the PT spec, but we
+    # also use percent-encoding for various special characters since
+    # these credentials will be used in a URL (where e.g. : is used to
+    # separate user and password, so if user contains a : there would
+    # otherwise be ambiguity which in our case causes requests to
+    # raise an exception).
+    def escape(s):
+        replacers = {
+            "\\": "\\\\",
+            "=": "\\=",
+            ";": "\\;",
+            ":": "%3A",
+            "/": "%2F",
+        }
+        for pattern, replacement in replacers.items():
+            s = s.replace(pattern, replacement)
+        return s
+
+    s = f"url={escape(MOAT_REFLECTOR)};front={escape(MOAT_FRONT)}"
+    assert len(s) <= 2 * 255
+    if len(s) <= 255:
+        return (s, "\0")
+    else:
+        return (s[0:255], s[255:])
+
+
+def meek_request(request):
+    with tempfile.TemporaryDirectory() as tmpdir:
+        env = os.environ.copy()
+        env.update(
+            {
+                "TOR_PT_CLIENT_TRANSPORTS": "meek_lite",
+                "TOR_PT_MANAGED_TRANSPORT_VER": "1",
+                "TOR_PT_STATE_LOCATION": tmpdir,
+            }
+        )
+        address = None
+        try:
+            p = subprocess.Popen(
+                ["/usr/bin/obfs4proxy"],
+                env=env,
+                stdout=subprocess.PIPE,
+                preexec_fn=mk_switch_user_fn(CLEARNET_USERNAME),  # noqa: PLW1509
+            )
+            while True:
+                line = p.stdout.readline()
+                if not line:
+                    raise RuntimeError("meek request failed")
+                line = line.decode("utf-8").rstrip()
+                if line.startswith("CMETHOD "):
+                    _, pt, proto, _address = line.split()
+                    if pt == "meek" or pt == "meek_lite":
+                        assert proto == "socks5"
+                        address = _address
+                elif line == "CMETHODS DONE":
+                    assert address is not None
+                    return request(address)
+        finally:
+            p.kill()
 
 
 def get_settings(region=None):
-    post_options = {}
-    if region:
-        post_options["data"] = json.dumps({"country": region})
-    response = requests.get(MOAT_SERVICE_SETTINGS_URL, timeout=10, **post_options)
-    return json.loads(response.content)
+    def fronted_get_settings(address):
+        post_options = {}
+        proxy_user, proxy_password = meek_credentials()
+        post_options["proxies"] = {
+            "https": f"socks5h://{proxy_user}:{proxy_password}@{address}"
+        }
+        if region:
+            post_options["data"] = json.dumps({"country": region})
+        response = requests.post(MOAT_SERVICE_SETTINGS_URL, timeout=10, **post_options)
+        return json.loads(response.content)
+
+    return meek_request(fronted_get_settings)
 
 
 if __name__ == "__main__":
