@@ -341,6 +341,10 @@ class Handler(socketserver.StreamRequestHandler):
         "write-tca-config": WriteFileCommand(TCA_CONFIG_FILE),
         "lock-bootstrap": RootCommand(("/usr/bin/touch", BOOTSTRAP_LOCK_FILE), False),
         "unlock-bootstrap": RootCommand(("/usr/bin/rm", BOOTSTRAP_LOCK_FILE), False),
+        "get-bridge-settings": RootCommand(
+            ("/usr/local/lib/tails-circumvention-settings",),
+            True,
+        ),
     }
     valid_commands: ClassVar = set(spawn_commands.keys())
 

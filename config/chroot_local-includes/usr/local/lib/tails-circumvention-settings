@@ -1,0 +1,17 @@
+#!/usr/bin/python3 -I
+
+import json
+import requests
+
+
+MOAT_SERVICE_URL = "https://bridges.torproject.org/moat"
+MOAT_SERVICE_SETTINGS_URL = f"{MOAT_SERVICE_URL}/circumvention/settings"
+
+
+def get_settings():
+    response = requests.get(MOAT_SERVICE_SETTINGS_URL, timeout=10)
+    return json.loads(response.content)
+
+
+if __name__ == "__main__":
+    print(json.dumps(get_settings()))
