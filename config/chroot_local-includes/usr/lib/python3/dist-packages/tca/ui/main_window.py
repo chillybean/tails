@@ -174,6 +174,7 @@ class StepChooseBridgeMixin:
         else:
             self.builder.get_object("step_bridge_radio_default").grab_focus()
         self.get_object("radio_default").set_sensitive(not hide_mode)
+        self.get_object("box_moat").set_sensitive(not hide_mode)
 
         self.builder.get_object("step_bridge_radio_scan").set_active(hide_mode)
         self.get_object("box_warning").hide()
@@ -305,14 +306,17 @@ class StepChooseBridgeMixin:
 
     def _step_bridge_set_actives(self):
         default = self.builder.get_object("step_bridge_radio_default").get_active()
+        moat = self.builder.get_object("step_bridge_radio_moat").get_active()
         manual = self.builder.get_object("step_bridge_radio_type").get_active()
         scan = self.builder.get_object("step_bridge_radio_scan").get_active()
         self.get_object("combo").set_sensitive(default)
+        self.builder.get_object("step_bridge_moat_region_combo").set_sensitive(moat)
         self.builder.get_object("step_bridge_text").set_sensitive(manual)
         self.builder.get_object("step_bridge_btn_scanqrcode").set_sensitive(scan)
         self.builder.get_object("step_bridge_label_scanresult").set_sensitive(scan)
         self.builder.get_object("step_bridge_btn_submit").set_sensitive(
             default
+            or moat
             or (manual and self._step_bridge_is_text_valid())
             or (scan and self.get_object("label_scanresult").get_property("visible"))
         )
@@ -439,6 +443,7 @@ class StepChooseBridgeMixin:
 
     def _step_bridge_set_state_from_view(self):
         default = self.builder.get_object("step_bridge_radio_default").get_active()
+        moat = self.builder.get_object("step_bridge_radio_moat").get_active()
         manual = self.builder.get_object("step_bridge_radio_type").get_active()
         scan = self.builder.get_object("step_bridge_radio_scan").get_active()
         self.state["hide"]["bridge"] = True
@@ -447,6 +452,8 @@ class StepChooseBridgeMixin:
             self.state["bridge"]["default_method"] = self.get_object(
                 "combo"
             ).get_active_id()
+        elif moat:
+            self.state["bridge"]["kind"] = "moat"
         elif manual:
             self.state["bridge"]["kind"] = "manual"
             text = self.get_object("text").get_buffer().get_text()
@@ -493,9 +500,74 @@ class StepConnectProgressMixin:
         else:
             self._step_progress_success_screen()
 
-    def cb_system_time_set_from_network(self, result, error):
-        log.debug("System time set, let's spawn_tor_connect")
+    def cb_bridge_settings_fetched(self, gjsonrpcclient, res, error, errordata):
+        def set_error(msg):
+            self.change_box("error")
+            self.builder.get_object("step_error_label_explain").set_text(msg)
+
+        if not res or res.get("returncode", 1) != 0:
+            set_error(
+                _("Failed to fetch bridges settings via Circumvention Settings API")
+            )
+            return
+
+        raw_content = res.get("stdout", "").strip()
+        log.debug("Settings fetched from Circumvention Settings API: %s", raw_content)
+        try:
+            settings = json.loads(raw_content).get("settings", [])
+        except json.decoder.JSONDecodeError:
+            set_error(_("The Circumvention Settings API returned invalid JSON"))
+            return
+
+        if settings == []:
+            set_error(
+                _(
+                    "The Circumvention Settings API returned an empty list of bridge settings"
+                )
+            )
+            return
+
+        found_bridges = []
+        for s in settings:
+            try:
+                if s["bridges"]["type"] in self.app.supported_bridge_types:
+                    found_bridges = s["bridges"]["bridge_strings"]
+                    break
+            except KeyError:
+                pass
+
+        if found_bridges == []:
+            set_error(
+                _("Circumvention Settings API did not return any supported bridges")
+            )
+            return
+        else:
+            self.state["bridge"]["bridges"] = found_bridges
+
         self.spawn_tor_connect()
+
+    def fetch_bridge_settings(self):
+        log.info("Fetching bridge settings via Circumvention Settings API")
+        region = self.builder.get_object(
+            "step_bridge_moat_region_combo"
+        ).get_active_id()
+        if region == "automatic":
+            args = []
+        else:
+            args = [region]
+        self.app.portal.call_async(
+            "get-bridge-settings", self.cb_bridge_settings_fetched, *args
+        )
+        self.builder.get_object("step_progress_label_status").set_text(
+            _("Fetching bridge configuration with the Circumvention Settings API…")
+        )
+
+    def cb_system_time_set_from_network(self, result, error):
+        log.debug("System time set")
+        if self.state["bridge"].get("kind", "") == "moat":
+            self.fetch_bridge_settings()
+        else:
+            self.spawn_tor_connect()
 
     def spawn_internet_test(self):
         # this is just a stub
@@ -548,9 +620,16 @@ class StepConnectProgressMixin:
                 self.app.configurator.tor_connection_config.enable_bridges(
                     self.state["bridge"]["bridges"]
                 )
-                self.builder.get_object("step_progress_label_status").set_text(
-                    _("Connecting to Tor with a custom bridge…")
-                )
+                if self.state["bridge"].get("kind", "") == "moat":
+                    self.builder.get_object("step_progress_label_status").set_text(
+                        _(
+                            "Connecting to Tor with bridge configuration fetched with Circumvention Settings API…"
+                        )
+                    )
+                else:
+                    self.builder.get_object("step_progress_label_status").set_text(
+                        _("Connecting to Tor with a custom bridge…")
+                    )
             else:
                 raise ValueError(
                     "inconsistent state! you discovered a programming error"
@@ -563,7 +642,7 @@ class StepConnectProgressMixin:
 
         def do_tor_connect_default_bridges():
             self.app.configurator.tor_connection_config.enable_default_bridges(
-                valid_types=["obfs4", "webtunnel"]
+                valid_types=self.app.supported_bridge_types
             )
             self.builder.get_object("step_progress_label_status").set_text(
                 _("Connecting to Tor with default bridges…")
