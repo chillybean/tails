@@ -103,9 +103,7 @@ class GetConfigurationCLI:
             case "should-build":
                 sys.exit(int(config.build.skip))
             case "should-test":
-                sys.exit(
-                    int(config.test.skip)
-                )
+                sys.exit(int(config.test.skip))
             case "run-test":
                 self.run_test(config)
 
