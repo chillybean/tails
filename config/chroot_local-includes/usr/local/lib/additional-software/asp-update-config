@@ -1,0 +1,25 @@
+#!/usr/bin/python3 -I
+
+import gettext
+import logging
+
+import additional_software
+
+from tailslib.locale import apply_selected_locale
+
+apply_selected_locale()
+gettext.textdomain("tails")
+_ = gettext.gettext
+
+
+def update_additional_software_configuration():
+    logging.info("Starting the update of Additional Software configuration...")
+
+
+def main():
+    additional_software.set_up_logging()
+    update_additional_software_configuration()
+
+
+if __name__ == "__main__":
+    main()
