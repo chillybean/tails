@@ -106,7 +106,7 @@ def get_packages_list_path(return_nonexistent=False):
     return os.path.join(persistence_dir, PACKAGES_LIST_FILE)
 
 
-def get_additional_packages():
+def get_additional_packages() -> set[str]:
     """Return the list of all additional packages configured."""
     packages = set()
     try:
@@ -121,7 +121,7 @@ def get_additional_packages():
     return packages
 
 
-def add_additional_packages(new_packages):
+def add_additional_packages(new_packages: set[str]) -> None:
     """Add packages to additional packages configuration.
 
     Add the packages to additional packages configuration.
@@ -137,7 +137,7 @@ def add_additional_packages(new_packages):
     write_config(packages)
 
 
-def remove_additional_packages(old_packages):
+def remove_additional_packages(old_packages: set[str]) -> None:
     """Remove packages from additional packages configuration.
 
     Removes the packages from additional packages configuration.
