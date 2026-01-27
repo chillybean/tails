@@ -54,6 +54,24 @@ def set_up_logging(log_to_journal=False):
     logging.basicConfig(level=log_level, format=log_format, handlers=handlers)
 
 
+def has_additional_packages_list():
+    """Return true iff a packages list file is found in a persistence.
+
+    Log warnings in syslog.
+    """
+    try:
+        packages_list_path = get_packages_list_path()
+    except FileNotFoundError as e:
+        logging.warning(e)
+        return False
+    if os.path.isfile(packages_list_path):
+        logging.info("Found additional packages list.")
+        return True
+    else:
+        logging.warning("Warning: no configuration file found.")
+        return False
+
+
 def write_config(packages):
     config_file_owner_uid = pwd.getpwnam(PERSISTENT_STORAGE_USERNAME).pw_uid
     config_file_owner_gid = grp.getgrnam(PERSISTENT_STORAGE_USERNAME).gr_gid
