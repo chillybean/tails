@@ -82,3 +82,8 @@ def persistence_feature_is_active(feature: str) -> bool:
 def additional_software_persistence_feature_is_active() -> bool:
     """Return True iff the AdditionalSoftware feature is active."""
     return persistence_feature_is_active("AdditionalSoftware")
+
+
+def thunderbird_persistence_feature_is_active() -> bool:
+    """Return True iff the Thunderbird feature is active."""
+    return persistence_feature_is_active("Thunderbird")
