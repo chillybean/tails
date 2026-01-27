@@ -1,11 +1,11 @@
 #!/usr/bin/python3 -I
 
+import argparse
 import json
 import os
 import pwd
 import requests
 import subprocess
-import sys
 import tempfile
 
 from tailslib import CLEARNET_USERNAME
@@ -106,8 +106,7 @@ def get_settings(region=None):
 
 
 if __name__ == "__main__":
-    try:
-        region = sys.argv[1]
-    except IndexError:
-        region = None
-    print(json.dumps(get_settings(region=region)))
+    p = argparse.ArgumentParser()
+    p.add_argument("--region", metavar="CODE", dest="region")
+    args = p.parse_args()
+    print(json.dumps(get_settings(region=args.region)))

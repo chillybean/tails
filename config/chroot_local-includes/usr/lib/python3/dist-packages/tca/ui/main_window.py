@@ -554,7 +554,7 @@ class StepConnectProgressMixin:
         if region == "automatic":
             args = []
         else:
-            args = [region]
+            args = ['--region', region]
         self.app.portal.call_async(
             "get-bridge-settings", self.cb_bridge_settings_fetched, *args
         )
