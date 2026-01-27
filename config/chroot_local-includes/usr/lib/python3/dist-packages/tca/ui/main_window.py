@@ -551,10 +551,21 @@ class StepConnectProgressMixin:
         region = self.builder.get_object(
             "step_bridge_moat_region_combo"
         ).get_active_id()
-        if region == "automatic":
-            args = []
-        else:
-            args = ['--region', region]
+        args = []
+        if region != "automatic":
+            args += ["--region", region]
+        if self.state["proxy"] and self.state["proxy"]["proxy_type"] != "no":
+            proto = self.state["proxy"]["proxy_type"].lower()
+            credentials_part = ""
+            if self.state["proxy"]["username"] != "":
+                credentials_part = self.state["proxy"]["username"]
+                if self.state["proxy"]["password"] != "":
+                    credentials_part += ":" + self.state["proxy"]["password"]
+                credentials_part += "@"
+            host = self.state["proxy"]["address"]
+            port = self.state["proxy"]["port"]
+            proxy = f"{proto}://{credentials_part}{host}:{port}"
+            args += ["--proxy", proxy]
         self.app.portal.call_async(
             "get-bridge-settings", self.cb_bridge_settings_fetched, *args
         )

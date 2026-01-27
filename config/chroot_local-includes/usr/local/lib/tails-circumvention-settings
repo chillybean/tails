@@ -55,7 +55,7 @@ def meek_credentials():
         return (s[0:255], s[255:])
 
 
-def meek_request(request):
+def meek_request(request, proxy=None):
     with tempfile.TemporaryDirectory() as tmpdir:
         env = os.environ.copy()
         env.update(
@@ -65,6 +65,8 @@ def meek_request(request):
                 "TOR_PT_STATE_LOCATION": tmpdir,
             }
         )
+        if proxy:
+            env["TOR_PT_PROXY"] = proxy
         address = None
         try:
             p = subprocess.Popen(
@@ -90,7 +92,7 @@ def meek_request(request):
             p.kill()
 
 
-def get_settings(region=None):
+def get_settings(proxy=None, region=None):
     def fronted_get_settings(address):
         post_options = {}
         proxy_user, proxy_password = meek_credentials()
@@ -102,11 +104,12 @@ def get_settings(region=None):
         response = requests.post(MOAT_SERVICE_SETTINGS_URL, timeout=10, **post_options)
         return json.loads(response.content)
 
-    return meek_request(fronted_get_settings)
+    return meek_request(fronted_get_settings, proxy=proxy)
 
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
+    p.add_argument("--proxy", metavar="PROXY", dest="proxy")
     p.add_argument("--region", metavar="CODE", dest="region")
     args = p.parse_args()
-    print(json.dumps(get_settings(region=args.region)))
+    print(json.dumps(get_settings(proxy=args.proxy, region=args.region)))
