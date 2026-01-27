@@ -68,12 +68,17 @@ def spawn_tps_frontend(*args) -> str:
     return service_name
 
 
-def additional_software_persistence_feature_is_active() -> bool:
-    """Return True iff the AdditionalSoftware feature is active."""
+def persistence_feature_is_active(feature: str) -> bool:
+    """Return True iff the feature is active."""
     return (
         subprocess.run(
-            ["/usr/local/lib/tpscli", "is-active", "AdditionalSoftware"],
+            ["/usr/local/lib/tpscli", "is-active", feature],
             check=False,
         ).returncode
         == 0
     )
+
+
+def additional_software_persistence_feature_is_active() -> bool:
+    """Return True iff the AdditionalSoftware feature is active."""
+    return persistence_feature_is_active("AdditionalSoftware")
