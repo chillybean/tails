@@ -103,6 +103,22 @@ def get_additional_packages():
     return packages
 
 
+def add_additional_packages(new_packages):
+    """Add packages to additional packages configuration.
+
+    Add the packages to additional packages configuration.
+
+    The new_packages argument should be a list of packages names.
+    """
+    logging.info("Adding to additional packages list: %s" % new_packages)
+    packages = get_additional_packages()
+    # The list of packages was initially provided by apt after installing them,
+    # so we don't check the names.
+    packages |= new_packages
+
+    write_config(packages)
+
+
 def remove_additional_packages(old_packages):
     """Remove packages from additional packages configuration.
 
