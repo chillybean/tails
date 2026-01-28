@@ -207,8 +207,10 @@ start_xvfb() {
         sleep 1
     done
     echo "Virtual X framebuffer started on display ${TARGET_DISPLAY}"
-    # Start an X11 Window Manager that has enough functionality so
-    # virt-viewer can run without issue (fullscreen mode etc.)
+    # Start an X11 Window Manager to get a more standard environment
+    # compared to a WM-less one. Some tools don't work without a WM
+    # (e.g. wmctrl) and some misbehave (e.g. virt-viewer 10.0-11.0
+    # doesn't hide the header bar in full-screen mode).
     if [ -n "${SUDO_COMMAND:-}" ]; then
         # When this script is started with sudo then xfwm4 fails to
         # start, complaining about "Xfconf could not be initialized"
