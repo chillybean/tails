@@ -1,8 +1,94 @@
-tails (7.5) UNRELEASED; urgency=medium
+tails (7.4.1) UNRELEASED; urgency=medium
 
-  * Dummy entry for next release.
+  * Upgrade Thunderbird to 1:140.7.0esr-1~deb13u1
 
- -- anonym <anonym@riseup.net>  Thu, 15 Jan 2026 11:52:45 +0100
+  * Upgrade to tor 0.4.8.22 (tails/tails!2748)
+
+    Commits:
+      - Bump APT snapshot for the torproject archive: upgrade to tor 0.4.8.22
+
+  * Update comment based on discussion on tails#19064 (tails/tails!2745)
+
+    Commits:
+      - Update comment based on discussion on tails#19064
+
+  * Don't install cups-browsed anymore (tails/tails!2723)
+
+    Closes issues:
+      - Remove cups-browsed (tails/tails#21386)
+
+    Commits:
+      - Don't install cups-browsed anymore
+
+  * Thunderbird: fix OAuth2 support (tails/tails!2721)
+
+    Closes issues:
+      - Gmail authentication stuck on white screen (tails/tails#21384)
+
+    Commits:
+      - Thunderbird AppArmor profile: allow operations needed for OAuth2 support
+
+  * Vagrant box: do not mount /tmp as tmpfs (tails/tails!2712)
+
+    Closes issues:
+      - FTBFS when not building in RAM (tails/tails#21377)
+
+    Commits:
+      - Vagrant box: do not mount /tmp as tmpfs
+
+  * htpdate pool: switch from getfedora.org to www.fedoraproject.org
+    (tails/tails!2708)
+
+    Commits:
+      - Point to the correct address for Fedora's captive portal detection service
+      - htpdate pool: switch from getfedora.org to www.fedoraproject.org
+
+  * Persistent Storage .ui.in files: open + save with Cambalache (tails/tails!2694)
+
+    Closes issues:
+      - Migrate away from glade (tails/tails#21282)
+
+    Commits:
+      - Git: ignore Cambalache's *.ui.cmb files
+      - Persistent Storage .ui.in files: open + save with Cambalache
+
+  * Turn https://tails.net/donate/ into a lightweight proxy page (tails/tails!2682)
+
+    Commits:
+      - Fix broken link
+      - Fix link
+      - Fix broken link
+      - Fix broken link
+      - Match current path
+      - Make it easier to donate from the local copy of the website
+      - Point old news back to https://tails.net/donate/
+      - Bring back a minimal proxy to https://donate.torproject.org/
+      - Fix core pages
+      - Remove https://tails.net/donate/
+
+  * Update the doc to about:tor homepage (tails/tails!2658)
+
+    Commits:
+      - Remove obsolete bug notices
+      - Apply 1 suggestion(s) to 1 file(s)
+      - Apply 1 suggestion(s) to 1 file(s)
+      - Remove unused files
+      - Document limitation in doc
+      - Remove PO files for deleted pages
+      - Remove /home
+
+  * build-tails: add a 2 minute timeout for NTP synchronization (tails/tails!2657)
+
+    Commits:
+      - build-tails: add a 2 minute timeout for NTP synchronization
+      - build-tails: disable set -x when waiting and printing progress
+
+  * TCA: add feedback while opening Wi-Fi settings (tails/tails!2650)
+
+    Commits:
+      - TCA: add feedback while opening Wi-Fi settings
+
+ -- Tails developers <tails@boum.org>  Thu, 29 Jan 2026 08:55:54 +0000
 
 tails (7.4) unstable; urgency=medium
 
