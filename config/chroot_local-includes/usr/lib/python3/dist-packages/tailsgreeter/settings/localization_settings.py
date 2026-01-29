@@ -11,7 +11,9 @@ from tailsgreeter.settings.language import LanguageSetting
 from tailsgreeter.utils import glib_idle_add_once
 
 gi.require_version("AccountsService", "1.0")
+gi.require_version("GLib", "2.0")
 from gi.repository import AccountsService  # noqa: E402
+from gi.repository import GLib  # noqa: E402
 
 
 class LocalisationSettings:
@@ -48,11 +50,17 @@ class LocalisationSettings:
 
     def __on_usermanager_loaded(self, manager, pspec, data=None):
         logging.info("Received AccountsManager signal is-loaded")
-        user_account = manager.get_user(tailsgreeter.config.LUSER)
-        self.user_account = user_account
+        self.user_account = manager.get_user(tailsgreeter.config.LUSER)
+        logging.info("User account is %s", str(self.user_account))
 
         if self.pending_set_language:
-            self.set_language(self.pending_set_language)
+            # For some reason, setting the language immediately doesn't always work, as
+            # if AccountsManager wasn't really loaded. Let's wait some more before
+            # actually setting language:
+            GLib.timeout_add_seconds(
+                    1,
+                    lambda: self.set_language(self.pending_set_language) and False,
+                    )
 
         if self._usermanager_loaded_cb:
             glib_idle_add_once(lambda: self._usermanager_loaded_cb())
