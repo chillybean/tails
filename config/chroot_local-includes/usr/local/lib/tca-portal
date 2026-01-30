@@ -307,7 +307,10 @@ class Handler(socketserver.StreamRequestHandler):
             True,
         ),
         "open-wifi-config": UserCommand(
-            ("/bin/systemctl", "--user", "start", "gnome-wifi-panel"),
+            (
+                "/usr/local/bin/gtk-abspath-launch",
+                "/usr/share/applications/gnome-wifi-panel.desktop",
+            ),
             False,
         ),
         "set-tor-sandbox": RootCommand(

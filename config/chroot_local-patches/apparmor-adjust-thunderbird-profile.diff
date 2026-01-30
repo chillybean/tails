@@ -1,6 +1,6 @@
 --- a/etc/apparmor.d/usr.bin.thunderbird
 +++ b/etc/apparmor.d/usr.bin.thunderbird
-@@ -16,7 +16,6 @@
+@@ -16,7 +16,6 @@ profile thunderbird /usr/lib/thunderbird/thunderbird{,-bin} {
    # TODO: finetune this for required accesses
    #include <abstractions/dbus>
    #include <abstractions/dbus-accessibility>
@@ -8,7 +8,7 @@
    #include <abstractions/dconf>
    #include <abstractions/dri-enumerate>
    #include <abstractions/gnome>
-@@ -27,10 +26,13 @@
+@@ -27,10 +26,18 @@ profile thunderbird /usr/lib/thunderbird/thunderbird{,-bin} {
    #include <abstractions/p11-kit>
    #include <abstractions/private-files>
    #include <abstractions/ssl_certs>
@@ -17,13 +17,18 @@
    #include <abstractions/ubuntu-helpers>
  
 +  # Needed for sandboxing via unprivileged user namespaces
++  # to work and not to break OAuth2
 +  userns,
++  capability sys_chroot,
 +  capability sys_admin,
++  owner @{PROC}/@{pid}/setgroups rw,
++  owner @{PROC}/@{pid}/uid_map rw,
++  owner @{PROC}/@{pid}/gid_map rw,
 +
    # Backported from the mesa abstraction, available in AppArmor >2.13
    # System files
    /dev/dri/ r, # libGLX_mesa.so calls drmGetDevice2()
-@@ -52,7 +50,9 @@
+@@ -52,7 +59,9 @@ profile thunderbird /usr/lib/thunderbird/thunderbird{,-bin} {
  
    # Allow opening attachments
    # TODO: create and use abstractions for opening various file formats
@@ -34,7 +39,7 @@
    /usr/lib/libreoffice/program/soffice Cxr -> sanitized_helper,
  
    # Allow opening links
-@@ -63,20 +63,11 @@
+@@ -63,20 +72,11 @@ profile thunderbird /usr/lib/thunderbird/thunderbird{,-bin} {
    # (remove this after Debian 11 and Ubuntu 20.04)
    /usr/lib/@{multiarch}/glib-[0-9]*/gio-launch-desktop ix,
  
@@ -56,7 +61,7 @@
  
    owner @{HOME}/.{cache,config}/dconf/user rw,
    owner @{HOME}/.cache/thumbnails/** r,
-@@ -105,11 +96,11 @@
+@@ -105,11 +105,11 @@ profile thunderbird /usr/lib/thunderbird/thunderbird{,-bin} {
    # for networking
    network inet stream,
    network inet6 stream,
@@ -73,7 +78,7 @@
  
    # should maybe be in abstractions
    /etc/ r,
-@@ -144,6 +135,7 @@
+@@ -144,6 +144,7 @@ profile thunderbird /usr/lib/thunderbird/thunderbird{,-bin} {
    /etc/gre.d/* r,
  
    # noisy
@@ -81,7 +86,7 @@
    deny @{MOZ_LIBDIR}/** w,
    deny /usr/lib/thunderbird-addons/** w,
    deny /usr/lib/xulrunner-addons/** w,
-@@ -153,6 +146,10 @@
+@@ -153,6 +154,10 @@ profile thunderbird /usr/lib/thunderbird/thunderbird{,-bin} {
    deny /boot/vmlinuz* r,
    deny /var/cache/fontconfig/ w,
  
@@ -92,7 +97,7 @@
    # noisy file dialog:
    #
    # TODO: remove these rules when file dialogs becomes "trusted helpers" that can
-@@ -260,9 +257,11 @@
+@@ -260,9 +265,11 @@ profile thunderbird /usr/lib/thunderbird/thunderbird{,-bin} {
    deny @{HOME}/#[0-9][0-9][0-9][0-9][0-9][0-9][0-9]{,[0-9]} m,
    deny @{HOME}/.nv/.gl?????? mrw,
  
@@ -107,7 +112,7 @@
    /sys/devices/pci[0-9]*/**/uevent r,
    /sys/devices/pci*/**/config r,
    /sys/devices/system/node/node[0-9]*/meminfo r,
-@@ -270,20 +269,19 @@
+@@ -270,20 +277,19 @@ profile thunderbird /usr/lib/thunderbird/thunderbird{,-bin} {
    /etc/fstab r,
  
    # Needed for the crash reporter
@@ -134,7 +139,7 @@
  
    # Needed for container to work in xul builds
    /usr/lib/xulrunner-*/plugin-container ixr,
-@@ -331,10 +329,6 @@
+@@ -331,10 +337,6 @@ profile thunderbird /usr/lib/thunderbird/thunderbird{,-bin} {
    deny /usr/share/mozilla/extensions/**/ w,
    deny /usr/share/mozilla/ w,
  
@@ -145,7 +150,7 @@
    /usr/lib/gnupg/gpg-wks-client ix,
    /{,usr/}bin/ps                   ix,
  
-@@ -344,6 +338,11 @@
+@@ -344,6 +346,11 @@ profile thunderbird /usr/lib/thunderbird/thunderbird{,-bin} {
    # Required for Wayland display protocol support
    owner /dev/shm/wayland.mozilla.ipc.[0-9]* rw,
  

@@ -1,47 +1,49 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Created with Cambalache 0.99.8 -->
 <!-- Generated with glade 3.40.0 -->
 <interface>
+  <!-- interface-name spinner_view.ui.in -->
   <requires lib="gtk+" version="3.24"/>
   <object class="GtkBox" id="box">
-    <property name="visible">True</property>
     <property name="can-focus">False</property>
-    <property name="margin-start">20</property>
-    <property name="margin-end">20</property>
-    <property name="margin-top">20</property>
     <property name="margin-bottom">20</property>
+    <property name="margin-end">20</property>
+    <property name="margin-start">20</property>
+    <property name="margin-top">20</property>
     <property name="orientation">vertical</property>
     <property name="spacing">50</property>
+    <property name="visible">True</property>
     <child>
       <object class="GtkScrolledWindow">
-        <property name="visible">True</property>
         <property name="can-focus">True</property>
         <property name="hexpand">True</property>
-        <property name="vexpand">True</property>
         <property name="hscrollbar-policy">never</property>
         <property name="kinetic-scrolling">False</property>
         <property name="overlay-scrolling">False</property>
+        <property name="vexpand">True</property>
+        <property name="visible">True</property>
         <child>
           <object class="GtkViewport">
-            <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="shadow-type">none</property>
+            <property name="visible">True</property>
             <child>
               <object class="GtkBox">
-                <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="valign">center</property>
                 <property name="orientation">vertical</property>
                 <property name="spacing">5</property>
+                <property name="valign">center</property>
+                <property name="visible">True</property>
                 <child>
                   <object class="GtkBox">
-                    <property name="visible">True</property>
                     <property name="can-focus">False</property>
                     <property name="spacing">5</property>
+                    <property name="visible">True</property>
                     <child>
                       <object class="GtkSpinner" id="spinner">
-                        <property name="visible">True</property>
-                        <property name="can-focus">False</property>
                         <property name="active">True</property>
+                        <property name="can-focus">False</property>
+                        <property name="visible">True</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -51,8 +53,8 @@
                     </child>
                     <child>
                       <object class="GtkLabel" id="spinner_status_label">
-                        <property name="visible">True</property>
                         <property name="can-focus">False</property>
+                        <property name="visible">True</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
