@@ -111,7 +111,9 @@ To release Tails you'll need some packages installed:
 
 * `squashfs-tools-ng` and `libsquashfs1` from Trixie
 
-* `po4a` 0.69:
+* `ikiwiki` from Debian testing (Forky) or newer
+
+* `po4a` 0.73:
 
    - Different versions extract Markdown headings in a different way, which
      makes tons of strings fuzzy.
@@ -1779,7 +1781,7 @@ Rename, copy, garbage collect and update various files:
 
 Then, build the website and commit this last set of changes:
 
-	if [ "$(./bin/po4a-version)" = 0.69 ]; then
+	if [ "$(./bin/po4a-version)" = 0.73 ]; then
 	    ./build-website && \
 	    git add wiki/src/{inc,torrents} && \
 	    git commit -m "Update various website source files for ${VERSION:?}"
@@ -1857,7 +1859,7 @@ In any case
 Generate PO files for the pages added or updated earlier in this
 section, and publish them on the `$WEBSITE_RELEASE_BRANCH` branch:
 
-	if [ "$(./bin/po4a-version)" = 0.69 ]; then
+	if [ "$(./bin/po4a-version)" = 0.73 ]; then
 	    ./build-website && \
 	    git add wiki/src && \
 	    git commit -m "Releasing version ${VERSION:?}" && \
