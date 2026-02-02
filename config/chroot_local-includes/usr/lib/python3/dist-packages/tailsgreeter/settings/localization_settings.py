@@ -58,9 +58,9 @@ class LocalisationSettings:
             # if AccountsManager wasn't really loaded. Let's wait some more before
             # actually setting language:
             GLib.timeout_add_seconds(
-                    1,
-                    lambda: self.set_language(self.pending_set_language) and False,
-                    )
+                1,
+                lambda: self.set_language(self.pending_set_language) and False,
+            )
 
         if self._usermanager_loaded_cb:
             glib_idle_add_once(lambda: self._usermanager_loaded_cb())
