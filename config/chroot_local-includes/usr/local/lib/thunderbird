@@ -36,7 +36,7 @@ start_thunderbird() {
     export MOZ_REMOTE_SETTINGS_DEVTOOLS=1
     unset SESSION_MANAGER
     reconfigure_profile
-    exec /usr/bin/thunderbird --class "Thunderbird" -profile "${PROFILE}" "${@}"
+    exec /usr/bin/thunderbird.real --class "Thunderbird" -profile "${PROFILE}" "${@}"
 }
 
 start_thunderbird "${@}"
