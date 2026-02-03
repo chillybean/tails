@@ -34,6 +34,8 @@ start_thunderbird() {
     # This is necessary for services.settings.server to be honored,
     # which we set in aa_tails.js to disable the remote settings and telemetry mechanism
     export MOZ_REMOTE_SETTINGS_DEVTOOLS=1
+    # Disable connections to the X session manager (gnome-session),
+    # see details in tor-browser.sh.
     unset SESSION_MANAGER
     reconfigure_profile
     exec /usr/bin/thunderbird.real --class "Thunderbird" -profile "${PROFILE}" "${@}"
