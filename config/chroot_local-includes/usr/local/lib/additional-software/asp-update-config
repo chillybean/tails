@@ -77,12 +77,8 @@ def handle_thunderbird_migration():
             )
             raise
         migration.succeeded = True
-        notify(
-            title="TODO:UX Added Thunderbird to additional software",
-            body="TODO:UX For your safety, Thunderbird will now be kept up-to-date from Debian.",
-            # TODO: UX
-            documentation_target="anonymous_internet/thunderbird/migration/Debian/done",
-        )
+        # We don't notify here: instead we will let the user know if,
+        # and when, they start Thunderbird.
     else:
         logging.info("Asking the user to add Thunderbird to Additional Software")
         # Here we intentionally don't record any state for the

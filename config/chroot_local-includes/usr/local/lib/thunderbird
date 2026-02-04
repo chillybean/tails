@@ -4,11 +4,35 @@ set -e
 set -u
 set -x
 
+. gettext.sh
+TEXTDOMAIN="tails"
+export TEXTDOMAIN
+
 # Import set_mozilla_pref()
 . /usr/local/lib/tails-shell-library/tor-browser.sh
 
 THUNDERBIRD_CONFIG_DIR="${HOME}/.thunderbird"
 PROFILE="${THUNDERBIRD_CONFIG_DIR}/profile.default"
+
+announce_migration_21375_1() {
+    MIGRATION_IDENTIFIER=21375-thunderbird-iteration-1
+    if python3 /usr/lib/python3/dist-packages/tailslib/migration.py "$MIGRATION_IDENTIFIER" &&
+        [ "$(tails-ask-again "$MIGRATION_IDENTIFIER")" = "show" ]; then
+        dialog_title=$(gettext "Thunderbird Migration")
+        dialog_text=$(gettext "We added Thunderbird to your list of Additional Software to improve its security.\n\nThunderbird will no longer be included by default in Tails 7.N+x (MONTH YEAR) and later.\n\n<a href='https://tails.net/TODO:UX'>Why is Tails installing Thunderbird as Additional Software?</a>")
+        dialog_ok=$(gettext "Don't Show Again")
+        dialog_cancel=$(gettext "Start Thunderbird")
+        if zenity \
+            --question \
+            --title "$dialog_title" \
+            --text "$dialog_text" \
+            --ok-label "$dialog_ok" \
+            --cancel-label "$dialog_cancel" \
+            --icon thunderbird; then
+            tails-ask-again --dont-ask-again "$MIGRATION_IDENTIFIER"
+        fi
+    fi
+}
 
 configure_locale() {
     # Thunderbird will set the locale based on the environment when
@@ -41,4 +65,5 @@ start_thunderbird() {
     exec /usr/bin/thunderbird.real --class "Thunderbird" --profile "${PROFILE}" "${@}"
 }
 
+announce_migration_21375_1
 start_thunderbird "${@}"
