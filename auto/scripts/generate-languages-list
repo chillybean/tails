@@ -14,9 +14,9 @@ OUTFILE="config/chroot_local-includes/usr/share/tails/greeter/supported_language
 LANG_CODES="ar de en es fa fr hi it pt ru tr zh"
 
 # Add the languages which have translations in Tails
-TRANSLATED="$(find po -name "*.po" -exec basename {} \; | \
-              sed -e "s/\.po//" -e "s/\(.*\)_.*/\1/g")"
+TRANSLATED="$(find po -name "*.po" -exec basename {} \; |
+    sed -e "s/\.po//" -e "s/\(.*\)_.*/\1/g")"
 LANG_CODES="${LANG_CODES} ${TRANSLATED}"
 
 # Write the list to the output file
-echo "${LANG_CODES}" | tr " " "\n" | sort | uniq | tr "\n" " " > "${OUTFILE}"
+echo "${LANG_CODES}" | tr " " "\n" | sort | uniq | tr "\n" " " >"${OUTFILE}"
