@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# refs: #10553
+
+set -eu
+
+OLD_DIR="/live/persistence/TailsData_unlocked/dont-ask-again"
+NEW_DIR="/live/persistence/TailsData_unlocked/.tails/dont-ask-again"
+
+if [ -d "$OLD_DIR" ] && ! [ -d "$NEW_DIR" ]; then
+    mv "$OLD_DIR" "$NEW_DIR"
+fi
+
+install --directory --owner amnesia --group amnesia --mode 700 "${NEW_DIR}"

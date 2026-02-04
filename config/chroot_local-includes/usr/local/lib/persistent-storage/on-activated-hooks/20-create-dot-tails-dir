@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -eu -o pipefail
+
+install \
+    --directory \
+    --owner root --group amnesia --mode 0710 \
+    /live/persistence/TailsData_unlocked/.tails
