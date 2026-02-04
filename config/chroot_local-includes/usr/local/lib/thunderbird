@@ -38,7 +38,7 @@ start_thunderbird() {
     # see details in tor-browser.sh.
     unset SESSION_MANAGER
     reconfigure_profile
-    exec /usr/bin/thunderbird.real --class "Thunderbird" -profile "${PROFILE}" "${@}"
+    exec /usr/bin/thunderbird.real --class "Thunderbird" --profile "${PROFILE}" "${@}"
 }
 
 start_thunderbird "${@}"
