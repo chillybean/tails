@@ -48,7 +48,7 @@ def check_call(cmd: list, *args, **kwargs):
     return _run(cmd, *args, **kwargs, check=True)
 
 
-def check_output(cmd: list, *args, **kwargs) -> str:
+def check_output(cmd: list, *args, **kwargs):
     p = _run(cmd, *args, **kwargs, check=True, stdout=subprocess.PIPE)
     return p.stdout
 
