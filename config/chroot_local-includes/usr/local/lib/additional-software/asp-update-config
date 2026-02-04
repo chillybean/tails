@@ -11,6 +11,7 @@ from additional_software import (
 )
 
 from tailslib.locale import apply_selected_locale
+from tailslib.migration import Migration
 from tailslib.persistence import (
     additional_software_persistence_feature_is_active,
     thunderbird_persistence_feature_is_active,
@@ -25,6 +26,14 @@ _ = gettext.gettext
 
 
 def handle_thunderbird_migration():
+    migration = Migration("21375-thunderbird-iteration-1")
+    if migration.succeeded:
+        logging.info(
+            "Migration 21375-thunderbird-iteration-1 has already succeeded "
+            "⇒ no migration needed",
+        )
+        return
+
     if not thunderbird_persistence_feature_is_active():
         logging.info(
             "Thunderbird persistent storage feature is not enabled "
@@ -58,6 +67,7 @@ def handle_thunderbird_migration():
             add_additional_packages(packages_to_add)
         except Exception:
             logging.exception("Failed to add additional packages")
+            migration.succeeded = False
             notify_failure(
                 _(
                     "TODO:UX "
@@ -66,6 +76,7 @@ def handle_thunderbird_migration():
                 ),
             )
             raise
+        migration.succeeded = True
         notify(
             title="TODO:UX Added Thunderbird to additional software",
             body="TODO:UX For your safety, Thunderbird will now be kept up-to-date from Debian.",
@@ -74,6 +85,10 @@ def handle_thunderbird_migration():
         )
     else:
         logging.info("Asking the user to add Thunderbird to Additional Software")
+        # Here we intentionally don't record any state for the
+        # migration: if the user does not add Thunderbird to their
+        # Additional Software, we will ask them again, to minimize the
+        # risk they miss these instructions.
         notify(
             title="TODO:UX Please add Thunderbird to your additional software",
             body="TODO:UX",
