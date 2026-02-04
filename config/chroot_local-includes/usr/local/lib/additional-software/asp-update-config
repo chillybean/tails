@@ -4,7 +4,6 @@ import gettext
 import logging
 
 import additional_software
-
 from additional_software import (
     add_additional_packages,
     notify,
@@ -29,7 +28,7 @@ def handle_thunderbird_migration():
     if not thunderbird_persistence_feature_is_active():
         logging.info(
             "Thunderbird persistent storage feature is not enabled "
-            "⇒ no migration needed"
+            "⇒ no migration needed",
         )
         return
 
@@ -57,16 +56,16 @@ def handle_thunderbird_migration():
             packages_to_add |= {l10n_package}
         try:
             add_additional_packages(packages_to_add)
-        except Exception as e:
+        except Exception:
             logging.exception("Failed to add additional packages")
             notify_failure(
                 _(
                     "TODO:UX "
                     "Failed to migrate Thunderbird configuration, "
-                    "please report an error with WhisperBack."
-                )
+                    "please report an error with WhisperBack.",
+                ),
             )
-            raise e
+            raise
         notify(
             title="TODO:UX Added Thunderbird to additional software",
             body="TODO:UX For your safety, Thunderbird will now be kept up-to-date from Debian.",
