@@ -2,7 +2,9 @@
 
 set -eu -o pipefail
 
+NOSYMFOLLOW_MOUNTPOINT='/run/nosymfollow'
+
 install \
     --directory \
     --owner root --group amnesia --mode 0750 \
-    /live/persistence/TailsData_unlocked/.tails/migrations
+    "${NOSYMFOLLOW_MOUNTPOINT}/live/persistence/TailsData_unlocked/.tails/migrations"

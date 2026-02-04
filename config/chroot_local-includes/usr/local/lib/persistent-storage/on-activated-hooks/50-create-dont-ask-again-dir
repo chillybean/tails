@@ -4,8 +4,9 @@
 
 set -eu -o pipefail
 
-OLD_DIR="/live/persistence/TailsData_unlocked/dont-ask-again"
-NEW_DIR="/live/persistence/TailsData_unlocked/.tails/dont-ask-again"
+NOSYMFOLLOW_MOUNTPOINT='/run/nosymfollow'
+OLD_DIR="${NOSYMFOLLOW_MOUNTPOINT}/live/persistence/TailsData_unlocked/dont-ask-again"
+NEW_DIR="${NOSYMFOLLOW_MOUNTPOINT}/live/persistence/TailsData_unlocked/.tails/dont-ask-again"
 
 if [ -d "$OLD_DIR" ] && ! [ -d "$NEW_DIR" ]; then
     mv "$OLD_DIR" "$NEW_DIR"
