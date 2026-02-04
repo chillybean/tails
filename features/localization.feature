@@ -74,6 +74,8 @@ Feature: Localization
     And I start Tails from USB drive "__internal" with network unplugged
     Then the "fr" language and keyboard have been saved in cleartext storage
     And the Welcome Screen's language is set to French
+    When I log in to a new session
+    Then the language is set to French
 
   Scenario: Cleartext localization preferences have priority over Persistent Storage
     Given I have started Tails without network from a USB drive without a persistent partition and logged in

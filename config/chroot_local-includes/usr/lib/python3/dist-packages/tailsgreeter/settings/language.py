@@ -19,7 +19,7 @@
 from collections import OrderedDict
 import gi
 import logging
-import locale
+import typing
 
 import tailsgreeter.config
 from tailsgreeter.settings import SettingNotFoundError
@@ -31,7 +31,6 @@ from tailsgreeter.settings.localization import (
     add_encoding,
 )
 from tailsgreeter.settings.utils import read_settings, write_settings
-from tailsgreeter.utils import glib_idle_add_once
 
 gi.require_version("GLib", "2.0")
 gi.require_version("GObject", "2.0")
@@ -39,14 +38,20 @@ gi.require_version("GnomeDesktop", "3.0")
 gi.require_version("Gtk", "3.0")
 from gi.repository import GLib, GObject, GnomeDesktop, Gtk  # NOQA: E402
 
+if typing.TYPE_CHECKING:
+    from tailsgreeter.settings.localization_settings import LocalisationSettings
+
 
 class LanguageSetting(CleartextStorageMixin, LocalizationSetting):
     SETTINGS_KEY = "language"
 
-    def __init__(self, locales: list[str]):
+    def __init__(
+        self, locales: list[str], localisation_settings: "LocalisationSettings"
+    ):
         super().__init__()
         self.legacy_settings_file = tailsgreeter.config.legacy_language_setting_path
         self.locales = locales
+        self.localisation_settings = localisation_settings
         self._user_account = None
 
         self.lang_codes = self._languages_from_locales(locales)
@@ -201,18 +206,7 @@ class LanguageSetting(CleartextStorageMixin, LocalizationSetting):
             return locale_code
 
     def apply_language(self, language_code: str):
-        normalized_code = locale.normalize(
-            language_code + "." + locale.getpreferredencoding()
-        )
-        logging.debug("Setting session language to %s", normalized_code)
-        if self._user_account:
-            # For some reason, this produces the following warning, but
-            # the language is actually applied.
-            #     AccountsService-WARNING **: 19:29:39.181: SetLanguage for language de_DE.UTF-8 failed:
-            #     GDBus.Error:org.freedesktop.Accounts.Error.PermissionDenied: Not authorized
-            glib_idle_add_once(lambda: self._user_account.set_language(normalized_code))
-        else:
-            logging.warning("AccountsManager not ready")
+        self.localisation_settings.set_language(language_code)
 
     def _make_language_to_locale_dict(
         self, locale_codes: list[str]
