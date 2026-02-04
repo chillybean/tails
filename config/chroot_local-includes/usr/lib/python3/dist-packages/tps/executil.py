@@ -57,7 +57,7 @@ def check_output(cmd: list, *args, **kwargs) -> str:
 
 def execute_hooks(hooks_dir: str | PathLike):
     """
-    Execute all regular files in the specified directory, in (locale) lexicographic order.
+    Execute all regular files in the specified directory, in lexicographic order (by increasing Unicode code points).
 
     If any of these runs fails, the execution is stopped, and an exception is raised immediately.
     """
