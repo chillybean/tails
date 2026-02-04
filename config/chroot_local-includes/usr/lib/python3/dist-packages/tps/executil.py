@@ -55,9 +55,11 @@ def check_output(cmd: list, *args, **kwargs):
 
 def execute_hooks(hooks_dir: str | PathLike):
     """
-    Execute all regular files in the specified directory, in lexicographic order (by increasing Unicode code points).
+    Execute all regular files in the specified directory, in lexicographic order
+    (by increasing Unicode code points).
 
-    If any of these runs fails, the execution is stopped, and an exception is raised immediately.
+    If any of these runs fails, the execution is stopped, and an exception
+    is raised immediately.
     """
     hooks_dir = Path(hooks_dir)
     if not hooks_dir.exists():
