@@ -13,17 +13,17 @@ OPTS="$(getopt -o "" --longoptions ${LONGOPTS} -n "$(basename "${0}")" -- "$@")"
 eval set -- "$OPTS"
 while [ "${#}" -gt 0 ]; do
     case "${1}" in
-        --dont-ask-again)
-            DONT_ASK_AGAIN='yes'
-            ;;
-        --timeout)
-            shift
-            TIMEOUT="${1}"  # in days
-            ;;
-        --)
-            shift
-            break
-            ;;
+    --dont-ask-again)
+        DONT_ASK_AGAIN='yes'
+        ;;
+    --timeout)
+        shift
+        TIMEOUT="${1}" # in days
+        ;;
+    --)
+        shift
+        break
+        ;;
     esac
     shift
 done
