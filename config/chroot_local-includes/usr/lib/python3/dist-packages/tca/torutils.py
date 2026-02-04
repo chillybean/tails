@@ -370,6 +370,19 @@ class TorConnectionConfig:
         bridges = self.__class__.get_default_bridges(valid_types)
         self.enable_bridges(bridges)
 
+    def enable_moat_settings(self, settings: list[dict]):
+        """
+        Configure bridges fetched via the Circumvention Settings API
+        """
+        for s in settings:
+            try:
+                if s["bridges"]["type"] in VALID_BRIDGE_TYPES:
+                    self.enable_bridges(s["bridges"]["bridge_strings"])
+                    return
+            except KeyError:
+                pass
+        raise ValueError("no valid bridge found in provided settings")
+
     @classmethod
     def load_from_tor_stem(
         cls,

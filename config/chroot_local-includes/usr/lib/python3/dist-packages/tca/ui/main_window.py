@@ -527,22 +527,19 @@ class StepConnectProgressMixin:
             )
             return
 
-        found_bridges = []
-        for s in settings:
-            try:
-                if s["bridges"]["type"] in self.app.supported_bridge_types:
-                    found_bridges = s["bridges"]["bridge_strings"]
-                    break
-            except KeyError:
-                pass
+        valid_settings = [
+            s
+            for s in settings
+            if s["bridges"]["type"] in self.app.supported_bridge_types
+        ]
 
-        if found_bridges == []:
+        if valid_settings == []:
             set_error(
                 _("Circumvention Settings API did not return any supported bridges")
             )
             return
         else:
-            self.state["bridge"]["bridges"] = found_bridges
+            self.state["bridge"]["moat_settings"] = valid_settings
 
         self.spawn_tor_connect()
 
@@ -627,20 +624,22 @@ class StepConnectProgressMixin:
                 self.builder.get_object("step_progress_label_status").set_text(
                     _("Connecting to Tor with default bridges…")
                 )
+            elif self.state["bridge"].get("kind", "") == "moat":
+                self.app.configurator.tor_connection_config.enable_moat_settings(
+                    self.state["bridge"]["moat_settings"]
+                )
+                self.builder.get_object("step_progress_label_status").set_text(
+                    _(
+                        "Connecting to Tor with bridge configuration fetched with Circumvention Settings API…"
+                    )
+                )
             elif self.state["bridge"]["bridges"]:
                 self.app.configurator.tor_connection_config.enable_bridges(
                     self.state["bridge"]["bridges"]
                 )
-                if self.state["bridge"].get("kind", "") == "moat":
-                    self.builder.get_object("step_progress_label_status").set_text(
-                        _(
-                            "Connecting to Tor with bridge configuration fetched with Circumvention Settings API…"
-                        )
-                    )
-                else:
-                    self.builder.get_object("step_progress_label_status").set_text(
-                        _("Connecting to Tor with a custom bridge…")
-                    )
+                self.builder.get_object("step_progress_label_status").set_text(
+                    _("Connecting to Tor with a custom bridge…")
+                )
             else:
                 raise ValueError(
                     "inconsistent state! you discovered a programming error"
