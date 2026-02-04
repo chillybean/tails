@@ -21,7 +21,7 @@ def _run(cmd: list, *args, **kwargs) -> subprocess.CompletedProcess:
     # This method will be called from executil.run() (or check_call, or check_output),
     # and we want to attribute the log message to its caller
     # we should use logger.debug, but #19871 pushes us towards higher log level
-    logger.info(f"Executing command {' '.join(cmd)}", stacklevel=3)
+    logger.info("Executing command %s", " ".join(cmd), stacklevel=3)
 
     if tps.PROFILING:
         cmd = prepare_for_profiling(cmd)
@@ -37,7 +37,7 @@ def _run(cmd: list, *args, **kwargs) -> subprocess.CompletedProcess:
         print(p.stderr, file=sys.stderr)
         return p
     finally:
-        logger.debug(f"Done executing command {' '.join(cmd)}", stacklevel=3)
+        logger.debug("Done executing command %s", " ".join(cmd), stacklevel=3)
 
 
 def run(cmd: list, *args, **kwargs) -> subprocess.CompletedProcess:
@@ -66,7 +66,7 @@ def execute_hooks(hooks_dir: str | PathLike):
     for file in sorted(hooks_dir.iterdir()):
         if file.is_dir():
             continue
-        logger.info(f"Executing hook {file}")
+        logger.info("Executing hook %s", file)
         try:
             check_call([str(file)])
         finally:
@@ -81,7 +81,7 @@ def prepare_for_profiling(cmd: list) -> list:
         delete=False,
     )
     profile_file.close()
-    logger.info(f"Creating profile in {profile_file.name}")
+    logger.info("Creating profile in %s", profile_file.name)
     return [
         "strace",
         "--follow-forks",
