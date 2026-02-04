@@ -1,11 +1,9 @@
-import logging
 import os.path
+import subprocess
+import sys
 import tempfile
 from os import PathLike
-import sys
 from pathlib import Path
-import subprocess
-from typing import Union
 
 import tps
 import tps.logging
