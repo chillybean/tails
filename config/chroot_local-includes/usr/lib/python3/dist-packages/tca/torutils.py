@@ -374,14 +374,16 @@ class TorConnectionConfig:
         """
         Configure bridges fetched via the Circumvention Settings API
         """
+        bridges = []
         for s in settings:
             try:
                 if s["bridges"]["type"] in VALID_BRIDGE_TYPES:
-                    self.enable_bridges(s["bridges"]["bridge_strings"])
-                    return
+                    bridges.extend(s["bridges"]["bridge_strings"])
             except KeyError:
                 pass
-        raise ValueError("no valid bridge found in provided settings")
+        if bridges == []:
+            raise ValueError("no valid bridge found in provided settings")
+        self.enable_bridges(bridges)
 
     @classmethod
     def load_from_tor_stem(
