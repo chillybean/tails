@@ -1854,3 +1854,7 @@ def zenity_dialog_click_button(title, button_label)
   sleep 2
   button.click
 end
+
+When(/^I click "([^"]+)" in the "([^"]+)" zenity dialog$/) do |button_label, title|
+  zenity_dialog_click_button(title, button_label)
+end
