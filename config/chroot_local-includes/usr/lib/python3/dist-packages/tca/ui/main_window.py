@@ -548,7 +548,7 @@ class StepConnectProgressMixin:
         region = self.builder.get_object(
             "step_bridge_moat_region_combo"
         ).get_active_id()
-        args = []
+        args = ["--defaults-fallback"]
         if region != "automatic":
             args += ["--region", region]
         if self.state["proxy"] and self.state["proxy"]["proxy_type"] != "no":
