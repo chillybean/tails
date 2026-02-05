@@ -120,6 +120,8 @@ Examples of useful packages to drop in here are:
      `config/chroot_local-includes/etc/dconf`.
    - Re-runs `config/chroot_local-hooks/52-update-systemd-units`
      if it has changed.
+   - Reloads `polkit.service` if there are changes to
+     `config/chroot_local-includes/etc/polkit-1/rules.d`.
    - Applies changes to `.in` files to the files they are input for
      (e.g. you can hack on `.ui.in` files and the changes will be
      applied to the `.ui` file).

@@ -130,6 +130,12 @@ apply_changes() {
     run_with_plymouth_msg "Updating systemd units" "${file}"
   fi
 
+  # Reload polkit if any dconf files were changed
+  dir="${GIT_REPO}/config/chroot_local-includes/etc/polkit-1/rules.d"
+  if has_changes "${commit}" "${dir}"; then
+    systemctl reload polkit.service
+  fi
+
   # Install modified dpkg hook (only useful if
   # /etc/apt/apt.conf.d/80tails-additional-software.disabled was modified)
   src="/etc/apt/apt.conf.d/80tails-additional-software.disabled"
