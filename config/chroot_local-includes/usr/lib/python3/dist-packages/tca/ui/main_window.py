@@ -567,7 +567,7 @@ class StepConnectProgressMixin:
             "get-bridge-settings", self.cb_bridge_settings_fetched, *args
         )
         self.builder.get_object("step_progress_label_status").set_text(
-            _("Fetching bridge configuration with the Circumvention Settings API…")
+            _("Asking for a Tor bridge based on your region…")
         )
 
     def cb_system_time_set_from_network(self, result, error):
@@ -629,9 +629,7 @@ class StepConnectProgressMixin:
                     self.state["bridge"]["moat_settings"]
                 )
                 self.builder.get_object("step_progress_label_status").set_text(
-                    _(
-                        "Connecting to Tor with bridge configuration fetched with Circumvention Settings API…"
-                    )
+                    _("Connecting to Tor with a bridge based on your region…")
                 )
             elif self.state["bridge"]["bridges"]:
                 self.app.configurator.tor_connection_config.enable_bridges(
