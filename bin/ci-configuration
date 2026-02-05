@@ -33,13 +33,19 @@ class ConfigFile(BaseModel):
 
 @functools.lru_cache(1)
 def get_current_branch() -> str:
-    return subprocess.check_output(
-        ["/usr/bin/git", "branch", "--show-current"], text=True
-    )
+    # The current Git state may not reflect the state at the time the
+    # upstream job was started (e.g. since then we git fetch + git
+    # reset --hard) so we trust the Git state described in Jenkins'
+    # environment variables instead.
+    branch = os.getenv("GIT_BRANCH") or subprocess.check_output(
+        ["/usr/bin/git", "branch", "--show-current"],
+        text=True,
+    ).rstrip("\n")
+    return branch.removeprefix("origin/")
 
 
 def normalize_branch_name(branch: str) -> str:
-    return branch.rstrip("\n").replace("/", "-").replace("+", "-")
+    return branch.replace("/", "-").replace("+", "-")
 
 
 @functools.lru_cache(1)
