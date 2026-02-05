@@ -172,7 +172,7 @@ def notify(
     clicked.
 
     If documentation_target is set, a "Documentation" action button will open
-    corresponding tails documentation when clicked.
+    the corresponding Tails documentation when clicked.
 
     If return_id is true, returns the notification ID, which may be used to
     close the notification.
