@@ -1847,3 +1847,10 @@ Then(/^the language is set to (.*)$/) do |language|
   lang = { 'French' => 'fr_FR.UTF-8' }[language]
   assert_equal(lang, $vm.execute_successfully('echo $LANG').stdout.chomp)
 end
+
+def zenity_dialog_click_button(title, button_label)
+  button = Dogtail::Application.new('zenity').dialog(title).button(button_label)
+  # Sometimes this click is lost. Maybe the dialog is not fully setup yet?
+  sleep 2
+  button.click
+end

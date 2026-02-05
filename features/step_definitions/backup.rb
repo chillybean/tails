@@ -11,7 +11,7 @@ Then /^the backup tool displays "([^"]+)"$/ do |expected|
 end
 
 When /^I click "([^"]+)" in the backup tool$/ do |node|
-  Dogtail::Application.new('zenity').child(node).click
+  zenity_dialog_click_button('Back Up Persistent Storage', node)
 end
 
 When /^I enter my persistent storage passphrase into the polkit prompt$/ do
