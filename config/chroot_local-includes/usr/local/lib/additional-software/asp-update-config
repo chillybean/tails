@@ -6,6 +6,7 @@ import logging
 import additional_software
 from additional_software import (
     add_additional_packages,
+    get_additional_packages,
     notify,
 )
 
@@ -26,10 +27,18 @@ _ = gettext.gettext
 
 def handle_thunderbird_migration():
     migration = Migration("21375-thunderbird-iteration-1")
+
     if migration.succeeded:
         logging.info(
             "Migration 21375-thunderbird-iteration-1 has already succeeded "
             "⇒ no migration needed",
+        )
+        return
+
+    if migration.not_needed:
+        logging.info(
+            "Migration 21375-thunderbird-iteration-1 was previously identified "
+            "as not needed ⇒ skipping"
         )
         return
 
@@ -38,9 +47,26 @@ def handle_thunderbird_migration():
             "Thunderbird persistent storage feature is not enabled "
             "⇒ no migration needed",
         )
+        # We don't record "migration.not_needed = True" here because
+        # we want to apply the migration if the user later enables
+        # the Thunderbird persistent storage feature.
         return
 
     if additional_software_persistence_feature_is_active():
+        if "thunderbird" in get_additional_packages():
+            # The user added thunderbird to Additional Software
+            # themselves already, so we avoid applying the migration:
+            # it would be a harmless no-op, except it would record
+            # that we applied the migration successfully, and then the
+            # thunderbird wrapper would tell the user about it, which
+            # makes no sense.
+            logging.info(
+                "Thunderbird is already in Additional Software "
+                "⇒ no migration needed",
+            )
+            migration.not_needed = True
+            return
+
         logging.info("Adding Thunderbird to Additional Software")
         packages_to_add = {
             "thunderbird",

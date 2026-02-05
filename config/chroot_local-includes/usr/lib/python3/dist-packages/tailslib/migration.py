@@ -13,6 +13,11 @@ class Migration:
         self.state_dir = MIGRATIONS_DIR / Id
         self.success_file = self.state_dir / "success"
         self.failure_file = self.state_dir / "failure"
+        self.not_needed_file = self.state_dir / "not_needed"
+
+    def create_state_directory(self) -> None:
+        self.state_dir.mkdir(mode=0o750, exist_ok=True)
+        shutil.chown(self.state_dir, group="amnesia")
 
     @property
     def succeeded(self):
@@ -20,12 +25,23 @@ class Migration:
 
     @succeeded.setter
     def succeeded(self, result: bool) -> None:
-        self.state_dir.mkdir(mode=0o750, exist_ok=True)
-        shutil.chown(self.state_dir, group="amnesia")
+        self.create_state_directory()
         if result:
             self.success_file.touch()
         else:
             self.failure_file.touch()
+
+    @property
+    def not_needed(self):
+        return self.not_needed_file.exists()
+
+    @not_needed.setter
+    def not_needed(self, value: bool) -> None:
+        self.create_state_directory()
+        if value:
+            self.not_needed_file.touch()
+        else:
+            self.not_needed_file.unlink(missing_ok=True)
 
 
 if __name__ == "__main__":
