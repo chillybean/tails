@@ -102,15 +102,6 @@ def main(*args):
     if not electrum_config_is_persistent() and not verify_start():
         return
 
-    # Disable update checking for all users (even those who made their config
-    # persistent before we changed this value in the default config), because
-    # users can't easily update to a new version anyway if it's not in Debian.
-    subprocess.run(
-        ["/usr/bin/electrum", "--offline", "setconfig", "check_updates", "false"],
-        check=True,
-        stdout=subprocess.DEVNULL,
-    )
-
     if should_show_donation_message():
         show_donation_message()
     else:
