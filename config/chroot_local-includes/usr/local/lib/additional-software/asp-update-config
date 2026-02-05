@@ -7,7 +7,6 @@ import additional_software
 from additional_software import (
     add_additional_packages,
     notify,
-    notify_failure,
 )
 
 from tailslib.locale import apply_selected_locale
@@ -68,12 +67,14 @@ def handle_thunderbird_migration():
         except Exception:
             logging.exception("Failed to add additional packages")
             migration.succeeded = False
-            notify_failure(
-                _(
-                    "TODO:UX "
-                    "Failed to migrate Thunderbird configuration, "
-                    "please report an error with WhisperBack.",
+            notify(
+                title=_("Thunderbird Migration"),
+                body=_(
+                    "We failed to add Thunderbird to your list of Additional Software.\n\nThunderbird will no longer be included by default in Tails 7.N+x (MONTH YEAR) and later."
                 ),
+                # TODO: UX
+                documentation_target="anonymous_internet/thunderbird/migration/Debian/failure",
+                urgent=True,
             )
             raise
         migration.succeeded = True
@@ -86,8 +87,10 @@ def handle_thunderbird_migration():
         # Additional Software, we will ask them again, to minimize the
         # risk they miss these instructions.
         notify(
-            title="TODO:UX Please add Thunderbird to your additional software",
-            body="TODO:UX",
+            title=_("Thunderbird Migration"),
+            body=_(
+                "You should add Thunderbird to your list of Additional Software.\n\nThunderbird will no longer be included by default in Tails 7.N+x (MONTH YEAR) and later."
+            ),
             # TODO: UX
             documentation_target="anonymous_internet/thunderbird/migration/Debian/todo",
             urgent=True,
