@@ -222,10 +222,8 @@ You can use &lt;i&gt;obfs4&lt;/i&gt; and &lt;i&gt;WebTunnel&lt;/i&gt; bridges in
           <object class="GtkBox" id="step_bridge_box_moat">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
-            <property name="valign">start</property>
-            <property name="margin-top">8</property>
-            <property name="margin-bottom">6</property>
-            <property name="orientation">vertical</property>
+            <property name="halign">start</property>
+            <property name="orientation">horizontal</property>
             <child>
               <object class="GtkRadioButton" id="step_bridge_radio_moat">
                 <property name="visible">True</property>
@@ -256,45 +254,18 @@ You can use &lt;i&gt;obfs4&lt;/i&gt; and &lt;i&gt;WebTunnel&lt;/i&gt; bridges in
               <placeholder/>
             </child>
             <child>
-              <object class="GtkBox">
+              <object class="GtkComboBoxText" id="step_bridge_moat_region_combo">
                 <property name="visible">True</property>
+                <property name="sensitive">False</property>
                 <property name="can-focus">False</property>
-                <property name="margin-start">24</property>
-                <property name="spacing">12</property>
-                <child>
-                  <object class="GtkLabel" id="step_bridge_moat_region_label">
-                    <property name="visible">True</property>
-                    <property name="can-focus">False</property>
-                    <property name="label" translatable="yes">Region</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">0</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkComboBoxText" id="step_bridge_moat_region_combo">
-                    <property name="visible">True</property>
-                    <property name="sensitive">False</property>
-                    <property name="can-focus">False</property>
-                    <property name="active">0</property>
-                    <property name="button-sensitivity">on</property>
-                    <property name="active-id">automatic</property>
-                    <items>
-                      <item id="automatic" translatable="yes">Automatic</item>
-                      <item id="cn" translatable="yes">China</item>
-                    </items>
-                    <accessibility>
-                      <relation type="labelled-by" target="step_bridge_moat_region_label"/>
-                    </accessibility>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">1</property>
-                  </packing>
-                </child>
+                <property name="active">0</property>
+                <property name="button-sensitivity">on</property>
+                <property name="active-id">automatic</property>
+                <property name="margin-start">12</property>
+                <items>
+                  <item id="automatic" translatable="yes">Automatic</item>
+                  <item id="cn" translatable="yes">China</item>
+                </items>
               </object>
               <packing>
                 <property name="expand">True</property>
