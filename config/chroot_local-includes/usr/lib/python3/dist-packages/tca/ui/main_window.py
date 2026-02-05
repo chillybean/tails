@@ -4,6 +4,7 @@ import json
 import gettext
 from typing import Any, Optional
 import copy
+import pycountry
 
 import gi
 import stem
@@ -199,9 +200,17 @@ class StepChooseBridgeMixin:
                     combo.set_active_id(bridge_type)
                     break
             combo.show_all()
+        self._step_bridge_populate_regions()
         self._step_bridge_init_from_tor_config()
         self._step_bridge_set_actives()
         self._step_bridge_update_persistence_ui()
+
+    def _step_bridge_populate_regions(self):
+        regions_combo = self.get_object("moat_region_combo")
+        if len(regions_combo.get_model()) > 1:
+            return
+        for c in pycountry.countries:
+            regions_combo.append(c.alpha_2.lower(), c.name)
 
     def _step_bridge_init_from_tor_config(self):
         bridges = self.app.configurator.tor_connection_config.bridges
