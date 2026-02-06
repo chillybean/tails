@@ -125,7 +125,7 @@ if the CPU is vulnerable, this:
 
 1. enables "all available mitigations for the MDS vulnerability, CPU
    buffer clearing on exit to userspace";
-2. disables SMT which is another avenue for exploiting this class
+2. disables simultaneous multithreading (SMT), such as Hyper-Threading, which is another avenue for exploiting this class
    of attacks.
 
 ### `randomize_kstack_offset=on`
