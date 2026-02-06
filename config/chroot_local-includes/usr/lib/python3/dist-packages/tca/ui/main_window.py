@@ -25,9 +25,10 @@ import tca.ui.dialogs
 gi.require_version("Gdk", "3.0")
 gi.require_version("Gtk", "3.0")
 gi.require_version("GLib", "2.0")
+gi.require_version("Pango", "1.0")
 
 
-from gi.repository import Gdk, GdkPixbuf, Gtk, GLib  # noqa: E402
+from gi.repository import Gdk, GdkPixbuf, Gtk, GLib, Pango  # noqa: E402
 
 MAIN_UI_FILE = "main.ui"
 CSS_FILE = "tca.css"
@@ -207,7 +208,7 @@ class StepChooseBridgeMixin:
 
     def _step_bridge_populate_regions(self):
         regions_combo = self.get_object("moat_region_combo")
-        if len(regions_combo.get_model()) > 1:
+        if regions_combo.get_model() is not None:
             return
 
         # We'll use objects of this class as gettext fallbacks in
@@ -239,13 +240,34 @@ class StepChooseBridgeMixin:
                     return translation
             return region
 
-        regions_lookup = {translate_region(c.name): c.alpha_2.lower() for c in pycountry.countries}
-        for region in sorted(regions_lookup.keys()):
-            regions_combo.append(regions_lookup[region], region)
+        region_to_code_lookup = {
+            translate_region(c.name): c.alpha_2.lower() for c in pycountry.countries
+        }
+        code_to_region_lookup = {
+            c.alpha_2.lower(): translate_region(c.name) for c in pycountry.countries
+        }
+
+        # ID, localized region name, is_header?
+        store = Gtk.ListStore(str, str, bool)
+        store.append(("automatic", _("Automatic"), False))
+        store.append(("", _("Frequently selected regions"), True))
+
+        with open("/usr/share/tails/tca/moat_countries.json") as f:
+            frequent_regions = json.load(f)
+            for region in sorted([code_to_region_lookup[x] for x in frequent_regions]):
+                store.append((region_to_code_lookup[region], region, False))
+
+        store.append(("", _("Other regions"), True))
+        for region in sorted(region_to_code_lookup.keys()):
+            store.append((region_to_code_lookup[region], region, False))
+
+        regions_combo.set_model(store)
+        regions_combo.set_id_column(0)
+        regions_combo.set_entry_text_column(1)
 
         completion = Gtk.EntryCompletion()
         completion.set_model(regions_combo.get_model())
-        completion.set_text_column(0)
+        completion.set_text_column(1)
         completion.set_popup_completion(True)
         entry = regions_combo.get_child()
         entry.set_completion(completion)
@@ -256,12 +278,33 @@ class StepChooseBridgeMixin:
         entry.connect("focus-in-event", on_entry_focus)
 
         def on_entry_change(*args):
-            try:
-                regions_combo.set_active_id(regions_lookup[entry.get_text()])
-            except KeyError:
-                pass
+            search_text = entry.get_text().strip().lower()
+            for row in store:
+                is_header = row[2]
+                if not is_header and row[1].lower() == search_text:
+                    regions_combo.set_active_iter(row.iter)
+                    break
 
         entry.connect("changed", on_entry_change)
+        entry.set_text(_("Automatic"))
+
+        def format_row(cell_layout, cell, model, tree_iter, data):
+            item_id = model.get_value(tree_iter, 0)
+            is_header = model.get_value(tree_iter, 2)
+            if item_id == "automatic":
+                cell.set_property("weight", Pango.Weight.NORMAL)
+                cell.set_property("sensitive", True)
+                cell.set_property("xpad", 0)
+            elif is_header:
+                cell.set_property("weight", Pango.Weight.BOLD)
+                cell.set_property("sensitive", False)
+                cell.set_property("xpad", 20)
+            else:
+                cell.set_property("weight", Pango.Weight.NORMAL)
+                cell.set_property("sensitive", True)
+                cell.set_property("xpad", 40)
+
+        regions_combo.set_cell_data_func(regions_combo.get_cells()[0], format_row, None)
 
     def _step_bridge_init_from_tor_config(self):
         bridges = self.app.configurator.tor_connection_config.bridges
