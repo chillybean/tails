@@ -209,8 +209,30 @@ class StepChooseBridgeMixin:
         regions_combo = self.get_object("moat_region_combo")
         if len(regions_combo.get_model()) > 1:
             return
+        regions_lookup = dict()
         for c in pycountry.countries:
             regions_combo.append(c.alpha_2.lower(), c.name)
+            regions_lookup[c.name] = c.alpha_2.lower()
+
+        completion = Gtk.EntryCompletion()
+        completion.set_model(regions_combo.get_model())
+        completion.set_text_column(0)
+        completion.set_popup_completion(True)
+        entry = regions_combo.get_child()
+        entry.set_completion(completion)
+
+        def on_entry_focus(*args):
+            GLib.idle_add(lambda *args: entry.select_region(0, -1))
+
+        entry.connect("focus-in-event", on_entry_focus)
+
+        def on_entry_change(*args):
+            try:
+                regions_combo.set_active_id(regions_lookup[entry.get_text()])
+            except KeyError:
+                pass
+
+        entry.connect("changed", on_entry_change)
 
     def _step_bridge_init_from_tor_config(self):
         bridges = self.app.configurator.tor_connection_config.bridges

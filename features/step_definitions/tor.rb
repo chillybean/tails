@@ -703,7 +703,9 @@ When /^I configure (?:some|the) (persistent )?(\w+) bridges (from a QR code )?in
         # (for details, see label-for and labelled-by accessibility relations
         # in main.ui.in)
         # however, this doesn't seem to work anymore
-        bridge_entry = tor_connection_assistant.child(roleName: 'text')
+        bridge_entry = tor_connection_assistant.child('Bridge', roleName: 'label')
+                                               .parent
+                                               .child(roleName: 'text')
         bridge_entry.text = bridges.first[:line]
       end
       @bridge_hosts = bridges.map do |bridge|
