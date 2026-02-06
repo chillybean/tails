@@ -209,10 +209,39 @@ class StepChooseBridgeMixin:
         regions_combo = self.get_object("moat_region_combo")
         if len(regions_combo.get_model()) > 1:
             return
-        regions_lookup = dict()
-        for c in pycountry.countries:
-            regions_combo.append(c.alpha_2.lower(), c.name)
-            regions_lookup[c.name] = c.alpha_2.lower()
+
+        # We'll use objects of this class as gettext fallbacks in
+        # order to be able to determine if a translation exists or not
+        # (the default fallback is to return the string as-is, which
+        # isn't enough to determine if a translation exists).
+        class NoneGettextFallback:
+            def gettext(self, s):
+                return None
+
+        # We'll use the gettext domain for iso3166 to localize region
+        # names, but there are multiple versions which contain
+        # translations for different regions, so we'll define a
+        # function that will iterate through all of them and use the
+        # first translation it finds.
+        translators = []
+        for domain in ["iso3166", "iso3166-1", "iso3166-2", "iso3166_2", "iso3166-3"]:
+            try:
+                translation = gettext.translation(domain, pycountry.LOCALES_DIR)
+            except FileNotFoundError:
+                continue
+            translation.add_fallback(NoneGettextFallback())
+            translators.append(translation.gettext)
+
+        def translate_region(region):
+            for _gettext in translators:
+                translation = _gettext(region)
+                if translation is not None:
+                    return translation
+            return region
+
+        regions_lookup = {translate_region(c.name): c.alpha_2.lower() for c in pycountry.countries}
+        for region in sorted(regions_lookup.keys()):
+            regions_combo.append(regions_lookup[region], region)
 
         completion = Gtk.EntryCompletion()
         completion.set_model(regions_combo.get_model())
