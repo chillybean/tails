@@ -80,6 +80,9 @@ Feature: Browsing the web using the Tor Browser
     Then the Tor Browser loads about:tor
     And the Tor Browser has 1 tab open
 
+  # If you think that the "the Tor Browser loads the Tails homepage" implies @doc, think
+  # again: it depends on reaching the public website, not on using the copy of the
+  # website which is bundled in.
   Scenario: The Tor Browser's circuit view feature works as expected
     Given I have started Tails from DVD and logged in and the network is connected
     When I start the Tor Browser
