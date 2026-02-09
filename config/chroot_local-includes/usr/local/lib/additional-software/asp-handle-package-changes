@@ -24,6 +24,7 @@ from additional_software import (
     notify_failure,
     ASP_STATE_INSTALLER_ASKED,
     remove_additional_packages,
+    setup_additional_packages,
 )
 from tailslib.locale import apply_selected_locale
 from tailslib.persistence import (
@@ -174,13 +175,6 @@ def create_persistence_and_setup_additional_packages(packages: set[str]):
 
     logging.info("Persistent Storage is ready, setting up additional packages")
     add_additional_packages(packages)
-
-
-def setup_additional_packages():
-    """Enable additional software in persistence."""
-    subprocess.check_call(
-        ["/usr/local/lib/tpscli", "ensure-is-active", "AdditionalSoftware"]
-    )
 
 
 def handle_removed_packages(packages: set[str]):

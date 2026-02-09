@@ -276,3 +276,10 @@ def show_configuration_window():
         "/usr/local/bin/gtk-abspath-launch",
         "/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop",
     )
+
+
+def setup_additional_packages():
+    """Enable additional software in persistence."""
+    subprocess.check_call(
+        ["/usr/local/lib/tpscli", "ensure-is-active", "AdditionalSoftware"]
+    )
