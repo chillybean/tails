@@ -179,6 +179,9 @@ if [ -e /var/lib/gdm3/settings/persistent/tails.password ]; then
     . /var/lib/gdm3/settings/persistent/tails.password
 fi
 
+log "Change the menu name of applications"
+/usr/local/lib/change-apps-menu-name
+
 # Check if password is actually set
 if [ -z "${TAILS_USER_PASSWORD}" ]; then
     rm -f "${POLKIT}" "${SUDOERS}"
