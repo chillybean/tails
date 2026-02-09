@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python3 -I
 
 import argparse
 import os
@@ -15,7 +15,7 @@ _ = translation.gettext
 @dataclass
 class Application:
     desktop_file: Path
-    description: str
+    description: str | None = None
     extra_keywords: list[str] = field(default_factory=list)
 
 
@@ -61,8 +61,8 @@ class Desktop:
         return self.values[key]
 
     def get_localized(self, key, locale):
-        for l in [locale, locale.split('.')[0], locale.split('_')[0]]:
-            localized_key = f"{key}[{l}]"
+        for tentative_locale in [locale, locale.split(".")[0], locale.split("_")[0]]:
+            localized_key = f"{key}[{tentative_locale}]"
             if localized_key in self.values:
                 return self.values[localized_key]
         return self.values[key]
@@ -91,10 +91,15 @@ class DesktopChangerApplication:
 
         for app in REPLACEMENTS:
             d = Desktop.load(app.desktop_file)
-            locale = os.environ['LANG']
-            name = d.get_localized('Name', locale)
-            keywords = d.get_localized('Keywords', locale)
-            d["Name"] = f"{name} - {app.description}"
+            locale = os.environ["LANG"]
+            name = d.get_localized("Name", locale)
+            keywords = d.get_localized("Keywords", locale)
+            if app.description is not None:
+                description = app.description
+            else:
+                description = d.get_localized("GenericName", locale)
+
+            d["Name"] = f"{name} - {description}"
             d["Keywords"] = f"{';'.join(app.extra_keywords)};{keywords}"
 
             with app.desktop_file.open("w") as buf:
