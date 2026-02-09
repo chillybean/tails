@@ -14,6 +14,7 @@ from tailslib.locale import apply_selected_locale
 from tailslib.migration import Migration
 from tailslib.persistence import (
     additional_software_persistence_feature_is_active,
+    has_unlocked_persistence,
     thunderbird_persistence_feature_is_active,
 )
 from tailslib.thunderbird import (
@@ -26,6 +27,12 @@ _ = gettext.gettext
 
 
 def handle_thunderbird_migration():
+    if not has_unlocked_persistence():
+        logging.info(
+            "Persistent Storage is not unlocked ⇒ skipping",
+        )
+        return
+
     migration = Migration("21375-thunderbird-iteration-1")
 
     if migration.succeeded:
