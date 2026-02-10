@@ -1,8 +1,78 @@
-tails (7.5) UNRELEASED; urgency=medium
+tails (7.4.2) UNRELEASED; urgency=medium
 
-  * Dummy entry for next release.
+  * Make cleartext storage actually set the language (tails/tails!2720)
 
- -- anonym <anonym@riseup.net>  Fri, 30 Jan 2026 11:31:27 +0100
+    Closes issues:
+      - Using the language loaded from cleartext doesn't really set the language
+        (tails/tails#21383)
+
+    Commits:
+      - ruff format
+      - UserManager doesn't seem to be ready: sleep
+      - calling usermanager_loaded should not happen before setting the language
+      - avoid calls to set_language being lost if they happen before usermanager is
+        ready
+      - ruff localization_settings
+      - Give the Welcome Screen some time to write on disk
+      - reproduce #21383 in test suite
+
+  * Check scenarios requiring @doc (tails/tails!2775)
+
+    Closes issues:
+      - Check that all relevant scenarios have the @doc tag (2026 edition)
+        (tails/tails#20799)
+
+    Commits:
+      - Clarify why not adding
+
+  * Test suite: close GNOME Console in a non-racy way (tails/tails!2767)
+
+    Closes issues:
+      - Scenario fails: "If cannot perform administrative tasks unless I have set up an
+        administration password in the Welcome Screen" (tails/tails#21413)
+
+    Commits:
+      - Test suite: close GNOME Console in a non-racy way (refs: tails#21413)
+      - Fix typo
+
+  * Remove obsolete configuration migration path that seems to break Electrum
+    startup in some cases (tails/tails!2761)
+
+    Closes issues:
+      - Electrum doesn't open ("daemon already running") (tails/tails#21390)
+
+    Commits:
+      - Electrum wrapper: remove obsolete configuration migration path
+
+  * Upgrade po4a to Trixie and ikiwiki to Forky (tails/tails!2758)
+
+    Commits:
+      - Upgrade po4a to Trixie and ikiwiki to Forky
+
+  * Fix opening the Wi-Fi settings from Tor Connection (tails/tails!2757)
+
+    Closes issues:
+      - Fix Wi-Fi settings when open from Tor Connection (tails/tails#18587)
+
+    Commits:
+      - Fix: the wifi settings opened from Tor Connection works
+
+  * needed-package-updates: ignore open-ath9k-htc-firmware
+    1.4.0-110-ge888634+dfsg1-0.3 (tails/tails!2755)
+
+    Closes issues:
+      - needed-package-updates: open-ath9k-htc-firmware (tails/tails#21409)
+
+    Commits:
+      - needed-package-updates: ignore open-ath9k-htc-firmware
+        1.4.0-110-ge888634+dfsg1-0.3
+
+  * Test suite: wait a bit longer for the backup tool's dialogs (tails/tails!2744)
+
+    Commits:
+      - Test suite: wait a bit longer for the backup tool's dialogs
+
+ -- Tails developers <tails@boum.org>  Tue, 10 Feb 2026 14:07:53 +0000
 
 tails (7.4.1) unstable; urgency=medium
 
