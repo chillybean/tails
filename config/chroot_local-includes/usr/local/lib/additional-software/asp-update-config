@@ -31,7 +31,7 @@ def ask_permission_to_enable_additional_software_for_thunderbird():
     return notify(
         title=_("Thunderbird Migration"),
         body=_(
-            "You should add Thunderbird to your list of Additional Software.\n\n"
+            "You should add Thunderbird to your list of Additional Software. "
             "Thunderbird will no longer be included by default in "
             "Tails 7.N+x (MONTH YEAR) and later.",
         ),
@@ -93,7 +93,7 @@ def handle_thunderbird_migration():
             notify(
                 title=_("Thunderbird Migration"),
                 body=_(
-                    "We failed to enable Additional Software.\n\n"
+                    "We failed to enable Additional Software. "
                     "Thunderbird will no longer be included by default in "
                     "Tails 7.N+x (MONTH YEAR) and later.",
                 ),
@@ -140,7 +140,7 @@ def handle_thunderbird_migration():
         notify(
             title=_("Thunderbird Migration"),
             body=_(
-                "We failed to add Thunderbird to your list of Additional Software.\n\n"
+                "We failed to add Thunderbird to your list of Additional Software. "
                 "Thunderbird will no longer be included by default in "
                 "Tails 7.N+x (MONTH YEAR) and later.",
             ),
