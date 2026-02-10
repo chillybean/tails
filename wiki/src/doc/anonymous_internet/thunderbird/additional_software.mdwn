@@ -1,6 +1,6 @@
 [[!meta title="Why is Tails installing Thunderbird as Additional Software?"]]
 
-Since Tails 7.5 (February 2026), *Thunderbird* is automatically added to your
+Since Tails 7.5 (February 2026), Tails tries to automatically add *Thunderbird* to your
 list of [[Additional Software|persistent_storage/additional_software]] to
 improve its security.
 
@@ -20,3 +20,34 @@ another language|thunderbird#language]].
 
 *Thunderbird* will no longer be included by default in Tails 7.N+x (MONTH YEAR)
 and later.
+
+# Successful migration
+
+If the **Thunderbird Migration** dialog below appears when you start
+*Thunderbird*, it means that Tails already added *Thunderbird* to your list of
+Additional Software.
+
+TODO:UX:Screenshot
+
+# Manual migration
+
+If the **Thunderbird Migration** notification below appears when you start
+Tails, it means that Tails failed to add *Thunderbird* to your list of
+Additional Software because the [[Additional
+Software|persistent_storage/additional_software]] feature of your Persistent
+Storage is turned off.
+
+Select **Install as Additional Software** next time you start Tails to add
+*Thunderbird* to your list of Additional Software.
+
+TODO:UX:Screenshot
+
+# Failed migration
+
+If the **Thunderbird Migration** notificatio below appears when you start
+Tails, it means that Tails failed to add *Thunderbird* to your list of
+Additional Software for unknown reasons.
+
+Please [[report an error]] to help us troubleshoot your problem.
+
+TODO:UX:Screenshot
