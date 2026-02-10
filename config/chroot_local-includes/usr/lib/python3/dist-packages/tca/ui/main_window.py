@@ -261,9 +261,13 @@ class StepChooseBridgeMixin:
         for region in sorted(region_to_code_lookup.keys()):
             store.append((region_to_code_lookup[region], region, False))
 
+        def on_region_change(*args):
+            self._step_bridge_set_actives()
+
         regions_combo.set_model(store)
         regions_combo.set_id_column(0)
         regions_combo.set_entry_text_column(1)
+        regions_combo.connect("changed", on_region_change)
 
         completion = Gtk.EntryCompletion()
         completion.set_model(regions_combo.get_model())
@@ -419,7 +423,13 @@ class StepChooseBridgeMixin:
         self.builder.get_object("step_bridge_label_scanresult").set_sensitive(scan)
         self.builder.get_object("step_bridge_btn_submit").set_sensitive(
             default
-            or moat
+            or (
+                moat
+                and self.builder.get_object(
+                    "step_bridge_moat_region_combo"
+                ).get_active_id()
+                is not None
+            )
             or (manual and self._step_bridge_is_text_valid())
             or (scan and self.get_object("label_scanresult").get_property("visible"))
         )
@@ -652,7 +662,7 @@ class StepConnectProgressMixin:
             "step_bridge_moat_region_combo"
         ).get_active_id()
         args = ["--defaults-fallback"]
-        if region != "automatic":
+        if region != "automatic" and region is not None:
             args += ["--region", region]
         if self.state["proxy"] and self.state["proxy"]["proxy_type"] != "no":
             proto = self.state["proxy"]["proxy_type"].lower()
