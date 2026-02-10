@@ -175,7 +175,7 @@ class CopyAndVerify:
                 for link in BeautifulSoup(
                     urlopen(Request(request_url)),  # noqa: S310
                     "html.parser",
-                ).find_all(href=re.compile("^[a-z]"))
+                ).find_all(href=re.compile("^(%21)?[a-z]"))
             ]
             if len(label_urls) == 0:
                 log.debug(
