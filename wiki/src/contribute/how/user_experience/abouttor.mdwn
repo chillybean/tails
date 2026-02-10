@@ -43,10 +43,62 @@ explains how to create issues and MRs, how to choose branch names, how to write 
 
 # Tips and resources
 
-- To display contents under conditions that are more complex than "are we on
-  Tails", e.g. during a specific time span, use `potentiallyShow` in
-  `aboutTor.js`. Examples:
-   - Outside of a YEC, the code has a simple example for a survey.
-   - [Full blown YEC example](https://gitlab.torproject.org/tpo/applications/tor-browser/-/merge_requests/1689/diffs)
+## Localization
 
-- [Localization](https://gitlab.torproject.org/tpo/applications/wiki/-/blob/master/Development-Information/Tor-Browser/Localization.md?ref_type=heads)
+See [Localization](https://gitlab.torproject.org/tpo/applications/wiki/-/blob/master/Development-Information/Tor-Browser/Localization.md?ref_type=heads)
+
+
+## Simulate different conditions
+
+### Simulate other time spans
+
+To simulate running the browser during a specific time span, use `potentiallyShow` in `aboutTor.js`.
+Examples:
+ - Outside of a YEC, the code has a simple example for a survey.
+ - [Full blown YEC example](https://gitlab.torproject.org/tpo/applications/tor-browser/-/merge_requests/1689/diffs)
+
+### Not in Tails
+
+If you want to display the about:tor page as it is shown to non-Tails users, apply this:
+
+```
+diff --git a/browser/components/abouttor/AboutTorParent.sys.mjs b/browser/components/abouttor/AboutTorParent.sys.mjs
+index 9d6a97e61b46..b1f0bf553e17 100644
+--- a/browser/components/abouttor/AboutTorParent.sys.mjs
++++ b/browser/components/abouttor/AboutTorParent.sys.mjs
+@@ -70,7 +70,7 @@ export class AboutTorParent extends JSWindowActorParent {
+       ),
+       appLocale,
+       dismissYEC: AboutTorParent.#dismissYEC,
+-      isTails: Services.prefs.getBoolPref(tailsPref, false),
++      isTails: false,
+     };
+   }
+```
+
+### Not Stable
+
+Tor Browser shows a different page for non-stable releases. If you are building the Tor Browser (as opposed to
+using `"${TAILS_GIT_REPO:?}"/bin/test-about-tor-customization`), you'll get a non-stable release.
+If you use `"${TAILS_GIT_REPO:?}"/bin/test-about-tor-customization`, you'll get a stable release.
+Whatever method you are using, you probably want to test what happens in the other case.
+
+In order to display about:tor as if you were using a non-stable release, apply this patch:
+
+```
+diff --git a/browser/components/abouttor/AboutTorParent.sys.mjs b/browser/components/abouttor/AboutTorParent.sys.mjs
+index 9d6a97e61b46..5a3f84812e9e 100644
+--- a/browser/components/abouttor/AboutTorParent.sys.mjs
++++ b/browser/components/abouttor/AboutTorParent.sys.mjs
+@@ -62,7 +62,7 @@ export class AboutTorParent extends JSWindowActorParent {
+     return {
+       torConnectEnabled: lazy.TorConnect.enabled,
+       messageData: lazy.AboutTorMessage.getNext(),
+-      isStable: AppConstants.MOZ_UPDATE_CHANNEL === "release",
++      isStable: false,
+       searchOnionize: Services.prefs.getBoolPref(onionizePref, false),
+       surveyDismissVersion: Services.prefs.getIntPref(
+         surveyDismissVersionPref,
+```
+
+obviously just flip `isStable` to `true` if you want to test the opposite scenario.
