@@ -249,6 +249,12 @@ class StepChooseBridgeMixin:
 
         # ID, localized region name, is_header?
         store = Gtk.ListStore(str, str, bool)
+        # This is a "filtered" version without the headers and
+        # duplicates, to be used with the EntryCompletion below where
+        # we don't want headers or duplicates suggested. Technically
+        # this could be done with a Gtk.TreeModelFilter but that would
+        # mean more code and worse performance.
+        completion_names = Gtk.ListStore(str)
         store.append(("automatic", _("Automatic"), False))
         store.append(("", _("Frequently selected regions"), True))
 
@@ -260,6 +266,9 @@ class StepChooseBridgeMixin:
         store.append(("", _("Other regions"), True))
         for region in sorted(region_to_code_lookup.keys()):
             store.append((region_to_code_lookup[region], region, False))
+        for _id, region, is_header in store:
+            if not is_header and not any(row[0] == region for row in completion_names):
+                completion_names.append((region,))
 
         def on_region_change(*args):
             self._step_bridge_set_actives()
@@ -270,8 +279,8 @@ class StepChooseBridgeMixin:
         regions_combo.connect("changed", on_region_change)
 
         completion = Gtk.EntryCompletion()
-        completion.set_model(regions_combo.get_model())
-        completion.set_text_column(1)
+        completion.set_model(completion_names)
+        completion.set_text_column(0)
         completion.set_popup_completion(True)
         entry = regions_combo.get_child()
         entry.set_completion(completion)
