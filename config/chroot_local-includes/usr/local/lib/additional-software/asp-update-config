@@ -8,6 +8,7 @@ from additional_software import (
     add_additional_packages,
     get_additional_packages,
     notify,
+    setup_additional_packages,
 )
 
 from tailslib.locale import apply_selected_locale
@@ -24,6 +25,21 @@ from tailslib.thunderbird import (
 apply_selected_locale()
 gettext.textdomain("tails")
 _ = gettext.gettext
+
+
+def ask_permission_to_enable_additional_software_for_thunderbird():
+    return notify(
+        title=_("Thunderbird Migration"),
+        body=_(
+            "You should add Thunderbird to your list of Additional Software.\n\n"
+            "Thunderbird will no longer be included by default in "
+            "Tails 7.N+x (MONTH YEAR) and later.",
+        ),
+        accept_label=_("Install as Additional Software"),
+        # TODO: UX
+        documentation_target="anonymous_internet/thunderbird/migration/Debian/case_B_asking_consent",
+        urgent=True,
+    )
 
 
 def handle_thunderbird_migration():
@@ -59,55 +75,83 @@ def handle_thunderbird_migration():
         # the Thunderbird persistent storage feature.
         return
 
-    if additional_software_persistence_feature_is_active():
-        if "thunderbird" in get_additional_packages():
-            # The user added thunderbird to Additional Software
-            # themselves already, so we avoid applying the migration:
-            # it would be a harmless no-op, except it would record
-            # that we applied the migration successfully, and then the
-            # thunderbird wrapper would tell the user about it, which
-            # makes no sense.
+    if not additional_software_persistence_feature_is_active():
+        logging.info(
+            "Offering the user to enable Additional Software and add Thunderbird to it",
+        )
+        if not ask_permission_to_enable_additional_software_for_thunderbird():
             logging.info(
-                "Thunderbird is already in Additional Software "
-                "⇒ no migration needed",
+                "The user did not accept our offer to enable Additional Software "
+                "and add Thunderbird to it ⇒ exiting",
             )
-            migration.not_needed = True
             return
-
-        logging.info("Adding Thunderbird to Additional Software")
         try:
-            add_additional_packages(thunderbird_packages())
+            setup_additional_packages()
         except Exception:
-            logging.exception("Failed to add additional packages")
+            logging.exception("Failed to enable Additional Software")
             migration.succeeded = False
             notify(
                 title=_("Thunderbird Migration"),
                 body=_(
-                    "We failed to add Thunderbird to your list of Additional Software.\n\nThunderbird will no longer be included by default in Tails 7.N+x (MONTH YEAR) and later."
+                    "We failed to enable Additional Software.\n\n"
+                    "Thunderbird will no longer be included by default in "
+                    "Tails 7.N+x (MONTH YEAR) and later.",
                 ),
                 # TODO: UX
                 documentation_target="anonymous_internet/thunderbird/migration/Debian/failure",
                 urgent=True,
             )
             raise
-        migration.succeeded = True
-        # We don't notify here: instead we will let the user know if,
-        # and when, they start Thunderbird.
-    else:
-        logging.info("Asking the user to add Thunderbird to Additional Software")
-        # Here we intentionally don't record any state for the
-        # migration: if the user does not add Thunderbird to their
-        # Additional Software, we will ask them again, to minimize the
-        # risk they miss these instructions.
+
+    # Sanity check: if we're still running, this feature should be
+    # active
+    if not additional_software_persistence_feature_is_active():
+        logging.warning(
+            "Additional Software persistence feature is unexpectedly not active "
+            "⇒ bailing out",
+        )
+        return
+
+    if "thunderbird" in get_additional_packages():
+        # The user added thunderbird to Additional Software themselves
+        # already, so we avoid applying the migration: it would be
+        # a harmless no-op, except it would record that we applied the
+        # migration successfully, and then the thunderbird wrapper
+        # would tell the user about it, which makes no sense.
+        logging.info(
+            "Thunderbird is already in Additional Software ⇒ no migration needed",
+        )
+        migration.not_needed = True
+        return
+
+    # At this point, either the user already had the Additional
+    # Software and Thunderbird persistent storage features enabled (in
+    # which case we want to automatically add Thunderbird there, and
+    # notify them later), or they only had the Thunderbird persistent
+    # storage feature enabled and they've just opted-in to add
+    # Thunderbird to their Additional Packages. In both cases, we're
+    # good to go!
+    logging.info("Adding Thunderbird to Additional Software")
+    try:
+        add_additional_packages(thunderbird_packages())
+    except Exception:
+        logging.exception("Failed to add additional packages")
+        migration.succeeded = False
         notify(
             title=_("Thunderbird Migration"),
             body=_(
-                "You should add Thunderbird to your list of Additional Software.\n\nThunderbird will no longer be included by default in Tails 7.N+x (MONTH YEAR) and later."
+                "We failed to add Thunderbird to your list of Additional Software.\n\n"
+                "Thunderbird will no longer be included by default in "
+                "Tails 7.N+x (MONTH YEAR) and later.",
             ),
             # TODO: UX
-            documentation_target="anonymous_internet/thunderbird/migration/Debian/todo",
+            documentation_target="anonymous_internet/thunderbird/migration/Debian/failure",
             urgent=True,
         )
+        raise
+    migration.succeeded = True
+    # We don't notify here: instead we will let the user know if,
+    # and when, they start Thunderbird.
 
 
 def update_additional_software_configuration():

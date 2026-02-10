@@ -15,10 +15,7 @@ THUNDERBIRD_CONFIG_DIR="${HOME}/.thunderbird"
 PROFILE="${THUNDERBIRD_CONFIG_DIR}/profile.default"
 
 # Let users know when we have *automatically* added Thunderbird to
-# Additional Software. When they have done it themselves manually
-# (case B of #21375), the migration was intentionally not recorded as
-# successful, so in that case we short-circuit and avoid displaying
-# the dialog.
+# Additional Software.
 announce_migration_21375_1() {
     MIGRATION_IDENTIFIER=21375-thunderbird-iteration-1
     if python3 /usr/lib/python3/dist-packages/tailslib/migration.py "$MIGRATION_IDENTIFIER" &&
