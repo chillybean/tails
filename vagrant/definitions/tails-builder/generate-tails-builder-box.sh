@@ -140,23 +140,23 @@ steps:
       Pin: release n=${DISTRIBUTION}-backports
       Pin-Priority: 100
 
-  # Install po4a from bookworm
+  # Install ikiwiki from Forky
   - chroot: rootfs
     shell: |
-      sed -e 's/${DISTRIBUTION}/bookworm/' /etc/apt/sources.list \\
-        > "/etc/apt/sources.list.d/bookworm.list"
+      sed -e 's/${DISTRIBUTION}/forky/' /etc/apt/sources.list \\
+        > "/etc/apt/sources.list.d/forky.list"
 
-  - create-file: /etc/apt/preferences.d/po4a
+  - create-file: /etc/apt/preferences.d/ikiwiki
     contents: |
-      Package: po4a
-      Pin: version 0.69-1
+      Package: ikiwiki
+      Pin: release n=forky
       Pin-Priority: 1000
 
-  - create-file: /etc/apt/preferences.d/bookworm
+  - create-file: /etc/apt/preferences.d/forky
     contents: |
       Package: *
-      Pin: release n=bookworm
-      Pin-Priority: 100
+      Pin: release n=forky
+      Pin-Priority: 1
 
   - chroot: rootfs
     shell: apt update
