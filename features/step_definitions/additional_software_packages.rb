@@ -137,7 +137,7 @@ When /^I remove the "([^"]*)" deb files from the APT cache$/ do |package|
 end
 
 Then /^I can open the Additional Software documentation from the notification$/ do
-  click_gnome_shell_notification_button('Documentation')
+  click_gnome_shell_notification_button('Learn More')
   try_for(60) { @torbrowser = Dogtail::Application.new('Firefox') }
   step '"Tails - Install by cloning" has loaded in the Tor Browser'
 end
