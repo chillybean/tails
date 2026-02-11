@@ -240,11 +240,33 @@ class StepChooseBridgeMixin:
                     return translation
             return region
 
-        region_to_code_lookup = {
-            translate_region(c.name): c.alpha_2.lower() for c in pycountry.countries
-        }
+        region_to_code_lookup = {}
+        for c in pycountry.countries:
+            region = None
+            # For some countries we prefer the official name, e.g. for
+            # 'us' we then get "United States of America" instead of
+            # the US-centric "United States", and in other cases it
+            # helps distinguish nations that often are mixed up,
+            # e.g. Congo. Otherwise we prefer the common name so we
+            # get easier names that are more friendly to
+            # search/completion, e.g. "Iran" instead of "Iran, Islamic
+            # Republic of". Also that somewhat avoids politically
+            # contentious situations by focusing more on region names
+            # than nation names, e.g. Taiwan.
+            if c.alpha_2.lower() in ["cg", "dm", "us"]:
+                region = c.official_name
+            else:
+                for attr in "common_name", "name":
+                    try:
+                        region = c.__getattr__(attr)
+                        break
+                    except AttributeError:
+                        pass
+            assert region is not None
+            region_to_code_lookup[translate_region(region)] = c.alpha_2.lower()
+
         code_to_region_lookup = {
-            c.alpha_2.lower(): translate_region(c.name) for c in pycountry.countries
+            code: region for region, code in region_to_code_lookup.items()
         }
 
         # ID, localized region name, is_header?
