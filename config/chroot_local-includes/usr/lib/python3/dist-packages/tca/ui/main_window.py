@@ -300,7 +300,11 @@ class StepChooseBridgeMixin:
         regions_combo.set_entry_text_column(1)
         regions_combo.connect("changed", on_region_change)
 
+        def match_anywhere(_completion, entry_str, tree_iter, _data):
+            return entry_str.lower() in completion_names.get_value(tree_iter, 0).lower()
+
         completion = Gtk.EntryCompletion()
+        completion.set_match_func(match_anywhere, None)
         completion.set_model(completion_names)
         completion.set_text_column(0)
         completion.set_popup_completion(True)
