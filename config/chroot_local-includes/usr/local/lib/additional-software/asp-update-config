@@ -33,7 +33,7 @@ def ask_permission_to_enable_additional_software_for_thunderbird():
         body=_(
             "You should add Thunderbird to your list of Additional Software. "
             "Thunderbird will no longer be included by default in "
-            "Tails 7.N+x (MONTH YEAR) and later.",
+            "Tails 7.8 (May 2026) and later.",
         ),
         accept_label=_("Install as Additional Software"),
         documentation_target="anonymous_internet/thunderbird/additional_software",
@@ -94,7 +94,7 @@ def handle_thunderbird_migration():
                 body=_(
                     "We failed to enable Additional Software. "
                     "Thunderbird will no longer be included by default in "
-                    "Tails 7.N+x (MONTH YEAR) and later.",
+                    "Tails 7.8 (May 2026) and later.",
                 ),
                 documentation_target="anonymous_internet/thunderbird/additional_software",
                 urgent=True,
@@ -140,7 +140,7 @@ def handle_thunderbird_migration():
             body=_(
                 "We failed to add Thunderbird to your list of Additional Software. "
                 "Thunderbird will no longer be included by default in "
-                "Tails 7.N+x (MONTH YEAR) and later.",
+                "Tails 7.8 (May 2026) and later.",
             ),
             documentation_target="anonymous_internet/thunderbird/additional_software",
             urgent=True,
