@@ -9,7 +9,7 @@ Feature: Root access control enforcement
     Then I can run a command as root with sudo
     Then I can run a command as root with pkexec
 
-  Scenario: If cannot perform administrative tasks unless I have set up an administration password in the Welcome Screen
+  Scenario: I cannot perform administrative tasks unless I have set up an administration password in the Welcome Screen
     Given I have started Tails from DVD without network and logged in
     And running a command as root with pkexec requires PolicyKit administrator privileges
     Then I cannot run a command as root with sudo and the standard passwords

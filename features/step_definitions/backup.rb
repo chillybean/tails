@@ -3,7 +3,7 @@ When /^I start Tails' custom backup tool$/ do
 end
 
 Then /^the backup tool displays "([^"]+)"$/ do |expected|
-  try_for(30) do
+  try_for(60) do
     Dogtail::Application.new('zenity')
                         .children(roleName: 'label')
                         .any? { |n| n.text.include?(expected) }

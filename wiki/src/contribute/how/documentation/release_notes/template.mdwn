@@ -50,6 +50,27 @@ vulnerability in $APPLICATION.
 - Update (the *Linux* kernel to a.b.c|most firmware packages). <!-- Only if 'a.b' increased --> This improves support for newer
   hardware: graphics, Wi-Fi, and so on.
 
+<!--
+
+- Update the *Linux* kernel to a.bc, which fixes [DSA
+  1234-1](https://lists.debian.org/debian-security-announce/2026/msg00035.html),
+  multiple security vulnerabilities that could allow an application in Tails to
+  gain administration privileges.
+
+  For example, if an attacker was able to exploit other unknown security
+  vulnerabilities in an application included in Tails, they might then use DSA
+  6126-1 to take full control of your Tails and deanonymize you.
+
+  <div class="attack">
+
+  <p>This attack is very unlikely, but could be performed by a strong attacker,
+  such as a government or a hacking firm. We are not aware of this attack being
+  used in practice.</p>
+
+  </div>
+
+-->
+
 ## Hardware support
 
 The following updates make Tails work better on recent hardware (graphics,

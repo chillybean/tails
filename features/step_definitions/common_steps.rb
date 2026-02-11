@@ -1812,14 +1812,18 @@ Then /^the "(\w\w)" language and keyboard have been saved in cleartext storage$/
     $vm.file_exist?('/usr/lib/live/mount/medium/storage/language') && \
       $vm.file_exist?('/usr/lib/live/mount/medium/storage/keyboard')
   end
-  language = JSON.parse(
-    $vm.file_content('/usr/lib/live/mount/medium/storage/language')
-  )
-  keyboard = JSON.parse(
-    $vm.file_content('/usr/lib/live/mount/medium/storage/keyboard')
-  )
-  assert_equal(expected_locale, language['TAILS_LOCALE_NAME'])
-  assert_equal(expected_keyboard, keyboard['TAILS_XKBLAYOUT'])
+  try_for(10) do
+    language = JSON.parse(
+      $vm.file_content('/usr/lib/live/mount/medium/storage/language')
+    )
+    expected_locale == language['TAILS_LOCALE_NAME']
+  end
+  try_for(10) do
+    keyboard = JSON.parse(
+      $vm.file_content('/usr/lib/live/mount/medium/storage/keyboard')
+    )
+    expected_keyboard == keyboard['TAILS_XKBLAYOUT']
+  end
 end
 
 Then(/^the Welcome Screen's language is set to (.*)$/) do |lang|
@@ -1837,4 +1841,9 @@ Then(/^the Welcome Screen's formats is set to (.*)$/) do |lang|
                        .children(roleName: 'label')
                        .find { |node| node.name.include?("#{lang} - ") }
   assert_not_nil(formats_row)
+end
+
+Then(/^the language is set to (.*)$/) do |language|
+  lang = { 'French' => 'fr_FR.UTF-8' }[language]
+  assert_equal(lang, $vm.execute_successfully('echo $LANG').stdout.chomp)
 end

@@ -34,15 +34,15 @@
 # محيي الدين <tx99h4@hotmail.com>, 2014, 2025.
 # Xyx S, 2022
 # محيي الدين <tx99h4@hotmail.com>, 2014, 2025.
-# jonnysemon <jonnysemon@users.noreply.hosted.weblate.org>, 2025.
+# jonnysemon <jonnysemon@users.noreply.hosted.weblate.org>, 2025, 2026.
 # fadoua <bouaouda.fadoua@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-14 10:05+0100\n"
-"PO-Revision-Date: 2025-08-31 03:01+0000\n"
-"Last-Translator: محيي الدين <tx99h4@hotmail.com>\n"
+"PO-Revision-Date: 2026-02-02 20:01+0000\n"
+"Last-Translator: jonnysemon <jonnysemon@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/tor/tails-gui/ar/"
 ">\n"
 "Language: ar\n"
@@ -51,7 +51,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 5.13.1-dev\n"
+"X-Generator: Weblate 5.16-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
 #, python-brace-format
@@ -862,9 +862,8 @@ msgstr ""
 "إعادة تشغيل الكمبيوتر لمحاولة إصلاح نظام الملفات مرة أخرى."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:771
-#, fuzzy
 msgid "Language and Keyboard layout"
-msgstr "اللغة والأشكال"
+msgstr "اللغة وتخطيط لوحة المفاتيح"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:773
 msgid ""
@@ -874,10 +873,14 @@ msgid ""
 "Someone who finds your Tails USB stick can see your language and keyboard "
 "layout."
 msgstr ""
+"سيتم حفظ لغتك وتخطيط لوحة المفاتيح بدون تشفير على ذاكرة USB الخاصة بـ Tails "
+"وسيتم تطبيقهما تلقائيًا في المستقبل.\n"
+"\n"
+"يمكن لأي شخص يجد ذاكرة USB الخاصة بـ Tails رؤية لغتك وتخطيط لوحة المفاتيح."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:778
 msgid "Save Unencrypted"
-msgstr ""
+msgstr "احفظ غير مُعمّى"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:839
 msgid "Start Tails and open the Persistent Storage settings to find out more."
@@ -1296,7 +1299,7 @@ msgstr ""
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:600
 #, python-format
 msgid "The device \"%(pretty_name)s\" is read-only."
-msgstr ""
+msgstr "الجهاز \"%(pretty_name)s\" للقراءة فقط."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:608
 #, python-format
@@ -1688,7 +1691,7 @@ msgstr "فشل في تزامن ساعة النظام!"
 
 #: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:26
 msgid "Insufficient Memory Detected"
-msgstr ""
+msgstr "اكتُشف ذاكرة غير كافية"
 
 #: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:28
 #, python-brace-format
@@ -1697,6 +1700,9 @@ msgid ""
 "{installed_ram_gb} GB. You might experience reduced performance, "
 "instability, or crashes."
 msgstr ""
+"يتطلب تيلز {required_ram_gb} جيجابايت من ذاكرة الوصول العشوائي، لكن هذا "
+"الحاسوب يحتوي فقط على {installed_ram_gb} جيجابايت. قد تواجه انخفاضًا في "
+"الأداء أو عدم استقرار أو تعطلًا."
 
 #: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:41
 #: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:42
@@ -1712,9 +1718,8 @@ msgid "Set up a password to unlock the screen."
 msgstr "قم باعداد كلمة سر لالغاء قفل الشاشة."
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:147
-#, fuzzy
 msgid "Show Password"
-msgstr "كلمة السر"
+msgstr "أظهر كلمة السر"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:151
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2281
@@ -2688,6 +2693,8 @@ msgid ""
 "Authentication is required to run the Synaptic Package Manager. Enter the "
 "administration password that you set up in the Welcome Screen."
 msgstr ""
+"الاستيثاق مطلوب لتشغيل مدير الحزم Synaptic. أدخل كلمة مرور الإدارة التي قمت "
+"بإعدادها في شاشة الترحيب."
 
 #: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:71
 msgid ""
@@ -2695,6 +2702,9 @@ msgid ""
 "default. To run the Synaptic Package Manager, restart Tails and set up an "
 "administration password in the Welcome Screen."
 msgstr ""
+"لأمان أفضل، لا يتم إعداد كلمة مرور للمسؤول في نظام Tails افتراضيًا. لتشغيل "
+"مدير الحزم Synaptic، أعد تشغيل Tails وقم بإعداد كلمة سر للمسؤول في شاشة "
+"الترحيب."
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:2
 msgid ""
@@ -2703,9 +2713,8 @@ msgid ""
 msgstr "تكوين الملفات وتكوين التطبيق الذي يتم حفظه بين جلسات العمل"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:3
-#, fuzzy
 msgid "configuration;saved"
-msgstr "إعدادات  الطابعات"
+msgstr "الإعدادات;محفوظة"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:1
 msgid "Tails Documentation"
@@ -2717,7 +2726,7 @@ msgstr "تعلم كيف تستخدم Tails"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:3
 msgid "learn"
-msgstr ""
+msgstr "تعلَّم"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-about.desktop.in.h:2
 msgid "Learn more about Tails"
@@ -2741,18 +2750,16 @@ msgid "Install, clone, upgrade Tails"
 msgstr "تثبيت، استنساخ، ترقية Tails"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-installer.desktop.in.h:3
-#, fuzzy
 msgid "install;clone;upgrade;manual"
-msgstr "تثبيت، استنساخ، ترقية Tails"
+msgstr "تثبيت;استنساخ;ترقية;دليل"
 
 #: ../config/chroot_local-includes/usr/share/applications/tca.desktop.in.h:2
 msgid "Connect Tails to the Tor network"
 msgstr "قم بتوصيل Tails بشبكة Tor"
 
 #: ../config/chroot_local-includes/usr/share/applications/tca.desktop.in.h:3
-#, fuzzy
 msgid "connect;tor;network"
-msgstr "اتصل بشبكة محلية"
+msgstr "اتصل;تور;شبكة"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:1
 msgid "Tor Browser"
@@ -2763,9 +2770,8 @@ msgid "Anonymous Web Browser"
 msgstr "متصفح إنترنت مخفي"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:3
-#, fuzzy
 msgid "web;tor;browser"
-msgstr "متصفح Tor"
+msgstr "تور;ويب;متصفح"
 
 #: ../config/chroot_local-includes/usr/share/applications/unsafe-browser.desktop.in.h:2
 msgid "Browse the World Wide Web without anonymity"
@@ -2777,7 +2783,7 @@ msgstr "متصفح غير آمن"
 
 #: ../config/chroot_local-includes/usr/share/applications/unsafe-browser.desktop.in.h:4
 msgid "web;captive;portal"
-msgstr ""
+msgstr "ويب;بوابة أسيرة;بوابة"
 
 #: ../config/chroot_local-includes/usr/share/applications/unlock-veracrypt-volumes.desktop.in.h:2
 msgid "Mount VeraCrypt encrypted file containers and devices"
@@ -2785,7 +2791,7 @@ msgstr "ركب حاويات وملفات وأجهزة مُعمَّاة الخا�
 
 #: ../config/chroot_local-includes/usr/share/applications/unlock-veracrypt-volumes.desktop.in.h:3
 msgid "mount;encrypted;container;truecrypt"
-msgstr ""
+msgstr "تثبيت;مُعمّى;حاوية;truecrypt"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop.in.h:2
 msgid ""
@@ -2795,9 +2801,8 @@ msgstr ""
 "قم بضبط البرامج الاضافية المثبتة من التخزين الدائم الخاص بك عند بدء تيلز"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop.in.h:3
-#, fuzzy
 msgid "persistent;storage;package;install"
-msgstr "حذف التخزين الدائم وإعادة التثبيت"
+msgstr "مستمر;تخزين;حزمة;تثبيت"
 
 #: ../config/chroot_local-includes/usr/share/applications/whisperback.desktop.in.h:1
 msgid "WhisperBack Error Reporting"
@@ -2890,7 +2895,6 @@ msgstr ""
 "لزيادة الأمان."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:514
-#, fuzzy
 msgid ""
 "The Unsafe Browser allows you to sign in to a network using a captive "
 "portal.\n"
@@ -2909,11 +2913,7 @@ msgstr ""
 "مثل عنوان البريد الإلكتروني.\n"
 "\n"
 "المتصفح غير الآمن ليس مجهولاً ويمكنه الكشف عن هويتك. استخدمه فقط لتسجيل "
-"الدخول إلى الشبكات.\n"
-"\n"
-"يتم تمكين المتصفح غير الآمن افتراضيًا مرة أخرى منذ Tails 5.8 (ديسمبر 2022)، "
-"بعد أن أصلحنا الثغرات الأمنية التي جعلتنا نقوم بتعطيله افتراضيًا في Tails 4.8 "
-"(يونيو 2020)."
+"الدخول إلى الشبكات."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:560
 msgid "Enable the Unsafe Browser (default)"
@@ -3836,13 +3836,12 @@ msgid "Connect to a local network"
 msgstr "اتصل بشبكة محلية"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1725
-#, fuzzy
 msgid ""
 "You are not connected to a local network yet. To be able to connect to the "
 "Tor network, you first need to connect to a Wi-Fi, wired, or mobile network."
 msgstr ""
-"أنت غير متصل بشبكة محلية بعد. لتتمكن من الاتصال بشبكة Tor، تحتاج أولاً إلى "
-"الاتصال بشبكة واي فاي أو سلك أو شبكة هاتف محمول."
+"أنت غير متصل بشبكة محلية بعد. لتتمكن من الاتصال بشبكة تور، تحتاج أولاً إلى "
+"الاتصال بشبكة واي فاي أو سلكية أو شبكة خلوية."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1739
 msgid "Open Wi-Fi Settings"
