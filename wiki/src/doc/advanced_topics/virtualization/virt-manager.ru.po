@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-09-17 11:40+0200\n"
+"POT-Creation-Date: 2026-02-12 10:14+0000\n"
 "PO-Revision-Date: 2024-04-30 13:48+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -150,22 +150,16 @@ msgid "Installation"
 msgstr "Установка"
 
 #. type: Plain text
-msgid "To install *virt-manager* in Debian, execute the following command:"
-msgstr "Для установки *virt-manager* в Debian выполните следующую команду:"
+#, fuzzy
+#| msgid "To install *virt-manager* in Ubuntu, execute the following command:"
+msgid ""
+"To install *virt-manager* in Debian or Ubuntu, execute the following command:"
+msgstr "Для установки *virt-manager* в Ubuntu выполните следующую команду:"
 
 #. type: Plain text
 #, no-wrap
 msgid "<p class=\"command\">sudo apt install virt-manager libvirt-daemon-system</p>\n"
 msgstr "<p class=\"command\">sudo apt install virt-manager libvirt-daemon-system</p>\n"
-
-#. type: Plain text
-msgid "To install *virt-manager* in Ubuntu, execute the following command:"
-msgstr "Для установки *virt-manager* в Ubuntu выполните следующую команду:"
-
-#. type: Plain text
-#, no-wrap
-msgid "<p class=\"command\">sudo apt install virt-manager libvirt-bin qemu-kvm</p>\n"
-msgstr "<p class=\"command\">sudo apt install virt-manager libvirt-bin qemu-kvm</p>\n"
 
 #. type: Title =
 #, no-wrap
@@ -401,14 +395,22 @@ msgid "In *step 1*, choose **Import existing disk image**."
 msgstr "На *шаге 1* выберите **Импорт образа диска**."
 
 #. type: Bullet: '   1. '
+#, fuzzy
+#| msgid ""
+#| "In *step 2*, choose **Browse...**, and **Browse Local** to browse for the "
+#| "USB image that you want to start from."
 msgid ""
-"Specify **Debian 11** in the field **Choose the operating system you are "
+"Select the **Browse** button and then the **Browse Local** button to choose "
+"the USB image that you want to start from."
+msgstr ""
+"На *шаге 2* выберите по кнопкам **Обзор...** и **Выбрать файл** нужный файл "
+"с USB-образом."
+
+#. type: Bullet: '   1. '
+msgid ""
+"Specify **Debian 13** in the field **Choose the operating system you are "
 "installing**."
 msgstr ""
-
-#. type: Bullet: '1. '
-msgid "In *step 3*, allocate at least 2048 MB of RAM."
-msgstr "На *шаге 3* выделите не менее 2048 Мб оперативной памяти."
 
 #. type: Bullet: '1. '
 msgid "In *step 4*:"
@@ -700,6 +702,16 @@ msgid ""
 "Try enabling or disabling the OpenGL and 3D acceleration options of the "
 "display and video device."
 msgstr ""
+
+#~ msgid "To install *virt-manager* in Debian, execute the following command:"
+#~ msgstr "Для установки *virt-manager* в Debian выполните следующую команду:"
+
+#, no-wrap
+#~ msgid "<p class=\"command\">sudo apt install virt-manager libvirt-bin qemu-kvm</p>\n"
+#~ msgstr "<p class=\"command\">sudo apt install virt-manager libvirt-bin qemu-kvm</p>\n"
+
+#~ msgid "In *step 3*, allocate at least 2048 MB of RAM."
+#~ msgstr "На *шаге 3* выделите не менее 2048 Мб оперативной памяти."
 
 #, fuzzy
 #~| msgid ""
