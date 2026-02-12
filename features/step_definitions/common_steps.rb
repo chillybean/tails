@@ -1704,6 +1704,10 @@ Given /^I write a file "(\S+)" with contents "([^"]*)"$/ do |path, content|
   $vm.file_overwrite(path, content)
 end
 
+Given /^I change ownership of file "(\S+)" to "([^"]*)"$/ do |path, owner|
+  $vm.execute_successfully("chown #{owner} #{path}")
+end
+
 Given /^I create a symlink "(\S+)" to "(\S+)"$/ do |link, target|
   $vm.execute_successfully(
     "ln -s --no-target-directory '#{target}' '#{link}'"
