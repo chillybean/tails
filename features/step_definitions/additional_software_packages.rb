@@ -1,16 +1,14 @@
 Then /^the Additional Software (upgrade|installation) service has started$/ do |service|
-  if $vm.file_exist?(ASP_CONF) && !$vm.file_empty?(ASP_CONF)
-    case service
-    when 'installation'
-      service_name = 'tails-additional-software-install.service'
-      seconds_to_wait = 600
-    when 'upgrade'
-      service_name = 'tails-additional-software-upgrade.service'
-      seconds_to_wait = 900
-    end
-    try_for(seconds_to_wait, delay: 10) do
-      $vm.execute("systemctl status #{service_name}").success?
-    end
+  case service
+  when 'installation'
+    service_name = 'tails-additional-software-install.service'
+    seconds_to_wait = 600
+  when 'upgrade'
+    service_name = 'tails-additional-software-upgrade.service'
+    seconds_to_wait = 900
+  end
+  try_for(seconds_to_wait, delay: 10) do
+    $vm.execute("systemctl status #{service_name}").success?
   end
 end
 

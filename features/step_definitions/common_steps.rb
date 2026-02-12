@@ -242,9 +242,12 @@ Given /^I start Tails from (.+?) drive "(.+?)"( with network unplugged)?( and I 
     step 'I enable persistence' if persistence_on
     step 'I enable persistence with the changed passphrase' \
       if persistence_with_changed_passphrase
+    additional_software_install_expected_to_start =
+      $vm.file_exist?(ASP_CONF) && !$vm.file_empty?(ASP_CONF)
     step 'I set an administration password' if admin_password
     step 'I log in to a new session'
-    step 'the Additional Software installation service has started'
+    step 'the Additional Software installation service has started' \
+      if additional_software_install_expected_to_start
     if network_unplugged
       step 'all notifications have disappeared'
     else
