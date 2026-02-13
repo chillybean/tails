@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tails\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-09-17 11:40+0200\n"
-"PO-Revision-Date: 2026-01-23 16:29+0000\n"
+"POT-Creation-Date: 2026-02-12 10:14+0000\n"
+"PO-Revision-Date: 2026-02-12 15:16+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: Tails translators <tails@boum.org>\n"
 "Language: fr\n"
@@ -70,8 +70,7 @@ msgstr "<div class=\"note\">\n"
 #. type: Plain text
 #, no-wrap
 msgid "<p>The following instructions have been tested on Debian 13 (Trixie).</p>\n"
-msgstr ""
-"<p>Les instructions suivantes ont été testées avec Debian 13 (Trixie).</p>\n"
+msgstr "<p>Les instructions suivantes ont été testées avec Debian 13 (Trixie).</p>\n"
 
 #. type: Title =
 #, no-wrap
@@ -143,24 +142,16 @@ msgid "Installation"
 msgstr "Installation"
 
 #. type: Plain text
-msgid "To install *virt-manager* in Debian, execute the following command:"
+msgid ""
+"To install *virt-manager* in Debian or Ubuntu, execute the following command:"
 msgstr ""
-"Pour installer *virt-manager* dans Debian, exécutez la commande suivante :"
+"Pour installer *virt-manager* dans Debian ou Ubuntu, exécutez la commande "
+"suivante :"
 
 #. type: Plain text
 #, no-wrap
 msgid "<p class=\"command\">sudo apt install virt-manager libvirt-daemon-system</p>\n"
 msgstr "<p class=\"command\">sudo apt install virt-manager libvirt-daemon-system</p>\n"
-
-#. type: Plain text
-msgid "To install *virt-manager* in Ubuntu, execute the following command:"
-msgstr ""
-"Pour installer *virt-manager* dans Ubuntu, exécutez la commande suivante :"
-
-#. type: Plain text
-#, no-wrap
-msgid "<p class=\"command\">sudo apt install virt-manager libvirt-bin qemu-kvm</p>\n"
-msgstr "<p class=\"command\">sudo apt install virt-manager libvirt-bin qemu-kvm</p>\n"
 
 #. type: Title =
 #, no-wrap
@@ -375,16 +366,28 @@ msgid "In *step 1*, choose **Import existing disk image**."
 msgstr "À l'*étape 1*, choisissez **Importer une image disque existante**."
 
 #. type: Bullet: '   1. '
+#, fuzzy
+#| msgid ""
+#| "Choose **Browse...**, and **Browse Local** to browse for the USB image "
+#| "that you want to start from."
 msgid ""
-"Specify **Debian 11** in the field **Choose the operating system you are "
+"Select the **Browse** button and then the **Browse Local** button to choose "
+"the USB image that you want to start from."
+msgstr ""
+"Choisissez **Parcourir...**, et **Parcourir en local** pour naviguer jusqu'à "
+"l'image USB depuis laquelle vous souhaitez démarrer."
+
+#. type: Bullet: '   1. '
+#, fuzzy
+#| msgid ""
+#| "Specify **Debian 11** in the field **Choose the operating system you are "
+#| "installing**."
+msgid ""
+"Specify **Debian 13** in the field **Choose the operating system you are "
 "installing**."
 msgstr ""
 "Précisez **Debian 11** dans le champ **Choisissez le système d'exploitation "
 "que vous installez**."
-
-#. type: Bullet: '1. '
-msgid "In *step 3*, allocate at least 2048 MB of RAM."
-msgstr "À l'*étape 3*, allouez au moins 2048 Mo de RAM."
 
 #. type: Bullet: '1. '
 msgid "In *step 4*:"
@@ -572,8 +575,8 @@ msgid ""
 "After you start on the USB device, you can [[create a Persistent Storage|"
 "persistent_storage]] on it."
 msgstr ""
-"Après avoir démarré sur le périphérique USB, vous pouvez "
-"[[créer un stockage persistant|persistent_storage]] sur celui-ci."
+"Après avoir démarré sur le périphérique USB, vous pouvez [[créer un stockage "
+"persistant|persistent_storage]] sur celui-ci."
 
 #. type: Title #
 #, no-wrap
@@ -651,6 +654,17 @@ msgid ""
 msgstr ""
 "Essayez d'activer ou de désactiver les options OpenGL et accélération 3D de "
 "l'affichage et du périphérique vidéo."
+
+#~ msgid "To install *virt-manager* in Debian, execute the following command:"
+#~ msgstr ""
+#~ "Pour installer *virt-manager* dans Debian, exécutez la commande suivante :"
+
+#, no-wrap
+#~ msgid "<p class=\"command\">sudo apt install virt-manager libvirt-bin qemu-kvm</p>\n"
+#~ msgstr "<p class=\"command\">sudo apt install virt-manager libvirt-bin qemu-kvm</p>\n"
+
+#~ msgid "In *step 3*, allocate at least 2048 MB of RAM."
+#~ msgstr "À l'*étape 3*, allouez au moins 2048 Mo de RAM."
 
 #~ msgid ""
 #~ "**Choose ISO image**, then **Browse...**, and **Browse Local** to browse "
