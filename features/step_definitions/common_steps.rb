@@ -708,7 +708,8 @@ Then /^I wait until Tor is ready$/ do
   # When we test for ASP upgrade failure the following tests would fail,
   # so let's skip them in this case.
   unless $vm.file_exist?('/run/live-additional-software/doomed_to_fail')
-    step 'the Additional Software upgrade service has started'
+    step 'the Additional Software upgrade service has started' \
+      if $vm.execute('mountpoint /var/cache/apt/archives').success?
     begin
       try_for(30) { $vm.execute('systemctl is-system-running').success? }
     rescue Timeout::Error
