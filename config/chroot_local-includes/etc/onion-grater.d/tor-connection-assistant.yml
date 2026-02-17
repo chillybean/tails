@@ -19,10 +19,13 @@
     Socks5ProxyPassword: ['', '.*']
     HttpsProxyAuthenticator: ['', '.*']
     DisableNetwork: ['"0"', '"1"']
+    # stem
     __owningcontrollerprocess:
   events:
+    # stem
     STATUS_SERVER:
       suppress: true
+    # stem
     SIGNAL:
       suppress: true
     CONF_CHANGED:
