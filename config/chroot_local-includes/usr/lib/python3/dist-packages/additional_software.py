@@ -126,7 +126,7 @@ def add_additional_packages(new_packages: set[str]) -> None:
 
     Add the packages to additional packages configuration.
 
-    The new_packages argument should be a list of packages names.
+    The new_packages argument should be a set of packages names.
     """
     logging.info("Adding to additional packages list: %s" % new_packages)
     packages = get_additional_packages()
