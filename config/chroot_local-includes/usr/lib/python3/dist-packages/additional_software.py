@@ -127,7 +127,7 @@ def add_additional_packages(new_packages: set[str]) -> None:
 
     The new_packages argument should be a set of packages names.
     """
-    logging.info("Adding to additional packages list: %s" % new_packages)
+    logging.info("Adding to additional packages list: %s", ",".join(new_packages))
     packages = get_additional_packages()
     # The list of packages was initially provided by apt after installing them,
     # so we don't check the names.
@@ -143,7 +143,7 @@ def remove_additional_packages(old_packages: set[str]) -> None:
 
     The old_packages argument should be a list of packages names.
     """
-    logging.info("Removing from additional packages list: %s" % old_packages)
+    logging.info("Removing from additional packages list: %s", ",".join(old_packages))
     packages = get_additional_packages()
     # The list of packages was initially provided by apt after removing them,
     # so we don't check the names.
