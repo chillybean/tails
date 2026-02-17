@@ -28,7 +28,9 @@ class Migration:
         self.create_state_directory()
         if result:
             self.success_file.touch()
+            self.failure_file.unlink(missing_ok=True)
         else:
+            self.success_file.unlink(missing_ok=True)
             self.failure_file.touch()
 
     @property
