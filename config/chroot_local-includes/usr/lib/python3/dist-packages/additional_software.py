@@ -11,7 +11,6 @@ from pathlib import Path
 import pwd
 import re
 import subprocess
-from typing import Optional
 
 import systemd.journal
 
