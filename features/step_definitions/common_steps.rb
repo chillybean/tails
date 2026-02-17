@@ -242,12 +242,12 @@ Given /^I start Tails from (.+?) drive "(.+?)"( with network unplugged)?( and I 
     step 'I enable persistence' if persistence_on
     step 'I enable persistence with the changed passphrase' \
       if persistence_with_changed_passphrase
-    additional_software_install_expected_to_start =
+    @additional_software_expected_to_start =
       $vm.file_exist?(ASP_CONF) && !$vm.file_empty?(ASP_CONF)
     step 'I set an administration password' if admin_password
     step 'I log in to a new session'
     step 'the Additional Software installation service has started' \
-      if additional_software_install_expected_to_start
+      if @additional_software_expected_to_start
     if network_unplugged
       step 'all notifications have disappeared'
     else
@@ -709,7 +709,7 @@ Then /^I wait until Tor is ready$/ do
   # so let's skip them in this case.
   unless $vm.file_exist?('/run/live-additional-software/doomed_to_fail')
     step 'the Additional Software upgrade service has started' \
-      if $vm.execute('mountpoint /var/cache/apt/archives').success?
+      if @additional_software_expected_to_start
     begin
       try_for(30) { $vm.execute('systemctl is-system-running').success? }
     rescue Timeout::Error
