@@ -1,4 +1,4 @@
-# shellcheck shell=sh
+#!/bin/sh
 
 BASE_BRANCHES="stable testing devel"
 
