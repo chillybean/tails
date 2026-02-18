@@ -33,6 +33,7 @@ systemctl enable var-tmp.mount
 
 # Enable our own systemd user unit files
 systemctl --global enable tails-additional-software-install.service
+systemctl --global enable tails-additional-software-update-config.service
 systemctl --global enable tails-configure-keyboard.service
 systemctl --global enable tails-gnome-automated-testing.service
 systemctl --global enable tails-low-ram-notify-user.service

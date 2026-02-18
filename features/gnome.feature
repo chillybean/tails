@@ -40,6 +40,7 @@ Feature: GNOME is well-integrated into Tails
     When I start "Pidgin" via GNOME Activities Overview
     And I close the "Pidgin" window via Alt+F4
     When I start "Thunderbird" via GNOME Activities Overview
+    And I click "Start Thunderbird" in the "Thunderbird Migration" zenity dialog
     And I close the "Thunderbird" window
     When I start "Tor Browser" via GNOME Activities Overview
     And I close the "Firefox" window
