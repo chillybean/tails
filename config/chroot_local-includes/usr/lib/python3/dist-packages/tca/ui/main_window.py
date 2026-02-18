@@ -662,17 +662,28 @@ class StepConnectProgressMixin:
         raw_content = res.get("stdout", "").strip()
         log.debug("Settings fetched from Circumvention Settings API: %s", raw_content)
         try:
-            settings = json.loads(raw_content).get("settings", [])
+            response = json.loads(raw_content)
         except json.decoder.JSONDecodeError:
             set_error(_("The Circumvention Settings API returned invalid JSON"))
             return
 
+        settings = response.get("settings", [])
         if settings == []:
-            set_error(
-                _(
-                    "The Circumvention Settings API returned an empty list of bridge settings"
+            if "errors" in response:
+                errors = ". ".join(
+                    [f"Code {e['code']}: {e['detail']}" for e in response["errors"]]
                 )
-            )
+                set_error(
+                    _(
+                        "The Circumvention Settings API returned errors: {errors}"
+                    ).format(errors=errors)
+                )
+            else:
+                set_error(
+                    _(
+                        "The Circumvention Settings API returned an empty list of bridge settings"
+                    )
+                )
             return
 
         valid_settings = [
