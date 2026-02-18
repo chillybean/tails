@@ -784,8 +784,9 @@ class StepConnectProgressMixin:
                     _("Connecting to Tor with default bridges…")
                 )
             elif self.state["bridge"].get("kind", "") == "moat":
-                self.app.configurator.tor_connection_config.enable_moat_settings(
-                    self.state["bridge"]["moat_settings"]
+                settings = self.state["bridge"]["moat_settings"].pop(0)
+                self.app.configurator.tor_connection_config.enable_bridges(
+                    settings["bridges"]["bridge_strings"]
                 )
                 self.builder.get_object("step_progress_label_status").set_text(
                     _("Connecting to Tor with a bridge based on your region…")
@@ -863,9 +864,16 @@ class StepConnectProgressMixin:
             if d["count"] <= 0:
                 self.connection_progress.set_fraction(0)
 
-                if (
-                    not self.state["hide"]["hide"] and not self.state["hide"]["bridge"]
-                ) and not self.app.configurator.tor_connection_config.bridges:
+                if self.state["bridge"].get("kind", []) == "moat" and self.state[
+                    "bridge"
+                ].get("moat_settings", []):
+                    self.connection_progress.set_fraction(0.0, allow_going_back=True)
+                    idle_add_chain([do_tor_connect_config, do_tor_connect_apply])
+                elif (
+                    not self.state["hide"]["hide"]
+                    and not self.state["hide"]["bridge"]
+                    and not self.app.configurator.tor_connection_config.bridges
+                ):
                     log.info("Retrying with default bridges")
                     self.builder.get_object("step_progress_box_tor_direct_fail").show()
                     self.connection_progress.set_fraction(0.0, allow_going_back=True)
