@@ -210,7 +210,14 @@ class CveFetcher:
             if not path.exists():
                 self.log.error("You should fetch %s first", cve)
                 sys.exit(1)
-            vuln = json.load(path.open())
+            try:
+                vuln = json.load(path.open())
+            except json.JSONDecodeError:
+                self.log.error(  # noqa: TRY400
+                    "Error decoding %s - please analyze and remove",
+                    path,
+                )
+                sys.exit(1)
             if self.vuln_match(vuln):
                 self.output_cve(cve)
 
