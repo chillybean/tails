@@ -62,6 +62,12 @@ class CveFetcher:
                 "as positive matches"
             ),
         )
+        results.add_argument(
+            "--skip-missing-data",
+            action="store_true",
+            default=False,
+            help=("This will skip CVEs for which we don't have relevant metrics"),
+        )
 
         query = search.add_argument_group("query")
         query.add_argument(
@@ -204,10 +210,14 @@ class CveFetcher:
             print(path.open().read())
 
     def main_search(self):
+        ignored = []
         for cve in self.args.cveid:
             self.log.debug("Analyzing %s", cve)
             path = self.get_path_for_cve(cve)
             if not path.exists():
+                if self.args.skip_missing_data:
+                    ignored.append(path)
+                    continue
                 self.log.error("You should fetch %s first", cve)
                 sys.exit(1)
             try:
@@ -217,9 +227,18 @@ class CveFetcher:
                     "Error decoding %s - please analyze and remove",
                     path,
                 )
+                if self.args.skip_missing_data:
+                    ignored.append(path)
+                    continue
                 sys.exit(1)
             if self.vuln_match(vuln):
                 self.output_cve(cve)
+        if ignored:
+            logging.warning(
+                "%d CVEs (out of %d) have been ignored",
+                len(ignored),
+                len(self.args.cveid),
+            )
 
 
 if __name__ == "__main__":
