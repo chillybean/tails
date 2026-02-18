@@ -109,8 +109,13 @@ class CveFetcher:
             self.log.warning("Could not fetch %s", cve)
             return
         content = resp.json()  # check if json is valid
+        try:
+            cve_content = content["vulnerabilities"][0]["cve"]
+        except (IndexError, KeyError):
+            self.log.warning("%s has invalid content", cve)
+            return
         with fpath.open(mode="w") as buf:
-            json.dump(content["vulnerabilities"][0]["cve"], buf, indent=2)
+            json.dump(cve_content, buf, indent=2)
 
     def main(self):
         p = self.get_parser()
