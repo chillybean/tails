@@ -649,16 +649,17 @@ class StepConnectProgressMixin:
             self._step_progress_success_screen()
 
     def cb_bridge_settings_fetched(self, gjsonrpcclient, res, error, errordata):
-        def set_error(msg):
+        def set_error(message):
+            # Translators: don't translate {message}
+            error = _("Failed to fetch bridge settings: {message}").format(
+                message=message
+            )
             self.change_box("error")
-            self.builder.get_object("step_error_label_explain").set_text(msg)
+            self.builder.get_object("step_error_label_explain").set_text(error)
 
         if not res or res.get("returncode", 1) != 0:
-            set_error(
-                _(
-                    "Failed to fetch bridges settings via Circumvention Settings API: {error}"
-                ).format(error="get-bridge-settings command failed")
-            )
+            # Translators: don't translate "get-bridge-settings"
+            set_error(_("get-bridge-settings command failed"))
             return
 
         raw_content = res.get("stdout", "").strip()
@@ -666,15 +667,11 @@ class StepConnectProgressMixin:
         try:
             response = json.loads(raw_content)
         except json.decoder.JSONDecodeError:
-            set_error(_("The Circumvention Settings API returned invalid JSON"))
+            set_error(_("Got invalid JSON"))
             return
 
         if "requests-error" in response:
-            set_error(
-                _(
-                    "Failed to fetch bridges settings via Circumvention Settings API: {error}"
-                ).format(error=response["requests-error"])
-            )
+            set_error(response["requests-error"])
             return
 
         settings = response.get("settings", [])
@@ -683,17 +680,9 @@ class StepConnectProgressMixin:
                 errors = ". ".join(
                     [f"Code {e['code']}: {e['detail']}" for e in response["errors"]]
                 )
-                set_error(
-                    _(
-                        "The Circumvention Settings API returned errors: {errors}"
-                    ).format(errors=errors)
-                )
+                set_error(errors)
             else:
-                set_error(
-                    _(
-                        "The Circumvention Settings API returned an empty list of bridge settings"
-                    )
-                )
+                set_error(_("Got an empty list of bridge settings"))
             return
 
         valid_settings = [
@@ -703,9 +692,7 @@ class StepConnectProgressMixin:
         ]
 
         if valid_settings == []:
-            set_error(
-                _("Circumvention Settings API did not return any supported bridges")
-            )
+            set_error(_("Got only unsupported bridge types"))
             return
         else:
             self.state["bridge"]["moat_settings"] = valid_settings
