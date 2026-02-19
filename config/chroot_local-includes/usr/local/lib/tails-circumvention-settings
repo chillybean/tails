@@ -101,7 +101,9 @@ def fronted_fetch(meek_address, moat_address, region=None):
     }
     if region:
         post_options["data"] = json.dumps({"country": region})
-    response = requests.post(moat_address, timeout=10, **post_options)
+    session = requests.Session()
+    session.mount(moat_address, requests.adapters.HTTPAdapter(max_retries=2))
+    response = session.post(moat_address, timeout=10, **post_options)
     return json.loads(response.content)
 
 
