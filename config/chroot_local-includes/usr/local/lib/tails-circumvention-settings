@@ -126,8 +126,13 @@ if __name__ == "__main__":
     p.add_argument("--region", metavar="CODE", dest="region")
     p.add_argument("--defaults-fallback", action="store_true", dest="fallback")
     args = p.parse_args()
-    print(
-        json.dumps(
-            get_settings(fallback=args.fallback, proxy=args.proxy, region=args.region)
+    try:
+        print(
+            json.dumps(
+                get_settings(
+                    fallback=args.fallback, proxy=args.proxy, region=args.region
+                )
+            )
         )
-    )
+    except requests.RequestException as e:
+        print(json.dumps({"requests-error": f"{type(e).__name__}: {e}"}))

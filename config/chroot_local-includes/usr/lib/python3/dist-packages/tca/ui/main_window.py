@@ -655,16 +655,26 @@ class StepConnectProgressMixin:
 
         if not res or res.get("returncode", 1) != 0:
             set_error(
-                _("Failed to fetch bridges settings via Circumvention Settings API")
+                _(
+                    "Failed to fetch bridges settings via Circumvention Settings API: {error}"
+                ).format(error="get-bridge-settings command failed")
             )
             return
 
         raw_content = res.get("stdout", "").strip()
-        log.debug("Settings fetched from Circumvention Settings API: %s", raw_content)
+        log.debug("Raw output from Circumvention Settings API: %s", raw_content)
         try:
             response = json.loads(raw_content)
         except json.decoder.JSONDecodeError:
             set_error(_("The Circumvention Settings API returned invalid JSON"))
+            return
+
+        if "requests-error" in response:
+            set_error(
+                _(
+                    "Failed to fetch bridges settings via Circumvention Settings API: {error}"
+                ).format(error=response["requests-error"])
+            )
             return
 
         settings = response.get("settings", [])
