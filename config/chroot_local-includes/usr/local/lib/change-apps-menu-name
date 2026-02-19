@@ -99,7 +99,7 @@ class DesktopChangerApplication:
             else:
                 description = d.get_localized("GenericName", locale)
 
-            d["Name"] = f"{name} - {description}"
+            d["Name"] = f"{name} {description}"
             d["Keywords"] = f"{';'.join(app.extra_keywords)};{keywords}"
 
             with app.desktop_file.open("w") as buf:
