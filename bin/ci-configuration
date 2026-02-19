@@ -2,6 +2,7 @@
 
 import argparse
 import functools
+import logging
 import os
 import subprocess
 import sys
@@ -94,6 +95,7 @@ class GetConfigurationCLI:
 
     def main(self):
         self.args = self.get_parser().parse_args()
+        logging.basicConfig(level=logging.DEBUG)
         config_file = (
             Path("config/ci/per_branch/")
             / f"{normalize_branch_name(get_current_branch())}.toml"
@@ -114,6 +116,8 @@ class GetConfigurationCLI:
                 self.run_test(config)
 
     def run_test(self, config: ConfigFile):
+        logging.debug("Cucumber options: %s", self.get_cucumber_options(config.test))
+        logging.debug("Cucumber args: %s", self.args.cucumber_args)
         cmdline = [
             "cucumber",
             "--expand",
@@ -121,6 +125,7 @@ class GetConfigurationCLI:
             *self.args.cucumber_args,
         ]
         env = self.get_cucumber_environment(config.test)
+        logging.info("Running %s  with env=%s", str(cmdline), str(env))
         proc = subprocess.run(cmdline, check=False, env={**os.environ, **env})
         sys.exit(proc.returncode)
 
