@@ -116,13 +116,17 @@ class GetConfigurationCLI:
                 self.run_test(config)
 
     def run_test(self, config: ConfigFile):
-        logging.debug("Cucumber options: %s", self.get_cucumber_options(config.test))
-        logging.debug("Cucumber args: %s", self.args.cucumber_args)
+        config_cucumber_args = self.get_cucumber_options(config.test)
+        logging.debug("Cucumber args (as per config): %s", config_cucumber_args)
+        logging.debug(
+            "Cucumber args, manually passed via cmdline arguments: %s",
+            self.args.cucumber_args,
+        )
+        cucumber_args = self.args.cucumber_args or config_cucumber_args
         cmdline = [
             "cucumber",
             "--expand",
-            *self.get_cucumber_options(config.test),
-            *self.args.cucumber_args,
+            *cucumber_args,
         ]
         env = self.get_cucumber_environment(config.test)
         logging.info("Running %s  with env=%s", str(cmdline), str(env))
