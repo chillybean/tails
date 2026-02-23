@@ -19,19 +19,18 @@ Read_conffiles config/all config/common config/binary
 Read_conffiles config/variables
 Set_defaults
 
-if [ "${LB_BOOTLOADER}" != "syslinux" ]
-then
-	exit 0
+if [ "${LB_BOOTLOADER}" != "syslinux" ]; then
+    exit 0
 fi
 
 # Setting boot method specific variables
 case "${LB_BINARY_IMAGES}" in
-	iso|iso-hybrid)
-		SYSLINUX_PATH="binary/isolinux"
-		;;
-	usb-hdd)
-		SYSLINUX_PATH="binary/syslinux"
-		;;
+iso | iso-hybrid)
+    SYSLINUX_PATH="binary/isolinux"
+    ;;
+usb-hdd)
+    SYSLINUX_PATH="binary/syslinux"
+    ;;
 esac
 
 Echo_message "customize buggy syslinux help"
@@ -49,7 +48,7 @@ sed -i -r -e 's/(menu label Tails )(.*)\(failsafe\)/\1(Troubleshooting Mode)/' \
     "${SYSLINUX_PATH}"/live*.cfg
 sed -i -r -e 's/(append .*)/\1\n\tsysappend 0x40000/g' "${SYSLINUX_PATH}"/live*.cfg
 
-cat > "${SYSLINUX_PATH}/tails.cfg" << EOF
+cat >"${SYSLINUX_PATH}/tails.cfg" <<EOF
 menu color sel      *           #ffffffff   #55555555   *
 menu color hotsel   1;7;37;40   #ffffffff   #22222222   *
 
