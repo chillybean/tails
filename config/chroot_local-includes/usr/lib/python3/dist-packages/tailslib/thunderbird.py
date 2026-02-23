@@ -28,6 +28,7 @@ def thunderbird_packages() -> set[str]:
         "thunderbird-l10n-ar",
         "thunderbird-l10n-de",
         "thunderbird-l10n-es-es",
+        "thunderbird-l10n-es-mx",
         "thunderbird-l10n-fr",
         "thunderbird-l10n-id",
         "thunderbird-l10n-it",
