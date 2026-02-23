@@ -19,7 +19,7 @@ else
     DST="https-get-expired"
 fi
 
-cp /usr/share/go-1.24/src/crypto/tls/cache.go "$SRCDIR"
+cp /usr/share/go-1.26/src/crypto/tls/cache.go "$SRCDIR"
 sed -i -e '0,/^package tls/s//package main/' "$SRCDIR/cache.go"
 go build -v -ldflags=-buildid= -trimpath -o "$DST" "$SRC" "$SRCDIR/cache.go"
 strip --strip-all "$DST"
