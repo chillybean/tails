@@ -1215,6 +1215,24 @@ When /^I close the "([^"]+)" window via Alt\+F4$/ do |app_name|
   end
 end
 
+When /^I close Console$/ do
+  console = Dogtail::Application.new('kgx')
+  console.button('Close').click
+  # Console asks for confirmation if a command is still
+  # running. Sometimes it thinks a command that just exited is still
+  # running, so it shows the confirmation dialog unexpectedly, so we
+  # always have to anticipate it.
+  try_for(10) do
+    Dogtail::Application.new('kgx', retry: false)
+  rescue Dogtail::Failure
+    true
+  else
+    console.child('Close Window?', roleName: 'alert',
+                                   retry:    false).button('Close').click
+    false
+  end
+end
+
 When /^I press the "([^"]+)" key$/ do |key|
   @screen.press(key)
 end
