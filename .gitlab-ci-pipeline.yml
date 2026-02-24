@@ -396,6 +396,7 @@ https-get-expired:
         - .gitlab-ci-pipeline.yml
         - config/chroot_local-includes/usr/src/https-get-expired.go
         - config/chroot_local-includes/etc/default/htpdate.pools
+        - config/chroot_local-includes/usr/local/lib/build-https-accept-expired
   script:
     - *install-https-get-expired-build-deps
     - *build-https-get-expired
@@ -411,6 +412,7 @@ https-get-expired-sid:
         - .gitlab-ci-pipeline.yml
         - config/chroot_local-includes/usr/src/https-get-expired.go
         - config/chroot_local-includes/etc/default/htpdate.pools
+        - config/chroot_local-includes/usr/local/lib/build-https-accept-expired
   script:
     - *install-https-get-expired-build-deps
     - *build-https-get-expired
