@@ -23,8 +23,8 @@ Release feed: <https://github.com/digitalbazaar/forge/releases.atom>
 
 1. Download it from two different CDNs:
 
-       wget "https://cdn.jsdelivr.net/npm/node-forge@${FORGE_VERSION}/dist/forge.min.js" -O forge.min.js
-       wget "https://unpkg.com/node-forge@${FORGE_VERSION}/dist/forge.min.js" -O forge.min.js.1
+       torsocks --isolate wget "https://cdn.jsdelivr.net/npm/node-forge@${FORGE_VERSION}/dist/forge.min.js" -O forge.min.js
+       torsocks --isolate wget "https://unpkg.com/node-forge@${FORGE_VERSION}/dist/forge.min.js" -O forge.min.js.1
 
 1. Check they are the same
 
