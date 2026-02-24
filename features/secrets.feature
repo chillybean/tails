@@ -7,5 +7,6 @@ Feature: Using Secrets
     And I write a file "/home/amnesia/Persistent/Passwords.kdbx" with contents ""
     And I change ownership of file "/home/amnesia/Persistent/Passwords.kdbx" to "amnesia:"
     And I log in to a new session
+    Then dconf has configuration for "Secrets"
     When I start "Secrets" via GNOME Activities Overview
     Then Secrets tries to open "/home/amnesia/Persistent/Passwords.kdbx"
