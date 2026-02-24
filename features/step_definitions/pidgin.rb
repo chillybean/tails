@@ -160,7 +160,11 @@ Given /^my XMPP friend goes online$/ do
   @chatbot.start
   add_after_scenario_hook { @chatbot.stop }
   focus_window('Buddy List')
-  @screen.wait('PidginFriendOnline.png', 60)
+  begin
+    @screen.wait('PidginFriendOnline.png', 60)
+  rescue FindFailed
+    raise 'Known issue #21440: XMPP friend failed to go online'
+  end
 end
 
 When /^I start a conversation with my friend$/ do
