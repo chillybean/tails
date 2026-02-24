@@ -77,7 +77,7 @@ def git_only_doc_changes_since(ref: str) -> bool:
         ":!*.po",
     ]
     diff = subprocess.check_output(cmd, text=True)
-    return bool(diff)
+    return diff == ""
 
 
 class GetConfigurationCLI:
