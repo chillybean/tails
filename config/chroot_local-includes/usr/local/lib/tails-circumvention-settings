@@ -8,8 +8,6 @@ import requests
 import subprocess
 import tempfile
 
-from tailslib import CLEARNET_USERNAME
-
 
 MOAT_SERVICE_URL = "https://bridges.torproject.org/moat"
 MOAT_SERVICE_SETTINGS_URL = f"{MOAT_SERVICE_URL}/circumvention/settings"
@@ -75,7 +73,6 @@ def meek_request(request, proxy=None):
                 ["/usr/bin/obfs4proxy"],
                 env=env,
                 stdout=subprocess.PIPE,
-                preexec_fn=mk_switch_user_fn(CLEARNET_USERNAME),  # noqa: PLW1509
             )
             while True:
                 line = p.stdout.readline()
