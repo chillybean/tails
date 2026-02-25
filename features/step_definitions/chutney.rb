@@ -39,14 +39,17 @@ def chutney_disable_info_level_logging
   end
 end
 
-def chutney_cmd(cmd, **opts)
+def chutney_cmd(cmd, *args, **opts)
   chutney_script = "#{GIT_DIR}/features/scripts/chutney"
-  network_definition = "#{GIT_DIR}/features/chutney/test-network"
   chutney_status_log(cmd)
   cmd = 'stop' if cmd == 'stop_old'
-  ret = cmd_helper([chutney_script, cmd, network_definition], env: chutney_env, **opts)
+  ret = cmd_helper([chutney_script, cmd, *args], env: chutney_env, **opts)
   chutney_disable_info_level_logging if cmd == 'configure'
   ret
+end
+
+def chutney_network_definition
+  "#{GIT_DIR}/features/chutney/test-network"
 end
 
 def chutney_data_dir_cleanup
@@ -152,12 +155,14 @@ want to delete Chutney's data directory and all test suite snapshots:
 
 }
       else
+        chutney_cmd('init', '--net-from-script-path', chutney_network_definition)
         chutney_cmd('configure')
         chutney_cmd('start')
       end
     end
   else
     chutney_data_dir_cleanup
+    chutney_cmd('init', '--net-from-script-path', chutney_network_definition)
     chutney_cmd('configure')
     chutney_cmd('start')
   end
