@@ -67,7 +67,7 @@ See <https://gitlab.tails.boum.org/tails/team/-/wikis/responsibilities>.
 
   I.e. you can run this inside `isos.git`:
 
-        git annex sync --no-content
+        git annex pull --no-content
         (cd ${TAILS_GIT_REPO:?}; ./bin/iuk-source-versions "${VERSION:?}" | tr ' ' '\n' | sed -e 's/^/tails-amd64-/') | xargs -r git annex get
 
 - Ensure someone will be able to do the bare metal part of the manual QA
