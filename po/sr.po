@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-14 10:05+0100\n"
+"POT-Creation-Date: 2026-02-25 11:26+0100\n"
 "PO-Revision-Date: 2025-08-25 21:02+0000\n"
 "Last-Translator: wild <wildbohana@gmail.com>\n"
 "Language-Team: Serbian <https://hosted.weblate.org/projects/tor/tails-gui/sr/"
@@ -26,7 +26,7 @@ msgstr ""
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 5.13\n"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:242
 #, python-brace-format
 msgid ""
 "{details} Please check your list of additional software or read the system "
@@ -35,7 +35,7 @@ msgstr ""
 "{details} Molimo proverite Vašu listu dodatnih softvera ili pročitajte "
 "sistemski dnevnik logova kako biste razumeli u čemu je problem."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:216
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:249
 msgid ""
 "Please check your list of additional software or read the system log to "
 "understand the problem."
@@ -43,11 +43,11 @@ msgstr ""
 "Molimo proverite Vašu listu dodatnih softvera ili pročitajte sistemski "
 "dnevnik logova kako biste razumeli u čemu je problem."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:222
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:255
 msgid "Show Log"
 msgstr "Prikaži dnevnik"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:222
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:255
 msgid "Configure"
 msgstr "Konfiguriši"
 
@@ -73,7 +73,7 @@ msgstr "Instaliraj samo jednom"
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:74
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:112
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:213
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:206
 msgid "The configuration of your additional software failed."
 msgstr "Konfiguracija Vaših dodatnih softvera je neuspešna."
 
@@ -104,24 +104,24 @@ msgstr "Možeš automatski instalirati {packages} pri pokretanju Tails-a"
 msgid "To do so, you need to run Tails from a USB stick."
 msgstr "Da biste to uradili, morate pokrenuti Tails sa USB stick-a."
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:197
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:190
 #, python-brace-format
 msgid "Remove {packages} from your additional software?"
 msgstr "Uklonite {packages} iz Vašeg dodatnog softvera?"
 
 #. Translators: Don't translate {packages}, it's a placeholder
 #. and will be replaced.
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:202
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:195
 #, python-brace-format
 msgid "This will stop installing {packages} automatically."
 msgstr "Ovo će automatski zaustaviti instaliranje {packages}."
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:205
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:198
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:188
 msgid "Remove"
 msgstr "Ukloni"
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:206
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:199
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/add_settings_dialog.py:40
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:182
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:503
@@ -135,21 +135,21 @@ msgstr "Otkaži"
 
 #. Translators: Don't translate {beginning} or {last}, they are
 #. placeholders and will be replaced.
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:226
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:219
 #, python-brace-format
 msgid "{beginning} and {last}"
 msgstr "{beginning} i {last}"
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:227
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:220
 msgid ", "
 msgstr ", "
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:45
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:46
 msgid "The check for upgrades of your additional software failed"
 msgstr "Neuspešna provera nadogradnji Vašeg dodatnog softvera"
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:47
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:59
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:48
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:60
 msgid ""
 "Please check your network connection, restart Tails, or read the system log "
 "to understand the problem."
@@ -157,29 +157,29 @@ msgstr ""
 "Molimo proverite vezu sa mrežom, ponovo pokrenite Tails ili pročitajte "
 "sistemski dnevnik logova kako biste razumeli u čemu je greška."
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:57
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:58
 msgid "The upgrade of your additional software failed"
 msgstr "Neuspešno nadograđivanje Vašeg dodatnog softvera"
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:127
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:128
 msgid "Installing your additional software from persistent storage..."
 msgstr "Instaliranje vašeg dodatnog softvera sa upornog skladišta..."
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:128
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:129
 msgid "This can take several minutes."
 msgstr "Ovo može potrajati nekoliko minuta."
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:146
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:147
 msgid "The installation of your additional software failed"
 msgstr "Instalacija dodatnog softvera je neuspešna"
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:161
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:162
 msgid "Additional software installed successfully"
 msgstr "Instalacija dodatnog softvera je uspešna"
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:8
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop.in.h:1
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:646
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:648
 msgid "Additional Software"
 msgstr "Dodatni softver"
 
@@ -238,27 +238,27 @@ msgstr ""
 "Pomozite nam da obezbedimo vaše bitcoine!\n"
 "\n"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:149
+#: config/chroot_local-includes/usr/local/bin/electrum:140
 msgid "Donate Now"
 msgstr "Доњирајте одмах"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:151
+#: config/chroot_local-includes/usr/local/bin/electrum:142
 msgid "Later"
 msgstr "Kasnije"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:165
+#: config/chroot_local-includes/usr/local/bin/electrum:156
 msgid "Opening Electrum with our donation address..."
 msgstr "Otvaranje Electrum-a sa našom adresom donacija..."
 
-#: config/chroot_local-includes/usr/local/bin/electrum:166
+#: config/chroot_local-includes/usr/local/bin/electrum:157
 msgid "Thank you for making the Internet a safer place!"
 msgstr "Hvala što pravite Internet sigurnijim!"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:200
+#: config/chroot_local-includes/usr/local/bin/electrum:191
 msgid "Persistence is disabled for Electrum"
 msgstr "Persistence (упорност) је онемогућена за Electrum"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:202
+#: config/chroot_local-includes/usr/local/bin/electrum:193
 msgid ""
 "When you reboot Tails, all of Electrum's data will be lost, including your "
 "Bitcoin wallet.\n"
@@ -269,15 +269,15 @@ msgstr ""
 "ukljućujući vaš Bitcoin novčanik.\n"
 "Jako preporučujemo da pokrećete Electrum samo sa upornom odlikom aktiviranom."
 
-#: config/chroot_local-includes/usr/local/bin/electrum:204
+#: config/chroot_local-includes/usr/local/bin/electrum:195
 msgid "Do you want to start Electrum anyway?"
 msgstr "Da li ipak želite da pokrenete Electrum?"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:210
+#: config/chroot_local-includes/usr/local/bin/electrum:201
 msgid "_Launch"
 msgstr "_Pokreni"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:211
+#: config/chroot_local-includes/usr/local/bin/electrum:202
 msgid "_Exit"
 msgstr "_Излаз"
 
@@ -1497,6 +1497,7 @@ msgid "Dismiss"
 msgstr "Одбаци"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:11
+#: config/chroot_local-includes/usr/local/lib/tails-additional-software-notify:63
 #: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:44
 #: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:45
 msgid "Learn More"
@@ -1600,10 +1601,6 @@ msgstr "NEOBJAVLJENO"
 #, python-format
 msgid "Built from %s"
 msgstr "Napravljen sa %s"
-
-#: config/chroot_local-includes/usr/local/lib/tails-additional-software-notify:63
-msgid "Documentation"
-msgstr "Документација"
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:114
 #, python-brace-format
@@ -2106,7 +2103,7 @@ msgstr ""
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/application.py:30
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:49
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:1
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:25
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:24
 msgid "Persistent Storage"
 msgstr "Uporno Skladište"
 
@@ -2220,8 +2217,8 @@ msgid "{app} (PIDs: {pids})"
 msgstr "{app} (PIDs: {pids})"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/change_passphrase_dialog.py:37
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:8
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:56
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:15
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:55
 msgid "Change Passphrase"
 msgstr "Promeni Pristupnu Frazu"
 
@@ -2295,7 +2292,7 @@ msgstr "Nemoguće izbrisati Uporno Skladište"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:183
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:218
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:36
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:35
 msgid "Delete Persistent Storage"
 msgstr "Izbriši Uporno Skladište"
 
@@ -2309,8 +2306,8 @@ msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:191
 #: config/chroot_local-includes/usr/local/sbin/unsafe-browser:56
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:304
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:121
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:301
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:124
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:219
 msgid "_Cancel"
 msgstr "_Otkaži"
@@ -3043,7 +3040,7 @@ msgstr ""
 msgid "Network Configuration"
 msgstr "Konfigurisanje mreže"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:95
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:94
 msgid "Current _Passphrase"
 msgstr "Trenutna _Prolazna Fraza"
 
@@ -3055,29 +3052,29 @@ msgstr "_Nova Prolazna Fraza"
 msgid "_Confirm New Passphrase"
 msgstr "_Potvrdi Novu Prolaznu Frazu"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:215
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:219
 msgid "_Show Passphrases"
 msgstr "_Prikaži Prolazne Fraze"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:253
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:301
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:289
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:161
 msgid "The passphrases do not match"
 msgstr "Prolazne Fraze se ne poklapaju"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:317
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:315
 msgid "Ch_ange"
 msgstr "Prom_eni"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/deleted_view.ui.in:21
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/deleted_view.ui.in:20
 msgid "The Persistent Storage was successfully deleted."
 msgstr "Vaše Uporno Skladište je uspešno izbrisano."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/deleted_view.ui.in:32
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/deleted_view.ui.in:36
 msgid "_Close"
 msgstr "_Zatvori"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/fail_view.ui.in:30
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/fail_view.ui.in:31
 msgid "Oh no! Something has gone wrong."
 msgstr "O ne! Nešto se pokvarilo."
 
@@ -3093,11 +3090,11 @@ msgstr ""
 "Možete poslati izveštaj greške ili proveriti izlaz koristeći sledeću komandu "
 "da istražite:"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/fail_view.ui.in:74
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/fail_view.ui.in:78
 msgid "Send Error Report"
 msgstr "Pošaljite Izveštaj o grešci"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:61
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:63
 msgid ""
 "Your Persistent Storage is unlocked.\n"
 "\n"
@@ -3113,7 +3110,7 @@ msgstr ""
 "<a href=\"doc/persistent_storage/backup\">Naučite kako da napravite rezervnu "
 "kopiju Upornog Skladišta.</a>"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:89
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:91
 msgid ""
 "Turn on the features of the Persistent Storage for the data that you want to "
 "save to your Tails USB stick."
@@ -3121,159 +3118,159 @@ msgstr ""
 "Upalite odlike Upornog Skladišta za podatke koje želite sačuvati na svoj "
 "Tails USB stick."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:106
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:108
 msgid "Personal Documents"
 msgstr "Lični Dokumenti"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:134
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:136
 msgid "Persistent Folder"
 msgstr "Uporni Folder"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:135
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:137
 msgid "A folder where you can save your documents."
 msgstr "Folder gde možete sačuvati svoje dokumente."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:160
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:162
 msgid "Open Persistent Folder"
 msgstr "Otvori Uporan Folder"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:173
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:175
 msgid "Activate Persistent Folder"
 msgstr "Aktiviraj Uporan Folder"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:200
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:202
 msgid "System Settings"
 msgstr "Sistemske Postavke"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:228
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:230
 msgid "Welcome Screen"
 msgstr "Ekran Dobrodošlice"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:244
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:246
 msgid "Activate Welcome Screen"
 msgstr "Aktiviraj Ekran Dobrodošlice"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:257
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:259
 msgid "Printers"
 msgstr "Štampači"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:273
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:275
 msgid "Activate Printers"
 msgstr "Aktiviraj Štampače"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:300
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:302
 msgid "Network"
 msgstr "Mreža"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:328
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:330
 msgid "Network Connections"
 msgstr "Мрежне конекције"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:329
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:331
 msgid "Save Wi-Fi passwords and mobile broadband configuration."
 msgstr "Sačuvaj Wi-Fi šifre i mobilne širokopojasne konfiguracije."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:345
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:347
 msgid "Activate Network Connections"
 msgstr "Aktiviraj Mrežne Konekcije"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:358
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:360
 msgid "Tor Bridge"
 msgstr "Tor Most"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:374
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:376
 msgid "Activate Tor Bridge"
 msgstr "Aktiviraj Tor Most"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:401
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:403
 msgid "Applications"
 msgstr "Aplikacije"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:429
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:431
 msgid "Tor Browser Bookmarks"
 msgstr "Tor Browser Bookmarkovi"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:445
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:447
 msgid "Activate Tor Browser Bookmarks"
 msgstr "Aktiviraj Tor Browser Bookmarkove"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:458
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:460
 msgid "Electrum Bitcoin Wallet"
 msgstr "Electrum Bitcoin Novčanik"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:474
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:476
 msgid "Activate Electrum Bitcoin Wallet"
 msgstr "Aktiviraj Electrum Bitcoin novčanik"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:487
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:489
 msgid "Thunderbird Email Client"
 msgstr "Thunderbird Email Klijent"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:503
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:505
 msgid "Activate Thunderbird Email Client"
 msgstr "Aktiviraj Thunderbird Email Klijent"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:516
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:518
 msgid "GnuPG"
 msgstr "GnuPG"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:517
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:519
 msgid "OpenPGP keys outside of Thunderbird, including in Kleopatra."
 msgstr "OpenPGP ključevi izvan Thunderbird, ukljućujući one u Kleopatri."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:533
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:535
 msgid "Activate GnuPG"
 msgstr "Aktiviraj GnuPG"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:546
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:548
 msgid "Pidgin Internet Messenger"
 msgstr "Пиџин (Pidgin) Интернет Месинџер"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:562
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:564
 msgid "Activate Pidgin Internet Messenger"
 msgstr "Aktiviraj Pidgin Internet Messenger"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:575
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:577
 msgid "SSH Client"
 msgstr "SSH Klijent"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:591
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:593
 msgid "Activate SSH Client"
 msgstr "Aktiviraj SSH Klijent"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:618
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:620
 msgid "Advanced Settings"
 msgstr "Napredna Podešavanja"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:647
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:649
 msgid "Install additional software automatically when starting Tails."
 msgstr "Instaliraj dodatni softver automatski tokom pokretanja Tails."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:672
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:674
 msgid "Configure Additional Software"
 msgstr "Podesi Dodatni Softver"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:685
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:687
 msgid "Activate Additional Software"
 msgstr "Aktiviraj Dodatni Softver"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:698
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:700
 msgid "Dotfiles"
 msgstr "Dotfiles (konfiguracioni fajlovi)"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:699
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:701
 msgid "Symlink every file in the Dotfiles folder into the Home folder."
 msgstr "Symlink-uj svaki fajl u Dotfiles folderu u Home folder."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:732
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:734
 msgid "Activate Dotfiles"
 msgstr "Aktiviraj Dotfiles"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:764
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:766
 msgid "Custom"
 msgstr "Ручно уписивање"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:783
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:785
 msgid ""
 "To add or remove custom features, modify /live/persistence/"
 "TailsData_unlocked/persistence.conf."
@@ -3281,14 +3278,14 @@ msgstr ""
 "Da dodate ili uklonite poručene odlike, modifikujte /live/persistence/"
 "TailsData_unlocked/persistence.conf."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:825
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:827
 msgid ""
 "<a href=\"doc/persistent_storage\">Learn more about the Persistent Storage.</"
 "a>"
 msgstr ""
 "<a href=\"doc/persistent_storage\">Saznaj više o Upornom Skladištu.</a>"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/locked_view.ui.in:52
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/locked_view.ui.in:53
 msgid ""
 "<b>Your Persistent Storage is locked.</b>\n"
 "\n"
@@ -3306,7 +3303,7 @@ msgstr ""
 "Da izbrišete Uporno Skladište, klikni <b>Izbriši</b> na desnoj strani title "
 "bar-a."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:62
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:60
 msgid ""
 "Choose the passphrase that you will use to unlock the encryption of your "
 "Persistent Storage and all its data."
@@ -3314,34 +3311,34 @@ msgstr ""
 "Изабери фраза-лозинку коју ћеш користити за откључавање енкрипције свог "
 "Упорног Складишта и података на њему."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:82
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:80
 msgid "We recommend a long passphrase of 5 to 7 random words."
 msgstr "Препоручујемо дугачку фраза-лозинку од 5 до 7 насумичних речи."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:94
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:92
 msgid " For example:"
 msgstr " На пример:"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:186
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:175
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:46
 msgid "Passphrase:"
 msgstr "Lozinka:"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:205
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:194
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:65
 msgid "Confirm:"
 msgstr "Потврди:"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:325
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:317
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:185
 msgid "_Show Passphrase"
 msgstr "_Прикажи лозинку"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:375
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:361
 msgid "_Back"
 msgstr "_Назад"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:391
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:378
 msgid "_Create Persistent Storage"
 msgstr "_Направи Упорно складиште"
 
@@ -3372,7 +3369,7 @@ msgstr ""
 "\n"
 "<a href=\"doc/persistent_storage\">Сазнај више о Упорном Складишту.</a>"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:92
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:93
 msgid ""
 "Sorry, it is impossible to create a Persistent Storage on this device.\n"
 "\n"
@@ -3384,7 +3381,7 @@ msgstr ""
 "Како би користио Таилс са Упорним Складиштем, молим те испрати инструкције "
 "са <a href=\"install\">инсталирање Таилса на УСБ стик</a>."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:137
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:141
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:232
 msgid "Co_ntinue"
 msgstr "На_стави"
@@ -4040,6 +4037,9 @@ msgstr "Децембар"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "Сат"
+
+#~ msgid "Documentation"
+#~ msgstr "Документација"
 
 #~ msgid "Root Console"
 #~ msgstr "Root конзола"
