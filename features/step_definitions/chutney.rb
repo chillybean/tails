@@ -27,9 +27,7 @@ end
 
 def chutney_env
   {
-    'CHUTNEY_LISTEN_ADDRESS' => $vmnet.bridge_ip_address.to_s,
-    'CHUTNEY_DATA_DIR'       => "#{$config['TMPDIR']}/chutney-data",
-    'CHUTNEY_TOR_SANDBOX'    => '0',
+    'CHUTNEY_DATA_DIR' => "#{$config['TMPDIR']}/chutney-data",
   }
 end
 
@@ -142,7 +140,9 @@ def initialize_chutney
     chutney_data_dir_cleanup
     chutney_cmd(
       'init',
-      '--net-from-script-path', chutney_network_definition
+      '--net-from-script-path', chutney_network_definition,
+      '--listen-address', $vmnet.bridge_ip_address.to_s,
+      '--tor-sandbox', '0'
     )
     chutney_cmd('configure')
   end
