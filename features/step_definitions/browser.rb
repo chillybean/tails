@@ -492,13 +492,7 @@ end
 When /^I start the Tor Browser( in offline mode)?$/ do |offline|
   launch_tor_browser(check_started: !offline)
   if offline
-    start_button = Dogtail::Application
-                   .new('zenity')
-                   .dialog('Tor is not ready')
-                   .button('Start Tor Browser Offline')
-    # Sometimes this click is lost. Maybe the dialog is not fully setup yet?
-    sleep 2
-    start_button.click
+    zenity_dialog_click_button('Tor is not ready', 'Start Tor Browser Offline')
   end
   step 'the Tor Browser has started'
   step 'the Tor Browser loads about:tor'

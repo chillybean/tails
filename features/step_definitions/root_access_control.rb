@@ -29,7 +29,7 @@ Then /^I cannot login as root using su with the standard passwords$/ do
       terminal.text['su: Authentication failure']
     end
     # Ensure the previous authentication failure does not taint the next tests
-    step 'I close the "kgx" window'
+    step 'I close Console'
   end
 end
 
@@ -67,5 +67,5 @@ Then /^I cannot run a command as root with pkexec and the standard passwords$/ d
                       ]
   assert(!$vm.file_exist?('/root/pkexec-test'))
   # Ensure we don't taint the next tests
-  step 'I close the "kgx" window'
+  step 'I close Console'
 end

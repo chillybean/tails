@@ -11,7 +11,6 @@ from pathlib import Path
 import pwd
 import re
 import subprocess
-from typing import Optional
 
 import systemd.journal
 
@@ -54,6 +53,24 @@ def set_up_logging(log_to_journal=False):
     logging.basicConfig(level=log_level, format=log_format, handlers=handlers)
 
 
+def has_additional_packages_list():
+    """Return true iff a packages list file is found in a persistence.
+
+    Log warnings in syslog.
+    """
+    try:
+        packages_list_path = get_packages_list_path()
+    except FileNotFoundError as e:
+        logging.warning(e)
+        return False
+    if os.path.isfile(packages_list_path):
+        logging.info("Found additional packages list.")
+        return True
+    else:
+        logging.warning("Warning: no configuration file found.")
+        return False
+
+
 def write_config(packages):
     config_file_owner_uid = pwd.getpwnam(PERSISTENT_STORAGE_USERNAME).pw_uid
     config_file_owner_gid = grp.getgrnam(PERSISTENT_STORAGE_USERNAME).gr_gid
@@ -88,7 +105,7 @@ def get_packages_list_path(return_nonexistent=False):
     return os.path.join(persistence_dir, PACKAGES_LIST_FILE)
 
 
-def get_additional_packages():
+def get_additional_packages() -> set[str]:
     """Return the list of all additional packages configured."""
     packages = set()
     try:
@@ -103,14 +120,30 @@ def get_additional_packages():
     return packages
 
 
-def remove_additional_packages(old_packages):
+def add_additional_packages(new_packages: set[str]) -> None:
+    """Add packages to additional packages configuration.
+
+    Add the packages to additional packages configuration.
+
+    The new_packages argument should be a set of packages names.
+    """
+    logging.info("Adding to additional packages list: %s", ",".join(new_packages))
+    packages = get_additional_packages()
+    # The list of packages was initially provided by apt after installing them,
+    # so we don't check the names.
+    packages |= new_packages
+
+    write_config(packages)
+
+
+def remove_additional_packages(old_packages: set[str]) -> None:
     """Remove packages from additional packages configuration.
 
     Removes the packages from additional packages configuration.
 
     The old_packages argument should be a list of packages names.
     """
-    logging.info("Removing from additional packages list: %s" % old_packages)
+    logging.info("Removing from additional packages list: %s", ",".join(old_packages))
     packages = get_additional_packages()
     # The list of packages was initially provided by apt after removing them,
     # so we don't check the names.
@@ -138,7 +171,7 @@ def notify(
     clicked.
 
     If documentation_target is set, a "Documentation" action button will open
-    corresponding tails documentation when clicked.
+    the corresponding Tails documentation when clicked.
 
     If return_id is true, returns the notification ID, which may be used to
     close the notification.
@@ -241,4 +274,11 @@ def show_configuration_window():
     run_with_user_env(
         "/usr/local/bin/gtk-abspath-launch",
         "/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop",
+    )
+
+
+def setup_additional_packages():
+    """Enable additional software in persistence."""
+    subprocess.check_call(
+        ["/usr/local/lib/tpscli", "ensure-is-active", "AdditionalSoftware"]
     )
