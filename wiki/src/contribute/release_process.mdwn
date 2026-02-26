@@ -1914,10 +1914,11 @@ section, and publish them on the `$WEBSITE_RELEASE_BRANCH` branch:
         echo "Wrong po4a version"
 	fi
 
-Draft the Tor blog post
------------------------
+## If you are publishing a final release: draft the Tor blog post
 
-Skip this if you are not preparing a stable release.
+Check:
+
+    [ "${DIST:?}" = stable ]
 
 In order to announce the new Tails release on Tor blog post, you need to:
  - have a personal account on [Tor's GitLab](https://gitlab.torproject.org/) with at least *Developer* access to the [Tor blog](https://gitlab.torproject.org/tpo/web/blog/-/project_members)
@@ -2011,8 +2012,7 @@ Mark the merge request for `$WEBSITE_RELEASE_BRANCH` as ready.
 Close the "Write release notes" ticket manually since
 `Closes:` statements are not sufficient when updating `master`.
 
-Bug tracker [if preparing a final release]
---------------------------------------------
+## If you're preparing a final release: Bug tracker
 
 Skip this part if preparing a release candidate:
 
