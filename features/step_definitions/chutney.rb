@@ -130,18 +130,28 @@ def initialize_chutney
   # setup can be used throughout the same test suite run.
   return if $chutney_initialized
 
+  recovering_chutney = KEEP_CHUTNEY && File.directory?(chutney_env['CHUTNEY_DATA_DIR'])
   clean_up_old_chutney_processes
-  if KEEP_CHUTNEY
+  if recovering_chutney
     # We sometimes look for strings in the Chutney nodes' logs so we
     # clear them so previous runs do not affect the current one.
     Dir.glob("#{$config['TMPDIR']}/chutney-data/nodes/*/notice.log") do |log|
       FileUtils.rm_f(log)
     end
-    begin
-      chutney_cmd('start')
-    rescue CommandFailed => e
-      if File.directory?(chutney_env['CHUTNEY_DATA_DIR'])
-        raise e, %{#{e.message}
+  else
+    chutney_data_dir_cleanup
+    chutney_cmd(
+      'init',
+      '--net-from-script-path', chutney_network_definition
+    )
+    chutney_cmd('configure')
+  end
+  begin
+    chutney_cmd('start')
+  rescue CommandFailed => e
+    raise e unless recovering_chutney
+
+    raise e, %{#{e.message}
 
 Note: You are running with --keep-snapshots or --keep-chutney, but Chutney
 failed to start with its current data directory. To recover you likely
@@ -154,17 +164,6 @@ want to delete Chutney's data directory and all test suite snapshots:
     done
 
 }
-      else
-        chutney_cmd('init', '--net-from-script-path', chutney_network_definition)
-        chutney_cmd('configure')
-        chutney_cmd('start')
-      end
-    end
-  else
-    chutney_data_dir_cleanup
-    chutney_cmd('init', '--net-from-script-path', chutney_network_definition)
-    chutney_cmd('configure')
-    chutney_cmd('start')
   end
 
   at_exit do
