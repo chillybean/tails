@@ -3,9 +3,9 @@ origin_references:
   debian:
     reference: '2026011201'
   debian-security:
-    reference: '2026021002'
+    reference: '2026022502'
   torproject:
-    reference: '2026012901'
+    reference: '2026021601'
 packages:
   binary:
   - arch: amd64
@@ -649,10 +649,10 @@ packages:
     version: 10.05.1~dfsg-1+deb13u1
   - arch: all
     package: gimp-data
-    version: 3.0.4-3+deb13u5
+    version: 3.0.4-3+deb13u6
   - arch: amd64
     package: gimp
-    version: 3.0.4-3+deb13u5
+    version: 3.0.4-3+deb13u6
   - arch: amd64
     package: gir1.2-accountsservice-1.0
     version: 23.13.9-7
@@ -691,13 +691,13 @@ packages:
     version: 48.0-2
   - arch: amd64
     package: gir1.2-gegl-0.4
-    version: 1:0.4.62-2+deb13u1
+    version: 1:0.4.62-2+deb13u2
   - arch: amd64
     package: gir1.2-geoclue-2.0
     version: 2.7.2-2
   - arch: amd64
     package: gir1.2-gimp-3.0
-    version: 3.0.4-3+deb13u5
+    version: 3.0.4-3+deb13u6
   - arch: amd64
     package: gir1.2-girepository-2.0
     version: 1.84.0-1
@@ -2233,10 +2233,10 @@ packages:
     version: 48.0-2
   - arch: amd64
     package: libgegl-0.4-0t64
-    version: 1:0.4.62-2+deb13u1
+    version: 1:0.4.62-2+deb13u2
   - arch: all
     package: libgegl-common
-    version: 1:0.4.62-2+deb13u1
+    version: 1:0.4.62-2+deb13u2
   - arch: amd64
     package: libgeoclue-2-0
     version: 2.7.2-2
@@ -2257,7 +2257,7 @@ packages:
     version: 5.2.2-1+b1
   - arch: amd64
     package: libgimp-3.0-0
-    version: 3.0.4-3+deb13u5
+    version: 3.0.4-3+deb13u6
   - arch: amd64
     package: libgirepository-1.0-1
     version: 1.84.0-1
@@ -2342,6 +2342,9 @@ packages:
   - arch: amd64
     package: libgnutls30t64
     version: 3.8.9-3+deb13u1
+  - arch: amd64
+    package: libgnutls30t64
+    version: 3.8.9-3+deb13u2
   - arch: amd64
     package: libgoa-1.0-0b
     version: 3.54.5-1~deb13u1
@@ -3730,7 +3733,7 @@ packages:
     version: 24.004.60-5
   - arch: amd64
     package: libpng16-16t64
-    version: 1.6.48-1+deb13u1
+    version: 1.6.48-1+deb13u3
   - arch: amd64
     package: libpocketsphinx3
     version: 0.8+5prealpha+1-15+b4
@@ -4726,7 +4729,7 @@ packages:
     version: 1:2.14.0-1+b1
   - arch: amd64
     package: libvpx9
-    version: 1.15.0-2.1
+    version: 1.15.0-2.1+deb13u1
   - arch: amd64
     package: libvte-2.91-0
     version: 0.80.1-1
@@ -5121,26 +5124,26 @@ packages:
     package: linux-base
     version: '4.12'
   - arch: amd64
-    package: linux-headers-6.12.69+deb13-amd64
-    version: 6.12.69-1
+    package: linux-headers-6.12.73+deb13-amd64
+    version: 6.12.73-1
   - arch: all
-    package: linux-headers-6.12.69+deb13-common
-    version: 6.12.69-1
+    package: linux-headers-6.12.73+deb13-common
+    version: 6.12.73-1
   - arch: amd64
     package: linux-headers-amd64
-    version: 6.12.69-1
+    version: 6.12.73-1
   - arch: amd64
-    package: linux-image-6.12.69+deb13-amd64
-    version: 6.12.69-1
+    package: linux-image-6.12.73+deb13-amd64
+    version: 6.12.73-1
   - arch: amd64
     package: linux-image-amd64
-    version: 6.12.69-1
+    version: 6.12.73-1
   - arch: amd64
-    package: linux-kbuild-6.12.69+deb13
-    version: 6.12.69-1
+    package: linux-kbuild-6.12.73+deb13
+    version: 6.12.73-1
   - arch: all
     package: linux-libc-dev
-    version: 6.12.69-1
+    version: 6.12.73-1
   - arch: all
     package: linux-sysctl-defaults
     version: '4.12'
@@ -5749,7 +5752,7 @@ packages:
     version: 4.9-3
   - arch: amd64
     package: python3-pil
-    version: 11.1.0-5+b1
+    version: 11.1.0-5+deb13u1
   - arch: all
     package: python3-pkg-resources
     version: 78.1.1-0.1
@@ -6111,6 +6114,9 @@ packages:
     package: thunderbird-l10n-es-es
     version: 1:140.7.1esr-1~deb13u1
   - arch: all
+    package: thunderbird-l10n-es-mx
+    version: 1:140.7.1esr-1~deb13u1
+  - arch: all
     package: thunderbird-l10n-fr
     version: 1:140.7.1esr-1~deb13u1
   - arch: all
@@ -6142,10 +6148,10 @@ packages:
     version: 3.8.2-7
   - arch: all
     package: tor-geoipdb
-    version: 0.4.8.22-1~d13.trixie+1
+    version: 0.4.9.5-1~d13.trixie+1
   - arch: amd64
     package: tor
-    version: 0.4.8.22-1~d13.trixie+1
+    version: 0.4.9.5-1~d13.trixie+1
   - arch: all
     package: torsocks
     version: 2.5.0-1
