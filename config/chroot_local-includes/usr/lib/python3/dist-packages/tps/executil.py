@@ -1,11 +1,9 @@
-import logging
 import os.path
+import subprocess
+import sys
 import tempfile
 from os import PathLike
-import sys
 from pathlib import Path
-import subprocess
-from typing import Union
 
 import tps
 import tps.logging
@@ -23,7 +21,7 @@ def _run(cmd: list, *args, **kwargs) -> subprocess.CompletedProcess:
     # This method will be called from executil.run() (or check_call, or check_output),
     # and we want to attribute the log message to its caller
     # we should use logger.debug, but #19871 pushes us towards higher log level
-    logger.info(f"Executing command {' '.join(cmd)}", stacklevel=3)
+    logger.info("Executing command %s", " ".join(cmd), stacklevel=3)
 
     if tps.PROFILING:
         cmd = prepare_for_profiling(cmd)
@@ -39,7 +37,7 @@ def _run(cmd: list, *args, **kwargs) -> subprocess.CompletedProcess:
         print(p.stderr, file=sys.stderr)
         return p
     finally:
-        logger.debug(f"Done executing command {' '.join(cmd)}", stacklevel=3)
+        logger.debug("Done executing command %s", " ".join(cmd), stacklevel=3)
 
 
 def run(cmd: list, *args, **kwargs) -> subprocess.CompletedProcess:
@@ -50,16 +48,18 @@ def check_call(cmd: list, *args, **kwargs):
     return _run(cmd, *args, **kwargs, check=True)
 
 
-def check_output(cmd: list, *args, **kwargs) -> str:
+def check_output(cmd: list, *args, **kwargs):
     p = _run(cmd, *args, **kwargs, check=True, stdout=subprocess.PIPE)
     return p.stdout
 
 
 def execute_hooks(hooks_dir: str | PathLike):
     """
-    Execute all regular files in the specified directory, in (locale) lexicographic order.
+    Execute all regular files in the specified directory, in lexicographic order
+    (by increasing Unicode code points).
 
-    If any of these runs fails, the execution is stopped, and an exception is raised immediately.
+    If any of these runs fails, the execution is stopped, and an exception
+    is raised immediately.
     """
     hooks_dir = Path(hooks_dir)
     if not hooks_dir.exists():
@@ -68,7 +68,7 @@ def execute_hooks(hooks_dir: str | PathLike):
     for file in sorted(hooks_dir.iterdir()):
         if file.is_dir():
             continue
-        logger.info(f"Executing hook {file}")
+        logger.info("Executing hook %s", file)
         try:
             check_call([str(file)])
         finally:
@@ -83,7 +83,7 @@ def prepare_for_profiling(cmd: list) -> list:
         delete=False,
     )
     profile_file.close()
-    logger.info(f"Creating profile in {profile_file.name}")
+    logger.info("Creating profile in %s", profile_file.name)
     return [
         "strace",
         "--follow-forks",

@@ -1,3 +1,163 @@
+tails (7.5) unstable; urgency=medium
+
+  * Upgrade to Tor Browser 15.0.7 based on ESR 140.8 (tails/tails!2803)
+
+    Closes issues:
+      - Upgrade Tor Browser based on ESR 140.8 (tails/tails#21387)
+      - Refresh our about:tor patches for Tails 7.5 (tails/tails#21388)
+
+    Commits:
+      - Fetch Tor Browser from our own archive
+      - Upgrade Tor Browser to 15.0.7-build1 (refs: tails#21387)
+      - Avoid losing Git history
+      - Tor Browser: refresh custom about:tor patches onto tor-
+        browser-140.8.0esr-15.0-1-build2
+
+  * Install the Thunderbird es-mx langpack (tails/tails!2802)
+
+    Closes issues:
+      - Consider installing the Thunderbird es-mx langpack by default, instead of es-es
+        (tails/tails#21434)
+
+    Commits:
+      - Install the Thunderbird es-mx langpack
+
+  * Remove CAP_SYS_PTRACE from CapabilityBoundingSet for tails-notify-user
+    (tails/tails!2798)
+
+    Closes issues:
+      - Remove CAP_SYS_PTRACE from CapabilityBoundingSet for tails-notify-user
+        (tails/tails#21433)
+
+    Commits:
+      - tails-additional-software-*.service: remove CAP_SYS_PTRACE from
+        CapabilityBoundingSet
+
+  * Test suite: deal with GNOME Console's "Close Window?" confirmation
+    (tails/tails!2797)
+
+    Closes issues:
+      - Scenario fails: "I cannot perform administrative tasks unless I have set up an
+        administration password in the Welcome Screen", bis (tails/tails#21432)
+
+    Commits:
+      - Test suite: deal with GNOME Console's "Close Window?" confirmation (refs:
+        tails#21432)
+
+  * Upgrade to tor 0.4.9.5 (tails/tails!2792)
+
+    Closes issues:
+      - Upgrade to tor 0.4.9.5 (tails/tails#21428)
+
+    Commits:
+      - Upgrade to tor 0.4.9.5
+
+  * Tighten and document onion-grater profiles (tails/tails!2791)
+
+    Closes issues:
+      - Audit onion-grater configuration (2026 edition) (tails/tails#20821)
+
+    Commits:
+      - onion-grater profiles: document rules used by Tor Browser
+      - onion-grater profiles: document rules for OnionShare
+      - onion-grater profiles: document rules needed for simply using stem
+      - onion-grater: drop unused GETCONF rule from OnionCircuits
+
+  * supports label-exp which start with a bang (tails/tails!2785)
+
+    Commits:
+      - supports label-exp which start with a bang
+
+  * Ensure Thunderbird is kept up-to-date (tails/tails!2738)
+
+    Closes issues:
+      - Replace sudo rules with polkit JavaScript rules when appropriate
+        (tails/tails#19213)
+
+    Commits:
+      - Ensure we don't have both success and failure files on the filesystem
+      - Lint
+      - Remove unused import
+      - Fix docstring to match typing information
+      - Use polkit rather than sudo to allow amnesia to start gnome-session.target
+      - systemd user services: explicitly pass --system to systemctl when interacting
+        with system units
+      - Test suite: fix new false positive
+      - Add blank lines to clarify that the comments apply to the whole paragraph
+      - Correctness
+      - Test suite: don't expect tails-additional-software-upgrade.service to start
+        when Additional Software is disabled
+      - Test suite: fix new false positive
+      - Test suite: move configuration to a more global place
+      - Add screenshots
+      - Apply style guide
+      - Apply style guide
+      - Shorten and use consistent wording
+      - Clarify
+      - Shorten
+      - Nitpick
+      - Use consistent wording in both failure modes
+      - Simplify
+      - We might not have yet the APT info to know whether a language pack is available
+      - Add TOC
+      - Fix broken link
+      - Encode release & date for Thunderbird removal
+      - Test suite: adjust to UI update
+      - Use doc URL provided by sajolida
+      - Fix typo
+      - Be less techy
+      - Draft doc for the 3 migration cases
+      - Compact
+      - Language packs will still be included until Tails 7.N+x
+      - Fix TODO:UX syntax
+      - Thunderbird migration: automate migration for case B
+      - Refactoring: move code to function
+      - Thunderbird migration: don't handle USB sticks with no Persistent Storage
+      - Refactoring: move method to library so it can be reused
+      - shfmt
+      - Don't tell users we added Thunderbird to ASP when they did it themselves
+      - Remove unused import
+      - Fix typo and phrasing
+      - Early patch: reload polkit if rules have changed
+      - Thunderbird migration: mostly use designed strings
+      - Test suite: deal with the new Thunderbird wrapper's dialog
+      - Test suite: refactor (extract code to method)
+      - shfmt
+      - Update doc to Iteration 1 of #21375
+      - Notify the user about the Thunderbird migration when they start the app
+      - tailslib.migration: allow using on the command line as amnesia
+      - Only apply the Thunderbird migration once
+      - Lint
+      - GitLab CI: skip non-existing doctests for thunderbird.py
+      - Add pipefail to modified script
+      - shfmt
+      - Lint: wrap long lines
+      - Remove incorrect typing annotation
+      - Lint: fix Ruff G004
+      - Sort imports and remove unused imports
+      - Recently updated/created on-activated-hooks: consistently use /run/nosymfollow
+      - Maintain a persistent directory to track the state of migrations
+      - Add pipefail
+      - Maintain .tails/ in persistent storage and migrate dont-ask-again there
+      - Fix comment
+      - Modernize argument passing style
+      - Document environment variable
+      - Ensure our Thunderbird wrapper survives installation/upgrade from Debian
+      - Install Thunderbird l10n packages with Additional Software
+      - Ensure Thunderbird is kept up-to-date thanks to the Additional Software feature
+      - Add typing information
+      - Refactoring: introduce and use more generic function
+      - Refactoring: move has_additional_packages_list to additional_software library
+      - Refactoring: move add_additional_packages to additional_software library
+      - Update Additional Software config between installation and upgrade
+      - Additional Software: better document capabilities needed by tails-notify-user
+      - Make it easier to keep in sync copies of the list of tier-1 languages
+      - Use polkit rather than sudo to allow amnesia to start tails-additional-
+        software-install.service
+      - Stop patching Thunderbird
+
+ -- Tails developers <tails@boum.org>  Wed, 25 Feb 2026 13:08:52 +0100
+
 tails (7.4.2) unstable; urgency=medium
 
   * Make cleartext storage actually set the language (tails/tails!2720)

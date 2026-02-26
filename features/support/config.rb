@@ -208,3 +208,7 @@ EXPECTED_JOURNAL_ENTRIES = [
   },
 ].freeze
 # rubocop:enable Layout/LineLength
+
+ASP_STATE_DIR = '/run/live-additional-software'.freeze
+ASP_CONF = '/live/persistence/TailsData_unlocked/live-additional-software.conf'
+           .freeze

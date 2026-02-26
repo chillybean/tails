@@ -242,9 +242,12 @@ Given /^I start Tails from (.+?) drive "(.+?)"( with network unplugged)?( and I 
     step 'I enable persistence' if persistence_on
     step 'I enable persistence with the changed passphrase' \
       if persistence_with_changed_passphrase
+    @additional_software_expected_to_start =
+      $vm.file_exist?(ASP_CONF) && !$vm.file_empty?(ASP_CONF)
     step 'I set an administration password' if admin_password
     step 'I log in to a new session'
-    step 'the Additional Software installation service has started'
+    step 'the Additional Software installation service has started' \
+      if @additional_software_expected_to_start
     if network_unplugged
       step 'all notifications have disappeared'
     else
@@ -705,7 +708,8 @@ Then /^I wait until Tor is ready$/ do
   # When we test for ASP upgrade failure the following tests would fail,
   # so let's skip them in this case.
   unless $vm.file_exist?('/run/live-additional-software/doomed_to_fail')
-    step 'the Additional Software upgrade service has started'
+    step 'the Additional Software upgrade service has started' \
+      if @additional_software_expected_to_start
     begin
       try_for(30) { $vm.execute('systemctl is-system-running').success? }
     rescue Timeout::Error
@@ -1208,6 +1212,24 @@ When /^I close the "([^"]+)" window via Alt\+F4$/ do |app_name|
     assert_raises(Dogtail::Failure) do
       Dogtail::Application.new(app_name, retry: false)
     end
+  end
+end
+
+When /^I close Console$/ do
+  console = Dogtail::Application.new('kgx')
+  console.button('Close').click
+  # Console asks for confirmation if a command is still
+  # running. Sometimes it thinks a command that just exited is still
+  # running, so it shows the confirmation dialog unexpectedly, so we
+  # always have to anticipate it.
+  try_for(10) do
+    Dogtail::Application.new('kgx', retry: false)
+  rescue Dogtail::Failure
+    true
+  else
+    console.child('Close Window?', roleName: 'alert',
+                                   retry:    false).button('Close').click
+    false
   end
 end
 
@@ -1846,4 +1868,15 @@ end
 Then(/^the language is set to (.*)$/) do |language|
   lang = { 'French' => 'fr_FR.UTF-8' }[language]
   assert_equal(lang, $vm.execute_successfully('echo $LANG').stdout.chomp)
+end
+
+def zenity_dialog_click_button(title, button_label)
+  button = Dogtail::Application.new('zenity').dialog(title).button(button_label)
+  # Sometimes this click is lost. Maybe the dialog is not fully setup yet?
+  sleep 2
+  button.click
+end
+
+When(/^I click "([^"]+)" in the "([^"]+)" zenity dialog$/) do |button_label, title|
+  zenity_dialog_click_button(title, button_label)
 end

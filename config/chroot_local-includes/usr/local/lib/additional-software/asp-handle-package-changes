@@ -19,12 +19,12 @@ import apt.cache
 
 import additional_software
 from additional_software import (
+    add_additional_packages,
     notify,
     notify_failure,
     ASP_STATE_INSTALLER_ASKED,
     remove_additional_packages,
-    get_additional_packages,
-    write_config,
+    setup_additional_packages,
 )
 from tailslib.locale import apply_selected_locale
 from tailslib.persistence import (
@@ -177,13 +177,6 @@ def create_persistence_and_setup_additional_packages(packages: set[str]):
     add_additional_packages(packages)
 
 
-def setup_additional_packages():
-    """Enable additional software in persistence."""
-    subprocess.check_call(
-        ["/usr/local/lib/tpscli", "ensure-is-active", "AdditionalSoftware"]
-    )
-
-
 def handle_removed_packages(packages: set[str]):
     """Removes packages from additional software packages if the user wants to.
 
@@ -228,22 +221,6 @@ def _format_iterable(iterable):
         )
     else:
         return str(iterable)
-
-
-def add_additional_packages(new_packages):
-    """Add packages to additional packages configuration.
-
-    Add the packages to additional packages configuration.
-
-    The new_packages argument should be a list of packages names.
-    """
-    logging.info("Adding to additional packages list: %s" % new_packages)
-    packages = get_additional_packages()
-    # The list of packages was initially provided by apt after installing them,
-    # so we don't check the names.
-    packages |= new_packages
-
-    write_config(packages)
 
 
 def main():
