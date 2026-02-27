@@ -705,6 +705,9 @@ class StepConnectProgressMixin:
             "step_bridge_moat_region_combo"
         ).get_active_id()
         args = ["--defaults-fallback"]
+        args += [
+            f"--transport={t}" for t in self.app.supported_bridge_types if t != "bridge"
+        ]
         if region != "automatic" and region is not None:
             args += ["--region", region]
         if self.state["proxy"] and self.state["proxy"]["proxy_type"] != "no":

@@ -92,26 +92,38 @@ def meek_request(request, proxy=None):
                 p.kill()
 
 
-def fronted_fetch(meek_address, moat_address, region=None):
+def fronted_fetch(meek_address, moat_address, region=None, transports=None):
     post_options = {}
     proxy_user, proxy_password = meek_credentials()
     post_options["proxies"] = {
         "https": f"socks5h://{proxy_user}:{proxy_password}@{meek_address}"
     }
+    data = {}
     if region:
-        post_options["data"] = json.dumps({"country": region})
+        data["country"] = region
+    if transports:
+        data["transports"] = transports
+    if data:
+        post_options["data"] = json.dumps(data)
     session = requests.Session()
     session.mount(moat_address, requests.adapters.HTTPAdapter(max_retries=2))
     response = session.post(moat_address, timeout=10, **post_options)
     return json.loads(response.content)
 
 
-def get_settings(fallback=False, proxy=None, region=None):
+def get_settings(fallback=False, proxy=None, region=None, transports=None):
     def fronted_get_settings(meek_address):
-        return fronted_fetch(meek_address, MOAT_SERVICE_SETTINGS_URL, region=region)
+        return fronted_fetch(
+            meek_address,
+            MOAT_SERVICE_SETTINGS_URL,
+            region=region,
+            transports=transports,
+        )
 
     def fronted_get_defaults(meek_address):
-        return fronted_fetch(meek_address, MOAT_SERVICE_DEFAULTS_URL)
+        return fronted_fetch(
+            meek_address, MOAT_SERVICE_DEFAULTS_URL, transports=transports
+        )
 
     response = meek_request(fronted_get_settings, proxy=proxy)
     if fallback and response.get("settings", []) == []:
@@ -124,12 +136,18 @@ if __name__ == "__main__":
     p.add_argument("--proxy", metavar="PROXY", dest="proxy")
     p.add_argument("--region", metavar="CODE", dest="region")
     p.add_argument("--defaults-fallback", action="store_true", dest="fallback")
+    p.add_argument(
+        "--transport", metavar="TRANSPORT", action="append", dest="transports"
+    )
     args = p.parse_args()
     try:
         print(
             json.dumps(
                 get_settings(
-                    fallback=args.fallback, proxy=args.proxy, region=args.region
+                    fallback=args.fallback,
+                    proxy=args.proxy,
+                    region=args.region,
+                    transports=args.transports,
                 )
             )
         )
