@@ -789,6 +789,50 @@ else
   raise 'TCA managed to connect to Tor but was expected to fail'
 end
 
+Given /^the Moat distributor responds with the default bridges$/ do
+  default_bridges = $vm.execute_successfully(
+    'grep ^obfs4 /usr/share/tails/tca/default_bridges.txt | sort'
+  ).stdout.chomp.split("\n")
+  assert_equal(1, default_bridges.size,
+               'This step assumes only one default bridge at the moment')
+  default_bridge = default_bridges.first
+  transport = default_bridge.split.first
+  moat_wrapper = <<~WRAPPER
+    #!/bin/sh
+    cat << EOF
+    {
+      "settings": [
+        {
+          "bridges": {
+            "type": "#{transport}",
+            "source": "builtin",
+            "bridge_strings": [
+              "#{default_bridge}"
+            ]
+          }
+        }
+      ],
+      "country": "foo"
+    }
+    EOF
+  WRAPPER
+  $vm.file_overwrite('/usr/local/lib/tails-circumvention-settings', moat_wrapper)
+end
+
+When /^I configure Tor Connection to ask for bridge settings based on my location$/ do
+  tca_configure(:easy, connect: false) do
+    tor_connection_assistant.child('Configure a Tor _bridge',
+                                   roleName: 'check box')
+                            .click
+    click_connect_to_tor
+    tor_connection_assistant.child('Ask for a Tor bridge based on your _region',
+                                   roleName: 'radio button')
+                            .click
+    click_connect_to_tor
+  end
+  @user_wants_pluggable_transports = true
+end
+
 When /^I accept Tor Connection's offer to use my persistent bridges$/ do
   @user_wants_pluggable_transports = true
   assert(
