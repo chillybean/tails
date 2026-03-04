@@ -39,9 +39,7 @@ def chutney_cmd(cmd, *args, **opts)
   chutney_script = "#{GIT_DIR}/features/scripts/chutney"
   chutney_status_log(cmd)
   cmd = 'stop' if cmd == 'stop_old'
-  ret = cmd_helper([chutney_script, '--data-dir', chutney_data_dir, cmd, *args], **opts)
-  chutney_disable_info_level_logging if cmd == 'configure'
-  ret
+  cmd_helper([chutney_script, '--data-dir', chutney_data_dir, cmd, *args], **opts)
 end
 
 def chutney_network_definition
@@ -143,6 +141,7 @@ def initialize_chutney
       '--tor-sandbox', '0'
     )
     chutney_cmd('configure')
+    chutney_disable_info_level_logging
   end
   begin
     chutney_cmd('start')
