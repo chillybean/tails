@@ -20,8 +20,7 @@ import gettext
 import logging
 from typing import ClassVar
 
-from gi.repository import Handy
-from gi.repository import Gtk
+from gi.repository import Gtk, Handy
 
 import tailsgreeter.config
 from tailsgreeter import TRANSLATION_DOMAIN
@@ -59,7 +58,9 @@ class TranslatableWindow:
         parameter rather than using current locale.
         """
         gtk_translation = gettext.translation(
-            "gtk30", languages=[str(lang)], fallback=True
+            "gtk30",
+            languages=[str(lang)],
+            fallback=True,
         )
         logging.debug("%s has GTK translation: %s", lang, gtk_translation)
         # Translators: please do not translate this string (it is read from
@@ -82,11 +83,12 @@ class TranslatableWindow:
         This method should be called once the widgets are created"""
         if not isinstance(widget, Gtk.Widget):
             logging.debug("%s is not a Gtk.Widget", widget)
-            return None
-        if isinstance(widget, Gtk.Label) or isinstance(widget, Gtk.Button):
+            return
+        if isinstance(widget, Gtk.Button | Gtk.Label):
             if widget not in self.labels:
                 logging.debug(
-                    "Storing translation for label/button '%s'", widget.get_label()
+                    "Storing translation for label/button '%s'",
+                    widget.get_label(),
                 )
                 self.labels[widget] = widget.get_label()
                 # Wrap set_label to get notified about string changes
@@ -100,18 +102,15 @@ class TranslatableWindow:
         elif isinstance(widget, Gtk.Entry):
             if widget not in self.placeholder_texts:
                 logging.debug(
-                    "Storing translation for entry '%s'", widget.get_placeholder_text()
+                    "Storing translation for entry '%s'",
+                    widget.get_placeholder_text(),
                 )
                 self.placeholder_texts[widget] = widget.get_placeholder_text()
         elif isinstance(widget, Gtk.Container):
             logging.debug("Handling container '%s'", widget.get_name())
             self.containers.append(widget)
             if (
-                (
-                    isinstance(widget, Gtk.HeaderBar)
-                    or isinstance(widget, Gtk.Window)
-                    or isinstance(widget, Handy.ActionRow)
-                )
+                (isinstance(widget, Gtk.HeaderBar | Gtk.Window | Handy.ActionRow))
                 and widget not in self.titles
                 and widget.get_title()
             ):
@@ -149,13 +148,13 @@ class TranslatableWindow:
         for widget, label in self.labels.items():
             if label:
                 widget.original_set_label(self.gettext(label))
-        for widget in self.placeholder_texts.keys():
+        for widget in self.placeholder_texts:
             widget.set_placeholder_text(self.gettext(self.placeholder_texts[widget]))
-        for widget in self.subtitles.keys():
+        for widget in self.subtitles:
             widget.set_subtitle(self.gettext(self.subtitles[widget]))
-        for widget in self.titles.keys():
+        for widget in self.titles:
             widget.set_title(self.gettext(self.titles[widget]))
-        for widget in self.tooltips.keys():
+        for widget in self.tooltips:
             widget.set_tooltip_markup(self.gettext(self.tooltips[widget]))
         if (
             self.window_.get_sensitive()
@@ -168,7 +167,9 @@ class TranslatableWindow:
     def translate_all(cls, lang):
         try:
             cls.translation = gettext.translation(
-                TRANSLATION_DOMAIN, tailsgreeter.config.system_locale_dir, [str(lang)],
+                TRANSLATION_DOMAIN,
+                tailsgreeter.config.system_locale_dir,
+                [str(lang)],
             )
         except OSError:
             cls.translation = None
