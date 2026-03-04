@@ -39,6 +39,7 @@ BridgeObfs4 = Node(
     pt_bridge=1,
     relay=1,
     pt_transport="obfs4",
+    sandbox=0,
 )
 
 BridgeDefault = Node(
@@ -47,6 +48,7 @@ BridgeDefault = Node(
     pt_bridge=1,
     relay=1,
     pt_transport="obfs4",
+    sandbox=0,
 )
 
 NODES = Authority.getN(4) + \

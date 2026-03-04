@@ -137,8 +137,7 @@ def initialize_chutney
     chutney_cmd(
       'init',
       '--net-from-script-path', chutney_network_definition,
-      '--listen-address', $vmnet.bridge_ip_address.to_s,
-      '--tor-sandbox', '0'
+      '--listen-address', $vmnet.bridge_ip_address.to_s
     )
     chutney_cmd('configure')
     chutney_disable_info_level_logging
