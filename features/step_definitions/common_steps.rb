@@ -689,7 +689,7 @@ Given /^I successfully configure Tor$/ do
 end
 
 Then /^I wait until Tor is ready$/ do
-  step 'Tor has built a circuit'
+  wait_until_tor_is_working
   step 'the time has synced'
   debug_log('user_wants_pluggable_transports = ' \
            "#{@user_wants_pluggable_transports} " \
@@ -725,10 +725,6 @@ Then /^I wait until Tor is ready$/ do
       raise "The system is not fully running yet:\n#{jobs}\n#{units_status}"
     end
   end
-end
-
-Given /^Tor has built a circuit$/ do
-  wait_until_tor_is_working
 end
 
 class TimeSyncingError < StandardError
