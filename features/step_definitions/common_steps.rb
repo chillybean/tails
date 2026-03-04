@@ -689,7 +689,6 @@ Given /^I successfully configure Tor$/ do
 end
 
 Then /^I wait until Tor is ready$/ do
-  # Here we actually check that Tor is ready
   step 'Tor has built a circuit'
   step 'the time has synced'
   debug_log('user_wants_pluggable_transports = ' \
