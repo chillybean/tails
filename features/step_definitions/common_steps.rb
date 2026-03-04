@@ -688,8 +688,10 @@ Given /^I successfully configure Tor$/ do
   step 'I wait until Tor is ready'
 end
 
-Then /^I wait until Tor is ready$/ do
-  wait_until_tor_is_working
+Then /^I wait( for a long time)? until Tor is ready$/ do |long_wait|
+  wait_opts = {}
+  wait_opts[:timeout] = 60 * 10 if long_wait
+  wait_until_tor_is_working(**wait_opts)
   step 'the time has synced'
   debug_log('user_wants_pluggable_transports = ' \
            "#{@user_wants_pluggable_transports} " \
