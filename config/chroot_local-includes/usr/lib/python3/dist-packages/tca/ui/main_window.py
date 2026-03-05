@@ -158,7 +158,8 @@ class StepChooseHideMixin:
 
 class StepChooseBridgeMixin:
     def before_show_bridge(self, coming_from) -> None:
-        self.state["bridge"]: dict[str, Any] = {}
+        if "bridge" not in self.state:
+            self.state["bridge"]: dict[str, Any] = {}
         self.persistence_config_failed = False
 
         self.builder.get_object("step_bridge_box").show()
@@ -531,12 +532,12 @@ class StepChooseBridgeMixin:
         self.change_box("progress")
 
     def cb_step_bridge_btn_back_clicked(self, *args):
-        self.change_box("hide")
+        if "progress" in self.state and self.state["progress"].get("error", None):
+            self.change_box("error")
+        else:
+            self.change_box("hide")
 
     def scan_qrcode(self):
-        # yes, the *exactly* same code is run, no matter if you are calling
-        # this from "bridge" step or from "error" step
-
         error_box = self.builder.get_object("step_bridge_box_scanerror")
         error_label = self.builder.get_object("step_bridge_label_scanerror")
         error_box.hide()
@@ -650,6 +651,7 @@ class StepConnectProgressMixin:
 
     def cb_bridge_settings_fetched(self, gjsonrpcclient, res, error, errordata):
         def set_error(message):
+            self.state["progress"]["error"] = "moat"
             # Translators: don't translate {message}
             error = _("Failed to fetch bridge settings: {message}").format(
                 message=message
@@ -958,19 +960,6 @@ class StepErrorMixin:
         self.state["error"] = {
             "fix_attempt": False  # has the user done something to fix it?
         }
-        if coming_from == "progress":
-            if (
-                self.state["hide"]["bridge"]
-                and self.state["bridge"].get("kind") == "manual"
-            ):
-                bridge = self.state["bridge"]["bridges"][0]
-                self.get_object("text").get_buffer().set_text(bridge, len(bridge))
-        self.get_object("text").get_buffer().connect(
-            "inserted_text", self.cb_step_error_text_changed
-        )
-        self.get_object("text").get_buffer().connect(
-            "deleted_text", self.cb_step_error_text_changed
-        )
         if coming_from in ["proxy"]:
             self.state["error"]["fix_attempt"] = True
         hide_mode: bool = self.state["hide"]["hide"]
@@ -1051,60 +1040,13 @@ class StepErrorMixin:
         self.state["error"]["fix_attempt"] = True
         self._step_error_submit_allowed()
 
+    def cb_step_error_btn_configure_bridge_clicked(self, *args):
+        self.change_box("bridge")
+
     def _step_error_submit_allowed(self):
-        def set_warning(msg):
-            self.get_object("label_warning").set_label(msg)
-            self.get_object("box_warning").show()
-
-        def is_allowed():
-            text = self.get_object("text").get_buffer().get_text()
-            try:
-                bridges = TorConnectionConfig.parse_bridge_lines([text])
-            except InvalidBridgeTypeException as exc:
-                set_warning(_("Invalid: {exception}").format(exception=str(exc)))
-                return False
-            except (MalformedBridgeException, ValueError, IndexError):
-                set_warning(_("Bridge address malformed"))
-                return False
-            else:
-                self.get_object("box_warning").hide()
-
-            if self.state["hide"]["hide"]:
-                for br in bridges:
-                    if br.split()[0] not in (VALID_BRIDGE_TYPES - {"bridge"}):
-                        set_warning(
-                            _(
-                                "You need to configure a WebTunnel or an obfs4 bridge to hide that you are using Tor"
-                            )
-                        )
-                        return False
-
-            if not bridges and self.state["hide"]["hide"]:
-                set_warning(
-                    _(
-                        "Setting a bridge is needed if you want to hide that you are using Tor"
-                    )
-                )
-                return False
-
-            if bridges:
-                return True
-
-            return True
-
-        self.get_object("btn_submit").set_sensitive(is_allowed())
-
-    def cb_step_error_text_changed(self, *args):
-        self._step_error_submit_allowed()
+        self.get_object("btn_submit").set_sensitive(self.state["error"]["fix_attempt"])
 
     def cb_step_error_btn_submit_clicked(self, *args):
-        text = self.get_object("text").get_buffer().get_text()
-        self.state["bridge"]["bridges"] = TorConnectionConfig.parse_bridge_lines([text])
-        # If the user is selecting any bridge, encode it properly
-        # If they are _not_, let's keep the previous settings, which could be default bridges
-        if self.state["bridge"]["bridges"]:
-            self.state["hide"]["bridge"] = True
-            self.state["bridge"]["kind"] = "manual"
         self.change_box("progress")
 
     def cb_step_error_btn_scanqrcode_clicked(self, *args):
@@ -1332,10 +1274,6 @@ class TCAMainWindow(
         )
         label_scanresult.set_property("use-markup", True)
         label_scanresult.show()
-
-        content = str(value[0])
-        text = self.builder.get_object("step_error_text")
-        text.get_buffer().set_text(content, len(content))
 
     @property
     def user_wants_hide(self) -> bool | None:
