@@ -960,9 +960,12 @@ class StepErrorMixin:
     def before_show_error(self, coming_from) -> None:
         label_explain = self.get_object("label_explain")
 
-        self.state["error"] = {
-            "fix_attempt": False  # has the user done something to fix it?
-        }
+        if "error" not in self.state:
+            self.state["error"] = {}
+        if "fix_attempt" not in self.state["error"]:
+            self.state["error"] = {
+                "fix_attempt": False  # has the user done something to fix it?
+            }
         if coming_from in ["proxy"]:
             self.state["error"]["fix_attempt"] = True
         hide_mode: bool = self.state["hide"]["hide"]
