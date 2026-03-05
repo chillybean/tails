@@ -966,7 +966,11 @@ class StepErrorMixin:
             self.state["error"] = {
                 "fix_attempt": False  # has the user done something to fix it?
             }
-        if coming_from in ["proxy"]:
+        if (
+            coming_from == "proxy"
+            and self.state["proxy"]
+            and self.state["proxy"]["proxy_type"] != "no"
+        ):
             self.state["error"]["fix_attempt"] = True
         hide_mode: bool = self.state["hide"]["hide"]
         time_synced: bool = (not hide_mode) and self.app.get_network_time_result[
