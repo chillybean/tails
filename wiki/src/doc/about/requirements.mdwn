@@ -1,37 +1,30 @@
 [[!meta title="System requirements and recommended hardware"]]
 
-Summary
-=======
+[[!toc startlevel=2 levels=2]]
 
-- Tails works on:
+## System requirements
 
-  * Most PC computers that are less than 10 years old
-  * Some older Mac computers with an Intel processor
+Tails works on most PC computers that are less than 10 years old.
 
-- Tails does not work:
+Tails does not work on:
 
-  * Newer Mac computers with an Apple processor (M1, M2, and so on)
-  * Smartphones or tablets
-  * Raspberry Pi
+- Mac computers with an Apple processor (M1, M2, and so on)
+- Smartphones or tablets
+- Raspberry Pi
 
-- Tails might not work on:
-
-  * Some older computers, for example, if they don't have 3 GB of RAM.
-
-  * Some newer computers, for example, if their [[graphics card is incompatible with Linux|support/known_issues/graphics]].
-    Nvidia or AMD Radeon cards often do not work in Tails.
+Tails might not work on some PC computers, for example, if their [[graphics
+card is incompatible with Linux|support/known_issues/graphics]]. Nvidia or AMD
+Radeon cards often do not work in Tails.
 
 <p>See our [[list of known hardware compatibility
 issues|support/known_issues]].</p>
 
-</div>
+### Detailed hardware requirements
 
-Detailed hardware requirements
-==============================
+- 3 GB of RAM to work smoothly.
 
-- A USB stick of 8 GB minimum or a recordable DVD.
-
-  All the data on this USB stick or DVD is lost when installing Tails.
+  Tails can work with less than 3 GB RAM but might experience reduced
+  performance, instability, or crashes.
 
 - The ability to start from a USB stick or a DVD reader.
 
@@ -44,19 +37,13 @@ Detailed hardware requirements
 
   * Tails does not work on 32-bit computers since [[Tails 3.0|news/Tails_3.0_will_require_a_64-bit_processor]] (June 2017).
 
-- 3 GB of RAM to work smoothly.
-
-  Tails can work with less than 3 GB RAM but might experience reduced
-  performance, instability, or crashes.
-
-Recommended hardware
-====================
+### Recommended laptops
 
 Laptop models evolve too rapidly for us to be able to provide an up-to-date
 list of recommended hardware. Below are some guidelines if you, or your
 organization, are considering acquiring a laptop dedicated to running Tails.
 
-### For PC
+#### For PC
 
 - Avoid "gaming" models with Nvidia or AMD Radeon graphics cards.
 
@@ -73,7 +60,9 @@ organization, are considering acquiring a laptop dedicated to running Tails.
 - Consider buying a new laptop from vendors who guarantee the compatibility
   with Linux and Tails like [ThinkPenguin](https://www.thinkpenguin.com/).
 
-### For Mac
+#### For Mac
+
+Tails still works on some older Mac computers with an Intel processor.
 
 Unfortunately, we don't know of any Mac model that works well in Tails and can
 run the latest macOS version.
@@ -118,6 +107,10 @@ To update the list of PC computers:
 -->
 
 ## Recommended USB sticks
+
+You need a USB stick of 8 GB minimum to use Tails.
+
+All the data on this USB stick is lost when installing Tails.
 
 The quality of your USB stick is crucial when using Tails. A bad USB stick will
 be slower and more likely to corrupt the files in your [[Persistent
