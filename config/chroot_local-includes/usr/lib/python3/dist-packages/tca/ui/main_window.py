@@ -5,6 +5,8 @@ import gettext
 from typing import Any, Optional
 import copy
 import pycountry
+import subprocess
+import tempfile
 
 import gi
 import stem
@@ -653,18 +655,14 @@ class StepConnectProgressMixin:
             self._step_progress_success_screen()
 
     def cb_bridge_settings_fetched(self, gjsonrpcclient, res, error, errordata):
-        def set_error(message):
-            self.state["progress"]["error"] = "moat"
-            # Translators: don't translate {message}
-            error = _("Failed to fetch bridge settings: {message}").format(
-                message=message
-            )
+        def set_error(code, data=None):
+            log.debug("Circumvention Settings API failed: %s", code)
+            self.state["progress"]["error"] = code
+            self.state["progress"]["error_data"] = data
             self.change_box("error")
-            self.builder.get_object("step_error_label_explain").set_text(error)
 
         if not res or res.get("returncode", 1) != 0:
-            # Translators: don't translate "get-bridge-settings"
-            set_error(_("get-bridge-settings command failed"))
+            set_error("moat_command_failed")
             return
 
         raw_content = res.get("stdout", "").strip()
@@ -672,22 +670,19 @@ class StepConnectProgressMixin:
         try:
             response = json.loads(raw_content)
         except json.decoder.JSONDecodeError:
-            set_error(_("Got invalid JSON"))
+            set_error("moat_invalid_json", data=raw_content)
             return
 
         if "requests-error" in response:
-            set_error(response["requests-error"])
+            set_error("moat_fetch_failed", data=response["requests-error"])
             return
 
         settings = response.get("settings", [])
         if settings == []:
             if "errors" in response:
-                errors = ". ".join(
-                    [f"Code {e['code']}: {e['detail']}" for e in response["errors"]]
-                )
-                set_error(errors)
+                set_error("moat_api_error", data=response["errors"])
             else:
-                set_error(_("Got an empty list of bridge settings"))
+                set_error("moat_empty_settings")
             return
 
         valid_settings = [
@@ -697,7 +692,11 @@ class StepConnectProgressMixin:
         ]
 
         if valid_settings == []:
-            set_error(_("Got only unsupported bridge types"))
+            # XXX: Since we already limit transports when asking the
+            # API we cannot get unsupported transports here. But maybe
+            # we should ask for all transports so we can show a
+            # specific error then? Code: moat_no_supported_settings
+            set_error("moat_empty_settings")
             return
         else:
             self.state["bridge"]["moat_settings"] = valid_settings
@@ -886,7 +885,10 @@ class StepConnectProgressMixin:
                         [do_tor_connect_default_bridges, do_tor_connect_apply]
                     )
                 else:
-                    self.state["progress"]["error"] = "tor"
+                    if self.state["bridge"].get("kind", []) == "moat":
+                        self.state["progress"]["error"] = "moat_settings_failed"
+                    else:
+                        self.state["progress"]["error"] = "tor"
                     self.app.configurator.stop_connecting()
                     log.info("Failed with bridges")
                     self.change_box("error")
@@ -958,8 +960,6 @@ class StepConnectProgressMixin:
 
 class StepErrorMixin:
     def before_show_error(self, coming_from) -> None:
-        label_explain = self.get_object("label_explain")
-
         if "error" not in self.state:
             self.state["error"] = {}
         if "fix_attempt" not in self.state["error"]:
@@ -980,6 +980,39 @@ class StepErrorMixin:
             None if time_synced else self.app.get_network_time_result.get("reason")
         )
 
+        def set_header(box_id):
+            for c in self.get_object("headers_box").get_children():
+                c.hide()
+            self.get_object(f"header_{box_id}_box").show()
+
+        error_code = self.state["progress"].get("error", None)
+        if not time_synced:
+            set_header("generic")
+        elif error_code == "tor":
+            set_header("tor_fail")
+            bridge_header = self.get_object("header_tor_fail_bridge")
+            bridges = self.app.configurator.tor_connection_config.bridges
+            if len(bridges) > 0:
+                bridge_header.set_markup(
+                    # Translators: only translate "Bridge:" and adjust
+                    # text-direction
+                    _("Bridge: <b>{bridge}</b>").format(bridge=bridges[0])
+                )
+                bridge_header.show()
+            else:
+                bridge_header.hide()
+        elif error_code == "moat_settings_failed":
+            set_header("moat_settings_failed")
+        elif error_code.startswith("moat_"):
+            self.get_object("header_moat_failed_code").set_text(
+                # Translators: only translate "Error code:" and adjust
+                # text-direction
+                _("Error code: {code}").format(code=error_code)
+            )
+            set_header("moat_failed")
+        else:
+            set_header("generic")
+
         # Bridges are compulsory in hide mode, so the user has
         # already seen the explanation about bridges and we don't
         # need to repeat it here.
@@ -987,9 +1020,7 @@ class StepErrorMixin:
 
         for box in ["wrong_clock", "captive_portal", "proxy"]:
             self.get_object(f"box_{box}").set_visible(not time_synced)
-        label_explain.set_text(
-            _("This local network seems to be blocking access to Tor.")
-        )
+        label_explain = self.get_object("label_explain")
         if time_sync_failure_reason == "captive-portal":
             self.get_object("box_wrong_clock").set_visible(False)
             label_explain.set_visible(True)
@@ -997,6 +1028,17 @@ class StepErrorMixin:
             label_explain.set_visible(time_synced)
 
         self._step_error_submit_allowed()
+
+    def cb_step_error_btn_open_details(self, *args):
+        error_code = self.state["progress"].get("error", "")
+        report = f"Code: {error_code}"
+        error_data = self.state["progress"].get("error_data", None)
+        if error_data:
+            report += f"\nDetails:\n{error_data}"
+        with tempfile.NamedTemporaryFile(delete=False) as f:
+            f.write(report.encode("utf-8"))
+            f.flush()
+            subprocess.Popen(["/usr/bin/gnome-text-editor", f.name])
 
     def cb_step_error_btn_proxy_clicked(self, *args):
         self.change_box("proxy")
