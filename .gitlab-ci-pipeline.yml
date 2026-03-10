@@ -5,10 +5,16 @@ workflow:
     - if: $CI_COMMIT_TAG
     - if: '$CI_COMMIT_BRANCH =~ /^(master|stable|testing|devel)$/'
 
+.definitions:
+  # Some tests specifically need to use the same Debian suite that the current
+  # Tails is based on.  This variable ensures this is the case. Note that this
+  # will often be the same as top-level "image" field.
+  current-suite-image: &current-suite-image "registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:trixie"
+
 # Please, make sure to only use images from `registry.gitlab.tails.boum.org`,
 # as we give significant privileges to our Runners wrt. what they can do in our
 # repositories.
-image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:trixie
+image: *current-suite-image
 
 variables:
     GET_SOURCES_ATTEMPTS: 10
@@ -389,6 +395,7 @@ check-target-branch-for-rm-config-change:
     - exit 1
 
 https-get-expired:
+  image: *current-suite-image
   rules:
     - if: '$CI_COMMIT_BRANCH =~ /^stable|testing|devel$/'
     - changes:
