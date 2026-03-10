@@ -402,22 +402,6 @@ https-get-expired:
     - *build-https-get-expired
     - *test-https-get-expired
 
-https-get-expired-sid:
-  # this job gives us results using a future version of Golang compared to the one we actually use
-  image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:sid
-  rules:
-    - if: '$CI_COMMIT_BRANCH == "devel"'
-    - changes:
-        - .gitlab-ci.yml
-        - .gitlab-ci-pipeline.yml
-        - config/chroot_local-includes/usr/src/https-get-expired.go
-        - config/chroot_local-includes/etc/default/htpdate.pools
-        - config/chroot_local-includes/usr/local/lib/build-https-accept-expired
-  script:
-    - *install-https-get-expired-build-deps
-    - *build-https-get-expired
-    - *test-https-get-expired
-
 Ensure MR from stable into devel:
   rules:
     - if: '$CI_COMMIT_BRANCH == "stable"'
