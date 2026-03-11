@@ -120,7 +120,7 @@ def get_settings(fallback=False, proxy=None, region=None, transports=None):
         )
 
     response = meek_request(fronted_get_settings, proxy=proxy)
-    if fallback and response.get("settings", []) == []:
+    if fallback and not response.get("settings", []):
         response = meek_request(fronted_get_defaults, proxy=proxy)
     return response
 

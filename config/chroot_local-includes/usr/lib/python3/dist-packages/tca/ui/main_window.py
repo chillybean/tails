@@ -678,8 +678,8 @@ class StepConnectProgressMixin:
             return
 
         settings = response.get("settings", [])
-        if settings == []:
-            if "errors" in response:
+        if not settings:
+            if response.get("errors", []):
                 set_error("moat_api_error", data=response["errors"])
             else:
                 set_error("moat_empty_settings")
@@ -691,7 +691,7 @@ class StepConnectProgressMixin:
             if s["bridges"]["type"] in self.app.supported_bridge_types
         ]
 
-        if valid_settings == []:
+        if not valid_settings:
             # XXX: Since we already limit transports when asking the
             # API we cannot get unsupported transports here. But maybe
             # we should ask for all transports so we can show a
