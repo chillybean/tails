@@ -708,23 +708,14 @@ class StepConnectProgressMixin:
         region = self.builder.get_object(
             "step_bridge_moat_region_combo"
         ).get_active_id()
+        proxy = self.get_configured_proxy_url()
         args = ["--defaults-fallback"]
         args += [
             f"--transport={t}" for t in self.app.supported_bridge_types if t != "bridge"
         ]
         if region != "automatic" and region is not None:
             args += ["--region", region]
-        if self.state["proxy"] and self.state["proxy"]["proxy_type"] != "no":
-            proto = self.state["proxy"]["proxy_type"].lower()
-            credentials_part = ""
-            if self.state["proxy"]["username"] != "":
-                credentials_part = self.state["proxy"]["username"]
-                if self.state["proxy"]["password"] != "":
-                    credentials_part += ":" + self.state["proxy"]["password"]
-                credentials_part += "@"
-            host = self.state["proxy"]["address"]
-            port = self.state["proxy"]["port"]
-            proxy = f"{proto}://{credentials_part}{host}:{port}"
+        if proxy:
             args += ["--proxy", proxy]
         self.app.portal.call_async(
             "get-bridge-settings", self.cb_bridge_settings_fetched, *args
@@ -1028,6 +1019,16 @@ class StepErrorMixin:
         else:
             label_explain.set_visible(time_synced)
 
+        proxy = self.get_configured_proxy_url()
+        self.get_object("proxy_explain_label").set_visible(proxy is None)
+        self.get_object("proxy_address_label").set_visible(proxy is not None)
+        if proxy:
+            self.get_object("proxy_address_label").set_markup(
+                # Translators: only translate "Proxy:" and adjust
+                # text-direction
+                _("Proxy: <b>{proxy}</b>").format(proxy=proxy)
+            )
+
         self._step_error_submit_allowed()
 
     def cb_step_error_btn_open_details(self, *args):
@@ -1188,6 +1189,24 @@ class StepProxyMixin:
             self.state["proxy"][entry] = self.get_object("entry_%s" % entry).get_text()
 
         self.change_box("error")
+
+    def get_configured_proxy_url(self):
+        if (
+            "proxy" in self.state
+            and self.state["proxy"].get("proxy_type", "no") != "no"
+        ):
+            proto = self.state["proxy"]["proxy_type"].lower()
+            credentials_part = ""
+            if self.state["proxy"].get("username", None):
+                credentials_part = self.state["proxy"]["username"]
+                if self.state["proxy"].get("password", None):
+                    credentials_part += ":" + self.state["proxy"]["password"]
+                credentials_part += "@"
+            host = self.state["proxy"]["address"]
+            port = self.state["proxy"]["port"]
+            return f"{proto}://{credentials_part}{host}:{port}"
+        else:
+            return None
 
 
 class TCAMainWindow(

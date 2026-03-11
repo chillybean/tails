@@ -1223,7 +1223,7 @@ You can use &lt;i&gt;obfs4&lt;/i&gt; and &lt;i&gt;WebTunnel&lt;/i&gt; bridges in
               </packing>
             </child>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="step_error_proxy_explain_label">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <property name="halign">start</property>
@@ -1237,6 +1237,23 @@ You can use &lt;i&gt;obfs4&lt;/i&gt; and &lt;i&gt;WebTunnel&lt;/i&gt; bridges in
                 <property name="expand">False</property>
                 <property name="fill">True</property>
                 <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="step_error_proxy_address_label">
+                <property name="visible">False</property>
+                <property name="can-focus">False</property>
+                <property name="halign">start</property>
+                <property name="margin-top">6</property>
+                <property name="label"></property>
+                <style>
+                  <class name="step-error-section-description"/>
+                </style>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">2</property>
               </packing>
             </child>
             <child>
@@ -1254,7 +1271,7 @@ You can use &lt;i&gt;obfs4&lt;/i&gt; and &lt;i&gt;WebTunnel&lt;/i&gt; bridges in
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
-                <property name="position">2</property>
+                <property name="position">3</property>
               </packing>
             </child>
             <style>
