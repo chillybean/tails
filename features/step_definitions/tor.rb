@@ -794,26 +794,24 @@ Given /^the Moat distributor responds with the default bridges$/ do
   default_bridges = $vm.execute_successfully(
     "grep ^#{transport} /usr/share/tails/tca/default_bridges.txt | sort"
   ).stdout.chomp.split("\n")
-  assert_equal(1, default_bridges.size,
-               'This step assumes only one default bridge at the moment')
-  default_bridge = default_bridges.first
+  response = {
+    "settings": [
+      {
+        "bridges": {
+          "type": "#{transport}",
+          "source": "builtin",
+          "bridge_strings": default_bridges
+        }
+      }
+    ],
+    "country": "foo"
+  }
+  response_json = JSON.pretty_generate(response)
+  indented_response_json = response_json.lines.map { |l| "    #{l}" } .join
   moat_wrapper = <<~WRAPPER
     #!/bin/sh
     cat << EOF
-    {
-      "settings": [
-        {
-          "bridges": {
-            "type": "#{transport}",
-            "source": "builtin",
-            "bridge_strings": [
-              "#{default_bridge}"
-            ]
-          }
-        }
-      ],
-      "country": "foo"
-    }
+#{indented_response_json}
     EOF
   WRAPPER
   $vm.file_overwrite('/usr/local/lib/tails-circumvention-settings', moat_wrapper)
