@@ -998,6 +998,7 @@ class StepErrorMixin:
                     # text-direction
                     _("Bridge: <b>{bridge}</b>").format(bridge=bridges[0])
                 )
+                bridge_header.set_ellipsize(Pango.EllipsizeMode.END)
                 bridge_header.show()
             else:
                 bridge_header.hide()
