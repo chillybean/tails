@@ -47,7 +47,8 @@ def meek_credentials():
         return s
 
     s = f"url={escape(MOAT_REFLECTOR)};front={escape(MOAT_FRONT)}"
-    assert len(s) <= 2 * 255
+    if len(s) > 2 * 255:
+        raise ValueError("the meek credentials don't fit into the SOCKS credentials")
     if len(s) <= 255:
         return (s, "\0")
     else:
@@ -82,10 +83,14 @@ def meek_request(request, proxy=None):
                 if line.startswith("CMETHOD "):
                     _, pt, proto, _address = line.split()
                     if pt == "meek" or pt == "meek_lite":
-                        assert proto == "socks5"
+                        if proto != "socks5":
+                            raise NotImplementedError(
+                                f"unsupported lyrebird CMETHOD listener protocol: {proto}"
+                            )
                         address = _address
                 elif line == "CMETHODS DONE":
-                    assert address is not None
+                    if address is None:
+                        raise RuntimeError("got no lyrebird CMETHOD address")
                     return request(address)
         finally:
             if p is not None:
