@@ -16,17 +16,6 @@ MOAT_FRONT = "vuejs.org"
 MOAT_REFLECTOR = "https://bespoke-strudel-c243cc.netlify.app"
 
 
-def mk_switch_user_fn(user):
-    pwd_user = pwd.getpwnam(user)
-
-    def switch_user():
-        os.initgroups(user, pwd_user.pw_gid)
-        os.setgid(pwd_user.pw_gid)
-        os.setuid(pwd_user.pw_uid)
-
-    return switch_user
-
-
 def meek_credentials():
     # We escape \=; as required by section 3.5 in the PT spec, but we
     # also use percent-encoding for various special characters since
