@@ -8,6 +8,8 @@ import requests
 import subprocess
 import tempfile
 
+from contextlib import contextmanager
+
 
 MOAT_SERVICE_URL = "https://bridges.torproject.org/moat"
 MOAT_SERVICE_SETTINGS_URL = f"{MOAT_SERVICE_URL}/circumvention/settings"
@@ -44,7 +46,8 @@ def meek_credentials():
         return (s[0:255], s[255:])
 
 
-def meek_request(request, proxy=None):
+@contextmanager
+def meek_request(proxy=None):
     with tempfile.TemporaryDirectory() as tmpdir:
         env = os.environ.copy()
         env.update(
@@ -80,7 +83,8 @@ def meek_request(request, proxy=None):
                 elif line == "CMETHODS DONE":
                     if address is None:
                         raise RuntimeError("got no lyrebird CMETHOD address")
-                    return request(address)
+                    yield address
+                    break
         finally:
             if p is not None:
                 p.kill()
@@ -119,9 +123,10 @@ def get_settings(fallback=False, proxy=None, region=None, transports=None):
             meek_address, MOAT_SERVICE_DEFAULTS_URL, transports=transports
         )
 
-    response = meek_request(fronted_get_settings, proxy=proxy)
-    if fallback and not response.get("settings", []):
-        response = meek_request(fronted_get_defaults, proxy=proxy)
+    with meek_request(proxy=proxy) as meek_address:
+        response = fronted_get_settings(meek_address)
+        if fallback and not response.get("settings", []):
+            response = fronted_get_defaults(meek_address)
     return response
 
 
