@@ -790,13 +790,13 @@ else
 end
 
 Given /^the Moat distributor responds with the default bridges$/ do
+  transport = 'obfs4'
   default_bridges = $vm.execute_successfully(
-    'grep ^obfs4 /usr/share/tails/tca/default_bridges.txt | sort'
+    "grep ^#{transport} /usr/share/tails/tca/default_bridges.txt | sort"
   ).stdout.chomp.split("\n")
   assert_equal(1, default_bridges.size,
                'This step assumes only one default bridge at the moment')
   default_bridge = default_bridges.first
-  transport = default_bridge.split.first
   moat_wrapper = <<~WRAPPER
     #!/bin/sh
     cat << EOF
