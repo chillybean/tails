@@ -1889,3 +1889,9 @@ end
 When(/^I click "([^"]+)" in the "([^"]+)" zenity dialog$/) do |button_label, title|
   zenity_dialog_click_button(title, button_label)
 end
+
+When(/^I open "(.*[.].*)" in Files$/) do |filename|
+  nautilus = Dogtail::Application.new('org.gnome.Nautilus')
+  nautilus.child(filename, roleName: 'table cell').click
+  @screen.press('Return')
+end
