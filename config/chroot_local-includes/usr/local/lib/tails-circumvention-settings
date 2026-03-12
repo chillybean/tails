@@ -114,23 +114,21 @@ def fronted_fetch(meek_address, moat_address, region=None, transports=None):
 
 
 def get_settings(fallback=False, proxy=None, region=None, transports=None):
-    def fronted_get_settings(meek_address):
-        return fronted_fetch(
+    with meek_request(proxy=proxy) as meek_address:
+        response = fronted_fetch(
             meek_address,
             MOAT_SERVICE_SETTINGS_URL,
             region=region,
             transports=transports,
         )
 
-    def fronted_get_defaults(meek_address):
-        return fronted_fetch(
-            meek_address, MOAT_SERVICE_DEFAULTS_URL, transports=transports
-        )
-
-    with meek_request(proxy=proxy) as meek_address:
-        response = fronted_get_settings(meek_address)
         if fallback and not response.get("settings", []):
-            response = fronted_get_defaults(meek_address)
+            response = fronted_fetch(
+                meek_address,
+                MOAT_SERVICE_DEFAULTS_URL,
+                transports=transports,
+            )
+
     return response
 
 
