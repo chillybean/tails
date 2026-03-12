@@ -33,6 +33,18 @@ To install the dependencies on our test suite:
 
 1. Enable the `non-free` APT component.
 
+1. If you are running Debian Forky or Sid you need to pin cucumber
+   related packages to the versions in Trixie ([[!tails_ticket
+   21463]]):
+
+       if [ "$(lsb_release --short --codename)" != trixie ]; then
+           sudo tee /etc/apt/preferences.d/cucumber.pref <<EOF
+       Package: cucumber ruby-cucumber-core ruby-cucumber-wire ruby-gherkin
+       Pin: release n=trixie, o=Debian
+       Pin-Priority: 1000
+       EOF
+       fi
+
 1. Install the following packages:
 
         sudo apt update && \
