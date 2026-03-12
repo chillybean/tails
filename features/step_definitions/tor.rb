@@ -798,13 +798,13 @@ Given /^the Moat distributor responds with the default bridges$/ do
     "settings": [
       {
         "bridges": {
-          "type": "#{transport}",
-          "source": "builtin",
-          "bridge_strings": default_bridges
-        }
-      }
+          "type":           transport,
+          "source":         'builtin',
+          "bridge_strings": default_bridges,
+        },
+      },
     ],
-    "country": "foo"
+    "country":  'foo',
   }
   response_json = JSON.pretty_generate(response)
   indented_response_json = response_json.lines.map { |l| "    #{l}" } .join
