@@ -5,16 +5,21 @@ workflow:
     - if: $CI_COMMIT_TAG
     - if: '$CI_COMMIT_BRANCH =~ /^(master|stable|testing|devel)$/'
 
+# This block is nothing special in GitLab CI semantics. It's just a place we're
+# putting "variables" to be reused later
 .definitions:
-  # Some tests specifically need to use the same Debian suite that the current
-  # Tails is based on.  This variable ensures this is the case. Note that this
-  # will often be the same as top-level "image" field.
+  # Please, make sure to only use images from `registry.gitlab.tails.boum.org`,
+  # as we give significant privileges to our Runners wrt. what they can do in our
+  # repositories.
+  image-trixie: &image-trixie "registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:trixie"
+  image-forky: &image-forky "registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:forky"
+  image-sid: &image-sid "registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:sid"
+
+  # Some tests specifically need to use the same Debian suite that a Tails built
+  # from this branch.  This variable ensures this is the case.
   current-suite-image: &current-suite-image "registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:trixie"
 
-# Please, make sure to only use images from `registry.gitlab.tails.boum.org`,
-# as we give significant privileges to our Runners wrt. what they can do in our
-# repositories.
-image: *current-suite-image
+image: *image-trixie
 
 variables:
     GET_SOURCES_ATTEMPTS: 10
@@ -107,7 +112,7 @@ deploy-website:
     - rsync --rsh="ssh -p ${SSH_PORT} -o UserKnownHostsFile=.ssh/known_hosts -i .ssh/private_key" --checksum --archive --no-times --verbose --mkpath --delete "config/chroot_local-includes/usr/share/doc/tails/website/" www-data@${SSH_SERVER}:/
 
 lint-po:
-  image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:trixie
+  image: *image-trixie
   rules:
     - if: '$CI_COMMIT_BRANCH =~ /^(master|stable|testing|devel)$/'
     - changes:
@@ -124,7 +129,7 @@ avoid-gtk-launch:
     - ./bin/test-utils/gtk-launch
 
 codespell:
-  image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:trixie
+  image: *image-trixie
   script:
     - apt-get -qy install codespell
     - codespell --version
@@ -138,7 +143,7 @@ ruff-lint-changed-files:
     GIT_STRATEGY: clone
     GIT_DEPTH: 0
 
-  image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:sid
+  image: *image-sid
 
   script:
     - apt-get -qy install ruff findutils git python3
@@ -158,7 +163,7 @@ ruff-format-changed-files:
     GIT_STRATEGY: clone
     GIT_DEPTH: 0
 
-  image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:sid
+  image: *image-sid
 
   script:
     - apt-get -qy install ruff findutils git python3
@@ -217,7 +222,7 @@ check-locale-descriptions:
     - ./bin/locale-descriptions suggest
 
 rubocop:
-  image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:trixie
+  image: *image-trixie
   script:
   - apt-get -qy install rubocop
   - rubocop --version
@@ -255,7 +260,7 @@ test-perl5lib:
   - dzil test --all
 
 shellcheck:
-  image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:trixie
+  image: *image-trixie
   script:
   - apt-get -qy install python3 shellcheck xmlstarlet git
   - shellcheck --version
@@ -275,7 +280,7 @@ shfmt-changed-files:
     GIT_STRATEGY: clone
     GIT_DEPTH: 0
 
-  image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:sid
+  image: *image-sid
 
   script:
     - apt-get -qy install shfmt findutils git python3
