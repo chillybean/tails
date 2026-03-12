@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-09-17 11:40+0200\n"
+"POT-Creation-Date: 2026-03-12 10:28+0000\n"
 "PO-Revision-Date: 2026-01-23 15:29+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,8 +24,26 @@ msgid "[[!meta title=\"Reporting an error using WhisperBack\"]]\n"
 msgstr "[[!meta title=\"Informar d'un error usant WhisperBack\"]]\n"
 
 #. type: Plain text
-msgid "Reporting errors is a great way of helping us improve Tails."
-msgstr "Informar d'errors és una bona manera d'ajudar-nos a millorar Tails."
+#, no-wrap
+msgid ""
+"*WhisperBack* allows you to report errors anonymously from inside Tails. Reports\n"
+"are sent to us encrypted and over the Tor network.\n"
+msgstr ""
+"*WhisperBack* us permet informar d'errors de manera anònima des de Tails. Els\n"
+"informes ens arriben encriptats i a través de la xarxa Tor.\n"
+
+#. type: Plain text
+#, fuzzy
+#| msgid ""
+#| "<p>Even if we are not able to reply to every report, we analyze all "
+#| "reports to\n"
+#| "improve Tails.</p>\n"
+msgid ""
+"Reporting errors is a great way of helping us improve Tails. Even if we are "
+"not able to reply to every report, we analyze all reports."
+msgstr ""
+"<p>Encara que no puguem respondre a tots els informes, els analitzem tots\n"
+"per millorar Tails.</p>\n"
 
 #. type: Plain text
 msgid ""
@@ -57,26 +75,24 @@ msgstr "<h1 id=\"whisperback\">Informar d'un error utilitzant <i>WhisperBack</i>
 
 #. type: Plain text
 #, no-wrap
-msgid ""
-"*WhisperBack* allows you to report errors anonymously from inside Tails. Reports\n"
-"are sent to us encrypted and over the Tor network.\n"
-msgstr ""
-"*WhisperBack* us permet informar d'errors de manera anònima des de Tails. Els\n"
-"informes ens arriben encriptats i a través de la xarxa Tor.\n"
-
-#. type: Plain text
-#, no-wrap
 msgid "<div class=\"note\">\n"
 msgstr "<div class=\"note\">\n"
 
 #. type: Plain text
+#, fuzzy, no-wrap
+#| msgid "If you cannot connect to the Internet or the Tor network, you cannot send us your error report using *WhisperBack*."
+msgid ""
+"<p>If you are not connected to the Tor network yet, your cannot send us your\n"
+"report from Tails.</p>\n"
+msgstr "Si no us podeu connectar a Internet o a la xarxa Tor, no ens podeu enviar el vostre informe d'error mitjançant *WhisperBack*."
+
+#. type: Plain text
 #, no-wrap
 msgid ""
-"<p>Even if we are not able to reply to every report, we analyze all reports to\n"
-"improve Tails.</p>\n"
+"<p>Either, send your report after you connected to Tor or [[save your\n"
+"report|whisperback#offline]] and [[contact us outside of\n"
+"Tails|support/talk]].</p>\n"
 msgstr ""
-"<p>Encara que no puguem respondre a tots els informes, els analitzem tots\n"
-"per millorar Tails.</p>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -89,8 +105,8 @@ msgstr "</div>\n"
 #| "To start *WhisperBack*, choose **Applications**&nbsp;▸ **System "
 #| "Tools**&nbsp;▸ **WhisperBack Error Reporting**."
 msgid ""
-"To open *WhisperBack*, choose **Apps&nbsp;▸ System Tools&nbsp;▸ WhisperBack "
-"Error Reporting**."
+"Choose **Apps&nbsp;▸ System Tools&nbsp;▸ WhisperBack Error Reporting** to "
+"open *WhisperBack*."
 msgstr ""
 "Per iniciar *WhisperBack*, trieu **Aplicacions**&nbsp;▸ **Eines del "
 "sistema**&nbsp;▸ **Informe d'errors de WhisperBack**."
@@ -190,31 +206,16 @@ msgid "Click **Send** to send your report."
 msgstr "Feu clic a **Envia** per enviar el vostre informe."
 
 #. type: Plain text
-#, no-wrap
-msgid "<h1 id=\"offline\">If you cannot connect to the Internet or the Tor network</h1>\n"
-msgstr "<h1 id=\"offline\">Si no podeu connectar-vos a Internet o a la xarxa Tor</h1>\n"
+#, fuzzy, no-wrap
+#| msgid "<h1 id=\"special-cases\">If you cannot use <i>WhisperBack</i></h1>\n"
+msgid "<h1 id=\"offline\">Saving your <i>WhisperBack</i> report</h1>\n"
+msgstr "<h1 id=\"special-cases\">Si no podeu utilitzar <i>WhisperBack</i></h1>\n"
 
 #. type: Plain text
 msgid ""
-"If you cannot connect to the Internet or the Tor network, you cannot send us "
-"your error report using *WhisperBack*."
+"To save your *WhisperBack* report and share it with us outside of Tails, for "
+"example by email:"
 msgstr ""
-"Si no us podeu connectar a Internet o a la xarxa Tor, no ens podeu enviar el "
-"vostre informe d'error mitjançant *WhisperBack*."
-
-#. type: Plain text
-#, no-wrap
-msgid "<div class=\"next\">\n"
-msgstr "<div class=\"next\">\n"
-
-#. type: Plain text
-#, no-wrap
-msgid "<p>See also: [[Troubleshooting Wi-Fi not working|anonymous_internet/no-wifi]]</p>\n"
-msgstr "<p>Vegeu també: [[Resolució de problemes de Wi-Fi quan aquest no funciona|anonymous_internet/no-wifi]]</p>\n"
-
-#. type: Plain text
-msgid "To send us your error report by email instead:"
-msgstr "Per enviar-nos el vostre informe d'error per correu electrònic:"
 
 #. type: Bullet: '1. '
 msgid ""
@@ -222,6 +223,18 @@ msgid ""
 msgstr ""
 "Connecteu un altre llapis USB per poder obrir el vostre informe fora de "
 "Tails."
+
+#. type: Bullet: '1. '
+#, fuzzy
+#| msgid ""
+#| "To start *WhisperBack*, choose **Applications**&nbsp;▸ **System "
+#| "Tools**&nbsp;▸ **WhisperBack Error Reporting**."
+msgid ""
+"To open *WhisperBack*, choose **Apps&nbsp;▸ System Tools&nbsp;▸ WhisperBack "
+"Error Reporting**."
+msgstr ""
+"Per iniciar *WhisperBack*, trieu **Aplicacions**&nbsp;▸ **Eines del "
+"sistema**&nbsp;▸ **Informe d'errors de WhisperBack**."
 
 #. type: Bullet: '1. '
 #, fuzzy
@@ -256,15 +269,8 @@ msgid "Save your report from the *Text Editor* to the other USB stick."
 msgstr "Deseu l'informe des de l'*Editor de text* a l'altre llapis USB."
 
 #. type: Bullet: '1. '
-msgid "Restart on your regular operating system."
-msgstr "Reinicieu el vostre sistema operatiu habitual."
-
-#. type: Bullet: '1. '
-#, fuzzy
-#| msgid "Send your report to [[support@tails.net|about/contact#support]]."
-msgid "Send your report to [[support@tails.net|doc/about/contact#support]]."
+msgid "Check the [[other ways of contacting us|support/talk]]."
 msgstr ""
-"Envieu el vostre informe a [[support@tails.net|about/contact#support]]."
 
 #. type: Plain text
 #, no-wrap
@@ -356,6 +362,33 @@ msgid ""
 "<https://cdimage.debian.org/images/weekly-live-builds/amd64/iso-hybrid/>"
 msgstr ""
 "<https://cdimage.debian.org/images/weekly-live-builds/amd64/iso-hybrid/>"
+
+#~ msgid "Reporting errors is a great way of helping us improve Tails."
+#~ msgstr "Informar d'errors és una bona manera d'ajudar-nos a millorar Tails."
+
+#, no-wrap
+#~ msgid "<h1 id=\"offline\">If you cannot connect to the Internet or the Tor network</h1>\n"
+#~ msgstr "<h1 id=\"offline\">Si no podeu connectar-vos a Internet o a la xarxa Tor</h1>\n"
+
+#, no-wrap
+#~ msgid "<div class=\"next\">\n"
+#~ msgstr "<div class=\"next\">\n"
+
+#, no-wrap
+#~ msgid "<p>See also: [[Troubleshooting Wi-Fi not working|anonymous_internet/no-wifi]]</p>\n"
+#~ msgstr "<p>Vegeu també: [[Resolució de problemes de Wi-Fi quan aquest no funciona|anonymous_internet/no-wifi]]</p>\n"
+
+#~ msgid "To send us your error report by email instead:"
+#~ msgstr "Per enviar-nos el vostre informe d'error per correu electrònic:"
+
+#~ msgid "Restart on your regular operating system."
+#~ msgstr "Reinicieu el vostre sistema operatiu habitual."
+
+#, fuzzy
+#~| msgid "Send your report to [[support@tails.net|about/contact#support]]."
+#~ msgid "Send your report to [[support@tails.net|doc/about/contact#support]]."
+#~ msgstr ""
+#~ "Envieu el vostre informe a [[support@tails.net|about/contact#support]]."
 
 #~ msgid "Have a look at:"
 #~ msgstr "Feu una ullada a:"
@@ -524,11 +557,6 @@ msgstr ""
 #~ "següent\n"
 #~ "notificació: <span class=\"guilabel\">El vostre missatge s'ha enviat "
 #~ "correctament</span>.\n"
-
-#, fuzzy, no-wrap
-#~| msgid "<h1 id=\"special-cases\">If you cannot use <i>WhisperBack</i></h1>\n"
-#~ msgid "<h1 id=\"special\">If you cannot use <i>WhisperBack</i></h1>\n"
-#~ msgstr "<h1 id=\"special-cases\">Si no podeu utilitzar <i>WhisperBack</i></h1>\n"
 
 #, fuzzy
 #~| msgid ""
