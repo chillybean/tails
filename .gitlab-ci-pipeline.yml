@@ -16,7 +16,7 @@ workflow:
   image-sid: &image-sid "registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:sid"
 
   # Some tests specifically need to use the same Debian suite that a Tails built
-  # from this branch.  This variable ensures this is the case.
+  # from this branch.  To ensure this, those jobs must set `image: *current-suite-image`.
   current-suite-image: &current-suite-image "registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:trixie"
 
 image: *image-trixie
