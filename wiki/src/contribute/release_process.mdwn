@@ -1092,15 +1092,27 @@ Tell testers that they can start testing. Remember to encrypt and sign your emai
     Subject: Testing Tails ${VERSION:?}
     X-Attach: $(/bin/ls -1 "$ISOS/tails-amd64-${VERSION:?}/tails-amd64-${VERSION:?}.packages" "$ISOS/tails-amd64-${VERSION:?}/"tails-amd64-${VERSION:?}.{iso,img}.sig | tr '\n' ,)
 
-    You can now download the images, verify them using the attached signatures, and start testing:
+    You can now start testing Tails ${VERSION}:
 
+    1. Download the images
+    ======================
+
+    Either use `git-annex` or download from
     https://nightly.tails.boum.org/build_Tails_ISO_${RELEASE_BRANCH:?}/builds/${MATCHING_JENKINS_IMAGES_BUILD_ID:?}/archive/build-artifacts/
-    
-    To verify downloaded data, run:
 
-        gpg --verify tails-amd64-${VERSION:?}.img.sig tails-amd64-${VERSION:?}.img
-        gpg --verify tails-amd64-${VERSION:?}.iso.sig tails-amd64-${VERSION:?}.iso
+    2. Verify the images
+    ====================
+
+    Verify the downloaded images *using the signatures attached to this email*.
+    
+    To verify the images, run:
+
+        gpg --verify /path/to/tails-amd64-${VERSION:?}.img.sig tails-amd64-${VERSION:?}.img
+        gpg --verify /path/to/tails-amd64-${VERSION:?}.iso.sig tails-amd64-${VERSION:?}.iso
     EOF
+
+    3. Start testing :)
+    ===================
 
 Send a message on Matrix, too:
 
