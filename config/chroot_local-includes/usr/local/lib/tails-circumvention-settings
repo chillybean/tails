@@ -7,6 +7,7 @@ import pwd
 import requests
 import subprocess
 import tempfile
+import urllib.parse
 
 from contextlib import contextmanager
 
@@ -14,36 +15,32 @@ from contextlib import contextmanager
 MOAT_SERVICE_URL = "https://bridges.torproject.org/moat"
 MOAT_SERVICE_SETTINGS_URL = f"{MOAT_SERVICE_URL}/circumvention/settings"
 MOAT_SERVICE_DEFAULTS_URL = f"{MOAT_SERVICE_URL}/circumvention/defaults"
-MOAT_FRONT = "vuejs.org"
-MOAT_REFLECTOR = "https://bespoke-strudel-c243cc.netlify.app"
+MOAT_TARGETS = "https://1723079976.rsc.cdn77.org|cdn.zk.mk+www.cdn77.com,https://bespoke-strudel-c243cc.netlify.app|vuejs.org+netlify.com"
 
 
 def meek_credentials():
-    # We escape \=; as required by section 3.5 in
-    # https://gitlab.torproject.org/tpo/core/torspec/-/blob/main/attic/text_formats/pt-spec.txt
-    # but we also use percent-encoding for various special characters since these
-    # credentials will be used in a URL (where e.g. : is used to separate user and
-    # password, so if user contains a : there would otherwise be ambiguity which in our
-    # case causes requests to raise an exception).
-    def escape(s):
-        replacers = {
-            "\\": "\\\\",
-            "=": "\\=",
-            ";": "\\;",
-            ":": "%3A",
-            "/": "%2F",
-        }
-        for pattern, replacement in replacers.items():
-            s = s.replace(pattern, replacement)
-        return s
-
-    s = f"url={escape(MOAT_REFLECTOR)};front={escape(MOAT_FRONT)}"
-    if len(s) > 2 * 255:
+    targets = f"targets={MOAT_TARGETS}"
+    # According the specification [0] we should be able to fit the
+    # targets line in just the username part of the SOCKS
+    # authentication credentials and set the password to null but due
+    # to a bug in PySocks [1] it can only handle usernames/password up
+    # to 127 characters long (ours is 129 characters long). So we
+    # avoid the bug as best we can by splitting the targets line in
+    # the middle over the username and password so that they become as
+    # short as possible.  We can stop doing this (and support targets
+    # lines longer than 254 characters) once urllib3 switches away
+    # from PySocks [2].
+    # [0] https://gitlab.torproject.org/tpo/core/torspec/-/blob/main/spec/pt-spec/per-connection-args.md
+    # [1] https://github.com/Anorov/PySocks/issues/177
+    # [2] https://github.com/urllib3/urllib3/issues/2206
+    if len(targets) > 254:
         raise ValueError("the meek credentials don't fit into the SOCKS credentials")
-    if len(s) <= 255:
-        return (s, "\0")
-    else:
-        return (s[0:255], s[255:])
+    middle = len(targets) // 2
+    user, passwd = (targets[0:middle], targets[middle:])
+    # Since these will be used in a URL we percent-encode it to avoid
+    # issues with e.g. : which is used to separate username and
+    # password in the URL.
+    return (urllib.parse.quote(user, safe=""), urllib.parse.quote(passwd, safe=""))
 
 
 @contextmanager
