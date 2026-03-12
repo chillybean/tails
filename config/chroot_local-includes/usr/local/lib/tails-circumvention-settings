@@ -19,12 +19,12 @@ MOAT_REFLECTOR = "https://bespoke-strudel-c243cc.netlify.app"
 
 
 def meek_credentials():
-    # We escape \=; as required by section 3.5 in the PT spec, but we
-    # also use percent-encoding for various special characters since
-    # these credentials will be used in a URL (where e.g. : is used to
-    # separate user and password, so if user contains a : there would
-    # otherwise be ambiguity which in our case causes requests to
-    # raise an exception).
+    # We escape \=; as required by section 3.5 in
+    # https://gitlab.torproject.org/tpo/core/torspec/-/blob/main/attic/text_formats/pt-spec.txt
+    # but we also use percent-encoding for various special characters since these
+    # credentials will be used in a URL (where e.g. : is used to separate user and
+    # password, so if user contains a : there would otherwise be ambiguity which in our
+    # case causes requests to raise an exception).
     def escape(s):
         replacers = {
             "\\": "\\\\",
@@ -48,6 +48,10 @@ def meek_credentials():
 
 @contextmanager
 def meek_request(proxy=None):
+    # This implements
+    # https://gitlab.torproject.org/tpo/anti-censorship/team/-/wikis/Moat#using-lyrebird
+    # and uses TorBrowser's implementation as a reference
+    # https://gitlab.torproject.org/tpo/applications/tor-browser/-/blob/tor-browser-148.0a1-16.0-2/toolkit/modules/DomainFrontedRequests.sys.mjs?ref_type=heads#L159
     with tempfile.TemporaryDirectory() as tmpdir:
         env = os.environ.copy()
         env.update(
