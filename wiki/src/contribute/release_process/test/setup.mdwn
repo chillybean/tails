@@ -16,10 +16,10 @@ Trixie or Sid, then you need to:
 
    For example, if the host system has an Intel CPU:
 
-         if [ "$(cat /sys/module/kvm_intel/parameters/nested)" != Y ]; then
-            echo "options kvm_intel nested=Y" | \
-                 sudo tee /etc/modprobe.d/kvm.conf
-         fi
+       if [ "$(cat /sys/module/kvm_intel/parameters/nested)" != Y ]; then
+          echo "options kvm_intel nested=Y" | \
+               sudo tee /etc/modprobe.d/kvm.conf
+       fi
 
 2. Prepare a Debian virtual machine; we recommend the stable release.
 
@@ -47,64 +47,64 @@ To install the dependencies on our test suite:
 
 1. Install the following packages:
 
-        sudo apt update && \
-        sudo apt install \
-            cucumber \
-            dbus-x11 \
-            devscripts \
-            dnsmasq-base \
-            gawk \
-            git \
-            imagemagick \
-            libcap2-bin \
-            libnss3-tools \
-            libvirt-clients \
-            libvirt-daemon-system \
-            libvirt-dev \
-            libvirt0 \
-            obfs4proxy \
-            openssh-server \
-            ovmf \
-            pry \
-            python3-debian \
-            python3-distro-info \
-            python3-requests \
-            python3-psycopg2 \
-            python3-slixmpp \
-            python3-tomli-w \
-            python3-yaml \
-            qemu-system-common \
-            qemu-system-x86 \
-            qemu-utils \
-            qrencode \
-            ruby-guestfs \
-            ruby-json \
-            ruby-libvirt \
-            ruby-packetfu \
-            ruby-net-dns \
-            ruby-rb-inotify \
-            ruby-rspec \
-            ruby-test-unit \
-            seabios \
-            tcpdump \
-            tcplay \
-            tesseract-ocr \
-            tor \
-            unclutter \
-            virt-viewer \
-            x11vnc \
-            tigervnc-viewer \
-            x264 \
-            xdotool \
-            xfwm4 \
-            xvfb \
-            ffmpeg \
-            python3-opencv \
-            python3-paramiko \
-            python3-pil \
-            python3-typeguard \
-            && \
-        sudo service libvirtd restart
+       sudo apt update && \
+       sudo apt install \
+           cucumber \
+           dbus-x11 \
+           devscripts \
+           dnsmasq-base \
+           gawk \
+           git \
+           imagemagick \
+           libcap2-bin \
+           libnss3-tools \
+           libvirt-clients \
+           libvirt-daemon-system \
+           libvirt-dev \
+           libvirt0 \
+           obfs4proxy \
+           openssh-server \
+           ovmf \
+           pry \
+           python3-debian \
+           python3-distro-info \
+           python3-requests \
+           python3-psycopg2 \
+           python3-slixmpp \
+           python3-tomli-w \
+           python3-yaml \
+           qemu-system-common \
+           qemu-system-x86 \
+           qemu-utils \
+           qrencode \
+           ruby-guestfs \
+           ruby-json \
+           ruby-libvirt \
+           ruby-packetfu \
+           ruby-net-dns \
+           ruby-rb-inotify \
+           ruby-rspec \
+           ruby-test-unit \
+           seabios \
+           tcpdump \
+           tcplay \
+           tesseract-ocr \
+           tor \
+           unclutter \
+           virt-viewer \
+           x11vnc \
+           tigervnc-viewer \
+           x264 \
+           xdotool \
+           xfwm4 \
+           xvfb \
+           ffmpeg \
+           python3-opencv \
+           python3-paramiko \
+           python3-pil \
+           python3-typeguard \
+           && \
+       sudo service libvirtd restart
 
 Other requirements
 ==================
