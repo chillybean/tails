@@ -807,12 +807,10 @@ Given /^the Moat distributor responds with the default bridges$/ do
     "country":  'foo',
   }
   response_json = JSON.pretty_generate(response)
-  indented_response_json = response_json.lines.map { |l| "    #{l}" } .join
+  $vm.file_overwrite('/run/moat-response.json', response_json)
   moat_wrapper = <<~WRAPPER
     #!/bin/sh
-    cat << EOF
-#{indented_response_json}
-    EOF
+    cat /run/moat-response.json
   WRAPPER
   $vm.file_overwrite('/usr/local/lib/tails-circumvention-settings', moat_wrapper)
 end
