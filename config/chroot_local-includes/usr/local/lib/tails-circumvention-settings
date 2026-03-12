@@ -105,6 +105,7 @@ def fronted_fetch(meek_address, moat_address, region=None, transports=None):
     if data:
         post_options["data"] = json.dumps(data)
     session = requests.Session()
+    # Do up to 3 attempts, to work around transient errors
     session.mount(moat_address, requests.adapters.HTTPAdapter(max_retries=2))
     response = session.post(moat_address, timeout=10, **post_options)
     return json.loads(response.content)
