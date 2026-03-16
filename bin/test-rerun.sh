@@ -22,8 +22,7 @@ fi
         sleep 10
         if ! env CHUTNEY_DATA_DIR="${tmpdir}/chutney-data" \
             CHUTNEY_START_TIME=600 \
-            submodules/chutney/chutney wait_for_bootstrap \
-            features/chutney/test-network || exit 1
+            submodules/chutney/chutney wait_for_bootstrap || exit 1
         then
             echo "ERROR: chutney not ready" >&2
             exit 1
