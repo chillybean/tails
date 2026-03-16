@@ -395,6 +395,8 @@ def wait_for_ponytail(user: LIVE_USER, timeout: 60)
       user:
     ).success?
   end
+rescue Timeout::Error
+  raise 'Known issue #21211: timed out while waiting for the GNOME Shell Introspect API'
 end
 
 Given /^the computer (?:re)?boots Tails$/ do
@@ -439,7 +441,13 @@ Given /^the computer (?:re)?boots Tails$/ do
     # rest of the session. That window is closed once the Welcome
     # Screen appears, so we wait for that to happen using image
     # matching.
-    @screen.wait('TailsGreeter.png', 60)
+    found = @screen.wait_any(
+      ['TailsGreeter.png', 'PlymouthGraphicsCardFailureMessage.png'], 60
+    )
+    if found.image == 'PlymouthGraphicsCardFailureMessage.png'
+      raise 'Known issue #20282: Error starting GDM with your graphics card'
+    end
+
     # Enable GNOME introspection for Dogtail and Ponytail
     $vm.execute_successfully('gnome-extensions enable automated-testing@tails.net',
                              user: 'Debian-gdm')
