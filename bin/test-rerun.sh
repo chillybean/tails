@@ -1,10 +1,10 @@
 #!/bin/bash
 
 if [ "$(id -u)" -ne 0 ]; then
-	exec sudo \
-		VERSION="$VERSION" ISOS="$ISOS" PREVIOUS_STABLE_VERSION="$PREVIOUS_STABLE_VERSION" \
-		tmpdir="$HOME/tails/release/test-results/${VERSION:?}" \
-		"$0" "$@"
+    exec sudo \
+        VERSION="$VERSION" ISOS="$ISOS" PREVIOUS_STABLE_VERSION="$PREVIOUS_STABLE_VERSION" \
+        tmpdir="$HOME/tails/release/test-results/${VERSION:?}" \
+        "$0" "$@"
 fi
 
 (
@@ -22,8 +22,7 @@ fi
         sleep 10
         if ! env CHUTNEY_DATA_DIR="${tmpdir}/chutney-data" \
             CHUTNEY_START_TIME=600 \
-            submodules/chutney/chutney wait_for_bootstrap || exit 1
-        then
+            submodules/chutney/chutney wait_for_bootstrap || exit 1; then
             echo "ERROR: chutney not ready" >&2
             exit 1
         fi
@@ -31,7 +30,7 @@ fi
     ./run_test_suite "${args[@]}" "$@"
 
     while true; do
-        ./run_test_suite "${args[@]}" "@$(find "${tmpdir:?}" -maxdepth 2 -type f -name rerun.txt  -print0 | xargs -0 ls -t1|stest -s|shuf -n1)"
+        ./run_test_suite "${args[@]}" "@$(find "${tmpdir:?}" -maxdepth 2 -type f -name rerun.txt -print0 | xargs -0 ls -t1 | stest -s | shuf -n1)"
         sleep 3
     done
 )
