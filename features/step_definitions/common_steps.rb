@@ -444,7 +444,7 @@ Given /^the computer (?:re)?boots Tails$/ do
     found = @screen.wait_any(
       ['TailsGreeter.png', 'PlymouthGraphicsCardFailureMessage.png'], 60
     )
-    if found == 'PlymouthGraphicsCardFailureMessage.png'
+    if found.image == 'PlymouthGraphicsCardFailureMessage.png'
       raise 'Known issue #20282: Error starting GDM with your graphics card'
     end
 
