@@ -1,3 +1,6 @@
+CHUTNEY_DATA_DIR = "#{$config['TMPDIR']}/chutney-data".freeze
+CHUTNEY_NETWORK_DEFINITION = "#{GIT_DIR}/features/chutney/test-network".freeze
+
 class ChutneyBootstrapFailure < StandardError
 end
 
@@ -25,12 +28,8 @@ def chutney_status_log(cmd)
   debug_log("Chutney Tor network simulation: #{action} ...")
 end
 
-def chutney_data_dir
-  "#{$config['TMPDIR']}/chutney-data"
-end
-
 def chutney_disable_info_level_logging
-  Dir.glob("#{chutney_data_dir}/nodes/*/torrc") do |torrc_path|
+  Dir.glob("#{CHUTNEY_DATA_DIR}/nodes/*/torrc") do |torrc_path|
     File.write(torrc_path, File.read(torrc_path).gsub(/^Log info .*$/, ''))
   end
 end
@@ -39,16 +38,12 @@ def chutney_cmd(cmd, *args, **opts)
   chutney_script = "#{GIT_DIR}/features/scripts/chutney"
   chutney_status_log(cmd)
   cmd = 'stop' if cmd == 'stop_old'
-  cmd_helper([chutney_script, '--data-dir', chutney_data_dir, cmd, *args], **opts)
-end
-
-def chutney_network_definition
-  "#{GIT_DIR}/features/chutney/test-network"
+  cmd_helper([chutney_script, '--data-dir', CHUTNEY_DATA_DIR, cmd, *args], **opts)
 end
 
 def chutney_data_dir_cleanup
-  if File.directory?(chutney_data_dir)
-    FileUtils.rm_r(chutney_data_dir)
+  if File.directory?(CHUTNEY_DATA_DIR)
+    FileUtils.rm_r(CHUTNEY_DATA_DIR)
   end
 end
 
@@ -56,7 +51,7 @@ def chutney_processes_match_args
   [
     '--full',
     '--exact',
-    "tor -f #{chutney_data_dir}/nodes.*/.*/torrc (--quiet|--hush)",
+    "tor -f #{CHUTNEY_DATA_DIR}/nodes.*/.*/torrc (--quiet|--hush)",
   ]
 end
 
@@ -101,7 +96,7 @@ def clean_up_old_chutney_processes
   # are about to use. If chutney's data dir also was removed, this
   # will prevent chutney from starting the network unless the tor
   # processes are killed manually.
-  if File.directory?(chutney_data_dir)
+  if File.directory?(CHUTNEY_DATA_DIR)
     begin
       chutney_cmd('stop_old')
       return unless chutney_processes_running?
@@ -124,7 +119,7 @@ def initialize_chutney
   # setup can be used throughout the same test suite run.
   return if $chutney_initialized
 
-  recovering_chutney = KEEP_CHUTNEY && File.directory?(chutney_data_dir)
+  recovering_chutney = KEEP_CHUTNEY && File.directory?(CHUTNEY_DATA_DIR)
   clean_up_old_chutney_processes
   if recovering_chutney
     # We sometimes look for strings in the Chutney nodes' logs so we
@@ -136,7 +131,7 @@ def initialize_chutney
     chutney_data_dir_cleanup
     chutney_cmd(
       'init',
-      '--net-from-script-path', chutney_network_definition,
+      '--net-from-script-path', CHUTNEY_NETWORK_DEFINITION,
       '--listen-address', $vmnet.bridge_ip_address.to_s
     )
     chutney_cmd('configure')
@@ -153,7 +148,7 @@ Note: You are running with --keep-snapshots or --keep-chutney, but Chutney
 failed to start with its current data directory. To recover you likely
 want to delete Chutney's data directory and all test suite snapshots:
 
-    sudo rm -r #{chutney_data_dir}
+    sudo rm -r #{CHUTNEY_DATA_DIR}
 
     for snapshot in $(virsh snapshot-list --name TailsToaster); do
       virsh snapshot-delete TailsToaster --snapshotname "${snapshot}"
