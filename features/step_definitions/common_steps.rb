@@ -396,7 +396,7 @@ def wait_for_ponytail(user: LIVE_USER, timeout: 60)
     ).success?
   end
 rescue Timeout::Error
-  raise 'Known issue #21211: timed out while waiting for the GNOME Introspect API'
+  raise 'Known issue #21211: timed out while waiting for the GNOME Shell Introspect API'
 end
 
 Given /^the computer (?:re)?boots Tails$/ do
