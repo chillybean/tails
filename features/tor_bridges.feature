@@ -68,7 +68,7 @@ Feature: Using Tor bridges and pluggable transports
     Then the Tor Connection Assistant reports that it failed to connect
     And tca.conf is empty
     Given the Tor network and default bridges are unblocked
-    And I retry connecting to Tor
+    When I retry connecting to Tor
     Then I wait until Tor is ready
     And tca.conf includes no bridge
     And available upgrades have been checked
