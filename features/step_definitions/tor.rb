@@ -882,11 +882,11 @@ Then /^the Tor Connection Assistant complains that normal bridges are not allowe
   )
 end
 
-def click_connect_to_tor
+def click_connect_to_tor(label: '_Connect to Tor')
   btn = nil
   try_for(10) do
     btn = tor_connection_assistant.child(
-      '_Connect to Tor',
+      label,
       roleName: 'button'
     )
     btn.sensitive?
@@ -895,8 +895,12 @@ def click_connect_to_tor
   btn.click
 end
 
-When /^(?:I click "Connect to Tor"|I retry connecting to Tor)$/ do
+When /^I click "Connect to Tor"$/ do
   click_connect_to_tor
+end
+
+When /^I retry connecting to Tor$/ do
+  click_connect_to_tor(label: 'Retry _connecting to Tor')
 end
 
 Then /^I can(not)? click the "Connect to Tor" button$/ do |cannot|
