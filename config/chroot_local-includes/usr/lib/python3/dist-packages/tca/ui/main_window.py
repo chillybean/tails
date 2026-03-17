@@ -982,19 +982,22 @@ class StepErrorMixin:
         if not time_synced:
             set_header("generic")
         elif error_code == "tor":
-            set_header("tor_fail")
-            bridge_header = self.get_object("header_tor_fail_bridge")
             bridges = self.app.configurator.tor_connection_config.bridges
-            if len(bridges) > 0:
-                bridge_header.set_markup(
-                    # Translators: only translate "Bridge:" and adjust
-                    # text-direction
-                    _("Bridge: <b>{bridge}</b>").format(bridge=bridges[0])
-                )
-                bridge_header.set_ellipsize(Pango.EllipsizeMode.END)
-                bridge_header.show()
+            if set(bridges) == set(TorConnectionConfig.get_default_bridges()):
+                set_header("default_bridges_fail")
             else:
-                bridge_header.hide()
+                set_header("tor_fail")
+                bridge_header = self.get_object("header_tor_fail_bridge")
+                if len(bridges) > 0:
+                    bridge_header.set_markup(
+                        # Translators: only translate "Bridge:" and adjust
+                        # text-direction
+                        _("Bridge: <b>{bridge}</b>").format(bridge=bridges[0])
+                    )
+                    bridge_header.set_ellipsize(Pango.EllipsizeMode.END)
+                    bridge_header.show()
+                else:
+                    bridge_header.hide()
         elif error_code == "moat_settings_failed":
             set_header("moat_settings_failed")
         elif error_code.startswith("moat_"):
