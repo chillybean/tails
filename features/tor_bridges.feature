@@ -105,7 +105,7 @@ Feature: Using Tor bridges and pluggable transports
     When I unsuccessfully configure some default bridges in the Tor Connection Assistant
     Then the Tor Connection Assistant reports that it failed to connect
     Given the Tor network and default bridges are unblocked
-    When I click "Connect to Tor"
+    When I retry connecting to Tor
     Then I wait until Tor is ready
     And Tor is configured to use the default bridges
     And all Internet traffic has only flowed through the default bridges or connectivity check service
