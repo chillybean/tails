@@ -349,6 +349,8 @@ class StepChooseBridgeMixin:
         regions_combo.set_cell_data_func(regions_combo.get_cells()[0], format_row, None)
 
     def _step_bridge_init_from_tor_config(self):
+        if not self.state["hide"].get("bridge", None):
+            return
         if self.state["bridge"].get("kind", None) == "moat":
             self.get_object("radio_moat").set_active(True)
             return
