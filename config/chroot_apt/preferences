@@ -31,6 +31,16 @@ Package: webext-ublock-origin-firefox
 Pin: release o=Debian,n=sid
 Pin-Priority: 999
 
+Explanation: Upgrading to more recent version of Electrum allow us to get rid of Qt5 (tails#21085)
+Package: src:electrum
+Pin: release o=Debian,n=trixie-backports
+Pin-Priority: 999
+
+Explanation: Electrum dependencies
+Package: python3-aiorpcx python3-electrum-aionostr python3-electrum-ecc libsecp256k1-6
+Pin: release o=Debian,n=trixie-backports
+Pin-Priority: 999
+
 Explanation: weirdness in chroot_apt install-binary
 Package: *
 Pin: release o=chroot_local-packages
