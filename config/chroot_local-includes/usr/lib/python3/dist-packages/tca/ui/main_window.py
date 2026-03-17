@@ -1100,7 +1100,13 @@ class StepErrorMixin:
         self.change_box("bridge")
 
     def _step_error_submit_allowed(self):
-        self.get_object("btn_submit").set_sensitive(self.state["error"]["fix_attempt"])
+        time_synced: bool = (
+            not (self.state["hide"]["hide"])
+            and self.app.get_network_time_result["status"] == "success"
+        )
+        self.get_object("btn_submit").set_sensitive(
+            self.state["error"]["fix_attempt"] or time_synced
+        )
 
     def cb_step_error_btn_submit_clicked(self, *args):
         self.change_box("progress")
