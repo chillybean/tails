@@ -394,8 +394,10 @@ Then /^the Tor Connection Assistant connects to Tor$/ do
   try_for(120,
           msg:       'Timed out while waiting for TCA to connect to Tor',
           exception: TCAConnectionTimeout) do
-    if tor_connection_assistant.child?('Error connecting to Tor',
-                                       roleName: 'label', retry: false)
+    if tor_connection_assistant.child?(
+      'Error connecting to Tor.*|Error asking for a bridge',
+      roleName: 'label', retry: false
+    )
       if failure_reported_once
         failure_reported_twice = true
         done = true
@@ -865,7 +867,9 @@ end
 
 Then /^the Tor Connection Assistant reports that it failed to connect$/ do
   try_for(120) do
-    tor_connection_assistant.child('Error connecting to Tor', roleName: 'label')
+    tor_connection_assistant.child(
+      'Error connecting to Tor.*|Error asking for a bridge', roleName: 'label'
+    )
   end
 end
 
