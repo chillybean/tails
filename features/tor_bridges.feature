@@ -110,7 +110,7 @@ Feature: Using Tor bridges and pluggable transports
     And Tor is configured to use the default bridges
     And all Internet traffic has only flowed through the default bridges or connectivity check service
 
-  Scenario: Automatic mode when asking for bridge settings in Tor Connection (mocked)
+  Scenario: Asking for mocked bridge settings with automatic region-detection in Tor Connection
     Given the Moat distributor responds with the default bridges
     When I configure Tor Connection to ask for bridge settings based on my location
     And I wait until Tor is ready
