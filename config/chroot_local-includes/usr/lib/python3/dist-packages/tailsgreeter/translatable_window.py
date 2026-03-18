@@ -27,7 +27,15 @@ from tailsgreeter import TRANSLATION_DOMAIN
 
 
 class TranslatableWindow:
-    """Interface providing functions to translate a window on the fly"""
+    """
+    Mixin providing functions to translate a window on the fly
+
+    It works by adding two instance methods: store_translations (to be called early) and translate_to (to be called when you need to translate a window to a language).
+
+    When the application wants to change the language on the fly, it needs to call TranslatableWindow.translate_all,
+    which is a class method which will call translate_to for every language.
+    Please note that this will have no effect on a TranslatableWindow created *after* translate_all has been invoked. In fact, TranslatableWindow are not automatically translated.
+    """
 
     retain_focus = True
     registered_windows: ClassVar[list[Gtk.Window]] = []

@@ -170,11 +170,12 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
             logging.debug("Adding '%s' to region listbox", setting.name)
             self.listbox_region.add(setting.listboxrow)
 
-        # Add settings dialog
+        # Add settings dialog - it's a TranslatableWindow, so it must be created early
+        # see TranslatableWindow doc for details
         self.dialog_add_setting = AddSettingsDialog(builder, self.settings)
         self.dialog_add_setting.set_transient_for(self)
 
-        # Add confirm dialog
+        # Confirm dialog - must be created early, see MessageDialog docstring why
         self.confirm_dialog = MessageDialog(
             message_type=Gtk.MessageType.WARNING,
             title=_("Persistent Storage Still Locked"),
@@ -186,6 +187,7 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
         )
         self.confirm_dialog.set_transient_for(self)
 
+        # Save unencrypted dialog - must be created early, see MessageDialog docstring why
         self.save_unencrypted_dialog = MessageDialog(
             message_type=Gtk.MessageType.QUESTION,
             title=_("Language and Keyboard layout"),
