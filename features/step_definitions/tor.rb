@@ -1206,3 +1206,44 @@ Then(/^The Wi-Fi settings are displayed$/) do
                       .child('Wi-Fi', roleName: 'grouping')
                       .child('Wi-Fi', roleName: 'check box')
 end
+
+def torrc_bridges
+  $vm.file_content('/etc/tor/torrc').lines.grep(/^Bridge\s/)
+end
+
+def supported_bridge_transports
+  transports = JSON.parse(
+    $vm.execute_successfully(
+      'python3 -c "import json; import tca.torutils; ' \
+      'print(json.dumps(list(tca.torutils.VALID_BRIDGE_TYPES)))"'
+    ).stdout
+  )
+  # Sanity check
+  assert_include(transports, 'obfs4')
+  transports
+end
+
+Given /^no bridges are configured in torrc$/ do
+  assert_equal(0, torrc_bridges.size)
+end
+
+Then /^some real world bridges are eventually configured in torrc$/ do
+  expected_transports = supported_bridge_transports
+  try_for(60) do
+    bridges = torrc_bridges
+    assert(bridges.size.positive?, 'there are no bridge lines in torrc')
+    bridges.each do |line|
+      line_split = line.split
+      if line_split.size == 2
+        transport = 'bridge'
+        addr_port = line_split.last
+      else
+        _, transport, addr_port, = line_split
+      end
+      assert_include(expected_transports, transport)
+      addr = addr_port.sub(/:\d+$/, '')
+      assert(!IPAddr.new(addr).private?,
+             'real world bridges do not have private IP addresses')
+    end
+  end
+end
