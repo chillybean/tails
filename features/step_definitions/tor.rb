@@ -737,27 +737,6 @@ When /^I configure (?:some|the) (persistent )?(\w+) bridges (from a QR code )?in
   # rubocop:enable Metrics/BlockLength
 end
 
-When /^I scan a QR code from the error page in Tor Connection Assistant$/ do
-  bridge_type = 'obfs4'
-
-  @bridge_hosts = []
-  # XXX: re-enable when we support more than 1 bridge
-  # rubocop:disable Lint/UnreachableLoop
-  chutney_bridges(bridge_type).each do |bridge|
-    @bridge_hosts << { address: bridge[:address], port: bridge[:port] }
-    break # We currently support only 1 bridge
-  end
-  # rubocop:enable Lint/UnreachableLoop
-
-  qr_code_bridges = chutney_bridges(bridge_type).slice(0, 1)
-  setup_qrcode_bridges_on_webcam(qr_code_bridges)
-  tor_connection_assistant.child('Scan QR Code', roleName: 'button').click
-
-  try_for(30) do
-    !tor_connection_assistant.textentry('').text.empty?
-  end
-end
-
 When /^I disable saving bridges to Persistent Storage$/ do
   toggle_button = tor_connection_assistant.child(
     'Save bridge to Persistent Storage',
