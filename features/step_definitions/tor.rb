@@ -987,12 +987,13 @@ def bridge_line_to_ipports(line)
 end
 
 def bridges_to_ipport(file_content)
+  supported_transports = supported_bridge_transports
   # given the content of a default_bridges.txt, extract all IPs:Port,
   # returning an array of hashes; only IPv4 are considered
   file_content
     .chomp
     .split("\n")
-    .filter { |l| ['obfs4', 'webtunnel', 'bridge'].include?(l.split.first) }
+    .filter { |l| supported_transports.include?(l.split.first) }
     .map { |l| bridge_line_to_ipports(l) }
     .flatten
 end
