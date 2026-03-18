@@ -607,6 +607,7 @@ def setup_qrcode_bridges_on_webcam(bridges)
   )
   # rubocop:enable Style/StringConcatenation
   $vm.file_copy_local(qrcode_image, '/tmp/qrcode.jpg')
+  $vm.execute_successfully("chmod a+r '/tmp/qrcode.jpg'")
   feed_qr_code_video_to_virtual_webcam('/tmp/qrcode.jpg')
   # Give ffmpeg time to start pushing frames to the virtual webcam
   sleep 5
