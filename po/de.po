@@ -46,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-25 11:26+0100\n"
+"POT-Creation-Date: 2026-03-04 19:23+0100\n"
 "PO-Revision-Date: 2026-01-22 23:01+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/tor/tails-gui/de/"
@@ -158,10 +158,10 @@ msgstr "Aufheben"
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:199
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/add_settings_dialog.py:40
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:182
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:503
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:777
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:917
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:185
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:198
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:519
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:922
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:744
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:128
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:376
@@ -806,91 +806,26 @@ msgstr "Aus"
 msgid "Off (default)"
 msgstr "Aus (Standard)"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:178
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:181
 msgid "Persistent Storage Still Locked"
 msgstr "Beständiger Datenspeicher weiterhin gesperrt"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:180
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:183
 msgid ""
 "Do you really want to start Tails without unlocking your Persistent Storage?"
 msgstr ""
 "Möchtest du Tails wirklich starten, ohne deinen beständigen Datenspeicher zu "
 "entsperren?"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:183
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:186
 msgid "Start Without Persistent Storage"
 msgstr "Start ohne beständigen Datenspeicher"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:267
-msgid ""
-"Impossible to unlock the Persistent Storage because the USB stick is read-"
-"only."
-msgstr ""
-"Der beständige Datenspeicher konnte nicht entsperrt werden, weil der USB-"
-"Stick schreibgeschützt ist."
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:428
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:460
-msgid "Unlocking…"
-msgstr "Wird entsperrt …"
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:468
-msgid "Checking the file system…"
-msgstr "Dateisystem wird überprüft …"
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:501
-msgid "Repairing the File System"
-msgstr "Dateisystem wird repariert"
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:502
-msgid "This might take a long time..."
-msgstr "Dies könnte eine Weile dauern ..."
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:520
-msgid "Failed to repair the file system of your Persistent Storage."
-msgstr ""
-"Die Reparatur des Dateisystems deines beständigen Datenspeichers ist "
-"fehlgeschlagen."
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:522
-msgid "Start Tails to send an error report and learn how to recover your data."
-msgstr ""
-"Starte Tails, um einen Fehlerbericht zu senden und um zu erfahren, wie du "
-"deine Daten wiederherstellen kannst."
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:536
-msgid "File System Repaired Successfully"
-msgstr "Dateisystem erfolgreich repariert"
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:538
-msgid ""
-"It's possible that some data was lost during the repair. Please check the "
-"contents of your Persistent Storage and restore any lost data from a backup."
-msgstr ""
-"Es ist möglich, dass einige Daten während der Reparatur verloren gegangen "
-"sind. Bitte überprüfe den Inhalt deines beständigen Datenspeichers und "
-"stelle alle verlorenen Daten aus einer Datensicherung wieder her."
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:542
-#: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:32
-msgid "Close"
-msgstr "Schließen"
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:557
-msgid ""
-"You aborted the repair of the file system. You can either start Tails "
-"without Persistent Storage or restart the computer to try repairing the file "
-"system again."
-msgstr ""
-"Du hast die Reparatur des Dateisystems abgebrochen. Du kannst entweder Tails "
-"ohne beständigen Datenspeicher starten oder den Computer neu starten und "
-"versuchen, das Dateisystem erneut zu reparieren."
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:771
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:192
 msgid "Language and Keyboard layout"
 msgstr "Sprache und Tastaturbelegung"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:773
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:194
 msgid ""
 "Your language and keyboard layout will be saved unencrypted on your Tails "
 "USB stick and applied automatically in the future.\n"
@@ -904,17 +839,82 @@ msgstr ""
 "Jemand, der deinen Tails-USB-Stick findet, kann deine Sprache und "
 "Tastaturbelegung sehen."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:778
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:199
 msgid "Save Unencrypted"
 msgstr "Unverschlüsselt speichern"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:839
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:283
+msgid ""
+"Impossible to unlock the Persistent Storage because the USB stick is read-"
+"only."
+msgstr ""
+"Der beständige Datenspeicher konnte nicht entsperrt werden, weil der USB-"
+"Stick schreibgeschützt ist."
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:444
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:476
+msgid "Unlocking…"
+msgstr "Wird entsperrt …"
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:484
+msgid "Checking the file system…"
+msgstr "Dateisystem wird überprüft …"
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:517
+msgid "Repairing the File System"
+msgstr "Dateisystem wird repariert"
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:518
+msgid "This might take a long time..."
+msgstr "Dies könnte eine Weile dauern ..."
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:536
+msgid "Failed to repair the file system of your Persistent Storage."
+msgstr ""
+"Die Reparatur des Dateisystems deines beständigen Datenspeichers ist "
+"fehlgeschlagen."
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:538
+msgid "Start Tails to send an error report and learn how to recover your data."
+msgstr ""
+"Starte Tails, um einen Fehlerbericht zu senden und um zu erfahren, wie du "
+"deine Daten wiederherstellen kannst."
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:552
+msgid "File System Repaired Successfully"
+msgstr "Dateisystem erfolgreich repariert"
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:554
+msgid ""
+"It's possible that some data was lost during the repair. Please check the "
+"contents of your Persistent Storage and restore any lost data from a backup."
+msgstr ""
+"Es ist möglich, dass einige Daten während der Reparatur verloren gegangen "
+"sind. Bitte überprüfe den Inhalt deines beständigen Datenspeichers und "
+"stelle alle verlorenen Daten aus einer Datensicherung wieder her."
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:558
+#: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:32
+msgid "Close"
+msgstr "Schließen"
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:573
+msgid ""
+"You aborted the repair of the file system. You can either start Tails "
+"without Persistent Storage or restart the computer to try repairing the file "
+"system again."
+msgstr ""
+"Du hast die Reparatur des Dateisystems abgebrochen. Du kannst entweder Tails "
+"ohne beständigen Datenspeicher starten oder den Computer neu starten und "
+"versuchen, das Dateisystem erneut zu reparieren."
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:844
 msgid "Start Tails and open the Persistent Storage settings to find out more."
 msgstr ""
 "Starte Tails und öffne die Einstellungen des beständigen Datenspeichers, um "
 "mehr herauszufinden."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:868
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:873
 msgid ""
 "Your Persistent Storage is unlocked. Its content will be available until you "
 "shut down Tails."
@@ -922,11 +922,11 @@ msgstr ""
 "Dein beständiger Datenspeicher ist entsperrt. Sein Inhalt ist verfügbar, bis "
 "du Tails herunterfährst."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:883
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:888
 msgid "Incorrect passphrase. Please try again."
 msgstr "Falsche Passphrase. Bitte versuche es erneut."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:894
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:899
 msgid ""
 "Error reading data from your Persistent Storage. The hardware of your USB "
 "stick is probably failing."
@@ -934,25 +934,26 @@ msgstr ""
 "Fehler beim Lesen von Daten aus deinem beständigen Datenspeicher. Die "
 "Hardware deines USB-Sticks ist wahrscheinlich fehlerhaft."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:896
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:901
 msgid "Start Tails to learn how to recover your data."
 msgstr ""
 "Starte Tails, um zu erfahren, wie du deine Daten wiederherstellen kannst."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:907
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:912
 msgid "File System Errors"
 msgstr "Dateisystemfehler"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:909
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:914
+#, fuzzy
 msgid ""
 "Errors were detected in the file system of your Persistent Storage.\n"
-"                \n"
+"\n"
 "Tails can try to fix these errors, but this might erase some of your data "
 "and take a long time.\n"
 "\n"
 "If you already have an up-to-date backup of your Persistent Storage, we "
 "recommend that you try to repair.\n"
-"                \n"
+"\n"
 "If you don't have a backup, we recommend that you create a partition image "
 "of your Persistent Storage first."
 msgstr ""
@@ -967,15 +968,15 @@ msgstr ""
 "Wenn du noch keine Datensicherung hast, empfehlen wir dir, zuerst ein "
 "Partitionsabbild deines beständigen Datenspeichers zu erstellen."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:918
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:923
 msgid "Repair File System"
 msgstr "Dateisystem reparieren"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:919
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:924
 msgid "Create Partition Image"
 msgstr "Partitionsabbild erstellen"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:930
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:935
 msgid ""
 "Start Tails to learn how to create a partition image of your Persistent "
 "Storage."
@@ -983,13 +984,13 @@ msgstr ""
 "Starte Tails, um zu erfahren, wie du ein Partitionsabbild von deinem "
 "beständigen Datenspeicher erstellst."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:939
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:944
 msgid "Failed to unlock the Persistent Storage due to file system errors."
 msgstr ""
 "Der beständige Datenspeicher konnte aufgrund von Dateisystemfehlern nicht "
 "entsperrt werden."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:948
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:953
 msgid ""
 "Failed to upgrade the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -997,7 +998,7 @@ msgstr ""
 "Der beständige Datenspeicher konnte nicht aktualisiert werden. Bitte starte "
 "Tails und sende einen Fehlerbericht."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:955
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:960
 msgid ""
 "Failed to unlock the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -1005,7 +1006,7 @@ msgstr ""
 "Der beständige Datenspeicher konnte nicht entsperrt werden. Bitte starte "
 "Tails und sende einen Fehlerbericht."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:963
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:968
 msgid ""
 "Failed to activate the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -1013,7 +1014,7 @@ msgstr ""
 "Der beständige Datenspeicher konnte nicht aktiviert werden. Bitte starte "
 "Tails und sende einen Fehlerbericht."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:974
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:979
 msgid "Upgrading the Persistent Storage. This might take a while…"
 msgstr ""
 "Der beständige Datenspeicher wird aufgewertet. Dies kann eine Weile dauern …"

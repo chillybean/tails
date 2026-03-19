@@ -14,25 +14,27 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
 
-import logging
-import threading
-from typing import TYPE_CHECKING
-import gi
 import json
+import logging
 import os
 import subprocess
+import threading
+from typing import TYPE_CHECKING
 
-from tailslib.persistence import is_tails_media_writable
+import gi
 
 import tailsgreeter  # NOQA: E402
-from tailsgreeter import config  # NOQA: E402
+from tailsgreeter import (
+    TRANSLATION_DOMAIN,
+    config,  # NOQA: E402
+)
 from tailsgreeter.config import persistent_settings_dir
 from tailsgreeter.errors import (
     FeatureActivationFailedError,
-    PersistentStorageError,
-    WrongPassphraseError,
     FilesystemErrorsLeftUncorrectedError,
     IOErrorsDetectedError,
+    PersistentStorageError,
+    WrongPassphraseError,
 )
 from tailsgreeter.settings import SettingNotFoundError
 from tailsgreeter.translatable_window import TranslatableWindow
@@ -40,18 +42,18 @@ from tailsgreeter.ui.popover import Popover
 from tailsgreeter.ui import _
 from tailsgreeter.ui.add_settings_dialog import AddSettingsDialog
 from tailsgreeter.ui.additional_settings import AdditionalSetting
-from tailsgreeter.ui.message_dialog import MessageDialog
 from tailsgreeter.ui.help_window import GreeterHelpWindow
+from tailsgreeter.ui.message_dialog import MessageDialog
 from tailsgreeter.ui.region_settings import LocalizationSettingUI
 from tailsgreeter.utils import glib_idle_add_once
-from tailsgreeter import TRANSLATION_DOMAIN
 from tailslib import LIVE_USERNAME
+from tailslib.persistence import is_tails_media_writable
 from tps import InvalidBootDeviceErrorType
 
 gi.require_version("Gdk", "3.0")
 gi.require_version("Gtk", "3.0")
 gi.require_version("Handy", "1")
-from gi.repository import Gdk, GdkPixbuf, Gio, GLib, Gtk, Handy  # noqa: E402
+from gi.repository import Gdk, Gio, GLib, Gtk, Handy  # noqa: E402
 
 Handy.init()
 
@@ -126,7 +128,7 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
         self.box_storage_unlock_status = builder.get_object("box_storage_unlocked")
         self.entry_storage_passphrase = builder.get_object("entry_storage_passphrase")
         self.button_storagecreate_create = builder.get_object(
-            "button_storagecreate_create"
+            "button_storagecreate_create",
         )
         self.box_create_tps = builder.get_object("create_tps_box")
 
@@ -168,21 +170,36 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
             logging.debug("Adding '%s' to region listbox", setting.name)
             self.listbox_region.add(setting.listboxrow)
 
-        # Add settings dialog
+        # Add settings dialog - it's a TranslatableWindow, so it must be created early
+        # see TranslatableWindow doc for details
         self.dialog_add_setting = AddSettingsDialog(builder, self.settings)
         self.dialog_add_setting.set_transient_for(self)
 
-        # Add confirm dialog
+        # Confirm dialog - must be created early, see MessageDialog docstring why
         self.confirm_dialog = MessageDialog(
             message_type=Gtk.MessageType.WARNING,
             title=_("Persistent Storage Still Locked"),
             text=_(
-                "Do you really want to start Tails without unlocking your Persistent Storage?"
+                "Do you really want to start Tails without unlocking your Persistent Storage?",
             ),
             cancel_label=_("Cancel"),
             ok_label=_("Start Without Persistent Storage"),
         )
         self.confirm_dialog.set_transient_for(self)
+
+        # Save unencrypted dialog - must be created early, see MessageDialog docstring why
+        self.save_unencrypted_dialog = MessageDialog(
+            message_type=Gtk.MessageType.QUESTION,
+            title=_("Language and Keyboard layout"),
+            text=_(
+                "Your language and keyboard layout will be saved unencrypted "
+                "on your Tails USB stick and applied automatically in the future.\n\n"
+                "Someone who finds your Tails USB stick can see your language and keyboard layout.",
+            ),
+            cancel_label=_("Cancel"),
+            ok_label=_("Save Unencrypted"),
+            destructive=False,
+        )
 
         # Setup keyboard accelerators
         self._build_accelerators()
@@ -196,10 +213,13 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
             self.greeter.localisationsettings.language,
         ]:
             setting.connect(
-                "notify::saveEnabled", self.cb_language_or_keyboard_loaded_changed
+                "notify::saveEnabled",
+                self.cb_language_or_keyboard_loaded_changed,
             )
             self.cb_language_or_keyboard_loaded_changed(
-                setting, None, user_data="__init__"
+                setting,
+                None,
+                user_data="__init__",
             )
 
         if not is_tails_media_writable():
@@ -214,17 +234,17 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
         self.box_storage_unlock = builder.get_object("box_storage_unlock")
         self.box_storage_unlock_status = builder.get_object("box_storage_unlock_status")
         self.label_storage_unlock_status = builder.get_object(
-            "label_storage_unlock_status"
+            "label_storage_unlock_status",
         )
         self.image_storage_unlock_failed = builder.get_object(
-            "image_storage_unlock_failed"
+            "image_storage_unlock_failed",
         )
 
         self.box_storage_error = builder.get_object("box_storage_error")
         self.box_partition_errors = builder.get_object("box_partition_errors")
         self.button_storage_unlock = builder.get_object("button_storage_unlock")  # type: Gtk.Button
         self.checkbutton_storage_show_passphrase = builder.get_object(
-            "checkbutton_storage_show_passphrase"
+            "checkbutton_storage_show_passphrase",
         )
         self.entry_storage_passphrase = builder.get_object("entry_storage_passphrase")
         self.image_storage_state = builder.get_object("image_storage_state")
@@ -236,14 +256,15 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
         self.button_start = builder.get_object("button_start")
 
         self.checkbutton_storage_show_passphrase.connect(
-            "toggled", self.cb_checkbutton_storage_show_passphrase_toggled
+            "toggled",
+            self.cb_checkbutton_storage_show_passphrase_toggled,
         )
 
         self.box_storage.set_focus_chain(
             [
                 self.box_storage_unlock,
                 self.checkbutton_storage_show_passphrase,
-            ]
+            ],
         )
 
         is_created = self.persistence_setting.is_created
@@ -309,10 +330,10 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
 
     def _set_focus_chain(self):
         self.box_language.set_focus_chain(
-            [self.frame_language, self.box_language_header]
+            [self.frame_language, self.box_language_header],
         )
         self.box_settings.set_focus_chain(
-            [self.box_settings_values, self.box_settings_header]
+            [self.box_settings_values, self.box_settings_header],
         )
 
     # Actions
@@ -389,7 +410,7 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
             self.add_setting(id_)
         else:
             old_details = self.dialog_add_setting.stack.get_child_by_name(
-                "setting-details"
+                "setting-details",
             )
             if old_details:
                 self.dialog_add_setting.stack.remove(old_details)
@@ -457,7 +478,8 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
                 # Reset the label in case it was altered by
                 # on_tps_upgrading() above.
                 glib_idle_add_once(
-                    self.label_storage_unlock_status.set_label, _("Unlocking…")
+                    self.label_storage_unlock_status.set_label,
+                    _("Unlocking…"),
                 )
 
                 # If unlocking takes a long time we assume it is
@@ -465,7 +487,7 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
                 # long time and give that as feedback to the user.
                 def cb_unlocking_is_slow():
                     self.label_storage_unlock_status.set_label(
-                        _("Checking the file system…")
+                        _("Checking the file system…"),
                     )
                     # Only run this callback once when passed to GLib.timeout_add*()
                     return False
@@ -519,12 +541,13 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
             label = "{}\n\n{}".format(
                 _("Failed to repair the file system of your Persistent Storage."),
                 _(
-                    "Start Tails to send an error report and learn how to recover your data."
+                    "Start Tails to send an error report and learn how to recover your data.",
                 ),
             )
             self.on_tps_activation_failed(label)
             self.open_prefilled_whisperback_after_login(
-                "fsck", "Failed to repair the file system of your Persistent Storage"
+                "fsck",
+                "Failed to repair the file system of your Persistent Storage",
             )
             self.open_help_after_login("doc/persistent_storage/fsck")
 
@@ -537,7 +560,7 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
                 text=_(
                     "It's possible that some data was lost during the repair. "
                     "Please check the contents of your Persistent Storage and "
-                    "restore any lost data from a backup."
+                    "restore any lost data from a backup.",
                 ),
                 ok_label=_("Close"),
             )
@@ -556,8 +579,8 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
                         _(
                             "You aborted the repair of the file system. You can "
                             "either start Tails without Persistent Storage or restart "
-                            "the computer to try repairing the file system again."
-                        )
+                            "the computer to try repairing the file system again.",
+                        ),
                     )
 
                 else:
@@ -630,7 +653,11 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
     # Callbacks
 
     def cb_accelgroup_setting_activated(
-        self, accel_group, accelerable, keyval, modifier
+        self,
+        accel_group,
+        accelerable,
+        keyval,
+        modifier,
     ):
         for setting in self.settings:
             if setting.accel_key == keyval:
@@ -671,7 +698,7 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
             response = self.confirm_dialog.run()
             self.confirm_dialog.set_visible(False)
             if response != Gtk.ResponseType.OK:
-                return
+                return None
 
         self.greeter.login()
         return False
@@ -724,7 +751,9 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
         return False
 
     def on_region_setting_popover_closed(
-        self, popover: Popover, setting: LocalizationSettingUI
+        self,
+        popover: Popover,
+        setting: LocalizationSettingUI,
     ):
         # Unselect the listbox row
         self.listbox_region.unselect_all()
@@ -735,7 +764,10 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
         setting.apply()
 
     def cb_language_or_keyboard_loaded_changed(
-        self, setting, paramspec, user_data=None
+        self,
+        setting,
+        paramspec,
+        user_data=None,
     ):
         # This callbacks keep the UI in sync with the save state
         save_enabled = setting.get_property("saveEnabled")
@@ -764,25 +796,16 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
             return True
 
         logging.info(
-            "Widget save active=%s state=%s", widget.get_active(), widget.get_state()
+            "Widget save active=%s state=%s",
+            widget.get_active(),
+            widget.get_state(),
         )
-        dialog = MessageDialog(
-            message_type=Gtk.MessageType.QUESTION,
-            title=_("Language and Keyboard layout"),
-            text=_(
-                "Your language and keyboard layout will be saved unencrypted "
-                "on your Tails USB stick and applied automatically in the future.\n\n"
-                "Someone who finds your Tails USB stick can see your language and keyboard layout."
-            ),
-            cancel_label=_("Cancel"),
-            ok_label=_("Save Unencrypted"),
-            destructive=False,
-        )
+        dialog = self.save_unencrypted_dialog
         dialog.set_modal(True)
         dialog.set_transient_for(self)
 
         def on_save_language_dialog_response(dialog, response):
-            dialog.destroy()
+            dialog.set_visible(False)
             if response == Gtk.ResponseType.OK:
                 for setting in settings:
                     setting.set_property("saveEnabled", True)
@@ -802,10 +825,14 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
         return False
 
     def on_additional_setting_popover_closed(
-        self, popover: Popover, setting: AdditionalSetting
+        self,
+        popover: Popover,
+        setting: AdditionalSetting,
     ):
         logging.debug(
-            "'%s' popover closed. response: %s", setting.name, popover.response
+            "'%s' popover closed. response: %s",
+            setting.name,
+            popover.response,
         )
         # Unselect the listbox row
         self.listbox_settings.unselect_all()
@@ -836,7 +863,7 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
                 str(e)
                 + "\n"
                 + _(
-                    "Start Tails and open the Persistent Storage settings to find out more."
+                    "Start Tails and open the Persistent Storage settings to find out more.",
                 )
             )
             self.on_tps_activation_failed(label)
@@ -852,7 +879,8 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
         self.box_storage_unlock.set_visible(False)
         self.spinner_storage_unlock.set_visible(False)
         self.image_storage_state.set_from_icon_name(
-            "tails-unlocked", Gtk.IconSize.BUTTON
+            "tails-unlocked",
+            Gtk.IconSize.BUTTON,
         )
 
         if not os.listdir(persistent_settings_dir):
@@ -865,7 +893,7 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
         self.image_storage_unlock_failed.set_visible(False)
         self.label_storage_unlock_status.set_label(
             _(
-                "Your Persistent Storage is unlocked. Its content will be available until you shut down Tails."
+                "Your Persistent Storage is unlocked. Its content will be available until you shut down Tails.",
             ),
         )
         self.button_start.set_sensitive(True)
@@ -891,7 +919,7 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
 
         label = "{}\n\n{}".format(
             _(
-                "Error reading data from your Persistent Storage. The hardware of your USB stick is probably failing."
+                "Error reading data from your Persistent Storage. The hardware of your USB stick is probably failing.",
             ),
             _("Start Tails to learn how to recover your data."),
         )
@@ -907,12 +935,12 @@ class GreeterMainWindow(Gtk.Window, TranslatableWindow):
             title=_("File System Errors"),
             text=_(
                 """Errors were detected in the file system of your Persistent Storage.
-                
+
 Tails can try to fix these errors, but this might erase some of your data and take a long time.
 
 If you already have an up-to-date backup of your Persistent Storage, we recommend that you try to repair.
-                
-If you don't have a backup, we recommend that you create a partition image of your Persistent Storage first."""
+
+If you don't have a backup, we recommend that you create a partition image of your Persistent Storage first.""",
             ),
             cancel_label=_("Cancel"),
             ok_label=_("Repair File System"),
@@ -927,7 +955,7 @@ If you don't have a backup, we recommend that you create a partition image of yo
             # it for the "Create Backup" button out of better options.
             if response == Gtk.ResponseType.REJECT:
                 label = _(
-                    "Start Tails to learn how to create a partition image of your Persistent Storage."
+                    "Start Tails to learn how to create a partition image of your Persistent Storage.",
                 )
                 self.on_tps_activation_failed(label)
                 self.open_help_after_login("doc/persistent_storage/fsck")
@@ -936,7 +964,7 @@ If you don't have a backup, we recommend that you create a partition image of yo
                 self.repair_tps_filesystem()
             else:
                 label = _(
-                    "Failed to unlock the Persistent Storage due to file system errors."
+                    "Failed to unlock the Persistent Storage due to file system errors.",
                 )
                 self.on_tps_activation_failed(label)
 
@@ -946,14 +974,14 @@ If you don't have a backup, we recommend that you create a partition image of yo
     def on_tps_upgrade_failed(self):
         label = _(
             "Failed to upgrade the Persistent Storage. "
-            "Please start Tails and send an error report."
+            "Please start Tails and send an error report.",
         )
         self.on_tps_activation_failed(label)
 
     def on_tps_unlock_failed(self):
         label = _(
             "Failed to unlock the Persistent Storage. "
-            "Please start Tails and send an error report."
+            "Please start Tails and send an error report.",
         )
         self.on_tps_activation_failed(label)
 
@@ -961,7 +989,7 @@ If you don't have a backup, we recommend that you create a partition image of yo
         if not label:
             label = _(
                 "Failed to activate the Persistent Storage. "
-                "Please start Tails and send an error report."
+                "Please start Tails and send an error report.",
             )
         self.image_storage_state.set_visible(True)
         self.spinner_storage_unlock.set_visible(False)
@@ -979,6 +1007,8 @@ class GreeterBackgroundWindow(Gtk.ApplicationWindow):
     def __init__(self, app):
         super().__init__(app)
         Gtk.Window.__init__(
-            self, title=_(tailsgreeter.APPLICATION_TITLE), application=app
+            self,
+            title=_(tailsgreeter.APPLICATION_TITLE),
+            application=app,
         )
         self.override_background_color(Gtk.StateFlags.NORMAL, Gdk.RGBA(0, 0, 0, 1))

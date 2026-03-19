@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-25 11:26+0100\n"
+"POT-Creation-Date: 2026-03-04 19:23+0100\n"
 "PO-Revision-Date: 2026-01-26 15:23+0000\n"
 "Last-Translator: \"Squishy (C6H12O6+NaCl+H2O)\" <ajavamit@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/tor/tails-gui/"
@@ -123,10 +123,10 @@ msgstr "Gỡ bỏ"
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:199
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/add_settings_dialog.py:40
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:182
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:503
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:777
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:917
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:185
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:198
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:519
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:922
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:744
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:128
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:376
@@ -754,22 +754,40 @@ msgstr "Tắt"
 msgid "Off (default)"
 msgstr "Tắt (mặc định)"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:178
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:181
 msgid "Persistent Storage Still Locked"
 msgstr "Ổ đĩa lưu trữ bền vững vẫn bị khoá"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:180
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:183
 msgid ""
 "Do you really want to start Tails without unlocking your Persistent Storage?"
 msgstr ""
 "Bạn có thực sự muốn khởi động Tails mà không mở khoá ổ đĩa lưu trữ bền vững "
 "của bạn chứ?"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:183
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:186
 msgid "Start Without Persistent Storage"
 msgstr "Khởi động mà Không có Ổ đĩa lưu trữ Bền vững"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:267
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:192
+#, fuzzy
+msgid "Language and Keyboard layout"
+msgstr "_Bố cục bàn phím"
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:194
+msgid ""
+"Your language and keyboard layout will be saved unencrypted on your Tails "
+"USB stick and applied automatically in the future.\n"
+"\n"
+"Someone who finds your Tails USB stick can see your language and keyboard "
+"layout."
+msgstr ""
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:199
+msgid "Save Unencrypted"
+msgstr ""
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:283
 msgid ""
 "Impossible to unlock the Persistent Storage because the USB stick is read-"
 "only."
@@ -777,38 +795,38 @@ msgstr ""
 "Không có khả năng mở khoá Vùng Lưu Trữ Bền vững bởi USB được thiết lập chế "
 "độ thuần đọc read-only."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:428
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:460
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:444
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:476
 msgid "Unlocking…"
 msgstr "Đang mở khóa…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:468
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:484
 msgid "Checking the file system…"
 msgstr "Đang kiểm tra hệ thống tập tin…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:501
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:517
 msgid "Repairing the File System"
 msgstr "Đang sửa chữa hệ thống tập tin"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:502
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:518
 msgid "This might take a long time..."
 msgstr "Việc này có thể sẽ mất nhiều thời gian..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:520
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:536
 msgid "Failed to repair the file system of your Persistent Storage."
 msgstr "Sữa chữa hệ thống tập tin của kho lưu trữ lâu dài thất bại."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:522
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:538
 msgid "Start Tails to send an error report and learn how to recover your data."
 msgstr ""
 "Khởi động Tails để gửi một báo cáo lỗi và tìm hiểu cách khôi phục dữ liệu "
 "của bạn."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:536
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:552
 msgid "File System Repaired Successfully"
 msgstr "Hệ thống tập tin sửa chữa thành công"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:538
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:554
 msgid ""
 "It's possible that some data was lost during the repair. Please check the "
 "contents of your Persistent Storage and restore any lost data from a backup."
@@ -817,12 +835,12 @@ msgstr ""
 "tra lại nội dung của kho lưu trữ lâu dài và khôi phục lại dữ liệu đã mất từ "
 "một bản sao lưu."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:542
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:558
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:32
 msgid "Close"
 msgstr "Đóng"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:557
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:573
 msgid ""
 "You aborted the repair of the file system. You can either start Tails "
 "without Persistent Storage or restart the computer to try repairing the file "
@@ -832,30 +850,12 @@ msgstr ""
 "Tails mà không có kho lưu trữ lâu dài hoặc khởi động lại máy tính để thử sửa "
 "chữa kho lưu trữ lâu dài lại."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:771
-#, fuzzy
-msgid "Language and Keyboard layout"
-msgstr "_Bố cục bàn phím"
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:773
-msgid ""
-"Your language and keyboard layout will be saved unencrypted on your Tails "
-"USB stick and applied automatically in the future.\n"
-"\n"
-"Someone who finds your Tails USB stick can see your language and keyboard "
-"layout."
-msgstr ""
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:778
-msgid "Save Unencrypted"
-msgstr ""
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:839
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:844
 msgid "Start Tails and open the Persistent Storage settings to find out more."
 msgstr ""
 "Khởi động Tails và mở Cài đặt Ổ đĩa lưu trữ Bền vững để tìm hiểu thêm nữa."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:868
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:873
 msgid ""
 "Your Persistent Storage is unlocked. Its content will be available until you "
 "shut down Tails."
@@ -863,11 +863,11 @@ msgstr ""
 "Ổ đĩa lưu trữ Bền vững của bạn được mở khoá. Nội dung của nó sẽ được khả "
 "dụng cho tới khi bạn tắt Tails đi."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:883
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:888
 msgid "Incorrect passphrase. Please try again."
 msgstr "Mật khẩu không đúng. Vui lòng thử lại."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:894
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:899
 msgid ""
 "Error reading data from your Persistent Storage. The hardware of your USB "
 "stick is probably failing."
@@ -875,24 +875,25 @@ msgstr ""
 "Đã xảy ra lỗi khi đọc dữ liệu từ kho lưu trữ lâu dài của bạn. Phần cứng của "
 "thiết bị USB của bạn có thể đang bị hỏng."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:896
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:901
 msgid "Start Tails to learn how to recover your data."
 msgstr "Khởi động Tails để tìm hiểu cách khôi phục lại dữ liệu của bạn."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:907
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:912
 msgid "File System Errors"
 msgstr "Lỗi hệ thống tập tin"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:909
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:914
+#, fuzzy
 msgid ""
 "Errors were detected in the file system of your Persistent Storage.\n"
-"                \n"
+"\n"
 "Tails can try to fix these errors, but this might erase some of your data "
 "and take a long time.\n"
 "\n"
 "If you already have an up-to-date backup of your Persistent Storage, we "
 "recommend that you try to repair.\n"
-"                \n"
+"\n"
 "If you don't have a backup, we recommend that you create a partition image "
 "of your Persistent Storage first."
 msgstr ""
@@ -908,15 +909,15 @@ msgstr ""
 "Nếu bạn không có bản sao lưu, chúng tôi khuyến cáo bạn tạo một ảnh phân vùng "
 "của kho lưu trữ lâu dài trước."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:918
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:923
 msgid "Repair File System"
 msgstr "Sửa chữa hệ thống tập tin"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:919
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:924
 msgid "Create Partition Image"
 msgstr "Tạo ảnh phân vùng"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:930
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:935
 msgid ""
 "Start Tails to learn how to create a partition image of your Persistent "
 "Storage."
@@ -924,11 +925,11 @@ msgstr ""
 "Khởi động Tails để tìm hiểu cách tạo ảnh phân vùng của kho lưu trữ lâu dài "
 "của bạn."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:939
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:944
 msgid "Failed to unlock the Persistent Storage due to file system errors."
 msgstr "Mở khóa kho lưu trữ lâu dài thất bại do lỗi hệ thống tập tin."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:948
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:953
 msgid ""
 "Failed to upgrade the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -936,7 +937,7 @@ msgstr ""
 "Đã thất bại khi nâng cấp Ổ đĩa lưu trữ Bền vững. Xin vui lòng khởi động "
 "Tails và gửi đi một báo cáo lỗi."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:955
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:960
 msgid ""
 "Failed to unlock the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -944,7 +945,7 @@ msgstr ""
 "Đã thất bại khi mở khoá Ổ đĩa lưu trữ Bền vững. Xin vui lòng khởi động Tails "
 "và gửi một báo cáo lỗi."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:963
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:968
 msgid ""
 "Failed to activate the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -952,7 +953,7 @@ msgstr ""
 "Đã thất bại khi kích hoạt Ổ đĩa lưu trữ Bền vững. Xin vui lòng khởi động "
 "Tails và gửi đi một báo cáo lỗi."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:974
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:979
 msgid "Upgrading the Persistent Storage. This might take a while…"
 msgstr ""
 "Đang nâng cấp kho lưu trữ lâu dài. Quá trình này có thể sẽ mất một lúc…"

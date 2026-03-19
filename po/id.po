@@ -29,7 +29,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-25 11:26+0100\n"
+"POT-Creation-Date: 2026-03-04 19:23+0100\n"
 "PO-Revision-Date: 2026-01-29 03:01+0000\n"
 "Last-Translator: Arif Budiman <arifpedia@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/tor/tails-gui/"
@@ -140,10 +140,10 @@ msgstr "Hapus"
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:199
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/add_settings_dialog.py:40
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:182
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:503
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:777
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:917
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:185
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:198
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:519
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:922
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:744
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:128
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:376
@@ -773,87 +773,25 @@ msgstr "Mati"
 msgid "Off (default)"
 msgstr "Nonaktif (default)"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:178
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:181
 msgid "Persistent Storage Still Locked"
 msgstr "Penyimpanan Persisten Masih Terkunci"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:180
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:183
 msgid ""
 "Do you really want to start Tails without unlocking your Persistent Storage?"
 msgstr ""
 "Anda yakin hendak memulai Tails tanpa membuka Penyimpanan Persisten Anda?"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:183
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:186
 msgid "Start Without Persistent Storage"
 msgstr "Mulai Tanpa Penyimpanan Persisten"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:267
-msgid ""
-"Impossible to unlock the Persistent Storage because the USB stick is read-"
-"only."
-msgstr ""
-"Tidak mungkin membuka kunci Penyimpanan Persisten karena flash disk USB "
-"hanya-baca."
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:428
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:460
-msgid "Unlocking…"
-msgstr "Membuka kunci…"
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:468
-msgid "Checking the file system…"
-msgstr "Memeriksa sistem berkas…"
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:501
-msgid "Repairing the File System"
-msgstr "Memperbaiki Sistem Berkas"
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:502
-msgid "This might take a long time..."
-msgstr "Ini mungkin makan waktu lama..."
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:520
-msgid "Failed to repair the file system of your Persistent Storage."
-msgstr "Gagal memperbaiki sistem berkas Penyimpanan Persistent Anda."
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:522
-msgid "Start Tails to send an error report and learn how to recover your data."
-msgstr ""
-"Mulailah Tails untuk mengirim laporan kesalahan dan belajar bagaimana "
-"memulihkan data Anda."
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:536
-msgid "File System Repaired Successfully"
-msgstr "Sistem Berkas Sukses Diperbaiki"
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:538
-msgid ""
-"It's possible that some data was lost during the repair. Please check the "
-"contents of your Persistent Storage and restore any lost data from a backup."
-msgstr ""
-"Ada kemungkinan sebagian data hilang selama perbaikan. Silakan periksa isi "
-"Penyimpanan Persisten Anda dan pulihkan data yang hilang dari cadangan."
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:542
-#: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:32
-msgid "Close"
-msgstr "Tutup"
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:557
-msgid ""
-"You aborted the repair of the file system. You can either start Tails "
-"without Persistent Storage or restart the computer to try repairing the file "
-"system again."
-msgstr ""
-"Anda membatalkan perbaikan sistem berkas. Anda dapat memulai Tails tanpa "
-"Penyimpanan Persisten atau memulai ulang komputer untuk mencoba memperbaiki "
-"sistem berkas lagi."
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:771
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:192
 msgid "Language and Keyboard layout"
 msgstr "Bahasa dan tata letak keyboard"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:773
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:194
 msgid ""
 "Your language and keyboard layout will be saved unencrypted on your Tails "
 "USB stick and applied automatically in the future.\n"
@@ -867,17 +805,79 @@ msgstr ""
 "Seseorang yang menemukan stik USB Tails Anda dapat melihat bahasa dan tata "
 "letak papan ketik Anda."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:778
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:199
 msgid "Save Unencrypted"
 msgstr "Simpan Tanpa Enkripsi"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:839
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:283
+msgid ""
+"Impossible to unlock the Persistent Storage because the USB stick is read-"
+"only."
+msgstr ""
+"Tidak mungkin membuka kunci Penyimpanan Persisten karena flash disk USB "
+"hanya-baca."
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:444
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:476
+msgid "Unlocking…"
+msgstr "Membuka kunci…"
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:484
+msgid "Checking the file system…"
+msgstr "Memeriksa sistem berkas…"
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:517
+msgid "Repairing the File System"
+msgstr "Memperbaiki Sistem Berkas"
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:518
+msgid "This might take a long time..."
+msgstr "Ini mungkin makan waktu lama..."
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:536
+msgid "Failed to repair the file system of your Persistent Storage."
+msgstr "Gagal memperbaiki sistem berkas Penyimpanan Persistent Anda."
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:538
+msgid "Start Tails to send an error report and learn how to recover your data."
+msgstr ""
+"Mulailah Tails untuk mengirim laporan kesalahan dan belajar bagaimana "
+"memulihkan data Anda."
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:552
+msgid "File System Repaired Successfully"
+msgstr "Sistem Berkas Sukses Diperbaiki"
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:554
+msgid ""
+"It's possible that some data was lost during the repair. Please check the "
+"contents of your Persistent Storage and restore any lost data from a backup."
+msgstr ""
+"Ada kemungkinan sebagian data hilang selama perbaikan. Silakan periksa isi "
+"Penyimpanan Persisten Anda dan pulihkan data yang hilang dari cadangan."
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:558
+#: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:32
+msgid "Close"
+msgstr "Tutup"
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:573
+msgid ""
+"You aborted the repair of the file system. You can either start Tails "
+"without Persistent Storage or restart the computer to try repairing the file "
+"system again."
+msgstr ""
+"Anda membatalkan perbaikan sistem berkas. Anda dapat memulai Tails tanpa "
+"Penyimpanan Persisten atau memulai ulang komputer untuk mencoba memperbaiki "
+"sistem berkas lagi."
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:844
 msgid "Start Tails and open the Persistent Storage settings to find out more."
 msgstr ""
 "Mulai Tails dan buka pengaturan Penyimpanan Persisten untuk mengetahui lebih "
 "lanjut."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:868
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:873
 msgid ""
 "Your Persistent Storage is unlocked. Its content will be available until you "
 "shut down Tails."
@@ -885,11 +885,11 @@ msgstr ""
 "Penyimpanan Menetap Anda tidak terkunci. Memulai kembali Tails untuk "
 "menguncinya lagi."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:883
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:888
 msgid "Incorrect passphrase. Please try again."
 msgstr "Frasa sandi salah. Silakan coba lagi."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:894
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:899
 msgid ""
 "Error reading data from your Persistent Storage. The hardware of your USB "
 "stick is probably failing."
@@ -897,24 +897,25 @@ msgstr ""
 "Kesalahan membaca data dari Penyimpanan Persisten Anda. Perangkat keras pada "
 "stik USB Anda kemungkinan mengalami kegagalan."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:896
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:901
 msgid "Start Tails to learn how to recover your data."
 msgstr "Mulai Tails untuk mempelajari cara memulihkan data Anda."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:907
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:912
 msgid "File System Errors"
 msgstr "Kesalahan Sistem Berkas"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:909
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:914
+#, fuzzy
 msgid ""
 "Errors were detected in the file system of your Persistent Storage.\n"
-"                \n"
+"\n"
 "Tails can try to fix these errors, but this might erase some of your data "
 "and take a long time.\n"
 "\n"
 "If you already have an up-to-date backup of your Persistent Storage, we "
 "recommend that you try to repair.\n"
-"                \n"
+"\n"
 "If you don't have a backup, we recommend that you create a partition image "
 "of your Persistent Storage first."
 msgstr ""
@@ -929,15 +930,15 @@ msgstr ""
 "Jika Anda tidak memiliki cadangan, kami menyarankan Anda membuat citra "
 "partisi dari Penyimpanan Persisten Anda terlebih dahulu."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:918
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:923
 msgid "Repair File System"
 msgstr "Perbaiki Sistem Berkas"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:919
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:924
 msgid "Create Partition Image"
 msgstr "Buat Citra Partisi"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:930
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:935
 msgid ""
 "Start Tails to learn how to create a partition image of your Persistent "
 "Storage."
@@ -945,11 +946,11 @@ msgstr ""
 "Mulai Tails untuk mempelajari cara membuat citra partisi dari Penyimpanan "
 "Persisten Anda."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:939
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:944
 msgid "Failed to unlock the Persistent Storage due to file system errors."
 msgstr "Gagal untuk mengatur Penyimpanan Persistent Anda"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:948
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:953
 msgid ""
 "Failed to upgrade the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -957,7 +958,7 @@ msgstr ""
 "Gagal meningkatkan Penyimpanan Persisten. Silakan mulai Tails dan kirim "
 "laporan kesalahan."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:955
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:960
 msgid ""
 "Failed to unlock the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -965,7 +966,7 @@ msgstr ""
 "Gagal membuka kunci Penyimpanan Persisten. Silakan mulai Tails dan kirim "
 "laporan kesalahan."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:963
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:968
 msgid ""
 "Failed to activate the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -973,7 +974,7 @@ msgstr ""
 "Gagal mengaktifkan Penyimpanan Persisten. Silakan mulai Tails dan kirim "
 "laporan kesalahan."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:974
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:979
 msgid "Upgrading the Persistent Storage. This might take a while…"
 msgstr "Meningkatkan Penyimpanan Persisten. Ini mungkin memerlukan waktu…"
 

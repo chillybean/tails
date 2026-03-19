@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-25 11:26+0100\n"
+"POT-Creation-Date: 2026-03-04 19:23+0100\n"
 "PO-Revision-Date: 2025-10-11 09:44+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Basque <https://hosted.weblate.org/projects/tor/tails-gui/eu/"
@@ -124,10 +124,10 @@ msgstr "Kendu"
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:199
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/add_settings_dialog.py:40
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:182
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:503
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:777
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:917
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:185
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:198
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:519
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:922
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:744
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:128
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:376
@@ -759,22 +759,40 @@ msgstr "Desaktibatuta"
 msgid "Off (default)"
 msgstr "Desaktibatuta (lehenetsia)"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:178
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:181
 msgid "Persistent Storage Still Locked"
 msgstr "Biltegiratze iraunkorra oraindik blokeatua"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:180
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:183
 msgid ""
 "Do you really want to start Tails without unlocking your Persistent Storage?"
 msgstr ""
 "Benetan nahi al duzu Tails abiarazi zure Biltegiratze Iraunkorra desblokeatu "
 "gabe?"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:183
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:186
 msgid "Start Without Persistent Storage"
 msgstr "Hasi Biltegiratze Iraunkorra gabe"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:267
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:192
+#, fuzzy
+msgid "Language and Keyboard layout"
+msgstr "_Teklatuaren Diseinua"
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:194
+msgid ""
+"Your language and keyboard layout will be saved unencrypted on your Tails "
+"USB stick and applied automatically in the future.\n"
+"\n"
+"Someone who finds your Tails USB stick can see your language and keyboard "
+"layout."
+msgstr ""
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:199
+msgid "Save Unencrypted"
+msgstr ""
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:283
 msgid ""
 "Impossible to unlock the Persistent Storage because the USB stick is read-"
 "only."
@@ -782,40 +800,40 @@ msgstr ""
 "Ezin da Biltegiratze Iraunkorra desblokeatu USB memoria irakurtzeko soilik "
 "delako."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:428
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:460
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:444
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:476
 msgid "Unlocking…"
 msgstr "Desblokeatzen…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:468
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:484
 msgid "Checking the file system…"
 msgstr "Fitxategi sistema egiaztatzen…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:501
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:517
 msgid "Repairing the File System"
 msgstr "Fitxategi sistema konpontzen"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:502
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:518
 msgid "This might take a long time..."
 msgstr "Honek luze jo dezake..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:520
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:536
 msgid "Failed to repair the file system of your Persistent Storage."
 msgstr ""
 "Zure Biltegiratze Iraunkorraren fitxategi sistemaren konponketak huts egin "
 "du."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:522
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:538
 msgid "Start Tails to send an error report and learn how to recover your data."
 msgstr ""
 "Hasi Tails errore-txosten bat bidaltzeko eta zure datuak nola berreskuratu "
 "ikasteko."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:536
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:552
 msgid "File System Repaired Successfully"
 msgstr "Fitxategi Sistema behar bezala konpondu da"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:538
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:554
 msgid ""
 "It's possible that some data was lost during the repair. Please check the "
 "contents of your Persistent Storage and restore any lost data from a backup."
@@ -824,12 +842,12 @@ msgstr ""
 "Biltegiratze Iraunkorraren edukia eta berreskuratu babeskopi batetik "
 "galdutako datuak."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:542
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:558
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:32
 msgid "Close"
 msgstr "Itxi"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:557
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:573
 msgid ""
 "You aborted the repair of the file system. You can either start Tails "
 "without Persistent Storage or restart the computer to try repairing the file "
@@ -839,30 +857,12 @@ msgstr ""
 "Tails abiaraztea Biltegiratze Iraunkorra gabe edo ordenagailua "
 "berrabiaraztea fitxategi-sistema berriro konpontzen saiatzeko."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:771
-#, fuzzy
-msgid "Language and Keyboard layout"
-msgstr "_Teklatuaren Diseinua"
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:773
-msgid ""
-"Your language and keyboard layout will be saved unencrypted on your Tails "
-"USB stick and applied automatically in the future.\n"
-"\n"
-"Someone who finds your Tails USB stick can see your language and keyboard "
-"layout."
-msgstr ""
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:778
-msgid "Save Unencrypted"
-msgstr ""
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:839
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:844
 msgid "Start Tails and open the Persistent Storage settings to find out more."
 msgstr ""
 "Hasi Tails eta ireki Biltegiratze iraunkorraren ezarpenak gehiago jakiteko."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:868
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:873
 msgid ""
 "Your Persistent Storage is unlocked. Its content will be available until you "
 "shut down Tails."
@@ -870,11 +870,11 @@ msgstr ""
 "Zure Biltegiratze Iraunkorra desblokeatuta dago. Bere edukia eskuragarri "
 "egongo da Tails itzali arte."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:883
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:888
 msgid "Incorrect passphrase. Please try again."
 msgstr "Pasaesaldi ez zuzena. Saiatu berriro, mesedez."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:894
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:899
 msgid ""
 "Error reading data from your Persistent Storage. The hardware of your USB "
 "stick is probably failing."
@@ -882,24 +882,25 @@ msgstr ""
 "Zure Biltegiratze Iraunkorretik informazioa irakurtzerakoan akats bat "
 "gertatu da. Zure USB memoriaren hardware-a huts egiten ari da ziurrenik."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:896
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:901
 msgid "Start Tails to learn how to recover your data."
 msgstr "Tails hasi zure informazioa nola berreskura dezakezun ikasteko."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:907
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:912
 msgid "File System Errors"
 msgstr "Fitxategi Sistemaren akatsak"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:909
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:914
+#, fuzzy
 msgid ""
 "Errors were detected in the file system of your Persistent Storage.\n"
-"                \n"
+"\n"
 "Tails can try to fix these errors, but this might erase some of your data "
 "and take a long time.\n"
 "\n"
 "If you already have an up-to-date backup of your Persistent Storage, we "
 "recommend that you try to repair.\n"
-"                \n"
+"\n"
 "If you don't have a backup, we recommend that you create a partition image "
 "of your Persistent Storage first."
 msgstr ""
@@ -914,15 +915,15 @@ msgstr ""
 "Babeskopiarik ez baduzu, lehenik eta behin zure Biltegiratze Iraunkorraren "
 "partizio-irudia sortzea gomendatzen dugu."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:918
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:923
 msgid "Repair File System"
 msgstr "Fitxategi Sistema konpondu"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:919
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:924
 msgid "Create Partition Image"
 msgstr "Sortu partizioaren irudia"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:930
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:935
 msgid ""
 "Start Tails to learn how to create a partition image of your Persistent "
 "Storage."
@@ -930,13 +931,13 @@ msgstr ""
 "Hasi Tails zure Biltegiratze Iraunkorraren partizio-irudia nola sortu "
 "ikasteko."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:939
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:944
 msgid "Failed to unlock the Persistent Storage due to file system errors."
 msgstr ""
 "Ezin izan da biltegiratze iraunkorra desblokeatu fitxategi-sistemaren "
 "akatsengatik."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:948
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:953
 msgid ""
 "Failed to upgrade the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -944,7 +945,7 @@ msgstr ""
 "Ezin izan da biltegiratze iraunkorra eguneratu. Hasi Tails eta bidali akats-"
 "txostena."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:955
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:960
 msgid ""
 "Failed to unlock the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -952,7 +953,7 @@ msgstr ""
 "Ezin izan da biltegiratze iraunkorra desblokeatu. Hasi Tails eta bidali "
 "akats-txostena."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:963
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:968
 msgid ""
 "Failed to activate the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -960,7 +961,7 @@ msgstr ""
 "Ezin izan da biltegiratze iraunkorra aktibatu. Hasi Tails eta bidali akats-"
 "txostena."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:974
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:979
 msgid "Upgrading the Persistent Storage. This might take a while…"
 msgstr ""
 "Biltegiratze iraunkorra berritzen. Baliteke honek denbora pixka bat behar "
