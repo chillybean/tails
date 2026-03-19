@@ -959,16 +959,6 @@ class StepErrorMixin:
     def before_show_error(self, coming_from) -> None:
         if "error" not in self.state:
             self.state["error"] = {}
-        if "fix_attempt" not in self.state["error"]:
-            self.state["error"] = {
-                "fix_attempt": False  # has the user done something to fix it?
-            }
-        if (
-            coming_from == "proxy"
-            and self.state["proxy"]
-            and self.state["proxy"]["proxy_type"] != "no"
-        ):
-            self.state["error"]["fix_attempt"] = True
         hide_mode: bool = self.state["hide"]["hide"]
         time_synced: bool = (not hide_mode) and self.app.get_network_time_result[
             "status"
@@ -1038,8 +1028,6 @@ class StepErrorMixin:
                 _("Proxy: <b>{proxy}</b>").format(proxy=proxy)
             )
 
-        self._step_error_submit_allowed()
-
     def cb_step_error_btn_open_details(self, *args):
         error_code = self.state["progress"].get("error", "")
         report = f"Code: {error_code}"
@@ -1082,8 +1070,6 @@ class StepErrorMixin:
                 dialog.destroy()
                 time_dialog.destroy()
                 return
-            self.state["error"]["fix_attempt"] = True
-            self._step_error_submit_allowed()
             time_dialog.destroy()
 
         if response == Gtk.ResponseType.APPLY:
@@ -1100,20 +1086,8 @@ class StepErrorMixin:
         # we are not checking the result of this command, because nothing depends on it
         self.app.portal.call_async("open-unsafebrowser", None)
 
-        self.state["error"]["fix_attempt"] = True
-        self._step_error_submit_allowed()
-
     def cb_step_error_btn_configure_bridge_clicked(self, *args):
         self.change_box("bridge")
-
-    def _step_error_submit_allowed(self):
-        time_synced: bool = (
-            not (self.state["hide"]["hide"])
-            and self.app.get_network_time_result["status"] == "success"
-        )
-        self.get_object("btn_submit").set_sensitive(
-            self.state["error"]["fix_attempt"] or time_synced
-        )
 
     def cb_step_error_btn_submit_clicked(self, *args):
         self.change_box("progress")
