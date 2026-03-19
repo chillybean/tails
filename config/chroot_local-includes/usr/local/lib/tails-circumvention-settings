@@ -59,7 +59,7 @@ def meek_request(proxy=None):
                 "TOR_PT_CLIENT_TRANSPORTS": "meek_lite",
                 "TOR_PT_MANAGED_TRANSPORT_VER": "1",
                 "TOR_PT_STATE_LOCATION": tmpdir,
-            }
+            },
         )
         if proxy:
             env["TOR_PT_PROXY"] = proxy
@@ -109,7 +109,7 @@ def fronted_fetch(meek_address, moat_address, region=None, transports=None) -> d
     post_options = {}
     proxy_user, proxy_password = meek_credentials()
     post_options["proxies"] = {
-        "https": f"socks5h://{proxy_user}:{proxy_password}@{meek_address}"
+        "https": f"socks5h://{proxy_user}:{proxy_password}@{meek_address}",
     }
     data = {}
     if region:
@@ -177,7 +177,7 @@ def main() -> dict:
     p.add_argument("--region", metavar="CODE", dest="region")
     p.add_argument("--defaults-fallback", action="store_true", dest="fallback")
     p.add_argument(
-        "--transport", metavar="TRANSPORT", action="append", dest="transports"
+        "--transport", metavar="TRANSPORT", action="append", dest="transports",
     )
     args = p.parse_args()
     print(json.dumps(run(args)))
