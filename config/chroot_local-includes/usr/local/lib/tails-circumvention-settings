@@ -8,6 +8,7 @@ import requests
 import subprocess
 import tempfile
 import urllib.parse
+import urllib3.util.retry
 
 from contextlib import contextmanager
 
@@ -106,7 +107,8 @@ def fronted_fetch(meek_address, moat_address, region=None, transports=None):
         post_options["data"] = json.dumps(data)
     session = requests.Session()
     # Do up to 3 attempts, to work around transient errors
-    session.mount(moat_address, requests.adapters.HTTPAdapter(max_retries=2))
+    retries = urllib3.util.retry.Retry(total=2, allowed_methods=["POST"])
+    session.mount(moat_address, requests.adapters.HTTPAdapter(max_retries=retries))
     response = session.post(moat_address, timeout=10, **post_options)
     return json.loads(response.content)
 
