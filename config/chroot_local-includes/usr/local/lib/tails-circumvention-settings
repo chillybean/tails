@@ -100,7 +100,12 @@ def meek_request(proxy=None):
                     raise LyrebirdError("timed out in lyrebird read loop")
 
 
-def fronted_fetch(meek_address, moat_address, region=None, transports=None):
+def fronted_fetch(meek_address, moat_address, region=None, transports=None) -> dict:
+    """
+    Performs a request through the meek_address (as returned by lyrebird).
+
+    Returns a response from the API as-is; no validation is performed, except parsing JSON
+    """
     post_options = {}
     proxy_user, proxy_password = meek_credentials()
     post_options["proxies"] = {
@@ -121,7 +126,10 @@ def fronted_fetch(meek_address, moat_address, region=None, transports=None):
     return json.loads(response.content)
 
 
-def get_settings(fallback=False, proxy=None, region=None, transports=None):
+def get_settings(fallback=False, proxy=None, region=None, transports=None) -> dict:
+    """
+    Returns a response from the API as-is.
+    """
     with meek_request(proxy=proxy) as meek_address:
         response = {}
         try:
@@ -145,7 +153,25 @@ def get_settings(fallback=False, proxy=None, region=None, transports=None):
     return response
 
 
-if __name__ == "__main__":
+def run(args) -> dict:
+    """
+    This is what the consumer of the output of this whole program will need to parse.
+
+    Return type is either an API response (untouched), or an {"internal-error": …} dict.
+    The latter is used when we want to signal an error which prevents us to reach the Circumvention Settings API at all.
+    """
+    try:
+        return get_settings(
+            fallback=args.fallback,
+            proxy=args.proxy,
+            region=args.region,
+            transports=args.transports,
+        )
+    except Exception as e:
+        return {"internal-error": f"{type(e).__name__}: {e}"}
+
+
+def main() -> dict:
     p = argparse.ArgumentParser()
     p.add_argument("--proxy", metavar="PROXY", dest="proxy")
     p.add_argument("--region", metavar="CODE", dest="region")
@@ -154,16 +180,8 @@ if __name__ == "__main__":
         "--transport", metavar="TRANSPORT", action="append", dest="transports"
     )
     args = p.parse_args()
-    try:
-        print(
-            json.dumps(
-                get_settings(
-                    fallback=args.fallback,
-                    proxy=args.proxy,
-                    region=args.region,
-                    transports=args.transports,
-                )
-            )
-        )
-    except Exception as e:
-        print(json.dumps({"internal-error": f"{type(e).__name__}: {e}"}))
+    print(json.dumps(run(args)))
+
+
+if __name__ == "__main__":
+    main()
