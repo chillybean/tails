@@ -797,15 +797,26 @@ Given /^the Moat distributor responds with the default bridges$/ do
   $vm.file_overwrite('/usr/local/lib/tails-circumvention-settings', moat_wrapper)
 end
 
-When /^I configure Tor Connection to ask for bridge settings based on my location$/ do
+When /^I configure Tor Connection to ask for bridge settings (?:based on my location|for "(.*)")$/ do |region|
   tca_configure(:easy, connect: false) do
-    tor_connection_assistant.child('Configure a Tor _bridge',
-                                   roleName: 'check box')
-                            .click
+    tor_connection_assistant.child(
+      'Configure a Tor _bridge',
+      roleName: 'check box'
+    ).click
     click_connect_to_tor
-    tor_connection_assistant.child('Ask for a Tor bridge based on your _region',
-                                   roleName: 'radio button')
-                            .click
+    moat_radio = tor_connection_assistant.child(
+      'Ask for a Tor bridge based on your _region',
+      roleName: 'radio button'
+    )
+    moat_radio.click
+    if region
+      combo_box = moat_radio.parent.child(roleName: 'combo box')
+      combo_input = moat_radio.parent.child(roleName: 'text')
+      old_combovalue = combo_box.combovalue
+      assert_equal('automatic', old_combovalue)
+      combo_input.text = region
+      try_for(5) { old_combovalue != combo_box.combovalue }
+    end
     click_connect_to_tor
   end
   @user_wants_pluggable_transports = true

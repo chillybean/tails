@@ -106,7 +106,7 @@ Feature: Using Tor bridges and pluggable transports
     Then Tor is configured to use the default bridges
     And all Internet traffic has only flowed through the default bridges or connectivity check service
 
-  Scenario: Asking for real bridge settings with automatic region-detection in Tor Connection
+  Scenario: Asking for real bridge settings for the USA in Tor Connection
     Given no bridges are configured in torrc
-    When I configure Tor Connection to ask for bridge settings based on my location
+    When I configure Tor Connection to ask for bridge settings for "United States of America"
     Then some real world bridges are eventually configured in torrc
