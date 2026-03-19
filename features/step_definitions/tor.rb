@@ -519,7 +519,7 @@ When(/^I look at the hide mode but then I go back$/) do
     click_connect_to_tor
 
     tor_connection_assistant.child(
-      'Configure a Tor bridge',
+      'Configure a Tor Bridge',
       roleName: 'heading'
     )
 
@@ -880,7 +880,7 @@ When /^I click "Connect to Tor"$/ do
 end
 
 When /^I retry connecting to Tor$/ do
-  click_connect_to_tor(label: 'Retry _connecting to Tor')
+  click_connect_to_tor(label: 'Retry _Connecting to Tor')
 end
 
 Then /^I can(not)? click the "Connect to Tor" button$/ do |cannot|
