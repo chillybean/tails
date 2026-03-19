@@ -83,11 +83,7 @@ def meek_request(proxy=None):
                 line = line.decode("utf-8").rstrip()
                 if line.startswith("CMETHOD "):
                     _, pt, proto, _address = line.split()
-                    if pt == "meek" or pt == "meek_lite":
-                        if proto != "socks5":
-                            raise NotImplementedError(
-                                f"unsupported lyrebird CMETHOD listener protocol: {proto}"
-                            )
+                    if pt in ("meek", "meek_lite") and proto == "socks5":
                         address = _address
                 elif line == "CMETHODS DONE":
                     if address is None:
