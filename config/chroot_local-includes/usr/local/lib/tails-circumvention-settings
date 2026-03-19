@@ -119,21 +119,23 @@ def fronted_fetch(meek_address, moat_address, region=None, transports=None):
     # Do up to 3 attempts, to work around transient errors
     retries = urllib3.util.retry.Retry(total=2, allowed_methods=["POST"])
     session.mount(moat_address, requests.adapters.HTTPAdapter(max_retries=retries))
-    try:
-        response = session.post(moat_address, timeout=10, **post_options)
-        return json.loads(response.content)
-    except requests.RequestException as e:
-        return {"internal-error": f"{type(e).__name__}: {e}"}
+    response = session.post(moat_address, timeout=10, **post_options)
+    return json.loads(response.content)
 
 
 def get_settings(fallback=False, proxy=None, region=None, transports=None):
     with meek_request(proxy=proxy) as meek_address:
-        response = fronted_fetch(
-            meek_address,
-            MOAT_SERVICE_SETTINGS_URL,
-            region=region,
-            transports=transports,
-        )
+        response = {}
+        try:
+            response = fronted_fetch(
+                meek_address,
+                MOAT_SERVICE_SETTINGS_URL,
+                region=region,
+                transports=transports,
+            )
+        except requests.RequestException:
+            if not fallback:
+                raise
 
         if fallback and not response.get("settings", []):
             response = fronted_fetch(
@@ -165,5 +167,5 @@ if __name__ == "__main__":
                 )
             )
         )
-    except LyrebirdError as e:
+    except (LyrebirdError, requests.RequestException) as e:
         print(json.dumps({"internal-error": f"{type(e).__name__}: {e}"}))
