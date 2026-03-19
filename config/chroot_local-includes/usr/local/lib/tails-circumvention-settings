@@ -167,5 +167,5 @@ if __name__ == "__main__":
                 )
             )
         )
-    except (LyrebirdError, requests.RequestException) as e:
+    except Exception as e:
         print(json.dumps({"internal-error": f"{type(e).__name__}: {e}"}))
