@@ -3,15 +3,13 @@
 import argparse
 import json
 import os
-import pwd
-import requests
 import subprocess
 import tempfile
 import urllib.parse
-import urllib3.util.retry
-
 from contextlib import contextmanager
 
+import requests
+import urllib3.util.retry
 
 MOAT_SERVICE_URL = "https://bridges.torproject.org/moat"
 MOAT_SERVICE_SETTINGS_URL = f"{MOAT_SERVICE_URL}/circumvention/settings"
