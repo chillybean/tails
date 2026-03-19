@@ -62,6 +62,6 @@ Feature: Tor Connection helps the user in connecting to Tor
         And I close the Unsafe Browser
         And the Tor network and default bridges are unblocked
         And I allow time sync before Tor connects to work again
-        And I retry connecting to Tor
+        And I click "Connect to Tor"
         Then I wait until Tor is ready
 
