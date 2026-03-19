@@ -1211,7 +1211,7 @@ Then /^some real world bridges are eventually configured in torrc$/ do
   expected_transports = supported_bridge_transports
   try_for(60) do
     bridges = torrc_bridges
-    assert(bridges.size.positive?, 'there are no bridge lines in torrc')
+    assert_not_empty(bridges, 'there are no bridge lines in torrc')
     bridges.each do |line|
       line_split = line.split
       if line_split.size == 2
