@@ -679,10 +679,6 @@ class StepConnectProgressMixin:
             set_error("moat_internal_error", data=response["internal-error"])
             return
 
-        if "requests-error" in response:
-            set_error("moat_fetch_failed", data=response["requests-error"])
-            return
-
         settings = response.get("settings", [])
         if not settings:
             if response.get("errors", []):

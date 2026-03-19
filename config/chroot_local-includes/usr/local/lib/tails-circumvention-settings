@@ -123,7 +123,7 @@ def fronted_fetch(meek_address, moat_address, region=None, transports=None):
         response = session.post(moat_address, timeout=10, **post_options)
         return json.loads(response.content)
     except requests.RequestException as e:
-        return {"requests-error": f"{type(e).__name__}: {e}"}
+        return {"internal-error": f"{type(e).__name__}: {e}"}
 
 
 def get_settings(fallback=False, proxy=None, region=None, transports=None):
