@@ -675,6 +675,10 @@ class StepConnectProgressMixin:
             set_error("moat_invalid_json", data=raw_content)
             return
 
+        if "internal-error" in response:
+            set_error("moat_internal_error", data=response["internal-error"])
+            return
+
         if "requests-error" in response:
             set_error("moat_fetch_failed", data=response["requests-error"])
             return
