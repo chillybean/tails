@@ -65,7 +65,14 @@ def meek_request(proxy=None):
         p = None
         try:
             p = subprocess.Popen(
-                ["/usr/bin/obfs4proxy"],
+                # We use a timeout to avoid an endless loop below. We
+                # do up to three attempts for each fronted_fetch()
+                # with a 10 second timeout, and we do up to two
+                # fronted_fetch()es in total (with
+                # `--defaults-fallback`) so the worst case is that
+                # this takes 3*2*10 = 60 seconds. Let's add 5 seconds
+                # for overhead and we settle on 65 seconds.
+                ["/usr/bin/timeout", "65", "/usr/bin/obfs4proxy"],
                 env=env,
                 stdout=subprocess.PIPE,
             )
@@ -90,6 +97,9 @@ def meek_request(proxy=None):
         finally:
             if p is not None:
                 p.kill()
+                if p.returncode == 124:
+                    # The command timed out, see timeout(1)
+                    raise RuntimeError("timed out in lyrebird read loop")
 
 
 def fronted_fetch(meek_address, moat_address, region=None, transports=None):
