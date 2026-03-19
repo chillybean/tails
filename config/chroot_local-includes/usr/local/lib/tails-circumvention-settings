@@ -19,6 +19,10 @@ MOAT_SERVICE_DEFAULTS_URL = f"{MOAT_SERVICE_URL}/circumvention/defaults"
 MOAT_TARGETS = "https://1723079976.rsc.cdn77.org|cdn.zk.mk+www.cdn77.com,https://bespoke-strudel-c243cc.netlify.app|vuejs.org+netlify.com"
 
 
+class LyrebirdError(Exception):
+    pass
+
+
 def meek_credentials():
     targets = f"targets={MOAT_TARGETS}"
     # According the specification [0] we should be able to fit the
@@ -79,7 +83,7 @@ def meek_request(proxy=None):
             while True:
                 line = p.stdout.readline()
                 if not line:
-                    raise RuntimeError("meek request failed")
+                    raise LyrebirdError("meek request failed")
                 line = line.decode("utf-8").rstrip()
                 if line.startswith("CMETHOD "):
                     _, pt, proto, _address = line.split()
@@ -87,7 +91,7 @@ def meek_request(proxy=None):
                         address = _address
                 elif line == "CMETHODS DONE":
                     if address is None:
-                        raise RuntimeError("got no lyrebird CMETHOD address")
+                        raise LyrebirdError("got no lyrebird CMETHOD address")
                     yield address
                     break
         finally:
@@ -95,7 +99,7 @@ def meek_request(proxy=None):
                 p.kill()
                 if p.returncode == 124:
                     # The command timed out, see timeout(1)
-                    raise RuntimeError("timed out in lyrebird read loop")
+                    raise LyrebirdError("timed out in lyrebird read loop")
 
 
 def fronted_fetch(meek_address, moat_address, region=None, transports=None):
@@ -161,5 +165,5 @@ if __name__ == "__main__":
                 )
             )
         )
-    except RuntimeError as e:
+    except LyrebirdError as e:
         print(json.dumps({"internal-error": f"{type(e).__name__}: {e}"}))
