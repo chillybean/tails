@@ -1029,7 +1029,7 @@ class StepErrorMixin:
         report = f"Code: {error_code}"
         error_data = self.state["progress"].get("error_data", None)
         if error_data:
-            report += f"\nDetails:\n{error_data}"
+            report += f"\nDetails:\n{json.dumps(error_data)}"
         with tempfile.NamedTemporaryFile(delete=False) as f:
             f.write(report.encode("utf-8"))
             f.flush()
