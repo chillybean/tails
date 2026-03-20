@@ -375,8 +375,8 @@ rescue Timeout::Error
   raise TorBootstrapFailure, 'TCA did not start'
 end
 
-def tor_connection_assistant
-  Dogtail::Application.new('Tor Connection', translation_domain: 'tails')
+def tor_connection_assistant(**opts)
+  Dogtail::Application.new('Tor Connection', translation_domain: 'tails', **opts)
 end
 
 class TCAConnectionFailure < TorBootstrapFailure
@@ -771,6 +771,16 @@ else
   raise 'TCA managed to connect to Tor but was expected to fail'
 end
 
+def mock_moat_response(response)
+  response_json = JSON.pretty_generate(response)
+  $vm.file_overwrite('/run/moat-response.json', response_json)
+  moat_wrapper = <<~WRAPPER
+    #!/bin/sh
+    cat /run/moat-response.json
+  WRAPPER
+  $vm.file_overwrite('/usr/local/lib/tails-circumvention-settings', moat_wrapper)
+end
+
 Given /^the Moat distributor responds with the default bridges$/ do
   transport = 'obfs4'
   default_bridges = $vm.execute_successfully(
@@ -788,13 +798,19 @@ Given /^the Moat distributor responds with the default bridges$/ do
     ],
     "country":  'foo',
   }
-  response_json = JSON.pretty_generate(response)
-  $vm.file_overwrite('/run/moat-response.json', response_json)
-  moat_wrapper = <<~WRAPPER
-    #!/bin/sh
-    cat /run/moat-response.json
-  WRAPPER
-  $vm.file_overwrite('/usr/local/lib/tails-circumvention-settings', moat_wrapper)
+  mock_moat_response(response)
+end
+
+Given /^the Moat distributor responds with an API error$/ do
+  @mocked_moat_api_error = {
+    'errors' => [
+      {
+        'code'   => 404,
+        'detail' => 'No provided transport is available for this country',
+      },
+    ],
+  }
+  mock_moat_response(@mocked_moat_api_error)
 end
 
 When /^I configure Tor Connection to ask for bridge settings (?:based on my location|for "(.*)")$/ do |region|
@@ -862,6 +878,23 @@ Then /^the Tor Connection Assistant reports that it failed to connect$/ do
       'Error connecting to Tor.*|Error asking for a bridge', roleName: 'label'
     )
   end
+end
+
+Then /^the Tor Connection Assistant reports the Moat API error$/ do
+  expected_error_code = 'moat_api_error'
+  # We need to unset drop_accelerator because we'll look for a string
+  # with two underscores which otherwise would be confused as two
+  # accelerators, resulting in tripping a sanity check in translate().
+  tor_connection_assistant(drop_accelerator: false)
+    .child("Error code: #{expected_error_code}", roleName: 'label')
+  tor_connection_assistant.child('Open _details', roleName: 'button').click
+  details = Dogtail::Application.new('gnome-text-editor')
+                                .child(roleName: 'text')
+                                .text
+  error_code = details.lines.first.chomp.delete_prefix('Code: ')
+  assert_equal(expected_error_code, error_code)
+  error_details = JSON.parse(details.lines.last.chomp)
+  assert_equal(@mocked_moat_api_error['errors'], error_details)
 end
 
 Then /^the Tor Connection Assistant complains that normal bridges are not allowed$/ do

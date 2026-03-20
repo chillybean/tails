@@ -106,6 +106,12 @@ Feature: Using Tor bridges and pluggable transports
     Then Tor is configured to use the default bridges
     And all Internet traffic has only flowed through the default bridges or connectivity check service
 
+  Scenario: Asking for bridge settings but receiving a mocked API error in Tor Connection
+    Given the Moat distributor responds with an API error
+    When I configure Tor Connection to ask for bridge settings based on my location
+    Then the Tor Connection Assistant reports that it failed to connect
+    And the Tor Connection Assistant reports the Moat API error
+
   Scenario: Asking for real bridge settings for the USA in Tor Connection
     Given no bridges are configured in torrc
     When I configure Tor Connection to ask for bridge settings for "United States of America"
