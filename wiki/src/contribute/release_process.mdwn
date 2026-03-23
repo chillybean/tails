@@ -618,8 +618,11 @@ version's `.packages` file and the one from the to-be-released images:
 2. In the diff, look for:
 
    - new upstream releases of applications mentioned in [[doc/about/features]]
+     - You can ignore new Debian releases for such packages, but you should not
+       ignore minor releases or patch releases.
    - new upstream releases of other important components such as the
      Linux kernel
+     - You can ignore patch releases, too (e.g: moving from a.b.c to a.b.d)
 
    Add those changes in `debian/changelog`.
 
@@ -1882,10 +1885,11 @@ section, and publish them on the `$WEBSITE_RELEASE_BRANCH` branch:
         echo "Wrong po4a version"
 	fi
 
-Draft the Tor blog post
------------------------
+## If you are publishing a final release: draft the Tor blog post
 
-Skip this if you are not preparing a stable release.
+Check:
+
+    [ "${DIST:?}" = stable ]
 
 In order to announce the new Tails release on Tor blog post, you need to:
  - have a personal account on [Tor's GitLab](https://gitlab.torproject.org/) with at least *Developer* access to the [Tor blog](https://gitlab.torproject.org/tpo/web/blog/-/project_members)
@@ -1982,8 +1986,7 @@ Mark the merge request for `$WEBSITE_RELEASE_BRANCH` as ready.
 Close the "Write release notes" ticket manually since
 `Closes:` statements are not sufficient when updating `master`.
 
-Bug tracker [if preparing a final release]
---------------------------------------------
+## If you're preparing a final release: Bug tracker
 
 Skip this part if preparing a release candidate:
 
@@ -2056,8 +2059,8 @@ Check:
 
 wait until `https://tails.net/news/test_$TAG/` is live.
 
-Twitter
--------
+X.com
+-----
 
 Check in the comments of the issue for the release notes if the
 technical writers have prepared a tweet. Otherwise tweet a simple link
