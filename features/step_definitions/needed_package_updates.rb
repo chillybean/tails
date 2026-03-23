@@ -14,7 +14,7 @@ Then /^no Qt5 package is installed$/ do
   manifest = YAML.safe_load(File.read(TAILS_BUILD_MANIFEST))
   packages = manifest['packages']['binary'].map { |b| b['package'] }
 
-  unwanted = ['qtwayland5']
+  unwanted = ['qtwayland5', 'qttranslations5-l10n']
   qt5_packages_installed = packages.select do |p|
     p.include?('qt5') || unwanted.include?(p)
   end
