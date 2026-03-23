@@ -177,7 +177,10 @@ def main() -> dict:
     p.add_argument("--region", metavar="CODE", dest="region")
     p.add_argument("--defaults-fallback", action="store_true", dest="fallback")
     p.add_argument(
-        "--transport", metavar="TRANSPORT", action="append", dest="transports",
+        "--transport",
+        metavar="TRANSPORT",
+        action="append",
+        dest="transports",
     )
     args = p.parse_args()
     print(json.dumps(run(args)))
