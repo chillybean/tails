@@ -12,6 +12,7 @@ Feature: Using WebTunnel Tor bridges
     # Let's be sure WebTunnel bridges work with a clock East of UTC
     And I bump the system time with "+8 hours +15 minutes"
     And I log in to a new session
+    And all notifications have disappeared
     When the network is plugged
     Then the Tor Connection Assistant autostarts
 

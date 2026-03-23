@@ -688,9 +688,10 @@ Given /^I successfully configure Tor$/ do
   step 'I wait until Tor is ready'
 end
 
-Then /^I wait until Tor is ready$/ do
-  # Here we actually check that Tor is ready
-  step 'Tor has built a circuit'
+Then /^I wait( for a long time)? until Tor is ready$/ do |long_wait|
+  wait_opts = {}
+  wait_opts[:timeout] = 60 * 10 if long_wait
+  wait_until_tor_is_working(**wait_opts)
   step 'the time has synced'
   debug_log('user_wants_pluggable_transports = ' \
            "#{@user_wants_pluggable_transports} " \
@@ -726,10 +727,6 @@ Then /^I wait until Tor is ready$/ do
       raise "The system is not fully running yet:\n#{jobs}\n#{units_status}"
     end
   end
-end
-
-Given /^Tor has built a circuit$/ do
-  wait_until_tor_is_working
 end
 
 class TimeSyncingError < StandardError
