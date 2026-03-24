@@ -27,6 +27,7 @@ Then /^I am proposed to add the "([^"]*)" package to my Additional Software$/ do
   step "I see the \"#{title}\" notification after at most 300 seconds"
 end
 
+# Only works for the notification that is currently showing
 def click_gnome_shell_notification_button(title)
   Dogtail::Application.new('gnome-shell')
                       .child(roleName: 'notification')
@@ -157,7 +158,28 @@ When /^I can open the Additional Software configuration window from the notifica
 end
 
 Then /^I can open the Additional Software log file from the notification$/ do
-  click_gnome_shell_notification_button('Show Log')
+  # Like in other step definitions in this file we would like to use
+  # click_gnome_shell_notification_button() to click the 'Show Log'
+  # button, but there's a race with other notifications that want to
+  # be shown at this time so the notification we are looking for might
+  # not be the one currently showing. So we work around that by
+  # looking for the expected notification in the notification list.
+  # (tails#21443)
+  # Open GNOME Shell's notification list
+  @screen.click(@screen.w / 2, 8)
+  title = 'The installation of your additional software failed'
+  notification = Dogtail::Application.new('gnome-shell')
+                                     .children(roleName: 'notification')
+                                     .find do |node|
+    node.child?(title, roleName: 'label', retry: false)
+  end
+  # The first button of the notification is the one that expands it so
+  # its action buttons are shown
+  notification.children(roleName: 'button').first.click
+  notification.button('Show Log').click
+  # Close notification list, but for some reason clicking the same
+  # coordinate again doesn't work
+  @screen.click(@screen.w / 2, 9)
   try_for(60) do
     Dogtail::Application.new('gnome-text-editor').child(
       "log (#{ASP_STATE_DIR}) - Text Editor", roleName: 'frame'
