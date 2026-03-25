@@ -1182,7 +1182,7 @@ To build the IUKS, run this command:
        time                                                                   \
        sudo                                                                   \
        nice                                                                   \
-       ./puppet-control/site/profile/files/tails/jenkins/slaves/isobuilders/wrap_tails_create_iuks \
+       ./puppet-control/site/profile/files/tails/jenkins/slaves/isobuilders/wrap_tails_create_iuks.py \
            --tails-git-remote "file://${RELEASE_CHECKOUT:?}/.git"             \
            --tails-git-commit "${TAG:?}"                                      \
            --source-date-epoch "${SOURCE_DATE_EPOCH:?}"                       \
