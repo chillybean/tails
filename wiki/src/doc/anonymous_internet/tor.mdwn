@@ -140,6 +140,8 @@ When you choose this option:
    1. If public relays and default bridges don't work, Tails asks you to
       configure a **custom bridge**.
 
+      See [[configuring a Tor bridge|tor#bridge]] below.
+
 Someone monitoring your Internet connection could identify these attempts as
 coming from a Tails user.
 
@@ -167,22 +169,18 @@ types of Tor bridges. That is why, when you decide to hide that you are connecti
 
 - Default bridges are not available.
 
+<h2 id="bridge">Configuring a Tor bridge</h2>
+
+When *Tor Connection* fails to connect to Tor using public relays and default
+bridges, select **Configure a Tor Bridge** from the error screen.
+
+[[!img bridge.png class="screenshot" alt="Tor Connection: Configure a Tor bridge"]]
+
 [[!inline pages="doc/anonymous_internet/tor/bridge.inline" raw="yes" sort="age"]]
 
 To save the last Tor bridge that connected to Tor successfully, turn on the
 [[Tor Bridge|persistent_storage/configure#bridge]] feature of the Persistent
 Storage.
-
-<div class="note">
-
-<p>In the future, we will make it easier to use a custom bridge by:</p>
-
-<ul>
-<li>Allowing you to request a bridge from Tails by solving a CAPTCHA. ([[!tails_ticket 15331]])</li>
-<li>Supporting <i>Snowflake</i> bridges. ([[!tails_ticket 5494]])</li>
-</ul>
-
-</div>
 
 <h2 id="troubleshoot-tor">Troubleshooting connecting to Tor</h2>
 
