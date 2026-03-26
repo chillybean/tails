@@ -63,16 +63,21 @@ def git_on_a_tag() -> bool:
     return proc.returncode == 0
 
 
-def git_only_doc_changes_since(ref: str) -> bool:
-    commit = subprocess.check_output(
+def get_commit(ref: str):
+    return subprocess.check_output(
         ["/usr/bin/git", "rev-parse", "--verify", ref],
         stderr=subprocess.DEVNULL,
         text=True,
     ).strip()
+
+
+def git_only_doc_changes_since(since: str, to: str) -> bool:
+    since_commit = get_commit(since)
+    to_commit = get_commit(to)
     cmd = [
         "/usr/bin/git",
         "diff",
-        f"{commit}...",
+        f"{since_commit}...{to_commit}",
         "--",
         "*",
         ":!/wiki",
@@ -158,6 +163,7 @@ class GetConfigurationCLI:
             "UPSTREAMJOB_GIT_BASE_BRANCH_HEAD"
         ] and git_only_doc_changes_since(
             env["UPSTREAMJOB_GIT_BASE_BRANCH_HEAD"],
+            env["UPSTREAMJOB_GIT_COMMIT"],
         )
 
     def get_cucumber_options(
