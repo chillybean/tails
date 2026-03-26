@@ -10,6 +10,15 @@ _ = gettext
 
 
 class MessageDialog(Gtk.MessageDialog, TranslatableWindow):
+    """
+    MessageDialog is a simple wrapper over Gtk.MessageDialog.
+
+    The main addition is the integration with TranslatableWindow, which means it will be automatically translated
+    whenever the global language is changed.
+
+    For this to work, it's necessary to instantiate this *early* (not when the dialog is needed), because otherwise calling TranslatableWindow.translate_all would have no effect.
+    """
+
     def __init__(
         self,
         message_type: Gtk.MessageType,

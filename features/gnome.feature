@@ -48,3 +48,5 @@ Feature: GNOME is well-integrated into Tails
     And I close the "unlock-veracrypt-volumes" window
     When I start "Unsafe Browser" via GNOME Activities Overview
     And I close the "Firefox" window
+    When I start "Secrets" via GNOME Activities Overview
+    And I close the "secrets" window

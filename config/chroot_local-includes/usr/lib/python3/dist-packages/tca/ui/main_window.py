@@ -4,6 +4,9 @@ import json
 import gettext
 from typing import Any, Optional
 import copy
+import pycountry
+import subprocess
+import tempfile
 
 import gi
 import stem
@@ -24,9 +27,10 @@ import tca.ui.dialogs
 gi.require_version("Gdk", "3.0")
 gi.require_version("Gtk", "3.0")
 gi.require_version("GLib", "2.0")
+gi.require_version("Pango", "1.0")
 
 
-from gi.repository import Gdk, GdkPixbuf, Gtk, GLib  # noqa: E402
+from gi.repository import Gdk, GdkPixbuf, Gtk, GLib, Pango  # noqa: E402
 
 MAIN_UI_FILE = "main.ui"
 CSS_FILE = "tca.css"
@@ -156,7 +160,8 @@ class StepChooseHideMixin:
 
 class StepChooseBridgeMixin:
     def before_show_bridge(self, coming_from) -> None:
-        self.state["bridge"]: dict[str, Any] = {}
+        if "bridge" not in self.state:
+            self.state["bridge"]: dict[str, Any] = {}
         self.persistence_config_failed = False
 
         self.builder.get_object("step_bridge_box").show()
@@ -174,6 +179,7 @@ class StepChooseBridgeMixin:
         else:
             self.builder.get_object("step_bridge_radio_default").grab_focus()
         self.get_object("radio_default").set_sensitive(not hide_mode)
+        self.get_object("box_moat").set_sensitive(not hide_mode)
 
         self.builder.get_object("step_bridge_radio_scan").set_active(hide_mode)
         self.get_object("box_warning").hide()
@@ -198,11 +204,156 @@ class StepChooseBridgeMixin:
                     combo.set_active_id(bridge_type)
                     break
             combo.show_all()
+        self._step_bridge_populate_regions()
         self._step_bridge_init_from_tor_config()
         self._step_bridge_set_actives()
         self._step_bridge_update_persistence_ui()
 
+    def _step_bridge_populate_regions(self):
+        regions_combo = self.get_object("moat_region_combo")
+        if regions_combo.get_model() is not None:
+            return
+
+        # We'll use objects of this class as gettext fallbacks in
+        # order to be able to determine if a translation exists or not
+        # (the default fallback is to return the string as-is, which
+        # isn't enough to determine if a translation exists).
+        class NoneGettextFallback:
+            def gettext(self, s):
+                return None
+
+        # We'll use the gettext domain for iso3166 to localize region
+        # names, but there are multiple versions which contain
+        # translations for different regions, so we'll define a
+        # function that will iterate through all of them and use the
+        # first translation it finds.
+        translators = []
+        for domain in ["iso3166", "iso3166-1", "iso3166-2", "iso3166_2", "iso3166-3"]:
+            try:
+                translation = gettext.translation(domain, pycountry.LOCALES_DIR)
+            except FileNotFoundError:
+                continue
+            translation.add_fallback(NoneGettextFallback())
+            translators.append(translation.gettext)
+
+        def translate_region(region):
+            for _gettext in translators:
+                translation = _gettext(region)
+                if translation is not None:
+                    return translation
+            return region
+
+        region_to_code_lookup = {}
+        for c in pycountry.countries:
+            region = None
+            # For some countries we prefer the official name, e.g. for
+            # 'us' we then get "United States of America" instead of
+            # the US-centric "United States", and in other cases it
+            # helps distinguish nations that often are mixed up,
+            # e.g. Congo. Otherwise we prefer the common name so we
+            # get easier names that are more friendly to
+            # search/completion, e.g. "Iran" instead of "Iran, Islamic
+            # Republic of". Also that somewhat avoids politically
+            # contentious situations by focusing more on region names
+            # than nation names, e.g. Taiwan.
+            if c.alpha_2.lower() in ["cg", "dm", "us"]:
+                region = c.official_name
+            else:
+                for attr in "common_name", "name":
+                    try:
+                        region = c.__getattr__(attr)
+                        break
+                    except AttributeError:
+                        pass
+            assert region is not None
+            region_to_code_lookup[translate_region(region)] = c.alpha_2.lower()
+
+        code_to_region_lookup = {
+            code: region for region, code in region_to_code_lookup.items()
+        }
+
+        # ID, localized region name, is_header?
+        store = Gtk.ListStore(str, str, bool)
+        # This is a "filtered" version without the headers and
+        # duplicates, to be used with the EntryCompletion below where
+        # we don't want headers or duplicates suggested. Technically
+        # this could be done with a Gtk.TreeModelFilter but that would
+        # mean more code and worse performance.
+        completion_names = Gtk.ListStore(str)
+        store.append(("automatic", _("Automatic"), False))
+        store.append(("", _("Frequently selected regions"), True))
+
+        with open("/usr/share/tails/tca/moat_countries.json") as f:
+            frequent_regions = json.load(f)
+            for region in sorted([code_to_region_lookup[x] for x in frequent_regions]):
+                store.append((region_to_code_lookup[region], region, False))
+
+        store.append(("", _("Other regions"), True))
+        for region in sorted(region_to_code_lookup.keys()):
+            store.append((region_to_code_lookup[region], region, False))
+        for _id, region, is_header in store:
+            if not is_header and not any(row[0] == region for row in completion_names):
+                completion_names.append((region,))
+
+        def on_region_change(*args):
+            self._step_bridge_set_actives()
+
+        regions_combo.set_model(store)
+        regions_combo.set_id_column(0)
+        regions_combo.set_entry_text_column(1)
+        regions_combo.connect("changed", on_region_change)
+
+        def match_anywhere(_completion, entry_str, tree_iter, _data):
+            return entry_str.lower() in completion_names.get_value(tree_iter, 0).lower()
+
+        completion = Gtk.EntryCompletion()
+        completion.set_match_func(match_anywhere, None)
+        completion.set_model(completion_names)
+        completion.set_text_column(0)
+        completion.set_popup_completion(True)
+        entry = regions_combo.get_child()
+        entry.set_completion(completion)
+
+        def on_entry_focus(*args):
+            GLib.idle_add(lambda *args: entry.select_region(0, -1))
+
+        entry.connect("focus-in-event", on_entry_focus)
+
+        def on_entry_change(*args):
+            search_text = entry.get_text().strip().lower()
+            for row in store:
+                is_header = row[2]
+                if not is_header and row[1].lower() == search_text:
+                    regions_combo.set_active_iter(row.iter)
+                    break
+
+        entry.connect("changed", on_entry_change)
+        entry.set_text(_("Automatic"))
+
+        def format_row(cell_layout, cell, model, tree_iter, data):
+            item_id = model.get_value(tree_iter, 0)
+            is_header = model.get_value(tree_iter, 2)
+            if item_id == "automatic":
+                cell.set_property("weight", Pango.Weight.NORMAL)
+                cell.set_property("sensitive", True)
+                cell.set_property("xpad", 0)
+            elif is_header:
+                cell.set_property("weight", Pango.Weight.BOLD)
+                cell.set_property("sensitive", False)
+                cell.set_property("xpad", 20)
+            else:
+                cell.set_property("weight", Pango.Weight.NORMAL)
+                cell.set_property("sensitive", True)
+                cell.set_property("xpad", 40)
+
+        regions_combo.set_cell_data_func(regions_combo.get_cells()[0], format_row, None)
+
     def _step_bridge_init_from_tor_config(self):
+        if not self.state["hide"].get("bridge", None):
+            return
+        if self.state["bridge"].get("kind", None) == "moat":
+            self.get_object("radio_moat").set_active(True)
+            return
         bridges = self.app.configurator.tor_connection_config.bridges
         if not bridges:
             return
@@ -305,14 +456,23 @@ class StepChooseBridgeMixin:
 
     def _step_bridge_set_actives(self):
         default = self.builder.get_object("step_bridge_radio_default").get_active()
+        moat = self.builder.get_object("step_bridge_radio_moat").get_active()
         manual = self.builder.get_object("step_bridge_radio_type").get_active()
         scan = self.builder.get_object("step_bridge_radio_scan").get_active()
         self.get_object("combo").set_sensitive(default)
+        self.builder.get_object("step_bridge_moat_region_combo").set_sensitive(moat)
         self.builder.get_object("step_bridge_text").set_sensitive(manual)
         self.builder.get_object("step_bridge_btn_scanqrcode").set_sensitive(scan)
         self.builder.get_object("step_bridge_label_scanresult").set_sensitive(scan)
         self.builder.get_object("step_bridge_btn_submit").set_sensitive(
             default
+            or (
+                moat
+                and self.builder.get_object(
+                    "step_bridge_moat_region_combo"
+                ).get_active_id()
+                is not None
+            )
             or (manual and self._step_bridge_is_text_valid())
             or (scan and self.get_object("label_scanresult").get_property("visible"))
         )
@@ -379,12 +539,12 @@ class StepChooseBridgeMixin:
         self.change_box("progress")
 
     def cb_step_bridge_btn_back_clicked(self, *args):
-        self.change_box("hide")
+        if "progress" in self.state and self.state["progress"].get("error", None):
+            self.change_box("error")
+        else:
+            self.change_box("hide")
 
     def scan_qrcode(self):
-        # yes, the *exactly* same code is run, no matter if you are calling
-        # this from "bridge" step or from "error" step
-
         error_box = self.builder.get_object("step_bridge_box_scanerror")
         error_label = self.builder.get_object("step_bridge_label_scanerror")
         error_box.hide()
@@ -439,6 +599,7 @@ class StepChooseBridgeMixin:
 
     def _step_bridge_set_state_from_view(self):
         default = self.builder.get_object("step_bridge_radio_default").get_active()
+        moat = self.builder.get_object("step_bridge_radio_moat").get_active()
         manual = self.builder.get_object("step_bridge_radio_type").get_active()
         scan = self.builder.get_object("step_bridge_radio_scan").get_active()
         self.state["hide"]["bridge"] = True
@@ -447,6 +608,8 @@ class StepChooseBridgeMixin:
             self.state["bridge"]["default_method"] = self.get_object(
                 "combo"
             ).get_active_id()
+        elif moat:
+            self.state["bridge"]["kind"] = "moat"
         elif manual:
             self.state["bridge"]["kind"] = "manual"
             text = self.get_object("text").get_buffer().get_text()
@@ -493,9 +656,82 @@ class StepConnectProgressMixin:
         else:
             self._step_progress_success_screen()
 
-    def cb_system_time_set_from_network(self, result, error):
-        log.debug("System time set, let's spawn_tor_connect")
+    def cb_bridge_settings_fetched(self, gjsonrpcclient, res, error, errordata):
+        def set_error(code, data=None):
+            log.debug("Circumvention Settings API failed: %s", code)
+            self.state["progress"]["error"] = code
+            self.state["progress"]["error_data"] = data
+            self.change_box("error")
+
+        if not res or res.get("returncode", 1) != 0:
+            set_error("moat_command_failed")
+            return
+
+        raw_content = res.get("stdout", "").strip()
+        log.debug("Raw output from Circumvention Settings API: %s", raw_content)
+        try:
+            response = json.loads(raw_content)
+        except json.decoder.JSONDecodeError:
+            set_error("moat_invalid_json", data=raw_content)
+            return
+
+        if "internal-error" in response:
+            set_error("moat_internal_error", data=response["internal-error"])
+            return
+
+        settings = response.get("settings", [])
+        if not settings:
+            if response.get("errors", []):
+                set_error("moat_api_error", data=response["errors"])
+            else:
+                set_error("moat_empty_settings")
+            return
+
+        valid_settings = [
+            s
+            for s in settings
+            if s["bridges"]["type"] in self.app.supported_bridge_types
+        ]
+
+        if not valid_settings:
+            # XXX: Since we already limit transports when asking the
+            # API we cannot get unsupported transports here. But maybe
+            # we should ask for all transports so we can show a
+            # specific error then? Code: moat_no_supported_settings
+            set_error("moat_empty_settings")
+            return
+        else:
+            self.state["bridge"]["moat_settings"] = valid_settings
+
         self.spawn_tor_connect()
+
+    def fetch_bridge_settings(self):
+        log.info("Fetching bridge settings via Circumvention Settings API")
+        region = self.builder.get_object(
+            "step_bridge_moat_region_combo"
+        ).get_active_id()
+        proxy = self.get_configured_proxy_url()
+        args = ["--defaults-fallback"]
+        args += [
+            f"--transport={t}" for t in self.app.supported_bridge_types if t != "bridge"
+        ]
+        if region != "automatic" and region is not None:
+            args += ["--region", region]
+        if proxy:
+            args += ["--proxy", proxy]
+        self.app.portal.call_async(
+            "get-bridge-settings", self.cb_bridge_settings_fetched, *args
+        )
+        self.builder.get_object("step_progress_label_status").set_text(
+            _("Asking for a Tor bridge based on your region…")
+        )
+
+    def cb_system_time_set_from_network(self, result, error):
+        log.debug("System time set")
+        if self.state["bridge"].get("kind", "") == "moat":
+            self.fetch_bridge_settings()
+        else:
+            self.spawn_tor_connect()
 
     def spawn_internet_test(self):
         # this is just a stub
@@ -544,6 +780,14 @@ class StepConnectProgressMixin:
                 self.builder.get_object("step_progress_label_status").set_text(
                     _("Connecting to Tor with default bridges…")
                 )
+            elif self.state["bridge"].get("kind", "") == "moat":
+                settings = self.state["bridge"]["moat_settings"].pop(0)
+                self.app.configurator.tor_connection_config.enable_bridges(
+                    settings["bridges"]["bridge_strings"]
+                )
+                self.builder.get_object("step_progress_label_status").set_text(
+                    _("Connecting to Tor with a bridge based on your region…")
+                )
             elif self.state["bridge"]["bridges"]:
                 self.app.configurator.tor_connection_config.enable_bridges(
                     self.state["bridge"]["bridges"]
@@ -563,7 +807,7 @@ class StepConnectProgressMixin:
 
         def do_tor_connect_default_bridges():
             self.app.configurator.tor_connection_config.enable_default_bridges(
-                valid_types=["obfs4", "webtunnel"]
+                valid_types=self.app.supported_bridge_types
             )
             self.builder.get_object("step_progress_label_status").set_text(
                 _("Connecting to Tor with default bridges…")
@@ -617,9 +861,16 @@ class StepConnectProgressMixin:
             if d["count"] <= 0:
                 self.connection_progress.set_fraction(0)
 
-                if (
-                    not self.state["hide"]["hide"] and not self.state["hide"]["bridge"]
-                ) and not self.app.configurator.tor_connection_config.bridges:
+                if self.state["bridge"].get("kind", []) == "moat" and self.state[
+                    "bridge"
+                ].get("moat_settings", []):
+                    self.connection_progress.set_fraction(0.0, allow_going_back=True)
+                    idle_add_chain([do_tor_connect_config, do_tor_connect_apply])
+                elif (
+                    not self.state["hide"]["hide"]
+                    and not self.state["hide"]["bridge"]
+                    and not self.app.configurator.tor_connection_config.bridges
+                ):
                     log.info("Retrying with default bridges")
                     self.builder.get_object("step_progress_box_tor_direct_fail").show()
                     self.connection_progress.set_fraction(0.0, allow_going_back=True)
@@ -627,9 +878,12 @@ class StepConnectProgressMixin:
                         [do_tor_connect_default_bridges, do_tor_connect_apply]
                     )
                 else:
-                    self.state["progress"]["error"] = "tor"
+                    if self.state["bridge"].get("kind", []) == "moat":
+                        self.state["progress"]["error"] = "moat_settings_failed"
+                    else:
+                        self.state["progress"]["error"] = "tor"
                     self.app.configurator.stop_connecting()
-                    log.info("Failed with bridges")
+                    log.info("Failed connecting to Tor")
                     self.change_box("error")
                 return False
             d["count"] -= 1
@@ -699,26 +953,8 @@ class StepConnectProgressMixin:
 
 class StepErrorMixin:
     def before_show_error(self, coming_from) -> None:
-        label_explain = self.get_object("label_explain")
-
-        self.state["error"] = {
-            "fix_attempt": False  # has the user done something to fix it?
-        }
-        if coming_from == "progress":
-            if (
-                self.state["hide"]["bridge"]
-                and self.state["bridge"].get("kind") == "manual"
-            ):
-                bridge = self.state["bridge"]["bridges"][0]
-                self.get_object("text").get_buffer().set_text(bridge, len(bridge))
-        self.get_object("text").get_buffer().connect(
-            "inserted_text", self.cb_step_error_text_changed
-        )
-        self.get_object("text").get_buffer().connect(
-            "deleted_text", self.cb_step_error_text_changed
-        )
-        if coming_from in ["proxy"]:
-            self.state["error"]["fix_attempt"] = True
+        if "error" not in self.state:
+            self.state["error"] = {}
         hide_mode: bool = self.state["hide"]["hide"]
         time_synced: bool = (not hide_mode) and self.app.get_network_time_result[
             "status"
@@ -727,6 +963,43 @@ class StepErrorMixin:
             None if time_synced else self.app.get_network_time_result.get("reason")
         )
 
+        def set_header(box_id):
+            for c in self.get_object("headers_box").get_children():
+                c.hide()
+            self.get_object(f"header_{box_id}_box").show()
+
+        error_code = self.state["progress"].get("error", None)
+        if not time_synced:
+            set_header("generic")
+        elif error_code == "tor":
+            bridges = self.app.configurator.tor_connection_config.bridges
+            if set(bridges) == set(TorConnectionConfig.get_default_bridges()):
+                set_header("default_bridges_fail")
+            else:
+                set_header("tor_fail")
+                bridge_header = self.get_object("header_tor_fail_bridge")
+                if len(bridges) > 0:
+                    bridge_header.set_markup(
+                        # Translators: only translate "Bridge:" and adjust
+                        # text-direction
+                        _("Bridge: <b>{bridge}</b>").format(bridge=bridges[0])
+                    )
+                    bridge_header.set_ellipsize(Pango.EllipsizeMode.END)
+                    bridge_header.show()
+                else:
+                    bridge_header.hide()
+        elif error_code == "moat_settings_failed":
+            set_header("moat_settings_failed")
+        elif error_code.startswith("moat_"):
+            self.get_object("header_moat_failed_code").set_text(
+                # Translators: only translate "Error code:" and adjust
+                # text-direction
+                _("Error code: {code}").format(code=error_code)
+            )
+            set_header("moat_failed")
+        else:
+            set_header("generic")
+
         # Bridges are compulsory in hide mode, so the user has
         # already seen the explanation about bridges and we don't
         # need to repeat it here.
@@ -734,16 +1007,33 @@ class StepErrorMixin:
 
         for box in ["wrong_clock", "captive_portal", "proxy"]:
             self.get_object(f"box_{box}").set_visible(not time_synced)
-        label_explain.set_text(
-            _("This local network seems to be blocking access to Tor.")
-        )
+        label_explain = self.get_object("label_explain")
         if time_sync_failure_reason == "captive-portal":
             self.get_object("box_wrong_clock").set_visible(False)
             label_explain.set_visible(True)
         else:
             label_explain.set_visible(time_synced)
 
-        self._step_error_submit_allowed()
+        proxy = self.get_configured_proxy_url()
+        self.get_object("proxy_explain_label").set_visible(proxy is None)
+        self.get_object("proxy_address_label").set_visible(proxy is not None)
+        if proxy:
+            self.get_object("proxy_address_label").set_markup(
+                # Translators: only translate "Proxy:" and adjust
+                # text-direction
+                _("Proxy: <b>{proxy}</b>").format(proxy=proxy)
+            )
+
+    def cb_step_error_btn_open_details(self, *args):
+        error_code = self.state["progress"].get("error", "")
+        report = f"Code: {error_code}"
+        error_data = self.state["progress"].get("error_data", None)
+        if error_data:
+            report += f"\nDetails:\n{json.dumps(error_data)}"
+        with tempfile.NamedTemporaryFile(delete=False) as f:
+            f.write(report.encode("utf-8"))
+            f.flush()
+            subprocess.Popen(["/usr/bin/gnome-text-editor", f.name])
 
     def cb_step_error_btn_proxy_clicked(self, *args):
         self.change_box("proxy")
@@ -776,8 +1066,6 @@ class StepErrorMixin:
                 dialog.destroy()
                 time_dialog.destroy()
                 return
-            self.state["error"]["fix_attempt"] = True
-            self._step_error_submit_allowed()
             time_dialog.destroy()
 
         if response == Gtk.ResponseType.APPLY:
@@ -794,63 +1082,10 @@ class StepErrorMixin:
         # we are not checking the result of this command, because nothing depends on it
         self.app.portal.call_async("open-unsafebrowser", None)
 
-        self.state["error"]["fix_attempt"] = True
-        self._step_error_submit_allowed()
-
-    def _step_error_submit_allowed(self):
-        def set_warning(msg):
-            self.get_object("label_warning").set_label(msg)
-            self.get_object("box_warning").show()
-
-        def is_allowed():
-            text = self.get_object("text").get_buffer().get_text()
-            try:
-                bridges = TorConnectionConfig.parse_bridge_lines([text])
-            except InvalidBridgeTypeException as exc:
-                set_warning(_("Invalid: {exception}").format(exception=str(exc)))
-                return False
-            except (MalformedBridgeException, ValueError, IndexError):
-                set_warning(_("Bridge address malformed"))
-                return False
-            else:
-                self.get_object("box_warning").hide()
-
-            if self.state["hide"]["hide"]:
-                for br in bridges:
-                    if br.split()[0] not in (VALID_BRIDGE_TYPES - {"bridge"}):
-                        set_warning(
-                            _(
-                                "You need to configure a WebTunnel or an obfs4 bridge to hide that you are using Tor"
-                            )
-                        )
-                        return False
-
-            if not bridges and self.state["hide"]["hide"]:
-                set_warning(
-                    _(
-                        "Setting a bridge is needed if you want to hide that you are using Tor"
-                    )
-                )
-                return False
-
-            if bridges:
-                return True
-
-            return True
-
-        self.get_object("btn_submit").set_sensitive(is_allowed())
-
-    def cb_step_error_text_changed(self, *args):
-        self._step_error_submit_allowed()
+    def cb_step_error_btn_configure_bridge_clicked(self, *args):
+        self.change_box("bridge")
 
     def cb_step_error_btn_submit_clicked(self, *args):
-        text = self.get_object("text").get_buffer().get_text()
-        self.state["bridge"]["bridges"] = TorConnectionConfig.parse_bridge_lines([text])
-        # If the user is selecting any bridge, encode it properly
-        # If they are _not_, let's keep the previous settings, which could be default bridges
-        if self.state["bridge"]["bridges"]:
-            self.state["hide"]["bridge"] = True
-            self.state["bridge"]["kind"] = "manual"
         self.change_box("progress")
 
     def cb_step_error_btn_scanqrcode_clicked(self, *args):
@@ -939,6 +1174,24 @@ class StepProxyMixin:
             self.state["proxy"][entry] = self.get_object("entry_%s" % entry).get_text()
 
         self.change_box("error")
+
+    def get_configured_proxy_url(self):
+        if (
+            "proxy" in self.state
+            and self.state["proxy"].get("proxy_type", "no") != "no"
+        ):
+            proto = self.state["proxy"]["proxy_type"].lower()
+            credentials_part = ""
+            if self.state["proxy"].get("username", None):
+                credentials_part = self.state["proxy"]["username"]
+                if self.state["proxy"].get("password", None):
+                    credentials_part += ":" + self.state["proxy"]["password"]
+                credentials_part += "@"
+            host = self.state["proxy"]["address"]
+            port = self.state["proxy"]["port"]
+            return f"{proto}://{credentials_part}{host}:{port}"
+        else:
+            return None
 
 
 class TCAMainWindow(
@@ -1078,10 +1331,6 @@ class TCAMainWindow(
         )
         label_scanresult.set_property("use-markup", True)
         label_scanresult.show()
-
-        content = str(value[0])
-        text = self.builder.get_object("step_error_text")
-        text.get_buffer().set_text(content, len(content))
 
     @property
     def user_wants_hide(self) -> bool | None:

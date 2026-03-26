@@ -169,6 +169,13 @@ class PersistentStorageCommand(BaseCommand):
         return args
 
 
+class TorCommand(BaseCommand):
+    def full_command(self, request: Request) -> tuple:
+        drop = ("/sbin/runuser", "-u", "debian-tor")
+        args = (*drop, "--", *(super().full_command(request)))
+        return args
+
+
 class GetNetworkTimeCommand(BaseCommand):
     def __init__(self):
         super().__init__(
@@ -341,6 +348,14 @@ class Handler(socketserver.StreamRequestHandler):
         "write-tca-config": WriteFileCommand(TCA_CONFIG_FILE),
         "lock-bootstrap": RootCommand(("/usr/bin/touch", BOOTSTRAP_LOCK_FILE), False),
         "unlock-bootstrap": RootCommand(("/usr/bin/rm", BOOTSTRAP_LOCK_FILE), False),
+        # The user running tails-circumvention-settings must be
+        # allowed to run obfs4proxy with unfiltered access to the
+        # Internet, and be allowed to connect to the local port opened
+        # by obfs4proxy. The debian-tor user satisfies those criteria.
+        "get-bridge-settings": TorCommand(
+            ("/usr/local/lib/tails-circumvention-settings",),
+            True,
+        ),
     }
     valid_commands: ClassVar = set(spawn_commands.keys())
 

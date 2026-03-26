@@ -233,9 +233,8 @@ apply_prefs_hacks() {
 # We are not using Tor Launcher, but our own Tor Connection
 # Assistant, and we want it to use the same default bridges.
 extract_default_bridges() {
-    local tbb_install tmp tbb_timestamp
+    local tbb_install tmp pt_config_path
     tbb_install="${1}"
-    tbb_timestamp="${2}"
 
     pt_config_path=chrome/toolkit/content/global/pt_config.json
     tmp="$(mktemp -d)"
@@ -264,6 +263,21 @@ extract_default_bridges() {
             cat /usr/share/tails/tca/default_bridges.txt >&2
             exit 1
         fi
+    )
+    rm -r "${tmp}"
+}
+
+extract_moat_countries() {
+    local tbb_install tmp moat_countries_path
+    tbb_install="${1}"
+
+    moat_countries_path=chrome/toolkit/content/global/moat_countries.json
+    tmp="$(mktemp -d)"
+    (
+        cd "${tmp}"
+        7z x -tzip "${tbb_install}/omni.ja" "${moat_countries_path}"
+        mv "${moat_countries_path}" /usr/share/tails/tca/moat_countries.json
+        chmod a+r /usr/share/tails/tca/moat_countries.json
     )
     rm -r "${tmp}"
 }
@@ -400,7 +414,8 @@ rm -f /usr/local/lib/tor-browser/start-tor-browser.orig
 
 apply_prefs_hacks "${TBB_INSTALL}" "${TBB_TIMESTAMP}"
 hide_tor_donation_campaign "${TBB_INSTALL}" "${TBB_TIMESTAMP}"
-extract_default_bridges "${TBB_INSTALL}" "${TBB_TIMESTAMP}"
+extract_default_bridges "${TBB_INSTALL}"
+extract_moat_countries "${TBB_INSTALL}"
 install_debian_extensions "${TBB_INSTALL}" "${TBB_TIMESTAMP}"
 disable_update_checks "${TBB_INSTALL}"
 strip_nondeterminism "${TBB_INSTALL}" "${TBB_TIMESTAMP}"
