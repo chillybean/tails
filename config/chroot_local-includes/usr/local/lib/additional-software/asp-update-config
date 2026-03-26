@@ -36,7 +36,7 @@ def ask_permission_to_enable_additional_software_for_thunderbird():
             "Tails 7.8 (May 2026) and later.",
         ),
         accept_label=_("Install as Additional Software"),
-        documentation_target="anonymous_internet/thunderbird/additional_software",
+        documentation_target="doc/anonymous_internet/thunderbird/additional_software",
         urgent=True,
     )
 
@@ -96,7 +96,7 @@ def handle_thunderbird_migration():
                     "Thunderbird will no longer be included by default in "
                     "Tails 7.8 (May 2026) and later.",
                 ),
-                documentation_target="anonymous_internet/thunderbird/additional_software",
+                documentation_target="doc/anonymous_internet/thunderbird/additional_software",
                 urgent=True,
             )
             raise
@@ -142,7 +142,7 @@ def handle_thunderbird_migration():
                 "Thunderbird will no longer be included by default in "
                 "Tails 7.8 (May 2026) and later.",
             ),
-            documentation_target="anonymous_internet/thunderbird/additional_software",
+            documentation_target="doc/anonymous_internet/thunderbird/additional_software",
             urgent=True,
         )
         raise

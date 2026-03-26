@@ -13,6 +13,6 @@ dpkg-divert \
     --divert /usr/bin/thunderbird.real \
     /usr/bin/thunderbird
 
-# Install symbolic link to our wrapper, so the Exec= lines
+# Install a symbolic link to our wrapper, so the Exec= lines
 # from Debian's desktop file work
 ln -s /usr/local/lib/thunderbird /usr/bin/thunderbird

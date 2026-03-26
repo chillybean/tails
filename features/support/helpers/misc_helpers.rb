@@ -251,8 +251,8 @@ def save_tor_journal
   end
 end
 
-def wait_until_tor_is_working
-  try_for(270) do
+def wait_until_tor_is_working(timeout: 270)
+  try_for(timeout) do
     $vm.execute(
       '/bin/systemctl --quiet is-active tails-tor-has-bootstrapped.target'
     ).success?

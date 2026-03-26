@@ -38,6 +38,8 @@ You should expect the only changes to have happened during the release process
 of `${PREVIOUS_VERSION}` (i.e.: shortly after the tag).
 
 In a typical scenario, exactly 4 commits are present:
+
+ - Merge branch 'web/release-PREVIOUS_VERSION' into 'master'
  - Remove UDFs for versions we'll never release
  - Update image description file for download verification
  - Add incremental upgrades on the test channel for Tails `${PREVIOUS_VERSION}`

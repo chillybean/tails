@@ -62,6 +62,12 @@ class CveFetcher:
                 "as positive matches"
             ),
         )
+        results.add_argument(
+            "--skip-missing-data",
+            action="store_true",
+            default=False,
+            help=("This will skip CVEs for which we don't have relevant metrics"),
+        )
 
         query = search.add_argument_group("query")
         query.add_argument(
@@ -109,8 +115,13 @@ class CveFetcher:
             self.log.warning("Could not fetch %s", cve)
             return
         content = resp.json()  # check if json is valid
+        try:
+            cve_content = content["vulnerabilities"][0]["cve"]
+        except (IndexError, KeyError):
+            self.log.warning("%s has invalid content", cve)
+            return
         with fpath.open(mode="w") as buf:
-            json.dump(content["vulnerabilities"][0]["cve"], buf, indent=2)
+            json.dump(cve_content, buf, indent=2)
 
     def main(self):
         p = self.get_parser()
@@ -199,15 +210,35 @@ class CveFetcher:
             print(path.open().read())
 
     def main_search(self):
+        ignored = []
         for cve in self.args.cveid:
             self.log.debug("Analyzing %s", cve)
             path = self.get_path_for_cve(cve)
             if not path.exists():
+                if self.args.skip_missing_data:
+                    ignored.append(path)
+                    continue
                 self.log.error("You should fetch %s first", cve)
                 sys.exit(1)
-            vuln = json.load(path.open())
+            try:
+                vuln = json.load(path.open())
+            except json.JSONDecodeError:
+                self.log.error(  # noqa: TRY400
+                    "Error decoding %s - please analyze and remove",
+                    path,
+                )
+                if self.args.skip_missing_data:
+                    ignored.append(path)
+                    continue
+                sys.exit(1)
             if self.vuln_match(vuln):
                 self.output_cve(cve)
+        if ignored:
+            logging.warning(
+                "%d CVEs (out of %d) have been ignored",
+                len(ignored),
+                len(self.args.cveid),
+            )
 
 
 if __name__ == "__main__":
