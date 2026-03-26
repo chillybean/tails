@@ -144,6 +144,14 @@ class GetConfigurationCLI:
             environment["DISABLE_CHUTNEY"] = "yes"
         return environment
 
+    @property
+    def only_doc_changes(self) -> bool:
+        return os.environ["UPSTREAMJOB_GIT_COMMIT"] != os.environ[
+            "UPSTREAMJOB_GIT_BASE_BRANCH_HEAD"
+        ] and git_only_doc_changes_since(
+            os.environ["UPSTREAMJOB_GIT_BASE_BRANCH_HEAD"],
+        )
+
     def get_cucumber_options(self, config: TestConfiguration) -> list[str]:
         if not os.getenv("JENKINS_URL"):
             return []
@@ -153,22 +161,20 @@ class GetConfigurationCLI:
 
         if config.real_Tor:
             options = ["--tag", "@supports_real_tor"]
+            if self.only_doc_changes:
+                options.extend(["--tag", "@doc"])
         elif (
             config.force_all_tests
             or get_current_branch() in ["testing", "devel"]
             or git_on_a_tag()
             or os.getenv("ALL_TESTS", "")
         ):
+            logging.debug("The branch needs all tests to be run")
             options = []
         else:
             options = ["--tag", "~@fragile", "--tag", "~@skip_by_default"]
-
-        if os.environ["UPSTREAMJOB_GIT_COMMIT"] != os.environ[
-            "UPSTREAMJOB_GIT_BASE_BRANCH_HEAD"
-        ] and git_only_doc_changes_since(
-            os.environ["UPSTREAMJOB_GIT_BASE_BRANCH_HEAD"],
-        ):
-            options.extend(["--tag", "@doc"])
+            if self.only_doc_changes:
+                options.extend(["--tag", "@doc"])
 
         return options
 
