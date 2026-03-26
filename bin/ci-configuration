@@ -154,7 +154,7 @@ class GetConfigurationCLI:
             config.force_all_tests
             or get_current_branch() in ["testing", "devel"]
             or git_on_a_tag()
-            or os.getenv("ALL_TESTS", "yes")
+            or os.getenv("ALL_TESTS", "")
         ):
             options = []
         else:
