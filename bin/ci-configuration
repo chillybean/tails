@@ -91,6 +91,7 @@ class GetConfigurationCLI:
         sub.add_parser("should-test", help="Return 1 if test.skip is True")
         run = sub.add_parser("run-test", help="Actually run the test suite")
         run.add_argument("cucumber_args", nargs="*")
+        run.add_argument("--dry-run", action="store_true", default=False)
         return p
 
     def main(self):
@@ -113,9 +114,9 @@ class GetConfigurationCLI:
             case "should-test":
                 sys.exit(int(config.test.skip))
             case "run-test":
-                self.run_test(config)
+                self.run_test(config, dry_run=self.args.dry_run)
 
-    def run_test(self, config: ConfigFile):
+    def run_test(self, config: ConfigFile, dry_run: bool):
         config_cucumber_args = self.get_cucumber_options(config.test)
         logging.debug("Cucumber args (as per config): %s", config_cucumber_args)
         logging.debug(
@@ -130,6 +131,8 @@ class GetConfigurationCLI:
         ]
         env = self.get_cucumber_environment(config.test)
         logging.info("Running %s  with env=%s", str(cmdline), str(env))
+        if dry_run:
+            sys.exit(0)
         proc = subprocess.run(cmdline, check=False, env={**os.environ, **env})
         sys.exit(proc.returncode)
 
