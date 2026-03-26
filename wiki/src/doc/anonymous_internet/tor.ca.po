@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2026-01-29 10:45+0100\n"
+"POT-Creation-Date: 2026-03-26 08:18+0100\n"
 "PO-Revision-Date: 2026-03-08 16:41+0000\n"
 "Last-Translator: victor dargallo <victordargallo@disroot.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,8 +23,9 @@ msgid "[[!meta title=\"Connecting to the Tor network\"]]\n"
 msgstr "[[!meta title=\"Connexió a la xarxa Tor\"]]\n"
 
 #. type: Plain text
-#, no-wrap
-msgid "[[!toc levels=2]]\n"
+#, fuzzy, no-wrap
+#| msgid "[[!toc levels=2]]\n"
+msgid "[[!toc startlevel=2]]\n"
 msgstr "[[!toc levels=2]]\n"
 
 #. type: Plain text
@@ -162,8 +163,9 @@ msgid "   The implications of both methods are detailed below.\n"
 msgstr "   Les implicacions d'ambdós mètodes es detallen a continuació.\n"
 
 #. type: Plain text
-#, no-wrap
-msgid "<h1 id=\"bridges\">Tor relays and bridges</h1>\n"
+#, fuzzy, no-wrap
+#| msgid "<h1 id=\"bridges\">Tor relays and bridges</h1>\n"
+msgid "<h2 id=\"bridges\">Tor relays and bridges</h2>\n"
 msgstr "<h1 id=\"bridges\">Repetidors de Tor i ponts</h1>\n"
 
 #. type: Bullet: '- '
@@ -195,10 +197,11 @@ msgid "**Tor bridges**"
 msgstr "**Ponts de Tor**"
 
 #. type: Plain text
-#, no-wrap
-msgid ""
-"  Tor bridges are secret Tor relays that keep your connection to the Tor\n"
-"  network hidden.\n"
+#, fuzzy, no-wrap
+#| msgid ""
+#| "  Tor bridges are secret Tor relays that keep your connection to the Tor\n"
+#| "  network hidden.\n"
+msgid "  Tor bridges are secret Tor relays that hide that you are connecting to Tor.\n"
 msgstr ""
 "  Els ponts de Tor són repetidors de Tor secrets que mantenen la vostra connexió amb la\n"
 "  xarxa Tor oculta.\n"
@@ -244,8 +247,9 @@ msgid "  Tor bridges are often less reliable and slower than public Tor relays.\
 msgstr "  Els ponts de Tor sovint són menys fiables i més lents que els repetidors de Tor públics.\n"
 
 #. type: Plain text
-#, no-wrap
-msgid "<h1 id=\"automatic\">Connecting to Tor automatically</h1>\n"
+#, fuzzy, no-wrap
+#| msgid "<h1 id=\"automatic\">Connecting to Tor automatically</h1>\n"
+msgid "<h2 id=\"automatic\">Connecting to Tor automatically</h2>\n"
 msgstr "<h1 id=\"automatic\">Connectar-vos a Tor automàticament</h1>\n"
 
 #. type: Plain text
@@ -383,13 +387,23 @@ msgid "      </div>\n"
 msgstr "      </div>\n"
 
 #. type: Bullet: '   1. '
+#, fuzzy
+#| msgid ""
+#| "If public relays and default bridges don't work, Tails asks you to "
+#| "configure a **custom bridge**, if connecting using the default bridges "
+#| "fails."
 msgid ""
 "If public relays and default bridges don't work, Tails asks you to configure "
-"a **custom bridge**, if connecting using the default bridges fails."
+"a **custom bridge**."
 msgstr ""
 "Si els repetidors públics i els ponts predeterminats no funcionen, Tails us "
 "demana que configureu un **pont personalitzat**, si la connexió amb els "
 "ponts predeterminats falla."
+
+#. type: Plain text
+#, no-wrap
+msgid "      See [[configuring a Tor bridge|tor#bridge]] below.\n"
+msgstr ""
 
 #. type: Plain text
 msgid ""
@@ -400,8 +414,9 @@ msgstr ""
 "intents com a provinents d'un usuari de Tails."
 
 #. type: Plain text
-#, no-wrap
-msgid "<h1 id=\"hiding\">Hiding to your local network that you are connecting to Tor</h1>\n"
+#, fuzzy, no-wrap
+#| msgid "<h1 id=\"hiding\">Hiding to your local network that you are connecting to Tor</h1>\n"
+msgid "<h2 id=\"hiding\">Hiding to your local network that you are connecting to Tor</h2>\n"
 msgstr "<h1 id=\"hiding\">Ocultar a la vostra xarxa local que us esteu connectant a Tor</h1>\n"
 
 #. type: Plain text
@@ -456,6 +471,23 @@ msgid "Default bridges are not available."
 msgstr "Els ponts per defecte no estan disponibles."
 
 #. type: Plain text
+#, fuzzy, no-wrap
+#| msgid "<h1 id=\"bridges\">Tor relays and bridges</h1>\n"
+msgid "<h2 id=\"bridge\">Configuring a Tor bridge</h2>\n"
+msgstr "<h1 id=\"bridges\">Repetidors de Tor i ponts</h1>\n"
+
+#. type: Plain text
+msgid ""
+"When *Tor Connection* fails to connect to Tor using public relays and "
+"default bridges, select **Configure a Tor Bridge** from the error screen."
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid "[[!img bridge.png class=\"screenshot\" alt=\"Tor Connection: Configure a Tor bridge\"]]\n"
+msgstr ""
+
+#. type: Plain text
 #, no-wrap
 msgid "[[!inline pages=\"doc/anonymous_internet/tor/bridge.inline\" raw=\"yes\" sort=\"age\"]]\n"
 msgstr "[[!inline pages=\"doc/anonymous_internet/tor/bridge.inline.ca\" raw=\"yes\" sort=\"age\"]]\n"
@@ -471,28 +503,9 @@ msgstr ""
 "l'Emmagatzematge Persistent."
 
 #. type: Plain text
-#, no-wrap
-msgid "<p>In the future, we will make it easier to use a custom bridge by:</p>\n"
-msgstr "<p>En el futur, facilitarem l'ús d'un pont personalitzat mitjançant:</p>\n"
-
-#. type: Plain text
-#, no-wrap
-msgid ""
-"<ul>\n"
-"<li>Allowing you to request a bridge from Tails by solving a CAPTCHA. ([[!tails_ticket 15331]])</li>\n"
-"<li>Supporting <i>Snowflake</i> bridges. ([[!tails_ticket 5494]])</li>\n"
-"</ul>\n"
-msgstr ""
-"<ul>\n"
-"<li>Us permetrem sol·licitar un pont a Tails resolent un CAPTCHA. ("
-"[[!tails_ticket 15331]])</li>\n"
-"<li>Compatibilitat amb ponts <i>Snowflake</i>. ([[!tails_ticket 5494]])</li>"
-"\n"
-"</ul>\n"
-
-#. type: Plain text
-#, no-wrap
-msgid "<h1 id=\"troubleshoot-tor\">Troubleshooting connecting to Tor</h1>\n"
+#, fuzzy, no-wrap
+#| msgid "<h1 id=\"troubleshoot-tor\">Troubleshooting connecting to Tor</h1>\n"
+msgid "<h2 id=\"troubleshoot-tor\">Troubleshooting connecting to Tor</h2>\n"
 msgstr "<h1 id=\"troubleshoot-tor\">Resolució de problemes de connexió a Tor</h1>\n"
 
 #. type: Plain text
@@ -506,8 +519,9 @@ msgid "<p>See our documentation on [[troubleshooting connecting to Tor|tor/troub
 msgstr "<p>Consulteu la nostra documentació sobre la [[resolució de problemes de connexió a Tor|tor/troubleshoot]].</p>\n"
 
 #. type: Plain text
-#, no-wrap
-msgid "<h1 id=\"status\">Viewing the status of Tor</h1>\n"
+#, fuzzy, no-wrap
+#| msgid "<h1 id=\"status\">Viewing the status of Tor</h1>\n"
+msgid "<h2 id=\"status\">Viewing the status of Tor</h2>\n"
 msgstr "<h1 id=\"status\">Veure l'estat de Tor</h1>\n"
 
 #. type: Plain text
@@ -538,8 +552,24 @@ msgid ""
 msgstr ""
 "Per a veure la llista de circuits de Tor que utilitzen les diferents "
 "aplicacions, feu clic a la icona d'estat de Tor i trieu **Mostra els "
-"circuits de Tor**. Més informació sobre la "
-"[[gestió de circuits de Tor|circuits]]."
+"circuits de Tor**. Més informació sobre la [[gestió de circuits de Tor|"
+"circuits]]."
+
+#, no-wrap
+#~ msgid "<p>In the future, we will make it easier to use a custom bridge by:</p>\n"
+#~ msgstr "<p>En el futur, facilitarem l'ús d'un pont personalitzat mitjançant:</p>\n"
+
+#, no-wrap
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li>Allowing you to request a bridge from Tails by solving a CAPTCHA. ([[!tails_ticket 15331]])</li>\n"
+#~ "<li>Supporting <i>Snowflake</i> bridges. ([[!tails_ticket 5494]])</li>\n"
+#~ "</ul>\n"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li>Us permetrem sol·licitar un pont a Tails resolent un CAPTCHA. ([[!tails_ticket 15331]])</li>\n"
+#~ "<li>Compatibilitat amb ponts <i>Snowflake</i>. ([[!tails_ticket 5494]])</li>\n"
+#~ "</ul>\n"
 
 #~ msgid ""
 #~ "You can only use the types of bridges that our team considers discreet "

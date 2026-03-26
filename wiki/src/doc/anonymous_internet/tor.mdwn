@@ -1,6 +1,6 @@
 [[!meta title="Connecting to the Tor network"]]
 
-[[!toc levels=2]]
+[[!toc startlevel=2]]
 
 Everything you do on the Internet from Tails goes through the Tor network.
 
@@ -56,7 +56,7 @@ To connect to the Tor network:
 
    The implications of both methods are detailed below.
 
-<h1 id="bridges">Tor relays and bridges</h1>
+<h2 id="bridges">Tor relays and bridges</h2>
 
 - **Public Tor relays**
 
@@ -69,8 +69,7 @@ To connect to the Tor network:
 
 - **Tor bridges**
 
-  Tor bridges are secret Tor relays that keep your connection to the Tor
-  network hidden.
+  Tor bridges are secret Tor relays that hide that you are connecting to Tor.
 
   Use a bridge as your first Tor relay if connecting to Tor is blocked or if
   using Tor could look suspicious to someone who monitors your Internet
@@ -87,7 +86,7 @@ To connect to the Tor network:
 
   Tor bridges are often less reliable and slower than public Tor relays.
 
-<h1 id="automatic">Connecting to Tor automatically</h1>
+<h2 id="automatic">Connecting to Tor automatically</h2>
 
 We recommend connecting to Tor automatically if you are on a public Wi-Fi
 network or if many people in your country use Tor to circumvent censorship.
@@ -138,13 +137,14 @@ When you choose this option:
       </div>
 
    1. If public relays and default bridges don't work, Tails asks you to
-      configure a **custom bridge**, if connecting using the default bridges
-      fails.
+      configure a **custom bridge**.
+
+      See [[configuring a Tor bridge|tor#bridge]] below.
 
 Someone monitoring your Internet connection could identify these attempts as
 coming from a Tails user.
 
-<h1 id="hiding">Hiding to your local network that you are connecting to Tor</h1>
+<h2 id="hiding">Hiding to your local network that you are connecting to Tor</h2>
 
 You might need to go unnoticed if using Tor could look suspicious to someone
 who monitors your Internet connection.
@@ -168,24 +168,20 @@ types of Tor bridges. That is why, when you decide to hide that you are connecti
 
 - Default bridges are not available.
 
+<h2 id="bridge">Configuring a Tor bridge</h2>
+
+When *Tor Connection* fails to connect to Tor using public relays and default
+bridges, select **Configure a Tor Bridge** from the error screen.
+
+[[!img bridge.png class="screenshot" alt="Tor Connection: Configure a Tor bridge"]]
+
 [[!inline pages="doc/anonymous_internet/tor/bridge.inline" raw="yes" sort="age"]]
 
 To save the last Tor bridge that connected to Tor successfully, turn on the
 [[Tor Bridge|persistent_storage/configure#bridge]] feature of the Persistent
 Storage.
 
-<div class="note">
-
-<p>In the future, we will make it easier to use a custom bridge by:</p>
-
-<ul>
-<li>Allowing you to request a bridge from Tails by solving a CAPTCHA. ([[!tails_ticket 15331]])</li>
-<li>Supporting <i>Snowflake</i> bridges. ([[!tails_ticket 5494]])</li>
-</ul>
-
-</div>
-
-<h1 id="troubleshoot-tor">Troubleshooting connecting to Tor</h1>
+<h2 id="troubleshoot-tor">Troubleshooting connecting to Tor</h2>
 
 <div class="next">
 
@@ -193,7 +189,7 @@ Storage.
 
 </div>
 
-<h1 id="status">Viewing the status of Tor</h1>
+<h2 id="status">Viewing the status of Tor</h2>
 
 The status of Tor appears as an onion icon in the
 notification area:
