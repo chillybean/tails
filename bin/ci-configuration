@@ -7,9 +7,12 @@ import os
 import subprocess
 import sys
 import tomllib
+import unittest
 from pathlib import Path
 
 from pydantic import BaseModel
+
+# ruff: noqa: PT009
 
 
 class TestConfiguration(BaseModel):
@@ -203,5 +206,160 @@ class GetConfigurationCLI:
         return options
 
 
+class TestCucumberOptions(unittest.TestCase):
+    @property
+    def cli(self):
+        return GetConfigurationCLI()
+
+    @property
+    def no_force_all_tests(self):
+        return ["--tag", "~@fragile", "--tag", "~@skip_by_default"]
+
+    def run_test(self, *args, current_branch="x", on_a_tag=False):
+        res = self.cli.get_cucumber_options(
+            *args,
+            current_branch=current_branch,
+            on_a_tag=on_a_tag,
+        )
+        print(res)
+        return res
+
+    def env(
+        self,
+        jenkins_url="fake",
+        commit="HEAD",
+        base="HEAD^",
+        all_tests: bool = False,
+    ):
+        return {
+            "JENKINS_URL": jenkins_url,
+            "UPSTREAMJOB_GIT_COMMIT": commit,
+            "UPSTREAMJOB_GIT_BASE_BRANCH_HEAD": base,
+            "ALL_TESTS": "",
+        }
+
+    @property
+    def commits_with_only_doc_changes(self) -> dict:
+        # Those two commits only have wiki/src/doc/ changes
+        return {
+            "commit": "be16aee15a1fa303fb2ae563439cb26abd81b971",
+            "base": "3d658a332a346dc33d06941f39a9d2c97025dd8c",
+        }
+
+    def test_no_select_tests_on_developer_machine(self):
+        res = self.run_test(
+            TestConfiguration(tests=["x"]),
+            self.env(jenkins_url=False),
+        )
+        self.assertEqual(res, [])
+
+    def test_no_force_all_tests_on_developer_machine(self):
+        # This test is a bit lame, because you can't really distinguish this from
+        # misbehavior: in both cases, the list is empty
+        res = self.run_test(
+            TestConfiguration(force_all_tests=True),
+            self.env(jenkins_url=False),
+        )
+        self.assertEqual(res, [])
+
+    def test_ignore_doc_changes_on_developer_machine(self):
+        res = self.run_test(
+            TestConfiguration(force_all_tests=True),
+            self.env(
+                jenkins_url=False,
+                **self.commits_with_only_doc_changes,
+            ),
+        )
+        self.assertEqual(res, [])
+
+    def test_force_all_tests_explicitly_set_by_user(self):
+        res = self.run_test(
+            TestConfiguration(force_all_tests=True),
+            self.env(),
+            current_branch="x",
+            on_a_tag=False,
+        )
+        self.assertEqual(res, [])
+
+    def test_force_all_tests_if_on_tag(self):
+        res = self.run_test(
+            TestConfiguration(force_all_tests=False),
+            self.env(),
+            current_branch="x",
+            on_a_tag=True,
+        )
+        self.assertEqual(res, [])
+
+    def test_force_all_tests_if_on_special_branch(self):
+        for branch in ["testing", "devel"]:
+            res = self.run_test(
+                TestConfiguration(force_all_tests=False),
+                self.env(),
+                current_branch=branch,
+                on_a_tag=True,
+            )
+            self.assertEqual(res, [])
+
+    def test_dont_force_all_tests_usually(self):
+        res = self.run_test(
+            TestConfiguration(),
+            self.env(),
+            current_branch="x",
+            on_a_tag=False,
+        )
+
+        self.assertEqual(res, self.no_force_all_tests)
+
+    def test_specific_tests_prevail_on_tag(self):
+        tests = ["foo.feature"]
+        res = self.run_test(
+            TestConfiguration(tests=tests),
+            self.env(),
+            current_branch="x",
+            on_a_tag=True,
+        )
+        self.assertEqual(res, tests)
+
+    def test_specific_tests_prevail_on_special_branch(self):
+        tests = ["foo.feature"]
+        for branch in ["testing", "devel"]:
+            res = self.run_test(
+                TestConfiguration(tests=tests),
+                self.env(),
+                current_branch=branch,
+                on_a_tag=False,
+            )
+            self.assertEqual(res, tests)
+
+    def test_real_Tor(self):
+        res = self.run_test(
+            TestConfiguration(real_Tor=True),
+            self.env(),
+        )
+        self.assertEqual(res, ["--tag", "@supports_real_tor"])
+
+    def test_real_Tor_and_doc_changes(self):
+        res = self.run_test(
+            TestConfiguration(real_Tor=True),
+            self.env(**self.commits_with_only_doc_changes),
+        )
+        self.assertEqual(res, ["--tag", "@supports_real_tor", "--tag", "@doc"])
+
+    def test_doc_changes(self):
+        res = self.run_test(
+            TestConfiguration(),
+            self.env(**self.commits_with_only_doc_changes),
+        )
+        self.assertEqual(res, [*self.no_force_all_tests, "--tag", "@doc"])
+
+
 if __name__ == "__main__":
-    GetConfigurationCLI().main()
+    if sys.argv[1] == "test":
+        args = sys.argv[:]
+        # We need to pass a "custom" argv to unittest, or "test" will be used as an
+        # argument to unittest.main()
+        args.pop(1)
+        args[0] = f"{args[0]} {sys.argv[1]}"  # this fixes ci-configuration test --help
+        unittest.main(argv=args, buffer=True)
+    else:
+        GetConfigurationCLI().main()
