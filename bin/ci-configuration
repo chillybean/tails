@@ -148,6 +148,9 @@ class GetConfigurationCLI:
         if not os.getenv("JENKINS_URL"):
             return []
 
+        if config.tests:
+            return config.tests
+
         if config.real_Tor:
             options = ["--tag", "@supports_real_tor"]
         elif (
@@ -166,9 +169,6 @@ class GetConfigurationCLI:
             os.environ["UPSTREAMJOB_GIT_BASE_BRANCH_HEAD"],
         ):
             options.extend(["--tag", "@doc"])
-
-        if config.tests:
-            options = [*options, *config.tests]
 
         return options
 
