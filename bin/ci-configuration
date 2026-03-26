@@ -117,7 +117,12 @@ class GetConfigurationCLI:
                 self.run_test(config, dry_run=self.args.dry_run)
 
     def run_test(self, config: ConfigFile, dry_run: bool):
-        config_cucumber_args = self.get_cucumber_options(config.test)
+        config_cucumber_args = self.get_cucumber_options(
+            config.test,
+            dict(os.environ),
+            get_current_branch(),
+            git_on_a_tag(),
+        )
         logging.debug("Cucumber args (as per config): %s", config_cucumber_args)
         logging.debug(
             "Cucumber args, manually passed via cmdline arguments: %s",
@@ -144,16 +149,35 @@ class GetConfigurationCLI:
             environment["DISABLE_CHUTNEY"] = "yes"
         return environment
 
-    @property
-    def only_doc_changes(self) -> bool:
-        return os.environ["UPSTREAMJOB_GIT_COMMIT"] != os.environ[
+    def only_doc_changes(self, env: dict) -> bool:
+        print(f"Checking changes in {env}")
+        return env["UPSTREAMJOB_GIT_COMMIT"] != env[
             "UPSTREAMJOB_GIT_BASE_BRANCH_HEAD"
         ] and git_only_doc_changes_since(
-            os.environ["UPSTREAMJOB_GIT_BASE_BRANCH_HEAD"],
+            env["UPSTREAMJOB_GIT_BASE_BRANCH_HEAD"],
         )
 
-    def get_cucumber_options(self, config: TestConfiguration) -> list[str]:
-        if not os.getenv("JENKINS_URL"):
+    def get_cucumber_options(
+        self,
+        config: TestConfiguration,
+        env: dict,
+        current_branch: str,
+        on_a_tag: bool,
+    ) -> list[str]:
+        """
+        Given all inputs, it decides what options need to be passed to cucumber.
+
+        Since it's a pure function, we can do tests.
+
+        >>> comm = "UPSTREAMJOB_GIT_COMMIT"
+        >>> head = "UPSTREAMJOB_GIT_BASE_BRANCH_HEAD"
+        >>> cli = GetConfigurationCLI()
+        >>> cli.get_cucumber_options(TestConfiguration(force_all_tests=True), {"JENKINS_URL": "fake"})
+        []
+        >>> cli.get_cucumber_options(TestConfiguration(), {"JENKINS_URL": "fake", comm: "7.5", head: "7.5^"})
+        []
+        """
+        if not env.get("JENKINS_URL"):
             return []
 
         if config.tests:
@@ -161,19 +185,19 @@ class GetConfigurationCLI:
 
         if config.real_Tor:
             options = ["--tag", "@supports_real_tor"]
-            if self.only_doc_changes:
+            if self.only_doc_changes(env):
                 options.extend(["--tag", "@doc"])
         elif (
             config.force_all_tests
-            or get_current_branch() in ["testing", "devel"]
-            or git_on_a_tag()
-            or os.getenv("ALL_TESTS", "")
+            or current_branch in ["testing", "devel"]
+            or on_a_tag
+            or env.get("ALL_TESTS", "")
         ):
             logging.debug("The branch needs all tests to be run")
             options = []
         else:
             options = ["--tag", "~@fragile", "--tag", "~@skip_by_default"]
-            if self.only_doc_changes:
+            if self.only_doc_changes(env):
                 options.extend(["--tag", "@doc"])
 
         return options
