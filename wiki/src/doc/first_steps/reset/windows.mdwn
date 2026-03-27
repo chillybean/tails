@@ -2,112 +2,74 @@
 
 [[!inline pages="doc/reset.intro" raw="yes" sort="age"]]
 
-<div class="caution">
-
-<p><b>You might overwrite any hard disk on the computer.</b></p>
-
-<p>If at some point you are not sure about which device to choose, stop proceeding.</p>
-
-</div>
-
 Erase Tails from the USB stick
 ==============================
 
 First, erase Tails from the USB stick:
 
-1. Make sure that the USB stick that you want to reset is unplugged.
+1. Select the **Start** [[!img lib/start.png alt="" class="symbolic" link="no"]]
+   button and open the *Settings* app.
 
-1. Open the **Start** ([[!img lib/start.png class="symbolic" link="no" alt=""]]) menu.
+1. In the *Settings* app, choose **System&nbsp;▸ Storage&nbsp;▸ Advanced
+   storage settings&nbsp;▸ Disk & volumes**.
 
-1. Choose **Windows System**&nbsp;▸ **Command Prompt**.
+1. Plug in the Tails USB stick that you want to reset.
 
-1. Execute the following command to start the *Diskpart* utility.
+   [[!img disks.png class="screenshot" alt=""]]
 
-   <p class="command-windows">diskpart</p>
+1. Identify the USB stick in the list of disks.
 
-1. Execute the following command to obtain information about the disks in the
-   computer.
+1. Identify the volume called **TAILS**, which has a FAT32 file system.
 
-   <p class="command-windows">list disk</p>
+   This volume corresponds to the Tails system partition on the USB stick.
 
-   For example:
+   1. Select the **Properties** button corresponding to the **TAILS** volume.
 
-       Diskpart> list disk
+   1. In the properties of the **TAILS** volume, select **Delete**.
 
-         Disk ###  Status      Size     Free     Dyn  Gpt
-         --------  ----------  -------  -------  ---  ---
-         Disk 0    Online        80 GB      0 B
+      Windows gives no feedback after deletion.
 
-1. Plug in the USB stick that you want to reset.
+   1. Select **Disks & volumes** to go back to the list of volumes.
 
-1. Run the same command again.
+1. If there is a [[Persistent Storage|doc/persistent_storage]] on the USB
+   stick, a volume called **(No label)** also appears on the USB stick.
 
-   <p class="command-windows">list disk</p>
+   This volume corresponds to the Tails Persistent Storage on the USB stick.
 
-   A new disk, which corresponds to the USB stick that you plugged in,
-   appears in the list.
+   1. Select the **Properties** button corresponding to the **(No label)** volume.
 
-   For example:
+   1. In the properties of the **(No label)** volume, select **Delete**.
 
-        Diskpart> list disk
+      Windows gives no feedback after deletion.
 
-          Disk ###  Status      Size     Free     Dyn  Gpt
-          --------  ----------  -------  -------  ---  ---
-          Disk 0    Online        80 GB      0 B
-          Disk 1    Online         8 GB      0 B
+   1. Select **Disks & volumes** to go back to the list of volumes.
 
-   Make sure that its size corresponds to the size of the USB stick that you want to
-   reset. Note down its disk number.
-
-   In this example, the disk number of the USB stick is 1.
-   Yours might be different.
-
-1. Execute the following command to select the USB stick. Replace
-   <span class="command-placeholder">number</span> with the disk number found
-   in step 7.
-
-   <p class="command-windows command-template">select disk=<span class="command-placeholder">number</span></p>
-
-1. Execute the following command to delete the partition table from the USB
-   stick.
-
-   <p class="command-windows">clean</p>
+1. The USB stick now has no volumes and is entirely unallocated.
 
 Create a new partition on the USB stick
 =======================================
 
 Then, create a new partition on the USB stick:
 
-1. Execute the following command to create a new partition table on the USB
-   stick.
+1. Select the **Properties** button corresponding to the USB stick.
 
-   <p class="command-windows">convert mbr</p>
+1. In the properties of the USB stick, select **Convert to MBR**.
 
-1. Execute the following command to create a new primary partition on the USB
-   stick.
+1. Select **Disks & volumes** to go back to the list of volumes.
 
-   <p class="command-windows">create partition primary</p>
+1. Select the **Create Volume** button for the USB stick and choose **Create
+   Simple Volume**.
+
+1. In the **New Volume** dialog, enter a label of your choice and select
+   **Format**.
 
 1. Unplug the USB stick.
 
-1. Plug the USB stick again.
+1. Close the *Settings* app.
 
-1. A dialog appears to format the disk before using it.
+1. Select the **Start** [[!img lib/start.png alt="" class="symbolic" link="no"]]
+   button and open the *File Explorer* app.
 
-   [[!img format.png class="screenshot" alt="You need to format the disk before you can use it. Do you want to format it?"]]
+1. Plug back the USB stick.
 
-1. Click on the **Format disk** button.
-
-1. In the **Format USB Drive** dialog, review the settings and click **Start**.
-
-1. After the formatting is complete, the USB stick should appear as a new drive
-   in the files browser.
-
-   Otherwise, try unplugging and plugging it again.
-
-Troubleshooting
-===============
-
-- [How to start the *Command Prompt*](https://www.computerhope.com/issues/chdos.htm)
-
-- [Microsoft: diskpart](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/diskpart)
+   Your new volume appears in the left sidebar of the *File Explorer*.
