@@ -519,7 +519,7 @@ When(/^I look at the hide mode but then I go back$/) do
     click_connect_to_tor
 
     tor_connection_assistant.child(
-      'Configure a Tor Bridge',
+      'Configure a Tor bridge',
       roleName: 'heading'
     )
 
@@ -682,7 +682,7 @@ When /^I configure (?:some|the) (persistent )?(\w+) bridges (from a QR code )?in
       if qr_code
         # We currently support only 1 bridge
         setup_qrcode_bridges_on_webcam(bridges)
-        tor_connection_assistant.child('_Ask for a Tor bridge by email',
+        tor_connection_assistant.child('_Ask for a bridge by email',
                                        roleName: 'radio button')
                                 .click
         tor_connection_assistant.child('Scan QR code',
@@ -821,7 +821,7 @@ When /^I configure Tor Connection to ask for bridge settings (?:based on my loca
     ).click
     click_connect_to_tor
     moat_radio = tor_connection_assistant.child(
-      'Ask for a Tor bridge based on your _region',
+      'Ask for a bridge based on your _region',
       roleName: 'radio button'
     )
     moat_radio.click
