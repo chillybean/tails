@@ -23,6 +23,7 @@ from tca.torutils import (
     recover_fd_from_parent,
     TorLauncherUtils,
     TorLauncherNetworkUtils,
+    VALID_BRIDGE_TYPES,
 )
 from tca.timeutils import GET_NETWORK_TIME_RETURN_CODE
 from tca.ui.asyncutils import (
@@ -204,6 +205,7 @@ class TCAApplication(Gtk.Application):
         self.tor_working_monitor.start()
         self.wifi_availability_monitor = WifiAvailabilityMonitor(self.sys_dbus)
         self.wifi_availability_monitor.start()
+        self.supported_bridge_types = VALID_BRIDGE_TYPES
         self.log.debug(
             "Persistence = %s, unlocked = %s",
             self.has_persistence,

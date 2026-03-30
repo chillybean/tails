@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-14 10:05+0100\n"
+"POT-Creation-Date: 2026-03-23 12:26+0100\n"
 "PO-Revision-Date: 2025-08-13 12:02+0000\n"
 "Last-Translator: emma peel <emma.peel@riseup.net>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/tor/tails-gui/ta/"
@@ -24,7 +24,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.13-dev\n"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:242
 #, python-brace-format
 msgid ""
 "{details} Please check your list of additional software or read the system "
@@ -33,7 +33,7 @@ msgstr ""
 "{details} தயவாய் தங்கள் கூடுதல் மென்பொருள் பட்டியலை சரிபார்க்கவும் அல்லது சிக்கலைப் "
 "புரிந்து கொள்ள ஒருங்கிய பதிகையைப் படியுங்கள்."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:216
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:249
 msgid ""
 "Please check your list of additional software or read the system log to "
 "understand the problem."
@@ -41,13 +41,27 @@ msgstr ""
 "உங்கள் கூடுதல் மென்பொருளின் பட்டியலைச் சரிபார்க்கவும் அல்லது சிக்கலைப் புரிந்துகொள்ள கணினி "
 "பதிவைப் படிக்கவும்."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:222
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:255
 msgid "Show Log"
 msgstr "பதிவை காட்டு"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:222
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:255
 msgid "Configure"
 msgstr "கட்டமைக்க"
+
+#: config/chroot_local-includes/usr/local/lib/change-apps-menu-name:25
+#, fuzzy
+msgid "Password Manager"
+msgstr "கடவுச்சொல்"
+
+#: config/chroot_local-includes/usr/local/lib/change-apps-menu-name:26
+#, fuzzy
+msgid "password"
+msgstr "கடவுச்சொல்"
+
+#: config/chroot_local-includes/usr/local/lib/change-apps-menu-name:26
+msgid "password-manager"
+msgstr ""
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:57
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:95
@@ -71,7 +85,7 @@ msgstr "ஒரு முறை மட்டுமே நிறுவவும்
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:74
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:112
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:213
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:206
 msgid "The configuration of your additional software failed."
 msgstr "உங்கள் கூடுதல் மென்பொருளின் உள்ளமைவு தோல்வியடைந்தது."
 
@@ -102,29 +116,29 @@ msgstr "வால்களைத் தொடங்கும்போது த�
 msgid "To do so, you need to run Tails from a USB stick."
 msgstr "அவ்வாறு செய்ய, நீங்கள் ஒரு யூ.எச்.பி குச்சியிலிருந்து வால்களை இயக்க வேண்டும்."
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:197
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:190
 #, python-brace-format
 msgid "Remove {packages} from your additional software?"
 msgstr "உங்கள் கூடுதல் மென்பொருளிலிருந்து {packages} அகற்றவா?"
 
 #. Translators: Don't translate {packages}, it's a placeholder
 #. and will be replaced.
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:202
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:195
 #, python-brace-format
 msgid "This will stop installing {packages} automatically."
 msgstr "இது {packages} தானாக நிறுவுவதை நிறுத்திவிடும்."
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:205
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:198
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:188
 msgid "Remove"
 msgstr "நீக்கு"
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:206
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:199
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/add_settings_dialog.py:40
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:182
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:503
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:777
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:917
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:185
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:199
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:525
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:945
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:744
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:128
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:376
@@ -133,21 +147,21 @@ msgstr "ரத்துசெய்"
 
 #. Translators: Don't translate {beginning} or {last}, they are
 #. placeholders and will be replaced.
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:226
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:219
 #, python-brace-format
 msgid "{beginning} and {last}"
 msgstr "{beginning} மற்றும் {last}"
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:227
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:220
 msgid ", "
 msgstr "அருவடிக்கு "
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:45
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:46
 msgid "The check for upgrades of your additional software failed"
 msgstr "உங்கள் கூடுதல் மென்பொருளின் மேம்படுத்தலுக்கான சோதனை தோல்வியடைந்தது"
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:47
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:59
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:48
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:60
 msgid ""
 "Please check your network connection, restart Tails, or read the system log "
 "to understand the problem."
@@ -155,29 +169,29 @@ msgstr ""
 "உங்கள் பிணைய இணைப்பை சரிபார்க்கவும், வால்களை மறுதொடக்கம் செய்யவும் அல்லது சிக்கலைப் "
 "புரிந்துகொள்ள கணினி பதிவைப் படிக்கவும்."
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:57
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:58
 msgid "The upgrade of your additional software failed"
 msgstr "உங்கள் கூடுதல் மென்பொருளின் மேம்படுத்தல் தோல்வியடைந்தது"
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:127
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:128
 msgid "Installing your additional software from persistent storage..."
 msgstr "தொடர்ச்சியான சேமிப்பகத்திலிருந்து உங்கள் கூடுதல் மென்பொருளை நிறுவுதல் ..."
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:128
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:129
 msgid "This can take several minutes."
 msgstr "இதற்கு பல நிமிடங்கள் ஆகலாம்."
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:146
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:147
 msgid "The installation of your additional software failed"
 msgstr "உங்கள் கூடுதல் மென்பொருளின் நிறுவல் தோல்வியடைந்தது"
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:161
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:162
 msgid "Additional software installed successfully"
 msgstr "கூடுதல் மென்பொருள் வெற்றிகரமாக நிறுவப்பட்டுள்ளது"
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:8
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop.in.h:1
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:646
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:648
 msgid "Additional Software"
 msgstr "கூடுதல் மென்பொருட்கள்"
 
@@ -237,27 +251,27 @@ msgstr ""
 "உங்கள் பிட்காயினைப் பாதுகாப்பாக வைத்திருக்க எங்களுக்கு உதவுங்கள்!\n"
 "\n"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:149
+#: config/chroot_local-includes/usr/local/bin/electrum:140
 msgid "Donate Now"
 msgstr "இப்போதே நன்கொடையளியுங்கள்"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:151
+#: config/chroot_local-includes/usr/local/bin/electrum:142
 msgid "Later"
 msgstr "பிறகு"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:165
+#: config/chroot_local-includes/usr/local/bin/electrum:156
 msgid "Opening Electrum with our donation address..."
 msgstr "எங்கள் நன்கொடை முகவரியுடன் மின்முனை திறத்தல் ..."
 
-#: config/chroot_local-includes/usr/local/bin/electrum:166
+#: config/chroot_local-includes/usr/local/bin/electrum:157
 msgid "Thank you for making the Internet a safer place!"
 msgstr "இணையத்தை பாதுகாப்பான இடமாக மாற்றியதற்கு நன்றி!"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:200
+#: config/chroot_local-includes/usr/local/bin/electrum:191
 msgid "Persistence is disabled for Electrum"
 msgstr "ஒரேநிலை Electrum இற்கு முடக்கப்பட்டுள்ளது"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:202
+#: config/chroot_local-includes/usr/local/bin/electrum:193
 msgid ""
 "When you reboot Tails, all of Electrum's data will be lost, including your "
 "Bitcoin wallet.\n"
@@ -269,15 +283,15 @@ msgstr ""
 " எலக்ட்ரம் அதன் விடாமுயற்சி நற்பொருத்தம் செயல்படுத்தப்படும்போது மட்டுமே இயக்க "
 "பரிந்துரைக்கப்படுகிறது."
 
-#: config/chroot_local-includes/usr/local/bin/electrum:204
+#: config/chroot_local-includes/usr/local/bin/electrum:195
 msgid "Do you want to start Electrum anyway?"
 msgstr "நீங்கள் எப்படியும் எலக்ட்ரம் தொடங்க விரும்புகிறீர்களா?"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:210
+#: config/chroot_local-includes/usr/local/bin/electrum:201
 msgid "_Launch"
 msgstr "_இயக்கு"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:211
+#: config/chroot_local-includes/usr/local/bin/electrum:202
 msgid "_Exit"
 msgstr "_வெளியேறு"
 
@@ -749,58 +763,76 @@ msgstr "நிறுத்து"
 msgid "Off (default)"
 msgstr "ஆஃப் (இயல்புநிலை)"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:178
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:181
 msgid "Persistent Storage Still Locked"
 msgstr "தொடர்ச்சியான சேமிப்பு இன்னும் பூட்டப்பட்டுள்ளது"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:180
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:183
 msgid ""
 "Do you really want to start Tails without unlocking your Persistent Storage?"
 msgstr "உங்கள் தொடர்ச்சியான சேமிப்பிடத்தைத் திறக்காமல் வால்களைத் தொடங்க விரும்புகிறீர்களா?"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:183
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:186
 msgid "Start Without Persistent Storage"
 msgstr "தொடர்ச்சியான சேமிப்பு இல்லாமல் தொடங்கவும்"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:267
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:193
+#, fuzzy
+msgid "Language and Keyboard layout"
+msgstr "மொழி மற்றும் வடிவங்கள்"
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:195
+msgid ""
+"Your language and keyboard layout will be saved unencrypted on your Tails "
+"USB stick and applied automatically in the future.\n"
+"\n"
+"Someone who finds your Tails USB stick can see your language and keyboard "
+"layout."
+msgstr ""
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:200
+msgid "Save Unencrypted"
+msgstr ""
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:288
 msgid ""
 "Impossible to unlock the Persistent Storage because the USB stick is read-"
 "only."
 msgstr ""
 "யூ.எச்.பி குச்சி படிக்க மட்டுமே இருப்பதால், தொடர்ச்சியான சேமிப்பிடத்தைத் திறக்க இயலாது."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:428
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:460
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:449
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:482
 msgid "Unlocking…"
 msgstr "திறத்தல்…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:468
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:490
 msgid "Checking the file system…"
 msgstr "கோப்பு முறைமையை சரிபார்க்கிறது…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:501
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:523
 msgid "Repairing the File System"
 msgstr "கோப்பு முறைமையை சரிசெய்தல்"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:502
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:524
 msgid "This might take a long time..."
 msgstr "இதற்கு நீண்ட நேரம் ஆகலாம் ..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:520
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:542
 msgid "Failed to repair the file system of your Persistent Storage."
 msgstr "உங்கள் தொடர்ச்சியான சேமிப்பகத்தின் கோப்பு முறைமையை சரிசெய்யத் தவறிவிட்டது."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:522
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:544
 msgid "Start Tails to send an error report and learn how to recover your data."
 msgstr ""
 "பிழை அறிக்கையை அனுப்ப வால்களைத் தொடங்கவும், உங்கள் தரவை எவ்வாறு மீட்டெடுப்பது என்பதை "
 "அறியவும்."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:536
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:559
 msgid "File System Repaired Successfully"
 msgstr "கோப்பு முறைமை வெற்றிகரமாக சரிசெய்யப்பட்டது"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:538
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:561
 msgid ""
 "It's possible that some data was lost during the repair. Please check the "
 "contents of your Persistent Storage and restore any lost data from a backup."
@@ -809,12 +841,12 @@ msgstr ""
 "சேமிப்பகத்தின் உள்ளடக்கங்களை சரிபார்த்து, இழந்த தரவுகளை காப்புப்பிரதியிலிருந்து "
 "மீட்டெடுக்கவும்."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:542
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:565
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:32
 msgid "Close"
 msgstr "மூடுக"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:557
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:580
 msgid ""
 "You aborted the repair of the file system. You can either start Tails "
 "without Persistent Storage or restart the computer to try repairing the file "
@@ -824,29 +856,11 @@ msgstr ""
 "நீங்கள் வால்களைத் தொடங்கலாம் அல்லது கோப்பு முறைமையை மீண்டும் சரிசெய்ய முயற்சிக்க கணினியை "
 "மறுதொடக்கம் செய்யலாம்."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:771
-#, fuzzy
-msgid "Language and Keyboard layout"
-msgstr "மொழி மற்றும் வடிவங்கள்"
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:773
-msgid ""
-"Your language and keyboard layout will be saved unencrypted on your Tails "
-"USB stick and applied automatically in the future.\n"
-"\n"
-"Someone who finds your Tails USB stick can see your language and keyboard "
-"layout."
-msgstr ""
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:778
-msgid "Save Unencrypted"
-msgstr ""
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:839
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:866
 msgid "Start Tails and open the Persistent Storage settings to find out more."
 msgstr "வால்களைத் தொடங்கி, மேலும் அறிய தொடர்ச்சியான சேமிப்பக அமைப்புகளைத் திறக்கவும்."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:868
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:896
 msgid ""
 "Your Persistent Storage is unlocked. Its content will be available until you "
 "shut down Tails."
@@ -854,11 +868,11 @@ msgstr ""
 "உங்கள் தொடர்ச்சியான சேமிப்பு திறக்கப்பட்டுள்ளது. நீங்கள் வால்களை மூடும் வரை அதன் உள்ளடக்கம் "
 "கிடைக்கும்."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:883
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:911
 msgid "Incorrect passphrase. Please try again."
 msgstr "தவறான கடவுச்சொல். மீண்டும் முயற்சிக்கவும்."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:894
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:922
 msgid ""
 "Error reading data from your Persistent Storage. The hardware of your USB "
 "stick is probably failing."
@@ -866,24 +880,25 @@ msgstr ""
 "உங்கள் தொடர்ச்சியான சேமிப்பகத்திலிருந்து தரவைப் படிப்பதில் பிழை. உங்கள் யூ.எச்.பி "
 "குச்சியின் வன்பொருள் தோல்வியுற்றது."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:896
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:924
 msgid "Start Tails to learn how to recover your data."
 msgstr "உங்கள் தரவை எவ்வாறு மீட்டெடுப்பது என்பதை அறிய வால்களைத் தொடங்குங்கள்."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:907
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:935
 msgid "File System Errors"
 msgstr "கோப்பு முறைமை பிழைகள்"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:909
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:937
+#, fuzzy
 msgid ""
 "Errors were detected in the file system of your Persistent Storage.\n"
-"                \n"
+"\n"
 "Tails can try to fix these errors, but this might erase some of your data "
 "and take a long time.\n"
 "\n"
 "If you already have an up-to-date backup of your Persistent Storage, we "
 "recommend that you try to repair.\n"
-"                \n"
+"\n"
 "If you don't have a backup, we recommend that you create a partition image "
 "of your Persistent Storage first."
 msgstr ""
@@ -898,15 +913,15 @@ msgstr ""
 " உங்களிடம் காப்புப்பிரதி இல்லையென்றால், முதலில் உங்கள் தொடர்ச்சியான சேமிப்பகத்தின் பகிர்வு "
 "படத்தை உருவாக்க பரிந்துரைக்கிறோம்."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:918
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:946
 msgid "Repair File System"
 msgstr "கோப்பு முறைமையை சரிசெய்யவும்"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:919
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:947
 msgid "Create Partition Image"
 msgstr "பகிர்வு படத்தை உருவாக்கவும்"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:930
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:958
 msgid ""
 "Start Tails to learn how to create a partition image of your Persistent "
 "Storage."
@@ -914,11 +929,11 @@ msgstr ""
 "உங்கள் தொடர்ச்சியான சேமிப்பகத்தின் பகிர்வு படத்தை எவ்வாறு உருவாக்குவது என்பதை அறிய "
 "வால்களைத் தொடங்குங்கள்."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:939
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:967
 msgid "Failed to unlock the Persistent Storage due to file system errors."
 msgstr "கோப்பு முறைமை பிழைகள் காரணமாக தொடர்ச்சியான சேமிப்பிடத்தைத் திறக்கத் தவறிவிட்டது."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:948
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:976
 msgid ""
 "Failed to upgrade the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -926,7 +941,7 @@ msgstr ""
 "தொடர்ச்சியான சேமிப்பிடத்தை மேம்படுத்தத் தவறிவிட்டது. தயவுசெய்து வால்களைத் தொடங்கி பிழை "
 "அறிக்கையை அனுப்பவும்."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:955
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:983
 msgid ""
 "Failed to unlock the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -934,7 +949,7 @@ msgstr ""
 "தொடர்ச்சியான சேமிப்பகத்தைத் திறக்கத் தவறிவிட்டது. தயவுசெய்து வால்களைத் தொடங்கி பிழை "
 "அறிக்கையை அனுப்பவும்."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:963
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:991
 msgid ""
 "Failed to activate the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -942,7 +957,7 @@ msgstr ""
 "தொடர்ச்சியான சேமிப்பிடத்தை செயல்படுத்தத் தவறிவிட்டது. தயவுசெய்து வால்களைத் தொடங்கி பிழை "
 "அறிக்கையை அனுப்பவும்."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:974
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:1002
 msgid "Upgrading the Persistent Storage. This might take a while…"
 msgstr "தொடர்ச்சியான சேமிப்பிடத்தை மேம்படுத்துதல். இதற்கு சிறிது நேரம் ஆகலாம்…"
 
@@ -1424,17 +1439,16 @@ msgstr ""
 msgid "Could not open device for writing."
 msgstr "எழுதுவதற்கான சாதனத்தைத் திறக்க முடியவில்லை."
 
-#: config/chroot_local-includes/usr/local/bin/keepassxc:19
+#: config/chroot_local-includes/usr/local/bin/secrets:19
 #, fuzzy, sh-format
 msgid ""
-"<b><big>Do you want to rename your <i>KeePassXC</i> database?</big></b>\n"
-"\n"
-"You have a <i>KeePassXC</i> database in your <i>Persistent</i> folder:\n"
+"You have a <i>KeePassXC</i> or <i>Secrets</i> database in your "
+"<i>Persistent</i> folder:\n"
 "\n"
 "<i>${filename}</i>\n"
 "\n"
-"Renaming your database to <i>${default_filename}</i> would allow "
-"<i>KeePassXC</i> to open it automatically in the future."
+"Renaming your database to <i>${default_filename}</i> allows <i>Secrets</i> "
+"to open it automatically in the future."
 msgstr ""
 "<b> <big> உங்கள் <i> keepassxc </i> தரவுத்தளத்தை மறுபெயரிட விரும்புகிறீர்களா? </"
 "big> </b> \n"
@@ -1447,13 +1461,17 @@ msgstr ""
 "உங்கள் தரவுத்தளத்தை <i> $ {default_filename} </i> க்கு மறுபெயரிடுவது <i> "
 "feetassxc </i> ஐ எதிர்காலத்தில் தானாக திறக்க அனுமதிக்கும்."
 
-#: config/chroot_local-includes/usr/local/bin/keepassxc:28
+#: config/chroot_local-includes/usr/local/bin/secrets:25
 msgid "Rename"
 msgstr "மறுபெயரிடு"
 
-#: config/chroot_local-includes/usr/local/bin/keepassxc:30
+#: config/chroot_local-includes/usr/local/bin/secrets:27
 msgid "Keep current name"
 msgstr "தற்போதைய பெயரை வைத்திருங்கள்"
+
+#: config/chroot_local-includes/usr/local/bin/secrets:29
+msgid "Rename Password Database?"
+msgstr ""
 
 #: config/chroot_local-includes/usr/local/bin/replace-su-with-sudo:19
 msgid "su is disabled. Please use sudo instead."
@@ -1484,6 +1502,7 @@ msgid "Dismiss"
 msgstr "நிராகரி"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:11
+#: config/chroot_local-includes/usr/local/lib/tails-additional-software-notify:63
 #: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:44
 #: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:45
 msgid "Learn More"
@@ -1525,10 +1544,9 @@ msgstr ""
 #: config/chroot_local-includes/usr/local/bin/tails-upgrade-frontend-wrapper:79
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/application.py:79
 #: config/chroot_local-includes/usr/local/sbin/unsafe-browser:37
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:318
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:464
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:597
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1100
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:375
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:521
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:654
 msgid "Error"
 msgstr "பிழை"
 
@@ -1586,10 +1604,6 @@ msgstr "வெளியிடப்பட்டது"
 #, python-format
 msgid "Built from %s"
 msgstr "%s இலிருந்து கட்டப்பட்டது"
-
-#: config/chroot_local-includes/usr/local/lib/tails-additional-software-notify:63
-msgid "Documentation"
-msgstr "ஆவணப்படுத்தல்"
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:114
 #, python-brace-format
@@ -1696,7 +1710,7 @@ msgid "Show Password"
 msgstr "கடவுச்சொல்"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:151
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2281
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2580
 msgid "Password"
 msgstr "கடவுச்சொல்"
 
@@ -1859,12 +1873,25 @@ msgstr ""
 msgid "Tor Connection"
 msgstr "TOR இணைப்பு"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:218
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:283
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:331
+msgid "Automatic"
+msgstr ""
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:284
+msgid "Frequently selected regions"
+msgstr ""
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:291
+msgid "Other regions"
+msgstr ""
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:369
 #, fuzzy
 msgid "_Use a bridge that you already know"
 msgstr "You நீங்கள் ஏற்கனவே அறிந்த ஒரு பாலத்தைப் பயன்படுத்தவும்"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:260
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:411
 msgid ""
 "To save your bridge, <a href=\"doc/persistent_storage\">unlock your "
 "Persistent Storage</a>."
@@ -1872,7 +1899,7 @@ msgstr ""
 "உங்கள் பாலத்தை சேமிக்க, <a href = \"doc/persistent_storage\"> உங்கள் தொடர்ச்சியான "
 "சேமிப்பிடத்தைத் திறக்கவும் </a>."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:267
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:418
 msgid ""
 "To save your bridge, <a href=\"doc/persistent_storage\">create a Persistent "
 "Storage</a> on your Tails USB stick."
@@ -1880,14 +1907,12 @@ msgstr ""
 "உங்கள் பாலத்தை சேமிக்க, <a href = \"doc/persistent_storage\"> உங்கள் வால்கள் "
 "யூ.எச்.பி ச்டிக்கில் ஒரு தொடர்ச்சியான சேமிப்பிடத்தை உருவாக்கவும் </a>."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:287
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:810
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:438
 #, python-brace-format
 msgid "Invalid: {exception}"
 msgstr "தவறானது: {exception}"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:299
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:823
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:450
 msgid ""
 "You need to configure a WebTunnel or an obfs4 bridge to hide that you are "
 "using Tor"
@@ -1895,78 +1920,97 @@ msgstr ""
 "நீங்கள் டோரைப் பயன்படுத்துகிறீர்கள் என்பதை மறைக்க நீங்கள் ஒரு வெப்டன்னல் அல்லது ஒரு OBFS4 "
 "பாலத்தை உள்ளமைக்க வேண்டும்"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:354
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:514
 msgid "Failed to configure your Persistent Storage"
 msgstr "உங்கள் தொடர்ச்சியான சேமிப்பிடத்தை உள்ளமைக்கத் தவறிவிட்டது"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:406
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:566
 msgid "Failed to detect a webcam. Maybe your webcam is too old."
 msgstr "வெப்கேம் கண்டறியத் தவறிவிட்டது. உங்கள் வெப்கேம் மிகவும் பழையதாக இருக்கலாம்."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:417
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:577
 msgid "Failed to scan QR code. Try with more light or closer to the camera."
 msgstr ""
 "QR குறியீட்டை ச்கேன் செய்வதில் தோல்வி. அதிக ஒளியுடன் அல்லது கேமராவுக்கு நெருக்கமாக "
 "முயற்சிக்கவும்."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:428
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:588
 msgid "Invalid QR code. Try sending another email and scanning again."
 msgstr ""
 "தவறான QR குறியீடு. மற்றொரு மின்னஞ்சலை அனுப்பவும் மீண்டும் ச்கேன் செய்யவும் முயற்சிக்கவும்."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:486
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:649
 msgid "Synchronizing the system's clock…"
 msgstr "கணினியின் கடிகாரத்தை ஒத்திசைத்தல்…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:538
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:726
+#, fuzzy
+msgid "Asking for a Tor bridge based on your region…"
+msgstr "_ மின்னஞ்சல் மூலம் ஒரு டோர் பாலத்திற்கு கேளுங்கள்"
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:774
 msgid "Connecting to Tor without bridges…"
 msgstr "பாலங்கள் இல்லாமல் TOR உடன் இணைக்கிறது…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:545
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:569
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:781
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:813
 msgid "Connecting to Tor with default bridges…"
 msgstr "இயல்புநிலை பாலங்களுடன் TOR உடன் இணைகிறது…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:552
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:789
+#, fuzzy
+msgid "Connecting to Tor with a bridge based on your region…"
+msgstr "இயல்புநிலை பாலங்களுடன் TOR உடன் இணைகிறது…"
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:796
 msgid "Connecting to Tor with a custom bridge…"
 msgstr "தனிப்பயன் பாலத்துடன் TOR உடன் இணைகிறது…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:660
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:914
 msgid "Connected to Tor successfully with bridges"
 msgstr "பாலங்களுடன் வெற்றிகரமாக TOR உடன் இணைக்கப்பட்டுள்ளது"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:662
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2041
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:916
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2340
 msgid "Connected to Tor successfully"
 msgstr "TOR உடன் வெற்றிகரமாக இணைக்கப்பட்டுள்ளது"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:666
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2066
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:920
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2365
 msgid "You can now browse the Internet anonymously and uncensored."
 msgstr "நீங்கள் இப்போது இணையத்தை அநாமதேயமாகவும் தணிக்கை செய்யாமலும் உலாவலாம்."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:738
-msgid "This local network seems to be blocking access to Tor."
-msgstr "இந்த உள்ளக பிணையம் TOR க்கான அணுகலைத் தடுப்பதாகத் தெரிகிறது."
+#. Translators: only translate "Bridge:" and adjust
+#. text-direction
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:985
+#, python-brace-format
+msgid "Bridge: <b>{bridge}</b>"
+msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:813
-msgid "Bridge address malformed"
-msgstr "பாலம் முகவரி தவறாக"
+#. Translators: only translate "Error code:" and adjust
+#. text-direction
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:997
+#, python-brace-format
+msgid "Error code: {code}"
+msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:831
-msgid "Setting a bridge is needed if you want to hide that you are using Tor"
-msgstr "நீங்கள் டோர் பயன்படுத்துகிறீர்கள் என்று மறைக்க விரும்பினால் பாலம் அமைப்பது தேவை"
+#. Translators: only translate "Proxy:" and adjust
+#. text-direction
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1024
+#, python-brace-format
+msgid "Proxy: <b>{proxy}</b>"
+msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1070
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1323
 #, python-brace-format
 msgid "Scanned {bridge_type} bridge: <b>{bridge_info}</b>."
 msgstr "ச்கேன் செய்யப்பட்ட {bridge_info} பாலம்: <b> {bridge_type} </b>."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1159
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1408
 msgid "Are you sure you want to lose progress?"
 msgstr "முன்னேற்றத்தை இழக்க விரும்புகிறீர்களா?"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1163
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1412
 msgid ""
 "Tails will continue connecting to Tor after you close the Tor Connection "
 "assistant.\n"
@@ -1979,11 +2023,11 @@ msgstr ""
 " TOR உடன் இணைப்பது தோல்வியுற்றால், உங்கள் இணைப்பை சரிசெய்ய முன்னேற்றப் பட்டியின் இறுதி வரை "
 "நீங்கள் மீண்டும் காத்திருக்க வேண்டியிருக்கும்."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1169
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1418
 msgid "Close and Lose Progress"
 msgstr "மூடு மற்றும் முன்னேற்றத்தை இழக்கவும்"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1171
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1420
 msgid "Wait"
 msgstr "காத்திரு"
 
@@ -2012,7 +2056,7 @@ msgid "Open Tor Connection Assistant"
 msgstr "திறந்த டோர் இணைப்பு உதவியாளர்"
 
 #: config/chroot_local-includes/usr/share/gnome-shell/extensions/torstatus@tails.boum.org/extension.js:51
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2107
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2406
 msgid "View Tor Circuits"
 msgstr "டோர் சுற்றுகள் காண்க"
 
@@ -2088,7 +2132,7 @@ msgstr ""
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/application.py:30
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:49
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:1
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:25
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:24
 msgid "Persistent Storage"
 msgstr "தொடர்ச்சியான சேமிப்பு"
 
@@ -2204,8 +2248,8 @@ msgid "{app} (PIDs: {pids})"
 msgstr "{app} (pids: {pids})"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/change_passphrase_dialog.py:37
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:8
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:56
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:15
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:55
 msgid "Change Passphrase"
 msgstr "கடவுச்சொற்றொடரை மாற்றவும்"
 
@@ -2279,7 +2323,7 @@ msgstr "தொடர்ச்சியான சேமிப்பிடத்�
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:183
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:218
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:36
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:35
 msgid "Delete Persistent Storage"
 msgstr "தொடர்ச்சியான சேமிப்பிடத்தை நீக்கவும்"
 
@@ -2293,8 +2337,8 @@ msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:191
 #: config/chroot_local-includes/usr/local/sbin/unsafe-browser:56
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:304
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:121
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:301
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:124
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:219
 msgid "_Cancel"
 msgstr "_ரத்துசெய்"
@@ -3032,7 +3076,7 @@ msgstr ""
 msgid "Network Configuration"
 msgstr "பிணையக் கட்டமைப்பு"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:95
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:94
 msgid "Current _Passphrase"
 msgstr "தற்போதைய _ பாச்ஃப்ரேச்"
 
@@ -3044,29 +3088,29 @@ msgstr "_ புதிய பாச்ஃபிரேச்"
 msgid "_Confirm New Passphrase"
 msgstr "_ புதிய கடவுச்சொற்றொடரை உறுதிப்படுத்தவும்"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:215
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:219
 msgid "_Show Passphrases"
 msgstr "_ சோ பாச்ஃப்ரேச்"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:253
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:301
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:289
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:161
 msgid "The passphrases do not match"
 msgstr "கடவுச்சொற்கள் பொருந்தவில்லை"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:317
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:315
 msgid "Ch_ange"
 msgstr ""
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/deleted_view.ui.in:21
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/deleted_view.ui.in:20
 msgid "The Persistent Storage was successfully deleted."
 msgstr "தொடர்ச்சியான சேமிப்பு வெற்றிகரமாக நீக்கப்பட்டது."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/deleted_view.ui.in:32
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/deleted_view.ui.in:36
 msgid "_Close"
 msgstr "மூடு (_C)"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/fail_view.ui.in:30
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/fail_view.ui.in:31
 msgid "Oh no! Something has gone wrong."
 msgstr "ஓ! ஏதோ தவறு நடந்துவிட்டது."
 
@@ -3082,11 +3126,11 @@ msgstr ""
 " நீங்கள் ஒரு பிழை அறிக்கையை அனுப்பலாம் அல்லது விசாரிக்க பின்வரும் கட்டளைகளின் வெளியீட்டை "
 "சரிபார்க்கலாம்:"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/fail_view.ui.in:74
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/fail_view.ui.in:78
 msgid "Send Error Report"
 msgstr "பிழை அறிக்கையை அனுப்பவும்"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:61
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:63
 #, fuzzy
 msgid ""
 "Your Persistent Storage is unlocked.\n"
@@ -3101,7 +3145,7 @@ msgstr ""
 "<a href = \"doc/தொடர்ச்சியான சேமிப்பு/காப்புப்பிரதி\"> உங்கள் தொடர்ச்சியான "
 "சேமிப்பகத்தின் காப்புப்பிரதியை எவ்வாறு உருவாக்குவது என்பதை அறிக. </a>"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:89
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:91
 msgid ""
 "Turn on the features of the Persistent Storage for the data that you want to "
 "save to your Tails USB stick."
@@ -3109,159 +3153,159 @@ msgstr ""
 "உங்கள் வால்கள் யூ.எச்.பி ச்டிக்கில் சேமிக்க விரும்பும் தரவுகளுக்கான தொடர்ச்சியான "
 "சேமிப்பகத்தின் அம்சங்களை இயக்கவும்."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:106
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:108
 msgid "Personal Documents"
 msgstr "தனிப்பட்ட ஆவணங்கள்"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:134
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:136
 msgid "Persistent Folder"
 msgstr "தொடர்ச்சியான கோப்புறை"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:135
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:137
 msgid "A folder where you can save your documents."
 msgstr "உங்கள் ஆவணங்களை சேமிக்கக்கூடிய ஒரு கோப்புறை."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:160
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:162
 msgid "Open Persistent Folder"
 msgstr "தொடர்ச்சியான கோப்புறையைத் திறக்கவும்"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:173
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:175
 msgid "Activate Persistent Folder"
 msgstr "தொடர்ச்சியான கோப்புறையை செயல்படுத்தவும்"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:200
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:202
 msgid "System Settings"
 msgstr "கணினி அமைப்புகள்"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:228
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:230
 msgid "Welcome Screen"
 msgstr "வரவேற்பு திரை"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:244
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:246
 msgid "Activate Welcome Screen"
 msgstr "வரவேற்பு திரையை செயல்படுத்தவும்"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:257
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:259
 msgid "Printers"
 msgstr "அச்சுப்பொறிகள்"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:273
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:275
 msgid "Activate Printers"
 msgstr "அச்சுப்பொறிகளை செயல்படுத்தவும்"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:300
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:302
 msgid "Network"
 msgstr "பிணையம்"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:328
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:330
 msgid "Network Connections"
 msgstr "பிணைய இணைப்புகள்"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:329
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:331
 msgid "Save Wi-Fi passwords and mobile broadband configuration."
 msgstr "வைஃபை கடவுச்சொற்கள் மற்றும் மொபைல் பிராட்பேண்ட் உள்ளமைவைச் சேமிக்கவும்."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:345
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:347
 msgid "Activate Network Connections"
 msgstr "பிணைய இணைப்புகளை செயல்படுத்தவும்"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:358
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:360
 msgid "Tor Bridge"
 msgstr "டோர் பிரிட்ச்"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:374
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:376
 msgid "Activate Tor Bridge"
 msgstr "டோர் பிரிட்ச் செயல்படுத்தவும்"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:401
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:403
 msgid "Applications"
 msgstr "பயன்பாடுகள்"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:429
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:431
 msgid "Tor Browser Bookmarks"
 msgstr "டோர் உலாவி புக்மார்க்குகள்"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:445
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:447
 msgid "Activate Tor Browser Bookmarks"
 msgstr "டோர் உலாவி புக்மார்க்குகளை செயல்படுத்தவும்"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:458
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:460
 msgid "Electrum Bitcoin Wallet"
 msgstr "எலக்ட்ரம் பிட்காயின் பணப்பையை"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:474
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:476
 msgid "Activate Electrum Bitcoin Wallet"
 msgstr "எலக்ட்ரம் பிட்காயின் பணப்பையை செயல்படுத்தவும்"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:487
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:489
 msgid "Thunderbird Email Client"
 msgstr "தண்டர்பேர்ட் மின்னஞ்சல் வாங்கி"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:503
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:505
 msgid "Activate Thunderbird Email Client"
 msgstr "தண்டர்பேர்ட் மின்னஞ்சல் கிளையண்டை செயல்படுத்தவும்"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:516
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:518
 msgid "GnuPG"
 msgstr "Gnupg"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:517
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:519
 msgid "OpenPGP keys outside of Thunderbird, including in Kleopatra."
 msgstr "க்ளியோபாட்ரா உட்பட தண்டர்பேர்டுக்கு வெளியே ஓபன்.பி.சி.பி விசைகள்."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:533
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:535
 msgid "Activate GnuPG"
 msgstr "Gnupg ஐ செயல்படுத்தவும்"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:546
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:548
 msgid "Pidgin Internet Messenger"
 msgstr "பிட்சின் இன்டர்நெட் மெசஞ்சர்"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:562
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:564
 msgid "Activate Pidgin Internet Messenger"
 msgstr "பிட்சின் இன்டர்நெட் மெசஞ்சரை செயல்படுத்தவும்"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:575
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:577
 msgid "SSH Client"
 msgstr "பாஓடு கிளையன்ட்"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:591
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:593
 msgid "Activate SSH Client"
 msgstr "பாஓடு கிளையண்டை செயல்படுத்தவும்"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:618
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:620
 msgid "Advanced Settings"
 msgstr "மேம்பட்ட அமைப்புகள்"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:647
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:649
 msgid "Install additional software automatically when starting Tails."
 msgstr "வால்களைத் தொடங்கும்போது கூடுதல் மென்பொருளை தானாக நிறுவவும்."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:672
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:674
 msgid "Configure Additional Software"
 msgstr "கூடுதல் மென்பொருளை உள்ளமைக்கவும்"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:685
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:687
 msgid "Activate Additional Software"
 msgstr "கூடுதல் மென்பொருளை செயல்படுத்தவும்"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:698
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:700
 msgid "Dotfiles"
 msgstr "டாட்ஃபைல்ச்"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:699
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:701
 msgid "Symlink every file in the Dotfiles folder into the Home folder."
 msgstr "டாட்ஃபைல்ச் கோப்புறையில் உள்ள ஒவ்வொரு கோப்பையும் வீட்டு கோப்புறையில் சிம்லிங்க்."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:732
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:734
 msgid "Activate Dotfiles"
 msgstr "டாட்ஃபைல்களை செயல்படுத்தவும்"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:764
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:766
 msgid "Custom"
 msgstr "விருப்ப"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:783
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:785
 msgid ""
 "To add or remove custom features, modify /live/persistence/"
 "TailsData_unlocked/persistence.conf."
@@ -3269,7 +3313,7 @@ msgstr ""
 "தனிப்பயன் அம்சங்களைச் சேர்க்க அல்லது அகற்ற, /live/persistence/tailsdata_unlocked/"
 "persistence.conf ஐ மாற்றவும்."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:825
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:827
 msgid ""
 "<a href=\"doc/persistent_storage\">Learn more about the Persistent Storage.</"
 "a>"
@@ -3277,7 +3321,7 @@ msgstr ""
 "<a href = \"doc/persistent_storage\"> தொடர்ச்சியான சேமிப்பகத்தைப் பற்றி மேலும் "
 "அறிக. </a>"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/locked_view.ui.in:52
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/locked_view.ui.in:53
 msgid ""
 "<b>Your Persistent Storage is locked.</b>\n"
 "\n"
@@ -3295,7 +3339,7 @@ msgstr ""
 " உங்கள் தொடர்ச்சியான சேமிப்பிடத்தை நீக்க, தலைப்பு பட்டியின் வலதுபுறத்தில் <b> நீக்கு </b> "
 "என்பதைக் சொடுக்கு செய்க."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:62
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:60
 msgid ""
 "Choose the passphrase that you will use to unlock the encryption of your "
 "Persistent Storage and all its data."
@@ -3303,34 +3347,34 @@ msgstr ""
 "உங்கள் தொடர்ச்சியான சேமிப்பகத்தின் குறியாக்கத்தையும் அதன் அனைத்து தரவையும் திறக்க நீங்கள் "
 "பயன்படுத்தும் பாச்ஃபிரேசைத் தேர்வுசெய்க."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:82
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:80
 msgid "We recommend a long passphrase of 5 to 7 random words."
 msgstr "5 முதல் 7 சீரற்ற சொற்களின் நீண்ட கடவுச்சொற்றாக்க நாங்கள் பரிந்துரைக்கிறோம்."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:94
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:92
 msgid " For example:"
 msgstr " உதாரணமாக:"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:186
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:175
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:46
 msgid "Passphrase:"
 msgstr "கடவுச்சொற்றொடர்:"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:205
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:194
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:65
 msgid "Confirm:"
 msgstr "உறுதிப்படுத்தவும்:"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:325
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:317
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:185
 msgid "_Show Passphrase"
 msgstr "_ சோ பாச்ஃபிரேச்"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:375
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:361
 msgid "_Back"
 msgstr "_ பேக்"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:391
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:378
 msgid "_Create Persistent Storage"
 msgstr "_ தொடர்ச்சியான சேமிப்பிடத்தை உருவாக்கவும்"
 
@@ -3362,7 +3406,7 @@ msgstr ""
 " <a href = \"doc/persistent_storage\"> தொடர்ச்சியான சேமிப்பகத்தைப் பற்றி மேலும் "
 "அறிக. </a>"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:92
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:93
 msgid ""
 "Sorry, it is impossible to create a Persistent Storage on this device.\n"
 "\n"
@@ -3374,7 +3418,7 @@ msgstr ""
 " தொடர்ச்சியான சேமிப்பகத்துடன் வால்களைப் பயன்படுத்த, தயவுசெய்து <a href = \"நிறுவு\"> "
 "ஒரு யூ.எச்.பி குச்சியில் வால்களை நிறுவுதல் </a> இல் எங்கள் வழிமுறைகளைப் பின்பற்றவும்."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:137
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:141
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:232
 #, fuzzy
 msgid "Co_ntinue"
@@ -3543,7 +3587,8 @@ msgid "TrueCrypt/VeraCrypt container"
 msgstr "Truecrypt/Veracrypt கொள்கலன்"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:82
-msgid "Configure a Tor bridge"
+#, fuzzy
+msgid "Configure a Tor Bridge"
 msgstr "ஒரு டோர் பாலத்தை உள்ளமைக்கவும்"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:106
@@ -3576,15 +3621,20 @@ msgid "WebTunnel"
 msgstr "வலை சுரங்கப்பாதை"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:208
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1522
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1821
 msgid "None"
 msgstr "யாரும்"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:244
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:242
+#, fuzzy
+msgid "Ask for a Tor bridge based on your _region"
+msgstr "_ மின்னஞ்சல் மூலம் ஒரு டோர் பாலத்திற்கு கேளுங்கள்"
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:301
 msgid "_Ask for a Tor bridge by email"
 msgstr "_ மின்னஞ்சல் மூலம் ஒரு டோர் பாலத்திற்கு கேளுங்கள்"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:263
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:320
 msgid ""
 "Send an empty email to <tt>bridges@torproject.org</tt> from a Gmail or "
 "Riseup email address with your phone and scan the QR code that is attached "
@@ -3594,63 +3644,130 @@ msgstr ""
 "prigeges@torproject.org </tt> க்கு வெற்று மின்னஞ்சலை அனுப்பவும், தானியங்கி பதிலுடன் "
 "இணைக்கப்பட்ட QR குறியீட்டை ச்கேன் செய்யவும்."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:276
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:333
 #, fuzzy
 msgid "Scan _QR code"
 msgstr "QR குறியீட்டை வருடு செய்யுங்கள்"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:377
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:434
 #, fuzzy
 msgid "_Enter a bridge that you already know"
 msgstr "You நீங்கள் ஏற்கனவே அறிந்த ஒரு பாலத்தை உள்ளிடவும்"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:403
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1044
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:460
 msgid "Bridge"
 msgstr "பாலம்"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:416
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1057
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:473
 msgid "obfs4 or webtunnel…"
 msgstr "OBFS4 அல்லது WebTunnel…"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:489
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:546
 #, fuzzy
 msgid "Save bridge to _Persistent Storage"
 msgstr "தொடர்ச்சியான சேமிப்பகத்திற்கு பாலத்தை சேமிக்கவும்"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:514
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:571
 msgid "Save bridge to Persistent Storage"
 msgstr "தொடர்ச்சியான சேமிப்பகத்திற்கு பாலத்தை சேமிக்கவும்"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:654
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1162
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1560
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:711
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1462
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1859
 #, fuzzy
 msgid "_Connect to Tor"
 msgstr "TOR உடன் இணைக்கவும்"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:696
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:763
 msgid "Error connecting to Tor"
 msgstr "TOR உடன் இணைப்பதில் பிழை"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:740
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:783
+msgid "This local network seems to be blocking access to Tor."
+msgstr "இந்த உள்ளக பிணையம் TOR க்கான அணுகலைத் தடுப்பதாகத் தெரிகிறது."
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:811
+#, fuzzy
+msgid "Error connecting to Tor with this bridge"
+msgstr "பாலங்கள் இல்லாமல் TOR உடன் இணைக்கிறது…"
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:827
+msgid ""
+"Either this Tor bridge is not working or your network is blocking access to "
+"it."
+msgstr ""
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:856
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:930
+#, fuzzy
+msgid "Try configuring another bridge."
+msgstr "ஒரு டோர் பாலத்தை உள்ளமைக்கவும்"
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:884
+#, fuzzy
+msgid "Error connecting to Tor with default bridges"
+msgstr "இயல்புநிலை பாலங்களுடன் TOR உடன் இணைகிறது…"
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:900
+#, fuzzy
+msgid "Your network is blocking access to Tor and the default bridges."
+msgstr "இந்த உள்ளக பிணையம் TOR க்கான அணுகலைத் தடுக்கிறது."
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:916
+#, fuzzy
+msgid "Bridge: <b>default bridges</b>"
+msgstr "_ டெஃபால்ட் பாலத்தைப் பயன்படுத்தவும்"
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:958
+#, fuzzy
+msgid "Error connecting to Tor with bridges"
+msgstr "பாலங்கள் இல்லாமல் TOR உடன் இணைக்கிறது…"
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:974
+msgid "None of the bridges recommended for this region worked."
+msgstr ""
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:990
+msgid "Try another region or getting a bridge by mail."
+msgstr ""
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1018
+#, fuzzy
+msgid "Error asking for a bridge"
+msgstr "மேம்படுத்தல் சோதனையில் பிழை"
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1034
+msgid "Tails failed to ask for a bridge based on your region."
+msgstr ""
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1050
+msgid ""
+"Please, <a href=\"support/talk\">report this error</a> and try asking for a "
+"bridge by email."
+msgstr ""
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1087
+#, fuzzy
+msgid "Open _details"
+msgstr "திறந்த வால்கள் குளோனர்"
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1142
 msgid "• Wrong clock"
 msgstr "• தவறான கடிகாரம்"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:760
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1162
 msgid "Your clock and time zone need to be correct to connect to Tor."
 msgstr "TOR உடன் இணைக்க உங்கள் கடிகாரம் மற்றும் நேர மண்டலம் சரியாக இருக்க வேண்டும்."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:773
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1175
 msgid "Fix _Clock"
 msgstr "_ க்ளாக் சரிசெய்யவும்"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:811
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1213
 msgid "• Public network"
 msgstr "• பொது பிணையம்"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:831
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1233
 msgid ""
 "If you are in a shop, hotel, or airport, you might need to sign in to the "
 "local network using the Unsafe Browser."
@@ -3658,16 +3775,16 @@ msgstr ""
 "நீங்கள் ஒரு கடை, ஓட்டல் அல்லது விமான நிலையத்தில் இருந்தால், பாதுகாப்பற்ற உலாவியைப் "
 "பயன்படுத்தி உள்ளக நெட்வொர்க்கில் உள்நுழைய வேண்டியிருக்கும்."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:844
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1246
 #, fuzzy
 msgid "Try _Signing in to the Network"
 msgstr "நெட்வொர்க்கில் உள்நுழைய முயற்சிக்கவும்"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:883
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1285
 msgid "• Local proxy"
 msgstr "• உள்ளக பதிலாள்"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:903
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1305
 msgid ""
 "If you are on a corporate or university network, you might need to configure "
 "a local proxy."
@@ -3675,15 +3792,16 @@ msgstr ""
 "நீங்கள் ஒரு கார்ப்பரேட் அல்லது பல்கலைக்கழக நெட்வொர்க்கில் இருந்தால், நீங்கள் ஒரு உள்ளக ப்ராக்சியை "
 "உள்ளமைக்க வேண்டியிருக்கும்."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:916
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1335
 msgid "Configure a Local _Proxy"
 msgstr "உள்ளக _proxy ஐ உள்ளமைக்கவும்"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:955
-msgid "• Tor bridge by email"
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1374
+#, fuzzy
+msgid "• Tor bridge"
 msgstr "• மின்னஞ்சல் மூலம் டோர் பிரிட்ச்"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:975
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1394
 msgid ""
 "Tor bridges are secret Tor relays. Use a bridge as your first Tor relay if "
 "connections to Tor are blocked, for example in some countries, by some "
@@ -3693,21 +3811,12 @@ msgstr ""
 "சில பொது நெட்வொர்க்குகள் அல்லது சில பெற்றோர் கட்டுப்பாடுகளால், உங்கள் முதல் டோர் ரிலே என "
 "ஒரு பாலத்தைப் பயன்படுத்தவும்."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:995
-msgid ""
-"To get a bridge, send an empty email to <tt>bridges@torproject.org</tt> from "
-"a Gmail or Riseup email address with your phone and scan the QR code that is "
-"attached to the automatic reply."
-msgstr ""
-"ஒரு பாலத்தைப் பெற, உங்கள் தொலைபேசியுடன் ஒரு சிமெயில் அல்லது ரைச்அப் மின்னஞ்சல் "
-"முகவரியிலிருந்து <tt> prickges@torproject.org </tt> க்கு வெற்று மின்னஞ்சலை "
-"அனுப்பவும், தானியங்கி பதிலுடன் இணைக்கப்பட்ட QR குறியீட்டை ச்கேன் செய்யவும்."
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1410
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1646
+msgid "Configure a Tor _bridge"
+msgstr "ஒரு டோர் _ பிரிட்சை உள்ளமைக்கவும்"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1018
-msgid "Scan QR Code"
-msgstr "QR குறியீட்டை ச்கேன் செய்யுங்கள்"
-
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1149
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1449
 #, fuzzy
 msgid ""
 "<a href=\"doc/anonymous_internet/tor/troubleshoot\">Troubleshooting "
@@ -3715,15 +3824,15 @@ msgid ""
 msgstr ""
 "<a href = \"doc/அநாமதேய இணையம்/to/trableshoot\"> TOR உடன் இணைக்கும் சரிசெய்தல் </a>"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1195
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1603
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1494
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1902
 msgid ""
 "Everything you do on the Internet from Tails goes through the Tor network."
 msgstr ""
 "வால்களில் இருந்து இணையத்தில் நீங்கள் செய்யும் அனைத்தும் டோர் பிணையம் வழியாக செல்கின்றன."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1209
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1618
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1508
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1917
 msgid ""
 "Tor encrypts and anonymizes your connection by passing it through 3 relays.\n"
 "Tor relays are servers operated by different organizations and volunteers "
@@ -3734,11 +3843,11 @@ msgstr ""
 " டோர் ரிலேக்கள் உலகெங்கிலும் உள்ள பல்வேறு நிறுவனங்கள் மற்றும் தன்னார்வலர்களால் இயக்கப்படும் "
 "சேவையகங்கள்."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1245
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1544
 msgid "<b>Connect to Tor _automatically</b>"
 msgstr "<b> TOR _AUTOTOCALLY </b> உடன் இணைக்கவும்"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1295
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1594
 msgid ""
 "We recommend connecting to Tor automatically if you are on a public Wi-Fi "
 "network or if many people in your country use Tor to circumvent censorship."
@@ -3746,7 +3855,7 @@ msgstr ""
 "நீங்கள் ஒரு பொது வைஃபை நெட்வொர்க்கில் இருந்தால் அல்லது உங்கள் நாட்டில் பலர் தணிக்கை செய்ய "
 "டோரைப் பயன்படுத்தினால் தானாகவே டோர் உடன் இணைக்க பரிந்துரைக்கிறோம்."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1313
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1612
 msgid ""
 "Tails will try different ways of connecting to Tor until it succeeds.\n"
 "\n"
@@ -3758,11 +3867,7 @@ msgstr ""
 " உங்கள் இணைய இணைப்பைக் கண்காணிக்கும் ஒருவர் இந்த முயற்சிகளை வால் பயனரிடமிருந்து வருவதாக "
 "அடையாளம் காண முடியும்."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1347
-msgid "Configure a Tor _bridge"
-msgstr "ஒரு டோர் _ பிரிட்சை உள்ளமைக்கவும்"
-
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1393
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1692
 msgid ""
 "Tor bridges are secret Tor relays. Use a bridge as your first Tor relay if "
 "connections to Tor are blocked, for example in some countries, by some "
@@ -3780,11 +3885,11 @@ msgstr ""
 "தேர்வுசெய்க. இல்லையெனில், உங்கள் உள்ளக நெட்வொர்க்கிலிருந்து TOR உடன் இணைக்க உங்களுக்கு ஒரு "
 "பாலம் தேவையா என்பதை வால்கள் தன்னியக்கமாக்கும்."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1435
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1734
 msgid "<b>_Hide to my local network that I'm connecting to Tor</b>"
 msgstr "<b> _ எனது உள்ளக நெட்வொர்க்கிற்கு நான் டோர் </b> உடன் இணைக்கிறேன்"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1485
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1784
 msgid ""
 "You might need to go unnoticed if using Tor could look suspicious to someone "
 "who monitors your Internet connection."
@@ -3792,7 +3897,7 @@ msgstr ""
 "உங்கள் இணைய இணைப்பைக் கண்காணிக்கும் ஒருவருக்கு TOR ஐப் பயன்படுத்துவது சந்தேகத்திற்குரியதாக "
 "இருந்தால் நீங்கள் கவனிக்கப்படாமல் போக வேண்டும்."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1503
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1802
 msgid ""
 "Tails will only connect to Tor after you configured a Tor bridge. Bridges "
 "are secret Tor relays that hide that you are connecting to Tor.\n"
@@ -3814,7 +3919,7 @@ msgstr ""
 "நெட்வொர்க்கிலிருந்து இணைந்தால், அல்லது நீங்கள் கிழக்கு அரைக்கோளத்தில் இருந்தால் கூடுதல் "
 "உள்ளமைவு செய்ய வேண்டும்."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1548
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1847
 #, fuzzy
 msgid ""
 "<a href=\"doc/anonymous_internet/tor\">Learn more about how Tails connects "
@@ -3823,11 +3928,11 @@ msgstr ""
 "<a href = \"doc/அநாமதேய இணையம்/to\"> டோர் உடன் வால்கள் எவ்வாறு இணைகின்றன என்பதைப் "
 "பற்றி மேலும் அறிக </a>"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1638
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1937
 msgid "No Wi-Fi hardware detected"
 msgstr "வைஃபை வன்பொருள் எதுவும் கண்டறியப்படவில்லை"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1656
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1955
 msgid ""
 "Tails couldn't find any Wi-Fi interface on your computer. If your computer "
 "has a Wi-Fi interface, it might not work on Tails.\n"
@@ -3853,7 +3958,7 @@ msgstr ""
 "Us வால்சில் வேலை செய்யும் யூ.எச்.பி வைஃபை அடாப்டரை வாங்கவும்.\n"
 "                "
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1680
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1979
 msgid ""
 "\n"
 "<a href=\"doc/anonymous_internet/no-wifi\">\n"
@@ -3867,11 +3972,11 @@ msgstr ""
 "</a>\n"
 "                "
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1708
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2007
 msgid "Connect to a local network"
 msgstr "உள்ளக பிணையத்துடன் இணைக்கவும்"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1725
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2024
 #, fuzzy
 msgid ""
 "You are not connected to a local network yet. To be able to connect to the "
@@ -3880,83 +3985,83 @@ msgstr ""
 "நீங்கள் இன்னும் உள்ளக நெட்வொர்க்குடன் இணைக்கப்படவில்லை. TOR நெட்வொர்க்குடன் இணைக்க, நீங்கள் "
 "முதலில் வைஃபை, கம்பி அல்லது மொபைல் நெட்வொர்க்குடன் இணைக்க வேண்டும்."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1739
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2038
 msgid "Open Wi-Fi Settings"
 msgstr "வைஃபை அமைப்புகளைத் திறக்கவும்"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1788
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2087
 msgid "Testing Internet access…"
 msgstr "இணைய அணுகலை சோதித்தல்…"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1828
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2127
 msgid "You have access to the Internet"
 msgstr "உங்களுக்கு இணைய அணுகல் உள்ளது"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1862
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2161
 msgid "Testing access to Tor…"
 msgstr "TOR க்கான அணுகலை சோதனை…"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1905
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2204
 msgid "You can connect to Tor"
 msgstr "நீங்கள் TOR உடன் இணைக்கலாம்"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1935
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2234
 msgid "Failed to connect to Tor without bridges."
 msgstr "பாலங்கள் இல்லாமல் TOR உடன் இணைக்கத் தவறிவிட்டது."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1951
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2250
 msgid "This local network is blocking access to Tor."
 msgstr "இந்த உள்ளக பிணையம் TOR க்கான அணுகலைத் தடுக்கிறது."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1983
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2282
 msgid "Connecting to Tor…"
 msgstr "டோருடன் இணைகிறது…"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2088
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2387
 msgid "Start Tor Browser"
 msgstr "டோர் உலாவியைத் தொடங்குங்கள்"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2147
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2446
 msgid "Configure a Local Proxy"
 msgstr "உள்ளக ப்ராக்சியை உள்ளமைக்கவும்"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2173
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2472
 msgid "Proxy Type"
 msgstr "பதிலாள் வகை"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2190
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2489
 msgid "No proxy"
 msgstr "பதிலாள் இல்லை"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2191
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2490
 msgid "SOCKS 4"
 msgstr "சாக்ச் 4"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2192
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2491
 msgid "SOCKS 5"
 msgstr "சாக்ச் 5"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2193
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2492
 msgid "HTTP / HTTPS"
 msgstr "Http / https"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2212
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2511
 msgid "Address"
 msgstr "முகவரி"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2229
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2528
 msgid "Username"
 msgstr "பயனர்பெயர்"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2246
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2545
 msgid "IP address or hostname"
 msgstr "IP முகவரி அல்லது ஹோஸ்ட்பெயர்"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2264
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2563
 msgid "Port"
 msgstr "பெயர்த்துவை"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2388
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2687
 msgid "_Save Proxy Settings"
 msgstr "_சேவ் பதிலாள் அமைப்புகள்"
 
@@ -4041,6 +4146,28 @@ msgstr "கா-மார்கழி"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "கடிகை"
+
+#~ msgid "Bridge address malformed"
+#~ msgstr "பாலம் முகவரி தவறாக"
+
+#~ msgid ""
+#~ "Setting a bridge is needed if you want to hide that you are using Tor"
+#~ msgstr "நீங்கள் டோர் பயன்படுத்துகிறீர்கள் என்று மறைக்க விரும்பினால் பாலம் அமைப்பது தேவை"
+
+#~ msgid ""
+#~ "To get a bridge, send an empty email to <tt>bridges@torproject.org</tt> "
+#~ "from a Gmail or Riseup email address with your phone and scan the QR code "
+#~ "that is attached to the automatic reply."
+#~ msgstr ""
+#~ "ஒரு பாலத்தைப் பெற, உங்கள் தொலைபேசியுடன் ஒரு சிமெயில் அல்லது ரைச்அப் மின்னஞ்சல் "
+#~ "முகவரியிலிருந்து <tt> prickges@torproject.org </tt> க்கு வெற்று மின்னஞ்சலை "
+#~ "அனுப்பவும், தானியங்கி பதிலுடன் இணைக்கப்பட்ட QR குறியீட்டை ச்கேன் செய்யவும்."
+
+#~ msgid "Scan QR Code"
+#~ msgstr "QR குறியீட்டை ச்கேன் செய்யுங்கள்"
+
+#~ msgid "Documentation"
+#~ msgstr "ஆவணப்படுத்தல்"
 
 #, fuzzy
 #~| msgid ""

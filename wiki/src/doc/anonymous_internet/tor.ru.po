@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2026-01-29 10:45+0100\n"
+"POT-Creation-Date: 2026-03-26 08:18+0100\n"
 "PO-Revision-Date: 2024-05-20 09:55+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,8 +24,9 @@ msgid "[[!meta title=\"Connecting to the Tor network\"]]\n"
 msgstr "[[!meta title=\"Подключение к сети Tor\"]]\n"
 
 #. type: Plain text
-#, no-wrap
-msgid "[[!toc levels=2]]\n"
+#, fuzzy, no-wrap
+#| msgid "[[!toc levels=2]]\n"
+msgid "[[!toc startlevel=2]]\n"
 msgstr "[[!toc levels=2]]\n"
 
 #. type: Plain text
@@ -163,8 +164,9 @@ msgid "   The implications of both methods are detailed below.\n"
 msgstr "   Далее мы рассказываем об особенностях каждого метода.\n"
 
 #. type: Plain text
-#, no-wrap
-msgid "<h1 id=\"bridges\">Tor relays and bridges</h1>\n"
+#, fuzzy, no-wrap
+#| msgid "<h1 id=\"bridges\">Tor relays and bridges</h1>\n"
+msgid "<h2 id=\"bridges\">Tor relays and bridges</h2>\n"
 msgstr "<h1 id=\"bridges\">Узлы и мосты Tor</h1>\n"
 
 #. type: Bullet: '- '
@@ -195,10 +197,11 @@ msgid "**Tor bridges**"
 msgstr "- **Мосты Tor**"
 
 #. type: Plain text
-#, no-wrap
-msgid ""
-"  Tor bridges are secret Tor relays that keep your connection to the Tor\n"
-"  network hidden.\n"
+#, fuzzy, no-wrap
+#| msgid ""
+#| "  Tor bridges are secret Tor relays that keep your connection to the Tor\n"
+#| "  network hidden.\n"
+msgid "  Tor bridges are secret Tor relays that hide that you are connecting to Tor.\n"
 msgstr ""
 "  Мосты Tor — секретные узлы Tor, которые помогают \n"
 "  скрыть факт вашего подключения к сети Tor.\n"
@@ -234,8 +237,9 @@ msgid "  Tor bridges are often less reliable and slower than public Tor relays.\
 msgstr "  Мосты Tor часто оказываются менее надёжными и быстрыми, чем публичные узлы Tor.\n"
 
 #. type: Plain text
-#, no-wrap
-msgid "<h1 id=\"automatic\">Connecting to Tor automatically</h1>\n"
+#, fuzzy, no-wrap
+#| msgid "<h1 id=\"automatic\">Connecting to Tor automatically</h1>\n"
+msgid "<h2 id=\"automatic\">Connecting to Tor automatically</h2>\n"
 msgstr "<h1 id=\"automatic\">Автоматическое подключение к Tor</h1>\n"
 
 #. type: Plain text
@@ -366,8 +370,13 @@ msgstr "      </div>\n"
 #| "default bridges fails."
 msgid ""
 "If public relays and default bridges don't work, Tails asks you to configure "
-"a **custom bridge**, if connecting using the default bridges fails."
+"a **custom bridge**."
 msgstr "Если и это не получится, Tails попросит вас **указать мосты вручную**."
+
+#. type: Plain text
+#, no-wrap
+msgid "      See [[configuring a Tor bridge|tor#bridge]] below.\n"
+msgstr ""
 
 #. type: Plain text
 msgid ""
@@ -378,8 +387,9 @@ msgstr ""
 "эти попытки исходят от пользователя Tails."
 
 #. type: Plain text
-#, no-wrap
-msgid "<h1 id=\"hiding\">Hiding to your local network that you are connecting to Tor</h1>\n"
+#, fuzzy, no-wrap
+#| msgid "<h1 id=\"hiding\">Hiding to your local network that you are connecting to Tor</h1>\n"
+msgid "<h2 id=\"hiding\">Hiding to your local network that you are connecting to Tor</h2>\n"
 msgstr "<h1 id=\"hiding\">Как скрыть факт использования Tor от локальной сети</h1>\n"
 
 #. type: Plain text
@@ -445,6 +455,23 @@ msgstr "- Мосты по умолчанию недоступны."
 
 #. type: Plain text
 #, fuzzy, no-wrap
+#| msgid "<h1 id=\"bridges\">Tor relays and bridges</h1>\n"
+msgid "<h2 id=\"bridge\">Configuring a Tor bridge</h2>\n"
+msgstr "<h1 id=\"bridges\">Узлы и мосты Tor</h1>\n"
+
+#. type: Plain text
+msgid ""
+"When *Tor Connection* fails to connect to Tor using public relays and "
+"default bridges, select **Configure a Tor Bridge** from the error screen."
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid "[[!img bridge.png class=\"screenshot\" alt=\"Tor Connection: Configure a Tor bridge\"]]\n"
+msgstr ""
+
+#. type: Plain text
+#, fuzzy, no-wrap
 #| msgid "  [[!inline pages=\"doc/anonymous_internet/tor/bridge.inline\" raw=\"yes\" sort=\"age\"]]\n"
 msgid "[[!inline pages=\"doc/anonymous_internet/tor/bridge.inline\" raw=\"yes\" sort=\"age\"]]\n"
 msgstr "  [[!inline pages=\"doc/anonymous_internet/tor/bridge.inline.ru\" raw=\"yes\" sort=\"age\"]]\n"
@@ -458,23 +485,8 @@ msgstr ""
 
 #. type: Plain text
 #, fuzzy, no-wrap
-#| msgid "<p>In the future, we will make it easier to use custom bridges by:</p>\n"
-msgid "<p>In the future, we will make it easier to use a custom bridge by:</p>\n"
-msgstr "<p>В перспективе использовать вручную настроенные мосты станет проще:</p>\n"
-
-#. type: Plain text
-#, no-wrap
-msgid ""
-"<ul>\n"
-"<li>Allowing you to request a bridge from Tails by solving a CAPTCHA. ([[!tails_ticket 15331]])</li>\n"
-"<li>Supporting <i>Snowflake</i> bridges. ([[!tails_ticket 5494]])</li>\n"
-"</ul>\n"
-msgstr ""
-
-#. type: Plain text
-#, fuzzy, no-wrap
 #| msgid "Troubleshooting Tor bridges"
-msgid "<h1 id=\"troubleshoot-tor\">Troubleshooting connecting to Tor</h1>\n"
+msgid "<h2 id=\"troubleshoot-tor\">Troubleshooting connecting to Tor</h2>\n"
 msgstr "Решение проблем с мостами Tor"
 
 #. type: Plain text
@@ -488,8 +500,9 @@ msgid "<p>See our documentation on [[troubleshooting connecting to Tor|tor/troub
 msgstr ""
 
 #. type: Plain text
-#, no-wrap
-msgid "<h1 id=\"status\">Viewing the status of Tor</h1>\n"
+#, fuzzy, no-wrap
+#| msgid "<h1 id=\"status\">Viewing the status of Tor</h1>\n"
+msgid "<h2 id=\"status\">Viewing the status of Tor</h2>\n"
 msgstr "<h1 id=\"status\">Как увидеть статус Tor</h1>\n"
 
 #. type: Plain text
@@ -526,6 +539,11 @@ msgid ""
 "applications, click on the Tor status icon and choose **View Tor Circuits**. "
 "Learn more about [[managing Tor circuits|circuits]]."
 msgstr ""
+
+#, fuzzy, no-wrap
+#~| msgid "<p>In the future, we will make it easier to use custom bridges by:</p>\n"
+#~ msgid "<p>In the future, we will make it easier to use a custom bridge by:</p>\n"
+#~ msgstr "<p>В перспективе использовать вручную настроенные мосты станет проще:</p>\n"
 
 #, fuzzy
 #~| msgid ""

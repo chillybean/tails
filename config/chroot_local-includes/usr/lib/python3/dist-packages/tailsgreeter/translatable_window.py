@@ -20,24 +20,33 @@ import gettext
 import logging
 from typing import ClassVar
 
-from gi.repository import Handy
-from gi.repository import Gtk
+from gi.repository import Gtk, Handy
 
 import tailsgreeter.config
 from tailsgreeter import TRANSLATION_DOMAIN
 
 
 class TranslatableWindow:
-    """Interface providing functions to translate a window on the fly"""
+    """
+    Mixin providing functions to translate a window on the fly
+
+    It works by adding two instance methods: store_translations (to be called early) and translate_to (to be called when you need to translate a window to a language).
+
+    When the application wants to change the language on the fly, it needs to call TranslatableWindow.translate_all,
+    which is a class method which will call translate_to for every language.
+    Please note that this will have no effect on a TranslatableWindow created *after* translate_all has been invoked. In fact, TranslatableWindow are not automatically translated.
+    """
 
     retain_focus = True
     registered_windows: ClassVar[list[Gtk.Window]] = []
+    translation: ClassVar[gettext.NullTranslations] = gettext.translation(
+        TRANSLATION_DOMAIN,
+        tailsgreeter.config.system_locale_dir,
+        fallback=True,
+    )
 
     def __init__(self, window):
         self.window_ = window
-        self.translation = gettext.translation(
-            TRANSLATION_DOMAIN, tailsgreeter.config.system_locale_dir, fallback=True
-        )
 
         self.containers = []
         self.labels = {}
@@ -57,7 +66,9 @@ class TranslatableWindow:
         parameter rather than using current locale.
         """
         gtk_translation = gettext.translation(
-            "gtk30", languages=[str(lang)], fallback=True
+            "gtk30",
+            languages=[str(lang)],
+            fallback=True,
         )
         logging.debug("%s has GTK translation: %s", lang, gtk_translation)
         # Translators: please do not translate this string (it is read from
@@ -80,11 +91,12 @@ class TranslatableWindow:
         This method should be called once the widgets are created"""
         if not isinstance(widget, Gtk.Widget):
             logging.debug("%s is not a Gtk.Widget", widget)
-            return None
-        if isinstance(widget, Gtk.Label) or isinstance(widget, Gtk.Button):
+            return
+        if isinstance(widget, Gtk.Button | Gtk.Label):
             if widget not in self.labels:
                 logging.debug(
-                    "Storing translation for label/button '%s'", widget.get_label()
+                    "Storing translation for label/button '%s'",
+                    widget.get_label(),
                 )
                 self.labels[widget] = widget.get_label()
                 # Wrap set_label to get notified about string changes
@@ -98,18 +110,15 @@ class TranslatableWindow:
         elif isinstance(widget, Gtk.Entry):
             if widget not in self.placeholder_texts:
                 logging.debug(
-                    "Storing translation for entry '%s'", widget.get_placeholder_text()
+                    "Storing translation for entry '%s'",
+                    widget.get_placeholder_text(),
                 )
                 self.placeholder_texts[widget] = widget.get_placeholder_text()
         elif isinstance(widget, Gtk.Container):
             logging.debug("Handling container '%s'", widget.get_name())
             self.containers.append(widget)
             if (
-                (
-                    isinstance(widget, Gtk.HeaderBar)
-                    or isinstance(widget, Gtk.Window)
-                    or isinstance(widget, Handy.ActionRow)
-                )
+                (isinstance(widget, Gtk.HeaderBar | Gtk.Window | Handy.ActionRow))
                 and widget not in self.titles
                 and widget.get_title()
             ):
@@ -124,14 +133,14 @@ class TranslatableWindow:
                 self.store_translations(child)
         else:
             logging.debug("W: unhandled widget: %s", widget)
-        if widget.get_has_tooltip():
-            if widget not in self.tooltips:
-                self.tooltips[widget] = widget.get_tooltip_text()
+        if widget.get_has_tooltip() and widget not in self.tooltips:
+            self.tooltips[widget] = widget.get_tooltip_text()
 
-    def gettext(self, text):
+    @classmethod
+    def gettext(cls, text):
         """Return text, translated if possible"""
-        if self.translation and text:
-            text = self.translation.gettext(text)
+        if cls.translation and text:
+            text = cls.translation.gettext(text)
         return text
 
     def translate_to(self, lang):
@@ -140,12 +149,6 @@ class TranslatableWindow:
         Loop through widgets registered with store_translations and translate
         them on the fly"""
         logging.debug("translating %s to %s", self, lang)
-        try:
-            self.translation = gettext.translation(
-                TRANSLATION_DOMAIN, tailsgreeter.config.system_locale_dir, [str(lang)]
-            )
-        except OSError:
-            self.translation = None
 
         text_direction = self.get_locale_direction(lang)
         for container in self.containers:
@@ -153,13 +156,13 @@ class TranslatableWindow:
         for widget, label in self.labels.items():
             if label:
                 widget.original_set_label(self.gettext(label))
-        for widget in self.placeholder_texts.keys():
+        for widget in self.placeholder_texts:
             widget.set_placeholder_text(self.gettext(self.placeholder_texts[widget]))
-        for widget in self.subtitles.keys():
+        for widget in self.subtitles:
             widget.set_subtitle(self.gettext(self.subtitles[widget]))
-        for widget in self.titles.keys():
+        for widget in self.titles:
             widget.set_title(self.gettext(self.titles[widget]))
-        for widget in self.tooltips.keys():
+        for widget in self.tooltips:
             widget.set_tooltip_markup(self.gettext(self.tooltips[widget]))
         if (
             self.window_.get_sensitive()
@@ -168,7 +171,20 @@ class TranslatableWindow:
         ):
             self.window_.present()
 
-    @staticmethod
-    def translate_all(lang):
-        for widget in TranslatableWindow.registered_windows:
+    @classmethod
+    def translate_all(cls, lang):
+        try:
+            cls.translation = gettext.translation(
+                TRANSLATION_DOMAIN,
+                tailsgreeter.config.system_locale_dir,
+                [str(lang)],
+            )
+        except OSError:
+            cls.translation = None
+
+        for widget in cls.registered_windows:
+            logging.debug("Translating %s", str(widget))
             widget.translate_to(lang)
+
+
+translate = TranslatableWindow.gettext

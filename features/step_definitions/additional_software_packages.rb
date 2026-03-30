@@ -1,20 +1,14 @@
-ASP_STATE_DIR = '/run/live-additional-software'.freeze
-ASP_CONF = '/live/persistence/TailsData_unlocked/live-additional-software.conf'
-           .freeze
-
 Then /^the Additional Software (upgrade|installation) service has started$/ do |service|
-  if $vm.file_exist?(ASP_CONF) && !$vm.file_empty?(ASP_CONF)
-    case service
-    when 'installation'
-      service_name = 'tails-additional-software-install.service'
-      seconds_to_wait = 600
-    when 'upgrade'
-      service_name = 'tails-additional-software-upgrade.service'
-      seconds_to_wait = 900
-    end
-    try_for(seconds_to_wait, delay: 10) do
-      $vm.execute("systemctl status #{service_name}").success?
-    end
+  case service
+  when 'installation'
+    service_name = 'tails-additional-software-install.service'
+    seconds_to_wait = 600
+  when 'upgrade'
+    service_name = 'tails-additional-software-upgrade.service'
+    seconds_to_wait = 900
+  end
+  try_for(seconds_to_wait, delay: 10) do
+    $vm.execute("systemctl status #{service_name}").success?
   end
 end
 
@@ -33,6 +27,7 @@ Then /^I am proposed to add the "([^"]*)" package to my Additional Software$/ do
   step "I see the \"#{title}\" notification after at most 300 seconds"
 end
 
+# Only works for the notification that is currently showing
 def click_gnome_shell_notification_button(title)
   Dogtail::Application.new('gnome-shell')
                       .child(roleName: 'notification')
@@ -137,7 +132,7 @@ When /^I remove the "([^"]*)" deb files from the APT cache$/ do |package|
 end
 
 Then /^I can open the Additional Software documentation from the notification$/ do
-  click_gnome_shell_notification_button('Documentation')
+  click_gnome_shell_notification_button('Learn More')
   try_for(60) { @torbrowser = Dogtail::Application.new('Firefox') }
   step '"Tails - Install by cloning" has loaded in the Tor Browser'
 end
@@ -163,7 +158,28 @@ When /^I can open the Additional Software configuration window from the notifica
 end
 
 Then /^I can open the Additional Software log file from the notification$/ do
-  click_gnome_shell_notification_button('Show Log')
+  # Like in other step definitions in this file we would like to use
+  # click_gnome_shell_notification_button() to click the 'Show Log'
+  # button, but there's a race with other notifications that want to
+  # be shown at this time so the notification we are looking for might
+  # not be the one currently showing. So we work around that by
+  # looking for the expected notification in the notification list.
+  # (tails#21443)
+  # Open GNOME Shell's notification list
+  @screen.click(@screen.w / 2, 8)
+  title = 'The installation of your additional software failed'
+  notification = Dogtail::Application.new('gnome-shell')
+                                     .children(roleName: 'notification')
+                                     .find do |node|
+    node.child?(title, roleName: 'label', retry: false)
+  end
+  # The first button of the notification is the one that expands it so
+  # its action buttons are shown
+  notification.children(roleName: 'button').first.click
+  notification.button('Show Log').click
+  # Close notification list, but for some reason clicking the same
+  # coordinate again doesn't work
+  @screen.click(@screen.w / 2, 9)
   try_for(60) do
     Dogtail::Application.new('gnome-text-editor').child(
       "log (#{ASP_STATE_DIR}) - Text Editor", roleName: 'frame'

@@ -22,16 +22,16 @@
 # Sandra Monferrer <smonferrer@gmail.com>, 2019
 # Toni Hermoso Pulido <toniher@softcatala.cat>, 2020
 # Vte A.F <viarfer3@inf.upv.es>, 2017
-# emma peel <emma.peel@riseup.net>, 2025.
+# emma peel <emma.peel@riseup.net>, 2025, 2026.
 # victor dargallo <victordargallo@disroot.org>, 2025.
 # Weblate <noreply-mt-weblate@weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-14 10:05+0100\n"
-"PO-Revision-Date: 2025-10-23 23:02+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"POT-Creation-Date: 2026-03-23 12:26+0100\n"
+"PO-Revision-Date: 2026-03-23 15:09+0000\n"
+"Last-Translator: emma peel <emma.peel@riseup.net>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/tor/tails-gui/ca/"
 ">\n"
 "Language: ca\n"
@@ -39,9 +39,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.14.1-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:242
 #, python-brace-format
 msgid ""
 "{details} Please check your list of additional software or read the system "
@@ -50,7 +50,7 @@ msgstr ""
 "{details} Comproveu la llista de programari addicional o llegiu el registre "
 "del sistema per entendre el problema."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:216
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:249
 msgid ""
 "Please check your list of additional software or read the system log to "
 "understand the problem."
@@ -58,13 +58,27 @@ msgstr ""
 "Comproveu la llista de programari addicional o llegiu el registre del "
 "sistema per entendre el problema."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:222
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:255
 msgid "Show Log"
 msgstr "Mostra el registre"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:222
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:255
 msgid "Configure"
 msgstr "Configura"
+
+#: config/chroot_local-includes/usr/local/lib/change-apps-menu-name:25
+#, fuzzy
+msgid "Password Manager"
+msgstr "Contrasenya"
+
+#: config/chroot_local-includes/usr/local/lib/change-apps-menu-name:26
+#, fuzzy
+msgid "password"
+msgstr "Contrasenya"
+
+#: config/chroot_local-includes/usr/local/lib/change-apps-menu-name:26
+msgid "password-manager"
+msgstr ""
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:57
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:95
@@ -90,7 +104,7 @@ msgstr "Instal·la només una vegada"
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:74
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:112
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:213
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:206
 msgid "The configuration of your additional software failed."
 msgstr "Ha fallat la configuració del programari addicional."
 
@@ -122,29 +136,29 @@ msgstr "Podeu instal·lar {packages} automàticament en iniciar Tails"
 msgid "To do so, you need to run Tails from a USB stick."
 msgstr "Per a fer-ho, cal que executeu Tails des d'una memòria USB."
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:197
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:190
 #, python-brace-format
 msgid "Remove {packages} from your additional software?"
 msgstr "Voleu eliminar {packages} del programari addicional?"
 
 #. Translators: Don't translate {packages}, it's a placeholder
 #. and will be replaced.
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:202
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:195
 #, python-brace-format
 msgid "This will stop installing {packages} automatically."
 msgstr "Això evitarà la instal·lació de {packages} automàticament."
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:205
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:198
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:188
 msgid "Remove"
 msgstr "Suprimeix"
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:206
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:199
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/add_settings_dialog.py:40
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:182
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:503
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:777
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:917
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:185
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:199
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:525
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:945
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:744
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:128
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:376
@@ -153,23 +167,23 @@ msgstr "Cancel·la"
 
 #. Translators: Don't translate {beginning} or {last}, they are
 #. placeholders and will be replaced.
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:226
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:219
 #, python-brace-format
 msgid "{beginning} and {last}"
 msgstr "{beginning} i {last}"
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:227
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:220
 msgid ", "
 msgstr ", "
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:45
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:46
 msgid "The check for upgrades of your additional software failed"
 msgstr ""
 "S'ha produït un error en la comprovació d'actualitzacions del programari "
 "addicional"
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:47
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:59
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:48
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:60
 msgid ""
 "Please check your network connection, restart Tails, or read the system log "
 "to understand the problem."
@@ -177,31 +191,31 @@ msgstr ""
 "Comproveu la vostra connexió de xarxa, reinicieu Tails o llegiu el registre "
 "del sistema per entendre el problema."
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:57
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:58
 msgid "The upgrade of your additional software failed"
 msgstr "S'ha produït un error en l'actualització del programari addicional"
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:127
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:128
 msgid "Installing your additional software from persistent storage..."
 msgstr ""
 "S'està instal·lant el programari addicional des de l'Emmagatzematge "
 "Persistent..."
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:128
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:129
 msgid "This can take several minutes."
 msgstr "Això pot trigar uns quants minuts."
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:146
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:147
 msgid "The installation of your additional software failed"
 msgstr "Ha fallat la instal·lació del programari addicional"
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:161
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:162
 msgid "Additional software installed successfully"
 msgstr "S'ha instal·lat el programari addicional correctament"
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:8
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop.in.h:1
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:646
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:648
 msgid "Additional Software"
 msgstr "Programari Addicional"
 
@@ -260,27 +274,27 @@ msgstr ""
 "Ajudeu-nos a mantenir els vostres bitcoins segurs!\n"
 "\n"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:149
+#: config/chroot_local-includes/usr/local/bin/electrum:140
 msgid "Donate Now"
 msgstr "Feu una donació"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:151
+#: config/chroot_local-includes/usr/local/bin/electrum:142
 msgid "Later"
 msgstr "Més tard"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:165
+#: config/chroot_local-includes/usr/local/bin/electrum:156
 msgid "Opening Electrum with our donation address..."
 msgstr "S'està obrint l'Electrum amb la nostra adreça de donació..."
 
-#: config/chroot_local-includes/usr/local/bin/electrum:166
+#: config/chroot_local-includes/usr/local/bin/electrum:157
 msgid "Thank you for making the Internet a safer place!"
 msgstr "Gràcies per fer d'Internet un lloc més segur!"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:200
+#: config/chroot_local-includes/usr/local/bin/electrum:191
 msgid "Persistence is disabled for Electrum"
 msgstr "La Persistència s'ha inhabilitat per a l'Electrum"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:202
+#: config/chroot_local-includes/usr/local/bin/electrum:193
 msgid ""
 "When you reboot Tails, all of Electrum's data will be lost, including your "
 "Bitcoin wallet.\n"
@@ -292,15 +306,15 @@ msgstr ""
 "És molt recomanable que només useu l'Electrum si la funcionalitat de "
 "persistència està activada."
 
-#: config/chroot_local-includes/usr/local/bin/electrum:204
+#: config/chroot_local-includes/usr/local/bin/electrum:195
 msgid "Do you want to start Electrum anyway?"
 msgstr "Voleu iniciar l'Electrum igualment?"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:210
+#: config/chroot_local-includes/usr/local/bin/electrum:201
 msgid "_Launch"
 msgstr "_Executa"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:211
+#: config/chroot_local-includes/usr/local/bin/electrum:202
 msgid "_Exit"
 msgstr "_Surt"
 
@@ -782,20 +796,38 @@ msgstr "Inactiu"
 msgid "Off (default)"
 msgstr "Inactiu (per defecte)"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:178
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:181
 msgid "Persistent Storage Still Locked"
 msgstr "L'Emmagatzematge Persistent roman bloquejat"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:180
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:183
 msgid ""
 "Do you really want to start Tails without unlocking your Persistent Storage?"
 msgstr "Voleu iniciar Tails sense desbloquejar l'Emmagatzematge Persistent?"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:183
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:186
 msgid "Start Without Persistent Storage"
 msgstr "Comença sense l'Emmagatzematge Persistent"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:267
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:193
+#, fuzzy
+msgid "Language and Keyboard layout"
+msgstr "Llengua i formats"
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:195
+msgid ""
+"Your language and keyboard layout will be saved unencrypted on your Tails "
+"USB stick and applied automatically in the future.\n"
+"\n"
+"Someone who finds your Tails USB stick can see your language and keyboard "
+"layout."
+msgstr ""
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:200
+msgid "Save Unencrypted"
+msgstr ""
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:288
 msgid ""
 "Impossible to unlock the Persistent Storage because the USB stick is read-"
 "only."
@@ -803,40 +835,40 @@ msgstr ""
 "No s'ha pogut desbloquejar l'Emmagatzematge Persistent perquè el llapis USB "
 "és de només lectura."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:428
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:460
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:449
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:482
 msgid "Unlocking…"
 msgstr "S'està desbloquejant…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:468
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:490
 msgid "Checking the file system…"
 msgstr "S'està comprovant el sistema de fitxers…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:501
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:523
 msgid "Repairing the File System"
 msgstr "Reparació del sistema de fitxers"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:502
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:524
 msgid "This might take a long time..."
 msgstr "Això pot trigar molta estona..."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:520
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:542
 msgid "Failed to repair the file system of your Persistent Storage."
 msgstr ""
 "No s'ha pogut reparar el sistema de fitxers del vostre Emmagatzematge "
 "Persistent."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:522
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:544
 msgid "Start Tails to send an error report and learn how to recover your data."
 msgstr ""
 "Inicieu Tails per enviar un informe d'error i obtenir informació sobre com "
 "recuperar les vostres dades."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:536
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:559
 msgid "File System Repaired Successfully"
 msgstr "S'ha reparat correctament el sistema de fitxers"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:538
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:561
 msgid ""
 "It's possible that some data was lost during the repair. Please check the "
 "contents of your Persistent Storage and restore any lost data from a backup."
@@ -845,12 +877,12 @@ msgstr ""
 "el contingut del vostre Emmagatzematge Persistent i restaureu les dades "
 "perdudes des d'una còpia de seguretat."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:542
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:565
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:32
 msgid "Close"
 msgstr "Tanca"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:557
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:580
 msgid ""
 "You aborted the repair of the file system. You can either start Tails "
 "without Persistent Storage or restart the computer to try repairing the file "
@@ -860,31 +892,13 @@ msgstr ""
 "sense l'Emmagatzematge Persistent o reiniciar l'ordinador per provar de "
 "reparar el sistema de fitxers de nou."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:771
-#, fuzzy
-msgid "Language and Keyboard layout"
-msgstr "Llengua i formats"
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:773
-msgid ""
-"Your language and keyboard layout will be saved unencrypted on your Tails "
-"USB stick and applied automatically in the future.\n"
-"\n"
-"Someone who finds your Tails USB stick can see your language and keyboard "
-"layout."
-msgstr ""
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:778
-msgid "Save Unencrypted"
-msgstr ""
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:839
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:866
 msgid "Start Tails and open the Persistent Storage settings to find out more."
 msgstr ""
 "Inicieu Tails i obriu la configuració de l'Emmagatzematge Persistent per "
 "obtenir més informació."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:868
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:896
 msgid ""
 "Your Persistent Storage is unlocked. Its content will be available until you "
 "shut down Tails."
@@ -892,11 +906,11 @@ msgstr ""
 "L'Emmagatzematge Persistent està desbloquejat. El seu contingut estarà "
 "disponible fins que tanqueu Tails."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:883
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:911
 msgid "Incorrect passphrase. Please try again."
 msgstr "Contrasenya incorrecta. Torneu-ho a provar."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:894
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:922
 msgid ""
 "Error reading data from your Persistent Storage. The hardware of your USB "
 "stick is probably failing."
@@ -905,48 +919,48 @@ msgstr ""
 "Persistent. És possible que el maquinari del vostre llapis USB de Tails "
 "estigui fallant."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:896
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:924
 msgid "Start Tails to learn how to recover your data."
 msgstr "Inicieu Tails per aprendre a recuperar les vostres dades."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:907
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:935
 msgid "File System Errors"
 msgstr "Errors del sistema de fitxers"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:909
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:937
 msgid ""
 "Errors were detected in the file system of your Persistent Storage.\n"
-"                \n"
+"\n"
 "Tails can try to fix these errors, but this might erase some of your data "
 "and take a long time.\n"
 "\n"
 "If you already have an up-to-date backup of your Persistent Storage, we "
 "recommend that you try to repair.\n"
-"                \n"
+"\n"
 "If you don't have a backup, we recommend that you create a partition image "
 "of your Persistent Storage first."
 msgstr ""
 "S'han detectat errors al sistema de fitxers del vostre Emmagatzematge "
 "Persistent.\n"
-"                \n"
+"\n"
 "Tails pot intentar solucionar aquests errors, però això podria esborrar "
 "algunes de les vostres dades i trigar molta estona.\n"
 "\n"
 "Si teniu una còpia de seguretat actualitzada del vostre Emmagatzematge "
 "Persistent, us recomanem que proveu de reparar-lo.\n"
-"                \n"
+"\n"
 "Si no teniu una còpia de seguretat, us recomanem que primer creeu una imatge "
 "de partició del vostre Emmagatzematge Persistent."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:918
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:946
 msgid "Repair File System"
 msgstr "Reparació del sistema de fitxers"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:919
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:947
 msgid "Create Partition Image"
 msgstr "Crea una imatge de partició"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:930
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:958
 msgid ""
 "Start Tails to learn how to create a partition image of your Persistent "
 "Storage."
@@ -954,13 +968,13 @@ msgstr ""
 "Inicieu Tails per aprendre a crear una imatge de partició del vostre "
 "Emmagatzematge Persistent."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:939
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:967
 msgid "Failed to unlock the Persistent Storage due to file system errors."
 msgstr ""
 "No s'ha pogut desbloquejar l'Emmagatzematge Persistent a causa d'errors del "
 "sistema de fitxers."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:948
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:976
 msgid ""
 "Failed to upgrade the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -968,7 +982,7 @@ msgstr ""
 "No s'ha pogut actualitzar l'Emmagatzematge Persistent. Inicieu Tails i "
 "envieu un informe d'error."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:955
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:983
 msgid ""
 "Failed to unlock the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -976,7 +990,7 @@ msgstr ""
 "No s'ha pogut desbloquejar l'Emmagatzematge Persistent. Inicieu Tails i "
 "envieu un informe d'error."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:963
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:991
 msgid ""
 "Failed to activate the Persistent Storage. Please start Tails and send an "
 "error report."
@@ -984,7 +998,7 @@ msgstr ""
 "No s'ha pogut activar l'Emmagatzematge Persistent. Inicieu Tails i envieu un "
 "informe d'error."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:974
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:1002
 msgid "Upgrading the Persistent Storage. This might take a while…"
 msgstr ""
 "S'està actualitzant l'Emmagatzematge Persistent. Això pot trigar una estona…"
@@ -1480,17 +1494,16 @@ msgstr ""
 msgid "Could not open device for writing."
 msgstr "No s'ha pogut obrir el dispositiu per a l'escriptura."
 
-#: config/chroot_local-includes/usr/local/bin/keepassxc:19
-#, sh-format
+#: config/chroot_local-includes/usr/local/bin/secrets:19
+#, fuzzy, sh-format
 msgid ""
-"<b><big>Do you want to rename your <i>KeePassXC</i> database?</big></b>\n"
-"\n"
-"You have a <i>KeePassXC</i> database in your <i>Persistent</i> folder:\n"
+"You have a <i>KeePassXC</i> or <i>Secrets</i> database in your "
+"<i>Persistent</i> folder:\n"
 "\n"
 "<i>${filename}</i>\n"
 "\n"
-"Renaming your database to <i>${default_filename}</i> would allow "
-"<i>KeePassXC</i> to open it automatically in the future."
+"Renaming your database to <i>${default_filename}</i> allows <i>Secrets</i> "
+"to open it automatically in the future."
 msgstr ""
 "<b><big>Voleu canviar el nom de la vostra base de dades <i>KeePassXC</i>?</"
 "big></b>\n"
@@ -1503,13 +1516,17 @@ msgstr ""
 "Canviar el nom de la vostra base de dades a <i>${default_filename}</i> "
 "permetria que <i>KeePassXC</i> l'obrís automàticament en el futur."
 
-#: config/chroot_local-includes/usr/local/bin/keepassxc:28
+#: config/chroot_local-includes/usr/local/bin/secrets:25
 msgid "Rename"
 msgstr "Reanomena"
 
-#: config/chroot_local-includes/usr/local/bin/keepassxc:30
+#: config/chroot_local-includes/usr/local/bin/secrets:27
 msgid "Keep current name"
 msgstr "Manté el nom actual"
+
+#: config/chroot_local-includes/usr/local/bin/secrets:29
+msgid "Rename Password Database?"
+msgstr ""
 
 #: config/chroot_local-includes/usr/local/bin/replace-su-with-sudo:19
 msgid "su is disabled. Please use sudo instead."
@@ -1542,6 +1559,7 @@ msgid "Dismiss"
 msgstr "Descarta"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:11
+#: config/chroot_local-includes/usr/local/lib/tails-additional-software-notify:63
 #: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:44
 #: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:45
 msgid "Learn More"
@@ -1583,10 +1601,9 @@ msgstr ""
 #: config/chroot_local-includes/usr/local/bin/tails-upgrade-frontend-wrapper:79
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/application.py:79
 #: config/chroot_local-includes/usr/local/sbin/unsafe-browser:37
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:318
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:464
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:597
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1100
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:375
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:521
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:654
 msgid "Error"
 msgstr "Error"
 
@@ -1645,10 +1662,6 @@ msgstr "INÈDIT"
 #, python-format
 msgid "Built from %s"
 msgstr "Creat a partir de %s"
-
-#: config/chroot_local-includes/usr/local/lib/tails-additional-software-notify:63
-msgid "Documentation"
-msgstr "Documentació"
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:114
 #, python-brace-format
@@ -1757,7 +1770,7 @@ msgid "Show Password"
 msgstr "Mostra la contrasenya"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:151
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2281
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2580
 msgid "Password"
 msgstr "Contrasenya"
 
@@ -1923,11 +1936,24 @@ msgstr ""
 msgid "Tor Connection"
 msgstr "Connexió Tor"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:218
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:283
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:331
+msgid "Automatic"
+msgstr ""
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:284
+msgid "Frequently selected regions"
+msgstr ""
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:291
+msgid "Other regions"
+msgstr ""
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:369
 msgid "_Use a bridge that you already know"
 msgstr "_Feu servir un pont que ja coneixeu"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:260
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:411
 msgid ""
 "To save your bridge, <a href=\"doc/persistent_storage\">unlock your "
 "Persistent Storage</a>."
@@ -1935,7 +1961,7 @@ msgstr ""
 "Per desar el vostre pont, <a href=\"doc/persistent_storage\">desbloquegeu el "
 "vostre Emmagatzematge Persistent</a>."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:267
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:418
 msgid ""
 "To save your bridge, <a href=\"doc/persistent_storage\">create a Persistent "
 "Storage</a> on your Tails USB stick."
@@ -1943,14 +1969,12 @@ msgstr ""
 "Per desar el vostre pont, <a href=\"doc/persistent_storage\">creeu un "
 "Emmagatzematge Persistent</a> al vostre llapis USB de Tails."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:287
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:810
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:438
 #, python-brace-format
 msgid "Invalid: {exception}"
 msgstr "No vàlid: {exception}"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:299
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:823
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:450
 msgid ""
 "You need to configure a WebTunnel or an obfs4 bridge to hide that you are "
 "using Tor"
@@ -1958,81 +1982,100 @@ msgstr ""
 "Heu de configurar un pont WebTunnel o obfs4 per ocultar que esteu utilitzant "
 "Tor"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:354
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:514
 msgid "Failed to configure your Persistent Storage"
 msgstr "No s'ha pogut configurar l'Emmagatzematge Persistent"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:406
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:566
 msgid "Failed to detect a webcam. Maybe your webcam is too old."
 msgstr ""
 "No s'ha pogut detectar una càmera web. És possible que la càmera web sigui "
 "massa antiga."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:417
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:577
 msgid "Failed to scan QR code. Try with more light or closer to the camera."
 msgstr ""
 "No s'ha pogut escanejar el codi QR. Proveu amb més llum o més a prop de la "
 "càmera."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:428
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:588
 msgid "Invalid QR code. Try sending another email and scanning again."
 msgstr ""
 "El codi QR no és vàlid. Proveu d'enviar un altre correu electrònic i "
 "escanegeu-lo de nou."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:486
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:649
 msgid "Synchronizing the system's clock…"
 msgstr "S'està sincronitzant el rellotge del sistema…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:538
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:726
+#, fuzzy
+msgid "Asking for a Tor bridge based on your region…"
+msgstr "_Demaneu un pont de Tor per correu electrònic"
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:774
 msgid "Connecting to Tor without bridges…"
 msgstr "S'està connectant a Tor sense ponts…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:545
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:569
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:781
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:813
 msgid "Connecting to Tor with default bridges…"
 msgstr "S'està connectant a Tor amb ponts predeterminats…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:552
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:789
+#, fuzzy
+msgid "Connecting to Tor with a bridge based on your region…"
+msgstr "S'està connectant a Tor amb ponts predeterminats…"
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:796
 msgid "Connecting to Tor with a custom bridge…"
 msgstr "S'està connectant a Tor amb un pont personalitzat…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:660
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:914
 msgid "Connected to Tor successfully with bridges"
 msgstr "Esteu connectat a Tor amb èxit amb ponts"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:662
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2041
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:916
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2340
 msgid "Connected to Tor successfully"
 msgstr "Esteu connectat a Tor correctament"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:666
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2066
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:920
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2365
 msgid "You can now browse the Internet anonymously and uncensored."
 msgstr "Ara podeu navegar per Internet de manera anònima i sense censura."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:738
-msgid "This local network seems to be blocking access to Tor."
-msgstr "Sembla que aquesta xarxa local està bloquejant l'accés a Tor."
+#. Translators: only translate "Bridge:" and adjust
+#. text-direction
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:985
+#, python-brace-format
+msgid "Bridge: <b>{bridge}</b>"
+msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:813
-msgid "Bridge address malformed"
-msgstr "Hi ha un error de sintaxis a l'adreça del pont"
+#. Translators: only translate "Error code:" and adjust
+#. text-direction
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:997
+#, python-brace-format
+msgid "Error code: {code}"
+msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:831
-msgid "Setting a bridge is needed if you want to hide that you are using Tor"
-msgstr "Cal establir un pont si voleu ocultar que esteu utilitzant Tor"
+#. Translators: only translate "Proxy:" and adjust
+#. text-direction
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1024
+#, python-brace-format
+msgid "Proxy: <b>{proxy}</b>"
+msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1070
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1323
 #, python-brace-format
 msgid "Scanned {bridge_type} bridge: <b>{bridge_info}</b>."
 msgstr "Pont {bridge_type} escanejat: <b>{bridge_info}</b>."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1159
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1408
 msgid "Are you sure you want to lose progress?"
 msgstr "Esteu segur que voleu perdre el progrés?"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1163
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1412
 msgid ""
 "Tails will continue connecting to Tor after you close the Tor Connection "
 "assistant.\n"
@@ -2046,11 +2089,11 @@ msgstr ""
 "Si la connexió a Tor falla, haureu d'esperar de nou fins al final de la "
 "barra de progrés per poder solucionar els problemes de connexió."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1169
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1418
 msgid "Close and Lose Progress"
 msgstr "Tanca i perd el progrés"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1171
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1420
 msgid "Wait"
 msgstr "Espera"
 
@@ -2079,7 +2122,7 @@ msgid "Open Tor Connection Assistant"
 msgstr "Obre l'Assistent de connexió Tor"
 
 #: config/chroot_local-includes/usr/share/gnome-shell/extensions/torstatus@tails.boum.org/extension.js:51
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2107
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2406
 msgid "View Tor Circuits"
 msgstr "Mostra els circuits de Tor"
 
@@ -2158,7 +2201,7 @@ msgstr ""
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/application.py:30
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:49
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:1
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:25
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:24
 msgid "Persistent Storage"
 msgstr "Emmagatzematge Persistent"
 
@@ -2273,8 +2316,8 @@ msgid "{app} (PIDs: {pids})"
 msgstr "{app} (PIDs: {pids})"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/change_passphrase_dialog.py:37
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:8
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:56
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:15
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:55
 msgid "Change Passphrase"
 msgstr "Canvia la contrasenya"
 
@@ -2350,7 +2393,7 @@ msgstr "No s'ha pogut suprimir l'Emmagatzematge Persistent"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:183
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:218
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:36
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:35
 msgid "Delete Persistent Storage"
 msgstr "Suprimeix l'Emmagatzematge Persistent"
 
@@ -2364,8 +2407,8 @@ msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:191
 #: config/chroot_local-includes/usr/local/sbin/unsafe-browser:56
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:304
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:121
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:301
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:124
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:219
 msgid "_Cancel"
 msgstr "_Cancel·la"
@@ -3105,7 +3148,7 @@ msgstr ""
 msgid "Network Configuration"
 msgstr "Configuració de xarxa"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:95
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:94
 msgid "Current _Passphrase"
 msgstr "_Contrasenya actual"
 
@@ -3117,29 +3160,29 @@ msgstr "_Nova contrasenya"
 msgid "_Confirm New Passphrase"
 msgstr "_Confirma la contrasenya"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:215
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:219
 msgid "_Show Passphrases"
 msgstr "_Mostra les contrasenyes"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:253
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:301
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:289
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:161
 msgid "The passphrases do not match"
 msgstr "Les contrasenyes no coincideixen"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:317
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:315
 msgid "Ch_ange"
 msgstr "C_anvia"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/deleted_view.ui.in:21
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/deleted_view.ui.in:20
 msgid "The Persistent Storage was successfully deleted."
 msgstr "L'Emmagatzematge Persistent s'ha suprimit correctament."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/deleted_view.ui.in:32
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/deleted_view.ui.in:36
 msgid "_Close"
 msgstr "_Tanca"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/fail_view.ui.in:30
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/fail_view.ui.in:31
 msgid "Oh no! Something has gone wrong."
 msgstr "S'ha produït algun error."
 
@@ -3155,11 +3198,11 @@ msgstr ""
 "Podeu enviar un informe d'error o comprovar la sortida de les ordres "
 "següents per investigar:"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/fail_view.ui.in:74
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/fail_view.ui.in:78
 msgid "Send Error Report"
 msgstr "Envia un informe d'error"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:61
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:63
 msgid ""
 "Your Persistent Storage is unlocked.\n"
 "\n"
@@ -3175,7 +3218,7 @@ msgstr ""
 "<a href=\"doc/persistent_storage/backup\">Obteniu informació sobre com fer "
 "una còpia de seguretat del vostre Emmagatzematge Persistent.</a>"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:89
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:91
 msgid ""
 "Turn on the features of the Persistent Storage for the data that you want to "
 "save to your Tails USB stick."
@@ -3183,162 +3226,162 @@ msgstr ""
 "Activeu les funcions de l'Emmagatzematge Persistent per a les dades que "
 "voleu desar al vostre llapis USB de Tails."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:106
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:108
 msgid "Personal Documents"
 msgstr "Documents personals"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:134
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:136
 msgid "Persistent Folder"
 msgstr "Carpeta Persistent"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:135
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:137
 msgid "A folder where you can save your documents."
 msgstr "Una carpeta on podeu desar els vostres documents."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:160
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:162
 msgid "Open Persistent Folder"
 msgstr "Obre la carpeta persistent"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:173
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:175
 msgid "Activate Persistent Folder"
 msgstr "Activa la carpeta persistent"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:200
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:202
 msgid "System Settings"
 msgstr "Opcions de Sistema"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:228
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:230
 msgid "Welcome Screen"
 msgstr "Pantalla de Benvinguda"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:244
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:246
 msgid "Activate Welcome Screen"
 msgstr "Activa la pantalla de benvinguda"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:257
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:259
 msgid "Printers"
 msgstr "Impressores"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:273
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:275
 msgid "Activate Printers"
 msgstr "Activa les impressores"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:300
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:302
 msgid "Network"
 msgstr "Xarxa"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:328
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:330
 msgid "Network Connections"
 msgstr "Connexions en xarxa"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:329
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:331
 msgid "Save Wi-Fi passwords and mobile broadband configuration."
 msgstr ""
 "Deseu les contrasenyes de Wi-Fi i la configuració de banda ampla mòbil."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:345
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:347
 msgid "Activate Network Connections"
 msgstr "Activa les connexions en xarxa"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:358
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:360
 msgid "Tor Bridge"
 msgstr "Pont de Tor"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:374
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:376
 msgid "Activate Tor Bridge"
 msgstr "Activa un pont de Tor"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:401
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:403
 msgid "Applications"
 msgstr "Aplicacions"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:429
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:431
 msgid "Tor Browser Bookmarks"
 msgstr "Marcadors del Navegador Tor"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:445
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:447
 msgid "Activate Tor Browser Bookmarks"
 msgstr "Activa els marcadors del Navegador Tor"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:458
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:460
 msgid "Electrum Bitcoin Wallet"
 msgstr "Cartera de Bitcoin d'Electrum"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:474
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:476
 msgid "Activate Electrum Bitcoin Wallet"
 msgstr "Activa la cartera de Bitcoin d'Electrum"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:487
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:489
 msgid "Thunderbird Email Client"
 msgstr "Client de correu Thunderbird"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:503
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:505
 msgid "Activate Thunderbird Email Client"
 msgstr "Activeu el client de correu electrònic Thunderbird"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:516
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:518
 msgid "GnuPG"
 msgstr "GnuPG"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:517
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:519
 msgid "OpenPGP keys outside of Thunderbird, including in Kleopatra."
 msgstr "Claus OpenPGP fora de Thunderbird, inclòs a Kleopatra."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:533
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:535
 msgid "Activate GnuPG"
 msgstr "Activa GnuPG"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:546
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:548
 msgid "Pidgin Internet Messenger"
 msgstr "Missatgeria d'Internet Pidgin"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:562
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:564
 msgid "Activate Pidgin Internet Messenger"
 msgstr "Activa la Missatgeria d'Internet Pidgin"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:575
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:577
 msgid "SSH Client"
 msgstr "Client SSH"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:591
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:593
 msgid "Activate SSH Client"
 msgstr "Activa el client SSH"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:618
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:620
 msgid "Advanced Settings"
 msgstr "Paràmetres avançats"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:647
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:649
 msgid "Install additional software automatically when starting Tails."
 msgstr "Instal·leu programari addicional automàticament en iniciar Tails."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:672
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:674
 msgid "Configure Additional Software"
 msgstr "Configureu el Programari Addicional"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:685
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:687
 msgid "Activate Additional Software"
 msgstr "Activeu el Programari Addicional"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:698
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:700
 msgid "Dotfiles"
 msgstr "Dotfiles"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:699
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:701
 msgid "Symlink every file in the Dotfiles folder into the Home folder."
 msgstr ""
 "Enllaceu simbòlicament tots els fitxers de la carpeta Dotfiles a la carpeta "
 "de l'usuari."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:732
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:734
 msgid "Activate Dotfiles"
 msgstr "Activa els Dotfiles"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:764
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:766
 msgid "Custom"
 msgstr "Personalitza"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:783
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:785
 msgid ""
 "To add or remove custom features, modify /live/persistence/"
 "TailsData_unlocked/persistence.conf."
@@ -3346,7 +3389,7 @@ msgstr ""
 "Per afegir o eliminar funcions personalitzades, modifiqueu /live/persistence/"
 "TailsData_unlocked/persistence.conf."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:825
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:827
 msgid ""
 "<a href=\"doc/persistent_storage\">Learn more about the Persistent Storage.</"
 "a>"
@@ -3354,7 +3397,7 @@ msgstr ""
 "<a href=\"doc/persistent_storage\">Obteniu més informació sobre "
 "l'Emmagatzematge Persistent.</a>"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/locked_view.ui.in:52
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/locked_view.ui.in:53
 msgid ""
 "<b>Your Persistent Storage is locked.</b>\n"
 "\n"
@@ -3372,7 +3415,7 @@ msgstr ""
 "Per suprimir el vostre Emmagatzematge Persistent, feu clic a <b>Suprimeix</"
 "b> a la dreta de la barra de títol."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:62
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:60
 msgid ""
 "Choose the passphrase that you will use to unlock the encryption of your "
 "Persistent Storage and all its data."
@@ -3380,34 +3423,34 @@ msgstr ""
 "Trieu la contrasenya que utilitzareu per desbloquejar l'encriptatge del "
 "vostre Emmagatzematge Persistent i totes les seves dades."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:82
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:80
 msgid "We recommend a long passphrase of 5 to 7 random words."
 msgstr "Recomanem una contrasenya llarga de 5 a 7 paraules aleatòries."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:94
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:92
 msgid " For example:"
 msgstr " Per exemple:"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:186
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:175
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:46
 msgid "Passphrase:"
 msgstr "Contrasenya:"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:205
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:194
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:65
 msgid "Confirm:"
 msgstr "Confirmeu:"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:325
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:317
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:185
 msgid "_Show Passphrase"
 msgstr "_Mostra la contrasenya"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:375
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:361
 msgid "_Back"
 msgstr "_Enrere"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:391
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:378
 msgid "_Create Persistent Storage"
 msgstr "_Crea l'Emmagatzematge Persistent"
 
@@ -3440,7 +3483,7 @@ msgstr ""
 "<a href=\"doc/persistent_storage\">Obteniu més informació sobre "
 "l'Emmagatzematge Persistent.</a>"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:92
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:93
 msgid ""
 "Sorry, it is impossible to create a Persistent Storage on this device.\n"
 "\n"
@@ -3453,7 +3496,7 @@ msgstr ""
 "nostres instruccions sobre <a href=\"install\">instal·lació de Tails en un "
 "llapis USB</a>."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:137
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:141
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:232
 msgid "Co_ntinue"
 msgstr "Co_ntinuar"
@@ -3620,7 +3663,8 @@ msgid "TrueCrypt/VeraCrypt container"
 msgstr "Contenidor TrueCrypt / VeraCrypt"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:82
-msgid "Configure a Tor bridge"
+#, fuzzy
+msgid "Configure a Tor Bridge"
 msgstr "Configureu un pont de Tor"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:106
@@ -3654,15 +3698,20 @@ msgid "WebTunnel"
 msgstr "WebTunnel"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:208
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1522
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1821
 msgid "None"
 msgstr "Cap"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:244
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:242
+#, fuzzy
+msgid "Ask for a Tor bridge based on your _region"
+msgstr "_Demaneu un pont de Tor per correu electrònic"
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:301
 msgid "_Ask for a Tor bridge by email"
 msgstr "_Demaneu un pont de Tor per correu electrònic"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:263
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:320
 msgid ""
 "Send an empty email to <tt>bridges@torproject.org</tt> from a Gmail or "
 "Riseup email address with your phone and scan the QR code that is attached "
@@ -3672,61 +3721,128 @@ msgstr ""
 "adreça de correu electrònic de Gmail o Riseup amb el vostre telèfon i "
 "escanegeu el codi QR que s'adjunta a la resposta automàtica."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:276
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:333
 msgid "Scan _QR code"
 msgstr "Escaneja un codi _QR"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:377
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:434
 msgid "_Enter a bridge that you already know"
 msgstr "_Introdueix un pont que ja coneixes"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:403
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1044
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:460
 msgid "Bridge"
 msgstr "Pont"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:416
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1057
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:473
 msgid "obfs4 or webtunnel…"
 msgstr "obfs4 o webtunnel…"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:489
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:546
 msgid "Save bridge to _Persistent Storage"
 msgstr "Desa el pont a _Emmagatzematge Persistent"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:514
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:571
 msgid "Save bridge to Persistent Storage"
 msgstr "Desa el pont a l'Emmagatzematge Persistent"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:654
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1162
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1560
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:711
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1462
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1859
 msgid "_Connect to Tor"
 msgstr "_Connecta't a Tor"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:696
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:763
 msgid "Error connecting to Tor"
 msgstr "S'ha produït un error en connectar-se a Tor"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:740
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:783
+msgid "This local network seems to be blocking access to Tor."
+msgstr "Sembla que aquesta xarxa local està bloquejant l'accés a Tor."
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:811
+#, fuzzy
+msgid "Error connecting to Tor with this bridge"
+msgstr "S'està connectant a Tor sense ponts…"
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:827
+msgid ""
+"Either this Tor bridge is not working or your network is blocking access to "
+"it."
+msgstr ""
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:856
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:930
+#, fuzzy
+msgid "Try configuring another bridge."
+msgstr "Configureu un pont de Tor"
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:884
+#, fuzzy
+msgid "Error connecting to Tor with default bridges"
+msgstr "S'està connectant a Tor amb ponts predeterminats…"
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:900
+#, fuzzy
+msgid "Your network is blocking access to Tor and the default bridges."
+msgstr "Aquesta xarxa local està bloquejant l'accés a Tor."
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:916
+#, fuzzy
+msgid "Bridge: <b>default bridges</b>"
+msgstr "Utilitzeu un pont _predeterminat"
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:958
+#, fuzzy
+msgid "Error connecting to Tor with bridges"
+msgstr "S'està connectant a Tor sense ponts…"
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:974
+msgid "None of the bridges recommended for this region worked."
+msgstr ""
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:990
+msgid "Try another region or getting a bridge by mail."
+msgstr ""
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1018
+#, fuzzy
+msgid "Error asking for a bridge"
+msgstr "S'ha produït un error mentre es cercaven actualitzacions"
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1034
+msgid "Tails failed to ask for a bridge based on your region."
+msgstr ""
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1050
+msgid ""
+"Please, <a href=\"support/talk\">report this error</a> and try asking for a "
+"bridge by email."
+msgstr ""
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1087
+#, fuzzy
+msgid "Open _details"
+msgstr "Obre el Clonador de Tails"
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1142
 msgid "• Wrong clock"
 msgstr "• Rellotge equivocat"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:760
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1162
 msgid "Your clock and time zone need to be correct to connect to Tor."
 msgstr ""
 "El vostre rellotge i la zona horària han de ser correctes per connectar-vos "
 "a Tor."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:773
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1175
 msgid "Fix _Clock"
 msgstr "Arregla el _Rellotge"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:811
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1213
 msgid "• Public network"
 msgstr "• Xarxa pública"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:831
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1233
 msgid ""
 "If you are in a shop, hotel, or airport, you might need to sign in to the "
 "local network using the Unsafe Browser."
@@ -3734,15 +3850,15 @@ msgstr ""
 "Si sou a una botiga, hotel o aeroport, és possible que hàgiu d'iniciar la "
 "sessió a la xarxa local mitjançant el Navegador Insegur."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:844
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1246
 msgid "Try _Signing in to the Network"
 msgstr "Proveu d'_iniciar la sessió a la Xarxa"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:883
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1285
 msgid "• Local proxy"
 msgstr "• Servidor intermediari local"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:903
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1305
 msgid ""
 "If you are on a corporate or university network, you might need to configure "
 "a local proxy."
@@ -3750,15 +3866,16 @@ msgstr ""
 "Si esteu en una xarxa corporativa o universitària, és possible que hàgiu de "
 "configurar un servidor intermediari local."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:916
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1335
 msgid "Configure a Local _Proxy"
 msgstr "Configura un _Servidor Intermediari local"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:955
-msgid "• Tor bridge by email"
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1374
+#, fuzzy
+msgid "• Tor bridge"
 msgstr "• Pont de Tor per correu electrònic"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:975
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1394
 msgid ""
 "Tor bridges are secret Tor relays. Use a bridge as your first Tor relay if "
 "connections to Tor are blocked, for example in some countries, by some "
@@ -3769,22 +3886,12 @@ msgstr ""
 "exemple en alguns països, per algunes xarxes públiques o per alguns controls "
 "parentals."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:995
-msgid ""
-"To get a bridge, send an empty email to <tt>bridges@torproject.org</tt> from "
-"a Gmail or Riseup email address with your phone and scan the QR code that is "
-"attached to the automatic reply."
-msgstr ""
-"Per obtenir un pont, envieu un correu electrònic buit a "
-"<tt>bridges@torproject.org</tt> des d'una adreça de correu electrònic de "
-"Gmail o Riseup amb el vostre telèfon i escanegeu el codi QR que s'adjunta a "
-"la resposta automàtica."
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1410
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1646
+msgid "Configure a Tor _bridge"
+msgstr "Configura un _pont de Tor"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1018
-msgid "Scan QR Code"
-msgstr "Escaneja codi QR"
-
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1149
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1449
 msgid ""
 "<a href=\"doc/anonymous_internet/tor/troubleshoot\">Troubleshooting "
 "connecting to Tor</a>"
@@ -3792,14 +3899,14 @@ msgstr ""
 "<a href=\"doc/anonymous_internet/tor/troubleshoot\">Resolució de problemes "
 "de connexió a Tor</a>"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1195
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1603
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1494
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1902
 msgid ""
 "Everything you do on the Internet from Tails goes through the Tor network."
 msgstr "Tot el que feu a Internet des de Tails passa per la xarxa Tor."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1209
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1618
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1508
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1917
 msgid ""
 "Tor encrypts and anonymizes your connection by passing it through 3 relays.\n"
 "Tor relays are servers operated by different organizations and volunteers "
@@ -3810,11 +3917,11 @@ msgstr ""
 "Els repetidors Tor són servidors operats per diferents organitzacions i "
 "voluntaris d'arreu del món."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1245
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1544
 msgid "<b>Connect to Tor _automatically</b>"
 msgstr "<b>Connecta't a Tor _automàticament</b>"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1295
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1594
 msgid ""
 "We recommend connecting to Tor automatically if you are on a public Wi-Fi "
 "network or if many people in your country use Tor to circumvent censorship."
@@ -3823,7 +3930,7 @@ msgstr ""
 "pública o si moltes persones al vostre país utilitzen Tor per evitar la "
 "censura."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1313
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1612
 msgid ""
 "Tails will try different ways of connecting to Tor until it succeeds.\n"
 "\n"
@@ -3835,11 +3942,7 @@ msgstr ""
 "Algú que controli la vostra connexió a Internet podria identificar aquests "
 "intents com a provinents d'un usuari de Tails."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1347
-msgid "Configure a Tor _bridge"
-msgstr "Configura un _pont de Tor"
-
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1393
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1692
 msgid ""
 "Tor bridges are secret Tor relays. Use a bridge as your first Tor relay if "
 "connections to Tor are blocked, for example in some countries, by some "
@@ -3858,11 +3961,11 @@ msgstr ""
 "Tails detectarà automàticament si necessiteu un pont per connectar-vos a Tor "
 "des de la vostra xarxa local."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1435
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1734
 msgid "<b>_Hide to my local network that I'm connecting to Tor</b>"
 msgstr "<b>_Amaga a la meva xarxa local que m'estic connectant a Tor</b>"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1485
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1784
 msgid ""
 "You might need to go unnoticed if using Tor could look suspicious to someone "
 "who monitors your Internet connection."
@@ -3870,7 +3973,7 @@ msgstr ""
 "És possible que hàgiu de passar desapercebut si utilitzar Tor pogués semblar "
 "sospitós per a algú que controli la vostra connexió a Internet."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1503
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1802
 msgid ""
 "Tails will only connect to Tor after you configured a Tor bridge. Bridges "
 "are secret Tor relays that hide that you are connecting to Tor.\n"
@@ -3893,7 +3996,7 @@ msgstr ""
 "Tor, si us connecteu des d'una xarxa Wi-Fi pública o si sou a l'Hemisferi "
 "Oriental."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1548
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1847
 msgid ""
 "<a href=\"doc/anonymous_internet/tor\">Learn more about how Tails connects "
 "to Tor</a>"
@@ -3901,11 +4004,11 @@ msgstr ""
 "<a href=\"doc/anonymous_internet/tor\">Més informació sobre com es connecta "
 "Tails a Tor</a>"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1638
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1937
 msgid "No Wi-Fi hardware detected"
 msgstr "No s'ha detectat maquinari de Wi-Fi"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1656
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1955
 msgid ""
 "Tails couldn't find any Wi-Fi interface on your computer. If your computer "
 "has a Wi-Fi interface, it might not work on Tails.\n"
@@ -3931,7 +4034,7 @@ msgstr ""
 " • Comprar un adaptador USB de Wi-Fi que sigui compatible amb Tails.\n"
 "                "
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1680
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1979
 msgid ""
 "\n"
 "<a href=\"doc/anonymous_internet/no-wifi\">\n"
@@ -3945,11 +4048,11 @@ msgstr ""
 "</a>\n"
 "                "
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1708
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2007
 msgid "Connect to a local network"
 msgstr "Connecteu-vos a una xarxa local"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1725
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2024
 msgid ""
 "You are not connected to a local network yet. To be able to connect to the "
 "Tor network, you first need to connect to a Wi-Fi, wired, or mobile network."
@@ -3957,83 +4060,83 @@ msgstr ""
 "Encara no esteu connectat a una xarxa local. Per poder connectar-vos a la "
 "xarxa Tor, primer heu de connectar-vos a una xarxa Wi-Fi, cable o mòbil."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1739
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2038
 msgid "Open Wi-Fi Settings"
 msgstr "Obre els paràmetres de Wi-Fi"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1788
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2087
 msgid "Testing Internet access…"
 msgstr "S'està provant l'accés a Internet…"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1828
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2127
 msgid "You have access to the Internet"
 msgstr "Teniu accés a Internet"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1862
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2161
 msgid "Testing access to Tor…"
 msgstr "S'està provant l'accés a Tor…"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1905
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2204
 msgid "You can connect to Tor"
 msgstr "Podeu connectar-vos a Tor"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1935
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2234
 msgid "Failed to connect to Tor without bridges."
 msgstr "No s'ha pogut connectar a Tor sense ponts."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1951
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2250
 msgid "This local network is blocking access to Tor."
 msgstr "Aquesta xarxa local està bloquejant l'accés a Tor."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1983
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2282
 msgid "Connecting to Tor…"
 msgstr "S'està connectant al Tor…"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2088
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2387
 msgid "Start Tor Browser"
 msgstr "Inicia el Navegador Tor"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2147
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2446
 msgid "Configure a Local Proxy"
 msgstr "Configureu un servidor Intermediari Local"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2173
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2472
 msgid "Proxy Type"
 msgstr "Tipus de Servidor intermediari"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2190
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2489
 msgid "No proxy"
 msgstr "Sense Servidor Intermediari"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2191
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2490
 msgid "SOCKS 4"
 msgstr "SOCKS 4"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2192
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2491
 msgid "SOCKS 5"
 msgstr "SOCKS 5"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2193
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2492
 msgid "HTTP / HTTPS"
 msgstr "HTTP / HTTPS"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2212
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2511
 msgid "Address"
 msgstr "Adreça"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2229
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2528
 msgid "Username"
 msgstr "Nom d’usuari"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2246
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2545
 msgid "IP address or hostname"
 msgstr "Adreça IP o nom del host"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2264
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2563
 msgid "Port"
 msgstr "Port"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2388
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2687
 msgid "_Save Proxy Settings"
 msgstr "_Desa la configuració del Servidor Intermediari"
 
@@ -4118,6 +4221,29 @@ msgstr "desembre"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "Rellotge"
+
+#~ msgid "Bridge address malformed"
+#~ msgstr "Hi ha un error de sintaxis a l'adreça del pont"
+
+#~ msgid ""
+#~ "Setting a bridge is needed if you want to hide that you are using Tor"
+#~ msgstr "Cal establir un pont si voleu ocultar que esteu utilitzant Tor"
+
+#~ msgid ""
+#~ "To get a bridge, send an empty email to <tt>bridges@torproject.org</tt> "
+#~ "from a Gmail or Riseup email address with your phone and scan the QR code "
+#~ "that is attached to the automatic reply."
+#~ msgstr ""
+#~ "Per obtenir un pont, envieu un correu electrònic buit a "
+#~ "<tt>bridges@torproject.org</tt> des d'una adreça de correu electrònic de "
+#~ "Gmail o Riseup amb el vostre telèfon i escanegeu el codi QR que s'adjunta "
+#~ "a la resposta automàtica."
+
+#~ msgid "Scan QR Code"
+#~ msgstr "Escaneja codi QR"
+
+#~ msgid "Documentation"
+#~ msgstr "Documentació"
 
 #~ msgid ""
 #~ "Authentication is required to start a Root Console. Enter the "

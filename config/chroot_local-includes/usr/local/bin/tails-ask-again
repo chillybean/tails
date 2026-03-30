@@ -2,7 +2,7 @@
 
 set -eu
 
-SETTINGS_DIR='/live/persistence/TailsData_unlocked/dont-ask-again'
+SETTINGS_DIR='/live/persistence/TailsData_unlocked/.tails/dont-ask-again'
 if [ ! -d "${SETTINGS_DIR}" ]; then
     echo 'unavailable'
     exit 0
@@ -13,17 +13,17 @@ OPTS="$(getopt -o "" --longoptions ${LONGOPTS} -n "$(basename "${0}")" -- "$@")"
 eval set -- "$OPTS"
 while [ "${#}" -gt 0 ]; do
     case "${1}" in
-        --dont-ask-again)
-            DONT_ASK_AGAIN='yes'
-            ;;
-        --timeout)
-            shift
-            TIMEOUT="${1}"  # in days
-            ;;
-        --)
-            shift
-            break
-            ;;
+    --dont-ask-again)
+        DONT_ASK_AGAIN='yes'
+        ;;
+    --timeout)
+        shift
+        TIMEOUT="${1}" # in days
+        ;;
+    --)
+        shift
+        break
+        ;;
     esac
     shift
 done

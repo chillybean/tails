@@ -39,3 +39,44 @@ def read_locale_conf() -> typing.Generator[tuple[str, str]]:
 def apply_selected_locale():
     with contextlib.suppress(FileNotFoundError):
         os.environ.update(read_locale_conf())
+
+
+def lang_to_language_region(lang: str) -> tuple[str, str | None]:
+    """
+    >>> lang_to_language_region("en_US.UTF-8")
+    ('en', 'us')
+
+    >>> lang_to_language_region("es_ES.UTF-8")
+    ('es', 'es')
+
+    >>> lang_to_language_region("es_MX.UTF-8")
+    ('es', 'mx')
+
+    >>> lang_to_language_region("ll.UTF-8")
+    ('ll', None)
+
+    """
+    m = re.fullmatch(r"([a-z]+)(?:_([A-Z]+))?[.].*", lang)
+    if m:
+        language = m.group(1)
+        if m.lastindex == 2:
+            region = m.group(2).lower()
+        else:
+            region = None
+    else:
+        raise RuntimeError("Failed to parse $LANG")
+
+    return (language, region)
+
+
+def user_language_and_region() -> tuple[str, str | None]:
+    """Return the language and region chosen by the user in the Welcome
+    Screen, in lowercase, e.g. ("en", "us") or ("es", "mx")"""
+    lang = dict(read_locale_conf())["LANG"]
+    return lang_to_language_region(lang)
+
+
+if __name__ == "__main__":
+    import doctest
+
+    doctest.testmod()

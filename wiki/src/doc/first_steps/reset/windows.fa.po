@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-09-17 11:40+0200\n"
+"POT-Creation-Date: 2026-03-27 09:32+0000\n"
 "PO-Revision-Date: 2024-05-20 09:53+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: Persian <http://weblate.451f.org:8889/projects/tails/"
@@ -29,26 +29,6 @@ msgstr "[[!meta title=\"تنظیم دوبارهٔ یک درایو یواس‌ب�
 msgid "[[!inline pages=\"doc/reset.intro\" raw=\"yes\" sort=\"age\"]]\n"
 msgstr "[[!inline pages=\"doc/reset.intro.fa\" raw=\"yes\" sort=\"age\"]]\n"
 
-#. type: Plain text
-#, no-wrap
-msgid "<div class=\"caution\">\n"
-msgstr "<div class=\"caution\">\n"
-
-#. type: Plain text
-#, no-wrap
-msgid "<p><b>You might overwrite any hard disk on the computer.</b></p>\n"
-msgstr "<p><b>ممکن است هر سخت‌دیسک موجود روی رایانه را بازنویسی کنید.</b></p>\n"
-
-#. type: Plain text
-#, no-wrap
-msgid "<p>If at some point you are not sure about which device to choose, stop proceeding.</p>\n"
-msgstr "<p>اگر در هر مرحله‌ای شک دارید که کدام دستگاه را باید انتخاب کنید، در همین مرحله دست نگاه دارید.</p>\n"
-
-#. type: Plain text
-#, no-wrap
-msgid "</div>\n"
-msgstr "</div>\n"
-
 #. type: Title =
 #, no-wrap
 msgid "Erase Tails from the USB stick"
@@ -59,143 +39,81 @@ msgid "First, erase Tails from the USB stick:"
 msgstr ""
 
 #. type: Bullet: '1. '
+msgid ""
+"Select the **Start** [[!img lib/start.png alt=\"\" class=\"symbolic\" "
+"link=\"no\"]] button and open the *Settings* app."
+msgstr ""
+
+#. type: Bullet: '1. '
+msgid ""
+"In the *Settings* app, choose **System&nbsp;▸ Storage&nbsp;▸ Advanced "
+"storage settings&nbsp;▸ Disk & volumes**."
+msgstr ""
+
+#. type: Bullet: '1. '
 #, fuzzy
-msgid "Make sure that the USB stick that you want to reset is unplugged."
+msgid "Plug in the Tails USB stick that you want to reset."
 msgstr ""
 "مطمئن شوید که درایو یواس‌بی یا کارت حافظه‌ای که می‌خواستید دوباره تنظیم کنید را "
 "از رایانه جدا کرده‌اید."
 
-#. type: Bullet: '1. '
-msgid ""
-"Open the **Start** ([[!img lib/start.png class=\"symbolic\" link=\"no\" "
-"alt=\"\"]]) menu."
+#. type: Plain text
+#, no-wrap
+msgid "   [[!img disks.png class=\"screenshot\" alt=\"\"]]\n"
 msgstr ""
 
 #. type: Bullet: '1. '
-msgid "Choose **Windows System**&nbsp;▸ **Command Prompt**."
+msgid "Identify the USB stick in the list of disks."
 msgstr ""
 
 #. type: Bullet: '1. '
-msgid "Execute the following command to start the *Diskpart* utility."
+msgid "Identify the volume called **TAILS**, which has a FAT32 file system."
 msgstr ""
 
 #. type: Plain text
 #, fuzzy, no-wrap
-msgid "   <p class=\"command-windows\">diskpart</p>\n"
-msgstr "استفاده از *دیسک‌پارت*"
+msgid "   This volume corresponds to the Tails system partition on the USB stick.\n"
+msgstr "خط فرمان <span class=\"command\">create partition primary</span> را برای ایجاد یک پارتیشن اصلی جدید روی دستگاه ایجاد کنید."
+
+#. type: Bullet: '   1. '
+msgid "Select the **Properties** button corresponding to the **TAILS** volume."
+msgstr ""
+
+#. type: Bullet: '   1. '
+msgid "In the properties of the **TAILS** volume, select **Delete**."
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid "      Windows gives no feedback after deletion.\n"
+msgstr ""
 
 #. type: Bullet: '1. '
-#, fuzzy
-msgid ""
-"Execute the following command to obtain information about the disks in the "
-"computer."
-msgstr ""
-"خط فرمان <span class=\"command\">list disk</span> را برای کسب اطلاعات در "
-"مورد تمام دیسک‌ها در رایانه اجرا کنید."
-
-#. type: Plain text
-#, no-wrap
-msgid "   <p class=\"command-windows\">list disk</p>\n"
-msgstr ""
-
-#. type: Plain text
-#, no-wrap
-msgid "   For example:\n"
-msgstr "   برای نمونه:\n"
-
-#. type: Plain text
-#, fuzzy, no-wrap
-msgid "       Diskpart> list disk\n"
-msgstr "        Diskpart> list disk\n"
-
-#. type: Plain text
-#, fuzzy, no-wrap
-msgid ""
-"         Disk ###  Status      Size     Free     Dyn  Gpt\n"
-"         --------  ----------  -------  -------  ---  ---\n"
-"         Disk 0    Online        80 GB      0 B\n"
-msgstr ""
-"          Disk ###  Status      Size     Free     Dyn  Gpt\n"
-"          --------  ----------  -------  -------  ---  ---\n"
-"          Disk 0    Online        80 GB      0 B\n"
-
-#. type: Bullet: '1. '
-#, fuzzy
-msgid "Plug in the USB stick that you want to reset."
-msgstr ""
-"مطمئن شوید که درایو یواس‌بی یا کارت حافظه‌ای که می‌خواستید دوباره تنظیم کنید را "
-"از رایانه جدا کرده‌اید."
-
-#. type: Bullet: '1. '
-msgid "Run the same command again."
-msgstr ""
-
-#. type: Plain text
-#, fuzzy, no-wrap
-msgid ""
-"   A new disk, which corresponds to the USB stick that you plugged in,\n"
-"   appears in the list.\n"
-msgstr "   یک دیسک جدید که به دستگاه مرتبط است در فهرست ظاهر می‌شود.\n"
-
-#. type: Plain text
-#, no-wrap
-msgid "        Diskpart> list disk\n"
-msgstr "        Diskpart> list disk\n"
-
-#. type: Plain text
-#, no-wrap
-msgid ""
-"          Disk ###  Status      Size     Free     Dyn  Gpt\n"
-"          --------  ----------  -------  -------  ---  ---\n"
-"          Disk 0    Online        80 GB      0 B\n"
-"          Disk 1    Online         8 GB      0 B\n"
-msgstr ""
-"          Disk ###  Status      Size     Free     Dyn  Gpt\n"
-"          --------  ----------  -------  -------  ---  ---\n"
-"          Disk 0    Online        80 GB      0 B\n"
-"          Disk 1    Online         8 GB      0 B\n"
-
-#. type: Plain text
-#, fuzzy, no-wrap
-msgid ""
-"   Make sure that its size corresponds to the size of the USB stick that you want to\n"
-"   reset. Note down its disk number.\n"
-msgstr ""
-"   مطمئن شوید که حجم مورد نمایش حجم همان دستگاهی است که می‌خواهید آن را \n"
-"   دوباره تنظیم کنید. شمارهٔ دیسک مشخص شده توسط <span\n"
-"   class=\"application\">دیسک‌پارت</span> را یادداشت کنید.\n"
-
-#. type: Plain text
-#, no-wrap
-msgid ""
-"   In this example, the disk number of the USB stick is 1.\n"
-"   Yours might be different.\n"
+msgid "Select **Disks & volumes** to go back to the list of volumes."
 msgstr ""
 
 #. type: Bullet: '1. '
 msgid ""
-"Execute the following command to select the USB stick. Replace <span "
-"class=\"command-placeholder\">number</span> with the disk number found in "
-"step 7."
+"If there is a [[Persistent Storage|doc/persistent_storage]] on the USB "
+"stick, a volume called **(No label)** also appears on the USB stick."
 msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid "   <p class=\"command-windows command-template\">select disk=<span class=\"command-placeholder\">number</span></p>\n"
+msgid "   This volume corresponds to the Tails Persistent Storage on the USB stick.\n"
+msgstr ""
+
+#. type: Bullet: '   1. '
+msgid ""
+"Select the **Properties** button corresponding to the **(No label)** volume."
+msgstr ""
+
+#. type: Bullet: '   1. '
+msgid "In the properties of the **(No label)** volume, select **Delete**."
 msgstr ""
 
 #. type: Bullet: '1. '
-#, fuzzy
-msgid ""
-"Execute the following command to delete the partition table from the USB "
-"stick."
-msgstr ""
-"خط فرمان <span class=\"command\">clean</span> را برای پاک کردن جدول پارتیشن "
-"از دستگاه اجرا کنید."
-
-#. type: Plain text
-#, no-wrap
-msgid "   <p class=\"command-windows\">clean</p>\n"
+msgid "The USB stick now has no volumes and is entirely unallocated."
 msgstr ""
 
 #. type: Title =
@@ -208,31 +126,23 @@ msgid "Then, create a new partition on the USB stick:"
 msgstr ""
 
 #. type: Bullet: '1. '
-#, fuzzy
-msgid ""
-"Execute the following command to create a new partition table on the USB "
-"stick."
-msgstr ""
-"خط فرمان <span class=\"command\">convert mbr</span> را برای ایجاد یک جدول "
-"پارتیشن جدید روی دستگاه اجرا کنید."
-
-#. type: Plain text
-#, no-wrap
-msgid "   <p class=\"command-windows\">convert mbr</p>\n"
+msgid "Select the **Properties** button corresponding to the USB stick."
 msgstr ""
 
 #. type: Bullet: '1. '
-#, fuzzy
-msgid ""
-"Execute the following command to create a new primary partition on the USB "
-"stick."
+msgid "In the properties of the USB stick, select **Convert to MBR**."
 msgstr ""
-"خط فرمان <span class=\"command\">create partition primary</span> را برای "
-"ایجاد یک پارتیشن اصلی جدید روی دستگاه ایجاد کنید."
 
-#. type: Plain text
-#, no-wrap
-msgid "   <p class=\"command-windows\">create partition primary</p>\n"
+#. type: Bullet: '1. '
+msgid ""
+"Select the **Create Volume** button for the USB stick and choose **Create "
+"Simple Volume**."
+msgstr ""
+
+#. type: Bullet: '1. '
+msgid ""
+"In the **New Volume** dialog, enter a label of your choice and select "
+"**Format**."
 msgstr ""
 
 #. type: Bullet: '1. '
@@ -240,57 +150,135 @@ msgid "Unplug the USB stick."
 msgstr ""
 
 #. type: Bullet: '1. '
-msgid "Plug the USB stick again."
-msgstr ""
-
-#. type: Bullet: '1. '
-msgid "A dialog appears to format the disk before using it."
-msgstr ""
-
-#. type: Plain text
-#, no-wrap
-msgid "   [[!img format.png class=\"screenshot\" alt=\"You need to format the disk before you can use it. Do you want to format it?\"]]\n"
-msgstr ""
-
-#. type: Bullet: '1. '
-msgid "Click on the **Format disk** button."
+msgid "Close the *Settings* app."
 msgstr ""
 
 #. type: Bullet: '1. '
 msgid ""
-"In the **Format USB Drive** dialog, review the settings and click **Start**."
+"Select the **Start** [[!img lib/start.png alt=\"\" class=\"symbolic\" "
+"link=\"no\"]] button and open the *File Explorer* app."
 msgstr ""
 
 #. type: Bullet: '1. '
-msgid ""
-"After the formatting is complete, the USB stick should appear as a new drive "
-"in the files browser."
+msgid "Plug back the USB stick."
 msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid "   Otherwise, try unplugging and plugging it again.\n"
+msgid "   Your new volume appears in the left sidebar of the *File Explorer*.\n"
 msgstr ""
 
-#. type: Title =
 #, no-wrap
-msgid "Troubleshooting"
-msgstr "حل مشکلات"
+#~ msgid "<div class=\"caution\">\n"
+#~ msgstr "<div class=\"caution\">\n"
 
-#. type: Bullet: '- '
+#, no-wrap
+#~ msgid "<p><b>You might overwrite any hard disk on the computer.</b></p>\n"
+#~ msgstr "<p><b>ممکن است هر سخت‌دیسک موجود روی رایانه را بازنویسی کنید.</b></p>\n"
+
+#, no-wrap
+#~ msgid "<p>If at some point you are not sure about which device to choose, stop proceeding.</p>\n"
+#~ msgstr "<p>اگر در هر مرحله‌ای شک دارید که کدام دستگاه را باید انتخاب کنید، در همین مرحله دست نگاه دارید.</p>\n"
+
+#, no-wrap
+#~ msgid "</div>\n"
+#~ msgstr "</div>\n"
+
 #, fuzzy
-msgid ""
-"[How to start the *Command Prompt*](https://www.computerhope.com/issues/"
-"chdos.htm)"
-msgstr ""
-"    [[کمک بیشتر برای راه‌اندازی <span class=\"application\">\n"
-"    پایانهٔ خط فرمان</span>|https://www.computerhope.com/issues/chdos.htm]]\n"
+#~ msgid "Make sure that the USB stick that you want to reset is unplugged."
+#~ msgstr ""
+#~ "مطمئن شوید که درایو یواس‌بی یا کارت حافظه‌ای که می‌خواستید دوباره تنظیم کنید "
+#~ "را از رایانه جدا کرده‌اید."
 
-#. type: Bullet: '- '
-msgid ""
-"[Microsoft: diskpart](https://learn.microsoft.com/en-us/windows-server/"
-"administration/windows-commands/diskpart)"
-msgstr ""
+#, fuzzy, no-wrap
+#~ msgid "   <p class=\"command-windows\">diskpart</p>\n"
+#~ msgstr "استفاده از *دیسک‌پارت*"
+
+#, fuzzy
+#~ msgid ""
+#~ "Execute the following command to obtain information about the disks in "
+#~ "the computer."
+#~ msgstr ""
+#~ "خط فرمان <span class=\"command\">list disk</span> را برای کسب اطلاعات در "
+#~ "مورد تمام دیسک‌ها در رایانه اجرا کنید."
+
+#, no-wrap
+#~ msgid "   For example:\n"
+#~ msgstr "   برای نمونه:\n"
+
+#, fuzzy, no-wrap
+#~ msgid "       Diskpart> list disk\n"
+#~ msgstr "        Diskpart> list disk\n"
+
+#, fuzzy, no-wrap
+#~ msgid ""
+#~ "         Disk ###  Status      Size     Free     Dyn  Gpt\n"
+#~ "         --------  ----------  -------  -------  ---  ---\n"
+#~ "         Disk 0    Online        80 GB      0 B\n"
+#~ msgstr ""
+#~ "          Disk ###  Status      Size     Free     Dyn  Gpt\n"
+#~ "          --------  ----------  -------  -------  ---  ---\n"
+#~ "          Disk 0    Online        80 GB      0 B\n"
+
+#, fuzzy, no-wrap
+#~ msgid ""
+#~ "   A new disk, which corresponds to the USB stick that you plugged in,\n"
+#~ "   appears in the list.\n"
+#~ msgstr "   یک دیسک جدید که به دستگاه مرتبط است در فهرست ظاهر می‌شود.\n"
+
+#, no-wrap
+#~ msgid "        Diskpart> list disk\n"
+#~ msgstr "        Diskpart> list disk\n"
+
+#, no-wrap
+#~ msgid ""
+#~ "          Disk ###  Status      Size     Free     Dyn  Gpt\n"
+#~ "          --------  ----------  -------  -------  ---  ---\n"
+#~ "          Disk 0    Online        80 GB      0 B\n"
+#~ "          Disk 1    Online         8 GB      0 B\n"
+#~ msgstr ""
+#~ "          Disk ###  Status      Size     Free     Dyn  Gpt\n"
+#~ "          --------  ----------  -------  -------  ---  ---\n"
+#~ "          Disk 0    Online        80 GB      0 B\n"
+#~ "          Disk 1    Online         8 GB      0 B\n"
+
+#, fuzzy, no-wrap
+#~ msgid ""
+#~ "   Make sure that its size corresponds to the size of the USB stick that you want to\n"
+#~ "   reset. Note down its disk number.\n"
+#~ msgstr ""
+#~ "   مطمئن شوید که حجم مورد نمایش حجم همان دستگاهی است که می‌خواهید آن را \n"
+#~ "   دوباره تنظیم کنید. شمارهٔ دیسک مشخص شده توسط <span\n"
+#~ "   class=\"application\">دیسک‌پارت</span> را یادداشت کنید.\n"
+
+#, fuzzy
+#~ msgid ""
+#~ "Execute the following command to delete the partition table from the USB "
+#~ "stick."
+#~ msgstr ""
+#~ "خط فرمان <span class=\"command\">clean</span> را برای پاک کردن جدول "
+#~ "پارتیشن از دستگاه اجرا کنید."
+
+#, fuzzy
+#~ msgid ""
+#~ "Execute the following command to create a new partition table on the USB "
+#~ "stick."
+#~ msgstr ""
+#~ "خط فرمان <span class=\"command\">convert mbr</span> را برای ایجاد یک جدول "
+#~ "پارتیشن جدید روی دستگاه اجرا کنید."
+
+#, no-wrap
+#~ msgid "Troubleshooting"
+#~ msgstr "حل مشکلات"
+
+#, fuzzy
+#~ msgid ""
+#~ "[How to start the *Command Prompt*](https://www.computerhope.com/issues/"
+#~ "chdos.htm)"
+#~ msgstr ""
+#~ "    [[کمک بیشتر برای راه‌اندازی <span class=\"application\">\n"
+#~ "    پایانهٔ خط فرمان</span>|https://www.computerhope.com/issues/"
+#~ "chdos.htm]]\n"
 
 #, no-wrap
 #~ msgid "<div class=\"bug\">\n"
@@ -358,8 +346,8 @@ msgstr ""
 #~ "دوباره تنظیم کنید جایگزین کنید."
 
 #~ msgid ""
-#~ "See the [[Diskpart documentation from Microsoft Support|http://support."
-#~ "microsoft.com/kb/300415]]."
+#~ "See the [[Diskpart documentation from Microsoft Support|http://"
+#~ "support.microsoft.com/kb/300415]]."
 #~ msgstr ""
-#~ "رجوع کنید به [[سند دیسک‌پارت در پشتیبان مایکروسافت|http://support."
-#~ "microsoft.com/kb/300415]]."
+#~ "رجوع کنید به [[سند دیسک‌پارت در پشتیبان مایکروسافت|http://"
+#~ "support.microsoft.com/kb/300415]]."

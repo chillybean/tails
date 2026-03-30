@@ -8,14 +8,14 @@
 # Matej Plavevski <matej.plavevski+github@gmail.com>, 2019
 # Nena <nena100janovska@gmail.com>, 2019
 # Zarko Gjurov <zarkogjurov@gmail.com>, 2019-2022
-# emma peel <emma.peel@riseup.net>, 2025.
+# emma peel <emma.peel@riseup.net>, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-14 10:05+0100\n"
-"PO-Revision-Date: 2025-10-11 09:44+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"POT-Creation-Date: 2026-03-23 12:26+0100\n"
+"PO-Revision-Date: 2026-02-13 14:09+0000\n"
+"Last-Translator: emma peel <emma.peel@riseup.net>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/tor/tails-gui/"
 "mk/>\n"
 "Language: mk\n"
@@ -23,9 +23,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : 1;\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 5.16-dev\n"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:242
 #, python-brace-format
 msgid ""
 "{details} Please check your list of additional software or read the system "
@@ -34,7 +34,7 @@ msgstr ""
 "{details} Ве молиме проверете ја вашата листа на дополнителен софтвер или "
 "прочитајте го системскиот лог за да го разберете проблемот."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:216
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:249
 msgid ""
 "Please check your list of additional software or read the system log to "
 "understand the problem."
@@ -42,13 +42,27 @@ msgstr ""
 "Ве молиме проверете ја вашата листа на дополнителен софтвер или прочитајте "
 "го системскиот лог за да ја разберете грешката."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:222
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:255
 msgid "Show Log"
 msgstr "Приказ на лог"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:222
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:255
 msgid "Configure"
 msgstr "Конфигурирај"
+
+#: config/chroot_local-includes/usr/local/lib/change-apps-menu-name:25
+#, fuzzy
+msgid "Password Manager"
+msgstr "Лозинка"
+
+#: config/chroot_local-includes/usr/local/lib/change-apps-menu-name:26
+#, fuzzy
+msgid "password"
+msgstr "Лозинка"
+
+#: config/chroot_local-includes/usr/local/lib/change-apps-menu-name:26
+msgid "password-manager"
+msgstr ""
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:57
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:95
@@ -74,7 +88,7 @@ msgstr "Инсталирај само еднаш"
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:74
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:112
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:213
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:206
 msgid "The configuration of your additional software failed."
 msgstr "Конфигурацијата на вашиот дополнителен софтвер не успеа."
 
@@ -108,29 +122,29 @@ msgstr "Можеш да ги инсталираш {packages} автоматск�
 msgid "To do so, you need to run Tails from a USB stick."
 msgstr "За да го направите тоа, потребно е да го стартувате Tails од USB стик."
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:197
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:190
 #, python-brace-format
 msgid "Remove {packages} from your additional software?"
 msgstr "Да се отстрани {packages} од вашиот дополнителен софтвер?"
 
 #. Translators: Don't translate {packages}, it's a placeholder
 #. and will be replaced.
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:202
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:195
 #, python-brace-format
 msgid "This will stop installing {packages} automatically."
 msgstr "Ова ќе го запре автоматското инсталирање на {packages}."
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:205
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:198
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:188
 msgid "Remove"
 msgstr "Отстрани"
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:206
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:199
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/add_settings_dialog.py:40
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:182
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:503
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:777
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:917
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:185
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:199
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:525
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:945
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:744
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:128
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:376
@@ -139,21 +153,21 @@ msgstr "Откажи"
 
 #. Translators: Don't translate {beginning} or {last}, they are
 #. placeholders and will be replaced.
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:226
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:219
 #, python-brace-format
 msgid "{beginning} and {last}"
 msgstr "{beginning} и {last}"
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:227
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:220
 msgid ", "
 msgstr ", "
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:45
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:46
 msgid "The check for upgrades of your additional software failed"
 msgstr "Проверката за надградби на вашиот дополнителен софтвер на успеа"
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:47
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:59
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:48
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:60
 msgid ""
 "Please check your network connection, restart Tails, or read the system log "
 "to understand the problem."
@@ -161,29 +175,29 @@ msgstr ""
 "Ве молиме проверете го вашето мрежно поврзување, повторно стартувајте го "
 "Tails, или прочитајте го системскиот лог за да го разберете проблемот."
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:57
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:58
 msgid "The upgrade of your additional software failed"
 msgstr "Надградбата на вашиот дополнителен софтвер не успеа"
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:127
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:128
 msgid "Installing your additional software from persistent storage..."
 msgstr "Инсталирање на вашиот дополнителен софтвер од постојаниот склад...."
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:128
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:129
 msgid "This can take several minutes."
 msgstr "Ова може да потрае неколку минути."
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:146
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:147
 msgid "The installation of your additional software failed"
 msgstr "Инсталацијата на вашиот дополнителен софтвер не успеа"
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:161
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:162
 msgid "Additional software installed successfully"
 msgstr "Дополнителниот софтвер беше успешно инсталиран"
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:8
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop.in.h:1
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:646
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:648
 msgid "Additional Software"
 msgstr "Дополнителен софтвер"
 
@@ -234,27 +248,27 @@ msgid ""
 "\n"
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/bin/electrum:149
+#: config/chroot_local-includes/usr/local/bin/electrum:140
 msgid "Donate Now"
 msgstr "Донирај сега"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:151
+#: config/chroot_local-includes/usr/local/bin/electrum:142
 msgid "Later"
 msgstr "Podocna"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:165
+#: config/chroot_local-includes/usr/local/bin/electrum:156
 msgid "Opening Electrum with our donation address..."
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/bin/electrum:166
+#: config/chroot_local-includes/usr/local/bin/electrum:157
 msgid "Thank you for making the Internet a safer place!"
 msgstr ""
 
-#: config/chroot_local-includes/usr/local/bin/electrum:200
+#: config/chroot_local-includes/usr/local/bin/electrum:191
 msgid "Persistence is disabled for Electrum"
 msgstr "Постојаноста е оневозможена за Electrum"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:202
+#: config/chroot_local-includes/usr/local/bin/electrum:193
 msgid ""
 "When you reboot Tails, all of Electrum's data will be lost, including your "
 "Bitcoin wallet.\n"
@@ -266,15 +280,15 @@ msgstr ""
 "Силно се препорачува да се стартува Electrum кога неговата постојана "
 "карактеристика е активирана."
 
-#: config/chroot_local-includes/usr/local/bin/electrum:204
+#: config/chroot_local-includes/usr/local/bin/electrum:195
 msgid "Do you want to start Electrum anyway?"
 msgstr "Дали сепак сакаш да го стартуваш Electrum?"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:210
+#: config/chroot_local-includes/usr/local/bin/electrum:201
 msgid "_Launch"
 msgstr "_Лансирање"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:211
+#: config/chroot_local-includes/usr/local/bin/electrum:202
 msgid "_Exit"
 msgstr "_Излез"
 
@@ -406,10 +420,9 @@ msgstr ""
 "нема достапно автоматско ажурирање за оваа верзија на нашата веб страна"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:365
-#, fuzzy
 msgid "your device was not created using a USB image or Tails Cloner"
 msgstr ""
-"твојот уред не беше создаден со користење на USB слика или со Tails Installer"
+"твојот уред не беше создаден со користење на USB слика или со Tails Cloner"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:370
 msgid "Tails was started from a DVD or a read-only device"
@@ -466,7 +479,6 @@ msgstr ""
 "само {free_memory} е достапна."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:473
-#, fuzzy
 msgid ""
 "An error occurred while detecting available upgrades.\n"
 "This should not happen. Please report a bug."
@@ -763,12 +775,12 @@ msgstr "Исклучено"
 msgid "Off (default)"
 msgstr "Исклучено (стандардно)"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:178
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:181
 #, fuzzy
 msgid "Persistent Storage Still Locked"
 msgstr "Создај Постојан склад"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:180
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:183
 #, fuzzy
 msgid ""
 "Do you really want to start Tails without unlocking your Persistent Storage?"
@@ -776,74 +788,17 @@ msgstr ""
 "Дали навистина сакате повторно да го стартувате Tails сега?\\n\\nЦелата ваша "
 "моментална работа ќе биде загубена."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:183
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:186
 #, fuzzy
 msgid "Start Without Persistent Storage"
 msgstr "Создај Постојан склад"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:267
-msgid ""
-"Impossible to unlock the Persistent Storage because the USB stick is read-"
-"only."
-msgstr ""
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:428
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:460
-msgid "Unlocking…"
-msgstr "Отклучување…"
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:468
-#, fuzzy
-msgid "Checking the file system…"
-msgstr "Верификација на системската датотека..."
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:501
-#, fuzzy
-msgid "Repairing the File System"
-msgstr "Верификација на системската датотека..."
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:502
-#, fuzzy
-msgid "This might take a long time..."
-msgstr "Ова може да потрае..."
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:520
-#, fuzzy
-msgid "Failed to repair the file system of your Persistent Storage."
-msgstr "Не успеа кофигурирањето на вашиот Постојан склад."
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:522
-msgid "Start Tails to send an error report and learn how to recover your data."
-msgstr ""
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:536
-msgid "File System Repaired Successfully"
-msgstr ""
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:538
-msgid ""
-"It's possible that some data was lost during the repair. Please check the "
-"contents of your Persistent Storage and restore any lost data from a backup."
-msgstr ""
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:542
-#: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:32
-msgid "Close"
-msgstr "Затвори"
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:557
-msgid ""
-"You aborted the repair of the file system. You can either start Tails "
-"without Persistent Storage or restart the computer to try repairing the file "
-"system again."
-msgstr ""
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:771
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:193
 #, fuzzy
 msgid "Language and Keyboard layout"
 msgstr "_Распоред на тастатура"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:773
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:195
 msgid ""
 "Your language and keyboard layout will be saved unencrypted on your Tails "
 "USB stick and applied automatically in the future.\n"
@@ -852,93 +807,150 @@ msgid ""
 "layout."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:778
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:200
 msgid "Save Unencrypted"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:839
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:288
+msgid ""
+"Impossible to unlock the Persistent Storage because the USB stick is read-"
+"only."
+msgstr ""
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:449
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:482
+msgid "Unlocking…"
+msgstr "Отклучување…"
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:490
+#, fuzzy
+msgid "Checking the file system…"
+msgstr "Верификација на системската датотека..."
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:523
+#, fuzzy
+msgid "Repairing the File System"
+msgstr "Верификација на системската датотека..."
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:524
+#, fuzzy
+msgid "This might take a long time..."
+msgstr "Ова може да потрае..."
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:542
+#, fuzzy
+msgid "Failed to repair the file system of your Persistent Storage."
+msgstr "Не успеа кофигурирањето на вашиот Постојан склад."
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:544
+msgid "Start Tails to send an error report and learn how to recover your data."
+msgstr ""
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:559
+msgid "File System Repaired Successfully"
+msgstr ""
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:561
+msgid ""
+"It's possible that some data was lost during the repair. Please check the "
+"contents of your Persistent Storage and restore any lost data from a backup."
+msgstr ""
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:565
+#: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:32
+msgid "Close"
+msgstr "Затвори"
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:580
+msgid ""
+"You aborted the repair of the file system. You can either start Tails "
+"without Persistent Storage or restart the computer to try repairing the file "
+"system again."
+msgstr ""
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:866
 msgid "Start Tails and open the Persistent Storage settings to find out more."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:868
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:896
 #, fuzzy
 msgid ""
 "Your Persistent Storage is unlocked. Its content will be available until you "
 "shut down Tails."
 msgstr "Вашиот постојан скалд е отклучен. Повторно стартувајте го Tails."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:883
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:911
 msgid "Incorrect passphrase. Please try again."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:894
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:922
 msgid ""
 "Error reading data from your Persistent Storage. The hardware of your USB "
 "stick is probably failing."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:896
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:924
 msgid "Start Tails to learn how to recover your data."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:907
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:935
 msgid "File System Errors"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:909
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:937
 msgid ""
 "Errors were detected in the file system of your Persistent Storage.\n"
-"                \n"
+"\n"
 "Tails can try to fix these errors, but this might erase some of your data "
 "and take a long time.\n"
 "\n"
 "If you already have an up-to-date backup of your Persistent Storage, we "
 "recommend that you try to repair.\n"
-"                \n"
+"\n"
 "If you don't have a backup, we recommend that you create a partition image "
 "of your Persistent Storage first."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:918
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:946
 msgid "Repair File System"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:919
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:947
 #, fuzzy
 msgid "Create Partition Image"
 msgstr "Создај Постојан склад"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:930
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:958
 #, fuzzy
 msgid ""
 "Start Tails to learn how to create a partition image of your Persistent "
 "Storage."
 msgstr "Не успеа кофигурирањето на вашиот Постојан склад."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:939
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:967
 #, fuzzy
 msgid "Failed to unlock the Persistent Storage due to file system errors."
 msgstr "Не успеа кофигурирањето на вашиот Постојан склад."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:948
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:976
 msgid ""
 "Failed to upgrade the Persistent Storage. Please start Tails and send an "
 "error report."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:955
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:983
 msgid ""
 "Failed to unlock the Persistent Storage. Please start Tails and send an "
 "error report."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:963
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:991
 msgid ""
 "Failed to activate the Persistent Storage. Please start Tails and send an "
 "error report."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:974
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:1002
 #, fuzzy
 msgid "Upgrading the Persistent Storage. This might take a while…"
 msgstr "Создавањето на вашиот постојан склад не успеа."
@@ -984,7 +996,7 @@ msgid "Unable to write on %(device)s, skipping."
 msgstr "Не може да се запише на %(device)s, се прескокнува."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:371
-#, fuzzy, python-format
+#, python-format
 msgid "Wrote to device at %(speed)d MB/s"
 msgstr "Напишано на уредот со %(speed)d МБ/сек"
 
@@ -1279,7 +1291,7 @@ msgid "The device \"%(pretty_name)s\" is read-only."
 msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:608
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "The device \"%(pretty_name)s\" is too small to install Tails (at least "
 "%(size)s GB is required)."
@@ -1431,17 +1443,16 @@ msgstr ""
 msgid "Could not open device for writing."
 msgstr "Уредот не можеше да биде отворен за впишување."
 
-#: config/chroot_local-includes/usr/local/bin/keepassxc:19
-#, sh-format
+#: config/chroot_local-includes/usr/local/bin/secrets:19
+#, fuzzy, sh-format
 msgid ""
-"<b><big>Do you want to rename your <i>KeePassXC</i> database?</big></b>\n"
-"\n"
-"You have a <i>KeePassXC</i> database in your <i>Persistent</i> folder:\n"
+"You have a <i>KeePassXC</i> or <i>Secrets</i> database in your "
+"<i>Persistent</i> folder:\n"
 "\n"
 "<i>${filename}</i>\n"
 "\n"
-"Renaming your database to <i>${default_filename}</i> would allow "
-"<i>KeePassXC</i> to open it automatically in the future."
+"Renaming your database to <i>${default_filename}</i> allows <i>Secrets</i> "
+"to open it automatically in the future."
 msgstr ""
 "<b><big>Дали сакате да ја преименувате вашата <i>KeePassXC</i> база на "
 "податоци?</big></b>\n"
@@ -1454,16 +1465,19 @@ msgstr ""
 "Преименувањето на вашата база на податоци во <i>${default_filename}</i> ќе "
 "ви овозможи <i>KeePassXC</i> да се отвора автоматски во иднина."
 
-#: config/chroot_local-includes/usr/local/bin/keepassxc:28
+#: config/chroot_local-includes/usr/local/bin/secrets:25
 msgid "Rename"
 msgstr "Преименување"
 
-#: config/chroot_local-includes/usr/local/bin/keepassxc:30
+#: config/chroot_local-includes/usr/local/bin/secrets:27
 msgid "Keep current name"
 msgstr "Задржи го моменталното име"
 
+#: config/chroot_local-includes/usr/local/bin/secrets:29
+msgid "Rename Password Database?"
+msgstr ""
+
 #: config/chroot_local-includes/usr/local/bin/replace-su-with-sudo:19
-#, fuzzy
 msgid "su is disabled. Please use sudo instead."
 msgstr "su е оневозможен. Ве молиме користете sudo"
 
@@ -1493,6 +1507,7 @@ msgid "Dismiss"
 msgstr "Otfrli"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:11
+#: config/chroot_local-includes/usr/local/lib/tails-additional-software-notify:63
 #: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:44
 #: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:45
 msgid "Learn More"
@@ -1536,10 +1551,9 @@ msgstr ""
 #: config/chroot_local-includes/usr/local/bin/tails-upgrade-frontend-wrapper:79
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/application.py:79
 #: config/chroot_local-includes/usr/local/sbin/unsafe-browser:37
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:318
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:464
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:597
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1100
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:375
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:521
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:654
 msgid "Error"
 msgstr "Грешка"
 
@@ -1599,10 +1613,6 @@ msgstr ""
 #, python-format
 msgid "Built from %s"
 msgstr ""
-
-#: config/chroot_local-includes/usr/local/lib/tails-additional-software-notify:63
-msgid "Documentation"
-msgstr "Документација"
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:114
 #, python-brace-format
@@ -1695,7 +1705,6 @@ msgstr ""
 
 #: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:41
 #: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:42
-#, fuzzy
 msgid "Don't Show Again"
 msgstr "Не појавувај повторно."
 
@@ -1713,7 +1722,7 @@ msgid "Show Password"
 msgstr "Лозинка"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:151
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2281
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2580
 msgid "Password"
 msgstr "Лозинка"
 
@@ -1874,11 +1883,24 @@ msgstr ""
 msgid "Tor Connection"
 msgstr "Tor Поврзување"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:218
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:283
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:331
+msgid "Automatic"
+msgstr ""
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:284
+msgid "Frequently selected regions"
+msgstr ""
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:291
+msgid "Other regions"
+msgstr ""
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:369
 msgid "_Use a bridge that you already know"
 msgstr "_Користи мост кој е веќе познат"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:260
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:411
 #, fuzzy
 msgid ""
 "To save your bridge, <a href=\"doc/persistent_storage\">unlock your "
@@ -1887,7 +1909,7 @@ msgstr ""
 "За да го зачувате вашиот мост, <a href=\"doc/first_steps/"
 "persistence\">отклучете го Постојаниот склад</a>."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:267
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:418
 #, fuzzy
 msgid ""
 "To save your bridge, <a href=\"doc/persistent_storage\">create a Persistent "
@@ -1896,92 +1918,107 @@ msgstr ""
 "За да го зачувате вашиот мост, <a href=\"doc/first_steps/"
 "persistence\">создадете Постојан склад</a> на вашиот Tails USB стик."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:287
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:810
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:438
 #, python-brace-format
 msgid "Invalid: {exception}"
 msgstr "Неточно: {exception}"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:299
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:823
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:450
 #, fuzzy
 msgid ""
 "You need to configure a WebTunnel or an obfs4 bridge to hide that you are "
 "using Tor"
 msgstr "Треба да конфигурирате obfs4 мост за да сокриете дека користите Tor"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:354
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:514
 #, fuzzy
 msgid "Failed to configure your Persistent Storage"
 msgstr "Не успеа кофигурирањето на вашиот Постојан склад."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:406
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:566
 msgid "Failed to detect a webcam. Maybe your webcam is too old."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:417
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:577
 msgid "Failed to scan QR code. Try with more light or closer to the camera."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:428
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:588
 msgid "Invalid QR code. Try sending another email and scanning again."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:486
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:649
 msgid "Synchronizing the system's clock…"
 msgstr "Синхронизација со часовникот на системот…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:538
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:726
+#, fuzzy
+msgid "Asking for a Tor bridge based on your region…"
+msgstr "• Мост преку е-пошта"
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:774
 msgid "Connecting to Tor without bridges…"
 msgstr "Поврзување на Tor без мостови…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:545
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:569
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:781
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:813
 msgid "Connecting to Tor with default bridges…"
 msgstr "Поврзување на Tor со стандардните мостови…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:552
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:789
+#, fuzzy
+msgid "Connecting to Tor with a bridge based on your region…"
+msgstr "Поврзување на Tor со стандардните мостови…"
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:796
 msgid "Connecting to Tor with a custom bridge…"
 msgstr "Поврзување на Tor со прилагоден мост…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:660
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:914
 msgid "Connected to Tor successfully with bridges"
 msgstr "Успешно поврзување на Tor преку мостови"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:662
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2041
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:916
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2340
 msgid "Connected to Tor successfully"
 msgstr "Успешно поврзувањето на Tor"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:666
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2066
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:920
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2365
 msgid "You can now browse the Internet anonymously and uncensored."
 msgstr "Сега можете да прелистувате на Интернет анонимно и нецензурирано."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:738
-#, fuzzy
-msgid "This local network seems to be blocking access to Tor."
-msgstr "Вашата локална мрежа го блокира пристапот до Tor."
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:813
-msgid "Bridge address malformed"
-msgstr "Адресата на мостот е неисправна"
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:831
-msgid "Setting a bridge is needed if you want to hide that you are using Tor"
+#. Translators: only translate "Bridge:" and adjust
+#. text-direction
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:985
+#, python-brace-format
+msgid "Bridge: <b>{bridge}</b>"
 msgstr ""
-"Поставувањето на мост е потребно ако сакате да сокриете дека користите Tor"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1070
+#. Translators: only translate "Error code:" and adjust
+#. text-direction
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:997
+#, python-brace-format
+msgid "Error code: {code}"
+msgstr ""
+
+#. Translators: only translate "Proxy:" and adjust
+#. text-direction
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1024
+#, python-brace-format
+msgid "Proxy: <b>{proxy}</b>"
+msgstr ""
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1323
 #, python-brace-format
 msgid "Scanned {bridge_type} bridge: <b>{bridge_info}</b>."
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1159
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1408
 msgid "Are you sure you want to lose progress?"
 msgstr "Дали сте сигурни дека сакате да го изгубите постигнатото?"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1163
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1412
 msgid ""
 "Tails will continue connecting to Tor after you close the Tor Connection "
 "assistant.\n"
@@ -1996,11 +2033,11 @@ msgstr ""
 "на полнењето на лентата за да можете да го решите проблемот со вашето "
 "поврзување."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1169
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1418
 msgid "Close and Lose Progress"
 msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1171
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1420
 msgid "Wait"
 msgstr ""
 
@@ -2030,7 +2067,7 @@ msgid "Open Tor Connection Assistant"
 msgstr "Отвори Tor Поврзување"
 
 #: config/chroot_local-includes/usr/share/gnome-shell/extensions/torstatus@tails.boum.org/extension.js:51
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2107
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2406
 msgid "View Tor Circuits"
 msgstr "Види Tor Кругови"
 
@@ -2097,7 +2134,7 @@ msgstr ""
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/application.py:30
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:49
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:1
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:25
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:24
 #, fuzzy
 msgid "Persistent Storage"
 msgstr "Создај Постојан склад"
@@ -2217,8 +2254,8 @@ msgid "{app} (PIDs: {pids})"
 msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/change_passphrase_dialog.py:37
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:8
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:56
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:15
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:55
 #, fuzzy
 msgid "Change Passphrase"
 msgstr "Покажи лозинка"
@@ -2288,7 +2325,7 @@ msgstr "Не успеа кофигурирањето на вашиот Пост�
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:183
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:218
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:36
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:35
 #, fuzzy
 msgid "Delete Persistent Storage"
 msgstr "Создај Постојан склад"
@@ -2301,8 +2338,8 @@ msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:191
 #: config/chroot_local-includes/usr/local/sbin/unsafe-browser:56
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:304
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:121
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:301
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:124
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:219
 msgid "_Cancel"
 msgstr "_Исклучи"
@@ -3043,7 +3080,7 @@ msgstr ""
 msgid "Network Configuration"
 msgstr "Конфигурирање на мрежа"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:95
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:94
 #, fuzzy
 msgid "Current _Passphrase"
 msgstr "Лозинка:"
@@ -3058,32 +3095,32 @@ msgstr "Покажи лозинка"
 msgid "_Confirm New Passphrase"
 msgstr "Покажи лозинка"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:215
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:219
 #, fuzzy
 msgid "_Show Passphrases"
 msgstr "Покажи лозинка"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:253
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:301
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:289
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:161
 #, fuzzy
 msgid "The passphrases do not match"
 msgstr "Лозинките не се исти"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:317
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:315
 msgid "Ch_ange"
 msgstr ""
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/deleted_view.ui.in:21
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/deleted_view.ui.in:20
 #, fuzzy
 msgid "The Persistent Storage was successfully deleted."
 msgstr "Избриши Постојан склад и Пре-инсталирај"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/deleted_view.ui.in:32
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/deleted_view.ui.in:36
 msgid "_Close"
 msgstr "_Затвори"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/fail_view.ui.in:30
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/fail_view.ui.in:31
 msgid "Oh no! Something has gone wrong."
 msgstr ""
 
@@ -3095,12 +3132,12 @@ msgid ""
 "to investigate:"
 msgstr ""
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/fail_view.ui.in:74
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/fail_view.ui.in:78
 #, fuzzy
 msgid "Send Error Report"
 msgstr "ШепотиНазад Пријавување грешка"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:61
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:63
 msgid ""
 "Your Persistent Storage is unlocked.\n"
 "\n"
@@ -3110,195 +3147,195 @@ msgid ""
 "Persistent Storage.</a>"
 msgstr ""
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:89
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:91
 msgid ""
 "Turn on the features of the Persistent Storage for the data that you want to "
 "save to your Tails USB stick."
 msgstr ""
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:106
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:108
 #, fuzzy
 msgid "Personal Documents"
 msgstr "Лични податоци"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:134
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:136
 #, fuzzy
 msgid "Persistent Folder"
 msgstr "Избриши го постојаниот простор"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:135
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:137
 msgid "A folder where you can save your documents."
 msgstr ""
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:160
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:162
 #, fuzzy
 msgid "Open Persistent Folder"
 msgstr "Избриши го постојаниот простор"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:173
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:175
 #, fuzzy
 msgid "Activate Persistent Folder"
 msgstr "Создај Постојан склад"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:200
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:202
 #, fuzzy
 msgid "System Settings"
 msgstr "Основни поставки"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:228
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:230
 msgid "Welcome Screen"
 msgstr "Екран за Добредојде"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:244
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:246
 #, fuzzy
 msgid "Activate Welcome Screen"
 msgstr "Екран за Добредојде"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:257
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:259
 msgid "Printers"
 msgstr "Печатачи"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:273
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:275
 #, fuzzy
 msgid "Activate Printers"
 msgstr "Печатачи"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:300
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:302
 msgid "Network"
 msgstr "Мрежа"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:328
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:330
 msgid "Network Connections"
 msgstr "Поврзување на мрежа"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:329
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:331
 msgid "Save Wi-Fi passwords and mobile broadband configuration."
 msgstr ""
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:345
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:347
 #, fuzzy
 msgid "Activate Network Connections"
 msgstr "Поврзување на мрежа"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:358
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:360
 msgid "Tor Bridge"
 msgstr "Tor Мост"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:374
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:376
 #, fuzzy
 msgid "Activate Tor Bridge"
 msgstr "Tor Мост"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:401
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:403
 msgid "Applications"
 msgstr ""
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:429
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:431
 #, fuzzy
 msgid "Tor Browser Bookmarks"
 msgstr "Облежувачи на прелистувачот"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:445
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:447
 #, fuzzy
 msgid "Activate Tor Browser Bookmarks"
 msgstr "Облежувачи на прелистувачот"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:458
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:460
 #, fuzzy
 msgid "Electrum Bitcoin Wallet"
 msgstr "Биткоин паричник и конфигурирање на Electrum"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:474
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:476
 #, fuzzy
 msgid "Activate Electrum Bitcoin Wallet"
 msgstr "Биткоин паричник и конфигурирање на Electrum"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:487
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:489
 #, fuzzy
 msgid "Thunderbird Email Client"
 msgstr "Thunderbird"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:503
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:505
 msgid "Activate Thunderbird Email Client"
 msgstr ""
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:516
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:518
 msgid "GnuPG"
 msgstr "GnuPG"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:517
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:519
 #, fuzzy
 msgid "OpenPGP keys outside of Thunderbird, including in Kleopatra."
 msgstr "OpenPGP клучеви во GnuPG и Kleopatra"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:533
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:535
 msgid "Activate GnuPG"
 msgstr ""
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:546
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:548
 msgid "Pidgin Internet Messenger"
 msgstr ""
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:562
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:564
 msgid "Activate Pidgin Internet Messenger"
 msgstr ""
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:575
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:577
 msgid "SSH Client"
 msgstr "SSH клиент"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:591
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:593
 #, fuzzy
 msgid "Activate SSH Client"
 msgstr "SSH клиент"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:618
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:620
 #, fuzzy
 msgid "Advanced Settings"
 msgstr "Дополнителни поставки"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:647
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:649
 #, fuzzy
 msgid "Install additional software automatically when starting Tails."
 msgstr ""
 "Може да инсталирате дополнителен софтвер автоматски од вашиот постојан склад "
 "кога се стартува Tails."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:672
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:674
 #, fuzzy
 msgid "Configure Additional Software"
 msgstr "Дополнителен софтвер"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:685
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:687
 #, fuzzy
 msgid "Activate Additional Software"
 msgstr "Дополнителен софтвер"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:698
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:700
 msgid "Dotfiles"
 msgstr "Дотдатотеки"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:699
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:701
 #, fuzzy
 msgid "Symlink every file in the Dotfiles folder into the Home folder."
 msgstr "Симлинкувај ја секоја датотека во Dotfiles фолдерот во Дома фолдерот"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:732
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:734
 #, fuzzy
 msgid "Activate Dotfiles"
 msgstr "Дотдатотеки"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:764
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:766
 msgid "Custom"
 msgstr "Прилагодено"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:783
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:785
 msgid ""
 "To add or remove custom features, modify /live/persistence/"
 "TailsData_unlocked/persistence.conf."
 msgstr ""
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:825
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:827
 #, fuzzy
 msgid ""
 "<a href=\"doc/persistent_storage\">Learn more about the Persistent Storage.</"
@@ -3307,7 +3344,7 @@ msgstr ""
 "За да го зачувате вашиот мост, <a href=\"doc/first_steps/"
 "persistence\">отклучете го Постојаниот склад</a>."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/locked_view.ui.in:52
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/locked_view.ui.in:53
 msgid ""
 "<b>Your Persistent Storage is locked.</b>\n"
 "\n"
@@ -3318,42 +3355,42 @@ msgid ""
 "title bar."
 msgstr ""
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:62
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:60
 msgid ""
 "Choose the passphrase that you will use to unlock the encryption of your "
 "Persistent Storage and all its data."
 msgstr ""
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:82
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:80
 msgid "We recommend a long passphrase of 5 to 7 random words."
 msgstr ""
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:94
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:92
 msgid " For example:"
 msgstr " На пример:"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:186
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:175
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:46
 msgid "Passphrase:"
 msgstr "Лозинка:"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:205
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:194
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:65
 msgid "Confirm:"
 msgstr "Потврди:"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:325
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:317
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:185
 #, fuzzy
 msgid "_Show Passphrase"
 msgstr "Покажи лозинка"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:375
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:361
 #, fuzzy
 msgid "_Back"
 msgstr "Назад"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:391
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:378
 #, fuzzy
 msgid "_Create Persistent Storage"
 msgstr "Создај Постојан склад"
@@ -3374,7 +3411,7 @@ msgid ""
 "a>"
 msgstr ""
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:92
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:93
 msgid ""
 "Sorry, it is impossible to create a Persistent Storage on this device.\n"
 "\n"
@@ -3382,7 +3419,7 @@ msgid ""
 "instructions on <a href=\"install\">installing Tails on a USB stick</a>."
 msgstr ""
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:137
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:141
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:232
 msgid "Co_ntinue"
 msgstr ""
@@ -3554,7 +3591,8 @@ msgid "TrueCrypt/VeraCrypt container"
 msgstr "TrueCrypt/VeraCrypt контејнер"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:82
-msgid "Configure a Tor bridge"
+#, fuzzy
+msgid "Configure a Tor Bridge"
 msgstr "Конфигурирај Тор мост"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:106
@@ -3586,16 +3624,21 @@ msgid "WebTunnel"
 msgstr "WebTunnel"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:208
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1522
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1821
 msgid "None"
 msgstr "Ништо"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:244
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:242
+#, fuzzy
+msgid "Ask for a Tor bridge based on your _region"
+msgstr "• Мост преку е-пошта"
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:301
 #, fuzzy
 msgid "_Ask for a Tor bridge by email"
 msgstr "• Мост преку е-пошта"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:263
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:320
 #, fuzzy
 msgid ""
 "Send an empty email to <tt>bridges@torproject.org</tt> from a Gmail or "
@@ -3608,75 +3651,143 @@ msgstr ""
 "На пример, можете да ја испратите е-поштата од вашиот телефон и да го "
 "впишете мостот во Tails.\n"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:276
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:333
 msgid "Scan _QR code"
 msgstr ""
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:377
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:434
 msgid "_Enter a bridge that you already know"
 msgstr "_Внеси мост кој е веќе познат"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:403
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1044
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:460
 msgid "Bridge"
 msgstr "Мост"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:416
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1057
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:473
 msgid "obfs4 or webtunnel…"
 msgstr ""
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:489
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:546
 msgid "Save bridge to _Persistent Storage"
 msgstr "Зачувај мост на _Постојаниот склад"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:514
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:571
 msgid "Save bridge to Persistent Storage"
 msgstr "Зачувај мост на Постојаниот склад"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:654
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1162
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1560
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:711
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1462
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1859
 msgid "_Connect to Tor"
 msgstr "_Поврзи се на Tor"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:696
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:763
 msgid "Error connecting to Tor"
 msgstr "Грешка при поврзувањето на Tor"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:740
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:783
+#, fuzzy
+msgid "This local network seems to be blocking access to Tor."
+msgstr "Вашата локална мрежа го блокира пристапот до Tor."
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:811
+#, fuzzy
+msgid "Error connecting to Tor with this bridge"
+msgstr "Поврзување на Tor без мостови…"
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:827
+msgid ""
+"Either this Tor bridge is not working or your network is blocking access to "
+"it."
+msgstr ""
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:856
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:930
+#, fuzzy
+msgid "Try configuring another bridge."
+msgstr "Конфигурирај Тор мост"
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:884
+#, fuzzy
+msgid "Error connecting to Tor with default bridges"
+msgstr "Поврзување на Tor со стандардните мостови…"
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:900
+#, fuzzy
+msgid "Your network is blocking access to Tor and the default bridges."
+msgstr "Вашата локална мрежа го блокира пристапот до Tor."
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:916
+#, fuzzy
+msgid "Bridge: <b>default bridges</b>"
+msgstr "Користи _стандарден мост"
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:958
+#, fuzzy
+msgid "Error connecting to Tor with bridges"
+msgstr "Поврзување на Tor без мостови…"
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:974
+msgid "None of the bridges recommended for this region worked."
+msgstr ""
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:990
+msgid "Try another region or getting a bridge by mail."
+msgstr ""
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1018
+#, fuzzy
+msgid "Error asking for a bridge"
+msgstr "Грешка при проверката за ажурирања"
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1034
+msgid "Tails failed to ask for a bridge based on your region."
+msgstr ""
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1050
+msgid ""
+"Please, <a href=\"support/talk\">report this error</a> and try asking for a "
+"bridge by email."
+msgstr ""
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1087
+#, fuzzy
+msgid "Open _details"
+msgstr "Tails Installer"
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1142
 msgid "• Wrong clock"
 msgstr "• Погрешен часовник"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:760
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1162
 msgid "Your clock and time zone need to be correct to connect to Tor."
 msgstr ""
 "Вашиот часовник и временската зона треба да бидат точни за да се поврзете на "
 "Tor."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:773
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1175
 msgid "Fix _Clock"
 msgstr "Поправи _Часовник"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:811
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1213
 msgid "• Public network"
 msgstr "• Јавна мрежа"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:831
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1233
 msgid ""
 "If you are in a shop, hotel, or airport, you might need to sign in to the "
 "local network using the Unsafe Browser."
 msgstr ""
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:844
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1246
 msgid "Try _Signing in to the Network"
 msgstr "Обиди се со _Најавуавње на мрежа"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:883
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1285
 msgid "• Local proxy"
 msgstr "• Локално прокси"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:903
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1305
 msgid ""
 "If you are on a corporate or university network, you might need to configure "
 "a local proxy."
@@ -3684,16 +3795,16 @@ msgstr ""
 "Ако сте на мрежа на компанија или на универзитет, можеби ќе треба да "
 "конфигурирате локално прокси."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:916
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1335
 msgid "Configure a Local _Proxy"
 msgstr "Конфигурирај локално _прокси"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:955
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1374
 #, fuzzy
-msgid "• Tor bridge by email"
+msgid "• Tor bridge"
 msgstr "• Мост преку е-пошта"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:975
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1394
 #, fuzzy
 msgid ""
 "Tor bridges are secret Tor relays. Use a bridge as your first Tor relay if "
@@ -3708,24 +3819,12 @@ msgstr ""
 "автоматски ќе детектира дали е потребен мост за поврзување на Tor од вашата "
 "локална мрежа."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:995
-#, fuzzy
-msgid ""
-"To get a bridge, send an empty email to <tt>bridges@torproject.org</tt> from "
-"a Gmail or Riseup email address with your phone and scan the QR code that is "
-"attached to the automatic reply."
-msgstr ""
-"За да побарате мост, можете да испратите празна е-пошта на\n"
-"<tt>bridges@torproject.org</tt> од Gmail или Riseup е-пошта адресите.\n"
-"\n"
-"На пример, можете да ја испратите е-поштата од вашиот телефон и да го "
-"впишете мостот во Tails.\n"
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1410
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1646
+msgid "Configure a Tor _bridge"
+msgstr "Конфигурирај Тор _мост"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1018
-msgid "Scan QR Code"
-msgstr ""
-
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1149
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1449
 msgid ""
 "<a href=\"doc/anonymous_internet/tor/troubleshoot\">Troubleshooting "
 "connecting to Tor</a>"
@@ -3733,14 +3832,14 @@ msgstr ""
 "<a href=\"doc/anonymous_internet/tor/troubleshoot\">Проблеми со поврзувањето "
 "на Tor</a>"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1195
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1603
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1494
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1902
 msgid ""
 "Everything you do on the Internet from Tails goes through the Tor network."
 msgstr "Се што правите на Интернет од Tails оди преку Tor мрежата."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1209
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1618
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1508
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1917
 msgid ""
 "Tor encrypts and anonymizes your connection by passing it through 3 relays.\n"
 "Tor relays are servers operated by different organizations and volunteers "
@@ -3751,11 +3850,11 @@ msgstr ""
 "Tor релеата се сервери управувани од различни организации и волонтери ширум "
 "светот."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1245
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1544
 msgid "<b>Connect to Tor _automatically</b>"
 msgstr ""
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1295
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1594
 msgid ""
 "We recommend connecting to Tor automatically if you are on a public Wi-Fi "
 "network or if many people in your country use Tor to circumvent censorship."
@@ -3764,7 +3863,7 @@ msgstr ""
 "или ако многу луѓе во вашата држава користат Tor за заобиколување на "
 "цезнурата."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1313
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1612
 msgid ""
 "Tails will try different ways of connecting to Tor until it succeeds.\n"
 "\n"
@@ -3776,11 +3875,7 @@ msgstr ""
 "Некој кој што го мониторира вашето Интернет поврзување може да ги "
 "идентифукува овие обиди дека доаѓаат од корисник на Tails."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1347
-msgid "Configure a Tor _bridge"
-msgstr "Конфигурирај Тор _мост"
-
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1393
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1692
 msgid ""
 "Tor bridges are secret Tor relays. Use a bridge as your first Tor relay if "
 "connections to Tor are blocked, for example in some countries, by some "
@@ -3798,11 +3893,11 @@ msgstr ""
 "автоматски ќе детектира дали е потребен мост за поврзување на Tor од вашата "
 "локална мрежа."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1435
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1734
 msgid "<b>_Hide to my local network that I'm connecting to Tor</b>"
 msgstr ""
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1485
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1784
 msgid ""
 "You might need to go unnoticed if using Tor could look suspicious to someone "
 "who monitors your Internet connection."
@@ -3810,7 +3905,7 @@ msgstr ""
 "Може ќе биде потребно да поминете незабележително ако користејќи го Tor "
 "изгледате сомнително на некој кој ја надгледува вашата Интернет врска."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1503
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1802
 #, fuzzy
 msgid ""
 "Tails will only connect to Tor after you configured a Tor bridge. Bridges "
@@ -3833,7 +3928,7 @@ msgstr ""
 "знаете ниту еден Tor мост, ако се поврзувате од јавна Wi-Fi мрежа, или ако "
 "сте на Иточната Хемисфера на Земјата."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1548
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1847
 msgid ""
 "<a href=\"doc/anonymous_internet/tor\">Learn more about how Tails connects "
 "to Tor</a>"
@@ -3841,11 +3936,11 @@ msgstr ""
 "<a href=\"doc/anonymous_internet/tor\">Научтете повеќе за тоа како Tails се "
 "поврзува на Tor</a>"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1638
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1937
 msgid "No Wi-Fi hardware detected"
 msgstr ""
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1656
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1955
 msgid ""
 "Tails couldn't find any Wi-Fi interface on your computer. If your computer "
 "has a Wi-Fi interface, it might not work on Tails.\n"
@@ -3860,7 +3955,7 @@ msgid ""
 "                "
 msgstr ""
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1680
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1979
 #, fuzzy
 msgid ""
 "\n"
@@ -3872,11 +3967,11 @@ msgstr ""
 "<a href=\"doc/anonymous_internet/tor\">Научтете повеќе за тоа како Tails се "
 "поврзува на Tor</a>"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1708
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2007
 msgid "Connect to a local network"
 msgstr "Поврзи се на локална мрежа"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1725
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2024
 #, fuzzy
 msgid ""
 "You are not connected to a local network yet. To be able to connect to the "
@@ -3885,86 +3980,86 @@ msgstr ""
 "Вие суште не сте поврзани на локална мрежа. За да можете да се поврзете на "
 "Tor мрежата, најпрво треба да се поврзете на Wi-Fi, кабел или мобилна мрежа."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1739
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2038
 #, fuzzy
 msgid "Open Wi-Fi Settings"
 msgstr "Отвори Wi-Fi поставки"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1788
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2087
 msgid "Testing Internet access…"
 msgstr "Тестирање на Интернет пристап…"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1828
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2127
 #, fuzzy
 msgid "You have access to the Internet"
 msgstr "Имате пристап на Интернет."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1862
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2161
 msgid "Testing access to Tor…"
 msgstr "Тестирање на пристап до Tor…"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1905
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2204
 msgid "You can connect to Tor"
 msgstr "Сега можете да се поврзете кон Tor"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1935
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2234
 msgid "Failed to connect to Tor without bridges."
 msgstr "Не успеа поврзувањето на Tor без мостови."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1951
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2250
 #, fuzzy
 msgid "This local network is blocking access to Tor."
 msgstr "Вашата локална мрежа го блокира пристапот до Tor."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1983
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2282
 msgid "Connecting to Tor…"
 msgstr "Поврзување на Tor…"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2088
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2387
 msgid "Start Tor Browser"
 msgstr "Старување на Tor прелистувачот"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2147
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2446
 msgid "Configure a Local Proxy"
 msgstr "Конфигурирај локално прокси"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2173
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2472
 msgid "Proxy Type"
 msgstr "Тип на Прокси"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2190
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2489
 msgid "No proxy"
 msgstr "Нема прокси"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2191
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2490
 msgid "SOCKS 4"
 msgstr "SOCKS 4"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2192
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2491
 msgid "SOCKS 5"
 msgstr "SOCKS 5"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2193
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2492
 msgid "HTTP / HTTPS"
 msgstr "HTTP / HTTPS"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2212
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2511
 msgid "Address"
 msgstr "Адреса"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2229
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2528
 msgid "Username"
 msgstr "Корисничко име"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2246
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2545
 msgid "IP address or hostname"
 msgstr "IP адреси или име на хост"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2264
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2563
 msgid "Port"
 msgstr "Порта"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2388
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2687
 msgid "_Save Proxy Settings"
 msgstr "_Зачувај ги прокси поставките"
 
@@ -4049,6 +4144,29 @@ msgstr "Декември"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "Часовник"
+
+#~ msgid "Bridge address malformed"
+#~ msgstr "Адресата на мостот е неисправна"
+
+#~ msgid ""
+#~ "Setting a bridge is needed if you want to hide that you are using Tor"
+#~ msgstr ""
+#~ "Поставувањето на мост е потребно ако сакате да сокриете дека користите Tor"
+
+#, fuzzy
+#~ msgid ""
+#~ "To get a bridge, send an empty email to <tt>bridges@torproject.org</tt> "
+#~ "from a Gmail or Riseup email address with your phone and scan the QR code "
+#~ "that is attached to the automatic reply."
+#~ msgstr ""
+#~ "За да побарате мост, можете да испратите празна е-пошта на\n"
+#~ "<tt>bridges@torproject.org</tt> од Gmail или Riseup е-пошта адресите.\n"
+#~ "\n"
+#~ "На пример, можете да ја испратите е-поштата од вашиот телефон и да го "
+#~ "впишете мостот во Tails.\n"
+
+#~ msgid "Documentation"
+#~ msgstr "Документација"
 
 #, fuzzy
 #~| msgid ""

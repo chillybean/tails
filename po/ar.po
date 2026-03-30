@@ -36,13 +36,14 @@
 # محيي الدين <tx99h4@hotmail.com>, 2014, 2025.
 # jonnysemon <jonnysemon@users.noreply.hosted.weblate.org>, 2025, 2026.
 # fadoua <bouaouda.fadoua@gmail.com>, 2025.
+# emma peel <emma.peel@riseup.net>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-14 10:05+0100\n"
-"PO-Revision-Date: 2026-02-02 20:01+0000\n"
-"Last-Translator: jonnysemon <jonnysemon@users.noreply.hosted.weblate.org>\n"
+"POT-Creation-Date: 2026-03-23 12:26+0100\n"
+"PO-Revision-Date: 2026-03-23 15:09+0000\n"
+"Last-Translator: emma peel <emma.peel@riseup.net>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/tor/tails-gui/ar/"
 ">\n"
 "Language: ar\n"
@@ -51,9 +52,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 5.16-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:209
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:242
 #, python-brace-format
 msgid ""
 "{details} Please check your list of additional software or read the system "
@@ -62,20 +63,34 @@ msgstr ""
 "{details} الرجاء التأكد من قائمة البرامج الإضافية لديك أو قراءة سجل النظام "
 "لفهم المشكلة."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:216
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:249
 msgid ""
 "Please check your list of additional software or read the system log to "
 "understand the problem."
 msgstr ""
 "يُرجى التحقق من قائمة البرامج الإضافية أو قراءة سجل النظام لفهم المشكلة."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:222
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:255
 msgid "Show Log"
 msgstr "اعرض السجل"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:222
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:255
 msgid "Configure"
 msgstr "اضبط"
+
+#: config/chroot_local-includes/usr/local/lib/change-apps-menu-name:25
+#, fuzzy
+msgid "Password Manager"
+msgstr "كلمة السر"
+
+#: config/chroot_local-includes/usr/local/lib/change-apps-menu-name:26
+#, fuzzy
+msgid "password"
+msgstr "كلمة السر"
+
+#: config/chroot_local-includes/usr/local/lib/change-apps-menu-name:26
+msgid "password-manager"
+msgstr ""
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:57
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:95
@@ -99,7 +114,7 @@ msgstr "ثبّت مرة واحدة"
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:74
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:112
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:213
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:206
 msgid "The configuration of your additional software failed."
 msgstr "لقد فشل ضبط برامجك الإضافية."
 
@@ -130,29 +145,29 @@ msgstr "يمكنك تثبيت {packages} تلقائيًا عند بدء Tails"
 msgid "To do so, you need to run Tails from a USB stick."
 msgstr "للقيام بذلك، تحتاج إلى تشغيل تيلز من عصا USB."
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:197
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:190
 #, python-brace-format
 msgid "Remove {packages} from your additional software?"
 msgstr "أزِل {packages} من برامجك الإضافية؟"
 
 #. Translators: Don't translate {packages}, it's a placeholder
 #. and will be replaced.
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:202
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:195
 #, python-brace-format
 msgid "This will stop installing {packages} automatically."
 msgstr "هذا سيوقف تثبيت {packages} تلقائيًا."
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:205
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:198
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:188
 msgid "Remove"
 msgstr "‮أزِل"
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:206
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:199
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/add_settings_dialog.py:40
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:182
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:503
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:777
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:917
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:185
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:199
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:525
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:945
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:744
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:128
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:376
@@ -161,21 +176,21 @@ msgstr "ألغِ"
 
 #. Translators: Don't translate {beginning} or {last}, they are
 #. placeholders and will be replaced.
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:226
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:219
 #, python-brace-format
 msgid "{beginning} and {last}"
 msgstr "{beginning} و {last}"
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:227
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:220
 msgid ", "
 msgstr ", "
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:45
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:46
 msgid "The check for upgrades of your additional software failed"
 msgstr "فشل التحقق من توفر ترقيات لبرنامجك الإضافي"
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:47
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:59
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:48
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:60
 msgid ""
 "Please check your network connection, restart Tails, or read the system log "
 "to understand the problem."
@@ -183,29 +198,29 @@ msgstr ""
 "الرجاء التحقق من اتصالك بالشبكة، أعد تشغيل تيلز، أو اقرأ سجل النظام لفهم "
 "المشكلة."
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:57
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:58
 msgid "The upgrade of your additional software failed"
 msgstr "فشل ترقية برامجك الإضافية"
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:127
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:128
 msgid "Installing your additional software from persistent storage..."
 msgstr "جار تثبيت برامجك الإضافية من التخزين الدائم..."
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:128
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:129
 msgid "This can take several minutes."
 msgstr "يمكن أن يستغرق هذا بعض الوقت..."
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:146
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:147
 msgid "The installation of your additional software failed"
 msgstr "لقد فشل تثبيت برامجك الإضافية"
 
-#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:161
+#: config/chroot_local-includes/usr/local/lib/additional-software/asp-install:162
 msgid "Additional software installed successfully"
 msgstr "تم تثبيت البرامج الاضافية بنجاح"
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:8
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop.in.h:1
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:646
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:648
 msgid "Additional Software"
 msgstr "برامج إضافية"
 
@@ -264,27 +279,27 @@ msgstr ""
 "ساعدنا في الحفاظ على أمان عملات البيتكوين الخاصة بك!\n"
 "\n"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:149
+#: config/chroot_local-includes/usr/local/bin/electrum:140
 msgid "Donate Now"
 msgstr "تبرَّع الآن"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:151
+#: config/chroot_local-includes/usr/local/bin/electrum:142
 msgid "Later"
 msgstr "لاحقاً"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:165
+#: config/chroot_local-includes/usr/local/bin/electrum:156
 msgid "Opening Electrum with our donation address..."
 msgstr "جارٍ فتح Electrum بعنوان التبرع الخاص بنا..."
 
-#: config/chroot_local-includes/usr/local/bin/electrum:166
+#: config/chroot_local-includes/usr/local/bin/electrum:157
 msgid "Thank you for making the Internet a safer place!"
 msgstr "شكرًا لك على جعل الإنترنت مكانًا أكثر أمانًا!"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:200
+#: config/chroot_local-includes/usr/local/bin/electrum:191
 msgid "Persistence is disabled for Electrum"
 msgstr "ميزة التخزين الدائم مُعطّلة في Electrum"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:202
+#: config/chroot_local-includes/usr/local/bin/electrum:193
 msgid ""
 "When you reboot Tails, all of Electrum's data will be lost, including your "
 "Bitcoin wallet.\n"
@@ -295,15 +310,15 @@ msgstr ""
 "البيتكوين.\n"
 "يُوصى بشدة بتشغيل Electrum فقط عند تنشيط ميزة التخزين الدائم."
 
-#: config/chroot_local-includes/usr/local/bin/electrum:204
+#: config/chroot_local-includes/usr/local/bin/electrum:195
 msgid "Do you want to start Electrum anyway?"
 msgstr "هل تريد تشغيل Electrum على أية حال؟"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:210
+#: config/chroot_local-includes/usr/local/bin/electrum:201
 msgid "_Launch"
 msgstr "_شغّل"
 
-#: config/chroot_local-includes/usr/local/bin/electrum:211
+#: config/chroot_local-includes/usr/local/bin/electrum:202
 msgid "_Exit"
 msgstr "_اخرج"
 
@@ -791,81 +806,24 @@ msgstr "إيقاف التشغيل"
 msgid "Off (default)"
 msgstr "معطل (إفتراضي)"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:178
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:181
 msgid "Persistent Storage Still Locked"
 msgstr "التخزين الدائم لا يزال مقفل"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:180
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:183
 msgid ""
 "Do you really want to start Tails without unlocking your Persistent Storage?"
 msgstr "هل تريد حقًا بدء تشغيل Tails دون إلغاء تأمين التخزين الدائم؟"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:183
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:186
 msgid "Start Without Persistent Storage"
 msgstr "بدأ بدون تخزين دائم"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:267
-msgid ""
-"Impossible to unlock the Persistent Storage because the USB stick is read-"
-"only."
-msgstr "من المستحيل فتح التخزين الدائم لأن وحدة USB للقراءة فقط."
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:428
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:460
-msgid "Unlocking…"
-msgstr "جارِ إلغاء القفل…"
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:468
-msgid "Checking the file system…"
-msgstr "جارِ التحقق من نظام الملفات…"
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:501
-msgid "Repairing the File System"
-msgstr "جارِ إصلاح نظام الملفات"
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:502
-msgid "This might take a long time..."
-msgstr "ربما يستغرق هذا وقتا طويلاً..."
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:520
-msgid "Failed to repair the file system of your Persistent Storage."
-msgstr "فشل في إصلاح نظام الملفات الخاص بالتخزين الدائم الخاص بك."
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:522
-msgid "Start Tails to send an error report and learn how to recover your data."
-msgstr "ابدأ تشغيل Tails لإرسال تقرير خطأ ومعرفة كيفية استرداد بياناتك."
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:536
-msgid "File System Repaired Successfully"
-msgstr "تم إصلاح نظام الملفات بنجاح"
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:538
-msgid ""
-"It's possible that some data was lost during the repair. Please check the "
-"contents of your Persistent Storage and restore any lost data from a backup."
-msgstr ""
-"من المحتمل أن تكون بعض البيانات قد فقدت أثناء الإصلاح. يُرجى التحقق من "
-"محتويات التخزين الدائم لديك واستعادة أي بيانات مفقودة من نسخة احتياطية."
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:542
-#: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:32
-msgid "Close"
-msgstr "أغلِق"
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:557
-msgid ""
-"You aborted the repair of the file system. You can either start Tails "
-"without Persistent Storage or restart the computer to try repairing the file "
-"system again."
-msgstr ""
-"لقد قمت بإلغاء إصلاح نظام الملفات. يمكنك إما تشغيل Tails بدون تخزين دائم أو "
-"إعادة تشغيل الكمبيوتر لمحاولة إصلاح نظام الملفات مرة أخرى."
-
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:771
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:193
 msgid "Language and Keyboard layout"
 msgstr "اللغة وتخطيط لوحة المفاتيح"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:773
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:195
 msgid ""
 "Your language and keyboard layout will be saved unencrypted on your Tails "
 "USB stick and applied automatically in the future.\n"
@@ -878,25 +836,82 @@ msgstr ""
 "\n"
 "يمكن لأي شخص يجد ذاكرة USB الخاصة بـ Tails رؤية لغتك وتخطيط لوحة المفاتيح."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:778
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:200
 msgid "Save Unencrypted"
 msgstr "احفظ غير مُعمّى"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:839
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:288
+msgid ""
+"Impossible to unlock the Persistent Storage because the USB stick is read-"
+"only."
+msgstr "من المستحيل فتح التخزين الدائم لأن وحدة USB للقراءة فقط."
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:449
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:482
+msgid "Unlocking…"
+msgstr "جارِ إلغاء القفل…"
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:490
+msgid "Checking the file system…"
+msgstr "جارِ التحقق من نظام الملفات…"
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:523
+msgid "Repairing the File System"
+msgstr "جارِ إصلاح نظام الملفات"
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:524
+msgid "This might take a long time..."
+msgstr "ربما يستغرق هذا وقتا طويلاً..."
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:542
+msgid "Failed to repair the file system of your Persistent Storage."
+msgstr "فشل في إصلاح نظام الملفات الخاص بالتخزين الدائم الخاص بك."
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:544
+msgid "Start Tails to send an error report and learn how to recover your data."
+msgstr "ابدأ تشغيل Tails لإرسال تقرير خطأ ومعرفة كيفية استرداد بياناتك."
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:559
+msgid "File System Repaired Successfully"
+msgstr "تم إصلاح نظام الملفات بنجاح"
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:561
+msgid ""
+"It's possible that some data was lost during the repair. Please check the "
+"contents of your Persistent Storage and restore any lost data from a backup."
+msgstr ""
+"من المحتمل أن تكون بعض البيانات قد فقدت أثناء الإصلاح. يُرجى التحقق من "
+"محتويات التخزين الدائم لديك واستعادة أي بيانات مفقودة من نسخة احتياطية."
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:565
+#: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:32
+msgid "Close"
+msgstr "أغلِق"
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:580
+msgid ""
+"You aborted the repair of the file system. You can either start Tails "
+"without Persistent Storage or restart the computer to try repairing the file "
+"system again."
+msgstr ""
+"لقد قمت بإلغاء إصلاح نظام الملفات. يمكنك إما تشغيل Tails بدون تخزين دائم أو "
+"إعادة تشغيل الكمبيوتر لمحاولة إصلاح نظام الملفات مرة أخرى."
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:866
 msgid "Start Tails and open the Persistent Storage settings to find out more."
 msgstr "بدء Tails و فتح إعدادات التخزين الدائم لمعرفة المزيد."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:868
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:896
 msgid ""
 "Your Persistent Storage is unlocked. Its content will be available until you "
 "shut down Tails."
 msgstr "تخزينك الدائم مفتوح. سيكون محتواها متاحًا حتى تقوم بإغلاق Tails."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:883
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:911
 msgid "Incorrect passphrase. Please try again."
 msgstr "عبارة السر غير صحيحة. يُرجى المحاولة مرة أخرى."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:894
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:922
 msgid ""
 "Error reading data from your Persistent Storage. The hardware of your USB "
 "stick is probably failing."
@@ -904,24 +919,24 @@ msgstr ""
 "خطأ في قراءة البيانات من التخزين الدائم لديك. من المحتمل أن يكون جهاز USB "
 "الخاص بك معطلاً."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:896
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:924
 msgid "Start Tails to learn how to recover your data."
 msgstr "ابدأ باستخدام Tails لتعلم كيفية استرداد بياناتك."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:907
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:935
 msgid "File System Errors"
 msgstr "أخطاء نظام الملفات"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:909
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:937
 msgid ""
 "Errors were detected in the file system of your Persistent Storage.\n"
-"                \n"
+"\n"
 "Tails can try to fix these errors, but this might erase some of your data "
 "and take a long time.\n"
 "\n"
 "If you already have an up-to-date backup of your Persistent Storage, we "
 "recommend that you try to repair.\n"
-"                \n"
+"\n"
 "If you don't have a backup, we recommend that you create a partition image "
 "of your Persistent Storage first."
 msgstr ""
@@ -936,43 +951,43 @@ msgstr ""
 "إذا لم يكن لديك نسخة احتياطية، نوصيك بإنشاء صورة قسم للتخزين الدائم الخاص بك "
 "أولاً."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:918
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:946
 msgid "Repair File System"
 msgstr "أصلح نظام الملفات"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:919
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:947
 msgid "Create Partition Image"
 msgstr "أنشئ صورة القسم"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:930
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:958
 msgid ""
 "Start Tails to learn how to create a partition image of your Persistent "
 "Storage."
 msgstr "ابدأ باستخدام Tails لتعلم كيفية إنشاء صورة قسم لتخزين الدائم."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:939
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:967
 msgid "Failed to unlock the Persistent Storage due to file system errors."
 msgstr "فشل في إلغاء قفل التخزين الدائم بسبب أخطاء نظام الملفات."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:948
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:976
 msgid ""
 "Failed to upgrade the Persistent Storage. Please start Tails and send an "
 "error report."
 msgstr "فشل في ترقية التخزين الدائم. الرجاء بدء Tails وإرسال تقرير عن الخطأ."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:955
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:983
 msgid ""
 "Failed to unlock the Persistent Storage. Please start Tails and send an "
 "error report."
 msgstr "فشل في فتح التخزين الدائم. الرجاء بدء Tails وإرسال تقرير عن الخطأ."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:963
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:991
 msgid ""
 "Failed to activate the Persistent Storage. Please start Tails and send an "
 "error report."
 msgstr "فشل في تنشيط التخزين الدائم. الرجاء بدء Tails وإرسال تقرير عن الخطأ."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:974
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:1002
 msgid "Upgrading the Persistent Storage. This might take a while…"
 msgstr "جاري ترقية التخزين الدائم. قد يستغرق بعض الوقت…"
 
@@ -1452,17 +1467,16 @@ msgstr ""
 msgid "Could not open device for writing."
 msgstr "فَشِل فتح مساحة التخزين قصد الكاتبة فيه."
 
-#: config/chroot_local-includes/usr/local/bin/keepassxc:19
-#, sh-format
+#: config/chroot_local-includes/usr/local/bin/secrets:19
+#, fuzzy, sh-format
 msgid ""
-"<b><big>Do you want to rename your <i>KeePassXC</i> database?</big></b>\n"
-"\n"
-"You have a <i>KeePassXC</i> database in your <i>Persistent</i> folder:\n"
+"You have a <i>KeePassXC</i> or <i>Secrets</i> database in your "
+"<i>Persistent</i> folder:\n"
 "\n"
 "<i>${filename}</i>\n"
 "\n"
-"Renaming your database to <i>${default_filename}</i> would allow "
-"<i>KeePassXC</i> to open it automatically in the future."
+"Renaming your database to <i>${default_filename}</i> allows <i>Secrets</i> "
+"to open it automatically in the future."
 msgstr ""
 "‏<b><big>هل تريد إعادة تسمية قاعدة بيانات <i>KeePassXC</i>؟</big></b>\n"
 "\n"
@@ -1473,13 +1487,17 @@ msgstr ""
 "ستسمح إعادة تسمية قاعدة البيانات إلى <i>${default_filename}</i> لـ "
 "<i>KeePassXC</i> بفتحها تلقائيًا في المستقبل."
 
-#: config/chroot_local-includes/usr/local/bin/keepassxc:28
+#: config/chroot_local-includes/usr/local/bin/secrets:25
 msgid "Rename"
 msgstr "إعادة التسمية"
 
-#: config/chroot_local-includes/usr/local/bin/keepassxc:30
+#: config/chroot_local-includes/usr/local/bin/secrets:27
 msgid "Keep current name"
 msgstr "ثبت الإسم الحالي"
+
+#: config/chroot_local-includes/usr/local/bin/secrets:29
+msgid "Rename Password Database?"
+msgstr ""
 
 #: config/chroot_local-includes/usr/local/bin/replace-su-with-sudo:19
 msgid "su is disabled. Please use sudo instead."
@@ -1510,6 +1528,7 @@ msgid "Dismiss"
 msgstr "تجاهَل"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:11
+#: config/chroot_local-includes/usr/local/lib/tails-additional-software-notify:63
 #: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:44
 #: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:45
 msgid "Learn More"
@@ -1551,10 +1570,9 @@ msgstr ""
 #: config/chroot_local-includes/usr/local/bin/tails-upgrade-frontend-wrapper:79
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/application.py:79
 #: config/chroot_local-includes/usr/local/sbin/unsafe-browser:37
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:318
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:464
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:597
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1100
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:375
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:521
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:654
 msgid "Error"
 msgstr "خطأ"
 
@@ -1613,10 +1631,6 @@ msgstr "غير مطروح"
 #, python-format
 msgid "Built from %s"
 msgstr "مبني من %s"
-
-#: config/chroot_local-includes/usr/local/lib/tails-additional-software-notify:63
-msgid "Documentation"
-msgstr "التوثيقات"
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:114
 #, python-brace-format
@@ -1722,7 +1736,7 @@ msgid "Show Password"
 msgstr "أظهر كلمة السر"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:151
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2281
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2580
 msgid "Password"
 msgstr "كلمة السر"
 
@@ -1881,11 +1895,24 @@ msgstr ""
 msgid "Tor Connection"
 msgstr "اتصال Tor"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:218
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:283
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:331
+msgid "Automatic"
+msgstr ""
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:284
+msgid "Frequently selected regions"
+msgstr ""
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:291
+msgid "Other regions"
+msgstr ""
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:369
 msgid "_Use a bridge that you already know"
 msgstr "_استخدم الجسر الذي تعرفه بالفعل"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:260
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:411
 msgid ""
 "To save your bridge, <a href=\"doc/persistent_storage\">unlock your "
 "Persistent Storage</a>."
@@ -1893,7 +1920,7 @@ msgstr ""
 "للحفاظ على الجسرك، <a href=\"doc/persistent_storage\">لفتح التخزين الدائم "
 "الخاص بك</a>."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:267
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:418
 msgid ""
 "To save your bridge, <a href=\"doc/persistent_storage\">create a Persistent "
 "Storage</a> on your Tails USB stick."
@@ -1901,91 +1928,108 @@ msgstr ""
 "للحفاظ على الجسر الخاص بك، <a href=\"doc/persistent_storage\"> إنشاء تخزين "
 "دائم</a> على Tails USB الخاص بك."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:287
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:810
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:438
 #, python-brace-format
 msgid "Invalid: {exception}"
 msgstr "غير صالح: {exception}"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:299
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:823
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:450
 msgid ""
 "You need to configure a WebTunnel or an obfs4 bridge to hide that you are "
 "using Tor"
 msgstr "تحتاج إلى تكوين جسر obfs4 أو WebTunnel لإخفاء أنك تستخدم تور"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:354
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:514
 msgid "Failed to configure your Persistent Storage"
 msgstr "فشل في تكوين Persistent Storage الخاص بك"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:406
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:566
 msgid "Failed to detect a webcam. Maybe your webcam is too old."
 msgstr ""
 "فشل في الكشف عن كاميرا الويب. ربما تكون كاميرا الويب الخاصة بك قديمة جدًا."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:417
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:577
 msgid "Failed to scan QR code. Try with more light or closer to the camera."
 msgstr ""
 "فشل مسح رمز الاستجابة السريعة (QR). حاول مع مزيد من الضوء أو أقرب إلى "
 "الكاميرا."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:428
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:588
 msgid "Invalid QR code. Try sending another email and scanning again."
 msgstr "رمز QR غير صالح. حاول إرسال بريد إلكتروني آخر والمسح مرة أخرى."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:486
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:649
 msgid "Synchronizing the system's clock…"
 msgstr "جارِ مزامنة ساعة النظام…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:538
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:726
+#, fuzzy
+msgid "Asking for a Tor bridge based on your region…"
+msgstr "ا_طلب جسر تور عن طريق البريد الإلكتروني"
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:774
 msgid "Connecting to Tor without bridges…"
 msgstr "الاتصال بـ Tor بدون جسور…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:545
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:569
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:781
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:813
 msgid "Connecting to Tor with default bridges…"
 msgstr "الاتصال بـ Tor بالجسور الافتراضية…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:552
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:789
+#, fuzzy
+msgid "Connecting to Tor with a bridge based on your region…"
+msgstr "الاتصال بـ Tor بالجسور الافتراضية…"
+
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:796
 msgid "Connecting to Tor with a custom bridge…"
 msgstr "الاتصال بـ Tor بجسر مخصص…"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:660
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:914
 msgid "Connected to Tor successfully with bridges"
 msgstr "متصل بـتور بنجاح مع الجسور"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:662
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2041
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:916
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2340
 msgid "Connected to Tor successfully"
 msgstr "تم الاتصال بـ Tor بنجاح"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:666
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2066
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:920
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2365
 msgid "You can now browse the Internet anonymously and uncensored."
 msgstr "يمكنك الآن تصفح الإنترنت بشكل مجهول وغير خاضع للرقابة."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:738
-msgid "This local network seems to be blocking access to Tor."
-msgstr "تمنع شبكتك المحلية الوصول إلى تور."
+#. Translators: only translate "Bridge:" and adjust
+#. text-direction
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:985
+#, python-brace-format
+msgid "Bridge: <b>{bridge}</b>"
+msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:813
-msgid "Bridge address malformed"
-msgstr "عنوان الجسر مشوه"
+#. Translators: only translate "Error code:" and adjust
+#. text-direction
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:997
+#, python-brace-format
+msgid "Error code: {code}"
+msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:831
-msgid "Setting a bridge is needed if you want to hide that you are using Tor"
-msgstr "يلزم إنشاء جسر إذا كنت تريد إخفاء أنك تستخدم Tor"
+#. Translators: only translate "Proxy:" and adjust
+#. text-direction
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1024
+#, python-brace-format
+msgid "Proxy: <b>{proxy}</b>"
+msgstr ""
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1070
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1323
 #, python-brace-format
 msgid "Scanned {bridge_type} bridge: <b>{bridge_info}</b>."
 msgstr "فٌحص {bridge_type} جسر:<b>{bridge_info}</b>."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1159
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1408
 msgid "Are you sure you want to lose progress?"
 msgstr "هل أنت متأكد أنك تريد أن تفقد التقدم؟"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1163
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1412
 msgid ""
 "Tails will continue connecting to Tor after you close the Tor Connection "
 "assistant.\n"
@@ -1998,11 +2042,11 @@ msgstr ""
 "إذا فشل الاتصال بـ Tor، فسيتعين عليك الانتظار مرة أخرى حتى نهاية شريط التقدم "
 "لتتمكن من استكشاف أخطاء الاتصال وإصلاحها."
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1169
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1418
 msgid "Close and Lose Progress"
 msgstr "أغلق وافقد التقدم"
 
-#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1171
+#: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1420
 msgid "Wait"
 msgstr "أنتظر"
 
@@ -2031,7 +2075,7 @@ msgid "Open Tor Connection Assistant"
 msgstr "افتح مساعد اتصال تور"
 
 #: config/chroot_local-includes/usr/share/gnome-shell/extensions/torstatus@tails.boum.org/extension.js:51
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2107
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2406
 msgid "View Tor Circuits"
 msgstr "عرض دوائر Tor"
 
@@ -2105,7 +2149,7 @@ msgstr ""
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/application.py:30
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:49
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:1
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:25
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:24
 msgid "Persistent Storage"
 msgstr "تخزين دائم"
 
@@ -2219,8 +2263,8 @@ msgid "{app} (PIDs: {pids})"
 msgstr "{app} (PIDs: {pids})"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/change_passphrase_dialog.py:37
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:8
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:56
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:15
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:55
 msgid "Change Passphrase"
 msgstr "غيّر عبارة السر"
 
@@ -2293,7 +2337,7 @@ msgstr "من المستحيل حذف التخزين الدائم"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:183
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:218
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:36
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:35
 msgid "Delete Persistent Storage"
 msgstr "حذف التخزين الدائم"
 
@@ -2306,8 +2350,8 @@ msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:191
 #: config/chroot_local-includes/usr/local/sbin/unsafe-browser:56
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:304
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:121
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:301
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:124
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:219
 msgid "_Cancel"
 msgstr "_إلغاء"
@@ -3020,7 +3064,7 @@ msgstr ""
 msgid "Network Configuration"
 msgstr "إعدادات الشبكة"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:95
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:94
 msgid "Current _Passphrase"
 msgstr "عبارة السرّ _الحالية"
 
@@ -3032,29 +3076,29 @@ msgstr "_عبارة السرّ الجديدة"
 msgid "_Confirm New Passphrase"
 msgstr "_أكّد عبارة السرّ الجديدة"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:215
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:219
 msgid "_Show Passphrases"
 msgstr "اعر_ض عبارات السرّ"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:253
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:301
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:289
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:161
 msgid "The passphrases do not match"
 msgstr "عبارة السرّ غير متطابقة"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:317
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:315
 msgid "Ch_ange"
 msgstr "تغ_ير"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/deleted_view.ui.in:21
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/deleted_view.ui.in:20
 msgid "The Persistent Storage was successfully deleted."
 msgstr "حُذف التخزين الدائم بنجاج."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/deleted_view.ui.in:32
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/deleted_view.ui.in:36
 msgid "_Close"
 msgstr "إ_غلاق"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/fail_view.ui.in:30
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/fail_view.ui.in:31
 msgid "Oh no! Something has gone wrong."
 msgstr "أوه لا! حدث خطأ ما."
 
@@ -3069,11 +3113,11 @@ msgstr ""
 "\n"
 "يمكنك إرسال تقرير عن خطأ أو التحقق من إخراج الأوامر التالية للتحقيق:"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/fail_view.ui.in:74
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/fail_view.ui.in:78
 msgid "Send Error Report"
 msgstr "إرسال تقرير عن الخطأ"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:61
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:63
 msgid ""
 "Your Persistent Storage is unlocked.\n"
 "\n"
@@ -3089,165 +3133,165 @@ msgstr ""
 "<a href=\"doc/persistent_storage/backup\"> تعرف على كيفية عمل نسخة احتياطية "
 "من التخزين الدائم. </a>"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:89
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:91
 msgid ""
 "Turn on the features of the Persistent Storage for the data that you want to "
 "save to your Tails USB stick."
 msgstr "تشغيل ميزات التخزين الدائم للبيانات التي تريد حفظها في Tails USB ."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:106
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:108
 msgid "Personal Documents"
 msgstr "البيانات الشخصية"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:134
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:136
 msgid "Persistent Folder"
 msgstr "مجلد دائم"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:135
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:137
 msgid "A folder where you can save your documents."
 msgstr "مجلد حيث يمكنك حفظ مستنداتك."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:160
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:162
 msgid "Open Persistent Folder"
 msgstr "فتح المجلد الدائم"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:173
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:175
 msgid "Activate Persistent Folder"
 msgstr "تنشيط المجلد الدائم"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:200
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:202
 msgid "System Settings"
 msgstr "إعدادات النظام"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:228
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:230
 msgid "Welcome Screen"
 msgstr "شاشة الترحيب"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:244
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:246
 msgid "Activate Welcome Screen"
 msgstr "تنشيط شاشة الترحيب"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:257
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:259
 msgid "Printers"
 msgstr "الطابعات"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:273
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:275
 msgid "Activate Printers"
 msgstr "تنشيط الطابعات"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:300
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:302
 msgid "Network"
 msgstr "الشبكة"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:328
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:330
 msgid "Network Connections"
 msgstr "اتصالات الشبكة"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:329
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:331
 msgid "Save Wi-Fi passwords and mobile broadband configuration."
 msgstr "احفظ كلمات سرّ الواي فاي وتضبيط النطاق الترددي الواسع للجوال."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:345
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:347
 msgid "Activate Network Connections"
 msgstr "تنشيط اتصالات الشبكة"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:358
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:360
 msgid "Tor Bridge"
 msgstr "جسور Tor"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:374
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:376
 msgid "Activate Tor Bridge"
 msgstr "تنشيط جسور تور"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:401
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:403
 msgid "Applications"
 msgstr "التطبيقات"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:429
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:431
 msgid "Tor Browser Bookmarks"
 msgstr "الإشارات المرجعية لمتصفح تور"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:445
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:447
 msgid "Activate Tor Browser Bookmarks"
 msgstr "تنشيط الإشارات المرجعية لمتصفح تور"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:458
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:460
 msgid "Electrum Bitcoin Wallet"
 msgstr "محفظة Electrum للبيتكوين"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:474
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:476
 msgid "Activate Electrum Bitcoin Wallet"
 msgstr "نشّط محفظة Electrum للبيتكوين"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:487
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:489
 msgid "Thunderbird Email Client"
 msgstr "عميل البريد الإلكتروني Thunderbird"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:503
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:505
 msgid "Activate Thunderbird Email Client"
 msgstr "تنشيط عميل البريد الإلكتروني Thunderbird"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:516
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:518
 msgid "GnuPG"
 msgstr "GnuPG"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:517
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:519
 msgid "OpenPGP keys outside of Thunderbird, including in Kleopatra."
 msgstr "مفاتيح OpenPGP خارج Thunderbird، بما في ذلك في Kleopatra."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:533
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:535
 msgid "Activate GnuPG"
 msgstr "تنشيط GnuPG"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:546
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:548
 msgid "Pidgin Internet Messenger"
 msgstr "Pidgin مُرسل الإنترنت"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:562
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:564
 msgid "Activate Pidgin Internet Messenger"
 msgstr "تنشيط Pidgin مُرسل الإنترنت"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:575
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:577
 msgid "SSH Client"
 msgstr "عميل SSH"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:591
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:593
 msgid "Activate SSH Client"
 msgstr "تنشيط عميل SSH"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:618
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:620
 msgid "Advanced Settings"
 msgstr "الإعدادات المتقدّمة"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:647
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:649
 msgid "Install additional software automatically when starting Tails."
 msgstr "يمكنك تنصيب برمجيات إضافية تلقائيا عند بدء Tails."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:672
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:674
 msgid "Configure Additional Software"
 msgstr "تضبيط البرمجيات الإضافية"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:685
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:687
 msgid "Activate Additional Software"
 msgstr "تنشيط البرمجيات الإضافية"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:698
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:700
 msgid "Dotfiles"
 msgstr "Dotfiles"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:699
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:701
 msgid "Symlink every file in the Dotfiles folder into the Home folder."
 msgstr "Symlink اربط كل ملف في مجلد Dotfiles بالرمز إلى المجلد الرئيسي."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:732
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:734
 msgid "Activate Dotfiles"
 msgstr "تنشيط Dotfiles"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:764
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:766
 msgid "Custom"
 msgstr "مخصص"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:783
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:785
 msgid ""
 "To add or remove custom features, modify /live/persistence/"
 "TailsData_unlocked/persistence.conf."
@@ -3255,14 +3299,14 @@ msgstr ""
 "لإضافة ميزات مخصصة أو إزالتها، قم بالتعديل /live/persistence/"
 "TailsData_unlocked/persistence.conf."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:825
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:827
 msgid ""
 "<a href=\"doc/persistent_storage\">Learn more about the Persistent Storage.</"
 "a>"
 msgstr ""
 "<a href=\"doc/persistent_storage\"> تعرف على المزيد حول التخزين الدائم.</a>"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/locked_view.ui.in:52
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/locked_view.ui.in:53
 msgid ""
 "<b>Your Persistent Storage is locked.</b>\n"
 "\n"
@@ -3279,41 +3323,41 @@ msgstr ""
 "\n"
 "لحذف التخزين الدائم، انقر فوق <b>حذف</b> على يسار شريط العنوان."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:62
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:60
 msgid ""
 "Choose the passphrase that you will use to unlock the encryption of your "
 "Persistent Storage and all its data."
 msgstr ""
 "اختر عبارة السرّ التي ستستخدمها لفتح تعمية التخزين الدائم وجميع بياناته."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:82
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:80
 msgid "We recommend a long passphrase of 5 to 7 random words."
 msgstr "نوصي باستخدام عبارة سرّ طويلة مكونة من 5 إلى 7 كلمات عشوائية."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:94
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:92
 msgid " For example:"
 msgstr " على سبيل المثال:"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:186
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:175
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:46
 msgid "Passphrase:"
 msgstr "عبارة السرّ:"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:205
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:194
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:65
 msgid "Confirm:"
 msgstr "تأكيد:"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:325
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:317
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:185
 msgid "_Show Passphrase"
 msgstr "_عرض عبارة السرّ"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:375
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:361
 msgid "_Back"
 msgstr "ال_سابق"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:391
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:378
 msgid "_Create Persistent Storage"
 msgstr "ان_شاء تخزين دائم"
 
@@ -3344,7 +3388,7 @@ msgstr ""
 "\n"
 "<a href=\"doc/persistent_storage\"> تعرّف على المزيد حول التخزين الدائم. </a>"
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:92
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:93
 msgid ""
 "Sorry, it is impossible to create a Persistent Storage on this device.\n"
 "\n"
@@ -3356,7 +3400,7 @@ msgstr ""
 "لتتمكن من استخدام Tails مع التخزين الدائم، يرجى اتباع إرشاداتنا حول <a "
 "href=\"install\"> تثبيت Tails على وحدة تخزين USB </a>."
 
-#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:137
+#: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:141
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:232
 msgid "Co_ntinue"
 msgstr "ا_ستمرار"
@@ -3521,7 +3565,8 @@ msgid "TrueCrypt/VeraCrypt container"
 msgstr "مستوعب TrueCrypt/VeraCrypt"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:82
-msgid "Configure a Tor bridge"
+#, fuzzy
+msgid "Configure a Tor Bridge"
 msgstr "تكوين جسر Tor"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:106
@@ -3554,15 +3599,20 @@ msgid "WebTunnel"
 msgstr "WebTunnel"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:208
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1522
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1821
 msgid "None"
 msgstr "لا شيء"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:244
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:242
+#, fuzzy
+msgid "Ask for a Tor bridge based on your _region"
+msgstr "ا_طلب جسر تور عن طريق البريد الإلكتروني"
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:301
 msgid "_Ask for a Tor bridge by email"
 msgstr "ا_طلب جسر تور عن طريق البريد الإلكتروني"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:263
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:320
 msgid ""
 "Send an empty email to <tt>bridges@torproject.org</tt> from a Gmail or "
 "Riseup email address with your phone and scan the QR code that is attached "
@@ -3571,59 +3621,126 @@ msgstr ""
 "إرسل بريد إلكتروني فارغ إلى <tt>bridges@torproject.org</tt> من عنوان بريد "
 "إلكتروني Gmail أو Riseup بهاتفك وامسح رمز QR المرفق بالرد التلقائي."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:276
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:333
 msgid "Scan _QR code"
 msgstr "م_سح رمز QR"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:377
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:434
 msgid "_Enter a bridge that you already know"
 msgstr "_أدخل الجسر الذي تعرفه بالفعل"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:403
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1044
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:460
 msgid "Bridge"
 msgstr "جسر"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:416
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1057
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:473
 msgid "obfs4 or webtunnel…"
 msgstr "obfs4 أو webtunnel…"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:489
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:546
 msgid "Save bridge to _Persistent Storage"
 msgstr "حفظ الجسر في الت_خزين الدائم"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:514
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:571
 msgid "Save bridge to Persistent Storage"
 msgstr "حفظ الجسر في Persistent Storage"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:654
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1162
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1560
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:711
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1462
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1859
 msgid "_Connect to Tor"
 msgstr "_قم بالاتصال بـ Tor"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:696
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:763
 msgid "Error connecting to Tor"
 msgstr "حدث خلل أثناء محاولة الاتصال بتور"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:740
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:783
+msgid "This local network seems to be blocking access to Tor."
+msgstr "تمنع شبكتك المحلية الوصول إلى تور."
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:811
+#, fuzzy
+msgid "Error connecting to Tor with this bridge"
+msgstr "الاتصال بـ Tor بدون جسور…"
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:827
+msgid ""
+"Either this Tor bridge is not working or your network is blocking access to "
+"it."
+msgstr ""
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:856
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:930
+#, fuzzy
+msgid "Try configuring another bridge."
+msgstr "تكوين جسر Tor"
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:884
+#, fuzzy
+msgid "Error connecting to Tor with default bridges"
+msgstr "الاتصال بـ Tor بالجسور الافتراضية…"
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:900
+#, fuzzy
+msgid "Your network is blocking access to Tor and the default bridges."
+msgstr "تمنع شبكتك المحلية الوصول إلى تور."
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:916
+#, fuzzy
+msgid "Bridge: <b>default bridges</b>"
+msgstr "استخدم ال_جسر الافتراضي"
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:958
+#, fuzzy
+msgid "Error connecting to Tor with bridges"
+msgstr "الاتصال بـ Tor بدون جسور…"
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:974
+msgid "None of the bridges recommended for this region worked."
+msgstr ""
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:990
+msgid "Try another region or getting a bridge by mail."
+msgstr ""
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1018
+#, fuzzy
+msgid "Error asking for a bridge"
+msgstr "خطأ أثناء التحقق من وجود ترقيات"
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1034
+msgid "Tails failed to ask for a bridge based on your region."
+msgstr ""
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1050
+msgid ""
+"Please, <a href=\"support/talk\">report this error</a> and try asking for a "
+"bridge by email."
+msgstr ""
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1087
+#, fuzzy
+msgid "Open _details"
+msgstr "افتح مستنسِخ تايلز"
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1142
 msgid "• Wrong clock"
 msgstr "• ساعة خاطئة"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:760
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1162
 msgid "Your clock and time zone need to be correct to connect to Tor."
 msgstr "يجب أن تكون ساعتك ومنطقتك الزمنية صحيحتين للاتصال بـ Tor."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:773
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1175
 msgid "Fix _Clock"
 msgstr "إصلا_ح الساعة"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:811
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1213
 msgid "• Public network"
 msgstr "• شبكة عامة"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:831
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1233
 msgid ""
 "If you are in a shop, hotel, or airport, you might need to sign in to the "
 "local network using the Unsafe Browser."
@@ -3631,29 +3748,30 @@ msgstr ""
 "إذا كنت في متجر أو فندق أو مطار، فقد تحتاج إلى تسجيل الدخول إلى الشبكة "
 "المحلية باستخدام المتصفح غير الآمن."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:844
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1246
 msgid "Try _Signing in to the Network"
 msgstr "حاول تس_جيل الدخول إلى الشبكة"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:883
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1285
 msgid "• Local proxy"
 msgstr "• الوكيل المحلي"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:903
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1305
 msgid ""
 "If you are on a corporate or university network, you might need to configure "
 "a local proxy."
 msgstr "إذا كنت على شبكة شركة أو جامعة، فقد تحتاج إلى تكوين بروكسي محلي."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:916
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1335
 msgid "Configure a Local _Proxy"
 msgstr "تضبيط برو_كسي محلي"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:955
-msgid "• Tor bridge by email"
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1374
+#, fuzzy
+msgid "• Tor bridge"
 msgstr "• جسر عن طريق البريد الإلكتروني"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:975
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1394
 msgid ""
 "Tor bridges are secret Tor relays. Use a bridge as your first Tor relay if "
 "connections to Tor are blocked, for example in some countries, by some "
@@ -3663,21 +3781,12 @@ msgstr ""
 "بتور، على سبيل المثال في بعض البلدان، بواسطة بعض الشبكات العامة، أو بواسطة "
 "بعض أدوات الرقابة الأبوية."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:995
-msgid ""
-"To get a bridge, send an empty email to <tt>bridges@torproject.org</tt> from "
-"a Gmail or Riseup email address with your phone and scan the QR code that is "
-"attached to the automatic reply."
-msgstr ""
-"لطلب جسر، إرسل بريد إلكتروني فارغ إلى <tt>bridges@torproject.org</tt> من "
-"عنوان بريد إلكتروني Gmail أو Riseup بهاتفك وامسح رمز QR المرفق بالرد "
-"التلقائي."
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1410
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1646
+msgid "Configure a Tor _bridge"
+msgstr "تضبيط جسر ت_ور"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1018
-msgid "Scan QR Code"
-msgstr "مسح رمز QR"
-
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1149
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1449
 msgid ""
 "<a href=\"doc/anonymous_internet/tor/troubleshoot\">Troubleshooting "
 "connecting to Tor</a>"
@@ -3685,14 +3794,14 @@ msgstr ""
 "<a href=\"doc/anonymous_internet/tor/troubleshoot\">استكشاف أخطاء الاتصال بـ "
 "Tor وإصلاحها</a>"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1195
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1603
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1494
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1902
 msgid ""
 "Everything you do on the Internet from Tails goes through the Tor network."
 msgstr "كل ما تفعله على الإنترنت من Tails يمر عبر شبكة Tor."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1209
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1618
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1508
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1917
 msgid ""
 "Tor encrypts and anonymizes your connection by passing it through 3 relays.\n"
 "Tor relays are servers operated by different organizations and volunteers "
@@ -3701,11 +3810,11 @@ msgstr ""
 "يقوم تور بتعمية اتصالك وإخفاء هويته عن طريق تمريره عبر 3 مرحلات.\n"
 "مُرحلات تور هي خوادم تديرها منظمات ومتطوعون مختلفون حول العالم."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1245
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1544
 msgid "<b>Connect to Tor _automatically</b>"
 msgstr "<b>ا_تصال بـتور تلقائيًا</b>"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1295
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1594
 msgid ""
 "We recommend connecting to Tor automatically if you are on a public Wi-Fi "
 "network or if many people in your country use Tor to circumvent censorship."
@@ -3713,7 +3822,7 @@ msgstr ""
 "نوصي بالاتصال بـ Tor تلقائيًا إذا كنت تستخدم شبكة واي فاي عامة أو إذا كان "
 "العديد من الأشخاص في بلدك يستخدمون Tor للتحايل على الرقابة."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1313
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1612
 msgid ""
 "Tails will try different ways of connecting to Tor until it succeeds.\n"
 "\n"
@@ -3725,11 +3834,7 @@ msgstr ""
 "يمكن لأي شخص يراقب اتصالك بالإنترنت تحديد هذه المحاولات على أنها قادمة من "
 "مستخدم Tails."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1347
-msgid "Configure a Tor _bridge"
-msgstr "تضبيط جسر ت_ور"
-
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1393
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1692
 msgid ""
 "Tor bridges are secret Tor relays. Use a bridge as your first Tor relay if "
 "connections to Tor are blocked, for example in some countries, by some "
@@ -3746,11 +3851,11 @@ msgstr ""
 "اختر هذا الخيار إذا كنت تعلم بالفعل أنك بحاجة إلى جسر. بخلاف ذلك، سيكتشف "
 "Tails تلقائيًا ما إذا كنت بحاجة إلى جسر للاتصال بـ Tor من شبكتك المحلية."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1435
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1734
 msgid "<b>_Hide to my local network that I'm connecting to Tor</b>"
 msgstr "<b>إ_خفاء إنني متصل بتور من شبكتي المحلية</b>"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1485
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1784
 msgid ""
 "You might need to go unnoticed if using Tor could look suspicious to someone "
 "who monitors your Internet connection."
@@ -3758,7 +3863,7 @@ msgstr ""
 "قد تحتاج إلى عدم ملاحظتك إذا كان استخدام Tor قد يبدو مريبًا لشخص يراقب اتصالك "
 "بالإنترنت."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1503
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1802
 msgid ""
 "Tails will only connect to Tor after you configured a Tor bridge. Bridges "
 "are secret Tor relays that hide that you are connecting to Tor.\n"
@@ -3779,7 +3884,7 @@ msgstr ""
 "سيتعين عليك إجراء تضبيط إضافي إذا كنت لا تعرف أي جسور تور حتى الآن، إذا كنت "
 "تتصل من شبكة واي فاي عامة، أو إذا كنت في النصف الشرقي من الكرة الأرضية."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1548
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1847
 msgid ""
 "<a href=\"doc/anonymous_internet/tor\">Learn more about how Tails connects "
 "to Tor</a>"
@@ -3787,11 +3892,11 @@ msgstr ""
 "<a href=\"doc/anonymous_internet/tor\">تعرف على المزيد حول كيفية اتصال Tails "
 "بـ Tor</a>"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1638
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1937
 msgid "No Wi-Fi hardware detected"
 msgstr "لم يتم الكشف عن عتاد واي فاي"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1656
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1955
 msgid ""
 "Tails couldn't find any Wi-Fi interface on your computer. If your computer "
 "has a Wi-Fi interface, it might not work on Tails.\n"
@@ -3817,7 +3922,7 @@ msgstr ""
 " • اشترِ محول واي فاي USB يعمل مع Tails.\n"
 "                "
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1680
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1979
 msgid ""
 "\n"
 "<a href=\"doc/anonymous_internet/no-wifi\">\n"
@@ -3831,11 +3936,11 @@ msgstr ""
 "</a>\n"
 "                "
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1708
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2007
 msgid "Connect to a local network"
 msgstr "اتصل بشبكة محلية"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1725
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2024
 msgid ""
 "You are not connected to a local network yet. To be able to connect to the "
 "Tor network, you first need to connect to a Wi-Fi, wired, or mobile network."
@@ -3843,83 +3948,83 @@ msgstr ""
 "أنت غير متصل بشبكة محلية بعد. لتتمكن من الاتصال بشبكة تور، تحتاج أولاً إلى "
 "الاتصال بشبكة واي فاي أو سلكية أو شبكة خلوية."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1739
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2038
 msgid "Open Wi-Fi Settings"
 msgstr "افتح إعدادات الواي فاي"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1788
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2087
 msgid "Testing Internet access…"
 msgstr "اختبار الوصول إلى الإنترنت…"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1828
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2127
 msgid "You have access to the Internet"
 msgstr "لديك حق الوصول إلى الإنترنت"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1862
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2161
 msgid "Testing access to Tor…"
 msgstr "اختبار الوصول إلى Tor…"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1905
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2204
 msgid "You can connect to Tor"
 msgstr "يمكنك الاتصال بـ Tor"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1935
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2234
 msgid "Failed to connect to Tor without bridges."
 msgstr "فشل الاتصال بـ Tor بدون جسور."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1951
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2250
 msgid "This local network is blocking access to Tor."
 msgstr "تمنع شبكتك المحلية الوصول إلى تور."
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1983
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2282
 msgid "Connecting to Tor…"
 msgstr "الاتصال بـ Tor…"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2088
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2387
 msgid "Start Tor Browser"
 msgstr "أبدأ متصفح تور"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2147
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2446
 msgid "Configure a Local Proxy"
 msgstr "تكوين بروكسي محلي"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2173
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2472
 msgid "Proxy Type"
 msgstr "نوع البروكسي"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2190
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2489
 msgid "No proxy"
 msgstr "لا وجود لأي وكيل"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2191
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2490
 msgid "SOCKS 4"
 msgstr "SOCKS 4"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2192
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2491
 msgid "SOCKS 5"
 msgstr "SOCKS 5"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2193
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2492
 msgid "HTTP / HTTPS"
 msgstr "HTTP / HTTPS"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2212
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2511
 msgid "Address"
 msgstr "العنوان"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2229
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2528
 msgid "Username"
 msgstr "اسم المستخدم"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2246
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2545
 msgid "IP address or hostname"
 msgstr "عنوان الإنترنت IP أو اسم المضيف"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2264
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2563
 msgid "Port"
 msgstr "منفذ"
 
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2388
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2687
 msgid "_Save Proxy Settings"
 msgstr "_حفظ إعدادات البروكسي"
 
@@ -4003,6 +4108,28 @@ msgstr "ديسمبر"
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
 msgstr "ساعة"
+
+#~ msgid "Bridge address malformed"
+#~ msgstr "عنوان الجسر مشوه"
+
+#~ msgid ""
+#~ "Setting a bridge is needed if you want to hide that you are using Tor"
+#~ msgstr "يلزم إنشاء جسر إذا كنت تريد إخفاء أنك تستخدم Tor"
+
+#~ msgid ""
+#~ "To get a bridge, send an empty email to <tt>bridges@torproject.org</tt> "
+#~ "from a Gmail or Riseup email address with your phone and scan the QR code "
+#~ "that is attached to the automatic reply."
+#~ msgstr ""
+#~ "لطلب جسر، إرسل بريد إلكتروني فارغ إلى <tt>bridges@torproject.org</tt> من "
+#~ "عنوان بريد إلكتروني Gmail أو Riseup بهاتفك وامسح رمز QR المرفق بالرد "
+#~ "التلقائي."
+
+#~ msgid "Scan QR Code"
+#~ msgstr "مسح رمز QR"
+
+#~ msgid "Documentation"
+#~ msgstr "التوثيقات"
 
 #, fuzzy
 #~| msgid "Opens a terminal as the root user"

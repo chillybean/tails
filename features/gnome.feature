@@ -30,7 +30,7 @@ Feature: GNOME is well-integrated into Tails
     # The close button of GNOME Disks is not accessible
     And I close the "gnome-disks" window via Alt+F4
     When I start "Console" via GNOME Activities Overview
-    And I close the "kgx" window
+    And I close Console
     When I start "Files" via GNOME Activities Overview
     And I close the "org.gnome.Nautilus" window
     When I start "Persistent Storage" via GNOME Activities Overview
@@ -40,6 +40,7 @@ Feature: GNOME is well-integrated into Tails
     When I start "Pidgin" via GNOME Activities Overview
     And I close the "Pidgin" window via Alt+F4
     When I start "Thunderbird" via GNOME Activities Overview
+    And I click "Start Thunderbird" in the "Thunderbird Migration" zenity dialog
     And I close the "Thunderbird" window
     When I start "Tor Browser" via GNOME Activities Overview
     And I close the "Firefox" window
@@ -47,3 +48,5 @@ Feature: GNOME is well-integrated into Tails
     And I close the "unlock-veracrypt-volumes" window
     When I start "Unsafe Browser" via GNOME Activities Overview
     And I close the "Firefox" window
+    When I start "Secrets" via GNOME Activities Overview
+    And I close the "secrets" window

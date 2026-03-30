@@ -375,8 +375,8 @@ rescue Timeout::Error
   raise TorBootstrapFailure, 'TCA did not start'
 end
 
-def tor_connection_assistant
-  Dogtail::Application.new('Tor Connection', translation_domain: 'tails')
+def tor_connection_assistant(**opts)
+  Dogtail::Application.new('Tor Connection', translation_domain: 'tails', **opts)
 end
 
 class TCAConnectionFailure < TorBootstrapFailure
@@ -394,8 +394,10 @@ Then /^the Tor Connection Assistant connects to Tor$/ do
   try_for(120,
           msg:       'Timed out while waiting for TCA to connect to Tor',
           exception: TCAConnectionTimeout) do
-    if tor_connection_assistant.child?('Error connecting to Tor',
-                                       roleName: 'label', retry: false)
+    if tor_connection_assistant.child?(
+      'Error connecting to Tor.*|Error asking for a bridge',
+      roleName: 'label', retry: false
+    )
       if failure_reported_once
         failure_reported_twice = true
         done = true
@@ -605,6 +607,7 @@ def setup_qrcode_bridges_on_webcam(bridges)
   )
   # rubocop:enable Style/StringConcatenation
   $vm.file_copy_local(qrcode_image, '/tmp/qrcode.jpg')
+  $vm.execute_successfully("chmod a+r '/tmp/qrcode.jpg'")
   feed_qr_code_video_to_virtual_webcam('/tmp/qrcode.jpg')
   # Give ffmpeg time to start pushing frames to the virtual webcam
   sleep 5
@@ -679,7 +682,7 @@ When /^I configure (?:some|the) (persistent )?(\w+) bridges (from a QR code )?in
       if qr_code
         # We currently support only 1 bridge
         setup_qrcode_bridges_on_webcam(bridges)
-        tor_connection_assistant.child('_Ask for a Tor bridge by email',
+        tor_connection_assistant.child('_Ask for a bridge by email',
                                        roleName: 'radio button')
                                 .click
         tor_connection_assistant.child('Scan QR code',
@@ -703,7 +706,9 @@ When /^I configure (?:some|the) (persistent )?(\w+) bridges (from a QR code )?in
         # (for details, see label-for and labelled-by accessibility relations
         # in main.ui.in)
         # however, this doesn't seem to work anymore
-        bridge_entry = tor_connection_assistant.child(roleName: 'text')
+        bridge_entry = tor_connection_assistant.child('Bridge', roleName: 'label')
+                                               .parent
+                                               .child(roleName: 'text')
         bridge_entry.text = bridges.first[:line]
       end
       @bridge_hosts = bridges.map do |bridge|
@@ -730,27 +735,6 @@ When /^I configure (?:some|the) (persistent )?(\w+) bridges (from a QR code )?in
     end
   end
   # rubocop:enable Metrics/BlockLength
-end
-
-When /^I scan a QR code from the error page in Tor Connection Assistant$/ do
-  bridge_type = 'obfs4'
-
-  @bridge_hosts = []
-  # XXX: re-enable when we support more than 1 bridge
-  # rubocop:disable Lint/UnreachableLoop
-  chutney_bridges(bridge_type).each do |bridge|
-    @bridge_hosts << { address: bridge[:address], port: bridge[:port] }
-    break # We currently support only 1 bridge
-  end
-  # rubocop:enable Lint/UnreachableLoop
-
-  qr_code_bridges = chutney_bridges(bridge_type).slice(0, 1)
-  setup_qrcode_bridges_on_webcam(qr_code_bridges)
-  tor_connection_assistant.child('Scan QR Code', roleName: 'button').click
-
-  try_for(30) do
-    !tor_connection_assistant.textentry('').text.empty?
-  end
 end
 
 When /^I disable saving bridges to Persistent Storage$/ do
@@ -785,6 +769,73 @@ rescue StandardError => e
         "#{e.class.name}: #{e}"
 else
   raise 'TCA managed to connect to Tor but was expected to fail'
+end
+
+def mock_moat_response(response)
+  response_json = JSON.pretty_generate(response)
+  $vm.file_overwrite('/run/moat-response.json', response_json)
+  moat_wrapper = <<~WRAPPER
+    #!/bin/sh
+    cat /run/moat-response.json
+  WRAPPER
+  $vm.file_overwrite('/usr/local/lib/tails-circumvention-settings', moat_wrapper)
+end
+
+Given /^the Moat distributor responds with the default bridges$/ do
+  transport = 'obfs4'
+  default_bridges = $vm.execute_successfully(
+    "grep ^#{transport} /usr/share/tails/tca/default_bridges.txt | sort"
+  ).stdout.chomp.split("\n")
+  response = {
+    "settings": [
+      {
+        "bridges": {
+          "type":           transport,
+          "source":         'builtin',
+          "bridge_strings": default_bridges,
+        },
+      },
+    ],
+    "country":  'foo',
+  }
+  mock_moat_response(response)
+end
+
+Given /^the Moat distributor responds with an API error$/ do
+  @mocked_moat_api_error = {
+    'errors' => [
+      {
+        'code'   => 404,
+        'detail' => 'No provided transport is available for this country',
+      },
+    ],
+  }
+  mock_moat_response(@mocked_moat_api_error)
+end
+
+When /^I configure Tor Connection to ask for bridge settings (?:based on my location|for "(.*)")$/ do |region|
+  tca_configure(:easy, connect: false) do
+    tor_connection_assistant.child(
+      'Configure a Tor _bridge',
+      roleName: 'check box'
+    ).click
+    click_connect_to_tor
+    moat_radio = tor_connection_assistant.child(
+      'Ask for a bridge based on your _region',
+      roleName: 'radio button'
+    )
+    moat_radio.click
+    if region
+      combo_box = moat_radio.parent.child(roleName: 'combo box')
+      combo_input = moat_radio.parent.child(roleName: 'text')
+      old_combovalue = combo_box.combovalue
+      assert_equal('automatic', old_combovalue)
+      combo_input.text = region
+      try_for(5) { old_combovalue != combo_box.combovalue }
+    end
+    click_connect_to_tor
+  end
+  @user_wants_pluggable_transports = true
 end
 
 When /^I accept Tor Connection's offer to use my persistent bridges$/ do
@@ -823,8 +874,27 @@ end
 
 Then /^the Tor Connection Assistant reports that it failed to connect$/ do
   try_for(120) do
-    tor_connection_assistant.child('Error connecting to Tor', roleName: 'label')
+    tor_connection_assistant.child(
+      'Error connecting to Tor.*|Error asking for a bridge', roleName: 'label'
+    )
   end
+end
+
+Then /^the Tor Connection Assistant reports the Moat API error$/ do
+  expected_error_code = 'moat_api_error'
+  # We need to unset drop_accelerator because we'll look for a string
+  # with two underscores which otherwise would be confused as two
+  # accelerators, resulting in tripping a sanity check in translate().
+  tor_connection_assistant(drop_accelerator: false)
+    .child("Error code: #{expected_error_code}", roleName: 'label')
+  tor_connection_assistant.child('Open _details', roleName: 'button').click
+  details = Dogtail::Application.new('gnome-text-editor')
+                                .child(roleName: 'text')
+                                .text
+  error_code = details.lines.first.chomp.delete_prefix('Code: ')
+  assert_equal(expected_error_code, error_code)
+  error_details = JSON.parse(details.lines.last.chomp)
+  assert_equal(@mocked_moat_api_error['errors'], error_details)
 end
 
 Then /^the Tor Connection Assistant complains that normal bridges are not allowed$/ do
@@ -936,12 +1006,13 @@ def bridge_line_to_ipports(line)
 end
 
 def bridges_to_ipport(file_content)
+  supported_transports = supported_bridge_transports
   # given the content of a default_bridges.txt, extract all IPs:Port,
   # returning an array of hashes; only IPv4 are considered
   file_content
     .chomp
     .split("\n")
-    .filter { |l| ['obfs4', 'webtunnel', 'bridge'].include?(l.split.first) }
+    .filter { |l| supported_transports.include?(l.split.first) }
     .map { |l| bridge_line_to_ipports(l) }
     .flatten
 end
@@ -1154,4 +1225,45 @@ Then(/^The Wi-Fi settings are displayed$/) do
   Dogtail::Application.new('gnome-control-center')
                       .child('Wi-Fi', roleName: 'grouping')
                       .child('Wi-Fi', roleName: 'check box')
+end
+
+def torrc_bridges
+  $vm.file_content('/etc/tor/torrc').lines.grep(/^Bridge\s/)
+end
+
+def supported_bridge_transports
+  transports = JSON.parse(
+    $vm.execute_successfully(
+      'python3 -c "import json; import tca.torutils; ' \
+      'print(json.dumps(list(tca.torutils.VALID_BRIDGE_TYPES)))"'
+    ).stdout
+  )
+  # Sanity check
+  assert_include(transports, 'obfs4')
+  transports
+end
+
+Given /^no bridges are configured in torrc$/ do
+  assert_equal(0, torrc_bridges.size)
+end
+
+Then /^some real world bridges are eventually configured in torrc$/ do
+  expected_transports = supported_bridge_transports
+  try_for(60) do
+    bridges = torrc_bridges
+    assert_not_empty(bridges, 'there are no bridge lines in torrc')
+    bridges.each do |line|
+      line_split = line.split
+      if line_split.size == 2
+        transport = 'bridge'
+        addr_port = line_split.last
+      else
+        _, transport, addr_port, = line_split
+      end
+      assert_include(expected_transports, transport)
+      addr = addr_port.sub(/:\d+$/, '')
+      assert(!IPAddr.new(addr).private?,
+             'real world bridges do not have private IP addresses')
+    end
+  end
 end

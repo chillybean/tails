@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-09-17 11:40+0200\n"
-"PO-Revision-Date: 2026-01-23 15:29+0000\n"
+"POT-Creation-Date: 2026-03-27 09:32+0000\n"
+"PO-Revision-Date: 2026-03-27 12:22+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ca\n"
@@ -28,26 +28,6 @@ msgstr "[[!meta title=\"Restablir un llapis USB utilitzant Windows\"]]\n"
 msgid "[[!inline pages=\"doc/reset.intro\" raw=\"yes\" sort=\"age\"]]\n"
 msgstr "[[!inline pages=\"doc/reset.intro.ca\" raw=\"yes\" sort=\"age\"]]\n"
 
-#. type: Plain text
-#, no-wrap
-msgid "<div class=\"caution\">\n"
-msgstr "<div class=\"caution\">\n"
-
-#. type: Plain text
-#, no-wrap
-msgid "<p><b>You might overwrite any hard disk on the computer.</b></p>\n"
-msgstr "<p><b>Podeu sobreescriure qualsevol disc dur de l'ordinador.</b></p>\n"
-
-#. type: Plain text
-#, no-wrap
-msgid "<p>If at some point you are not sure about which device to choose, stop proceeding.</p>\n"
-msgstr "<p>Si en algun punt no esteu segur de quin dispositiu triar, millor no continueu.</p>\n"
-
-#. type: Plain text
-#, no-wrap
-msgid "</div>\n"
-msgstr "</div>\n"
-
 #. type: Title =
 #, no-wrap
 msgid "Erase Tails from the USB stick"
@@ -58,144 +38,88 @@ msgid "First, erase Tails from the USB stick:"
 msgstr "Primer, suprimiu Tails del llapis USB:"
 
 #. type: Bullet: '1. '
-msgid "Make sure that the USB stick that you want to reset is unplugged."
-msgstr ""
-"Assegureu-vos que el llapis USB que voleu restablir estigui desconnectat."
-
-#. type: Bullet: '1. '
+#, fuzzy
+#| msgid ""
+#| "Open the **Start** ([[!img lib/start.png class=\"symbolic\" link=\"no\" "
+#| "alt=\"\"]]) menu."
 msgid ""
-"Open the **Start** ([[!img lib/start.png class=\"symbolic\" link=\"no\" "
-"alt=\"\"]]) menu."
+"Select the **Start** [[!img lib/start.png alt=\"\" class=\"symbolic\" "
+"link=\"no\"]] button and open the *Settings* app."
 msgstr ""
 "Obriu el menú **Inici** ([[!img lib/start.png class=\"symbolic\" link=\"no\" "
 "alt=\"\"]])."
 
 #. type: Bullet: '1. '
-msgid "Choose **Windows System**&nbsp;▸ **Command Prompt**."
-msgstr "Trieu **Sistema Windows**&nbsp;▸ **Indicador d'ordres**."
-
-#. type: Bullet: '1. '
-msgid "Execute the following command to start the *Diskpart* utility."
-msgstr "Executeu l'ordre següent per iniciar la utilitat *Diskpart*."
-
-#. type: Plain text
-#, no-wrap
-msgid "   <p class=\"command-windows\">diskpart</p>\n"
-msgstr "   <p class=\"command-windows\">diskpart</p>\n"
-
-#. type: Bullet: '1. '
 msgid ""
-"Execute the following command to obtain information about the disks in the "
-"computer."
+"In the *Settings* app, choose **System&nbsp;▸ Storage&nbsp;▸ Advanced "
+"storage settings&nbsp;▸ Disk & volumes**."
 msgstr ""
-"Executeu l'ordre següent per obtenir informació sobre els discs de "
-"l'ordinador."
-
-#. type: Plain text
-#, no-wrap
-msgid "   <p class=\"command-windows\">list disk</p>\n"
-msgstr "   <p class=\"command-windows\">list disk</p>\n"
-
-#. type: Plain text
-#, no-wrap
-msgid "   For example:\n"
-msgstr "   Per exemple:\n"
-
-#. type: Plain text
-#, no-wrap
-msgid "       Diskpart> list disk\n"
-msgstr "       Diskpart> list disk\n"
-
-#. type: Plain text
-#, no-wrap
-msgid ""
-"         Disk ###  Status      Size     Free     Dyn  Gpt\n"
-"         --------  ----------  -------  -------  ---  ---\n"
-"         Disk 0    Online        80 GB      0 B\n"
-msgstr ""
-"         Disk ###  Status      Size     Free     Dyn  Gpt\n"
-"         --------  ----------  -------  -------  ---  ---\n"
-"         Disk 0    Online        80 GB      0 B\n"
 
 #. type: Bullet: '1. '
-msgid "Plug in the USB stick that you want to reset."
+#, fuzzy
+#| msgid "Plug in the USB stick that you want to reset."
+msgid "Plug in the Tails USB stick that you want to reset."
 msgstr "Connecteu el llapis USB que voleu restablir."
 
+#. type: Plain text
+#, no-wrap
+msgid "   [[!img disks.png class=\"screenshot\" alt=\"\"]]\n"
+msgstr "   [[!img disks.png class=\"screenshot\" alt=\"\"]]\n"
+
 #. type: Bullet: '1. '
-msgid "Run the same command again."
-msgstr "Torneu a executar la mateixa ordre."
-
-#. type: Plain text
-#, no-wrap
-msgid ""
-"   A new disk, which corresponds to the USB stick that you plugged in,\n"
-"   appears in the list.\n"
+msgid "Identify the USB stick in the list of disks."
 msgstr ""
-"   A la llista apareix un disc nou, que correspon al nou llapis USB que\n"
-"   heu connectat.\n"
 
-#. type: Plain text
-#, no-wrap
-msgid "        Diskpart> list disk\n"
-msgstr "        Diskpart> list disk\n"
-
-#. type: Plain text
-#, no-wrap
-msgid ""
-"          Disk ###  Status      Size     Free     Dyn  Gpt\n"
-"          --------  ----------  -------  -------  ---  ---\n"
-"          Disk 0    Online        80 GB      0 B\n"
-"          Disk 1    Online         8 GB      0 B\n"
+#. type: Bullet: '1. '
+msgid "Identify the volume called **TAILS**, which has a FAT32 file system."
 msgstr ""
-"          Disk ###  Status      Size     Free     Dyn  Gpt\n"
-"          --------  ----------  -------  -------  ---  ---\n"
-"          Disk 0    Online        80 GB      0 B\n"
-"          Disk 1    Online         8 GB      0 B\n"
+
+#. type: Plain text
+#, fuzzy, no-wrap
+#| msgid "Then, create a new partition on the USB stick:"
+msgid "   This volume corresponds to the Tails system partition on the USB stick.\n"
+msgstr "A continuació, creeu una nova partició al llapis USB:"
+
+#. type: Bullet: '   1. '
+msgid "Select the **Properties** button corresponding to the **TAILS** volume."
+msgstr ""
+
+#. type: Bullet: '   1. '
+msgid "In the properties of the **TAILS** volume, select **Delete**."
+msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid ""
-"   Make sure that its size corresponds to the size of the USB stick that you want to\n"
-"   reset. Note down its disk number.\n"
+msgid "      Windows gives no feedback after deletion.\n"
 msgstr ""
-"   Assegureu-vos que la seva mida correspongui a la mida del llapis USB que voleu\n"
-"   restablir. Anoteu el seu número de disc.\n"
 
-#. type: Plain text
-#, no-wrap
-msgid ""
-"   In this example, the disk number of the USB stick is 1.\n"
-"   Yours might be different.\n"
+#. type: Bullet: '1. '
+msgid "Select **Disks & volumes** to go back to the list of volumes."
 msgstr ""
-"   En aquest exemple, el número de disc del llapis USB és 1.\n"
-"   El vostre pot ser diferent.\n"
 
 #. type: Bullet: '1. '
 msgid ""
-"Execute the following command to select the USB stick. Replace <span "
-"class=\"command-placeholder\">number</span> with the disk number found in "
-"step 7."
+"If there is a [[Persistent Storage|doc/persistent_storage]] on the USB "
+"stick, a volume called **(No label)** also appears on the USB stick."
 msgstr ""
-"Executeu l'ordre següent per seleccionar el llapis USB. Substituïu <span "
-"class=\"command-placeholder\">número</span> pel número de disc que heu "
-"trobat al pas 7."
 
 #. type: Plain text
 #, no-wrap
-msgid "   <p class=\"command-windows command-template\">select disk=<span class=\"command-placeholder\">number</span></p>\n"
-msgstr "   <p class=\"command-windows command-template\">select disk=<span class=\"command-placeholder\">número</span></p>\n"
+msgid "   This volume corresponds to the Tails Persistent Storage on the USB stick.\n"
+msgstr ""
+
+#. type: Bullet: '   1. '
+msgid ""
+"Select the **Properties** button corresponding to the **(No label)** volume."
+msgstr ""
+
+#. type: Bullet: '   1. '
+msgid "In the properties of the **(No label)** volume, select **Delete**."
+msgstr ""
 
 #. type: Bullet: '1. '
-msgid ""
-"Execute the following command to delete the partition table from the USB "
-"stick."
+msgid "The USB stick now has no volumes and is entirely unallocated."
 msgstr ""
-"Executeu l'ordre següent per eliminar la taula de particions del llapis USB."
-
-#. type: Plain text
-#, no-wrap
-msgid "   <p class=\"command-windows\">clean</p>\n"
-msgstr "   <p class=\"command-windows\">clean</p>\n"
 
 #. type: Title =
 #, no-wrap
@@ -207,96 +131,257 @@ msgid "Then, create a new partition on the USB stick:"
 msgstr "A continuació, creeu una nova partició al llapis USB:"
 
 #. type: Bullet: '1. '
-msgid ""
-"Execute the following command to create a new partition table on the USB "
-"stick."
+msgid "Select the **Properties** button corresponding to the USB stick."
 msgstr ""
-"Executeu l'ordre següent per crear una nova taula de particions al llapis "
-"USB."
 
-#. type: Plain text
-#, no-wrap
-msgid "   <p class=\"command-windows\">convert mbr</p>\n"
-msgstr "   <p class=\"command-windows\">convert mbr</p>\n"
+#. type: Bullet: '1. '
+msgid "In the properties of the USB stick, select **Convert to MBR**."
+msgstr ""
 
 #. type: Bullet: '1. '
 msgid ""
-"Execute the following command to create a new primary partition on the USB "
-"stick."
+"Select the **Create Volume** button for the USB stick and choose **Create "
+"Simple Volume**."
 msgstr ""
-"Executeu l'ordre següent per crear una nova partició primària al llapis USB."
 
-#. type: Plain text
-#, no-wrap
-msgid "   <p class=\"command-windows\">create partition primary</p>\n"
-msgstr "   <p class=\"command-windows\">create partition primary</p>\n"
+#. type: Bullet: '1. '
+msgid ""
+"In the **New Volume** dialog, enter a label of your choice and select "
+"**Format**."
+msgstr ""
 
 #. type: Bullet: '1. '
 msgid "Unplug the USB stick."
 msgstr "Desconnecteu el llapis USB."
 
 #. type: Bullet: '1. '
-msgid "Plug the USB stick again."
-msgstr "Torneu a connectar el llapis USB."
-
-#. type: Bullet: '1. '
-msgid "A dialog appears to format the disk before using it."
-msgstr "Apareix un diàleg per formatar el disc abans d'utilitzar-lo."
-
-#. type: Plain text
-#, fuzzy, no-wrap
-#| msgid "   [[!img format.png link=\"no\" class=\"screenshot\" alt=\"You need to format the disk before you can use it. Do you want to format it?\"]]\n"
-msgid "   [[!img format.png class=\"screenshot\" alt=\"You need to format the disk before you can use it. Do you want to format it?\"]]\n"
-msgstr "   [[!img format.png link=\"no\" class=\"screenshot\" alt=\"Heu de formatar el disc abans de poder-lo utilitzar. Voleu formatar-lo?\"]]\n"
-
-#. type: Bullet: '1. '
-msgid "Click on the **Format disk** button."
-msgstr "Feu clic al botó **Formata disc**."
-
-#. type: Bullet: '1. '
-msgid ""
-"In the **Format USB Drive** dialog, review the settings and click **Start**."
+msgid "Close the *Settings* app."
 msgstr ""
-"Al diàleg **Formata el dispositiu USB**, reviseu la configuració i feu clic "
-"a **Inicia**."
 
 #. type: Bullet: '1. '
-msgid ""
-"After the formatting is complete, the USB stick should appear as a new drive "
-"in the files browser."
-msgstr ""
-"Un cop finalitzada la formatació, el llapis USB hauria d'aparèixer com a "
-"unitat nova al navegador de fitxers."
-
-#. type: Plain text
-#, no-wrap
-msgid "   Otherwise, try unplugging and plugging it again.\n"
-msgstr "   En cas contrari, intenteu desconnectar-lo i tornar-lo a connectar.\n"
-
-#. type: Title =
-#, no-wrap
-msgid "Troubleshooting"
-msgstr "Resolució de problemes"
-
-#. type: Bullet: '- '
 #, fuzzy
 #| msgid ""
-#| "- [How to start the *Command Prompt*](https://www.computerhope.com/issues/"
-#| "chdos.htm)"
+#| "Open the **Start** ([[!img lib/start.png class=\"symbolic\" link=\"no\" "
+#| "alt=\"\"]]) menu."
 msgid ""
-"[How to start the *Command Prompt*](https://www.computerhope.com/issues/"
-"chdos.htm)"
+"Select the **Start** [[!img lib/start.png alt=\"\" class=\"symbolic\" "
+"link=\"no\"]] button and open the *File Explorer* app."
 msgstr ""
-"- [Com iniciar l'*Indicador d'ordres*](https://www.computerhope.com/issues/"
-"chdos.htm) (en anglès)"
+"Obriu el menú **Inici** ([[!img lib/start.png class=\"symbolic\" link=\"no\" "
+"alt=\"\"]])."
 
-#. type: Bullet: '- '
-msgid ""
-"[Microsoft: diskpart](https://learn.microsoft.com/en-us/windows-server/"
-"administration/windows-commands/diskpart)"
+#. type: Bullet: '1. '
+#, fuzzy
+#| msgid "Unplug the USB stick."
+msgid "Plug back the USB stick."
+msgstr "Desconnecteu el llapis USB."
+
+#. type: Plain text
+#, no-wrap
+msgid "   Your new volume appears in the left sidebar of the *File Explorer*.\n"
 msgstr ""
-"[Microsoft: diskpart](https://learn.microsoft.com/ca-es/windows-server/"
-"administration/windows-commands/diskpart)"
+
+#, no-wrap
+#~ msgid "<div class=\"caution\">\n"
+#~ msgstr "<div class=\"caution\">\n"
+
+#, no-wrap
+#~ msgid "<p><b>You might overwrite any hard disk on the computer.</b></p>\n"
+#~ msgstr "<p><b>Podeu sobreescriure qualsevol disc dur de l'ordinador.</b></p>\n"
+
+#, no-wrap
+#~ msgid "<p>If at some point you are not sure about which device to choose, stop proceeding.</p>\n"
+#~ msgstr "<p>Si en algun punt no esteu segur de quin dispositiu triar, millor no continueu.</p>\n"
+
+#, no-wrap
+#~ msgid "</div>\n"
+#~ msgstr "</div>\n"
+
+#~ msgid "Make sure that the USB stick that you want to reset is unplugged."
+#~ msgstr ""
+#~ "Assegureu-vos que el llapis USB que voleu restablir estigui desconnectat."
+
+#~ msgid "Choose **Windows System**&nbsp;▸ **Command Prompt**."
+#~ msgstr "Trieu **Sistema Windows**&nbsp;▸ **Indicador d'ordres**."
+
+#~ msgid "Execute the following command to start the *Diskpart* utility."
+#~ msgstr "Executeu l'ordre següent per iniciar la utilitat *Diskpart*."
+
+#, no-wrap
+#~ msgid "   <p class=\"command-windows\">diskpart</p>\n"
+#~ msgstr "   <p class=\"command-windows\">diskpart</p>\n"
+
+#~ msgid ""
+#~ "Execute the following command to obtain information about the disks in "
+#~ "the computer."
+#~ msgstr ""
+#~ "Executeu l'ordre següent per obtenir informació sobre els discs de "
+#~ "l'ordinador."
+
+#, no-wrap
+#~ msgid "   <p class=\"command-windows\">list disk</p>\n"
+#~ msgstr "   <p class=\"command-windows\">list disk</p>\n"
+
+#, no-wrap
+#~ msgid "   For example:\n"
+#~ msgstr "   Per exemple:\n"
+
+#, no-wrap
+#~ msgid "       Diskpart> list disk\n"
+#~ msgstr "       Diskpart> list disk\n"
+
+#, no-wrap
+#~ msgid ""
+#~ "         Disk ###  Status      Size     Free     Dyn  Gpt\n"
+#~ "         --------  ----------  -------  -------  ---  ---\n"
+#~ "         Disk 0    Online        80 GB      0 B\n"
+#~ msgstr ""
+#~ "         Disk ###  Status      Size     Free     Dyn  Gpt\n"
+#~ "         --------  ----------  -------  -------  ---  ---\n"
+#~ "         Disk 0    Online        80 GB      0 B\n"
+
+#~ msgid "Run the same command again."
+#~ msgstr "Torneu a executar la mateixa ordre."
+
+#, no-wrap
+#~ msgid ""
+#~ "   A new disk, which corresponds to the USB stick that you plugged in,\n"
+#~ "   appears in the list.\n"
+#~ msgstr ""
+#~ "   A la llista apareix un disc nou, que correspon al nou llapis USB que\n"
+#~ "   heu connectat.\n"
+
+#, no-wrap
+#~ msgid "        Diskpart> list disk\n"
+#~ msgstr "        Diskpart> list disk\n"
+
+#, no-wrap
+#~ msgid ""
+#~ "          Disk ###  Status      Size     Free     Dyn  Gpt\n"
+#~ "          --------  ----------  -------  -------  ---  ---\n"
+#~ "          Disk 0    Online        80 GB      0 B\n"
+#~ "          Disk 1    Online         8 GB      0 B\n"
+#~ msgstr ""
+#~ "          Disk ###  Status      Size     Free     Dyn  Gpt\n"
+#~ "          --------  ----------  -------  -------  ---  ---\n"
+#~ "          Disk 0    Online        80 GB      0 B\n"
+#~ "          Disk 1    Online         8 GB      0 B\n"
+
+#, no-wrap
+#~ msgid ""
+#~ "   Make sure that its size corresponds to the size of the USB stick that you want to\n"
+#~ "   reset. Note down its disk number.\n"
+#~ msgstr ""
+#~ "   Assegureu-vos que la seva mida correspongui a la mida del llapis USB que voleu\n"
+#~ "   restablir. Anoteu el seu número de disc.\n"
+
+#, no-wrap
+#~ msgid ""
+#~ "   In this example, the disk number of the USB stick is 1.\n"
+#~ "   Yours might be different.\n"
+#~ msgstr ""
+#~ "   En aquest exemple, el número de disc del llapis USB és 1.\n"
+#~ "   El vostre pot ser diferent.\n"
+
+#~ msgid ""
+#~ "Execute the following command to select the USB stick. Replace <span "
+#~ "class=\"command-placeholder\">number</span> with the disk number found in "
+#~ "step 7."
+#~ msgstr ""
+#~ "Executeu l'ordre següent per seleccionar el llapis USB. Substituïu <span "
+#~ "class=\"command-placeholder\">número</span> pel número de disc que heu "
+#~ "trobat al pas 7."
+
+#, no-wrap
+#~ msgid "   <p class=\"command-windows command-template\">select disk=<span class=\"command-placeholder\">number</span></p>\n"
+#~ msgstr "   <p class=\"command-windows command-template\">select disk=<span class=\"command-placeholder\">número</span></p>\n"
+
+#~ msgid ""
+#~ "Execute the following command to delete the partition table from the USB "
+#~ "stick."
+#~ msgstr ""
+#~ "Executeu l'ordre següent per eliminar la taula de particions del llapis "
+#~ "USB."
+
+#, no-wrap
+#~ msgid "   <p class=\"command-windows\">clean</p>\n"
+#~ msgstr "   <p class=\"command-windows\">clean</p>\n"
+
+#~ msgid ""
+#~ "Execute the following command to create a new partition table on the USB "
+#~ "stick."
+#~ msgstr ""
+#~ "Executeu l'ordre següent per crear una nova taula de particions al llapis "
+#~ "USB."
+
+#, no-wrap
+#~ msgid "   <p class=\"command-windows\">convert mbr</p>\n"
+#~ msgstr "   <p class=\"command-windows\">convert mbr</p>\n"
+
+#~ msgid ""
+#~ "Execute the following command to create a new primary partition on the "
+#~ "USB stick."
+#~ msgstr ""
+#~ "Executeu l'ordre següent per crear una nova partició primària al llapis "
+#~ "USB."
+
+#, no-wrap
+#~ msgid "   <p class=\"command-windows\">create partition primary</p>\n"
+#~ msgstr "   <p class=\"command-windows\">create partition primary</p>\n"
+
+#~ msgid "Plug the USB stick again."
+#~ msgstr "Torneu a connectar el llapis USB."
+
+#~ msgid "A dialog appears to format the disk before using it."
+#~ msgstr "Apareix un diàleg per formatar el disc abans d'utilitzar-lo."
+
+#, fuzzy, no-wrap
+#~| msgid "   [[!img format.png link=\"no\" class=\"screenshot\" alt=\"You need to format the disk before you can use it. Do you want to format it?\"]]\n"
+#~ msgid "   [[!img format.png class=\"screenshot\" alt=\"You need to format the disk before you can use it. Do you want to format it?\"]]\n"
+#~ msgstr "   [[!img format.png link=\"no\" class=\"screenshot\" alt=\"Heu de formatar el disc abans de poder-lo utilitzar. Voleu formatar-lo?\"]]\n"
+
+#~ msgid "Click on the **Format disk** button."
+#~ msgstr "Feu clic al botó **Formata disc**."
+
+#~ msgid ""
+#~ "In the **Format USB Drive** dialog, review the settings and click "
+#~ "**Start**."
+#~ msgstr ""
+#~ "Al diàleg **Formata el dispositiu USB**, reviseu la configuració i feu "
+#~ "clic a **Inicia**."
+
+#~ msgid ""
+#~ "After the formatting is complete, the USB stick should appear as a new "
+#~ "drive in the files browser."
+#~ msgstr ""
+#~ "Un cop finalitzada la formatació, el llapis USB hauria d'aparèixer com a "
+#~ "unitat nova al navegador de fitxers."
+
+#, no-wrap
+#~ msgid "   Otherwise, try unplugging and plugging it again.\n"
+#~ msgstr "   En cas contrari, intenteu desconnectar-lo i tornar-lo a connectar.\n"
+
+#, no-wrap
+#~ msgid "Troubleshooting"
+#~ msgstr "Resolució de problemes"
+
+#, fuzzy
+#~| msgid ""
+#~| "- [How to start the *Command Prompt*](https://www.computerhope.com/"
+#~| "issues/chdos.htm)"
+#~ msgid ""
+#~ "[How to start the *Command Prompt*](https://www.computerhope.com/issues/"
+#~ "chdos.htm)"
+#~ msgstr ""
+#~ "- [Com iniciar l'*Indicador d'ordres*](https://www.computerhope.com/"
+#~ "issues/chdos.htm) (en anglès)"
+
+#~ msgid ""
+#~ "[Microsoft: diskpart](https://learn.microsoft.com/en-us/windows-server/"
+#~ "administration/windows-commands/diskpart)"
+#~ msgstr ""
+#~ "[Microsoft: diskpart](https://learn.microsoft.com/ca-es/windows-server/"
+#~ "administration/windows-commands/diskpart)"
 
 #, no-wrap
 #~ msgid "<div class=\"bug\">\n"

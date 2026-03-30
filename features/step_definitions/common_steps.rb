@@ -242,9 +242,12 @@ Given /^I start Tails from (.+?) drive "(.+?)"( with network unplugged)?( and I 
     step 'I enable persistence' if persistence_on
     step 'I enable persistence with the changed passphrase' \
       if persistence_with_changed_passphrase
+    @additional_software_expected_to_start =
+      $vm.file_exist?(ASP_CONF) && !$vm.file_empty?(ASP_CONF)
     step 'I set an administration password' if admin_password
     step 'I log in to a new session'
-    step 'the Additional Software installation service has started'
+    step 'the Additional Software installation service has started' \
+      if @additional_software_expected_to_start
     if network_unplugged
       step 'all notifications have disappeared'
     else
@@ -392,6 +395,8 @@ def wait_for_ponytail(user: LIVE_USER, timeout: 60)
       user:
     ).success?
   end
+rescue Timeout::Error
+  raise 'Known issue #21211: timed out while waiting for the GNOME Shell Introspect API'
 end
 
 Given /^the computer (?:re)?boots Tails$/ do
@@ -436,7 +441,13 @@ Given /^the computer (?:re)?boots Tails$/ do
     # rest of the session. That window is closed once the Welcome
     # Screen appears, so we wait for that to happen using image
     # matching.
-    @screen.wait('TailsGreeter.png', 60)
+    found = @screen.wait_any(
+      ['TailsGreeter.png', 'PlymouthGraphicsCardFailureMessage.png'], 60
+    )
+    if found.image == 'PlymouthGraphicsCardFailureMessage.png'
+      raise 'Known issue #20282: Error starting GDM with your graphics card'
+    end
+
     # Enable GNOME introspection for Dogtail and Ponytail
     $vm.execute_successfully('gnome-extensions enable automated-testing@tails.net',
                              user: 'Debian-gdm')
@@ -677,9 +688,10 @@ Given /^I successfully configure Tor$/ do
   step 'I wait until Tor is ready'
 end
 
-Then /^I wait until Tor is ready$/ do
-  # Here we actually check that Tor is ready
-  step 'Tor has built a circuit'
+Then /^I wait( for a long time)? until Tor is ready$/ do |long_wait|
+  wait_opts = {}
+  wait_opts[:timeout] = 60 * 10 if long_wait
+  wait_until_tor_is_working(**wait_opts)
   step 'the time has synced'
   debug_log('user_wants_pluggable_transports = ' \
            "#{@user_wants_pluggable_transports} " \
@@ -705,7 +717,8 @@ Then /^I wait until Tor is ready$/ do
   # When we test for ASP upgrade failure the following tests would fail,
   # so let's skip them in this case.
   unless $vm.file_exist?('/run/live-additional-software/doomed_to_fail')
-    step 'the Additional Software upgrade service has started'
+    step 'the Additional Software upgrade service has started' \
+      if @additional_software_expected_to_start
     begin
       try_for(30) { $vm.execute('systemctl is-system-running').success? }
     rescue Timeout::Error
@@ -714,10 +727,6 @@ Then /^I wait until Tor is ready$/ do
       raise "The system is not fully running yet:\n#{jobs}\n#{units_status}"
     end
   end
-end
-
-Given /^Tor has built a circuit$/ do
-  wait_until_tor_is_working
 end
 
 class TimeSyncingError < StandardError
@@ -1211,6 +1220,24 @@ When /^I close the "([^"]+)" window via Alt\+F4$/ do |app_name|
   end
 end
 
+When /^I close Console$/ do
+  console = Dogtail::Application.new('kgx')
+  console.button('Close').click
+  # Console asks for confirmation if a command is still
+  # running. Sometimes it thinks a command that just exited is still
+  # running, so it shows the confirmation dialog unexpectedly, so we
+  # always have to anticipate it.
+  try_for(10) do
+    Dogtail::Application.new('kgx', retry: false)
+  rescue Dogtail::Failure
+    true
+  else
+    console.child('Close Window?', roleName: 'alert',
+                                   retry:    false).button('Close').click
+    false
+  end
+end
+
 When /^I press the "([^"]+)" key$/ do |key|
   @screen.press(key)
 end
@@ -1677,6 +1704,10 @@ Given /^I write a file "(\S+)" with contents "([^"]*)"$/ do |path, content|
   $vm.file_overwrite(path, content)
 end
 
+Given /^I change ownership of file "(\S+)" to "([^"]*)"$/ do |path, owner|
+  $vm.execute_successfully("chown #{owner} #{path}")
+end
+
 Given /^I create a symlink "(\S+)" to "(\S+)"$/ do |link, target|
   $vm.execute_successfully(
     "ln -s --no-target-directory '#{target}' '#{link}'"
@@ -1846,4 +1877,21 @@ end
 Then(/^the language is set to (.*)$/) do |language|
   lang = { 'French' => 'fr_FR.UTF-8' }[language]
   assert_equal(lang, $vm.execute_successfully('echo $LANG').stdout.chomp)
+end
+
+def zenity_dialog_click_button(title, button_label)
+  button = Dogtail::Application.new('zenity').dialog(title).button(button_label)
+  # Sometimes this click is lost. Maybe the dialog is not fully setup yet?
+  sleep 2
+  button.click
+end
+
+When(/^I click "([^"]+)" in the "([^"]+)" zenity dialog$/) do |button_label, title|
+  zenity_dialog_click_button(title, button_label)
+end
+
+When(/^I open "(.*[.].*)" in Files$/) do |filename|
+  nautilus = Dogtail::Application.new('org.gnome.Nautilus')
+  nautilus.child(filename, roleName: 'table cell').click
+  @screen.press('Return')
 end

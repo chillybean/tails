@@ -4,17 +4,6 @@ We run this release process before releasing a new version of Forge or a change
 in the [[verification JavaScript|install/inc/js/download.js]] that is used on
 our download pages.
 
-<div class="caution">
-
-<p>During the release process, you will download several pieces of software over
-TLS only which is not trustworthy enough to be compliant with the "third-party
-software" requirement of the security policy of some of our internal teams.</p>
-
-<p>You should isolate these pieces of software, for example by only running them
-in a dedicated Tails.</p>
-
-</div>
-
 Updating Forge
 --------------
 
@@ -22,40 +11,32 @@ Website: <https://github.com/digitalbazaar/forge/>
 
 Release feed: <https://github.com/digitalbazaar/forge/releases.atom>
 
-1. Check which is the current version:
+1. Check which version we are currently shipping:
 
-       head -n 1 wiki/src/install/inc/js/forge.sha256.js
+       git log wiki/src/install/inc/js/forge.min.js
 
 1. Check the upstream Changelog for new versions:
 
    <https://github.com/digitalbazaar/forge/blob/master/CHANGELOG.md>
 
-1. Clone the upstream repository:
+1. Determine what version of forge you want to upgrade to, and set `FORGE_VERSION` to this version
 
-       git clone https://github.com/digitalbazaar/forge.git
+1. Download it from two different CDNs:
 
-1. Install the build dependencies:
+       torsocks --isolate wget "https://cdn.jsdelivr.net/npm/node-forge@${FORGE_VERSION}/dist/forge.min.js" -O forge.min.js
+       torsocks --isolate wget "https://unpkg.com/node-forge@${FORGE_VERSION}/dist/forge.min.js" -O forge.min.js.1
 
-       apt install -t unstable npm webpack
+1. Check they are the same
 
-1. Build Forge:
-
-       export FORGE_VERSION=
-       wget -O forge/webpack.config.js https://tails.net/contribute/release_process/verification_javascript/forge.webpack.config.js
-       cd forge
-       git reset --hard $FORGE_VERSION
-       rm dist/*
-       torsocks npm install
-       npm run build
-       cd ..
+       diff forge.min.js{,.1} && rm forge.min.js.1
 
 1. Copy into our repo:
 
-       cp forge/dist/forge.sha256.js wiki/src/install/inc/js/forge.sha256.js
+       mv forge.min.js wiki/src/install/inc/js/forge.min.js
 
 1. Add copyright information:
 
-       sed -i "1s/^/\/*! Forge v$FORGE_VERSION | (c) Digital Bazaar, Inc. *\/\n/" wiki/src/install/inc/js/forge.sha256.js
+       sed -i "1s/^/\/*! Forge v$FORGE_VERSION | (c) Digital Bazaar, Inc. *\/\n/" wiki/src/install/inc/js/forge.min.js
 
 Which browsers to test
 ----------------------

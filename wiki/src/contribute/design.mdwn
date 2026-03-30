@@ -1173,35 +1173,6 @@ Implementation:
 
 OpenPGP support is integrated in *Thunderbird* since version 78.
 
-Thunderbird's email configuration wizard has security issues in its
-default configuration. For example, it trusts the result of DNS
-requests and may retrieve mail server configurations from a remote
-server over an insecure channel. So in Tails, we patch Thunderbird to
-solve these security problems. We are in the process of
-([[!tails_ticket 6156 desc="upstreaming these patches"]]). Until they
-are all upstreamed, we apply these patches, on top of Debian's
-Thunderbird, while building Tails images:
-
-- [[!tails_gitweb_dir config/chroot_local-includes/usr/share/tails/build/thunderbird-patches]]
-- [[!tails_gitweb config/chroot_local-hooks/11-patch-thunderbird]]
-- [[!tails_gitweb config/chroot_local-includes/usr/share/tails/build/patch-thunderbird]]
-
-These account configuration wizard patches allow using only secure
-protocols for the domain and ISPDB lookups as well as for the actual
-mail account configuration. In detail this means:
-
-1. we prevent all testing of plaintext protocols when guessing configurations.
-
-1. we make ISP autoconfiguration lookups first try https, then http, but only
-   if we allow insecure protocols.
-
-1. we discard any configurations using plaintext protocols.
-
-In addition, even when plaintext protocols are allowed, the patches make
-us prefer secure options if available.
-This setting can be disabled (opt-out by the user). This also applies to
-manual configuration.
-
 ### 3.6.15 Pidgin
 
 Pidgin is configured in Tails to not log anything as well as not to reveal too

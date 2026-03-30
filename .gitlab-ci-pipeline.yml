@@ -5,10 +5,21 @@ workflow:
     - if: $CI_COMMIT_TAG
     - if: '$CI_COMMIT_BRANCH =~ /^(master|stable|testing|devel)$/'
 
-# Please, make sure to only use images from `registry.gitlab.tails.boum.org`,
-# as we give significant privileges to our Runners wrt. what they can do in our
-# repositories.
-image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:trixie
+# This block is nothing special in GitLab CI semantics. It's just a place we're
+# putting "variables" to be reused later
+.definitions:
+  # Please, make sure to only use images from `registry.gitlab.tails.boum.org`,
+  # as we give significant privileges to our Runners wrt. what they can do in our
+  # repositories.
+  image-trixie: &image-trixie "registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:trixie"
+  image-forky: &image-forky "registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:forky"
+  image-sid: &image-sid "registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:sid"
+
+  # Some tests specifically need to use the same Debian suite as a Tails built
+  # from this branch.  To ensure this, those jobs must set `image: *current-suite-image`.
+  current-suite-image: &current-suite-image "registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:trixie"
+
+image: *image-trixie
 
 variables:
     GET_SOURCES_ATTEMPTS: 10
@@ -101,7 +112,7 @@ deploy-website:
     - rsync --rsh="ssh -p ${SSH_PORT} -o UserKnownHostsFile=.ssh/known_hosts -i .ssh/private_key" --checksum --archive --no-times --verbose --mkpath --delete "config/chroot_local-includes/usr/share/doc/tails/website/" www-data@${SSH_SERVER}:/
 
 lint-po:
-  image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:trixie
+  image: *image-trixie
   rules:
     - if: '$CI_COMMIT_BRANCH =~ /^(master|stable|testing|devel)$/'
     - changes:
@@ -118,7 +129,7 @@ avoid-gtk-launch:
     - ./bin/test-utils/gtk-launch
 
 codespell:
-  image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:trixie
+  image: *image-trixie
   script:
     - apt-get -qy install codespell
     - codespell --version
@@ -132,7 +143,7 @@ ruff-lint-changed-files:
     GIT_STRATEGY: clone
     GIT_DEPTH: 0
 
-  image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:sid
+  image: *image-sid
 
   script:
     - apt-get -qy install ruff findutils git python3
@@ -152,7 +163,7 @@ ruff-format-changed-files:
     GIT_STRATEGY: clone
     GIT_DEPTH: 0
 
-  image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:sid
+  image: *image-sid
 
   script:
     - apt-get -qy install ruff findutils git python3
@@ -166,6 +177,7 @@ check-isolated-python:
     - ./bin/test-utils/check-isolated-python
 
 check-udfs-signatures:
+  image: *current-suite-image
   script:
     - apt-get -qy install python3 python3-debian sqopv
     - export VERSION=$(python3 -c 'from debian.changelog import Changelog; print(Changelog(open("debian/changelog"))[0].version)')
@@ -211,7 +223,7 @@ check-locale-descriptions:
     - ./bin/locale-descriptions suggest
 
 rubocop:
-  image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:trixie
+  image: *image-trixie
   script:
   - apt-get -qy install rubocop
   - rubocop --version
@@ -224,12 +236,14 @@ rubocop:
 test-iuk:
   rules:
     - if: '$CI_COMMIT_BRANCH != "master"'
+  image: *current-suite-image
   script:
   - './bin/test-utils/test-iuk'
 
 test-perl5lib:
   rules:
     - if: '$CI_COMMIT_BRANCH != "master"'
+  image: *current-suite-image
   script:
   - 'cat config/chroot_local-packageslists/tails-perl5lib.list
        | grep -E -v "^#"
@@ -249,7 +263,7 @@ test-perl5lib:
   - dzil test --all
 
 shellcheck:
-  image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:trixie
+  image: *image-trixie
   script:
   - apt-get -qy install python3 shellcheck xmlstarlet git
   - shellcheck --version
@@ -269,7 +283,7 @@ shfmt-changed-files:
     GIT_STRATEGY: clone
     GIT_DEPTH: 0
 
-  image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:sid
+  image: *image-sid
 
   script:
     - apt-get -qy install shfmt findutils git python3
@@ -278,11 +292,13 @@ shfmt-changed-files:
     - ./bin/test-utils/shfmt -s "origin/${CI_MERGE_REQUEST_TARGET_BRANCH_NAME:?}"
 
 test-persistent-storage-config-file:
+  image: *current-suite-image
   script:
     - apt-get -qy install python3 python3-gi acl e2fsprogs
     - python3 config/chroot_local-includes/usr/lib/python3/dist-packages/tps/configuration/config_file_test.py
 
 test-python-doctest:
+  image: *current-suite-image
   script:
     - apt-get -qy install python3 python3-sh python3-toml python3-requests python3-bs4
     - config/chroot_local-includes/usr/local/lib/tails-gdm-error-message doctest --verbose
@@ -293,6 +309,7 @@ test-python-doctest:
 test-tca:
   rules:
     - if: '$CI_COMMIT_BRANCH != "master"'
+  image: *current-suite-image
   script:
     - 'cat config/chroot_local-packageslists/tor-connection-assistant.list
        | grep -E -v "^#"
@@ -302,6 +319,7 @@ test-tca:
 test-tca-portal:
   rules:
     - if: '$CI_COMMIT_BRANCH != "master"'
+  image: *current-suite-image
   script:
     - 'cat config/chroot_local-packageslists/tor-connection-assistant.list
        | grep -E -v "^#"
@@ -312,13 +330,20 @@ test-tca-portal:
 test-tailslib:
   rules:
     - if: '$CI_COMMIT_BRANCH != "master"'
+  image: *current-suite-image
   script:
     - apt-get -qy install python3 python3-atomicwrites python3-setuptools python3-sh python3-gi git
-    - 'cd config/chroot_local-includes/usr/lib/python3/dist-packages ; find tailslib -name "*.py" -print0 | grep --null-data -v -e netnsdrop.py -e gnome.py | xargs -0 -L1 env PYTHONPATH=. python3 -m doctest'
+    - |
+      cd config/chroot_local-includes/usr/lib/python3/dist-packages
+      find tailslib -name "*.py" -print0 |
+         grep --null-data --invert-match --extended-regexp \
+            '/(gnome|netnsdrop|thunderbird).py$' |
+         xargs -0 -L1 env PYTHONPATH=. python3 -m doctest
 
 test-whisperback:
   rules:
     - if: '$CI_COMMIT_BRANCH != "master"'
+  image: *current-suite-image
   script:
     - 'cat config/chroot_local-packageslists/whisperback.list | grep -E -v "^#"
          | xargs apt-get -qy install'
@@ -396,6 +421,7 @@ check-target-branch-for-rm-config-change:
     - exit 1
 
 https-get-expired:
+  image: *current-suite-image
   rules:
     - if: '$CI_COMMIT_BRANCH =~ /^stable|testing|devel$/'
     - changes:
@@ -403,21 +429,7 @@ https-get-expired:
         - .gitlab-ci-pipeline.yml
         - config/chroot_local-includes/usr/src/https-get-expired.go
         - config/chroot_local-includes/etc/default/htpdate.pools
-  script:
-    - *install-https-get-expired-build-deps
-    - *build-https-get-expired
-    - *test-https-get-expired
-
-https-get-expired-sid:
-  # this job gives us results using a future version of Golang compared to the one we actually use
-  image: registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:sid
-  rules:
-    - if: '$CI_COMMIT_BRANCH == "devel"'
-    - changes:
-        - .gitlab-ci.yml
-        - .gitlab-ci-pipeline.yml
-        - config/chroot_local-includes/usr/src/https-get-expired.go
-        - config/chroot_local-includes/etc/default/htpdate.pools
+        - config/chroot_local-includes/usr/local/lib/build-https-accept-expired
   script:
     - *install-https-get-expired-build-deps
     - *build-https-get-expired

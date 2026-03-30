@@ -1,8 +1,487 @@
-tails (7.5) UNRELEASED; urgency=medium
+tails (7.7) UNRELEASED; urgency=medium
 
   * Dummy entry for next release.
 
- -- boyska <boyska@riseup.net>  Wed, 11 Feb 2026 16:06:18 +0100
+ -- anonym <anonym@riseup.net>  Thu, 26 Mar 2026 09:55:30 +0100
+
+tails (7.6) unstable; urgency=medium
+
+  * Upgrade to Linux 6.12.74
+
+  * Upgrade Thunderbird to 1:140.8.0esr-1~deb13u1
+
+  * Upgrade to Tor Browser 15.0.8 based on ESR 140.9 (tails/tails!2862)
+
+    Closes issues:
+      - Refresh our about:tor patches for Tails 7.6 (tails/tails#21449)
+      - Upgrade to Tor Browser based on ESR 140.9 (tails/tails#21450)
+
+    Commits:
+      - Fetch Tor Browser from our own archive
+      - Upgrade Tor Browser to 15.0.8 (refs: tails#21450)
+      - Tor Browser: refresh custom about:tor patches onto origin/tor-
+        browser-140.9.0esr-15.0-1
+
+  * Fix Upgrader in Turkish (tails/tails!2848)
+
+    Closes issues:
+      - Upgrade not available if language is set to Turkish (tails/tails#21466)
+
+    Commits:
+      - Fix Upgrader in Turkish
+
+  * Thunderbird migration: fix links to documentation (tails/tails!2827)
+
+    Closes issues:
+      - "Learn More" link for Thunderbird Migration notification is broken
+        (tails/tails#21455)
+
+    Commits:
+      - Thunderbird migration: fix links to documentation
+
+  * Remove Qt5 (tails/tails!2852)
+
+    Closes issues:
+      - Remove Qt5 (tails/tails#21085)
+
+    Commits:
+      - needed-package-updates: ignore python-electrum-ecc 0.0.7+ds-1~bpo13+1
+      - remove one more Qt5 support package
+      - Add more packages that we should not ship
+      - remove Qt5 support packages
+      - Upgrade Electrum to 4.7.0
+      - test that no Qt5 package is installed
+
+  * Upgrade to Debian 13.4 (tails/tails!2845)
+
+    Closes issues:
+      - Upgrade to Trixie 13.4 (tails/tails#21169)
+
+    Commits:
+      - Enable the 21169-upgrade-debian-13-4-force-all-tests APT overlay (refs:
+        #21169).
+      - bump to an existing snapshot
+      - upgrade to Debian Trixie 13.4
+
+  * Bump debian APT snapshot so we get firmware-nonfree 20260110-1
+    (tails/tails!2832)
+
+    Closes issues:
+      - needed-package-updates: firmware-nonfree 20251111-1 → 20260110-1
+        (tails/tails#21458)
+
+    Commits:
+      - Bump debian APT snapshot so we get firmware-nonfree 20260110-1
+
+  * Localize dialog for saving language (tails/tails!2823)
+
+    Closes issues:
+      - Confirmation dialog for saving language and keyboard layout in cleartext does
+        not use available translations (tails/tails#21448)
+
+    Commits:
+      - document why TranslatableWindow-based objects must be created early
+      - refresh-translations
+      - ruff format
+      - Dialog to Save language Unencrypted is localized
+      - translating in current language is available to every object
+
+  * Chutney: update to current upstream at 6b2e7eb2b72607538fad39beec937c94ab9e48ac
+    (tails/tails!2813)
+
+    Closes issues:
+      - Upgrade Chutney (2026Q1) (tails/tails#21393)
+
+    Commits:
+      - shfmt
+      - bin/test-rerun.sh: fix for recent versions of Chutney
+      - Test suite: use constants instead of methods that return a static value
+      - Test suite: only disable the Tor sandbox for Chutney nodes where it is required
+      - Test suite: move code
+      - Test suite: set Chutney's data directory with command-line option instead of
+        env var
+      - Chutney: update to current upstream at 6b2e7eb2b72607538fad39beec937c94ab9e48ac
+      - Test suite: prefer setting Chutney options via parameters instead of env vars
+      - Test suite: refactor Chutney init logic
+      - Chutney: update to current upstream at 925c8baad0b62b670c4a488e3d680904b1853a8e
+
+  * Fix minor issues in code comments and release QA (tails/tails!2812)
+
+    Commits:
+      - Release QA: add expected commit
+      - Add missing word
+      - Fix copy'n'paste error in comment
+
+  * Test suite: identify known issue where the XMPP friend fails to go online
+    (refs: tails#21440) (tails/tails!2807)
+
+    Closes issues:
+      - Step "my XMPP friend goes online" is fragile (tails/tails#21440)
+
+    Commits:
+      - Test suite: identify known issue where the XMPP friend fails to go online
+        (refs: tails#21440)
+
+  * Upgrade forge to v1.3.3 (tails/tails!2806)
+
+    Commits:
+      - comply with BSD 3-clause terms
+      - specify forge.js license in documentation
+      - remove leftover from previous upgrade method
+      - make it harder for evil CDNs to target us
+      - Get latest forge release from CDN
+      - change instructions to upgrade forge
+
+  * Stop testing https-get-expired in sid (tails/tails!2804)
+
+    Commits:
+      - GitLab CI: when relevant, run jobs in the Debian version Tails is based on
+      - fix grammar
+      - clarify comment
+      - reorganize image-related variables
+      - ensure https-get-expired CI runs on the debian suite we're based on
+      - stop testing https-get-expired on sid
+      - Make sure this job is run when relevant
+      - determine directory name automatically
+      - bump go version to 1.26
+
+  * nvd-info handles missing or invalid data better (tails/tails!2800)
+
+    Commits:
+      - missing data can be ignored
+      - invalid cve files are reported
+      - invalid CVEs descriptions are treated as missing
+
+  * Support fetching bridges via Circumvention Settings API in Tor Connection
+    (tails/tails!2730)
+
+    Closes issues:
+      - Support automatic bridge retrieval (tails/tails#15331)
+      - Display status of proxy configuration in error screen (tails/tails#21445)
+      - "Connect to Tor" button hidden by default on 800 high resolution
+        (tails/tails#20113)
+      - Tor Connection: allow the user to retry from the error screen
+        (tails/tails#18539)
+
+    Commits:
+      - ruff format
+      - Test suite: add scenario testing that TCA reports Moat API errors as intended
+      - TCA: dump Moat error details as json
+      - ruff format
+      - handle one more possible failure mode
+      - reorganize code to make it clearer how is the output formed
+      - reformat imports
+      - Test suite: test that we can set a region when asking for bridge settings in
+        TCA
+      - TCA: report any uncaught exception in tails-circumvention-settings as an
+        internal-error
+      - TCA: move error response handling to the same place
+      - TCA: merge requests-error into internal-error
+      - TCA: always allow "Connect to Tor" from error page
+      - Revert "TCA: rename "Connect to Tor" on error page to "Retry connecting to
+        Tor""
+      - Test suite: use assert_not_empty
+      - TCA: use our own exception class
+      - TCA: ignore non-socks5 lyrebird CMETHOD listeners instead of bailing
+      - TCA: report internal Moat script errors
+      - Test suite: adapt labels after style guide fixes
+      - TCA: set a timeout when waiting for meek requests
+      - TCA: make --defaults-fallback work when requests raises an exception
+      - TCA: do retries in a way that actually works with POST
+      - Apply style guide
+      - Test suite: remove obsolete scenario and step definitions
+      - Test suite: delete feature that was testing Moat with the real Tor network
+      - Test suite: user new helper instead of hardcoding supported bridge transports
+      - Test suite: improve scenario name
+      - Test suite: test that TCA can configure bridges settings obtained via Moat
+      - Test suite: fix permission of qe code image
+      - TCA: add specific error header for when default bridges fail
+      - TCA: rename "Connect to Tor" on error page to "Retry connecting to Tor"
+      - TCA: enable "Connect to Tor" button on error page if the time was synced
+      - TCA: only restore bridge configuration state that user explicitly selected
+      - Test suite: use more specific step
+      - Test suite: improve gherkin
+      - Test suite: adapt to new TCA error labels
+      - Comment
+      - TCA: Use front/reflector fallback when querying Moat
+      - unwrap more wrappers, as enabled by @contextmanager
+      - simplify mocked response
+      - rubocop formatting
+      - reference relevant docs
+      - Test suite: handle the case of multiple default bridges in step
+      - Test suite: hardcode variable more correctly :)
+      - Convert into @contextmanager
+      - Improve code readability
+      - Remove dead code
+      - Replace asserts with exceptions
+      - TCA: display proxy address when configured (refs: tails#21445)
+      - TCA: increase window height so the full error page fits
+      - TCA: ellipsize too long bridge line
+      - TCA: improve log message
+      - TCA: report Moat failures to the user
+      - TCA: only set fix_attempt when a proxy was actually configured
+      - TCA: don't unset fix_attempt when showing the error page
+      - TCA: handle moat state when restoring the bridge config page
+      - TCA: add button to transition from error page to configure bridge page
+      - Test suite: add feature testing TCA fetching and using bridges with Moat
+      - Test suite: inline otherwise unused step
+      - Test suite: drop useless comment
+      - Test suite: deal with notifications after logging in
+      - Test suite: test TCA with mocked Moat distributor
+      - TCA: only request supported bridges from the Circumvention Settings API
+      - TCA: run tails-circumvention-settings as debian-tor
+      - Don't try to kill process if Popen() failed
+      - TCA: rework how we present errors when fetching bridge settings
+      - TCA: make error page's explanation label selectable
+      - TCA: show any python3-requests exception to the user
+      - TCA: retry fetching bridge settings on failure
+      - TCA: try bridges obtained via the Circumvention Settings API one-by-one, in
+        order
+      - TCA: handle errors returned by the Circumvention Settings API
+      - TCA: match region completions anywhere not just from the beginning
+      - TCA: pick country names from pycountry more carefully
+      - TCA: remove duplicate regions and headers from completion popup
+      - TCA: validate region setting before allowing to fetch via the Circumvention
+        Settings API
+      - Drop unused argument
+      - TCA: duplicate most frequently selected regions at the top
+      - TCA: localize regions
+      - TCA: add text entry to region combo box and enable completion
+      - TCA: populate region dropdown dynamically
+      - TCA: remove superfluous "Region" label
+      - TCA: improve labels
+      - TCA: use all supported bridges fetched via the Circumvention Settings API
+      - TCA: fallback to default settings if the Circumvention Settiongs API returns
+        empty
+      - Refactor
+      - TCA: use any configured proxy when fetching via the Circumvention Settings API
+      - Use argparse
+      - TCA: add option to fetch bridge settings using the Circumvention Settings API
+      - TCA: perform Circumvention Settings API requests with domain fronting over meek
+      - TCA: optionally specify region when querying the Circumvention Settings API
+      - TCA: add portal command to query the Circumvention Settings API
+
+  * Migrate from KeePassXC to GNOME Secrets (tails/tails!2724)
+
+    Closes issues:
+      - Migrate from KeePassXC to GNOME Secrets (tails/tails#19136)
+      - Set DefaultDatabaseFileName in KeePassXC (tails/tails#19028)
+      - KeePassXC does not clear clipboard if KeePassXC doesn't have the focus
+        (tails/tails#20307)
+      - keepassxc with hardware card/yubikey just hangs (tails/tails#21308)
+
+    Commits:
+      - Document the value added by import-kdbx-in-secrets
+      - Apply 1 suggestion(s) to 1 file(s)
+      - translate strings in Italian
+      - refresh-translations
+      - synchronize changes to dconf database
+      - dump debug information
+      - Test: kdbx files can be opened from Files
+      - change wording of rename dialog
+      - Test that GNOME Secrets can be opened
+      - adapt TOTP doc for Secrets
+      - import kdbx files only once
+      - Revert "add an extra step to investigate why this fails on Jenkins"
+      - import-kdbx-in-secrets is run when secrets is run
+      - Bump version number
+      - mark changes we'll need to do in Tails 8.0
+      - add an extra step to investigate why this fails on Jenkins
+      - Fix unit dependencies
+      - import-kdbx-in-secrets reports errors
+      - Update doc to Secrets
+      - Use consistent typography
+      - Test integration with Secrets
+      - add some logging to import-kdbx-in-secrets
+      - When GenericName is available, it will be already used
+      - localize
+      - Change menu name of Secrets
+      - Smart logic to set the default database
+      - patch Secrets to have a standard filename
+      - open secrets clicking on kdbx files
+      - remove doc: there is no way to do this, and less need for
+      - remove link to guide
+      - Secrets is not affected by #19695
+      - KeePassXC → Secrets in the website
+      - make Secrets save automatically
+      - Migration to Secrets: help the user by importing kdbx files in recently opened
+      - Mention both KeepassXC and Secrets
+      - Move from KeepassXC to GNOME Secrets
+
+  * Test suite: identify common failures and report them more clearly
+    (tails/tails!2616)
+
+    Closes issues:
+      - Test suite should identify common failures and report them more clearly
+        (tails/tails#19269)
+
+    Commits:
+      - Improve exception message
+      - Correctly compare with the Match's image, not the match object itself
+      - Test suite: make tails#21211 easier to identify
+      - Test suite: make tails#20282 easier to identify
+
+ -- Tails developers <tails@boum.org>  Wed, 25 Mar 2026 11:46:41 +0100
+
+tails (7.5) unstable; urgency=medium
+
+  * Upgrade to Tor Browser 15.0.7 based on ESR 140.8 (tails/tails!2803)
+
+    Closes issues:
+      - Upgrade Tor Browser based on ESR 140.8 (tails/tails#21387)
+      - Refresh our about:tor patches for Tails 7.5 (tails/tails#21388)
+
+    Commits:
+      - Fetch Tor Browser from our own archive
+      - Upgrade Tor Browser to 15.0.7-build1 (refs: tails#21387)
+      - Avoid losing Git history
+      - Tor Browser: refresh custom about:tor patches onto tor-
+        browser-140.8.0esr-15.0-1-build2
+
+  * Install the Thunderbird es-mx langpack (tails/tails!2802)
+
+    Closes issues:
+      - Consider installing the Thunderbird es-mx langpack by default, instead of es-es
+        (tails/tails#21434)
+
+    Commits:
+      - Install the Thunderbird es-mx langpack
+
+  * Remove CAP_SYS_PTRACE from CapabilityBoundingSet for tails-notify-user
+    (tails/tails!2798)
+
+    Closes issues:
+      - Remove CAP_SYS_PTRACE from CapabilityBoundingSet for tails-notify-user
+        (tails/tails#21433)
+
+    Commits:
+      - tails-additional-software-*.service: remove CAP_SYS_PTRACE from
+        CapabilityBoundingSet
+
+  * Test suite: deal with GNOME Console's "Close Window?" confirmation
+    (tails/tails!2797)
+
+    Closes issues:
+      - Scenario fails: "I cannot perform administrative tasks unless I have set up an
+        administration password in the Welcome Screen", bis (tails/tails#21432)
+
+    Commits:
+      - Test suite: deal with GNOME Console's "Close Window?" confirmation (refs:
+        tails#21432)
+
+  * Upgrade to tor 0.4.9.5 (tails/tails!2792)
+
+    Closes issues:
+      - Upgrade to tor 0.4.9.5 (tails/tails#21428)
+
+    Commits:
+      - Upgrade to tor 0.4.9.5
+
+  * Tighten and document onion-grater profiles (tails/tails!2791)
+
+    Closes issues:
+      - Audit onion-grater configuration (2026 edition) (tails/tails#20821)
+
+    Commits:
+      - onion-grater profiles: document rules used by Tor Browser
+      - onion-grater profiles: document rules for OnionShare
+      - onion-grater profiles: document rules needed for simply using stem
+      - onion-grater: drop unused GETCONF rule from OnionCircuits
+
+  * supports label-exp which start with a bang (tails/tails!2785)
+
+    Commits:
+      - supports label-exp which start with a bang
+
+  * Ensure Thunderbird is kept up-to-date (tails/tails!2738)
+
+    Closes issues:
+      - Replace sudo rules with polkit JavaScript rules when appropriate
+        (tails/tails#19213)
+
+    Commits:
+      - Ensure we don't have both success and failure files on the filesystem
+      - Lint
+      - Remove unused import
+      - Fix docstring to match typing information
+      - Use polkit rather than sudo to allow amnesia to start gnome-session.target
+      - systemd user services: explicitly pass --system to systemctl when interacting
+        with system units
+      - Test suite: fix new false positive
+      - Add blank lines to clarify that the comments apply to the whole paragraph
+      - Correctness
+      - Test suite: don't expect tails-additional-software-upgrade.service to start
+        when Additional Software is disabled
+      - Test suite: fix new false positive
+      - Test suite: move configuration to a more global place
+      - Add screenshots
+      - Apply style guide
+      - Apply style guide
+      - Shorten and use consistent wording
+      - Clarify
+      - Shorten
+      - Nitpick
+      - Use consistent wording in both failure modes
+      - Simplify
+      - We might not have yet the APT info to know whether a language pack is available
+      - Add TOC
+      - Fix broken link
+      - Encode release & date for Thunderbird removal
+      - Test suite: adjust to UI update
+      - Use doc URL provided by sajolida
+      - Fix typo
+      - Be less techy
+      - Draft doc for the 3 migration cases
+      - Compact
+      - Language packs will still be included until Tails 7.N+x
+      - Fix TODO:UX syntax
+      - Thunderbird migration: automate migration for case B
+      - Refactoring: move code to function
+      - Thunderbird migration: don't handle USB sticks with no Persistent Storage
+      - Refactoring: move method to library so it can be reused
+      - shfmt
+      - Don't tell users we added Thunderbird to ASP when they did it themselves
+      - Remove unused import
+      - Fix typo and phrasing
+      - Early patch: reload polkit if rules have changed
+      - Thunderbird migration: mostly use designed strings
+      - Test suite: deal with the new Thunderbird wrapper's dialog
+      - Test suite: refactor (extract code to method)
+      - shfmt
+      - Update doc to Iteration 1 of #21375
+      - Notify the user about the Thunderbird migration when they start the app
+      - tailslib.migration: allow using on the command line as amnesia
+      - Only apply the Thunderbird migration once
+      - Lint
+      - GitLab CI: skip non-existing doctests for thunderbird.py
+      - Add pipefail to modified script
+      - shfmt
+      - Lint: wrap long lines
+      - Remove incorrect typing annotation
+      - Lint: fix Ruff G004
+      - Sort imports and remove unused imports
+      - Recently updated/created on-activated-hooks: consistently use /run/nosymfollow
+      - Maintain a persistent directory to track the state of migrations
+      - Add pipefail
+      - Maintain .tails/ in persistent storage and migrate dont-ask-again there
+      - Fix comment
+      - Modernize argument passing style
+      - Document environment variable
+      - Ensure our Thunderbird wrapper survives installation/upgrade from Debian
+      - Install Thunderbird l10n packages with Additional Software
+      - Ensure Thunderbird is kept up-to-date thanks to the Additional Software feature
+      - Add typing information
+      - Refactoring: introduce and use more generic function
+      - Refactoring: move has_additional_packages_list to additional_software library
+      - Refactoring: move add_additional_packages to additional_software library
+      - Update Additional Software config between installation and upgrade
+      - Additional Software: better document capabilities needed by tails-notify-user
+      - Make it easier to keep in sync copies of the list of tier-1 languages
+      - Use polkit rather than sudo to allow amnesia to start tails-additional-
+        software-install.service
+      - Stop patching Thunderbird
+
+ -- Tails developers <tails@boum.org>  Wed, 25 Feb 2026 13:08:52 +0100
 
 tails (7.4.2) unstable; urgency=medium
 
