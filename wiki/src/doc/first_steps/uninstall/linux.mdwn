@@ -16,7 +16,7 @@ Erasing Tails from the USB stick
    - Otherwise, install the `gnome-disk-utility`
      package using the usual installation method for your distribution.
 
-1. Make sure that the USB stick that you want to reset is unplugged.
+1. Make sure that the USB stick that you want to uninstall is unplugged.
 
 1. Open *GNOME Disks* (also called *Disks*).
 
@@ -29,12 +29,12 @@ Erasing Tails from the USB stick
 
    [[!img install/inc/icons/gnome-disks.png link="no" alt=""]]
 
-1. Plug in the USB stick that you want to reset.
+1. Plug in the USB stick that you want to uninstall.
 
    A new device appears in the list of storage devices. Select it.
 
 1. In the right pane of the window, verify that the device corresponds
-   to the USB stick that you want to reset, its brand, its size, etc.
+   to the USB stick that you want to uninstall, its brand, its size, etc.
 
    <div class="caution">
 
@@ -44,7 +44,7 @@ Erasing Tails from the USB stick
 
    </div>
 
-1. To reset the USB stick, click on the [[!img lib/view-more.png alt="Drive Options" class="symbolic" link="no"]] button
+1. To format the USB stick, select the [[!img lib/view-more.png alt="Drive Options" class="symbolic" link="no"]] button
    in the title bar and choose **Format Disk**
    to erase all the existing partitions on the device.
 
@@ -64,10 +64,10 @@ Erasing Tails from the USB stick
    [[!img lib/system-shutdown.png alt="Power Off this Disk" class="symbolic" link="no"]]
    button in the title bar.
 
-Resetting a Tails USB stick from itself
----------------------------------------
+Uninstalling a Tails USB stick from itself
+------------------------------------------
 
-If Tails is your only Linux system, you can generally reset a Tails USB stick
+If Tails is your only Linux system, you can generally uninstall a Tails USB stick
 directly from that USB stick while running Tails.
 
 1.  When starting Tails, add the `toram` boot
@@ -75,9 +75,9 @@ directly from that USB stick while running Tails.
 
     See [[using the *Boot Loader*|advanced_topics/boot_options]].
 
-2.  If Tails starts as usual, follow the instructions to [[reset a USB stick
+2.  If Tails starts as usual, follow the instructions to [[uninstall a USB stick
     using *GNOME Disks* for Linux|linux#disks]].
 
     **If the system fails to start**, that means that the computer does not have
     enough memory for this operation mode. Try with another computer, or find
-    another Linux system, such as another Tails USB stick, to do the reset from.
+    another Linux system, such as another Tails USB stick, to uninstall from.
