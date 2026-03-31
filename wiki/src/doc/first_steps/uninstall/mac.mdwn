@@ -1,38 +1,34 @@
-[[!meta title="Resetting a USB stick using macOS"]]
+[[!meta title="Uninstalling Tails using macOS"]]
 
-[[!inline pages="doc/reset.intro" raw="yes" sort="age"]]
+[[!inline pages="doc/first_steps/uninstall.intro" raw="yes" sort="age"]]
 
-<div class="caution">
+1. Start on macOS.
 
-<p><b>You might overwrite any hard disk on the computer.</b></p>
-
-<p>If at some point you are not sure about which device to choose, stop proceeding.</p>
-
-</div>
-
-1. Make sure that the USB stick that you want to reset is unplugged.
+1. Make sure that the USB stick that you want to uninstall is unplugged.
 
 1. Start *Disk Utility*.
 
    A list of all the storage devices on the computer appears in the left pane
    of the window.
 
-1. Plug in the USB stick that you want to reset.
+1. Plug in the USB stick that you want to uninstall.
 
    A new device appears in the list of storage devices. This new device
    corresponds to the USB stick that you plugged in. Click on it.
 
 1. In the list of storage devices, verify that the device corresponds
-   to the USB stick that you want to reset, its brand, its size, etc.
+   to the USB stick that you want to uninstall, its brand, its size, etc.
 
-1. To reset the USB stick:
+   <div class="caution">
 
-   a. If there is an **Erase** tab
-   in the right pane, click on it and then click on the **Erase**
-   button on the bottom right
+   <p>You might overwrite any hard disk on the computer.</p>
 
-   b. If there is an **Erase**
-   button on the top middle, click on it.
+   <p>If you are not sure about which device to choose, stop proceeding.</p>
+
+   </div>
+
+1. To reset the USB stick, select the **Erase** button in the top
+   middle.
 
 1. In the confirmation dialog, click on the **Erase**
    button to confirm.
@@ -55,8 +51,8 @@ text="formatting the USB stick using the command line"]] first.</p>
 [[!toggleable id="format" text="""
 <span class="hide">[[!toggle id="format" text=""]]</span>
 
-Resetting a USB stick using the command line
-============================================
+Formatting the USB stick using the command line
+-----------------------------------------------
 
 <!-- Note for translators: This section is very similar to /install/inc/steps/install_with_etcher.inline. -->
 
@@ -78,7 +74,7 @@ Resetting a USB stick using the command line
         3:                      EFI              134.1 GB  disk0s3
         4:     Microsoft Basic Data BOOTCAMP     115.5 GB  disk0s4
 
-1. Plug in the USB stick that you want to reset.
+1. Plug in the USB stick that you want to uninstall.
 
 1. Execute again the same command.
 
@@ -106,8 +102,11 @@ Resetting a USB stick using the command line
    Yours might be different.
 
    <div class="caution">
-   <p>If you are unsure about the device name, you should stop proceeding or
-   <strong>you risk overwriting any hard disk on the system</strong>.</p>
+
+   <p>You might overwrite any hard disk on the computer.</p>
+
+   <p>If you are not sure about the device, stop proceeding.</p>
+
    </div>
 
 1. Execute the following command to safely eject the USB stick. Replace <span class="command-placeholder">device</span>
@@ -120,7 +119,7 @@ Resetting a USB stick using the command line
 
    <p class="command-template">sudo fdisk -iy <span class="command-placeholder">device</span></p>
 
-1. You can try to reset the USB stick again using
+1. You can try to uninstall the USB stick again using
    *Disk Utility* from the beginning of this
    page.
 
