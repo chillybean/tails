@@ -1,8 +1,6 @@
 [[!meta title="Mirror pools"]]
 
-The Tails downloads are served using two different mirror pools
-([[HTTP|mirrors#http-pool]] and [[DNS|mirrors#dns-pool]]), depending on the use
-case.
+The Tails downloads are served using a HTTP mirror pool.
 
 [[!toc levels=2]]
 
@@ -58,17 +56,3 @@ of them we need a few values:
 
  * `notes` (optional): various additional notes that can be useful to
    the managers of the mirror pool
-
-<a id="dns-pool"></a>
-
-# DNS pool
-
-A DNS Round Robin pool (at `dl.amnesia.boum.org`) points to a few fast and
-reliable mirrors. It is used as a fallback for the versions of *Tails Upgrader*
-included up to Tails 5.8, inclusive. The DNS entries are managed by
-[[Sysadmins|https://gitlab.torproject.org/tpo/tpa/team/-/wikis/tails/services#mirror-pool]]
-in the same way all the other DNS entries are managed.
-
-# Documentation for mirror pool administrators
-
-Documentation is maintained in the Sysadmins private documentation repository.

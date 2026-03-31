@@ -48,10 +48,6 @@ Our automated server-side redirector periodically checks each mirrors' health
 (using Rsync) and is able to redirect users to the nearest mirror
 based on IP geolocation data.
 
-Alongside our mirror pool redirecting to mirrors using their own domain, we maintain
-a DNS Round Robin pool for the `dl.amnesia.boum.org` hostname. This pool serves as a
-fallback, we add only a few fast and reliable mirrors to it.
-
 We only accept mirrors that provide a SSL certificate deemed valid by
 Firefox for the exact hostname used.
 
@@ -60,8 +56,6 @@ Pick a hostname for your mirror
 
 Your web server needs to answer HTTP and HTTPS requests sent to
 a _dedicated_ hostname that is unique, within our mirror pool.
-Furthermore, your web server should answer requests sent to `dl.amnesia.boum.org`
-(your mirror could be added to our fallback mirror pool at any moment).
 
 Use a hostname of your choice, under a domain you control.
 For example, if you control `example.com`, you can call your Tails
@@ -85,7 +79,6 @@ from [Let's Encrypt](https://letsencrypt.org/) for example.
 
 	<VirtualHost YOUR_WEBSERVER_IP:80>
 	   ServerName yourdomain.org
-	   ServerAlias dl.amnesia.boum.org
 	   RewriteEngine On
 	   RewriteRule ^/?(.*) https://%{SERVER_NAME}/pub/$1 [R=permanent,L]
 	</VirtualHost>
@@ -113,23 +106,6 @@ You can harden this configuration using the
 <a href="https://mozilla.github.io/server-side-tls/ssl-config-generator/">
 Mozilla SSL Configuration Generator</a>.
 </div>
-
-#### Lighttpd configuration example
-
-	$HTTP["host"] =~ "^(\d+\.)?dl\.amnesia\.boum\.org$" {
-		server.document-root = "/var/www/YOUR_PATH/"
-		server.dir-listing = "enable"
-	}
-
-#### nginx configuration example
-
-	server {
-		server_name dl.amnesia.boum.org;
-		root /var/www/YOUR_PATH;
-		location / {
-			autoindex on;
-		}
-	}
 
 ### 2. Download the files
 
