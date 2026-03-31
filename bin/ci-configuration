@@ -233,8 +233,11 @@ class TestCucumberOptions(unittest.TestCase):
     def env(
         self,
         jenkins_url="fake",
-        commit="HEAD",
-        base="HEAD^",
+        # The default commit is not special: it's just a commit that touches
+        # config/. And the default base is its parent.
+        # So it will not be a "only_doc_changes"
+        commit="a15d43c3970e1b005f06ede818ad545d4721fb8d",
+        base="e04366582584a609b30c8b685f920f87d65406d1",
         all_tests: bool = False,
     ):
         return {
