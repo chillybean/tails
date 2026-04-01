@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2026-04-01 00:15+0000\n"
+"POT-Creation-Date: 2026-04-01 01:19+0000\n"
 "PO-Revision-Date: 2024-05-20 17:56+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,20 +31,29 @@ msgstr "[[!meta title=\"Стирание флешки в Linux\"]]\n"
 msgid "[[!inline pages=\"doc/first_steps/uninstall.intro\" raw=\"yes\" sort=\"age\"]]\n"
 msgstr "[[!inline pages=\"doc/reset.intro.ru\" raw=\"yes\" sort=\"age\"]]\n"
 
+#. type: Bullet: '1. '
+msgid "Start on Linux or Tails."
+msgstr ""
+
 #. type: Plain text
 #, fuzzy, no-wrap
-#| msgid "[[!toc levels=1]]\n"
-msgid "[[!toc startlevel=2]]\n"
-msgstr "[[!toc levels=1]]\n"
+#| msgid "     <div class=\"caution\">\n"
+msgid "   <div class=\"tip\">\n"
+msgstr "     <div class=\"caution\">\n"
 
-#. type: Title -
+#. type: Plain text
 #, no-wrap
-msgid "Erasing Tails from the USB stick"
+msgid ""
+"   <p>To uninstall a Tails USB stick while running Tails from that same USB\n"
+"   stick, add the <code>toram</code> boot option in the <i>Boot Loader</i>. See\n"
+"   [[uninstalling Tails using Tails itself|tails]].</p>\n"
 msgstr ""
 
-#. type: Bullet: '1. '
-msgid "Start on Linux."
-msgstr ""
+#. type: Plain text
+#, fuzzy, no-wrap
+#| msgid "     </div>\n"
+msgid "   </div>\n"
+msgstr "     </div>\n"
 
 #. type: Bullet: '1. '
 #, fuzzy
@@ -141,12 +150,6 @@ msgstr "<p><b>Программа позволяет перезаписать л�
 msgid "   <p>If you are not sure about the device, stop proceeding.</p>\n"
 msgstr "<p>Если в какой-то момент вы не уверены, правильный ли диск выбрали, лучше остановитесь.</p>\n"
 
-#. type: Plain text
-#, fuzzy, no-wrap
-#| msgid "     </div>\n"
-msgid "   </div>\n"
-msgstr "     </div>\n"
-
 #. type: Bullet: '1. '
 #, fuzzy
 #| msgid ""
@@ -225,59 +228,51 @@ msgstr ""
 msgid "   button in the title bar.\n"
 msgstr ""
 
-#. type: Title -
 #, fuzzy, no-wrap
-#| msgid "Resetting a Tails USB stick from itself"
-msgid "Uninstalling a Tails USB stick from itself"
-msgstr "«Самостирание» флешки Tails"
+#~| msgid "[[!toc levels=1]]\n"
+#~ msgid "[[!toc startlevel=2]]\n"
+#~ msgstr "[[!toc levels=1]]\n"
 
-#. type: Plain text
-#, fuzzy
-#| msgid ""
-#| "If Tails is your only Linux system, you can generally reset a Tails USB "
-#| "stick directly from that USB stick while running Tails."
-msgid ""
-"If Tails is your only Linux system, you can generally uninstall a Tails USB "
-"stick directly from that USB stick while running Tails."
-msgstr ""
-"Если Tails — ваша единственная система Linux, вы можете стереть флешку "
-"Tails, используя эту же флешку."
-
-#. type: Bullet: '1.  '
-msgid "When starting Tails, add the `toram` boot option in the *Boot Loader*."
-msgstr ""
-
-#. type: Plain text
-#, no-wrap
-msgid "    See [[using the *Boot Loader*|advanced_topics/boot_options]].\n"
-msgstr ""
-
-#. type: Bullet: '2.  '
-#, fuzzy
-#| msgid ""
-#| "If Tails starts as usual, follow the instructions for [[resetting a USB "
-#| "stick using *GNOME Disks*|linux#disks]]."
-msgid ""
-"If Tails starts as usual, follow the instructions to [[uninstall a USB stick "
-"using *GNOME Disks* for Linux|linux#disks]]."
-msgstr ""
-"Если Tails стартует как обычно, следуйте инструкциям выше (как [[стереть "
-"флешку с помощью утилиты *Диски*|linux#disks]]."
-
-#. type: Plain text
 #, fuzzy, no-wrap
-#| msgid ""
-#| "    **If the system fails to start**, that means that the computer does not have\n"
-#| "    enough memory for this operation mode. Try with another computer, or find\n"
-#| "    another Linux system, such as another Tails USB stick, to do the reset from.\n"
-msgid ""
-"    **If the system fails to start**, that means that the computer does not have\n"
-"    enough memory for this operation mode. Try with another computer, or find\n"
-"    another Linux system, such as another Tails USB stick, to uninstall from.\n"
-msgstr ""
-"    **Если система не запускается**, значит, компьютеру не хватает памяти \n"
-"    для загрузки в этом режиме. Попробуйте проделать то же на другом компьютере \n"
-"    или подыщите другую систему Linux для вашей задачи, скажем, другую флешку Tails.\n"
+#~| msgid "Resetting a Tails USB stick from itself"
+#~ msgid "Uninstalling a Tails USB stick from itself"
+#~ msgstr "«Самостирание» флешки Tails"
+
+#, fuzzy
+#~| msgid ""
+#~| "If Tails is your only Linux system, you can generally reset a Tails USB "
+#~| "stick directly from that USB stick while running Tails."
+#~ msgid ""
+#~ "If Tails is your only Linux system, you can generally uninstall a Tails "
+#~ "USB stick directly from that USB stick while running Tails."
+#~ msgstr ""
+#~ "Если Tails — ваша единственная система Linux, вы можете стереть флешку "
+#~ "Tails, используя эту же флешку."
+
+#, fuzzy
+#~| msgid ""
+#~| "If Tails starts as usual, follow the instructions for [[resetting a USB "
+#~| "stick using *GNOME Disks*|linux#disks]]."
+#~ msgid ""
+#~ "If Tails starts as usual, follow the instructions to [[uninstall a USB "
+#~ "stick using *GNOME Disks* for Linux|linux#disks]]."
+#~ msgstr ""
+#~ "Если Tails стартует как обычно, следуйте инструкциям выше (как [[стереть "
+#~ "флешку с помощью утилиты *Диски*|linux#disks]]."
+
+#, fuzzy, no-wrap
+#~| msgid ""
+#~| "    **If the system fails to start**, that means that the computer does not have\n"
+#~| "    enough memory for this operation mode. Try with another computer, or find\n"
+#~| "    another Linux system, such as another Tails USB stick, to do the reset from.\n"
+#~ msgid ""
+#~ "    **If the system fails to start**, that means that the computer does not have\n"
+#~ "    enough memory for this operation mode. Try with another computer, or find\n"
+#~ "    another Linux system, such as another Tails USB stick, to uninstall from.\n"
+#~ msgstr ""
+#~ "    **Если система не запускается**, значит, компьютеру не хватает памяти \n"
+#~ "    для загрузки в этом режиме. Попробуйте проделать то же на другом компьютере \n"
+#~ "    или подыщите другую систему Linux для вашей задачи, скажем, другую флешку Tails.\n"
 
 #, no-wrap
 #~ msgid "<a id=\"disks\"></a>\n"
