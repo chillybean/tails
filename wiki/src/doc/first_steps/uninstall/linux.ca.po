@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2026-04-01 00:15+0000\n"
+"POT-Creation-Date: 2026-04-01 01:19+0000\n"
 "PO-Revision-Date: 2026-01-23 15:29+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,20 +30,29 @@ msgstr "[[!meta title=\"Restablir un llapis USB utilitzant Linux\"]]\n"
 msgid "[[!inline pages=\"doc/first_steps/uninstall.intro\" raw=\"yes\" sort=\"age\"]]\n"
 msgstr "[[!inline pages=\"doc/reset.intro.ca\" raw=\"yes\" sort=\"age\"]]\n"
 
+#. type: Bullet: '1. '
+msgid "Start on Linux or Tails."
+msgstr ""
+
 #. type: Plain text
 #, fuzzy, no-wrap
-#| msgid "[[!toc levels=1]]\n"
-msgid "[[!toc startlevel=2]]\n"
-msgstr "[[!toc levels=1]]\n"
+#| msgid "     <div class=\"caution\">\n"
+msgid "   <div class=\"tip\">\n"
+msgstr "     <div class=\"caution\">\n"
 
-#. type: Title -
+#. type: Plain text
 #, no-wrap
-msgid "Erasing Tails from the USB stick"
+msgid ""
+"   <p>To uninstall a Tails USB stick while running Tails from that same USB\n"
+"   stick, add the <code>toram</code> boot option in the <i>Boot Loader</i>. See\n"
+"   [[uninstalling Tails using Tails itself|tails]].</p>\n"
 msgstr ""
 
-#. type: Bullet: '1. '
-msgid "Start on Linux."
-msgstr ""
+#. type: Plain text
+#, fuzzy, no-wrap
+#| msgid "     </div>\n"
+msgid "   </div>\n"
+msgstr "     </div>\n"
 
 #. type: Bullet: '1. '
 msgid "Install *GNOME Disks*."
@@ -142,12 +151,6 @@ msgstr "<p><b>Podeu sobreescriure qualsevol disc dur de l'ordinador.</b></p>\n"
 msgid "   <p>If you are not sure about the device, stop proceeding.</p>\n"
 msgstr "<p>Si en algun punt no esteu segur de quin dispositiu triar, millor no continueu.</p>\n"
 
-#. type: Plain text
-#, fuzzy, no-wrap
-#| msgid "     </div>\n"
-msgid "   </div>\n"
-msgstr "     </div>\n"
-
 #. type: Bullet: '1. '
 #, fuzzy
 #| msgid ""
@@ -213,62 +216,62 @@ msgstr "   [[!img lib/media-eject.png alt=\"Expulsa\" class=\"symbolic\" link=\"
 msgid "   button in the title bar.\n"
 msgstr "   botó a la barra de títol.\n"
 
-#. type: Title -
 #, fuzzy, no-wrap
-#| msgid "Resetting a Tails USB stick from itself"
-msgid "Uninstalling a Tails USB stick from itself"
-msgstr "Restablir un llapis USB de Tails des de si mateix"
+#~| msgid "[[!toc levels=1]]\n"
+#~ msgid "[[!toc startlevel=2]]\n"
+#~ msgstr "[[!toc levels=1]]\n"
 
-#. type: Plain text
+#, fuzzy, no-wrap
+#~| msgid "Resetting a Tails USB stick from itself"
+#~ msgid "Uninstalling a Tails USB stick from itself"
+#~ msgstr "Restablir un llapis USB de Tails des de si mateix"
+
 #, fuzzy
-#| msgid ""
-#| "If Tails is your only Linux system, you can generally reset a Tails USB "
-#| "stick directly from that USB stick while running Tails."
-msgid ""
-"If Tails is your only Linux system, you can generally uninstall a Tails USB "
-"stick directly from that USB stick while running Tails."
-msgstr ""
-"Si Tails és el vostre únic sistema Linux, generalment podeu restablir un "
-"llapis USB de Tails directament des d'aquest llapis USB mentre feu servir "
-"Tails."
+#~| msgid ""
+#~| "If Tails is your only Linux system, you can generally reset a Tails USB "
+#~| "stick directly from that USB stick while running Tails."
+#~ msgid ""
+#~ "If Tails is your only Linux system, you can generally uninstall a Tails "
+#~ "USB stick directly from that USB stick while running Tails."
+#~ msgstr ""
+#~ "Si Tails és el vostre únic sistema Linux, generalment podeu restablir un "
+#~ "llapis USB de Tails directament des d'aquest llapis USB mentre feu servir "
+#~ "Tails."
 
-#. type: Bullet: '1.  '
-msgid "When starting Tails, add the `toram` boot option in the *Boot Loader*."
-msgstr ""
-"Quan inicieu Tails, afegiu l'opció d'arrencada `toram` al *Carregador "
-"d'Arrencada*."
+#~ msgid ""
+#~ "When starting Tails, add the `toram` boot option in the *Boot Loader*."
+#~ msgstr ""
+#~ "Quan inicieu Tails, afegiu l'opció d'arrencada `toram` al *Carregador "
+#~ "d'Arrencada*."
 
-#. type: Plain text
 #, no-wrap
-msgid "    See [[using the *Boot Loader*|advanced_topics/boot_options]].\n"
-msgstr "    Vegeu com [[usar el *Carregador d'Arrencada*|advanced_topics/boot_options]].\n"
+#~ msgid "    See [[using the *Boot Loader*|advanced_topics/boot_options]].\n"
+#~ msgstr "    Vegeu com [[usar el *Carregador d'Arrencada*|advanced_topics/boot_options]].\n"
 
-#. type: Bullet: '2.  '
 #, fuzzy
-#| msgid ""
-#| "If Tails starts as usual, follow the instructions for [[resetting a USB "
-#| "stick using the *Disks* utility|linux#disks]]."
-msgid ""
-"If Tails starts as usual, follow the instructions to [[uninstall a USB stick "
-"using *GNOME Disks* for Linux|linux#disks]]."
-msgstr ""
-"Si Tails s'inicia com de costum, seguiu les instruccions per [[restablir un "
-"llapis USB mitjançant la utilitat *Discs*|linux#disks]]."
+#~| msgid ""
+#~| "If Tails starts as usual, follow the instructions for [[resetting a USB "
+#~| "stick using the *Disks* utility|linux#disks]]."
+#~ msgid ""
+#~ "If Tails starts as usual, follow the instructions to [[uninstall a USB "
+#~ "stick using *GNOME Disks* for Linux|linux#disks]]."
+#~ msgstr ""
+#~ "Si Tails s'inicia com de costum, seguiu les instruccions per [[restablir "
+#~ "un llapis USB mitjançant la utilitat *Discs*|linux#disks]]."
 
-#. type: Plain text
 #, fuzzy, no-wrap
-#| msgid ""
-#| "    **If the system fails to start**, that means that the computer does not have\n"
-#| "    enough memory for this operation mode. Try with another computer, or find\n"
-#| "    another Linux system, such as another Tails USB stick, to do the reset from.\n"
-msgid ""
-"    **If the system fails to start**, that means that the computer does not have\n"
-"    enough memory for this operation mode. Try with another computer, or find\n"
-"    another Linux system, such as another Tails USB stick, to uninstall from.\n"
-msgstr ""
-"    **Si el sistema no s'inicia**, vol dir que l'ordinador no té\n"
-"    memòria suficient per a aquest mode de funcionament. Proveu amb un altre ordinador o trobeu\n"
-"    un altre sistema Linux, com un altre llapis USB de Tails, per fer el restabliment.\n"
+#~| msgid ""
+#~| "    **If the system fails to start**, that means that the computer does not have\n"
+#~| "    enough memory for this operation mode. Try with another computer, or find\n"
+#~| "    another Linux system, such as another Tails USB stick, to do the reset from.\n"
+#~ msgid ""
+#~ "    **If the system fails to start**, that means that the computer does not have\n"
+#~ "    enough memory for this operation mode. Try with another computer, or find\n"
+#~ "    another Linux system, such as another Tails USB stick, to uninstall from.\n"
+#~ msgstr ""
+#~ "    **Si el sistema no s'inicia**, vol dir que l'ordinador no té\n"
+#~ "    memòria suficient per a aquest mode de funcionament. Proveu amb un altre ordinador o trobeu\n"
+#~ "    un altre sistema Linux, com un altre llapis USB de Tails, per fer el restabliment.\n"
 
 #, no-wrap
 #~ msgid "<a id=\"disks\"></a>\n"
