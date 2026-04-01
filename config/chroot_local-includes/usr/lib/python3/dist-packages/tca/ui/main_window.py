@@ -1033,7 +1033,7 @@ class StepErrorMixin:
         with tempfile.NamedTemporaryFile(delete=False) as f:
             f.write(report.encode("utf-8"))
             f.flush()
-            subprocess.Popen(["/usr/bin/gnome-text-editor", f.name])
+            self.app.portal.call_async("open-text-editor", None, f.name)
 
     def cb_step_error_btn_proxy_clicked(self, *args):
         self.change_box("proxy")
