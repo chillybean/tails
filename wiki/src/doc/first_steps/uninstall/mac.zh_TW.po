@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-09-17 11:40+0200\n"
+"POT-Creation-Date: 2026-04-01 00:15+0000\n"
 "PO-Revision-Date: 2024-05-06 14:51+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,37 +20,22 @@ msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid "[[!meta title=\"Resetting a USB stick using macOS\"]]\n"
+msgid "[[!meta title=\"Uninstalling Tails using macOS\"]]\n"
 msgstr ""
 
 #. type: Plain text
-#, no-wrap
-msgid "[[!inline pages=\"doc/reset.intro\" raw=\"yes\" sort=\"age\"]]\n"
-msgstr "[[!inline pages=\"doc/reset.intro.zh_TW\" raw=\"yes\" sort=\"age\"]]\n"
-
-#. type: Plain text
-#, no-wrap
-msgid "<div class=\"caution\">\n"
-msgstr "<div class=\"caution\">\n"
-
-#. type: Plain text
-#, no-wrap
-msgid "<p><b>You might overwrite any hard disk on the computer.</b></p>\n"
-msgstr ""
-
-#. type: Plain text
-#, no-wrap
-msgid "<p>If at some point you are not sure about which device to choose, stop proceeding.</p>\n"
-msgstr ""
-
-#. type: Plain text
-#, no-wrap
-msgid "</div>\n"
-msgstr "</div>\n"
+#, fuzzy, no-wrap
+msgid "[[!inline pages=\"doc/first_steps/uninstall.intro\" raw=\"yes\" sort=\"age\"]]\n"
+msgstr "[[!inline pages=\"doc/first_steps/reset.intro.zh_TW\" raw=\"yes\" sort=\"age\"]]\n"
 
 #. type: Bullet: '1. '
-msgid "Make sure that the USB stick that you want to reset is unplugged."
+msgid "Start on macOS."
 msgstr ""
+
+#. type: Bullet: '1. '
+#, fuzzy
+msgid "Make sure that the USB stick that you want to uninstall is unplugged."
+msgstr "電腦插上 USB 隨身碟。"
 
 #. type: Bullet: '1. '
 msgid "Start *Disk Utility*."
@@ -67,7 +52,7 @@ msgstr ""
 
 #. type: Bullet: '1. '
 #, fuzzy
-msgid "Plug in the USB stick that you want to reset."
+msgid "Plug in the USB stick that you want to uninstall."
 msgstr "電腦插上 USB 隨身碟。"
 
 #. type: Plain text
@@ -80,29 +65,32 @@ msgstr ""
 #. type: Bullet: '1. '
 msgid ""
 "In the list of storage devices, verify that the device corresponds to the "
-"USB stick that you want to reset, its brand, its size, etc."
+"USB stick that you want to uninstall, its brand, its size, etc."
 msgstr ""
+
+#. type: Plain text
+#, fuzzy, no-wrap
+msgid "   <div class=\"caution\">\n"
+msgstr "<div class=\"caution\">\n"
+
+#. type: Plain text
+#, no-wrap
+msgid "   <p>You might overwrite any hard disk on the computer.</p>\n"
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid "   <p>If you are not sure about which device to choose, stop proceeding.</p>\n"
+msgstr ""
+
+#. type: Plain text
+#, fuzzy, no-wrap
+msgid "   </div>\n"
+msgstr "</div>\n"
 
 #. type: Bullet: '1. '
-msgid "To reset the USB stick:"
-msgstr ""
-
-#. type: Plain text
-#, fuzzy, no-wrap
-msgid ""
-"   a. If there is an **Erase** tab\n"
-"   in the right pane, click on it and then click on the **Erase**\n"
-"   button on the bottom right\n"
-msgstr ""
-"    a. 在右側面板上有一個 **清除** 分頁\n"
-"    點開它並按下底部右方的 <span class=\"bold\">\n"
-"    清除</span>鍵。\n"
-
-#. type: Plain text
-#, fuzzy, no-wrap
-msgid ""
-"   b. If there is an **Erase**\n"
-"   button on the top middle, click on it.\n"
+#, fuzzy
+msgid "To reset the USB stick, select the **Erase** button in the top middle."
 msgstr ""
 "    b. 在中間上方有一個 \n"
 "    **清除**鍵，請點擊它。\n"
@@ -145,6 +133,11 @@ msgstr ""
 
 #. type: Plain text
 #, no-wrap
+msgid "</div>\n"
+msgstr "</div>\n"
+
+#. type: Plain text
+#, no-wrap
 msgid "[[!toggleable id=\"format\" text=\"\"\"\n"
 msgstr "[[!toggleable id=\"format\" text=\"\"\"\n"
 
@@ -153,9 +146,9 @@ msgstr "[[!toggleable id=\"format\" text=\"\"\"\n"
 msgid "<span class=\"hide\">[[!toggle id=\"format\" text=\"\"]]</span>\n"
 msgstr "<span class=\"hide\">[[!toggle id=\"format\" text=\"\"]]</span>\n"
 
-#. type: Title =
+#. type: Title -
 #, fuzzy, no-wrap
-msgid "Resetting a USB stick using the command line"
+msgid "Formatting the USB stick using the command line"
 msgstr "使用文字指令行來進行格式化 \n"
 
 #. type: Plain text
@@ -247,16 +240,8 @@ msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid ""
-"   <div class=\"caution\">\n"
-"   <p>If you are unsure about the device name, you should stop proceeding or\n"
-"   <strong>you risk overwriting any hard disk on the system</strong>.</p>\n"
-"   </div>\n"
+msgid "   <p>If you are not sure about the device, stop proceeding.</p>\n"
 msgstr ""
-"   <div class=\"caution\">\n"
-"   <p>如果不確定設備名稱，你最好停止操作否則\n"
-"   <strong>會造成覆寫掉系統上任何一顆硬碟的風險</strong>.</p>\n"
-"   </div>\n"
 
 #. type: Bullet: '1. '
 #, fuzzy
@@ -291,9 +276,35 @@ msgstr ""
 #. type: Bullet: '1. '
 #, fuzzy
 msgid ""
-"You can try to reset the USB stick again using *Disk Utility* from the "
+"You can try to uninstall the USB stick again using *Disk Utility* from the "
 "beginning of this page."
 msgstr "你可以試著使用本頁開始的 *磁碟工具* 來重置 USB 隨身磁。"
+
+#, no-wrap
+#~ msgid "[[!inline pages=\"doc/reset.intro\" raw=\"yes\" sort=\"age\"]]\n"
+#~ msgstr "[[!inline pages=\"doc/reset.intro.zh_TW\" raw=\"yes\" sort=\"age\"]]\n"
+
+#, fuzzy, no-wrap
+#~ msgid ""
+#~ "   a. If there is an **Erase** tab\n"
+#~ "   in the right pane, click on it and then click on the **Erase**\n"
+#~ "   button on the bottom right\n"
+#~ msgstr ""
+#~ "    a. 在右側面板上有一個 **清除** 分頁\n"
+#~ "    點開它並按下底部右方的 <span class=\"bold\">\n"
+#~ "    清除</span>鍵。\n"
+
+#, no-wrap
+#~ msgid ""
+#~ "   <div class=\"caution\">\n"
+#~ "   <p>If you are unsure about the device name, you should stop proceeding or\n"
+#~ "   <strong>you risk overwriting any hard disk on the system</strong>.</p>\n"
+#~ "   </div>\n"
+#~ msgstr ""
+#~ "   <div class=\"caution\">\n"
+#~ "   <p>如果不確定設備名稱，你最好停止操作否則\n"
+#~ "   <strong>會造成覆寫掉系統上任何一顆硬碟的風險</strong>.</p>\n"
+#~ "   </div>\n"
 
 #, fuzzy, no-wrap
 #~ msgid "Troubleshooting"
@@ -352,13 +363,6 @@ msgstr "你可以試著使用本頁開始的 *磁碟工具* 來重置 USB 隨身
 #, no-wrap
 #~ msgid "       sudo fdisk -iy [device]\n"
 #~ msgstr "       sudo fdisk -iy [device]\n"
-
-#~ msgid ""
-#~ "[[!inline pages=\"doc/first_steps/reset.intro\" raw=\"yes\" "
-#~ "sort=\"age\"]]\n"
-#~ msgstr ""
-#~ "[[!inline pages=\"doc/first_steps/reset.intro.zh_TW\" raw=\"yes\" "
-#~ "sort=\"age\"]]\n"
 
 #~ msgid "Troubleshooting\n"
 #~ msgstr "疑難解答\n"

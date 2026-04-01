@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-09-17 11:40+0200\n"
+"POT-Creation-Date: 2026-04-01 00:15+0000\n"
 "PO-Revision-Date: 2024-05-20 17:56+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,36 +20,21 @@ msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid "[[!meta title=\"Resetting a USB stick using macOS\"]]\n"
+msgid "[[!meta title=\"Uninstalling Tails using macOS\"]]\n"
 msgstr ""
 
 #. type: Plain text
-#, no-wrap
-msgid "[[!inline pages=\"doc/reset.intro\" raw=\"yes\" sort=\"age\"]]\n"
+#, fuzzy, no-wrap
+msgid "[[!inline pages=\"doc/first_steps/uninstall.intro\" raw=\"yes\" sort=\"age\"]]\n"
 msgstr "[[!inline pages=\"doc/reset.intro.zh\" raw=\"yes\" sort=\"age\"]]\n"
 
-#. type: Plain text
-#, no-wrap
-msgid "<div class=\"caution\">\n"
-msgstr "<div class=\"caution\">\n"
-
-#. type: Plain text
-#, no-wrap
-msgid "<p><b>You might overwrite any hard disk on the computer.</b></p>\n"
-msgstr "<p><b>您有可能会覆盖计算机上的磁盘。</b></p>\n"
-
-#. type: Plain text
-#, no-wrap
-msgid "<p>If at some point you are not sure about which device to choose, stop proceeding.</p>\n"
-msgstr "<p>如果您在任何时候不确定选择的设备，请勿继续。</p>\n"
-
-#. type: Plain text
-#, no-wrap
-msgid "</div>\n"
-msgstr "</div>\n"
+#. type: Bullet: '1. '
+msgid "Start on macOS."
+msgstr ""
 
 #. type: Bullet: '1. '
-msgid "Make sure that the USB stick that you want to reset is unplugged."
+#, fuzzy
+msgid "Make sure that the USB stick that you want to uninstall is unplugged."
 msgstr "确保您想要重置的 USB 记忆棒还未插入计算机中。"
 
 #. type: Bullet: '1. '
@@ -65,7 +50,7 @@ msgstr "    计算机上所有存储设备将会显示在窗口左侧栏目的�
 
 #. type: Bullet: '1. '
 #, fuzzy
-msgid "Plug in the USB stick that you want to reset."
+msgid "Plug in the USB stick that you want to uninstall."
 msgstr "插入您需要重置的 USB 记忆棒。"
 
 #. type: Plain text
@@ -78,28 +63,36 @@ msgstr ""
 "    点击它。\n"
 
 #. type: Bullet: '1. '
+#, fuzzy
 msgid ""
 "In the list of storage devices, verify that the device corresponds to the "
-"USB stick that you want to reset, its brand, its size, etc."
+"USB stick that you want to uninstall, its brand, its size, etc."
 msgstr ""
+"    存储设备列表中将会出现您刚刚插入的 USB 记忆棒。\n"
+"    点击它。\n"
+
+#. type: Plain text
+#, fuzzy, no-wrap
+msgid "   <div class=\"caution\">\n"
+msgstr "<div class=\"caution\">\n"
+
+#. type: Plain text
+#, fuzzy, no-wrap
+msgid "   <p>You might overwrite any hard disk on the computer.</p>\n"
+msgstr "<p><b>您有可能会覆盖计算机上的磁盘。</b></p>\n"
+
+#. type: Plain text
+#, fuzzy, no-wrap
+msgid "   <p>If you are not sure about which device to choose, stop proceeding.</p>\n"
+msgstr "<p>如果您在任何时候不确定选择的设备，请勿继续。</p>\n"
+
+#. type: Plain text
+#, fuzzy, no-wrap
+msgid "   </div>\n"
+msgstr "</div>\n"
 
 #. type: Bullet: '1. '
-msgid "To reset the USB stick:"
-msgstr ""
-
-#. type: Plain text
-#, no-wrap
-msgid ""
-"   a. If there is an **Erase** tab\n"
-"   in the right pane, click on it and then click on the **Erase**\n"
-"   button on the bottom right\n"
-msgstr ""
-
-#. type: Plain text
-#, no-wrap
-msgid ""
-"   b. If there is an **Erase**\n"
-"   button on the top middle, click on it.\n"
+msgid "To reset the USB stick, select the **Erase** button in the top middle."
 msgstr ""
 
 #. type: Bullet: '1. '
@@ -138,6 +131,11 @@ msgstr ""
 
 #. type: Plain text
 #, no-wrap
+msgid "</div>\n"
+msgstr "</div>\n"
+
+#. type: Plain text
+#, no-wrap
 msgid "[[!toggleable id=\"format\" text=\"\"\"\n"
 msgstr ""
 
@@ -146,9 +144,9 @@ msgstr ""
 msgid "<span class=\"hide\">[[!toggle id=\"format\" text=\"\"]]</span>\n"
 msgstr ""
 
-#. type: Title =
+#. type: Title -
 #, no-wrap
-msgid "Resetting a USB stick using the command line"
+msgid "Formatting the USB stick using the command line"
 msgstr ""
 
 #. type: Plain text
@@ -222,13 +220,9 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#, no-wrap
-msgid ""
-"   <div class=\"caution\">\n"
-"   <p>If you are unsure about the device name, you should stop proceeding or\n"
-"   <strong>you risk overwriting any hard disk on the system</strong>.</p>\n"
-"   </div>\n"
-msgstr ""
+#, fuzzy, no-wrap
+msgid "   <p>If you are not sure about the device, stop proceeding.</p>\n"
+msgstr "<p>如果您在任何时候不确定选择的设备，请勿继续。</p>\n"
 
 #. type: Bullet: '1. '
 msgid ""
@@ -256,7 +250,7 @@ msgstr ""
 
 #. type: Bullet: '1. '
 msgid ""
-"You can try to reset the USB stick again using *Disk Utility* from the "
+"You can try to uninstall the USB stick again using *Disk Utility* from the "
 "beginning of this page."
 msgstr ""
 

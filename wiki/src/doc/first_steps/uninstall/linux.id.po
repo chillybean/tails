@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tails\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-10-02 09:33+0000\n"
+"POT-Creation-Date: 2026-04-01 00:15+0000\n"
 "PO-Revision-Date: 2024-05-20 17:58+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: Tails localization <tails-l10n@boum.org>\n"
@@ -20,48 +20,27 @@ msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid "[[!meta title=\"Resetting a USB stick using Linux\"]]\n"
+msgid "[[!meta title=\"Uninstalling Tails using Linux\"]]\n"
 msgstr ""
 
 #. type: Plain text
-#, no-wrap
-msgid "[[!inline pages=\"doc/reset.intro\" raw=\"yes\" sort=\"age\"]]\n"
+#, fuzzy, no-wrap
+msgid "[[!inline pages=\"doc/first_steps/uninstall.intro\" raw=\"yes\" sort=\"age\"]]\n"
 msgstr "[[!inline pages=\"doc/reset.intro.id\" raw=\"yes\" sort=\"age\"]]\n"
 
 #. type: Plain text
-#, no-wrap
-msgid "[[!toc levels=1]]\n"
+#, fuzzy, no-wrap
+msgid "[[!toc startlevel=2]]\n"
 msgstr "[[!toc levels=1]]\n"
 
-#. type: Plain text
+#. type: Title -
 #, no-wrap
-msgid "<a id=\"disks\"></a>\n"
+msgid "Erasing Tails from the USB stick"
 msgstr ""
 
-#. type: Title =
-#, no-wrap
-msgid "Using *GNOME Disks*"
+#. type: Bullet: '1. '
+msgid "Start on Linux."
 msgstr ""
-
-#. type: Plain text
-#, no-wrap
-msgid "<div class=\"caution\">\n"
-msgstr "<div class=\"caution\">\n"
-
-#. type: Plain text
-#, no-wrap
-msgid "<p><b>You might overwrite any hard disk on the computer.</b></p>\n"
-msgstr ""
-
-#. type: Plain text
-#, no-wrap
-msgid "<p>If at some point you are not sure about which device to choose, stop proceeding.</p>\n"
-msgstr ""
-
-#. type: Plain text
-#, no-wrap
-msgid "</div>\n"
-msgstr "</div>\n"
 
 #. type: Bullet: '1. '
 msgid "Install *GNOME Disks*."
@@ -79,17 +58,8 @@ msgid ""
 "installation method for your distribution."
 msgstr ""
 
-#. type: Plain text
-#, no-wrap
-msgid ""
-"     You can also install Tails using the\n"
-"     `dd` command from any Linux distribution\n"
-"     as described in our instructions for [[installing from Debian using\n"
-"     the command line|install/expert#install]].\n"
-msgstr ""
-
 #. type: Bullet: '1. '
-msgid "Make sure that the USB stick that you want to reset is unplugged."
+msgid "Make sure that the USB stick that you want to uninstall is unplugged."
 msgstr ""
 
 #. type: Bullet: '1. '
@@ -116,7 +86,7 @@ msgid "   [[!img install/inc/icons/gnome-disks.png link=\"no\" alt=\"\"]]\n"
 msgstr ""
 
 #. type: Bullet: '1. '
-msgid "Plug in the USB stick that you want to reset."
+msgid "Plug in the USB stick that you want to uninstall."
 msgstr ""
 
 #. type: Plain text
@@ -127,12 +97,32 @@ msgstr ""
 #. type: Bullet: '1. '
 msgid ""
 "In the right pane of the window, verify that the device corresponds to the "
-"USB stick that you want to reset, its brand, its size, etc."
+"USB stick that you want to uninstall, its brand, its size, etc."
 msgstr ""
+
+#. type: Plain text
+#, fuzzy, no-wrap
+msgid "   <div class=\"caution\">\n"
+msgstr "     <div class=\"caution\">\n"
+
+#. type: Plain text
+#, no-wrap
+msgid "   <p>You might overwrite any hard disk on the computer.</p>\n"
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid "   <p>If you are not sure about the device, stop proceeding.</p>\n"
+msgstr ""
+
+#. type: Plain text
+#, fuzzy, no-wrap
+msgid "   </div>\n"
+msgstr "</div>\n"
 
 #. type: Bullet: '1. '
 msgid ""
-"To reset the USB stick, click on the [[!img lib/view-more.png alt=\"Drive "
+"To format the USB stick, select the [[!img lib/view-more.png alt=\"Drive "
 "Options\" class=\"symbolic\" link=\"no\"]] button in the title bar and "
 "choose **Format Disk** to erase all the existing partitions on the device."
 msgstr ""
@@ -146,28 +136,6 @@ msgid ""
 "If you want to overwrite all data on the device, choose **Overwrite existing "
 "data with zeroes** in the **Erase** menu."
 msgstr ""
-
-#. type: Plain text
-#, no-wrap
-msgid "     <div class=\"caution\">\n"
-msgstr "     <div class=\"caution\">\n"
-
-#. type: Plain text
-#, no-wrap
-msgid ""
-"     <p>Overwriting existing data does not erase all data on flash\n"
-"     memories, such as USB sticks and SSDs (Solid-State Drives).</p>\n"
-msgstr ""
-
-#. type: Plain text
-#, no-wrap
-msgid "     <p>See the [[limitations of file deletion|doc/encryption_and_privacy/secure_deletion#spare]].</p>\n"
-msgstr ""
-
-#. type: Plain text
-#, fuzzy, no-wrap
-msgid "     </div>\n"
-msgstr "</div>\n"
 
 #. type: Bullet: '   - '
 msgid ""
@@ -198,14 +166,14 @@ msgstr ""
 msgid "   button in the title bar.\n"
 msgstr ""
 
-#. type: Title =
+#. type: Title -
 #, no-wrap
-msgid "Resetting a Tails USB stick from itself"
+msgid "Uninstalling a Tails USB stick from itself"
 msgstr ""
 
 #. type: Plain text
 msgid ""
-"If Tails is your only Linux system, you can generally reset a Tails USB "
+"If Tails is your only Linux system, you can generally uninstall a Tails USB "
 "stick directly from that USB stick while running Tails."
 msgstr ""
 
@@ -220,7 +188,7 @@ msgstr ""
 
 #. type: Bullet: '2.  '
 msgid ""
-"If Tails starts as usual, follow the instructions to [[reset a USB stick "
+"If Tails starts as usual, follow the instructions to [[uninstall a USB stick "
 "using *GNOME Disks* for Linux|linux#disks]]."
 msgstr ""
 
@@ -229,5 +197,13 @@ msgstr ""
 msgid ""
 "    **If the system fails to start**, that means that the computer does not have\n"
 "    enough memory for this operation mode. Try with another computer, or find\n"
-"    another Linux system, such as another Tails USB stick, to do the reset from.\n"
+"    another Linux system, such as another Tails USB stick, to uninstall from.\n"
 msgstr ""
+
+#, no-wrap
+#~ msgid "<div class=\"caution\">\n"
+#~ msgstr "<div class=\"caution\">\n"
+
+#, no-wrap
+#~ msgid "</div>\n"
+#~ msgstr "</div>\n"

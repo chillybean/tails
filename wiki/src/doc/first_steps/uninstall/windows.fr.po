@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2026-03-27 09:32+0000\n"
+"POT-Creation-Date: 2026-04-01 00:15+0000\n"
 "PO-Revision-Date: 2026-03-29 14:22+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: \n"
@@ -19,18 +19,26 @@ msgstr ""
 "X-Generator: Weblate 5.13.2\n"
 
 #. type: Plain text
-#, no-wrap
-msgid "[[!meta title=\"Resetting a USB stick using Windows\"]]\n"
+#, fuzzy, no-wrap
+#| msgid "[[!meta title=\"Resetting a USB stick using Windows\"]]\n"
+msgid "[[!meta title=\"Uninstalling Tails using Windows\"]]\n"
 msgstr "[[!meta title=\"Réinitialiser une clé USB en utilisant Windows\"]]\n"
 
 #. type: Plain text
-#, no-wrap
-msgid "[[!inline pages=\"doc/reset.intro\" raw=\"yes\" sort=\"age\"]]\n"
+#, fuzzy, no-wrap
+#| msgid "[[!inline pages=\"doc/reset.intro\" raw=\"yes\" sort=\"age\"]]\n"
+msgid "[[!inline pages=\"doc/first_steps/uninstall.intro\" raw=\"yes\" sort=\"age\"]]\n"
 msgstr "[[!inline pages=\"doc/reset.intro.fr\" raw=\"yes\" sort=\"age\"]]\n"
 
-#. type: Title =
+#. type: Plain text
 #, no-wrap
-msgid "Erase Tails from the USB stick"
+msgid "[[!toc startlevel=2]]\n"
+msgstr ""
+
+#. type: Title -
+#, fuzzy, no-wrap
+#| msgid "Erase Tails from the USB stick"
+msgid "Erasing Tails from the USB stick"
 msgstr "Effacer Tails de la clé USB"
 
 #. type: Plain text
@@ -38,13 +46,16 @@ msgid "First, erase Tails from the USB stick:"
 msgstr "Premièrement, effacez Tails de votre clé USB :"
 
 #. type: Bullet: '1. '
+msgid "Start on Windows."
+msgstr ""
+
+#. type: Bullet: '1. '
 msgid ""
 "Select the **Start** [[!img lib/start.png alt=\"\" class=\"symbolic\" "
 "link=\"no\"]] button and open the *Settings* app."
 msgstr ""
-"Cliquez sur le bouton **Démarrer** "
-"[[!img lib/start.png alt=\"\" class=\"symbolic\" link=\"no\"]] et ouvrez "
-"l'application *Paramètres*."
+"Cliquez sur le bouton **Démarrer** [[!img lib/start.png alt=\"\" "
+"class=\"symbolic\" link=\"no\"]] et ouvrez l'application *Paramètres*."
 
 #. type: Bullet: '1. '
 msgid ""
@@ -55,7 +66,9 @@ msgstr ""
 "Paramètres de stockage avancés&nbsp;▸ Disques et volumes**."
 
 #. type: Bullet: '1. '
-msgid "Plug in the Tails USB stick that you want to reset."
+#, fuzzy
+#| msgid "Plug in the Tails USB stick that you want to reset."
+msgid "Plug in the Tails USB stick that you want to uninstall."
 msgstr "Branchez la clé USB Tails que vous voulez réinitialiser."
 
 #. type: Plain text
@@ -76,12 +89,12 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "   This volume corresponds to the Tails system partition on the USB stick.\n"
-msgstr ""
-"   Ce volume correspond à la partition système de Tails sur la clé USB.\n"
+msgstr "   Ce volume correspond à la partition système de Tails sur la clé USB.\n"
 
 #. type: Bullet: '   1. '
 msgid "Select the **Properties** button corresponding to the **TAILS** volume."
-msgstr "Cliquez sur le bouton **Propriétés** correspondant au volume **TAILS**."
+msgstr ""
+"Cliquez sur le bouton **Propriétés** correspondant au volume **TAILS**."
 
 #. type: Bullet: '   1. '
 msgid "In the properties of the **TAILS** volume, select **Delete**."
@@ -108,8 +121,7 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "   This volume corresponds to the Tails Persistent Storage on the USB stick.\n"
-msgstr ""
-"   Ce volume correspond au stockage persistant de Tails sur la clé USB.\n"
+msgstr "   Ce volume correspond au stockage persistant de Tails sur la clé USB.\n"
 
 #. type: Bullet: '   1. '
 msgid ""
@@ -129,9 +141,10 @@ msgid "The USB stick now has no volumes and is entirely unallocated."
 msgstr ""
 "La clé USB n'a désormais plus aucun volume et est entièrement non allouée."
 
-#. type: Title =
-#, no-wrap
-msgid "Create a new partition on the USB stick"
+#. type: Title -
+#, fuzzy, no-wrap
+#| msgid "Create a new partition on the USB stick"
+msgid "Creating a new partition on the USB stick"
 msgstr "Créer une nouvelle partition sur la clé USB"
 
 #. type: Plain text
@@ -171,9 +184,9 @@ msgid ""
 "Select the **Start** [[!img lib/start.png alt=\"\" class=\"symbolic\" "
 "link=\"no\"]] button and open the *File Explorer* app."
 msgstr ""
-"Sélectionnez le bouton **Démarrer** "
-"[[!img lib/start.png alt=\"\" class=\"symbolic\" link=\"no\"]] et ouvrez "
-"l'application *Explorateur de fichiers*."
+"Sélectionnez le bouton **Démarrer** [[!img lib/start.png alt=\"\" "
+"class=\"symbolic\" link=\"no\"]] et ouvrez l'application *Explorateur de "
+"fichiers*."
 
 #. type: Bullet: '1. '
 msgid "Plug back the USB stick."
@@ -182,9 +195,7 @@ msgstr "Rebranchez la clé USB."
 #. type: Plain text
 #, no-wrap
 msgid "   Your new volume appears in the left sidebar of the *File Explorer*.\n"
-msgstr ""
-"   Votre nouveau volume apparaît dans la barre latérale gauche de l'*"
-"Explorateur de fichiers*.\n"
+msgstr "   Votre nouveau volume apparaît dans la barre latérale gauche de l'*Explorateur de fichiers*.\n"
 
 #, no-wrap
 #~ msgid "<div class=\"caution\">\n"
