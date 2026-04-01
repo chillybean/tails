@@ -2,12 +2,15 @@
 
 [[!inline pages="doc/first_steps/uninstall.intro" raw="yes" sort="age"]]
 
-[[!toc startlevel=2]]
+1. Start on Linux or Tails.
 
-Erasing Tails from the USB stick
---------------------------------
+   <div class="tip">
 
-1. Start on Linux.
+   <p>To uninstall a Tails USB stick while running Tails from that same USB
+   stick, add the <code>toram</code> boot option in the <i>Boot Loader</i>. See
+   [[uninstalling Tails using Tails itself|tails]].</p>
+
+   </div>
 
 1. Install *GNOME Disks*.
 
@@ -65,21 +68,3 @@ Erasing Tails from the USB stick
 1. To make sure that all the changes are written to the USB stick, select the
    [[!img lib/system-shutdown.png alt="Power Off this Disk" class="symbolic" link="no"]]
    button in the title bar.
-
-Uninstalling a Tails USB stick from itself
-------------------------------------------
-
-If Tails is your only Linux system, you can generally uninstall a Tails USB stick
-directly from that USB stick while running Tails.
-
-1.  When starting Tails, add the `toram` boot
-    option in the *Boot Loader*.
-
-    See [[using the *Boot Loader*|advanced_topics/boot_options]].
-
-2.  If Tails starts as usual, follow the instructions to [[uninstall a USB stick
-    using *GNOME Disks* for Linux|linux#disks]].
-
-    **If the system fails to start**, that means that the computer does not have
-    enough memory for this operation mode. Try with another computer, or find
-    another Linux system, such as another Tails USB stick, to uninstall from.
