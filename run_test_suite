@@ -360,7 +360,7 @@ while [ $# -gt 0 ]; do
         export EXTRA_BOOT_OPTIONS="$1"
         ;;
     --all-tests)
-        ALL_TESTS="yes"
+        export ALL_TESTS="yes"
         ;;
     --tmpdir)
         shift
@@ -400,6 +400,13 @@ fi
 check_dependencies ${GENERAL_DEPENDENCIES}
 check_tor_version
 
+if [ -n "${JENKINS_URL:-}" ]; then
+    if ! ./bin/ci-configuration should-test; then
+        echo "Tests disabled for this branch" >&2
+        exit 1
+    fi
+fi
+
 TARGET_DISPLAY=$(next_free_display)
 
 start_xvfb
@@ -411,40 +418,7 @@ if [ -n "${VNC_VIEWER:-}" ]; then
     start_vnc_viewer
 fi
 
-TAGS_ARGS=""
-if [ -n "${JENKINS_URL:-}" ]; then
-    . auto/scripts/utils.sh
-
-    ## Branch names suffixes, which trigger different test suite behaviors, are documented in
-    ## wiki/src/contribute/release_process/test/automated_tests.mdwn
-    ## Prefixes, which are about both build & tests, are documented in
-    ## wiki/src/contribute/git.mdwn
-
-    if echo "${GIT_BRANCH}" | grep -q -E '[+-]real-Tor$'; then
-        export DISABLE_CHUTNEY="yes"
-        TAGS_ARGS="--tag @supports_real_tor"
-    # The current Git state may not reflect the state at the time the
-    # upstream job was started (e.g. since then we git fetch + git
-    # reset --hard) so we trust the Git state described in Jenkins'
-    # environment variables instead.
-    elif echo "${GIT_BRANCH}" | grep -q -E '[+-]force-all-tests$' ||
-        git_on_a_tag ||
-        [ "${GIT_BRANCH#origin/}" = feature/trixie ] ||
-        [ "${GIT_BRANCH#origin/}" = testing ] ||
-        [ "${GIT_BRANCH#origin/}" = devel ] ||
-        [ -n "${ALL_TESTS:-}" ]; then
-        TAGS_ARGS=""
-    else
-        TAGS_ARGS="${TAGS_ARGS} --tag ~@fragile --tag ~@skip_by_default"
-    fi
-    if [ "${UPSTREAMJOB_GIT_COMMIT}" != "${UPSTREAMJOB_GIT_BASE_BRANCH_HEAD}" ] &&
-        git_only_doc_changes_since "${UPSTREAMJOB_GIT_BASE_BRANCH_HEAD}"; then
-        TAGS_ARGS="${TAGS_ARGS} --tag @doc"
-    fi
-fi
-
 export USER_DISPLAY="${DISPLAY:-}"
 export DISPLAY=${TARGET_DISPLAY}
 
-# shellcheck disable=SC2086
-cucumber --expand ${TAGS_ARGS} "${@}"
+exec ./bin/ci-configuration run-test "$@"

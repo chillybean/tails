@@ -356,6 +356,18 @@ test-whisperback:
     reports:
       junit: report.xml
 
+test-ci-configuration:
+  script:
+    - apt-get -qy install python3-pydantic python3-pytest git
+    # pytest can't test files whose extension is not ".py", let's give it what it wants
+    - cp bin/ci-configuration bin/ci-configuration.py
+    - 'pytest-3 --verbose --junit-xml=report.xml
+         bin/ci-configuration.py'
+  artifacts:
+    when: always
+    reports:
+      junit: report.xml
+
 apt-snapshots-expiry:
   script:
     - apt-get -qy install curl git

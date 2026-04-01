@@ -178,6 +178,16 @@ end
 
 ENV['TAILS_WEBSITE_CACHE'] = releasing? ? 'no' : 'yes'
 
+task :check_ci_configuration do
+  if on_jenkins?
+    begin
+      run_command('./bin/ci-configuration', 'should-build')
+    rescue CommandError
+      abort 'This branch is configured to skip build on Jenkins'
+    end
+  end
+end
+
 task :parse_build_options do
   options = []
 
@@ -484,6 +494,7 @@ end
 
 desc 'Build Tails'
 task build: [
+  'check_ci_configuration',
   'parse_build_options',
   'ensure_clean_repository',
   'maybe_clean_up_builder_vms',
