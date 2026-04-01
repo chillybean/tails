@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tails\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-09-17 11:40+0200\n"
+"POT-Creation-Date: 2026-04-01 00:15+0000\n"
 "PO-Revision-Date: 2025-10-05 10:19+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: Tails translators <tails@boum.org>\n"
@@ -19,37 +19,25 @@ msgstr ""
 "X-Generator: Weblate 5.13.2\n"
 
 #. type: Plain text
-#, no-wrap
-msgid "[[!meta title=\"Resetting a USB stick using macOS\"]]\n"
+#, fuzzy, no-wrap
+#| msgid "[[!meta title=\"Resetting a USB stick using macOS\"]]\n"
+msgid "[[!meta title=\"Uninstalling Tails using macOS\"]]\n"
 msgstr "[[!meta title=\"Réinitialiser une clé USB en utilisant macOS\"]]\n"
 
 #. type: Plain text
-#, no-wrap
-msgid "[[!inline pages=\"doc/reset.intro\" raw=\"yes\" sort=\"age\"]]\n"
+#, fuzzy, no-wrap
+#| msgid "[[!inline pages=\"doc/reset.intro\" raw=\"yes\" sort=\"age\"]]\n"
+msgid "[[!inline pages=\"doc/first_steps/uninstall.intro\" raw=\"yes\" sort=\"age\"]]\n"
 msgstr "[[!inline pages=\"doc/reset.intro.fr\" raw=\"yes\" sort=\"age\"]]\n"
 
-#. type: Plain text
-#, no-wrap
-msgid "<div class=\"caution\">\n"
-msgstr "<div class=\"caution\">\n"
-
-#. type: Plain text
-#, no-wrap
-msgid "<p><b>You might overwrite any hard disk on the computer.</b></p>\n"
-msgstr "<p><b>Vous pourriez écraser n'importe quel disque dur sur l'ordinateur.</b></p>\n"
-
-#. type: Plain text
-#, no-wrap
-msgid "<p>If at some point you are not sure about which device to choose, stop proceeding.</p>\n"
-msgstr "<p>Si à un moment donné vous avez un doute sur quel périphérique choisir, arrêtez la procédure.</p>\n"
-
-#. type: Plain text
-#, no-wrap
-msgid "</div>\n"
-msgstr "</div>\n"
+#. type: Bullet: '1. '
+msgid "Start on macOS."
+msgstr ""
 
 #. type: Bullet: '1. '
-msgid "Make sure that the USB stick that you want to reset is unplugged."
+#, fuzzy
+#| msgid "Make sure that the USB stick that you want to reset is unplugged."
+msgid "Make sure that the USB stick that you want to uninstall is unplugged."
 msgstr ""
 "Assurez-vous que la clé USB que vous voulez réinitialiser est débranchée."
 
@@ -67,7 +55,9 @@ msgstr ""
 "   dans le panneau gauche de la fenêtre.\n"
 
 #. type: Bullet: '1. '
-msgid "Plug in the USB stick that you want to reset."
+#, fuzzy
+#| msgid "Plug in the USB stick that you want to reset."
+msgid "Plug in the USB stick that you want to uninstall."
 msgstr "Branchez la clé USB que vous voulez réinitialiser."
 
 #. type: Plain text
@@ -80,34 +70,48 @@ msgstr ""
 "   correspond à la clé USB que vous venez de brancher. Cliquez dessus.\n"
 
 #. type: Bullet: '1. '
+#, fuzzy
+#| msgid ""
+#| "In the list of storage devices, verify that the device corresponds to the "
+#| "USB stick that you want to reset, its brand, its size, etc."
 msgid ""
 "In the list of storage devices, verify that the device corresponds to the "
-"USB stick that you want to reset, its brand, its size, etc."
+"USB stick that you want to uninstall, its brand, its size, etc."
 msgstr ""
 "Dans la liste des périphériques de stockage, vérifiez que le périphérique "
 "correspond à la clé USB que vous voulez réinitialiser, sa marque, sa taille, "
 "etc."
 
+#. type: Plain text
+#, fuzzy, no-wrap
+#| msgid "<div class=\"caution\">\n"
+msgid "   <div class=\"caution\">\n"
+msgstr "<div class=\"caution\">\n"
+
+#. type: Plain text
+#, fuzzy, no-wrap
+#| msgid "<p><b>You might overwrite any hard disk on the computer.</b></p>\n"
+msgid "   <p>You might overwrite any hard disk on the computer.</p>\n"
+msgstr "<p><b>Vous pourriez écraser n'importe quel disque dur sur l'ordinateur.</b></p>\n"
+
+#. type: Plain text
+#, fuzzy, no-wrap
+#| msgid "<p>If at some point you are not sure about which device to choose, stop proceeding.</p>\n"
+msgid "   <p>If you are not sure about which device to choose, stop proceeding.</p>\n"
+msgstr "<p>Si à un moment donné vous avez un doute sur quel périphérique choisir, arrêtez la procédure.</p>\n"
+
+#. type: Plain text
+#, fuzzy, no-wrap
+#| msgid "</div>\n"
+msgid "   </div>\n"
+msgstr "</div>\n"
+
 #. type: Bullet: '1. '
-msgid "To reset the USB stick:"
-msgstr "Pour réinitialiser la clé USB :"
-
-#. type: Plain text
-#, no-wrap
-msgid ""
-"   a. If there is an **Erase** tab\n"
-"   in the right pane, click on it and then click on the **Erase**\n"
-"   button on the bottom right\n"
-msgstr ""
-"   a. Si il y a un onglet **Effacer**\n"
-"   dans le panneau droit, cliquez dessus puis sur le bouton <span class=\"bold\">\n"
-"   Effacer</span> en bas à droite\n"
-
-#. type: Plain text
-#, no-wrap
-msgid ""
-"   b. If there is an **Erase**\n"
-"   button on the top middle, click on it.\n"
+#, fuzzy
+#| msgid ""
+#| "   b. If there is an **Erase**\n"
+#| "   button on the top middle, click on it.\n"
+msgid "To reset the USB stick, select the **Erase** button in the top middle."
 msgstr ""
 "   b. Si il y a un bouton <span class=\"bold\">\n"
 "   Effacer </span> en haut au milieu, cliquez dessus.\n"
@@ -154,6 +158,11 @@ msgstr ""
 
 #. type: Plain text
 #, no-wrap
+msgid "</div>\n"
+msgstr "</div>\n"
+
+#. type: Plain text
+#, no-wrap
 msgid "[[!toggleable id=\"format\" text=\"\"\"\n"
 msgstr "[[!toggleable id=\"format\" text=\"\"\"\n"
 
@@ -162,9 +171,10 @@ msgstr "[[!toggleable id=\"format\" text=\"\"\"\n"
 msgid "<span class=\"hide\">[[!toggle id=\"format\" text=\"\"]]</span>\n"
 msgstr "<span class=\"hide\">[[!toggle id=\"format\" text=\"\"]]</span>\n"
 
-#. type: Title =
-#, no-wrap
-msgid "Resetting a USB stick using the command line"
+#. type: Title -
+#, fuzzy, no-wrap
+#| msgid "Resetting a USB stick using the command line"
+msgid "Formatting the USB stick using the command line"
 msgstr "Réinitialiser une clé USB en utilisant la ligne de commande"
 
 #. type: Plain text
@@ -254,17 +264,10 @@ msgstr ""
 "   Le nom de la votre peut être différent.\n"
 
 #. type: Plain text
-#, no-wrap
-msgid ""
-"   <div class=\"caution\">\n"
-"   <p>If you are unsure about the device name, you should stop proceeding or\n"
-"   <strong>you risk overwriting any hard disk on the system</strong>.</p>\n"
-"   </div>\n"
-msgstr ""
-"   <div class=\"caution\">\n"
-"   <p>Si vous n'avez pas la certitude d'avoir le bon nom de périphérique, vous devriez ne pas poursuivre ou\n"
-"   <strong>vous risquez d'écraser les données d'un disque dur de votre système</strong>.</p>\n"
-"   </div>\n"
+#, fuzzy, no-wrap
+#| msgid "<p>If at some point you are not sure about which device to choose, stop proceeding.</p>\n"
+msgid "   <p>If you are not sure about the device, stop proceeding.</p>\n"
+msgstr "<p>Si à un moment donné vous avez un doute sur quel périphérique choisir, arrêtez la procédure.</p>\n"
 
 #. type: Bullet: '1. '
 msgid ""
@@ -297,13 +300,42 @@ msgid "   <p class=\"command-template\">sudo fdisk -iy <span class=\"command-pla
 msgstr "   <p class=\"command-template\">sudo fdisk -iy <span class=\"command-placeholder\">périphérique</span></p>\n"
 
 #. type: Bullet: '1. '
+#, fuzzy
+#| msgid ""
+#| "You can try to reset the USB stick again using *Disk Utility* from the "
+#| "beginning of this page."
 msgid ""
-"You can try to reset the USB stick again using *Disk Utility* from the "
+"You can try to uninstall the USB stick again using *Disk Utility* from the "
 "beginning of this page."
 msgstr ""
 "Vous pouvez essayer à nouveau de réinitialiser la clé USB avec l'<span "
 "class=\"application\">Utilitaire de disque</span> en retournant au début de "
 "cette page."
+
+#~ msgid "To reset the USB stick:"
+#~ msgstr "Pour réinitialiser la clé USB :"
+
+#, no-wrap
+#~ msgid ""
+#~ "   a. If there is an **Erase** tab\n"
+#~ "   in the right pane, click on it and then click on the **Erase**\n"
+#~ "   button on the bottom right\n"
+#~ msgstr ""
+#~ "   a. Si il y a un onglet **Effacer**\n"
+#~ "   dans le panneau droit, cliquez dessus puis sur le bouton <span class=\"bold\">\n"
+#~ "   Effacer</span> en bas à droite\n"
+
+#, no-wrap
+#~ msgid ""
+#~ "   <div class=\"caution\">\n"
+#~ "   <p>If you are unsure about the device name, you should stop proceeding or\n"
+#~ "   <strong>you risk overwriting any hard disk on the system</strong>.</p>\n"
+#~ "   </div>\n"
+#~ msgstr ""
+#~ "   <div class=\"caution\">\n"
+#~ "   <p>Si vous n'avez pas la certitude d'avoir le bon nom de périphérique, vous devriez ne pas poursuivre ou\n"
+#~ "   <strong>vous risquez d'écraser les données d'un disque dur de votre système</strong>.</p>\n"
+#~ "   </div>\n"
 
 #, no-wrap
 #~ msgid "Troubleshooting"

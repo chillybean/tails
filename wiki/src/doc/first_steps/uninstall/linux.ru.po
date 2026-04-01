@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-10-02 09:33+0000\n"
+"POT-Creation-Date: 2026-04-01 00:15+0000\n"
 "PO-Revision-Date: 2024-05-20 17:56+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,49 +20,31 @@ msgstr ""
 "X-Generator: Weblate 5.3\n"
 
 #. type: Plain text
-#, no-wrap
-msgid "[[!meta title=\"Resetting a USB stick using Linux\"]]\n"
+#, fuzzy, no-wrap
+#| msgid "[[!meta title=\"Resetting a USB stick using Linux\"]]\n"
+msgid "[[!meta title=\"Uninstalling Tails using Linux\"]]\n"
 msgstr "[[!meta title=\"Стирание флешки в Linux\"]]\n"
 
 #. type: Plain text
-#, no-wrap
-msgid "[[!inline pages=\"doc/reset.intro\" raw=\"yes\" sort=\"age\"]]\n"
+#, fuzzy, no-wrap
+#| msgid "[[!inline pages=\"doc/reset.intro\" raw=\"yes\" sort=\"age\"]]\n"
+msgid "[[!inline pages=\"doc/first_steps/uninstall.intro\" raw=\"yes\" sort=\"age\"]]\n"
 msgstr "[[!inline pages=\"doc/reset.intro.ru\" raw=\"yes\" sort=\"age\"]]\n"
 
 #. type: Plain text
-#, no-wrap
-msgid "[[!toc levels=1]]\n"
+#, fuzzy, no-wrap
+#| msgid "[[!toc levels=1]]\n"
+msgid "[[!toc startlevel=2]]\n"
 msgstr "[[!toc levels=1]]\n"
 
-#. type: Plain text
+#. type: Title -
 #, no-wrap
-msgid "<a id=\"disks\"></a>\n"
-msgstr "<a id=\"disks\"></a>\n"
+msgid "Erasing Tails from the USB stick"
+msgstr ""
 
-#. type: Title =
-#, no-wrap
-msgid "Using *GNOME Disks*"
-msgstr "*Утилита Диски (GNOME)*"
-
-#. type: Plain text
-#, no-wrap
-msgid "<div class=\"caution\">\n"
-msgstr "<div class=\"caution\">\n"
-
-#. type: Plain text
-#, no-wrap
-msgid "<p><b>You might overwrite any hard disk on the computer.</b></p>\n"
-msgstr "<p><b>Программа позволяет перезаписать любой диск на компьютере.</b></p>\n"
-
-#. type: Plain text
-#, no-wrap
-msgid "<p>If at some point you are not sure about which device to choose, stop proceeding.</p>\n"
-msgstr "<p>Если в какой-то момент вы не уверены, правильный ли диск выбрали, лучше остановитесь.</p>\n"
-
-#. type: Plain text
-#, no-wrap
-msgid "</div>\n"
-msgstr "</div>\n"
+#. type: Bullet: '1. '
+msgid "Start on Linux."
+msgstr ""
 
 #. type: Bullet: '1. '
 #, fuzzy
@@ -82,17 +64,10 @@ msgid ""
 "installation method for your distribution."
 msgstr ""
 
-#. type: Plain text
-#, no-wrap
-msgid ""
-"     You can also install Tails using the\n"
-"     `dd` command from any Linux distribution\n"
-"     as described in our instructions for [[installing from Debian using\n"
-"     the command line|install/expert#install]].\n"
-msgstr ""
-
 #. type: Bullet: '1. '
-msgid "Make sure that the USB stick that you want to reset is unplugged."
+#, fuzzy
+#| msgid "Make sure that the USB stick that you want to reset is unplugged."
+msgid "Make sure that the USB stick that you want to uninstall is unplugged."
 msgstr ""
 "Убедитесь, что флешка, которую вы хотите стереть, не подключена к компьютеру."
 
@@ -125,7 +100,7 @@ msgstr ""
 #. type: Bullet: '1. '
 #, fuzzy
 #| msgid "Plug the USB stick that you want to reset."
-msgid "Plug in the USB stick that you want to reset."
+msgid "Plug in the USB stick that you want to uninstall."
 msgstr "Подключите флешку, которую хотите стереть."
 
 #. type: Plain text
@@ -137,12 +112,40 @@ msgid "   A new device appears in the list of storage devices. Select it.\n"
 msgstr "   В списке появится новое устройство. Оно соответствует подключённой флешке. Выберите это устройство.\n"
 
 #. type: Bullet: '1. '
+#, fuzzy
+#| msgid ""
+#| "In the right pane of the window, verify that the device corresponds to "
+#| "the USB stick that you want to reset, its brand, its size, etc."
 msgid ""
 "In the right pane of the window, verify that the device corresponds to the "
-"USB stick that you want to reset, its brand, its size, etc."
+"USB stick that you want to uninstall, its brand, its size, etc."
 msgstr ""
 "В правой части окна убедитесь, что устройство соответствует флешке, которую "
 "вы хотите стереть (совпадают модель, объём и т.д.)."
+
+#. type: Plain text
+#, fuzzy, no-wrap
+#| msgid "     <div class=\"caution\">\n"
+msgid "   <div class=\"caution\">\n"
+msgstr "     <div class=\"caution\">\n"
+
+#. type: Plain text
+#, fuzzy, no-wrap
+#| msgid "<p><b>You might overwrite any hard disk on the computer.</b></p>\n"
+msgid "   <p>You might overwrite any hard disk on the computer.</p>\n"
+msgstr "<p><b>Программа позволяет перезаписать любой диск на компьютере.</b></p>\n"
+
+#. type: Plain text
+#, fuzzy, no-wrap
+#| msgid "<p>If at some point you are not sure about which device to choose, stop proceeding.</p>\n"
+msgid "   <p>If you are not sure about the device, stop proceeding.</p>\n"
+msgstr "<p>Если в какой-то момент вы не уверены, правильный ли диск выбрали, лучше остановитесь.</p>\n"
+
+#. type: Plain text
+#, fuzzy, no-wrap
+#| msgid "     </div>\n"
+msgid "   </div>\n"
+msgstr "     </div>\n"
 
 #. type: Bullet: '1. '
 #, fuzzy
@@ -151,7 +154,7 @@ msgstr ""
 #| "open-menu.png alt=\"Menu\" class=symbolic link=no]]</span> button in the "
 #| "titlebar and choose **Format Disk…**."
 msgid ""
-"To reset the USB stick, click on the [[!img lib/view-more.png alt=\"Drive "
+"To format the USB stick, select the [[!img lib/view-more.png alt=\"Drive "
 "Options\" class=\"symbolic\" link=\"no\"]] button in the title bar and "
 "choose **Format Disk** to erase all the existing partitions on the device."
 msgstr ""
@@ -178,28 +181,6 @@ msgid ""
 msgstr ""
 "   1. Если вы хотите надёжно удалить все данные, в поле **Очистка** выберите "
 "**Перезаписывать существующие данные нулями**.\n"
-
-#. type: Plain text
-#, no-wrap
-msgid "     <div class=\"caution\">\n"
-msgstr "     <div class=\"caution\">\n"
-
-#. type: Plain text
-#, no-wrap
-msgid ""
-"     <p>Overwriting existing data does not erase all data on flash\n"
-"     memories, such as USB sticks and SSDs (Solid-State Drives).</p>\n"
-msgstr ""
-
-#. type: Plain text
-#, no-wrap
-msgid "     <p>See the [[limitations of file deletion|doc/encryption_and_privacy/secure_deletion#spare]].</p>\n"
-msgstr ""
-
-#. type: Plain text
-#, no-wrap
-msgid "     </div>\n"
-msgstr "     </div>\n"
 
 #. type: Bullet: '   - '
 #, fuzzy
@@ -244,14 +225,19 @@ msgstr ""
 msgid "   button in the title bar.\n"
 msgstr ""
 
-#. type: Title =
-#, no-wrap
-msgid "Resetting a Tails USB stick from itself"
+#. type: Title -
+#, fuzzy, no-wrap
+#| msgid "Resetting a Tails USB stick from itself"
+msgid "Uninstalling a Tails USB stick from itself"
 msgstr "«Самостирание» флешки Tails"
 
 #. type: Plain text
+#, fuzzy
+#| msgid ""
+#| "If Tails is your only Linux system, you can generally reset a Tails USB "
+#| "stick directly from that USB stick while running Tails."
 msgid ""
-"If Tails is your only Linux system, you can generally reset a Tails USB "
+"If Tails is your only Linux system, you can generally uninstall a Tails USB "
 "stick directly from that USB stick while running Tails."
 msgstr ""
 "Если Tails — ваша единственная система Linux, вы можете стереть флешку "
@@ -272,22 +258,42 @@ msgstr ""
 #| "If Tails starts as usual, follow the instructions for [[resetting a USB "
 #| "stick using *GNOME Disks*|linux#disks]]."
 msgid ""
-"If Tails starts as usual, follow the instructions to [[reset a USB stick "
+"If Tails starts as usual, follow the instructions to [[uninstall a USB stick "
 "using *GNOME Disks* for Linux|linux#disks]]."
 msgstr ""
 "Если Tails стартует как обычно, следуйте инструкциям выше (как [[стереть "
 "флешку с помощью утилиты *Диски*|linux#disks]]."
 
 #. type: Plain text
-#, no-wrap
+#, fuzzy, no-wrap
+#| msgid ""
+#| "    **If the system fails to start**, that means that the computer does not have\n"
+#| "    enough memory for this operation mode. Try with another computer, or find\n"
+#| "    another Linux system, such as another Tails USB stick, to do the reset from.\n"
 msgid ""
 "    **If the system fails to start**, that means that the computer does not have\n"
 "    enough memory for this operation mode. Try with another computer, or find\n"
-"    another Linux system, such as another Tails USB stick, to do the reset from.\n"
+"    another Linux system, such as another Tails USB stick, to uninstall from.\n"
 msgstr ""
 "    **Если система не запускается**, значит, компьютеру не хватает памяти \n"
 "    для загрузки в этом режиме. Попробуйте проделать то же на другом компьютере \n"
 "    или подыщите другую систему Linux для вашей задачи, скажем, другую флешку Tails.\n"
+
+#, no-wrap
+#~ msgid "<a id=\"disks\"></a>\n"
+#~ msgstr "<a id=\"disks\"></a>\n"
+
+#, no-wrap
+#~ msgid "Using *GNOME Disks*"
+#~ msgstr "*Утилита Диски (GNOME)*"
+
+#, no-wrap
+#~ msgid "<div class=\"caution\">\n"
+#~ msgstr "<div class=\"caution\">\n"
+
+#, no-wrap
+#~ msgid "</div>\n"
+#~ msgstr "</div>\n"
 
 #~ msgid ""
 #~ "To make sure that all the changes are written to the USB stick, click on "
