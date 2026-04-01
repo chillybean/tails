@@ -9,6 +9,8 @@ set -x
 TEXTDOMAIN="tails"
 export TEXTDOMAIN
 
+# Import is_package_installed()
+. /usr/local/lib/tails-shell-library/common.sh
 # Import set_mozilla_pref()
 . /usr/local/lib/tails-shell-library/tor-browser.sh
 
@@ -68,5 +70,26 @@ start_thunderbird() {
     exec /usr/bin/thunderbird.real --class "Thunderbird" --profile "${PROFILE}" "${@}"
 }
 
-announce_migration_21375_1
-start_thunderbird "${@}"
+explain_how_to_install_thunderbird() {
+    # XXX:UX adjust the 3 dialog_* strings
+    dialog_title=$(gettext "Install Thunderbird")
+    dialog_text=$(gettext "<i>Thunderbird</i> is no longer included by default since Tails 7.8 (May 2026).\n\n<a href='https://tails.net/doc/anonymous_internet/thunderbird/additional_software/'>Why is Tails installing <i>Thunderbird</i> as Additional Software?</a>\n\nYou can install <i>Thunderbird</i> as Additional Software.")
+    dialog_ok=$(gettext "Tell me how")
+    # XXX:UX consider customizing the cancel button
+    if zenity \
+        --question \
+        --title "$dialog_title" \
+        --text "$dialog_text" \
+        --ok-label "$dialog_ok" \
+        --icon thunderbird; then
+        # XXX:UX adjust the URL (relative to the root of our website)
+        tails-documentation doc/anonymous_internet/thunderbird/install
+    fi
+}
+
+if is_package_installed thunderbird; then
+    announce_migration_21375_1
+    start_thunderbird "${@}"
+else
+    explain_how_to_install_thunderbird
+fi
