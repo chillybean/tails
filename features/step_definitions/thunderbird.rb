@@ -238,6 +238,10 @@ def thunderbird_non_suspicious_connections
     # Used for many things, in particular the account auto config
     # database (mailnews.auto_config_url pref)
     'live.thunderbird.net',
+    # Used to install Thunderbird in the first place
+    'cloudfront.debian.net',
+    'deb.tails.boum.org',
+    'deb.torproject.org',
   ]
 end
 
@@ -271,4 +275,22 @@ Then /^the system only established connections with my email server$/ do
 
   assert(unwanted_connections.empty?,
          "Unexpected connections: #{unwanted_connections.join(',')}")
+end
+
+Given(/^Thunderbird is installed$/) do
+  # Avoid having to deal with the Additional Software notification
+  # obscuring bits of UI that we need to interact with in following
+  # steps: this is a "Given" step, so we don't need to replicate
+  # exactly what a user would do.
+  apt_asp_conf_file = '/etc/apt/apt.conf.d/80tails-additional-software'
+  $vm.execute_successfully("mv '#{apt_asp_conf_file}' '#{apt_asp_conf_file}.disabled'")
+
+  step 'I update the APT lists using apt'
+  step 'I install "thunderbird" using apt'
+  # Some of our localization tests exercise specifically RTL behaviour,
+  # which is only enabled when the corresponding langpack is installed.
+  step 'I install "thunderbird-l10n-ar" using apt'
+
+  # Reset the APT configuration to its original state
+  $vm.execute_successfully("mv #{apt_asp_conf_file}.disabled #{apt_asp_conf_file}")
 end
