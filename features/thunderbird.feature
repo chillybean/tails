@@ -24,4 +24,4 @@ Feature: Thunderbird email client
     And I send an email to myself
     And I fetch my email
     Then I can find the email I sent to myself in my inbox
-    And the only connections have been made to my email server
+    And the system only established connections with my email server

@@ -249,7 +249,7 @@ Then /^no unexpected connection has leaked from Thunderbird$/ do
   assert_equal(0, connections.size, "Unexpected connections: #{connections.join(',')}")
 end
 
-Then /^the only connections have been made to my email server$/ do
+Then /^the system only established connections with my email server$/ do
   all_connections = tor_connections_from_log
   assert_false(all_connections.empty?,
                'No connections have been logged; ' \
