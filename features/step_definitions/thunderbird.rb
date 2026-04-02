@@ -233,7 +233,7 @@ end
 
 def thunderbird_non_suspicious_connections
   [
-    # Used to get addon lists
+    # Used to get add-on lists
     'addons.thunderbird.net', 'services.addons.thunderbird.net',
     # Used for many things, in particular the account auto config
     # database (mailnews.auto_config_url pref)
