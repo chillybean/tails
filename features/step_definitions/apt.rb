@@ -66,8 +66,10 @@ end
 
 def wait_for_package_installation(package)
   try_for(2 * 60, delay: 3) do
-    $vm.execute_successfully("dpkg -s '#{package}' 2>/dev/null " \
-                             "| grep -qs '^Status:.*installed$'")
+    $vm.execute_successfully(
+      "is_package_installed '#{package}'",
+      libs: 'common'
+    )
   end
 end
 
