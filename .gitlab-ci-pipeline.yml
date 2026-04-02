@@ -128,6 +128,16 @@ avoid-gtk-launch:
     - apt-get -qy install --no-install-recommends python3 git
     - ./bin/test-utils/gtk-launch
 
+git-history:
+  only:
+    - merge_requests
+  variables:
+    GIT_STRATEGY: clone
+    GIT_DEPTH: 0
+  script:
+    - apt-get -qy install git
+    - ./bin/test-utils/check-git-history "origin/${CI_MERGE_REQUEST_TARGET_BRANCH_NAME:?}"
+
 codespell:
   image: *image-trixie
   script:
