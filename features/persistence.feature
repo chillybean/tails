@@ -5,7 +5,7 @@ Feature: Tails persistence
 
   Scenario: Tails Persistent Storage behave tests
     Given I have started Tails from DVD and logged in with an administration password and the network is connected
-    And I update APT using apt
+    And I update the APT lists using apt
     And I install "python3-behave" using apt
     Then the Tails Persistent Storage behave tests pass
 

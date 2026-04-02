@@ -13,7 +13,7 @@ Feature: Additional software
   @not_release_blocker @fragile @doc
   Scenario: I am warned I can not use Additional Software when I start Tails from a DVD and install a package
     Given I have started Tails from DVD and logged in with an administration password and the network is connected
-    And I update APT using apt
+    And I update the APT lists using apt
     When I install "popularity-contest" using apt
     Then I am notified I can not use Additional Software for "popularity-contest"
     And I can open the Additional Software documentation from the notification
@@ -26,7 +26,7 @@ Feature: Additional software
   # and features until one of its snapshots is restored.
   Scenario: I set up Additional Software when installing a package without persistent partition and the package is installed next time I start Tails
     Given I start Tails from a freshly installed USB drive with an administration password and the network is plugged and I login
-    And I update APT using apt
+    And I update the APT lists using apt
     And I install "popularity-contest" using apt
     Then I am proposed to add the "popularity-contest" package to my Additional Software
     When I create a persistent storage and activate the Additional Software feature
@@ -44,7 +44,7 @@ Feature: Additional software
   Scenario: The Additional Software dpkg hook notices when persistence is locked down while installing a package
     Given a computer
     And I start Tails from USB drive "__internal" and I login with an administration password
-    And I update APT using apt
+    And I update the APT lists using apt
     When I install "ripgrep" using apt
     Then the Additional Software dpkg hook has been run for package "ripgrep" and notices the persistence is locked
     And the package "ripgrep" is installed
@@ -57,7 +57,7 @@ Feature: Additional software
     And I accept removing "popularity-contest" from Additional Software
     Then "popularity-contest" is not in the list of Additional Software
     When I start Synaptic
-    And I update APT using Synaptic
+    And I update the APT lists using Synaptic
     And I install "cowsay" using Synaptic
     And I accept adding "cowsay" to Additional Software
     Then Additional Software is correctly configured for package "cowsay"

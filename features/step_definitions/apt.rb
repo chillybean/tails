@@ -51,7 +51,7 @@ Then /^if releasing, no unversioned Tails APT source is enabled$/ do
   )
 end
 
-When /^I update APT using apt$/ do
+When /^I update the APT lists using apt$/ do
   recovery_proc = proc do
     ensure_process_is_terminated('apt')
     $vm.execute('rm -rf /var/lib/apt/lists/*')
@@ -108,7 +108,7 @@ When /^I configure APT to prefer an old version of cowsay$/ do
 end
 
 When /^I install an old version "([^"]*)" of the cowsay package using apt$/ do |version|
-  step 'I update APT using apt'
+  step 'I update the APT lists using apt'
   step 'I install "cowsay" using apt'
   step "the installed version of package \"cowsay\" is \"#{version}\""
 end
@@ -137,7 +137,7 @@ When /^I start Synaptic$/ do
   @screen.wait('SynapticReload.png', 30)
 end
 
-When /^I update APT using Synaptic$/ do
+When /^I update the APT lists using Synaptic$/ do
   recovery_proc = proc do
     ensure_process_is_terminated('synaptic')
     step 'I start Synaptic'
