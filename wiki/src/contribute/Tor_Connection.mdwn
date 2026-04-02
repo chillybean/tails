@@ -67,6 +67,15 @@ type="network">` section:
       <outbound average="24" peak="24"/>
     </bandwidth>
 
+Simulate Moat failures
+----------------------
+
+Examples:
+
+* `moat_internal_error` (`SSLError`): `sudo sed -i 's,^MOAT_SERVICE_URL = .*$,MOAT_SERVICE_URL = "https://127.0.0.1",' /usr/local/lib/tails-circumvention-settings` (file must not have been edited before!)
+* `moat_command_failed`: `sudo rm /usr/local/lib/tails-circumvention-settings`
+* `moat_invalid_json`: `echo 'echo this is not valid json' | sudo tee /usr/local/lib/tails-circumvention-settings`
+
 Command line options
 --------------------
 
