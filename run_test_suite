@@ -60,8 +60,9 @@ MINIMUM_TOR_VERSION=0.4.4.6
 
 usage() {
     echo "Usage: $NAME [OPTION]... [--] [CUCUMBER_ARGS]...
-Sets up an appropriate environment and invokes cucumber. Note that this script
-must be run from the Tails source directory root.
+Sets up an appropriate environment and invokes cucumber.
+
+This script must be run from the root of the Tails source.
 
 Options for '@product' features:
   --allow-non-root   Normally the test suite must be run as root, but if you
@@ -72,16 +73,16 @@ Options for '@product' features:
                      its location during a scenario failure. This is useful if
                      you intend to serve the artifacts via the web, for
                      instance.
-  --capture          Captures failed scenarios into videos stored in the
-                     temporary directory (see --tmpdir below) using x264
-                     encoding. Requires x264.
-  --capture-all      Keep videos for all scenarios, including those that
-                     succeed (implies --capture).
+  --capture          Save video recordings of the system under test's screen,
+                     for failed scenarios, in the temporary directory
+                     (see --tmpdir). Requires x264.
+  --capture-all      Save video recording for all scenarios, including
+                     successful ones (implies --capture).
   --collect-always   Keep artifacts (logs, videos) even for successful scenarios
   --extra-boot-options OPTIONS
                      Add OPTIONS to the kernel cmdline
   --interactive-debugging
-                     On failure, pause test suite until pressing Enter. Also
+                     On failure, pause the test suite until pressing Enter. Also
                      offer the option to open an interactive Ruby shell (pry)
                      in the Cucumber world's context.
   --image-bumping-mode
@@ -100,7 +101,7 @@ Options for '@product' features:
                      Expect this to break many test cases.
   --late-patch
   --late-patch=FILE
-                     Copies files into the VM before running the test suite,
+                     Copy files into the VM before running the test suite,
                      which often can avoid a rebuild.
                      FILE is a text file where each line contains tab-separated
                      source and destination. If only a source is given, it is
@@ -111,7 +112,7 @@ Options for '@product' features:
                      config/chroot_local-includes that have changed since the
                      commit the system under testing was built from, including
                      untracked files.
-  --early-patch      Boots the system with the \"early_patch=umount\" cmdline option,
+  --early-patch      Boot the system with the \"early_patch=umount\" cmdline option,
                      so all changes since the commit the system under testing was
                      built from are copied in, including untracked, unstaged, and
                      uncommitted changes.
@@ -122,17 +123,16 @@ Options for '@product' features:
                      failure screenshots, pcap files and disk images
                      (default is TMPDIR in the environment, and if unset,
                      /tmp/TailsToaster).
-  --(no-)view        Shows the test session in a windows. Requires x11vnc
-                     and tigervnc-viewer.
+  --(no-)view        Display the system under test's screen in a separate
+                     window. Requires x11vnc and tigervnc-viewer.
   --view-interact    The test session can be \"touched\". For debugging purposes
                      only.
-  --vnc-server-only  Starts a VNC server for the test session. Requires x11vnc.
+  --vnc-server-only  Start a VNC server for the test session. Requires x11vnc.
   --iso IMAGE        Test '@product' features using IMAGE.
   --old-iso IMAGE    For some '@product' features (e.g. usb_install) we need
-                     an older version of Tails, which this options sets to
-                     IMAGE. If none is given, it defaults to the same IMAGE
-                     given by --iso, which will be good enough for most testing
-                     purposes.
+                     an older version of Tails, which this option specifies.
+                     If this option is not used, the test suite defaults
+                     to the image passed to --iso.
 
 Note that '@source' features has no relevant options.
 
