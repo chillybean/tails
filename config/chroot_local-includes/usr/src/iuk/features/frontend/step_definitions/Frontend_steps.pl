@@ -215,11 +215,6 @@ Given qr{^an HTTPS server with a valid SSL certificate$}, fun ($c) {
     my $pid = $c->{stash}->{scenario}->{server}->{https_pid} = $s->background();
     like($pid, '/^-?\d+$/', 'PID is numeric');
 
-    generate_mirrors_json({
-        port     => $port,
-        outfile  => path($webroot, 'mirrors.json'),
-    });
-
     path($webroot, 'tails-signing-minimal.key')->spew(
         capturex(
             'gpg', '--homedir', $c->{stash}->{scenario}->{trusted_gnupg_homedir},
@@ -227,41 +222,6 @@ Given qr{^an HTTPS server with a valid SSL certificate$}, fun ($c) {
                    '--armor', '--export'
         )
     );
-};
-
-fun generate_mirrors_json($args) {
-    assert(defined $args, 'args is defined');
-    assert('HASH' eq ref $args, 'args is a hashref');
-    foreach my $arg (qw{outfile port}) {
-        assert(exists  $args->{$arg}, "args has a $arg key");
-        assert(defined $args->{$arg}, "the $arg key in args is defined");
-        assert(length  $args->{$arg}, "the $arg key in args is not empty");
-    }
-
-    my $port = $args->{port};
-    path($args->{outfile})->spew(<<EOTEMPLATE
-{
-    "version": 1,
-    "mirrors": [
-	{
-	    "url_prefix": "https://127.0.0.1:$port/tails/",
-	    "weight": 1
-	},
-	{
-	    "url_prefix": "https://127.0.0.1/disabled",
-	    "weight": 0
-	},
-	{
-	    "url_prefix": "https://127.0.0.1:$port/tails",
-	    "weight": 5
-	}
-    ]
-}
-EOTEMPLATE
-    );
-
-    ok(-e $args->{outfile});
-
 };
 
 fun generate_upgrade_description($output, $name, $initial_install_version, $target, $channel, $gnupg_homedir, $port, $has_incremental_upgrade = 0, $has_full_upgrade = 0) {
