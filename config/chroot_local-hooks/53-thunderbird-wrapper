@@ -15,6 +15,10 @@ dpkg-deb --fsys-tarfile thunderbird*.deb |
     tar x ./usr/share/applications/thunderbird.desktop
 mv ./usr/share/applications/thunderbird.desktop \
     /usr/share/applications/thunderbird.desktop
+dpkg-deb --fsys-tarfile thunderbird*.deb |
+    tar x ./usr/share/icons/hicolor/scalable/apps/thunderbird.svg
+mv ./usr/share/icons/hicolor/scalable/apps/thunderbird.svg \
+    /usr/share/icons/
 cd
 rm -rf "${WORKDIR}"
 
