@@ -1054,7 +1054,7 @@ Then /^all persistent directories(| from the old Tails version) have safe access
 end
 
 When /^I write some files expected to persist$/ do
-  tps_bind_mounts.each do |_, dir|
+  tps_bind_mounts.each_value do |dir|
     owner = $vm.execute("stat -c %U #{dir}").stdout.chomp
     assert_vmcommand_success(
       $vm.execute("touch #{dir}/XXX_persist", user: owner),
@@ -1074,7 +1074,7 @@ When /^I write some dotfile expected to persist$/ do
 end
 
 When /^I remove some files expected to persist$/ do
-  tps_bind_mounts.each do |_, dir|
+  tps_bind_mounts.each_value do |dir|
     owner = $vm.execute("stat -c %U #{dir}").stdout.chomp
     assert_vmcommand_success(
       $vm.execute("rm #{dir}/XXX_persist", user: owner),
@@ -1084,7 +1084,7 @@ When /^I remove some files expected to persist$/ do
 end
 
 When /^I write some files not expected to persist$/ do
-  tps_bind_mounts.each do |_, dir|
+  tps_bind_mounts.each_value do |dir|
     owner = $vm.execute("stat -c %U #{dir}").stdout.chomp
     assert_vmcommand_success(
       $vm.execute("touch #{dir}/XXX_gone", user: owner),
@@ -1106,7 +1106,7 @@ Then /^the expected persistent files(| created with the old Tails version) are p
     assert_not_nil($remembered_tps_bind_mounts)
     expected_mounts = $remembered_tps_bind_mounts
   end
-  expected_mounts.each do |_, dir|
+  expected_mounts.each_value do |dir|
     assert_vmcommand_success(
       $vm.execute("test -e #{dir}/XXX_persist"),
       "Could not find expected file in persistent directory #{dir}"
@@ -1156,7 +1156,7 @@ Then /^only the expected files are present on the persistence partition on USB d
     mount_point = '/'
     g.mount(luks_dev, mount_point)
     assert_not_nil($remembered_tps_bind_mounts)
-    $remembered_tps_bind_mounts.each do |dir, _|
+    $remembered_tps_bind_mounts.each_key do |dir|
       # Guestfs::exists may have a bug; if the file exists, 1 is
       # returned, but if it doesn't exist false is returned. It seems
       # the translation of C types into Ruby types is glitchy.
