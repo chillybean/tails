@@ -38,7 +38,7 @@ Feature: Additional software
     And the Additional Software installation service has started
     Then I am notified that the installation succeeded
     And Additional Software is correctly configured for package "popularity-contest"
-    And the package "popularity-contest" is installed after Additional Software has been started
+    And the package "popularity-contest" is installed after Additional Software has been installed
 
   # Depends on scenario: I set up Additional Software when installing a package without persistent partition and the package is installed next time I start Tails
   Scenario: The Additional Software dpkg hook notices when persistence is locked down while installing a package
@@ -91,7 +91,7 @@ Feature: Additional software
     # with the one we'll be interacting with below.
     And I disable the tails-virt-notify-user.service user unit
     And I log in to a new session
-    And the installed version of package "cowsay" is "3.03+dfsg2-1" after Additional Software has been started
+    And the installed version of package "cowsay" is "3.03+dfsg2-1" after Additional Software has been installed
     And I revert the APT tweaks that made it prefer an old version of cowsay
     # We remove the newest package after it has been downloaded and before
     # it is installed, so that the upgrade process fails
@@ -108,7 +108,7 @@ Feature: Additional software
     # install step, as it was not saved in persistence
     And I configure APT to prefer an old version of cowsay
     And I log in to a new session
-    And the installed version of package "cowsay" is "3.03+dfsg2-1" after Additional Software has been started
+    And the installed version of package "cowsay" is "3.03+dfsg2-1" after Additional Software has been installed
     And I revert the APT tweaks that made it prefer an old version of cowsay
     And the network is plugged
     And Tor is ready

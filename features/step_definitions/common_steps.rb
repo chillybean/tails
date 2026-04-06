@@ -934,7 +934,7 @@ When /^I warm reboot the computer$/ do
   $vm.spawn('reboot')
 end
 
-Given /^the package "([^"]+)" is( not)? installed( after Additional Software has been started)?$/ do |package, absent, asp|
+Given /^the package "([^"]+)" is( not)? installed( after Additional Software has been installed)?$/ do |package, absent, asp|
   if absent
     wait_for_package_removal(package)
   else

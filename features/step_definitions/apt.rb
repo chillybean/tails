@@ -119,7 +119,7 @@ When /^I revert the APT tweaks that made it prefer an old version of cowsay$/ do
   )
 end
 
-When /^the installed version of package "([^"]*)" is( newer than)? "([^"]*)"( after Additional Software has been started)?$/ do |package, newer_than, version, asp|
+When /^the installed version of package "([^"]*)" is( newer than)? "([^"]*)"( after Additional Software has been installed)?$/ do |package, newer_than, version, asp|
   step 'the Additional Software installation service has started' if asp
   current_version = $vm.execute_successfully(
     "dpkg-query -W -f='${Version}' #{package}"
