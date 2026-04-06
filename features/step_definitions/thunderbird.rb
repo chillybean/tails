@@ -111,7 +111,7 @@ Then /^the autoconfiguration wizard's choice for the (incoming|outgoing) server 
   section = thunderbird_wizard.child(type, roleName: 'heading').parent
   subsections = section.children(roleName: 'section')
   assert(subsections.any? { |s| s.text == protocol })
-  assert(subsections.any? { |s| s.text == 'SSL/TLS' || s.text == 'STARTTLS' })
+  assert(subsections.any? { |s| ['SSL/TLS', 'STARTTLS'].include?(s.text) })
 end
 
 def wait_for_thunderbird_progress_bar_to_vanish

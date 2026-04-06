@@ -75,7 +75,7 @@ def rarp_packet?(pcap_packet)
   # Details: https://www.netometer.com/qa/rarp.html#A13
   pcap_packet.force_encoding('UTF-8').start_with?(
     "\xFF\xFF\xFF\xFF\xFF\xFFRT\x00\xAC\xDD\xEE\x805\x00\x01\b\x00\x06"
-  ) && (pcap_packet[19] == "\x03" || pcap_packet[19] == "\x04")
+  ) && ["\x03", "\x04"].include?(pcap_packet[19])
 end
 
 def connection_info(packet)

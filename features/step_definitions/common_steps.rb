@@ -637,7 +637,7 @@ When /^I (don't )?see the "(.+)" notification(?: after at most (\d+) seconds)?$/
 end
 
 def wait_notification(title, timeout)
-  timeout = timeout ? timeout.to_i : nil
+  timeout = timeout&.to_i
   gnome_shell = Dogtail::Application.new('gnome-shell')
   notification_list = gnome_shell.child(
     'No Notifications', roleName: 'label', showingOnly: false
