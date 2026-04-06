@@ -76,7 +76,7 @@ Feature: Tails persistence
     And I take note of which tps features are available
     When I write some files expected to persist
     And I shutdown Tails and wait for the computer to power off
-    # XXX: The next step succeeds (and the --debug output confirms that it's actually looking for the files) but will fail in a subsequent scenario restoring the same snapshot. This exactly what we want, but why does it work? What is guestfs's behaviour when qcow2 internal snapshots are involved?
+    # XXX: The next step succeeds (and the --debug output confirms that it's actually looking for the files) but will fail in a subsequent scenario restoring the same snapshot. This exactly what we want, but why does it work? What is guestfs's behaviour when qcow2 internal snapshots are involved? (tails/tails#10330)
     Then only the expected files are present on the persistence partition on USB drive "__internal"
 
   Scenario: Creating and using a persistent NetworkManager connection

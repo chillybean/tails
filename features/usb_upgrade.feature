@@ -53,7 +53,7 @@ Feature: Upgrading an old Tails USB installation
     And all persistent directories from the old Tails version have safe access rights
     And I take note of which tps features are available
     And I shutdown Tails and wait for the computer to power off
-    # XXX: how does guestfs work vs snapshots?
+    # XXX: how does guestfs work vs snapshots? (tails/tails#10330)
     Then only the expected files are present on the persistence partition on USB drive "old"
 
   # Depends on scenario: Writing files to a read/write-enabled persistent partition with the old Tails USB installation
