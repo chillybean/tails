@@ -313,6 +313,10 @@ class Handler(socketserver.StreamRequestHandler):
             ("/usr/local/bin/tails-documentation",),
             True,
         ),
+        "open-text-editor": UserCommandTransientSystemdScope(
+            ("/usr/bin/gnome-text-editor",),
+            True,
+        ),
         "open-wifi-config": UserCommand(
             ("/bin/systemctl", "--user", "start", "gnome-wifi-panel"),
             False,
