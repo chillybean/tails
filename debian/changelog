@@ -1,8 +1,123 @@
-tails (7.7) UNRELEASED; urgency=medium
+tails (7.6.1) UNRELEASED; urgency=medium
 
-  * Dummy entry for next release.
+  * Upgrade Thunderbird to 1:140.9.0esr-1~deb13u1
 
- -- anonym <anonym@riseup.net>  Thu, 26 Mar 2026 09:55:30 +0100
+  * Upgrade to Tor Browser 15.0.9 based on Firefox ESR 140.9.1 (tails/tails!2917)
+
+    Closes issues:
+      - Refresh about:tor patches for 7.6.1 (tails/tails#21498)
+      - Upgrade to Tor Browser 15.0.9 based on Firefox ESR 140.9.1 (tails/tails#21497)
+
+    Commits:
+      - Tor Browser: refresh custom about:tor patches onto tor-
+        browser-140.9.1esr-15.0-1-build1
+      - Upgrade Tor Browser to 15.0.9 (refs: tails#21497)
+
+  * Update firmware-nonfree to 20260309-1 (tails/tails!2896)
+
+    Closes issues:
+      - needed-package-updates: firmware-nonfree 20260221-1 → 20260309-1
+        (tails/tails#21494)
+
+    Commits:
+      - Update firmware-nonfree to 20260309-1
+
+  * Test suite: document and enforce new dependency on python3-pydantic
+    (tails/tails!2903)
+
+    Commits:
+      - Test suite: document and enforce new dependency on python3-pydantic
+
+  * Tor Connection: open GNOME Text Editor via tca-portal command (refs:
+    tails#21478) (tails/tails!2899)
+
+    Closes issues:
+      - Don't spawn gnome-text-editor from Tor Connection (tails/tails#21478)
+
+    Commits:
+      - TCA: open GNOME Text Editor via tca-portal command (refs: tails#21478)
+
+  * Deprecate the fallback DNS pool and mirrors.json (tails/tails!2887)
+
+    Commits:
+      - Remove obsolete references to mirrors.json
+      - Deprecate the fallback DNS pool
+
+  * Update torbrowser-launcher to current upstream (tails/tails!2883)
+
+    Commits:
+      - Update torbrowser-launcher to current upstream
+
+  * Upgrade to tor 0.4.9.6 (tails/tails!2882)
+
+    Closes issues:
+      - Upgrade tor to 0.4.9.6 (tails/tails#21482)
+
+    Commits:
+      - Upgrade to tor 0.4.9.6 (refs: tails/tails#21482)
+
+  * Apply style guide (tails/tails!2864)
+
+    Commits:
+      - Test suite: adjust to UI update
+      - Use more consistent terminology across options
+      - Fix style guide from 04f57549bc8
+
+  * Test suite: work around ASP notification race (tails/tails!2863)
+
+    Closes issues:
+      - Test suite: step "I can open the Additional Software log file from the
+        notification" became fragile recently (tails/tails#21443)
+
+    Commits:
+      - Test suite: drop workaround
+      - Test suite: work around ASP notification race (refs: tails#21443)
+
+  * Give developers the means to configure Jenkins CI for a MR (tails/tails!2662)
+
+    Closes issues:
+      - Give developers the means to configure CI for a MR (tails/tails#21159)
+
+    Commits:
+      - The Jenkins job generator script does not honor this config
+      - tests shouldn't depend on git status
+      - run ci-configuration tests in GitLab CI
+      - git_only_doc_changes_since adapted for testing
+      - ./bin/ci-configuration test will run unit tests
+      - make get_cucumber_options testable
+      - FIX: --tag @doc not applied if all tests are to be run
+      - FIX: if specific tests are selected, that takes priority
+      - ALL_TESTS shouldn't be assumed to be true
+      - add --dry-run, for easier debugging
+      - change "run" help to reflect changes
+      - test a branch without any special configuration
+      - fix git_only_doc_changes_since
+      - shfmt a file
+      - command line arguments override configuration
+      - log details about command being run
+      - tails_gitweb_puppet_control → tor_gitweb_puppet_control
+      - auto/scripts/utils.sh is executable
+      - enable CI on this branch again
+      - Revert "skip tests in Jenkins"
+      - Use GIT_* variables, as set by Jenkins
+      - skip tests in Jenkins
+      - ruff
+      - Make it clear that we're not disabling GitLab CI
+      - improve language
+      - Simplify code
+      - Stop supporting branch naming in documentation
+      - New shortcut links to new puppet repository
+      - don't special-case wip/ anymore
+      - Verbs in help are consistently conjugated
+      - avoid creating one more top-level directory
+      - distinguish between actual branch name and normalized one
+      - provide ready-to-use examples for ci/configure/
+      - mention ci/configure in relevant documentation
+      - disable builds for this branch
+      - Builds can be disabled on Jenkins
+      - CI can be configured from yaml files
+
+ -- Tails developers <tails@boum.org>  Tue, 07 Apr 2026 10:48:56 +0000
 
 tails (7.6) unstable; urgency=medium
 
