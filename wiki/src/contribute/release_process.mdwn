@@ -1197,7 +1197,7 @@ To build the IUKS, run this command:
     ) && \
     cd "${IUKS_DIR:?}" && \
     sha256sum Tails_amd64_*_to_${VERSION:?}.iuk > "${IUKS_HASHES:?}" && \
-    rm -rf "${WORK_DIR:?}"
+    sudo rm -rf "${WORK_DIR:?}"
     )
 
 This command takes a long time. In parallel, while it is running,
