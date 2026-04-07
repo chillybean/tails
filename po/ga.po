@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-23 12:26+0100\n"
-"PO-Revision-Date: 2026-03-24 14:09+0000\n"
+"POT-Creation-Date: 2026-04-07 12:41+0200\n"
+"PO-Revision-Date: 2026-04-04 12:09+0000\n"
 "Last-Translator: Aindriú Mac Giolla Eoin <aindriu80@gmail.com>\n"
 "Language-Team: Irish <https://hosted.weblate.org/projects/tor/tails-gui/ga/"
 ">\n"
@@ -50,18 +50,16 @@ msgid "Configure"
 msgstr "Cumraigh"
 
 #: config/chroot_local-includes/usr/local/lib/change-apps-menu-name:25
-#, fuzzy
 msgid "Password Manager"
-msgstr "Focal faire"
+msgstr "Bainisteoir Pasfhocal"
 
 #: config/chroot_local-includes/usr/local/lib/change-apps-menu-name:26
-#, fuzzy
 msgid "password"
-msgstr "Focal faire"
+msgstr "pasfhocal"
 
 #: config/chroot_local-includes/usr/local/lib/change-apps-menu-name:26
 msgid "password-manager"
-msgstr ""
+msgstr "bainisteoir pasfhocal"
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:57
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:95
@@ -1485,7 +1483,7 @@ msgid "Could not open device for writing."
 msgstr "Níorbh fhéidir an gléas a oscailt le scríobh air."
 
 #: config/chroot_local-includes/usr/local/bin/secrets:19
-#, fuzzy, sh-format
+#, sh-format
 msgid ""
 "You have a <i>KeePassXC</i> or <i>Secrets</i> database in your "
 "<i>Persistent</i> folder:\n"
@@ -1495,15 +1493,13 @@ msgid ""
 "Renaming your database to <i>${default_filename}</i> allows <i>Secrets</i> "
 "to open it automatically in the future."
 msgstr ""
-"<b><big>Ar mhaith leat do bhunachar sonraí <i>KeePassXC</i> a athainmniú?</"
-"big></b>\n"
-"\n"
-"Tá bunachar sonraí <i>KeePassXC</i> agat i d’fhillteán <i>Persistent</i>:\n"
+"Tá bunachar sonraí <i>KeePassXC</i> nó <i>Secrets</i> agat i do fhillteán "
+"<i>Persistent</i>:\n"
 "\n"
 "<i>${filename}</i>\n"
 "\n"
-"Dá n-athainmnítear do bhunachar sonraí go <i>${default_filename}</i>, ligfí "
-"do <i>KeePassXC</i> é a oscailt go huathoibríoch amach anseo."
+"Má athainmníonn tú do bhunachar sonraí go <i>${default_filename}</i>, is "
+"féidir le <i>Secrets</i> é a oscailt go huathoibríoch amach anseo."
 
 #: config/chroot_local-includes/usr/local/bin/secrets:25
 msgid "Rename"
@@ -1515,7 +1511,7 @@ msgstr "Níl, ná hathraigh an t-ainm"
 
 #: config/chroot_local-includes/usr/local/bin/secrets:29
 msgid "Rename Password Database?"
-msgstr ""
+msgstr "Athainmnigh Bunachar Sonraí Pasfhocal?"
 
 #: config/chroot_local-includes/usr/local/bin/replace-su-with-sudo:19
 msgid "su is disabled. Please use sudo instead."
@@ -1925,15 +1921,15 @@ msgstr "Ceangal Tor"
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:283
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:331
 msgid "Automatic"
-msgstr ""
+msgstr "Uathoibríoch"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:284
 msgid "Frequently selected regions"
-msgstr ""
+msgstr "Réigiúin a roghnaítear go minic"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:291
 msgid "Other regions"
-msgstr ""
+msgstr "Réigiúin eile"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:369
 msgid "_Use a bridge that you already know"
@@ -1995,9 +1991,8 @@ msgid "Synchronizing the system's clock…"
 msgstr "Ag sioncronú clog an chórais…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:726
-#, fuzzy
 msgid "Asking for a Tor bridge based on your region…"
-msgstr "_Iarr droichead Tor ar ríomhphost"
+msgstr "Ag iarraidh droichead Tor bunaithe ar do réigiún…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:774
 msgid "Connecting to Tor without bridges…"
@@ -2009,9 +2004,8 @@ msgid "Connecting to Tor with default bridges…"
 msgstr "Ag nascadh le Tor le droichid réamhshocraithe…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:789
-#, fuzzy
 msgid "Connecting to Tor with a bridge based on your region…"
-msgstr "Ag nascadh le Tor le droichid réamhshocraithe…"
+msgstr "Ag ceangal le Tor le droichead bunaithe ar do réigiún…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:796
 msgid "Connecting to Tor with a custom bridge…"
@@ -2037,21 +2031,21 @@ msgstr ""
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:985
 #, python-brace-format
 msgid "Bridge: <b>{bridge}</b>"
-msgstr ""
+msgstr "Droichead: <b>{bridge}</b>"
 
 #. Translators: only translate "Error code:" and adjust
 #. text-direction
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:997
 #, python-brace-format
 msgid "Error code: {code}"
-msgstr ""
+msgstr "Cód earráide: {code}"
 
 #. Translators: only translate "Proxy:" and adjust
 #. text-direction
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1024
 #, python-brace-format
 msgid "Proxy: <b>{proxy}</b>"
-msgstr ""
+msgstr "Seachfhreastalaí: <b>{proxy}</b>"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1323
 #, python-brace-format
@@ -3642,8 +3636,8 @@ msgstr "Coimeádán TrueCrypt/VeraCrypt"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:82
 #, fuzzy
-msgid "Configure a Tor Bridge"
-msgstr "Cumraigh droichead Tor"
+msgid "Configure a Tor bridge"
+msgstr "Cumraigh _droichead Tor"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:106
 msgid ""
@@ -3684,11 +3678,12 @@ msgstr "Dada"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:242
 #, fuzzy
-msgid "Ask for a Tor bridge based on your _region"
-msgstr "_Iarr droichead Tor ar ríomhphost"
+msgid "Ask for a bridge based on your _region"
+msgstr "Iarr droichead Tor bunaithe ar do _réigiún"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:301
-msgid "_Ask for a Tor bridge by email"
+#, fuzzy
+msgid "_Ask for a bridge by email"
 msgstr "_Iarr droichead Tor ar ríomhphost"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:320
@@ -3741,69 +3736,65 @@ msgstr ""
 "Is cosúil go bhfuil an líonra áitiúil seo ag cur bac ar rochtain ar Tor."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:811
-#, fuzzy
 msgid "Error connecting to Tor with this bridge"
-msgstr "Ag nascadh le Tor gan droichid…"
+msgstr "Earráid ag ceangal le Tor leis an droichead seo"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:827
 msgid ""
 "Either this Tor bridge is not working or your network is blocking access to "
 "it."
 msgstr ""
+"Níl an droichead Tor seo ag obair nó tá do líonra ag blocáil rochtana air."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:856
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:930
-#, fuzzy
 msgid "Try configuring another bridge."
-msgstr "Cumraigh droichead Tor"
+msgstr "Bain triail as droichead eile a chumrú."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:884
-#, fuzzy
 msgid "Error connecting to Tor with default bridges"
-msgstr "Ag nascadh le Tor le droichid réamhshocraithe…"
+msgstr "Earráid ag ceangal le Tor le droichid réamhshocraithe"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:900
-#, fuzzy
 msgid "Your network is blocking access to Tor and the default bridges."
-msgstr "Tá an líonra áitiúil seo ag cur bac ar rochtain ar Tor."
+msgstr ""
+"Tá do líonra ag blocáil rochtain ar Tor agus na droichid réamhshocraithe."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:916
-#, fuzzy
 msgid "Bridge: <b>default bridges</b>"
-msgstr "Ús_áid droichead réamhshocraithe"
+msgstr "Droichead: <b>droichid réamhshocraithe</b>"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:958
-#, fuzzy
 msgid "Error connecting to Tor with bridges"
-msgstr "Ag nascadh le Tor gan droichid…"
+msgstr "Earráid ag ceangal le Tor le droichid"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:974
 msgid "None of the bridges recommended for this region worked."
-msgstr ""
+msgstr "Níor oibrigh aon cheann de na droichid a moladh don réigiún seo."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:990
 msgid "Try another region or getting a bridge by mail."
-msgstr ""
+msgstr "Bain triail as réigiún eile nó faigh droichead tríd an bpost."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1018
-#, fuzzy
 msgid "Error asking for a bridge"
-msgstr "Earráid agus nuashonruithe á lorg"
+msgstr "Earráid ag iarraidh droichid"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1034
 msgid "Tails failed to ask for a bridge based on your region."
-msgstr ""
+msgstr "Theip ar Tails droichead a iarraidh bunaithe ar do réigiún."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1050
 msgid ""
 "Please, <a href=\"support/talk\">report this error</a> and try asking for a "
 "bridge by email."
 msgstr ""
+"Le do thoil, <a href=\"support/talk\">tuairiscigh an earráid seo</a> agus "
+"iarr droichead trí ríomhphost."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1087
-#, fuzzy
 msgid "Open _details"
-msgstr "Oscailte Tails Cloner"
+msgstr "Oscail _sonraí"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1142
 msgid "• Wrong clock"
@@ -3850,9 +3841,8 @@ msgid "Configure a Local _Proxy"
 msgstr "Cumraigh Seachfhreastalaí _ Logánta"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1374
-#, fuzzy
 msgid "• Tor bridge"
-msgstr "• Droichead Tor trí ríomhphost"
+msgstr "• Droichead Tor"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1394
 msgid ""
@@ -3865,9 +3855,9 @@ msgstr ""
 "áirithe, ag líonraí poiblí áirithe, nó ag roinnt rialuithe tuismitheoirí."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1410
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1646
-msgid "Configure a Tor _bridge"
-msgstr "Cumraigh _droichead Tor"
+#, fuzzy
+msgid "Configure a Tor _Bridge"
+msgstr "Cumraigh Droichead Tor"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1449
 msgid ""
@@ -3920,6 +3910,10 @@ msgstr ""
 "\n"
 "D'fhéadfadh duine a dhéanann monatóireacht ar do nasc Idirlín na hiarrachtaí "
 "seo a aithint ó úsáideoir Tails."
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1646
+msgid "Configure a Tor _bridge"
+msgstr "Cumraigh _droichead Tor"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1692
 msgid ""
