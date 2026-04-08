@@ -39,7 +39,9 @@ of `${PREVIOUS_VERSION}` (i.e.: shortly after the tag).
 
 In a typical scenario, exactly 5 commits are present:
 
- - Remove UDFs for versions we'll never release
+ - Remove UDFs for versions we'll never release (note that this commit
+   will not be present if `${PREVIOUS_VERSION}` was an emergency
+   release or RC/alpha/beta)
  - Merge branch 'web/release-PREVIOUS_VERSION' into 'master'
  - Update image description file for download verification
  - Add incremental upgrades on the test channel for Tails `${PREVIOUS_VERSION}`
