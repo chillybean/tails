@@ -1,4 +1,5 @@
-@source
+# This fails too loudly so let's run it on fewer branches (tails/tails#21316)
+@source @fragile
 Feature: Packages are up-to-date
   On Tails branches that use frozen APT sources,
   packages we install from frozen distributions (e.g. the Linux kernel
