@@ -27,13 +27,14 @@
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2026.
 # hugoalh <hugoalh@users.noreply.hosted.weblate.org>, 2026.
 # emma peel <emma.peel@riseup.net>, 2026.
+# Toomore Chiang <toomore0929@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-23 12:26+0100\n"
-"PO-Revision-Date: 2026-03-23 15:09+0000\n"
-"Last-Translator: emma peel <emma.peel@riseup.net>\n"
+"POT-Creation-Date: 2026-04-07 12:41+0200\n"
+"PO-Revision-Date: 2026-04-03 09:11+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/tor/tails-gui/zh_Hant/>\n"
 "Language: zh_TW\n"
@@ -109,8 +110,8 @@ msgid ""
 "To install it automatically when starting Tails, you can create a Persistent "
 "Storage and activate the <b>Additional Software</b> feature."
 msgstr ""
-"要在 Tails 啟動後自動安裝它，您可以建立一個永久性儲存並啟動<b>其他軟體</b>功"
-"能。"
+"若要在啟動 Tails 時自動安裝，您可以建立 Persistent Storage 並啟用 "
+"<b>Additional Software</b> 功能。"
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:103
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:312
@@ -228,8 +229,8 @@ msgid ""
 "href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
 "href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
-"要加入更多其他軟體，可以使用<a href=\"synaptic.desktop\">Synaptic 套件管理程"
-"式</a>或<a href=\"org.gnome.Terminal.desktop\">透過終端機使用 APT</a>。"
+"若要新增更多，請使用 <a href=\"synaptic.desktop\">Synaptic Package Manager</"
+"a> 或 <a href=\"org.gnome.Terminal.desktop\">命令列上的 APT</a> 安裝軟體。"
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:154
 msgid "_Create persistent storage"
@@ -783,6 +784,9 @@ msgid ""
 "Someone who finds your Tails USB stick can see your language and keyboard "
 "layout."
 msgstr ""
+"您的語言與鍵盤配置會以未加密方式儲存在 Tails USB 隨身碟上，未來將自動套用。\n"
+"\n"
+"任何撿到您 Tails USB 隨身碟的人都能看到您的語言與鍵盤配置。"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:200
 msgid "Save Unencrypted"
@@ -1254,7 +1258,7 @@ msgstr ""
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:600
 #, python-format
 msgid "The device \"%(pretty_name)s\" is read-only."
-msgstr ""
+msgstr "裝置「%(pretty_name)s」為唯讀。"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:608
 #, python-format
@@ -1415,13 +1419,13 @@ msgid ""
 "Renaming your database to <i>${default_filename}</i> allows <i>Secrets</i> "
 "to open it automatically in the future."
 msgstr ""
-"<b><big>要重新命名 <i>KeePassXC</i> 檔案?</big></b>\n"
+"<b><big>您要重新命名您的 <i>KeePassXC</i> 資料庫嗎？</big></b>\n"
 "\n"
-" <i>永久</i>文件夾裏頭有一個<i>KeePassXC</i> 檔案:\n"
+"您在 <i>Persistent</i> 資料夾中有一個 <i>KeePassXC</i> 資料庫：\n"
 "\n"
 "<i>${filename}</i>\n"
 "\n"
-"將檔案重新命名為 <i>${default_filename}</i> 可讓 <i>KeePassXC</i> 之後能自動"
+"將資料庫重新命名為 <i>${default_filename}</i>，可讓 <i>KeePassXC</i> 之後自動"
 "開啟它。"
 
 #: config/chroot_local-includes/usr/local/bin/secrets:25
@@ -1594,9 +1598,8 @@ msgid ""
 "Package Manager</a> or <a href=\"org.gnome.Terminal.desktop\">APT on the "
 "command line</a>."
 msgstr ""
-"要實現以上操作，可以使用<a href=\"synaptic.desktop\">Synaptic 套件管理程式</"
-"a>或<a href=\"org.gnome.Terminal.desktop\">透過終端機使用 APT</a>安裝一些軟"
-"體。"
+"若要這麼做，請使用 <a href=\"synaptic.desktop\">Synaptic Package Manager</a> "
+"或 <a href=\"org.gnome.Terminal.desktop\">命令列上的 APT</a> 安裝軟體。"
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:227
 msgid ""
@@ -1614,9 +1617,9 @@ msgid ""
 "href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
 "href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
-"要做到這一點，請創建一個永久性儲存，並使用<a "
-"href=\"synaptic.desktop\">Synaptic 套件管理器</a>或<a "
-"href=\"org.gnome.Terminal.desktop\">透過終端機使用 APT</a>安裝一些軟件。"
+"若要這麼做，請建立 Persistent Storage，並使用 <a "
+"href=\"synaptic.desktop\">Synaptic Package Manager</a> 或 <a "
+"href=\"org.gnome.Terminal.desktop\">命令列上的 APT</a> 安裝軟體。"
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:258
 msgid "To do so, install Tails on a USB stick and create a Persistent Storage."
@@ -1818,7 +1821,7 @@ msgstr "Tor 連線"
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:283
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:331
 msgid "Automatic"
-msgstr ""
+msgstr "自動"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:284
 msgid "Frequently selected regions"
@@ -2475,8 +2478,8 @@ msgid ""
 "Could not add file container %s: Timeout while waiting for loop setup.\n"
 "Please try using the <i>Disks</i> application instead."
 msgstr ""
-"無法加入檔案容器 %s：等待迴圈設定逾時。\n"
-"請試著改用<i>磁碟</i>應用程式。"
+"無法新增檔案容器 %s：等待 loop 設定時逾時。\n"
+"請改用 <i>Disks</i> 應用程式再試一次。"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/unlock_veracrypt_volumes/volume_manager.py:241
 msgid "Choose File Container"
@@ -2645,6 +2648,8 @@ msgid ""
 "Authentication is required to run the Synaptic Package Manager. Enter the "
 "administration password that you set up in the Welcome Screen."
 msgstr ""
+"執行 Synaptic Package Manager 需要驗證。請輸入您在 Welcome Screen 設定的管理"
+"者密碼。"
 
 #: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:71
 msgid ""
@@ -2652,6 +2657,8 @@ msgid ""
 "default. To run the Synaptic Package Manager, restart Tails and set up an "
 "administration password in the Welcome Screen."
 msgstr ""
+"為了提升安全性，Tails 預設不會設定管理者密碼。若要執行 Synaptic Package "
+"Manager，請重新啟動 Tails，並在 Welcome Screen 設定管理者密碼。"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:2
 msgid ""
@@ -3212,11 +3219,12 @@ msgid ""
 "To delete your Persistent Storage, click <b>Delete</b> on the right of the "
 "title bar."
 msgstr ""
-"<b>永久儲存已上鎖</b>\n"
+"<b>您的 Persistent Storage 已鎖定。</b>\n"
 "\n"
-"要使用或設定永久儲存，請在啟動 Tails 時於歡迎畫面下先解鎖它。\n"
+"若要使用或設定 Persistent Storage，請在啟動 Tails 時於 Welcome Screen 解除鎖"
+"定。\n"
 "\n"
-"刪除永久儲存，請點擊 標題列右側<b>刪除</b>。"
+"若要刪除 Persistent Storage，請點選標題列右側的 <b>Delete</b>。"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:60
 msgid ""
@@ -3270,16 +3278,17 @@ msgid ""
 "<a href=\"doc/persistent_storage\">Learn more about the Persistent Storage.</"
 "a>"
 msgstr ""
-"關閉 Tails 時，所做的一切都會消失。\n"
+"當您關閉 Tails 時，您的所有操作都會自動消失。\n"
 "\n"
-"不過可以利用 Tails 隨身碟的加密永久儲存來保存某些檔案或設置，例如：\n"
+"但您可以將部分檔案與設定儲存在 Tails USB 隨身碟上的加密 Persistent Storage "
+"中，例如：\n"
 "\n"
-"• 文件\n"
-"• Wi-Fi 密碼\n"
-"• 瀏覽器書籤\n"
+"• 您的文件\n"
+"• 您的 Wi-Fi 密碼\n"
+"• 您的瀏覽器書籤\n"
 "• ...\n"
 "\n"
-"<a href=\"doc/persistent_storage\">多了解永久儲存</a>"
+"<a href=\"doc/persistent_storage\">進一步了解 Persistent Storage。</a>"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:93
 msgid ""
@@ -3288,10 +3297,10 @@ msgid ""
 "To be able to use Tails with a Persistent Storage, please follow our "
 "instructions on <a href=\"install\">installing Tails on a USB stick</a>."
 msgstr ""
-"抱歉，無法在此設備上建立永久儲存。\n"
+"抱歉，無法在此裝置上建立 Persistent Storage。\n"
 "\n"
-"想要在永久儲存上使用 Tails，請依循 <a href=\"install\">USB 隨身碟安裝 Tails</"
-"a>指南。"
+"若要在 Tails 使用 Persistent Storage，請依照我們的指引<a href=\"install\">將 "
+"Tails 安裝到 USB 隨身碟</a>。"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:141
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:232
@@ -3456,8 +3465,8 @@ msgstr "TrueCrypt/VeraCrypt 容器"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:82
 #, fuzzy
-msgid "Configure a Tor Bridge"
-msgstr "設置 Tor 橋接器"
+msgid "Configure a Tor bridge"
+msgstr "設置 Tor _橋接"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:106
 msgid ""
@@ -3466,10 +3475,10 @@ msgid ""
 "\n"
 "You can use <i>obfs4</i> and <i>WebTunnel</i> bridges in Tails.\n"
 msgstr ""
-"橋接器是秘密的 Tor 中繼。如果您所在位置的 Tor 存取被封鎖，可以使用橋接器作為"
-"您的第一個 Tor 中繼。\n"
+"橋接是隱密的 Tor 中繼點。若您所在位置無法存取 Tor，請將橋接作為您的第一個 "
+"Tor 中繼點。\n"
 "\n"
-"您可以在 Tails 中使用 <i>obfs4</i> 和 <i>WebTunnel</i>橋接器。\n"
+"您可以在 Tails 中使用 <i>obfs4</i> 與 <i>WebTunnel</i> 橋接。\n"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:126
 msgid "<a href=\"doc/anonymous_internet/tor\">Learn more about Tor bridges</a>"
@@ -3494,11 +3503,12 @@ msgstr "無"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:242
 #, fuzzy
-msgid "Ask for a Tor bridge based on your _region"
+msgid "Ask for a bridge based on your _region"
 msgstr "_透過電子郵件請求 Tor 橋接"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:301
-msgid "_Ask for a Tor bridge by email"
+#, fuzzy
+msgid "_Ask for a bridge by email"
 msgstr "_透過電子郵件請求 Tor 橋接"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:320
@@ -3668,9 +3678,9 @@ msgstr ""
 "家、公共網路或家長控制，此時可利用橋接器作為 Tor 第一個 入口中繼。"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1410
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1646
-msgid "Configure a Tor _bridge"
-msgstr "設置 Tor _橋接"
+#, fuzzy
+msgid "Configure a Tor _Bridge"
+msgstr "設置 Tor 橋接器"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1449
 msgid ""
@@ -3697,7 +3707,7 @@ msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1544
 msgid "<b>Connect to Tor _automatically</b>"
-msgstr "<b>_自動連線至 Tor </b>"
+msgstr "<b>_自動連線到 Tor</b>"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1594
 msgid ""
@@ -3718,6 +3728,10 @@ msgstr ""
 "\n"
 "若某人監看您的網路流量將可辨識出這些來自於 Tails 使用者的連線嘗試。"
 
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1646
+msgid "Configure a Tor _bridge"
+msgstr "設置 Tor _橋接"
+
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1692
 msgid ""
 "Tor bridges are secret Tor relays. Use a bridge as your first Tor relay if "
@@ -3736,7 +3750,7 @@ msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1734
 msgid "<b>_Hide to my local network that I'm connecting to Tor</b>"
-msgstr "<b>_向本地網路隱藏我正連線至 Tor </b>"
+msgstr "<b>_向本機網路隱藏我正在連線到 Tor</b>"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1784
 msgid ""
@@ -3769,7 +3783,8 @@ msgstr ""
 msgid ""
 "<a href=\"doc/anonymous_internet/tor\">Learn more about how Tails connects "
 "to Tor</a>"
-msgstr "<a href=\"doc/anonymous_internet/tor\">了解 Tails 如何連線 Tor </a>"
+msgstr ""
+"<a href=\"doc/anonymous_internet/tor\">進一步了解 Tails 如何連線到 Tor</a>"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1937
 msgid "No Wi-Fi hardware detected"
@@ -3818,11 +3833,12 @@ msgid "Connect to a local network"
 msgstr "連線至本地網路"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2024
-#, fuzzy
 msgid ""
 "You are not connected to a local network yet. To be able to connect to the "
 "Tor network, you first need to connect to a Wi-Fi, wired, or mobile network."
-msgstr "尚未連至本地網路。要連上 Tor ，得先連線到 Wi-Fi 、有線或行動網路。"
+msgstr ""
+"您尚未連線到本機網路。若要連線到 Tor 網路，請先連上 Wi-Fi、有線網路或行動網"
+"路。"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2038
 msgid "Open Wi-Fi Settings"

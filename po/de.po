@@ -8,7 +8,7 @@
 # Gustav Gyges, 2016
 # Claudia <claudianied@web.de>, 2015
 # trantor <clucko3@gmail.com>, 2014
-# Curtis Baltimore <curtisbaltimore@protonmail.com>, 2018-2022, 2025.
+# Curtis Baltimore <curtisbaltimore@protonmail.com>, 2018-2022, 2025, 2026.
 # 09adcb8011124a355b58fb79400e2d99_a489fec <859a42dbb1ad357e0cf987322b49efea_273680>, 2015
 # 51a22e235b0899d7baaea4cc548ce08f_83088b6, 2021
 # D P, 2015
@@ -43,13 +43,15 @@
 # Ümit Ci <umitinsan@protonmail.com>, 2025.
 # Pixelcode <pixelcode@dismail.de>, 2025.
 # emma peel <emma.peel@riseup.net>, 2026.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-23 12:26+0100\n"
-"PO-Revision-Date: 2026-03-23 15:09+0000\n"
-"Last-Translator: emma peel <emma.peel@riseup.net>\n"
+"POT-Creation-Date: 2026-04-07 12:41+0200\n"
+"PO-Revision-Date: 2026-04-06 16:03+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/tor/tails-gui/de/"
 ">\n"
 "Language: de\n"
@@ -85,18 +87,16 @@ msgid "Configure"
 msgstr "Konfigurieren"
 
 #: config/chroot_local-includes/usr/local/lib/change-apps-menu-name:25
-#, fuzzy
 msgid "Password Manager"
-msgstr "Passwort"
+msgstr "Passwort-Manager"
 
 #: config/chroot_local-includes/usr/local/lib/change-apps-menu-name:26
-#, fuzzy
 msgid "password"
 msgstr "Passwort"
 
 #: config/chroot_local-includes/usr/local/lib/change-apps-menu-name:26
 msgid "password-manager"
-msgstr ""
+msgstr "password-manager"
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:57
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:95
@@ -1525,7 +1525,7 @@ msgid "Could not open device for writing."
 msgstr "Gerät konnte nicht zum Schreiben geöffnet werden."
 
 #: config/chroot_local-includes/usr/local/bin/secrets:19
-#, fuzzy, sh-format
+#, sh-format
 msgid ""
 "You have a <i>KeePassXC</i> or <i>Secrets</i> database in your "
 "<i>Persistent</i> folder:\n"
@@ -1535,14 +1535,13 @@ msgid ""
 "Renaming your database to <i>${default_filename}</i> allows <i>Secrets</i> "
 "to open it automatically in the future."
 msgstr ""
-"<b><big>Willst du deine <i>KeePassXC</i>-Datenbank umbenennen?</big></b>\n"
-"\n"
-"Du hast eine <i>KeePassXC</i>-Datenbank in deinem <i>Persistent</i>-Ordner:\n"
+"Du hast eine <i>KeePassXC</i>- oder <i>Secrets</i>-Datenbank in deinem "
+"<i>Persistent</i>-Ordner:\n"
 "\n"
 "<i>${filename}</i>\n"
 "\n"
-"Deine Datenbank in <i>${default_filename}</i> umzubenennen, würde "
-"<i>KeePassXC</i> ermöglichen, sie in Zukunft automatisch zu öffnen."
+"Wenn du deine Datenbank in <i>${default_filename}</i> umbenennst, kann "
+"<i>Secrets</i> sie künftig automatisch öffnen."
 
 #: config/chroot_local-includes/usr/local/bin/secrets:25
 msgid "Rename"
@@ -1554,7 +1553,7 @@ msgstr "Aktuellen Namen behalten"
 
 #: config/chroot_local-includes/usr/local/bin/secrets:29
 msgid "Rename Password Database?"
-msgstr ""
+msgstr "Passwort-Datenbank umbenennen?"
 
 #: config/chroot_local-includes/usr/local/bin/replace-su-with-sudo:19
 msgid "su is disabled. Please use sudo instead."
@@ -1973,15 +1972,15 @@ msgstr "Tor-Verbindung"
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:283
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:331
 msgid "Automatic"
-msgstr ""
+msgstr "Automatisch"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:284
 msgid "Frequently selected regions"
-msgstr ""
+msgstr "Häufig ausgewählte Regionen"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:291
 msgid "Other regions"
-msgstr ""
+msgstr "Andere Regionen"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:369
 msgid "_Use a bridge that you already know"
@@ -2040,9 +2039,8 @@ msgid "Synchronizing the system's clock…"
 msgstr "Synchronisierung der Systemuhr…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:726
-#, fuzzy
 msgid "Asking for a Tor bridge based on your region…"
-msgstr "_Tor-Brücke über E-Mail anfordern"
+msgstr "Frage nach einer Tor-Brücke für deine Region…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:774
 msgid "Connecting to Tor without bridges…"
@@ -2054,9 +2052,9 @@ msgid "Connecting to Tor with default bridges…"
 msgstr "Verbinden mit Tor mit Standard-Brücken…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:789
-#, fuzzy
 msgid "Connecting to Tor with a bridge based on your region…"
-msgstr "Verbinden mit Tor mit Standard-Brücken…"
+msgstr ""
+"Verbindung zu Tor über eine auf deiner Region basierende Brücke herstellen…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:796
 msgid "Connecting to Tor with a custom bridge…"
@@ -2081,21 +2079,21 @@ msgstr "Du kannst das Internet nun anonym und unzensiert durchstöbern."
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:985
 #, python-brace-format
 msgid "Bridge: <b>{bridge}</b>"
-msgstr ""
+msgstr "Brücke: <b>{bridge}</b>"
 
 #. Translators: only translate "Error code:" and adjust
 #. text-direction
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:997
 #, python-brace-format
 msgid "Error code: {code}"
-msgstr ""
+msgstr "Fehlercode: {code}"
 
 #. Translators: only translate "Proxy:" and adjust
 #. text-direction
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1024
 #, python-brace-format
 msgid "Proxy: <b>{proxy}</b>"
-msgstr ""
+msgstr "Proxy: <b>{proxy}</b>"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1323
 #, python-brace-format
@@ -3711,8 +3709,8 @@ msgstr "TrueCrypt-/VeraCrypt-Container"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:82
 #, fuzzy
-msgid "Configure a Tor Bridge"
-msgstr "Konfiguriere eine Tor-Brücke"
+msgid "Configure a Tor bridge"
+msgstr "Konfiguriere eine Tor-_Brücke"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:106
 msgid ""
@@ -3750,11 +3748,12 @@ msgstr "Nichts"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:242
 #, fuzzy
-msgid "Ask for a Tor bridge based on your _region"
-msgstr "_Tor-Brücke über E-Mail anfordern"
+msgid "Ask for a bridge based on your _region"
+msgstr "Frage nach einer Tor-Brücke für deine _Region"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:301
-msgid "_Ask for a Tor bridge by email"
+#, fuzzy
+msgid "_Ask for a bridge by email"
 msgstr "_Tor-Brücke über E-Mail anfordern"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:320
@@ -3806,69 +3805,68 @@ msgid "This local network seems to be blocking access to Tor."
 msgstr "Dein lokales Netzwerk scheint den Zugang zu Tor zu blockieren."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:811
-#, fuzzy
 msgid "Error connecting to Tor with this bridge"
-msgstr "Verbinden mit Tor ohne Brücken…"
+msgstr "Fehler beim Herstellen einer Verbindung zu Tor über diese Brücke"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:827
 msgid ""
 "Either this Tor bridge is not working or your network is blocking access to "
 "it."
 msgstr ""
+"Entweder funktioniert diese Tor-Brücke nicht oder dein Netzwerk blockiert "
+"den Zugriff darauf."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:856
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:930
-#, fuzzy
 msgid "Try configuring another bridge."
-msgstr "Konfiguriere eine Tor-Brücke"
+msgstr "Versuche, eine andere Brücke zu konfigurieren."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:884
-#, fuzzy
 msgid "Error connecting to Tor with default bridges"
-msgstr "Verbinden mit Tor mit Standard-Brücken…"
+msgstr "Verbinden mit Tor mit Standard-Brücken"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:900
-#, fuzzy
 msgid "Your network is blocking access to Tor and the default bridges."
-msgstr "Dieses lokale Netzwerk blockiert den Zugang zu Tor."
+msgstr "Dein Netzwerk blockiert den Zugriff auf Tor und die Standard-Brücken."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:916
-#, fuzzy
 msgid "Bridge: <b>default bridges</b>"
-msgstr "Verwende eine _Standard-Brücke"
+msgstr "Brücke: <b>Standard-Brücken</b>"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:958
-#, fuzzy
 msgid "Error connecting to Tor with bridges"
-msgstr "Verbinden mit Tor ohne Brücken…"
+msgstr "Fehler beim Herstellen einer Verbindung zu Tor über Brücken"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:974
 msgid "None of the bridges recommended for this region worked."
-msgstr ""
+msgstr "Keine der für diese Region empfohlenen Brücken funktionierte."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:990
 msgid "Try another region or getting a bridge by mail."
 msgstr ""
+"Versuche es in einer anderen Region oder bestelle eine Brücke per E-Mail."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1018
-#, fuzzy
 msgid "Error asking for a bridge"
-msgstr "Fehler beim Suchen nach Aktualisierungen"
+msgstr "Fehler bei der Anforderung einer Brücke"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1034
 msgid "Tails failed to ask for a bridge based on your region."
 msgstr ""
+"Tails ist es nicht gelungen, eine auf deiner Region basierende Brücke "
+"anzufordern."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1050
 msgid ""
 "Please, <a href=\"support/talk\">report this error</a> and try asking for a "
 "bridge by email."
 msgstr ""
+"Bitte <a href=\"support/talk\">melde diesen Fehler</a> und versuche, per E-"
+"Mail eine Brücke anzufordern."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1087
-#, fuzzy
 msgid "Open _details"
-msgstr "Tails-Kloner öffnen"
+msgstr "Öffne _Details"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1142
 msgid "• Wrong clock"
@@ -3918,9 +3916,8 @@ msgid "Configure a Local _Proxy"
 msgstr "Konfiguriere einen lokalen _Proxy"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1374
-#, fuzzy
 msgid "• Tor bridge"
-msgstr "• Tor-Brücke über E-Mail"
+msgstr "• Tor-Brücke"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1394
 msgid ""
@@ -3933,9 +3930,9 @@ msgstr ""
 "einigen öffentlichen Netzwerken oder durch einige Kindersicherungen."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1410
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1646
-msgid "Configure a Tor _bridge"
-msgstr "Konfiguriere eine Tor-_Brücke"
+#, fuzzy
+msgid "Configure a Tor _Bridge"
+msgstr "Konfiguriere eine Tor-Brücke"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1449
 msgid ""
@@ -3989,6 +3986,10 @@ msgstr ""
 "\n"
 "Jemand, der deine Internetverbindung überwacht, könnte diese Versuche als "
 "von einem Tails-Benutzer kommend identifizieren."
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1646
+msgid "Configure a Tor _bridge"
+msgstr "Konfiguriere eine Tor-_Brücke"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1692
 msgid ""

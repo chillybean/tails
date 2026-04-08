@@ -40,19 +40,52 @@ Jenkins generally only runs scenarios that are _not_ tagged `@fragile`
 in Gherkin. But it runs the full test suite, including scenarios that
 are tagged `@fragile`, if the images under test were built:
 
- - from a branch whose name ends with the `-force-all-tests` suffix
+ - from a branch whose configuration (`config/ci/per_branch/`) has `force_all_tests = true` in the `[test]`
+   section
  - from a tag
  - from the `devel` branch
  - from the `testing` branch
 
 Therefore, to ask Jenkins to run the full test suite on your topic
-branch, give it a name that ends `-force-all-tests`.
+branch, create `config/ci/per_branch/$branch.toml` and set it to
+
+```
+[test]
+force_all_tests = true
+```
+
+### Configure CI per-branch
+
+It's sometimes desirable to configure CI for a specific branch. Typical usecases are:
+ - disabling CI (e.g. to avoid wasting Jenkins' CPU cycles)
+ - forcing all tests to be run, including `@fragile` ones
+
+To do so, you can create `config/ci/per_branch/${branch}.toml`.
+
+Example: disable all CI
+
+```toml
+[test]
+skip = true
+[build]
+skip = true
+```
+
+Example: force all tests
+
+```toml
+[test]
+force_all_tests = true
+```
+
+Have a look at [[!tails_gitweb bin/ci-configuration]] (specifically the classes inheriting from
+`BaseModel`) to have a list of possible options you can use.
 
 ### Run without Chutney
 
 Chutney, which creates a "virtual" Tor network, is used by default.
 
-You can disable this by adding `-real-Tor` to your branch name. This will only run scenarios which are tagged
+You can disable this by setting `real_Tor = true` in the `[test]` section of `config/ci/per_branch/$branch.toml`. This will only run scenarios which are tagged
 `@supports_real_tor` (not many!)
 
 ### Trigger a test suite run without rebuilding images

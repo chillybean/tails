@@ -39,13 +39,14 @@
 # Hamed <hamed.abdollahi@outlook.com>, 2025.
 # eghbalmohsen <eghbalmohsen@gmail.com>, 2025.
 # emma peel <emma.peel@riseup.net>, 2026.
+# haidi s <haidi@torproject.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-23 12:26+0100\n"
-"PO-Revision-Date: 2026-03-23 15:09+0000\n"
-"Last-Translator: emma peel <emma.peel@riseup.net>\n"
+"POT-Creation-Date: 2026-04-07 12:41+0200\n"
+"PO-Revision-Date: 2026-04-03 09:12+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/tor/tails-gui/fa/"
 ">\n"
 "Language: fa\n"
@@ -830,10 +831,15 @@ msgid ""
 "Someone who finds your Tails USB stick can see your language and keyboard "
 "layout."
 msgstr ""
+"زبان و چیدمان صفحه‌کلید شما به‌صورت رمزنگاری‌نشده روی فلش Tails شما ذخیره می‌شود "
+"و در آینده به‌طور خودکار اعمال خواهد شد.\n"
+"\n"
+"هر کسی که فلش Tails شما را پیدا کند، می‌تواند زبان و چیدمان صفحه‌کلید شما را "
+"مشاهده کند."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:200
 msgid "Save Unencrypted"
-msgstr ""
+msgstr "ذخیره بدون رمز نگاری"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:288
 msgid ""
@@ -1250,9 +1256,8 @@ msgstr "نصب Tails ناموفق بود!"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:341
 #: ../config/chroot_local-includes/usr/share/applications/tails-installer.desktop.in.h:1
-#, fuzzy
 msgid "Tails Cloner"
-msgstr "نصب کننده تیلز"
+msgstr "ابزار کپی tails"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:393
 #: ../config/chroot_local-includes/usr/share/tails-installer/tails-installer.ui.in:164
@@ -1337,7 +1342,7 @@ msgstr ""
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:600
 #, python-format
 msgid "The device \"%(pretty_name)s\" is read-only."
-msgstr ""
+msgstr "دستگاه \"%(pretty_name)s\" فقط خواندنی است."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:608
 #, python-format
@@ -1740,7 +1745,7 @@ msgstr "هم‌گام‌سازی ساعت ناموفق بود!"
 
 #: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:26
 msgid "Insufficient Memory Detected"
-msgstr ""
+msgstr "حافظه کافی شناسایی نشد"
 
 #: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:28
 #, python-brace-format
@@ -1749,6 +1754,9 @@ msgid ""
 "{installed_ram_gb} GB. You might experience reduced performance, "
 "instability, or crashes."
 msgstr ""
+"Tails به {required_ram_gb}گیگابایت حافظه احتیاج دارد،اما این کامپیوتر فقط "
+"{installed_ram_gb} گیگابایت حافظه دارد. ممکن است با کاهش عملکرد، ناپایداری "
+"یا کرش (از کار افتادن) مواجه شوید."
 
 #: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:41
 #: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:42
@@ -1935,7 +1943,7 @@ msgstr "اتصال Tor"
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:283
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:331
 msgid "Automatic"
-msgstr ""
+msgstr "خودکار"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:284
 msgid "Frequently selected regions"
@@ -2800,6 +2808,8 @@ msgid ""
 "Authentication is required to run the Synaptic Package Manager. Enter the "
 "administration password that you set up in the Welcome Screen."
 msgstr ""
+"برای اجرای Synaptic Package Manager نیاز به احراز هویت است. گذر واژهٔ مدیریتی "
+"که در صفحهٔ خوش‌آمدگویی تنظیم کرده‌اید را وارد کنید."
 
 #: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:71
 msgid ""
@@ -2807,6 +2817,9 @@ msgid ""
 "default. To run the Synaptic Package Manager, restart Tails and set up an "
 "administration password in the Welcome Screen."
 msgstr ""
+"برای امنیت بیشتر، هیچ گذرواژهٔ مدیریتی پیش فرضی در Tails تنظیم نشده است. برای "
+"اجرای Synaptic Package Manager، Tails را دوباره راه‌اندازی کنید و در صفحهٔ "
+"خوش‌آمدگویی یک گذرواژهٔ مدیریتی تنظیم کنید."
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:2
 msgid ""
@@ -2831,7 +2844,7 @@ msgstr "نحوهٔ استفاده از Tails را بیاموزید"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:3
 msgid "learn"
-msgstr ""
+msgstr "یادگیری"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-about.desktop.in.h:2
 msgid "Learn more about Tails"
@@ -2851,7 +2864,7 @@ msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-backup.desktop.in.h:3
 msgid "backup"
-msgstr ""
+msgstr "پشتیبان گیری"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-installer.desktop.in.h:2
 msgid "Install, clone, upgrade Tails"
@@ -2894,7 +2907,7 @@ msgstr "مرورگر وب ناایمن"
 
 #: ../config/chroot_local-includes/usr/share/applications/unsafe-browser.desktop.in.h:4
 msgid "web;captive;portal"
-msgstr ""
+msgstr "وب;کپتیو;پرتال"
 
 #: ../config/chroot_local-includes/usr/share/applications/unlock-veracrypt-volumes.desktop.in.h:2
 msgid "Mount VeraCrypt encrypted file containers and devices"
@@ -2903,7 +2916,7 @@ msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/unlock-veracrypt-volumes.desktop.in.h:3
 msgid "mount;encrypted;container;truecrypt"
-msgstr ""
+msgstr "متصل کردن;رمزنگاری شده;کانتینر;تروکریپت"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop.in.h:2
 msgid ""
@@ -3669,8 +3682,8 @@ msgstr "محفظهٔ TrueCrypt/VeraCryp"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:82
 #, fuzzy
-msgid "Configure a Tor Bridge"
-msgstr "پیکربندی یک پل Tor"
+msgid "Configure a Tor bridge"
+msgstr "پیکربندی یک _پل Tor"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:106
 #, fuzzy
@@ -3707,11 +3720,12 @@ msgstr "هیچ‌یک"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:242
 #, fuzzy
-msgid "Ask for a Tor bridge based on your _region"
+msgid "Ask for a bridge based on your _region"
 msgstr "_درخواست یک پل Tor از طریق ایمیل"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:301
-msgid "_Ask for a Tor bridge by email"
+#, fuzzy
+msgid "_Ask for a bridge by email"
 msgstr "_درخواست یک پل Tor از طریق ایمیل"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:320
@@ -3738,7 +3752,7 @@ msgstr "پل"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:473
 msgid "obfs4 or webtunnel…"
-msgstr ""
+msgstr "obfs4 یا webtunnel…"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:546
 msgid "Save bridge to _Persistent Storage"
@@ -3891,9 +3905,9 @@ msgstr ""
 "می‌دهد که آیا برای اتصال به Tor از شبکه محلی خود به پل نیاز دارید یا خیر."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1410
-#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1646
-msgid "Configure a Tor _bridge"
-msgstr "پیکربندی یک _پل Tor"
+#, fuzzy
+msgid "Configure a Tor _Bridge"
+msgstr "پیکربندی یک پل Tor"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1449
 msgid ""
@@ -3943,6 +3957,10 @@ msgstr ""
 "تیلز راه‌های مختلفی را برای اتصال به Tor امتحان می‌کند تا زمانی که موفق شود. "
 "کسی که اتصال اینترنت شما را کنترل می‌کند می‌تواند متوجه شود که این تلاش‌ها از "
 "سوی یک کاربر تیلز درحال انجام است."
+
+#: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1646
+msgid "Configure a Tor _bridge"
+msgstr "پیکربندی یک _پل Tor"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1692
 #, fuzzy
