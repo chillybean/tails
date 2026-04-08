@@ -212,3 +212,5 @@ EXPECTED_JOURNAL_ENTRIES = [
 ASP_STATE_DIR = '/run/live-additional-software'.freeze
 ASP_CONF = '/live/persistence/TailsData_unlocked/live-additional-software.conf'
            .freeze
+
+MIGRATIONS_DIR = '/live/persistence/TailsData_unlocked/.tails/migrations'.freeze

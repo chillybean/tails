@@ -324,6 +324,20 @@ Given(/^I enable persistence creation in Tails Greeter$/) do
          .toggle
 end
 
+def pretend_migration_has_succeeded(migration_id)
+  migration_dir = "#{MIGRATIONS_DIR}/#{migration_id}"
+  $vm.execute_successfully(
+    'install --directory --owner root --group amnesia --mode 0750 ' \
+    "#{MIGRATIONS_DIR} #{migration_dir}"
+  )
+  $vm.execute_successfully(
+    "install --owner root --group root /dev/null #{migration_dir}/success"
+  )
+  $vm.execute_successfully(
+    "python3 /usr/lib/python3/dist-packages/tailslib/migration.py #{migration_id}"
+  )
+end
+
 Given /^I create a persistent partition( with the default settings)?( for Additional Software)?( using the wizard that was already open)?$/ do |default_settings, asp, dontrun|
   # When creating a persistent partition for Additional Software, we
   # want to use the default settings.
@@ -340,6 +354,12 @@ Given /^I create a persistent partition( with the default settings)?( for Additi
   end
 
   enable_all_tps_features unless default_settings
+
+  # Avoid having to deal with the installation of Thunderbird racing
+  # vs. the test suite checking that all expected services have
+  # started. We've tried making these checks smarter to cope with
+  # this, and gave up.
+  pretend_migration_has_succeeded('21375-thunderbird-iteration-1')
 end
 
 Given /^I try to create a persistent partition( for Additional Software)?( using the wizard that was already open)?$/ do |asp, dontrun|
