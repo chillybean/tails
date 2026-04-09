@@ -359,6 +359,8 @@ test-whisperback:
 test-ci-configuration:
   variables:
     GIT_STRATEGY: clone
+    # GIT_DEPTH=0 disables shallow cloning, see
+    # https://docs.gitlab.com/ci/pipelines/settings/#limit-the-number-of-changes-fetched-during-clone
     GIT_DEPTH: 0
   script:
     - apt-get -qy install python3-pydantic python3-pytest git
