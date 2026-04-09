@@ -422,4 +422,4 @@ fi
 export USER_DISPLAY="${DISPLAY:-}"
 export DISPLAY=${TARGET_DISPLAY}
 
-exec ./bin/ci-configuration run-test "$@"
+./bin/ci-configuration run-test -- "$@"
