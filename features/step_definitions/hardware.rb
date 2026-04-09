@@ -132,3 +132,21 @@ Then /^Tails detected partitioning error (.*)$/ do |expected_reason|
   ).chomp
   assert_equal(expected_reason, actual_reason)
 end
+
+Given /^I simulate a computer with (old|new) UEFI CA$/ do |ca|
+  old = "3590bfd89 Microsoft Corporation KEK CA 2011\n"
+  new = "xxxxxxxxx Microsoft Corporation KEK 2K CA 2023\n"
+  content = if ca == 'old'
+              old
+            else
+              old + new
+            end
+  $vm.file_overwrite('/etc/fake-mokutil.conf', content)
+  $vm.file_overwrite('/usr/bin/mokutil', "#!/bin/sh\ncat /etc/fake-mokutil.conf")
+end
+
+Given /^I simulate a computer with Windows$/ do
+  line = '/dev/nvme0n1p2@/EFI/Microsoft/Boot/bootmgfw.efi:' \
+    'Windows Boot Manager:Windows:efi'
+  $vm.file_overwrite('/usr/bin/os-prober', "#!/bin/sh\necho '#{line}'")
+end
