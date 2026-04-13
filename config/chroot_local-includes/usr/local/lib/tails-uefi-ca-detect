@@ -9,7 +9,6 @@ The output is guaranteed to be valid JSON, and will be an object with these fiel
 """
 
 import enum
-import json
 import logging
 import os
 import subprocess
@@ -104,7 +103,7 @@ def parse_os_probe(output) -> list[str]:
 
 
 def output(d: Detection):
-    json.dump(d.json(), sys.stdout)
+    print(d.model_dump_json())
 
 
 def no_action_needed() -> int:
