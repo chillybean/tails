@@ -454,11 +454,15 @@ Given /^the computer (?:re)?boots Tails$/ do
     wait_for_ponytail(user: 'Debian-gdm')
     # Close the notification which otherwise obscures parts of the
     # Welcome Screen window.
-    Dogtail::Application.new('gnome-shell', user: 'Debian-gdm')
-                        .child(roleName: 'notification')
-                        .child('System was put in unsafe mode', roleName: 'label')
-                        .click
+    close_notification('System was put in unsafe mode')
   end
+end
+
+def close_notification(msg)
+  Dogtail::Application.new('gnome-shell', user: 'Debian-gdm')
+                      .child(roleName: 'notification')
+                      .child(msg, roleName: 'label')
+                      .click
 end
 
 Given /^I set the formats to "(.*)"$/ do |region|
