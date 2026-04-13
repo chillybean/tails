@@ -33,7 +33,9 @@ def detect_uefi_ca() -> UefiState:
         )
     except subprocess.CalledProcessError:
         log.exception("Error invoking mokutil")
-    return parse_uefi_ca(output)
+        return UefiState.SECURE_BOOT_DISABLED
+    else:
+        return parse_uefi_ca(output)
 
 
 def parse_uefi_ca(output: str) -> UefiState:
