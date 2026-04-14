@@ -1,8 +1,64 @@
-tails (7.7) UNRELEASED; urgency=medium
+tails (7.6.2) UNRELEASED; urgency=medium
 
-  * Dummy entry for next release.
+  * Upgrade Flatpak to 1.16.6-1~deb13u1tails1 (tails/tails!2933)
 
- -- anonym <anonym@riseup.net>  Wed, 08 Apr 2026 12:14:37 +0200
+    Closes issues:
+      - Update our Flatpak custom package to 1.16.6-1~deb13u1 (tails/tails#21509)
+
+    Commits:
+      - Upgrade Flatpak to 1.16.6-1~deb13u1tails1
+
+  * run_test_suite supports (again) passing options to cucumber (tails/tails!2919)
+
+    Closes issues:
+      - Processes started in run_test_suite are no longer cleaned up on exit
+        (tails/tails#21503)
+      - No longer possible to pass arbitrary cucumber arguments to ./run_test_suite?
+        (tails/tails#21496)
+
+    Commits:
+      - run_test_suite supports (again) passing options to cucumber
+      - make sure TRAPs are run
+
+  * GitLab CI: ensure test-ci-configuration has all the Git history it needs
+    (tails/tails!2914)
+
+    Commits:
+      - explain why GIT_DEPTH=0 works
+      - GitLab CI: ensure test-ci-configuration has all the Git history it needs
+
+  * Run fragile tests on stable and run needed_package_updates.feature on fewer
+    branches (tails/tails!2905)
+
+    Closes issues:
+      - Test suite: needed_package_updates.feature fails too loudly on Jenkins
+        (tails/tails#21316)
+
+    Commits:
+      - Test suite: run needed_package_updates.feature on fewer branches
+      - Run @fragile tests on the stable branch too
+
+  * GitLab CI: fail the pipeline if the MR adds fixup commits (tails/tails!2904)
+
+    Closes issues:
+      - Fail the GitLab CI pipeline if the MR adds fixup commits (tails/tails#21495)
+
+    Commits:
+      - Skip CI for this branch
+      - GitLab CI: fail the pipeline if the MR adds fixup commits
+
+  * Add exFAT support in initramfs so kexec-based bootloaders can find the ISO
+    (tails/tails!1802)
+
+    Closes issues:
+      - initrd/kernel packed in ISO doesn't support exfat (tails/tails#20621)
+
+    Commits:
+      - config/chroot_local-includes/usr/share/initramfs-tools/hooks/exfat: add exfat
+        support initramfs so kexec based bootloader can find ISO under partition
+        pointed by UUI
+
+ -- Tails developers <tails@boum.org>  Tue, 14 Apr 2026 08:08:39 +0000
 
 tails (7.6.1) unstable; urgency=medium
 
