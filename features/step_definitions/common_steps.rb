@@ -1911,9 +1911,15 @@ When(/^I open "(.*[.].*)" in Files$/) do |filename|
   @screen.press('Return')
 end
 
-When(/^I wait until (.*[.]service) has completed$/) do |unit|
+When(/^I wait until (?:(\w+)'s )(.*[.]service) has completed$/) do |user, unit|
+  cmd = if user
+          "systemctl --user is-active #{unit}"
+        else
+          "systemctl is-active #{unit}"
+        end
+  user = 'root' if user.empty?
   try_for(60) do
-    output = $vm.execute_successfully("systemctl is-active #{unit}").stdout
-    output == "active"
+    output = $vm.execute_successfully(cmd, user:).stdout.strip
+    output == 'active'
   end
 end
