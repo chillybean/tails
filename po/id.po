@@ -30,8 +30,8 @@ msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-07 12:41+0200\n"
-"PO-Revision-Date: 2026-04-03 09:12+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2026-04-08 12:09+0000\n"
+"Last-Translator: Arif Budiman <arifpedia@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/tor/tails-gui/"
 "id/>\n"
 "Language: id\n"
@@ -67,18 +67,16 @@ msgid "Configure"
 msgstr "Konfigurasikan"
 
 #: config/chroot_local-includes/usr/local/lib/change-apps-menu-name:25
-#, fuzzy
 msgid "Password Manager"
-msgstr "Kata sandi"
+msgstr "Pengelola Kata Sandi"
 
 #: config/chroot_local-includes/usr/local/lib/change-apps-menu-name:26
-#, fuzzy
 msgid "password"
-msgstr "Kata sandi"
+msgstr "kata sandi"
 
 #: config/chroot_local-includes/usr/local/lib/change-apps-menu-name:26
 msgid "password-manager"
-msgstr ""
+msgstr "pengelola-kata-sandi"
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:57
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:95
@@ -397,11 +395,10 @@ msgid ""
 "b>\\n\\nCheck your network connection and restart Tails.\\n\\nIf the problem "
 "persists, try doing a manual upgrade."
 msgstr ""
-"<b>Sebuah galat terjadi sat memperbarui kunci tanda tangan .</b>\\n\\n<b> "
-"Ini mencegah penentuan mengenai ada atau tidaknya pembaruan dari situs web "
-"kami. </b>\\n\\nPeriksa koneksi internet Anda, dan mulai ulang Tails untuk "
-"mencoba memperbarui kembali. \\n\\nJika masalah masih terjadi, pergi ke "
-"file:///usr/share/doc/tails/website/doc/upgrade/error/check.en.html"
+"<b>Terjadi kesalahan saat memperbarui kunci penandatanganan.</b>\\n\\n<b>Hal "
+"ini mencegah penentuan apakah peningkatan tersedia dari situs web kami.</"
+"b>\\n\\nPeriksa koneksi jaringan Anda dan mulai ulang Tails.\\n\\nJika "
+"masalah berlanjut, coba lakukan peningkatan manual."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:309
 msgid "Error while downloading the signing key"
@@ -412,7 +409,6 @@ msgid "Error while checking for upgrades"
 msgstr "Kesalahan saat memeriksa pembaruan"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:344
-#, fuzzy
 msgid ""
 "<b>Could not determine whether an upgrade is available from our website.</"
 "b>\n"
@@ -421,14 +417,12 @@ msgid ""
 "\n"
 "If the problem persists, try doing a manual upgrade."
 msgstr ""
-"<b>Tidak dapat menentukan apakah pemutakhiran tersedia dari situs web kami.</"
+"<b>Tidak dapat menentukan apakah peningkatan tersedia dari situs web kami.</"
 "b>\n"
 "\n"
-"Periksa koneksi jaringan Anda, dan memulai ulang Tails untuk mencoba "
-"memutakhirkannya lagi.\n"
+"Periksa koneksi jaringan Anda dan mulai ulang Tails.\n"
 "\n"
-"Jika masalah tetap ada, kunjungi file:///usr/share/doc/tails/website/doc/"
-"upgrade/error/check.en.html"
+"Jika masalah berlanjut, coba lakukan peningkatan manual."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:359
 msgid "no automatic upgrade is available from our website for this version"
@@ -589,15 +583,12 @@ msgid "Downloading the upgrade to {name} {version}..."
 msgstr "Mengunduh pembaruan ke {name} {version}..."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:711
-#, fuzzy
 msgid ""
 "<b>The upgrade could not be downloaded.</b>\\n\\nCheck your network "
 "connection, and restart Tails to try upgrading again."
 msgstr ""
-"<b>Pemutakhiran tidak bisa diunduh.</b>\\n\\nPeriksa sambungan jaringan "
-"Anda, dan mulai ulang Tails untuk mencoba memutakhirkannya lagi.\\n\\nJika "
-"masalah masih tetap ada, baca file:///usr/share/doc/tails/website/doc/"
-"upgrade/error/download.en.html"
+"<b>Peningkatan tidak dapat diunduh.</b>\\n\\nPeriksa koneksi jaringan Anda, "
+"lalu mulai ulang Tails untuk mencoba meningkatkan lagi."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:714
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:729
@@ -1478,7 +1469,7 @@ msgid "Could not open device for writing."
 msgstr "Perangkat tak bisa dibuka untuk menulis."
 
 #: config/chroot_local-includes/usr/local/bin/secrets:19
-#, fuzzy, sh-format
+#, sh-format
 msgid ""
 "You have a <i>KeePassXC</i> or <i>Secrets</i> database in your "
 "<i>Persistent</i> folder:\n"
@@ -1488,16 +1479,13 @@ msgid ""
 "Renaming your database to <i>${default_filename}</i> allows <i>Secrets</i> "
 "to open it automatically in the future."
 msgstr ""
-"<b><big>Apakah Anda hendak mengubah nama basis data <i>KeePassXC</i> Anda?</"
-"big></b>\n"
-"\n"
-"Anda memiliki suatu basis data <i>KeePassXC</i> dalam folder <i>Persistent</"
-"i> Anda:\n"
+"Anda memiliki basis data <i>KeePassXC</i> atau <i>Secrets</i> di folder "
+"<i>Persistent</i> Anda:\n"
 "\n"
 "<i>${filename}</i>\n"
 "\n"
-"Mengubah nama basis data Anda ke <i>${default_filename}</i> akan mengizinkan "
-"<i>KeePassXC</i> untuk membukanya secara otomatis nanti."
+"Mengganti nama basis data Anda menjadi <i>${default_filename}</i> "
+"memungkinkan <i>Secrets</i> membukanya secara otomatis di masa mendatang."
 
 #: config/chroot_local-includes/usr/local/bin/secrets:25
 msgid "Rename"
@@ -1509,7 +1497,7 @@ msgstr "Pertahankan nama saat ini"
 
 #: config/chroot_local-includes/usr/local/bin/secrets:29
 msgid "Rename Password Database?"
-msgstr ""
+msgstr "Ganti Nama Basis Data Kata Sandi?"
 
 #: config/chroot_local-includes/usr/local/bin/replace-su-with-sudo:19
 msgid "su is disabled. Please use sudo instead."
@@ -1921,11 +1909,11 @@ msgstr "Otomatis"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:284
 msgid "Frequently selected regions"
-msgstr ""
+msgstr "Wilayah yang sering dipilih"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:291
 msgid "Other regions"
-msgstr ""
+msgstr "Wilayah lain"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:369
 msgid "_Use a bridge that you already know"
@@ -1983,9 +1971,8 @@ msgid "Synchronizing the system's clock…"
 msgstr "Menyelaraskan jam sistem…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:726
-#, fuzzy
 msgid "Asking for a Tor bridge based on your region…"
-msgstr "_Minta bridge Tor melalui email"
+msgstr "Meminta bridge Tor berdasarkan wilayah Anda…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:774
 msgid "Connecting to Tor without bridges…"
@@ -1997,9 +1984,8 @@ msgid "Connecting to Tor with default bridges…"
 msgstr "Menyambung ke Tor dengan bridge default…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:789
-#, fuzzy
 msgid "Connecting to Tor with a bridge based on your region…"
-msgstr "Menyambung ke Tor dengan bridge default…"
+msgstr "Menghubungkan ke Tor dengan bridge berdasarkan wilayah Anda…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:796
 msgid "Connecting to Tor with a custom bridge…"
@@ -2032,14 +2018,14 @@ msgstr ""
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:997
 #, python-brace-format
 msgid "Error code: {code}"
-msgstr ""
+msgstr "Kode galat: {code}"
 
 #. Translators: only translate "Proxy:" and adjust
 #. text-direction
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1024
 #, python-brace-format
 msgid "Proxy: <b>{proxy}</b>"
-msgstr ""
+msgstr "Proksi: <b>{proxy}</b>"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1323
 #, python-brace-format
@@ -3437,12 +3423,12 @@ msgstr ""
 "Semua yang Anda lakukan akan hilang secara otomatis saat Anda mematikan "
 "Tails.\n"
 "\n"
-"Namun Anda dapat menyimpan beberapa file dan konfigurasi di Penyimpanan "
-"Persisten terenkripsi pada USB stick Tails Anda, misalnya:\n"
+"Namun, Anda dapat menyimpan sebagian berkas dan konfigurasi Anda dalam "
+"Penyimpanan Persisten terenkripsi di stik USB Tails Anda, misalnya:\n"
 "\n"
-"- Dokumen Anda\n"
+"-  Dokumen Anda\n"
 "-  Kata sandi Wi-Fi Anda\n"
-"-  Bookmark peramban Anda\n"
+"-  Markah buku peramban Anda\n"
 "-  ...\n"
 "\n"
 "<a href=\"doc/persistent_storage\">Pelajari lebih lanjut tentang Penyimpanan "
@@ -3670,7 +3656,7 @@ msgstr "Tidak ada"
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:242
 #, fuzzy
 msgid "Ask for a bridge based on your _region"
-msgstr "_Minta bridge Tor melalui email"
+msgstr "Minta bridge Tor berdasarkan _wilayah Anda"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:301
 #, fuzzy
@@ -3726,69 +3712,66 @@ msgid "This local network seems to be blocking access to Tor."
 msgstr "Jaringan lokal Anda memblokir akses ke Tor."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:811
-#, fuzzy
 msgid "Error connecting to Tor with this bridge"
-msgstr "Menyambung ke Tor tanpa bridge…"
+msgstr "Galat saat menghubungkan ke Tor dengan bridge ini"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:827
 msgid ""
 "Either this Tor bridge is not working or your network is blocking access to "
 "it."
 msgstr ""
+"Bridge Tor ini tidak berfungsi atau jaringan Anda memblokir akses ke bridge "
+"tersebut."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:856
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:930
-#, fuzzy
 msgid "Try configuring another bridge."
-msgstr "Konfigurasikan Jembatan Tor"
+msgstr "Coba konfigurasi bridge lain."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:884
-#, fuzzy
 msgid "Error connecting to Tor with default bridges"
-msgstr "Menyambung ke Tor dengan bridge default…"
+msgstr "Galat saat menghubungkan ke Tor dengan bridge bawaan"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:900
-#, fuzzy
 msgid "Your network is blocking access to Tor and the default bridges."
-msgstr "Jaringan lokal Anda memblokir akses ke Tor."
+msgstr "Jaringan Anda memblokir akses ke Tor dan bridge bawaan."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:916
-#, fuzzy
 msgid "Bridge: <b>default bridges</b>"
-msgstr "Gunakan _default bridge"
+msgstr "Bridge: <b>bridge bawaan</b>"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:958
-#, fuzzy
 msgid "Error connecting to Tor with bridges"
-msgstr "Menyambung ke Tor tanpa bridge…"
+msgstr "Galat saat menghubungkan ke Tor dengan bridge"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:974
 msgid "None of the bridges recommended for this region worked."
 msgstr ""
+"Tidak ada bridge yang direkomendasikan untuk wilayah ini yang berfungsi."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:990
 msgid "Try another region or getting a bridge by mail."
-msgstr ""
+msgstr "Coba wilayah lain atau dapatkan bridge melalui email."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1018
-#, fuzzy
 msgid "Error asking for a bridge"
-msgstr "Kesalahan saat memeriksa pembaruan"
+msgstr "Galat saat meminta bridge"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1034
 msgid "Tails failed to ask for a bridge based on your region."
-msgstr ""
+msgstr "Tails gagal meminta bridge berdasarkan wilayah Anda."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1050
 msgid ""
 "Please, <a href=\"support/talk\">report this error</a> and try asking for a "
 "bridge by email."
 msgstr ""
+"Silakan <a href=\"support/talk\">laporkan galat ini</a> dan coba minta "
+"bridge melalui email."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1087
-#, fuzzy
 msgid "Open _details"
-msgstr "Buka Tails Cloner"
+msgstr "Buka _detail"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1142
 msgid "• Wrong clock"
@@ -3835,9 +3818,8 @@ msgid "Configure a Local _Proxy"
 msgstr "Konfigurasikan Proksi Lokal _"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1374
-#, fuzzy
 msgid "• Tor bridge"
-msgstr "• Bridge Tor melalui email"
+msgstr "• Bridge Tor"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1394
 msgid ""
@@ -3852,7 +3834,7 @@ msgstr ""
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1410
 #, fuzzy
 msgid "Configure a Tor _Bridge"
-msgstr "Konfigurasikan Jembatan Tor"
+msgstr "Konfigurasikan Bridge Tor"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1449
 msgid ""

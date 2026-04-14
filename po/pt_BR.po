@@ -36,13 +36,14 @@
 # yyyyyyyan <contact@yyyyyyyan.tech>, 2020
 # emma peel <emma.peel@riseup.net>, 2025, 2026.
 # Eduardo Addad de Oliveira <duduaddad@gmail.com>, 2026.
+# gus <gus@torproject.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-07 12:41+0200\n"
-"PO-Revision-Date: 2026-04-03 09:12+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2026-04-09 00:09+0000\n"
+"Last-Translator: gus <gus@torproject.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/tor/"
 "tails-gui/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -1510,7 +1511,7 @@ msgid "Could not open device for writing."
 msgstr "Não foi possível abrir o dispositivo para escrita."
 
 #: config/chroot_local-includes/usr/local/bin/secrets:19
-#, fuzzy, sh-format
+#, sh-format
 msgid ""
 "You have a <i>KeePassXC</i> or <i>Secrets</i> database in your "
 "<i>Persistent</i> folder:\n"
@@ -1520,14 +1521,13 @@ msgid ""
 "Renaming your database to <i>${default_filename}</i> allows <i>Secrets</i> "
 "to open it automatically in the future."
 msgstr ""
-"<b><big>Você deseja renomear sua database do <i>KeePassXC</i> ?</big></b>\n"
-"\n"
-"Você tem uma database do <i>KeePassXC</i> na sua <i>pasta</i> Persistente:\n"
+"Você tem um banco de dados do <i>KeePassXC</i> ou <i>Secrets</i> na sua "
+"pasta <i>Persistente:</i>\n"
 "\n"
 "<i>${filename}</i>\n"
 "\n"
-"Renomeando sua database para <i>${default_filename}</i> permitirá o "
-"<i>KeePassXC</i> abrir automaticamente no futuro."
+"Renomeando seu banco de dados para <i>${default_filename}</i> permitirá o "
+"<i>Secrets</i> abrir automaticamente no futuro."
 
 #: config/chroot_local-includes/usr/local/bin/secrets:25
 msgid "Rename"
@@ -3021,7 +3021,6 @@ msgstr ""
 "a rede para obter maior segurança."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:514
-#, fuzzy
 msgid ""
 "The Unsafe Browser allows you to sign in to a network using a captive "
 "portal.\n"
@@ -3033,19 +3032,15 @@ msgid ""
 "The Unsafe Browser is not anonymous and can deanonymize you. Use it only to "
 "sign in to networks."
 msgstr ""
-"O navegador inseguro permite que você faça login em uma rede usando um "
+"O Navegador Inseguro permite que você faça login em uma rede usando um "
 "portal cativo.\n"
 "\n"
-"Um portal cativo é uma página da Web que é exibida antes que você possa "
-"acessar a Internet. Os portais cativos geralmente exigem que você faça login "
-"na rede ou insira informações como um endereço de e-mail.\n"
+"Um portal cativo é uma página da Web exibida antes que você possa acessar a "
+"Internet. Os portais cativos geralmente exigem que você faça login na rede "
+"ou insira informações como um endereço de e-mail.\n"
 "\n"
-"O navegador inseguro não é anônimo e pode remover seu anonimato. Use-o "
-"apenas para entrar em redes.\n"
-"\n"
-"O navegador inseguro está habilitado por padrão novamente desde o Tails 5.8 "
-"(dezembro de 2022), depois que corrigimos as vulnerabilidades de segurança "
-"que nos faziam desativá-lo por padrão no Tails 4.8 (junho de 2020)."
+"O Navegador Inseguro não é anônimo e pode desanonimizá-lo. Use-o apenas para "
+"fazer login em redes."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:560
 msgid "Enable the Unsafe Browser (default)"
@@ -3676,7 +3671,6 @@ msgid "Configure a Tor bridge"
 msgstr "Configure uma _ponte Tor"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:106
-#, fuzzy
 msgid ""
 "Bridges are secret Tor relays. Use a bridge as your first Tor relay if "
 "accessing Tor is blocked from where you are.\n"
@@ -3685,7 +3679,8 @@ msgid ""
 msgstr ""
 "As pontes são retransmissores secretos do Tor. Use uma ponte como seu "
 "primeiro retransmissor do Tor se o acesso à rede Tor estiver bloqueado no "
-"local onde você está."
+"local onde você está.\n"
+"Você pode usar pontes <i>obfs4</i> e <i>WebTunnel</i> no Tails.\n"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:126
 msgid "<a href=\"doc/anonymous_internet/tor\">Learn more about Tor bridges</a>"
@@ -4035,7 +4030,6 @@ msgid ""
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1979
-#, fuzzy
 msgid ""
 "\n"
 "<a href=\"doc/anonymous_internet/no-wifi\">\n"
@@ -4043,8 +4037,10 @@ msgid ""
 "</a>\n"
 "                "
 msgstr ""
-"<a href=\"doc/anonymous_internet/tor\">Saiba mais sobre como o Tails se "
-"conecta à rede Tor</a>"
+"\n"
+"<a href=\"doc/anonymous_internet/no-wifi\">\n"
+"Saiba mais sobre como solucionar problemas de Wi-Fi que não conecta.\n"
+"</a>"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2007
 msgid "Connect to a local network"
