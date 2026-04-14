@@ -253,13 +253,33 @@ Coordinate with Debian security updates
 If the person responsible for Frontdesk is available this section can
 be delegated to them.
 
+### Released security updates
+
+For each recent
+[Debian Security Advisory (DSA)](https://www.debian.org/security/#DSAS)
+that applies to a package we ship in our images:
+check that the latest build from the release branch has the update.
+
+If an update is missing, most likely it's a race condition and the next build
+will have it. We will verify this later.
+
+But if even a fresh build lacks the needed update, we have a problem.
+It could be that the [[time-based APT snapshots|contribute/APT_repository/time-based_snapshots]]
+for the `debian-security` archive have a problem. To investigate, you can:
+
+- Check
+   [when the last successful update happened](https://time-based.snapshots.deb.tails.boum.org/debian-security/project/trace/debian-security).
+- `ssh reprepro-time-based-snapshots@incoming.deb.tails.boum.org` and there:
+   - check the logs in `repositories/debian-security/logs/`
+   - check the services: `systemctl status tails-update-time-based-apt-snapshots-debian-security-*.timer tails-update-time-based-apt-snapshots-debian-security-*.service`
+
+### Upcoming security updates
+
 Look at the [list of upcoming Debian Security Advisories (DSA)][DSA needed]
-found in the Debian [security tracker][web]'s [Git repository][git] and in
-the [debian-security-announce mailing list][ml]. Looking at recent
+found in the Debian [security tracker][web]'s [Git repository][git]. Looking at recent
 commits in [the Git history][DSA needed history] can reveal DSAs that
 just have been assigned but that haven't been published yet.
 
-[ml]: https://lists.debian.org/debian-security-announce/recent
 [web]: https://security-tracker.debian.org/tracker/
 [git]: https://salsa.debian.org/security-tracker-team/security-tracker
 [DSA needed]: https://salsa.debian.org/security-tracker-team/security-tracker/blob/master/data/dsa-needed.txt
