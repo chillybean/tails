@@ -52,4 +52,4 @@ Related documentation
 /confidential
 /label ~"Tails Team"
 /label ~"To Do"
-/label ~"Elevated"
+/label ~"P:Elevated"
