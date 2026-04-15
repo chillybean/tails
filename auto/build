@@ -22,15 +22,6 @@ exec 2> >(tee -a "$BUILD_LOG" >&2)
 # shellcheck disable=SC2064
 trap "kill -9 $! 2>/dev/null" EXIT HUP INT QUIT TERM
 
-### functions
-
-print_iso_size() {
-    local isofile="$1"
-    [ -f "$isofile" ] || return 23
-    size=$(stat --printf='%s' "$isofile")
-    echo "I: The ISO is ${size} bytes large."
-}
-
 ### Main
 
 # we require building from git
@@ -202,9 +193,6 @@ echo "I: Building ISO image ${BUILD_ISO_FILENAME}..."
 time lb build noauto "${@}"
 BUILD_EXIT_CODE=$?
 [ -e binary.iso ] || fatal "lb build failed (${BUILD_EXIT_CODE})."
-
-echo "I: ISO image was successfully created"
-print_iso_size binary.iso
 
 echo "I: Renaming generated files..."
 mv -i binary.iso "${BUILD_ISO_FILENAME}"
