@@ -11,9 +11,6 @@ export SOURCE_DATE_YYYYMMDD="$(date --utc --date="$(dpkg-parsechangelog --show-f
 CMDLINE_APPEND_NON_REMOVABLE="nopersistence noprompt timezone=Etc/UTC splash noautologin module=Tails slab_nomerge slub_debug=FZ mce=0 vsyscall=none init_on_free=1 mds=full,nosmt page_alloc.shuffle=1 randomize_kstack_offset=on efi_pstore.pstore_disable=1 erst_disable spec_store_bypass_disable=on systemd.condition_needs_update=no"
 CMDLINE_APPEND="live-media=removable ${CMDLINE_APPEND_NON_REMOVABLE}"
 
-# Options passed to isohybrid
-ISOHYBRID_OPTS="-h 255 -s 63 --id 42 --verbose"
-
 # Kernel version
 #
 # Example: 6.1.0-26

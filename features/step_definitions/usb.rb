@@ -917,14 +917,13 @@ Then /^Tails is running from (.*) drive "([^"]+)"$/ do |bus, name|
   expected_bus = bus == 'sata' ? 'ata' : bus
   assert_equal(expected_bus, boot_device_type)
   actual_dev = boot_device
-  # The boot partition differs between an using Tails installer and
-  # isohybrids. There's also a strange case isohybrids are thought to
-  # be booting from the "raw" device, and not a partition of it
-  # (#10504).
-  expected_devs = ['', '1', '4'].map { |e| $vm.disk_dev(name) + e }
-  assert(expected_devs.include?(actual_dev),
-         "We are running from device #{actual_dev}, but for #{bus} drive " \
-         "'#{name}' we expected to run from one of #{expected_devs}")
+  expected_dev = "#{$vm.disk_dev(name)}1"
+  assert_equal(
+    expected_dev,
+    actual_dev,
+    "We are running from device #{actual_dev}, but for #{bus} drive " \
+    "'#{name}' we expected to run from  #{expected_dev}"
+  )
 end
 
 Then /^the boot device has safe access rights$/ do
