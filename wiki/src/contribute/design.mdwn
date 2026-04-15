@@ -881,7 +881,7 @@ to click through needlessly scary security warnings.
 If a compromised software had access to the Tor control port,
 an attacker who controls it could simply ask Tor the public
 IP through the `GETINFO address` command.
-To prevent this, access to the Tor control port is only
+To prevent this, direct unfiltered access to the Tor control port is only
 granted to the `root` user, as well as to the
 members of the `debian-tor` group (via the control socket).
 
