@@ -75,6 +75,7 @@ chmod -R go+rx config/chroot_local-includes/lib/live/config
 chmod go+rX config/chroot_local-includes/lib/live/mount
 chmod -R go+rX config/chroot_local-includes/lib/systemd
 chmod go+rX config/chroot_local-includes/live
+chmod -R u=rwX,go= config/chroot_local-includes/root
 chmod -R go+rX config/chroot_local-includes/usr
 chmod -R go+rx config/chroot_local-includes/usr/local/bin
 chmod -R go+rx config/chroot_local-includes/usr/local/sbin
