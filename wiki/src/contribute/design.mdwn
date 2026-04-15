@@ -885,8 +885,8 @@ To prevent this, direct unfiltered access to the Tor control port is only
 granted to the `root` user, as well as to the
 members of the `debian-tor` group (via the control socket).
 
-`onion-grater`, a filtering proxy to the control port runs on port 951,
-so for instance
+Additionally, `onion-grater`, a filtering proxy to the control port, runs on port 951,
+so that for instance
 Tor Browser still can perform safe commands like `SIGNAL NEWNYM`. It
 allows defining fine-grained lists of allowed commands (and their
 arguments) and events on a per-application basis, which can enforce
