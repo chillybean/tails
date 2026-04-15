@@ -22,10 +22,6 @@ PROFILE="${HOME}/.tor-browser/profile.default"
 export TOR_CONTROL_HOST='127.0.0.1'
 export TOR_CONTROL_PORT='951'
 export TOR_CONTROL_PASSWD='passwd'
-# Hide Torbutton's "Tor Network Settings..." context menu entry since
-# it doesn't work in Tails, and we deal with those configurations
-# externally through TCA.
-export TOR_NO_DISPLAY_NETWORK_SETTINGS='yes'
 # Enabling Wayland support to make (among other things, presumably)
 # the GNOME on-screen keyboard work.
 export MOZ_ENABLE_WAYLAND=1
