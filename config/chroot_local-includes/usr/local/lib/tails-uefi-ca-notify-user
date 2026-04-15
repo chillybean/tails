@@ -69,8 +69,7 @@ class UefiCaNotifier:
         elif action == "documentation":
             subprocess.run(
                 [
-                    "/usr/local/lib/run-with-user-env",
-                    "tails-documentation",
+                    "/usr/local/bin/tails-documentation",
                     "https://tails.net/support/known_issues/secure_boot_certificate/",
                 ],
                 check=False,
