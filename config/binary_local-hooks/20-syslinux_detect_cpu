@@ -24,19 +24,9 @@ Set_defaults
 # Seems like we'll have work to do
 Echo_message "adding CPU autodetection to the syslinux menu"
 
-# Setting boot method specific variables
-case "${LB_BINARY_IMAGES}" in
-	iso|iso-hybrid)
-		SYSLINUX_PATH="binary/isolinux"
-		SYSLINUX_CFG="${SYSLINUX_PATH}/isolinux.cfg"
-		;;
-	usb-hdd)
-		SYSLINUX_PATH="binary/syslinux"
-		SYSLINUX_CFG="${SYSLINUX_PATH}/syslinux.cfg"
-		;;
-esac
-
 # Setting variables
+SYSLINUX_PATH="binary/isolinux"
+SYSLINUX_CFG="${SYSLINUX_PATH}/isolinux.cfg"
 SYSLINUX_LIVE_CFG="${SYSLINUX_PATH}/live.cfg"
 SYSLINUX_MENU_CFG="${SYSLINUX_PATH}/menu.cfg"
 
