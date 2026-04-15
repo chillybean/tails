@@ -25,11 +25,11 @@ _ = gettext.gettext
 
 class UefiCaNotifier:
     def __init__(self, status: Detection, show_suppress_button=False):
-        self.title = _("Secure Boot Migration")
+        self.title = _("Secure Boot Update Needed")
         self.body = _(
             "Tails will no longer start on this computer at some point in "
             "the future. Apply all available updates from your regular "
-            "operating system to migrate to the latest Secure Boot certificate "
+            "operating system to update to the latest Secure Boot certificate "
             "of Microsoft.",
         )
 
