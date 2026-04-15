@@ -88,7 +88,9 @@ def main():
     status = Detection(**json.loads(output))
     if not status.action_needed:
         return
+    mainloop = GLib.MainLoop.new(None, False)
     UefiCaNotifier(status=status)
+    mainloop.run()
 
 
 if __name__ == "__main__":

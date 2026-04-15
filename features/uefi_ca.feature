@@ -11,7 +11,6 @@ Feature: User gets actionable info about UEFI CA expiry
         And I log in to a new session
         And all notifications have disappeared
         And I unblock tails-uefi-ca-notify
-        Then I wait until amnesia's tails-uefi-ca-notify-user.service has completed
         Then I see the "Secure Boot Migration" notification after at most 10 seconds
         And I can open the Secure Boot documentation from the notification
 
