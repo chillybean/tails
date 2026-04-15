@@ -135,7 +135,7 @@ roughly the same protection level as e.g. the Tor Browser Bundle, but
 provides a full-blown Tor-ified operating system instead of a few
 selected and carefully configured applications; this e.g. allows to
 safely download and open files using external applications, as
-mentioned by the Torbutton warning popup when a user attempts such an
+mentioned by the Tor Browser warning popup when a user attempts such an
 operation outside the PELD.
 
 About protection from post-shutdown data recovery, thanks to its
@@ -887,7 +887,7 @@ members of the `debian-tor` group (via the control socket).
 
 `onion-grater`, a filtering proxy to the control port runs on port 951,
 so for instance
-Torbutton still can perform safe commands like `SIGNAL NEWNYM`. It
+Tor Browser still can perform safe commands like `SIGNAL NEWNYM`. It
 allows defining fine-grained lists of allowed commands (and their
 arguments) and events on a per-application basis, which can enforce
 rules like "this `$user` (e.g. `amnesia`) when running this

@@ -16,8 +16,8 @@ PROFILE="${HOME}/.tor-browser/profile.default"
 # shellcheck source=../local/lib/tails-shell-library/tor-browser.sh
 . /usr/local/lib/tails-shell-library/tor-browser.sh
 
-# Allow Torbutton access to the control port filter (for new identity).
-# Setting a password is required, otherwise Torbutton attempts to
+# Allow Tor Browser access to the control port filter (for new identity).
+# Setting a password is required, otherwise Tor Browser attempts to
 # read the authentication cookie file instead, which fails.
 export TOR_CONTROL_HOST='127.0.0.1'
 export TOR_CONTROL_PORT='951'
@@ -30,7 +30,7 @@ export TOR_NO_DISPLAY_NETWORK_SETTINGS='yes'
 # the GNOME on-screen keyboard work.
 export MOZ_ENABLE_WAYLAND=1
 
-# Torbutton 1.5.1+ uses those environment variables
+# Tor Browser uses those environment variables
 export TOR_SOCKS_HOST='127.0.0.1'
 export TOR_SOCKS_PORT='9050'
 
