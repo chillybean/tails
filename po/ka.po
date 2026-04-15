@@ -8,13 +8,15 @@
 # Georgianization, 2019-2022
 # Alan <georgianization@outlook.com>, 2025, 2026.
 # emma peel <emma.peel@riseup.net>, 2026.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2026.
+# Weblate <noreply-mt-weblate@weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-07 12:41+0200\n"
-"PO-Revision-Date: 2026-04-03 09:12+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2026-04-13 11:09+0000\n"
+"Last-Translator: Alan <georgianization@outlook.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/tor/tails-gui/"
 "ka/>\n"
 "Language: ka\n"
@@ -50,18 +52,16 @@ msgid "Configure"
 msgstr "გაწყობა"
 
 #: config/chroot_local-includes/usr/local/lib/change-apps-menu-name:25
-#, fuzzy
 msgid "Password Manager"
-msgstr "პაროლი"
+msgstr "პაროლების მმართველი"
 
 #: config/chroot_local-includes/usr/local/lib/change-apps-menu-name:26
-#, fuzzy
 msgid "password"
 msgstr "პაროლი"
 
 #: config/chroot_local-includes/usr/local/lib/change-apps-menu-name:26
 msgid "password-manager"
-msgstr ""
+msgstr "პაროლის-მმართველი"
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:57
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:95
@@ -424,9 +424,7 @@ msgstr ""
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:370
 msgid "Tails was started from a DVD or a read-only device"
-msgstr ""
-"Tails გაშვებულია DVD-იდან ან სხვა მხოლოდ წაკითხვის შესაძლებლობის მქონე "
-"მოწყობილობიდან"
+msgstr "Tails გაშვებულია DVD-იდან ან სხვა მხოლოდ წასაკითხი მოწყობილობიდან"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:375
 msgid "there is not enough free space on the Tails system partition"
@@ -550,11 +548,11 @@ msgid ""
 "\n"
 "To learn how to do a manual upgrade, go to {manual_upgrade_url}"
 msgstr ""
-"<b>ხელით უნდა განაახლოთ ბოლო ვერსიაზე {name}.</b>\n"
+"<b>ხელით უნდა განაახლოთ ბოლო ვერსიამდე {name}.</b>\n"
 "\n"
 "ვრცლად ამ ახალი ვერსიის შესახებ იხილეთ {details_url}\n"
 "\n"
-"შეუძლებელია თქვენი Tails ავტომატურად განახლდეს ამ ახალ ვერსიაზე: "
+"თქვენი Tails თავისით განახლებას ვერ მოახერხებს ახალ ვერსიამდე: "
 "{explanation}.\n"
 "\n"
 "თუ როგორ უნდა განაახლოთ ხელით, იხილეთ {manual_upgrade_url}"
@@ -1225,12 +1223,12 @@ msgstr "Tails-ის ასლის გადამღები"
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:393
 #: ../config/chroot_local-includes/usr/share/tails-installer/tails-installer.ui.in:164
 msgid "Clone the current Tails"
-msgstr "მიმდინარე Tails-ის ასლი"
+msgstr "აიღოს არსებული Tails-ის ასლი"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:401
 #: ../config/chroot_local-includes/usr/share/tails-installer/tails-installer.ui.in:200
 msgid "Use a downloaded Tails ISO image"
-msgstr "Tails-ის ჩამოტვირთული ISO-გამოსახულების გამოყენება"
+msgstr "გამოიყენოს ჩამოტვირთული Tails-ISO-ასლი"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:453
 msgid "Upgrade"
@@ -1459,7 +1457,7 @@ msgid "Could not open device for writing."
 msgstr "მოწყობილობის ჩასაწერად გახსნა ვერ ხერხდება."
 
 #: config/chroot_local-includes/usr/local/bin/secrets:19
-#, fuzzy, sh-format
+#, sh-format
 msgid ""
 "You have a <i>KeePassXC</i> or <i>Secrets</i> database in your "
 "<i>Persistent</i> folder:\n"
@@ -1469,16 +1467,13 @@ msgid ""
 "Renaming your database to <i>${default_filename}</i> allows <i>Secrets</i> "
 "to open it automatically in the future."
 msgstr ""
-"<b><big>გსურთ, სახელი გადაარქვათ თქვენს <i>KeePassXC</i> -მონაცემთა კრებულს?"
-"</big></b>\n"
-"\n"
-"თქვენი <i>KeePassXC</i> მონაცემთა კრებული მდებარეობს <i>მუდმივ</i> "
-"მეხსიერებაზე საქაღალდეში:\n"
+"მონაცემთა კრებული <i>KeePassXC</i> ან <i>Secrets</i> თქვენს <i>მუდმივ</i> "
+"საქაღალდეში:\n"
 "\n"
 "<i>${filename}</i>\n"
 "\n"
-"თუ <i>${default_filename}</i> გადაერქმევა, <i>KeePassXC</i> შეძლებს "
-"ავტომატურად გახსნას მომავალში."
+"თუ გადაერქმევა და დაერქმევა <i>${default_filename}</i>, ამით <i>Secrets</i> "
+"შეძლებს თავადვე გახსნას მომავალში."
 
 #: config/chroot_local-includes/usr/local/bin/secrets:25
 msgid "Rename"
@@ -1490,7 +1485,7 @@ msgstr "არსებული სახელის დატოვება"
 
 #: config/chroot_local-includes/usr/local/bin/secrets:29
 msgid "Rename Password Database?"
-msgstr ""
+msgstr "გადაერქვას პაროლების კრებულს?"
 
 #: config/chroot_local-includes/usr/local/bin/replace-su-with-sudo:19
 msgid "su is disabled. Please use sudo instead."
@@ -1872,7 +1867,7 @@ msgstr "შეცდომა:"
 
 #: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:24
 msgid "Warning: virtual machine detected!"
-msgstr "ყურადღება: აღმოჩენილია ვირტუალური მანქანა!"
+msgstr "ყურადღება: შემჩნეულია ვირტუალური მანქანა!"
 
 #: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:26
 msgid "Warning: non-free virtual machine detected!"
@@ -1902,11 +1897,11 @@ msgstr "თვითშერჩევა"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:284
 msgid "Frequently selected regions"
-msgstr ""
+msgstr "ხშირად შერჩეული მხარეები"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:291
 msgid "Other regions"
-msgstr ""
+msgstr "სხვა მხარეები"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:369
 msgid "_Use a bridge that you already know"
@@ -1962,9 +1957,8 @@ msgid "Synchronizing the system's clock…"
 msgstr "სინქრონიზდება სისტემის საათი…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:726
-#, fuzzy
 msgid "Asking for a Tor bridge based on your region…"
-msgstr "Tor-ხიდის _მოთხოვნა ელფოსტით"
+msgstr "Tor-ხიდის მოთხოვნა მხარეების მიხედვით…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:774
 msgid "Connecting to Tor without bridges…"
@@ -1976,9 +1970,8 @@ msgid "Connecting to Tor with default bridges…"
 msgstr "უკავშირდება Tor-ს ნაგულისხმევი ხიდებით…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:789
-#, fuzzy
 msgid "Connecting to Tor with a bridge based on your region…"
-msgstr "უკავშირდება Tor-ს ნაგულისხმევი ხიდებით…"
+msgstr "უკავშირდება Tor-ს ხიდით თქვენს მხარეში…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:796
 msgid "Connecting to Tor with a custom bridge…"
@@ -2005,21 +1998,21 @@ msgstr ""
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:985
 #, python-brace-format
 msgid "Bridge: <b>{bridge}</b>"
-msgstr ""
+msgstr "ხიდი: <b>{bridge}</b>"
 
 #. Translators: only translate "Error code:" and adjust
 #. text-direction
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:997
 #, python-brace-format
 msgid "Error code: {code}"
-msgstr ""
+msgstr "შეცდომის კოდი: {code}"
 
 #. Translators: only translate "Proxy:" and adjust
 #. text-direction
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1024
 #, python-brace-format
 msgid "Proxy: <b>{proxy}</b>"
-msgstr ""
+msgstr "შუამავალი: <b>{proxy}</b>"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1323
 #, python-brace-format
@@ -2936,10 +2929,10 @@ msgid ""
 "might also create connectivity problems or look suspicious."
 msgstr ""
 "MAC-მისამართის გაუმხელობა ფარავს თქვენი ქსელის მოწყობილობების (უსადენოს ან "
-"სადენიანის) სერიულ ნომერს, ადგილობრივ ქსელში. ზოგადად, MAC-მისამართების "
+"სადენიანის) სერიულ ნომერს ადგილობრივ ქსელში. საზოგადოდ, MAC-მისამართების "
 "გაუმხელობა აუმჯობესებს უსაფრთხოებას და გეხმარებათ საკუთარი მდებარეობის უკეთ "
-"შენიღბვაში. თუმცა, შესაძლოა ხარვეზები გამოიწვიოს დაკავშირებისას ან ზედმეტი "
-"ყურადღება მიიპყროს."
+"შენიღბვაში. მიუხედავად ამისა, შესაძლოა, ხარვეზები ახლდეს დაკავშირებისას ან "
+"ზედმეტი ყურადღება მიიპყროს."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:244
 msgid "Anonymize all MAC addresses (default)"
@@ -2958,8 +2951,8 @@ msgid ""
 "If you want to work completely offline, you can disable all networking for "
 "increased security."
 msgstr ""
-"თუ გსურთ სრულად კავშირგარეშე დარჩენა, შეგიძლიათ გათიშოთ ქსელთან ყველა "
-"წვდომა, უსაფრთხოების ასამაღლებლად."
+"თუ გსურთ სრულად კავშირგარეშე დარჩენა, შეგიძლიათ გათიშოთ ქსელთან ყველანაირი "
+"წვდომა უსაფრთხოების ასამაღლებლად."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:514
 msgid ""
@@ -3023,8 +3016,8 @@ msgid ""
 "passwords, and so on."
 msgstr ""
 "შეგიძლიათ შეინახოთ ფაილებისა და გამართვის მონაცემების ნაწილი დაშიფრულ მუდმივ "
-"საცავში, რომელსაც Tails ათავსებს USB-მოწყობილობაზე: თქვენი დოკუმენტები, "
-"ბრაუზერის სანიშნები WiFi-პაროლები და ა. შ."
+"საცავში, რომელსაც Tails მოათავსებს USB-მოწყობილობაზე. მათ შორის: თქვენი "
+"დოკუმენტები, ბრაუზერის სანიშნები, WiFi-პაროლები და ა. შ."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:314
 msgid "Create and configure a Persistent Storage after starting Tails"
@@ -3409,11 +3402,11 @@ msgid ""
 "<a href=\"doc/persistent_storage\">Learn more about the Persistent Storage.</"
 "a>"
 msgstr ""
-"რასაც მოიმოქმედებთ, ყველაფერი უკვალოდ გაქრება, როცა დაიხურება Tails.\n"
+"რაც არ უნდა მოიმოქმედოთ, ყველაფერი უკვალოდ გაქრება, როცა დაიხურება Tails.\n"
 "\n"
 "მიუხედავად ამისა, შეგიძლიათ შეინარჩუნოთ ფაილებისა თუ გამართვის მონაცემების "
 "ნაწილი დაშიფრულ მუდმივ საცავში, რომელსაც Tails ათავსებს USB-მოწყობილობაზე. "
-"მაგალითად, ასეთია:\n"
+"მათ შორის:\n"
 "\n"
 "• თქვენი დოკუმენტები\n"
 "• თქვენი WiFi-პაროლები\n"
@@ -3601,9 +3594,8 @@ msgid "TrueCrypt/VeraCrypt container"
 msgstr "TrueCrypt/VeraCrypt-ის სათავსი"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:82
-#, fuzzy
 msgid "Configure a Tor bridge"
-msgstr "Tor-ხიდის _გამართვა"
+msgstr "Tor-ხიდის გამართვა"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:106
 msgid ""
@@ -3640,14 +3632,12 @@ msgid "None"
 msgstr "არა"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:242
-#, fuzzy
 msgid "Ask for a bridge based on your _region"
-msgstr "Tor-ხიდის _მოთხოვნა ელფოსტით"
+msgstr "ხიდის მოთხოვნა _მხარეების მიხედვით"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:301
-#, fuzzy
 msgid "_Ask for a bridge by email"
-msgstr "Tor-ხიდის _მოთხოვნა ელფოსტით"
+msgstr "ხიდის _მოთხოვნა ელფოსტით"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:320
 msgid ""
@@ -3698,69 +3688,63 @@ msgid "This local network seems to be blocking access to Tor."
 msgstr "ამ ადგილობრივ ქსელში ჩანს, იზღუდება Tor-თან კავშირი."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:811
-#, fuzzy
 msgid "Error connecting to Tor with this bridge"
-msgstr "უკავშირდება Tor-ს ხიდების გარეშე…"
+msgstr "შეცდომა Tor-თან მიერთებისას ამ ხიდით"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:827
 msgid ""
 "Either this Tor bridge is not working or your network is blocking access to "
 "it."
-msgstr ""
+msgstr "ან ეს Tor-ხიდი არ მუშაობს, ან თქვენს ქსელშია შეზღუდული მასთან წვდომა."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:856
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:930
-#, fuzzy
 msgid "Try configuring another bridge."
-msgstr "Tor-ხიდის გამართვა"
+msgstr "სცადეთ სხვა ხიდის გამართვა."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:884
-#, fuzzy
 msgid "Error connecting to Tor with default bridges"
-msgstr "უკავშირდება Tor-ს ნაგულისხმევი ხიდებით…"
+msgstr "შეცდომა Tor-თან მიერთებისას ნაგულისხმევი ხიდებით"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:900
-#, fuzzy
 msgid "Your network is blocking access to Tor and the default bridges."
-msgstr "თქვენი ადგილობრივი ქსელი ზღუდავს Tor-თან წვდომას."
+msgstr "თქვენს ქსელშია შეზღუდული Tor-თან წვდომა და ნაგულისხმევი ხიდები."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:916
-#, fuzzy
 msgid "Bridge: <b>default bridges</b>"
-msgstr "_ნაგულისხმევი ხიდის გამოყენება"
+msgstr "ხიდი: <b>ნაგულისხმევი ხიდები</b>"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:958
-#, fuzzy
 msgid "Error connecting to Tor with bridges"
-msgstr "უკავშირდება Tor-ს ხიდების გარეშე…"
+msgstr "შეცდომა Tor-თან ხიდებით მიერთებისას"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:974
 msgid "None of the bridges recommended for this region worked."
-msgstr ""
+msgstr "არცერთი ეს ხიდი არაა სასურველი ამ მხარეში სამუშაოდ."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:990
 msgid "Try another region or getting a bridge by mail."
-msgstr ""
+msgstr "სცადეთ სხვა მხარე ან მიიღეთ ხიდი ფოსტით."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1018
-#, fuzzy
 msgid "Error asking for a bridge"
-msgstr "შეცდომა განახლებების ძიებისას"
+msgstr "შეცდომა ხიდის მოთხოვნისას"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1034
 msgid "Tails failed to ask for a bridge based on your region."
-msgstr ""
+msgstr "Tails ვერ ახერხებს ხიდის თქვენს მხარეში მომუშავე ხიდის მოთხოვნას."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1050
 msgid ""
 "Please, <a href=\"support/talk\">report this error</a> and try asking for a "
 "bridge by email."
 msgstr ""
+"გთხოვთ, <a href=\"support/talk\">მოგვახსენოთ ეს შეცდომა</a> და სცადოთ ხიდის "
+"მოთხოვნა ელფოსტით."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1087
-#, fuzzy
 msgid "Open _details"
-msgstr "Tails-ის ასლის ამღები"
+msgstr "გახსენით _ვრცლად"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1142
 msgid "• Wrong clock"
@@ -3807,9 +3791,8 @@ msgid "Configure a Local _Proxy"
 msgstr "ადგილობრივი _პროქსის გამართვა"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1374
-#, fuzzy
 msgid "• Tor bridge"
-msgstr "• Tor-ხიდი ელფოსტით"
+msgstr "• Tor-ხიდი"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1394
 msgid ""
@@ -3822,9 +3805,8 @@ msgstr ""
 "ქვეყანაში, ღია და საჯარო ქსელებში ან ზედამხედველობის გარკვეული საშუალებებით."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1410
-#, fuzzy
 msgid "Configure a Tor _Bridge"
-msgstr "Tor-ხიდის გამართვა"
+msgstr "Tor-ხიდის _გამართვა"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1449
 msgid ""
@@ -3838,7 +3820,7 @@ msgstr ""
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1902
 msgid ""
 "Everything you do on the Internet from Tails goes through the Tor network."
-msgstr "ყველაფერი რასაც ინტერნეტში Tails-ით აკეთებთ, გაივლის Tor-ქსელს."
+msgstr "ყველა მოქმედება, რისთვისაც Tails გამოიყენება, Tor-ქსელის გავლითაა."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1508
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1917
@@ -3847,9 +3829,9 @@ msgid ""
 "Tor relays are servers operated by different organizations and volunteers "
 "around the world."
 msgstr ""
-"Tor შიფრავს და ფარავს ვინაობას კავშირების 3 გადამცემით გატარებისას.\n"
-"Tor გადამცემები წარმოადგენს სერვერებს, რომელთაც მართავს სხვადასხვა "
-"დაწესებულებები და მოხალისეები, მთელი მსოფლიოდან."
+"Tor შიფრავს და ფარავს ვინაობას კავშირების 3 გადამცემის გავლით გატარებისას.\n"
+"Tor-გადამცემები იგივე სერვერებია, გაშვებული სხვადასხვა დაწესებულებისა თუ "
+"მოხალისის მიერ მთელ მსოფლიოში."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1544
 msgid "<b>Connect to Tor _automatically</b>"
@@ -3860,9 +3842,8 @@ msgid ""
 "We recommend connecting to Tor automatically if you are on a public Wi-Fi "
 "network or if many people in your country use Tor to circumvent censorship."
 msgstr ""
-"გირჩევთ დაუკავშირდეთ Tor-ს ავტომატურად, თუ იმყოფებით საჯარო WiFi-ქსელში ან "
-"თქვენს ქვეყანაში, ბევრი ადამიანი სარგებლობს Tor-ით, ცენზურისთვის გვერდის "
-"ავლისთვის."
+"გირჩევთ დაუკავშირდეთ Tor-ს ავტომატურად, თუ იმყოფებით საჯარო WiFi-ქსელში "
+"ანდაც, თუ თქვენს ქვეყანაში ბევრი სარგებლობს Tor-ით შეზღუდვების არიდებისას."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1612
 msgid ""
@@ -3871,10 +3852,10 @@ msgid ""
 "Someone monitoring your Internet connection could identify these attempts as "
 "coming from a Tails user."
 msgstr ""
-"Tails სხვადასხვა გზით შეეცდება Tor-თან დაკავშირებას, შედეგის მიღწევამდე\n"
+"Tails სხვადასხვა გზით ეცდება Tor-თან დაკავშირებას შედეგის მიღწევამდე\n"
 "\n"
-"თქვენი ინტერნეტკავშირის ზედამხედველმა, შეიძლება გაიგოს, რომ ეს მცდელობები "
-"Tails-მომხმარებლისგან მომდინარეობს."
+"თქვენი ინტერნეტკავშირის ზედამხედველს შეეძლება დადგენა, რომ ამ მცდელობების "
+"წყაროა Tails და მისი მომხმარებელი."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1646
 msgid "Configure a Tor _bridge"
@@ -3890,9 +3871,9 @@ msgid ""
 "Tails will autodetect whether you need a bridge to connect to Tor from your "
 "local network."
 msgstr ""
-"Tor-ის ხიდები, ფარული Tor-გადამცემებია. გამოიყენეთ ხიდი თქვენს პირველ "
+"Tor-ის ხიდები ფარული Tor-გადამცემებია. გამოიყენეთ ხიდი თქვენს პირველ "
 "გადამცემად, თუ Tor-თან კავშირი აკრძალულია, მაგალითად, ზოგ ქვეყანაში, საჯარო "
-"ქსელებში, ან მშობლის ზედამხედველობის საშუალებებით.\n"
+"ქსელებში ან მშობლის ზედამხედველობის შესაძლებლობებით.\n"
 "\n"
 "აირჩიეთ ეს პარამეტრი, თუ უკვე იცით, რომ გესაჭიროებათ ხიდი. თუ არადა, Tails "
 "თავადვე დაადგენს ხიდის საჭიროებას Tor-თან კავშირისთვის ადგილობრივი ქსელიდან."
@@ -3927,8 +3908,9 @@ msgstr ""
 "ჩვენი გუნდი მთელი ძალისხმევით ცდილობს დაგაკავშიროთ Tor-ს მეტად განსხვავებული "
 "სახის Tor-ხიდებით.\n"
 "\n"
-"დაგჭირდებათ დამატებით გამართვა, თუ Tor-ხიდებს ჯერ არ გასცნობიხართ, თუ "
-"უკავშირდებით საჯარო WiFi-ქსელიდან ან თუ იმყოფებით აღმოსავლეთ ნახევარსფეროში."
+"დაგჭირდებათ დამატებით გამართვა, თუ ჯერ არ გაქვთ Tor-ხიდის არცერთი მონაცემი, "
+"თუ კავშირს ცდილობთ საჯარო WiFi-ქსელიდან, ანდაც, თუ იმყოფებით აღმოსავლეთ "
+"ნახევარსფეროში."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1847
 msgid ""

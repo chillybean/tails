@@ -128,6 +128,16 @@ avoid-gtk-launch:
     - apt-get -qy install --no-install-recommends python3 git
     - ./bin/test-utils/gtk-launch
 
+git-history:
+  only:
+    - merge_requests
+  variables:
+    GIT_STRATEGY: clone
+    GIT_DEPTH: 0
+  script:
+    - apt-get -qy install git
+    - ./bin/test-utils/check-git-history "origin/${CI_MERGE_REQUEST_TARGET_BRANCH_NAME:?}"
+
 codespell:
   image: *image-trixie
   script:
@@ -357,6 +367,11 @@ test-whisperback:
       junit: report.xml
 
 test-ci-configuration:
+  variables:
+    GIT_STRATEGY: clone
+    # GIT_DEPTH=0 disables shallow cloning, see
+    # https://docs.gitlab.com/ci/pipelines/settings/#limit-the-number-of-changes-fetched-during-clone
+    GIT_DEPTH: 0
   script:
     - apt-get -qy install python3-pydantic python3-pytest git
     # pytest can't test files whose extension is not ".py", let's give it what it wants

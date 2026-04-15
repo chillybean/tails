@@ -30,7 +30,7 @@ while [ $# -gt 0 ]; do
 done
 
 # shellcheck disable=SC2029
-ssh misc.lizard mkdir "tails-amd64-${VERSION:?}"
+ssh misc.lizard mkdir -p "tails-amd64-${VERSION:?}"
 
 scp "${ISOS:?}/tails-amd64-${VERSION:?}/tails-amd64-${VERSION:?}."{apt-sources,build-manifest,buildlog,packages,iso.sig,img.sig} \
     "misc.lizard:tails-amd64-${VERSION:?}"

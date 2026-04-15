@@ -1,0 +1,17 @@
+#!/bin/sh
+
+set -eu
+set -o pipefail
+
+REF="$(git rev-parse "$1")"
+
+FIXUP_COMMITS=$(git log --grep='^fixup!' --pretty=oneline "$REF"..)
+
+if [ -n "$FIXUP_COMMITS" ]; then
+    echo "Please squash these fixup commits before merging:"
+    echo
+    echo "${FIXUP_COMMITS}" | sed --regexp-extended 's,^, - ,'
+    echo
+    echo "Pro tip: git config --global rebase.autosquash true"
+    exit 1
+fi

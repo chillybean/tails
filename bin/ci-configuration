@@ -198,7 +198,7 @@ class GetConfigurationCLI:
                 options.extend(["--tag", "@doc"])
         elif (
             config.force_all_tests
-            or current_branch in ["testing", "devel"]
+            or current_branch in ["stable", "testing", "devel"]
             or on_a_tag
             or env.get("ALL_TESTS", "")
         ):
