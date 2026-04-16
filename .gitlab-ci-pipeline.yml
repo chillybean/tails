@@ -343,7 +343,7 @@ test-tailslib:
     - if: '$CI_COMMIT_BRANCH != "master"'
   image: *current-suite-image
   script:
-    - apt-get -qy install python3 python3-atomicwrites python3-setuptools python3-sh python3-gi git
+    - apt-get -qy install python3 python3-atomicwrites python3-pydantic python3-setuptools python3-sh python3-gi git
     - |
       cd config/chroot_local-includes/usr/lib/python3/dist-packages
       find tailslib -name "*.py" -print0 |
