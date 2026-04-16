@@ -627,13 +627,12 @@ Given /^the Tails desktop is ready$/ do
 end
 
 When /^I (don't )?see the "(.+)" notification(?: after at most (\d+) seconds)?$/ do |negate, title, timeout|
-  unless negate
-    wait_notification(title, timeout)
-  else
-
+  if negate
     assert_raise(Timeout::Error) do
       wait_notification(title, timeout)
     end
+  else
+    wait_notification(title, timeout)
   end
 end
 
