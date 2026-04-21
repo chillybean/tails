@@ -10,6 +10,7 @@ The output is guaranteed to be valid JSON, and will be an object with these fiel
 
 import enum
 import logging
+import json
 import os
 import subprocess
 import sys
@@ -57,7 +58,7 @@ def parse_uefi_ca(output: str) -> UefiState:
 
 
 def output(d: Detection):
-    print(d.model_dump_json())
+    json.dump(d.asdict(), sys.stdout)
 
 
 def no_action_needed() -> int:

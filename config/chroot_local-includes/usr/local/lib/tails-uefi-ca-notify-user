@@ -85,7 +85,7 @@ def main():
     except subprocess.CalledProcessError:
         log.exception("Error detecting UEFI CA status")
         return
-    status = Detection(**json.loads(output))
+    status = Detection.fromdict(json.loads(output))
     if not status.action_needed:
         return
     mainloop = GLib.MainLoop.new(None, False)
