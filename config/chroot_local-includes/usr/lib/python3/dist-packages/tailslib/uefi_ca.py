@@ -3,6 +3,14 @@ from dataclasses import dataclass, asdict
 
 @dataclass
 class Detection:
+    """
+    >>> original = Detection(action_needed=True)
+    >>> d = asdict(original)
+    >>> new = Detection(**d)
+    >>> new.action_needed
+    True
+    """
+
     action_needed: bool
 
     def asdict(self):
@@ -11,4 +19,3 @@ class Detection:
     @classmethod
     def fromdict(cls, d):
         return cls(**d)
-
