@@ -67,6 +67,12 @@ is_package_installed() {
     [ "${package_status}" = "installed" ]
 }
 
+is_package_in_additional_software() {
+    local package_name
+    package_name="${1}"
+    python3 -c "import additional_software, sys; sys.exit(0) if \"$package_name\" in additional_software.get_additional_packages() else sys.exit(1)"
+}
+
 extract_from_file_between_markers () {
     local file start stop
     file="${1}"

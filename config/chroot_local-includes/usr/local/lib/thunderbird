@@ -9,7 +9,7 @@ set -x
 TEXTDOMAIN="tails"
 export TEXTDOMAIN
 
-# Import is_package_installed()
+# Import is_package_installed(), is_package_in_additional_software()
 . /usr/local/lib/tails-shell-library/common.sh
 # Import set_mozilla_pref()
 . /usr/local/lib/tails-shell-library/tor-browser.sh
@@ -87,9 +87,24 @@ explain_how_to_install_thunderbird() {
     fi
 }
 
-if is_package_installed thunderbird; then
-    announce_migration_21375_1
-    start_thunderbird "${@}"
+ask_to_retry_after_additional_software_is_installed() {
+    # XXX:UX adjust the 2 dialog_* strings, then remove this comment
+    dialog_title=$(gettext "Thunderbird was not installed yet")
+    dialog_text=$(gettext "Retry once Additional Software has been installed.")
+    zenity \
+        --error \
+        --title "$dialog_title" \
+        --text="$dialog_text" \
+        --icon thunderbird
+}
+
+if is_package_in_additional_software thunderbird; then
+    if is_package_installed thunderbird; then
+        announce_migration_21375_1
+        start_thunderbird "${@}"
+    else
+        ask_to_retry_after_additional_software_is_installed
+    fi
 else
     explain_how_to_install_thunderbird
 fi
