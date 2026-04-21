@@ -51,9 +51,7 @@ def parse_uefi_ca(output: str) -> UefiState:
     """
     if not output.strip():
         return UefiState.SECURE_BOOT_DISABLED
-    if any(
-        "Microsoft Corporation KEK 2K CA 2023" in line for line in output.split("\n")
-    ):
+    if "Microsoft Corporation KEK 2K CA 2023" in output:
         return UefiState.GOOD
     return UefiState.BAD
 
