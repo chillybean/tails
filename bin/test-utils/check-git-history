@@ -5,7 +5,7 @@ set -o pipefail
 
 REF="$(git rev-parse "$1")"
 
-UNWANTED_COMMITS=$(git log --grep='^(fixup|squash)!' --pretty=oneline "$REF"..)
+UNWANTED_COMMITS=$(git log --grep='^(amend|fixup|squash)!' --pretty=oneline "$REF"..)
 
 if [ -n "$UNWANTED_COMMITS" ]; then
     echo "Please squash these commits before merging:"
