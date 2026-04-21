@@ -129,8 +129,6 @@ def main() -> int:
         return no_action_needed()
 
     available_os = os_probe()
-    if not available_os:
-        return no_action_needed()
 
     output(Detection(action_needed=True, os=available_os))
     return 0
