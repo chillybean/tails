@@ -1,11 +1,16 @@
 #!/bin/sh
 
-set -eu
-set -o pipefail
+set -eu -o pipefail
 
-REF="$(git rev-parse "$1")"
+REF=$(git rev-parse "$1")
 
-UNWANTED_COMMITS=$(git log --extended-regexp --grep='^(amend|fixup|squash)!' --pretty=oneline "$REF"..)
+UNWANTED_COMMITS=$(
+    git log \
+        --extended-regexp \
+        --grep='^(amend|fixup|squash)!' \
+        --pretty=oneline \
+        "$REF"..
+)
 
 if [ -n "$UNWANTED_COMMITS" ]; then
     echo "Please squash these commits before merging:"
