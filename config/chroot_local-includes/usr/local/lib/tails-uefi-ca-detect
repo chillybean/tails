@@ -56,58 +56,12 @@ def parse_uefi_ca(output: str) -> UefiState:
     return UefiState.BAD
 
 
-def os_probe() -> list[str]:
-    """
-    Returns a list of relevant operating systems on this computer.
-
-    Our current definition of relevant is: Windows-only
-    """
-    try:
-        output = subprocess.check_output(
-            ["/usr/bin/os-prober"],
-            text=True,
-        )
-    except subprocess.CalledProcessError:
-        log.exception("Error invoking os-prober")
-        return []
-    return parse_os_probe(output)
-
-
-def parse_os_probe(output) -> list[str]:
-    """
-    >>> parse_os_probe("")
-    []
-    >>> parse_os_probe("\\n\\nmalformed\\n")
-    []
-    >>> parse_os_probe("/dev/sda1:Linux:Linux:efi")
-    []
-    >>> win = ( \
-            "/dev/nvme0n1p2@/EFI/Microsoft/Boot/bootmgfw.efi:" \
-            "Windows Boot Manager:Windows:efi" \
-            )
-    >>> parse_os_probe(win)
-    ['Windows Boot Manager']
-    """
-    ret = []
-    for line in output.split("\n"):
-        info = line.strip().split(":")
-        try:
-            category = info[2]
-            detail = info[1]
-        except IndexError:  # empty line or malformed line
-            continue
-        if category == "Windows":
-            ret.append(detail)
-
-    return ret
-
-
 def output(d: Detection):
     print(d.model_dump_json())
 
 
 def no_action_needed() -> int:
-    d = Detection(action_needed=False, os=[])
+    d = Detection(action_needed=False)
     output(d)
     return 0
 
@@ -128,9 +82,7 @@ def main() -> int:
     if uefi_state != UefiState.BAD:
         return no_action_needed()
 
-    available_os = os_probe()
-
-    output(Detection(action_needed=True, os=available_os))
+    output(Detection(action_needed=True))
     return 0
 
 

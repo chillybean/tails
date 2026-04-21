@@ -156,9 +156,3 @@ Given /^I unblock tails-uefi-ca-notify$/ do
   # cleared previous notifications.
   $vm.execute('touch /tails-uefi-ca-notify-run')
 end
-
-Given /^I simulate a computer with Windows$/ do
-  line = '/dev/nvme0n1p2@/EFI/Microsoft/Boot/bootmgfw.efi:' \
-    'Windows Boot Manager:Windows:efi'
-  $vm.file_overwrite('/usr/bin/os-prober', "#!/bin/sh\necho '#{line}'")
-end
