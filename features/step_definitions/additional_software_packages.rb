@@ -134,7 +134,7 @@ end
 Then /^I can open the (.+) documentation from the notification$/ do |software|
   title = {
     'Additional Software' => 'Tails - Install by cloning',
-    'Secure Boot'         => 'Tails - Secure Boot certificate update',
+    'Secure Boot'         => 'Tails - Secure Boot certificates update',
   }[software]
   click_gnome_shell_notification_button('Learn More')
   try_for(60) { @torbrowser = Dogtail::Application.new('Firefox') }
