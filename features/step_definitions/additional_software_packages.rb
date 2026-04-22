@@ -131,10 +131,14 @@ When /^I remove the "([^"]*)" deb files from the APT cache$/ do |package|
   )
 end
 
-Then /^I can open the Additional Software documentation from the notification$/ do
+Then /^I can open the (.+) documentation from the notification$/ do |software|
+  title = {
+    'Additional Software' => 'Tails - Install by cloning',
+    'Secure Boot'         => 'Tails - Secure Boot certificates update',
+  }[software]
   click_gnome_shell_notification_button('Learn More')
   try_for(60) { @torbrowser = Dogtail::Application.new('Firefox') }
-  step '"Tails - Install by cloning" has loaded in the Tor Browser'
+  step "\"#{title}\" has loaded in the Tor Browser"
 end
 
 Then /^the Additional Software dpkg hook has been run for package "([^"]*)" and notices the persistence is locked$/ do |package|
