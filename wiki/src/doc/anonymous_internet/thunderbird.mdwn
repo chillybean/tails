@@ -1,36 +1,10 @@
 [[!meta title="Emailing and reading news with Thunderbird"]]
 
-Tails includes *Thunderbird* for:
+We recommend using [[*Thunderbird*|https://www.thunderbird.net/]] in Tails for:
 
 - Reading and writing emails
 
 - Reading [[!wikipedia RSS]] and [[!wikipedia Atom_(Web_standard) desc="Atom"]] feeds for news and blogs
-
-[[!toc levels=2]]
-
-To open *Thunderbird*, choose **Apps&nbsp;▸ Internet&nbsp;▸ Thunderbird**.
-
-<div class="tip">
-
-<p>To store your
-emails, feeds, and settings across different working sessions,
-turn on the [[Thunderbird Email Client|persistent_storage/configure#thunderbird]]
-feature of the Persistent Storage.</p>
-
-</div>
-
-<div class="note">
-
-<p><i>Thunderbird</i> is not included by default anymore since Tails 7.8 (May 2026).</p>
-
-<p>If you have the [[Thunderbird Email
-Client|persistent_storage/configure#thunderbird]] feature of the Persistent
-Storage turned on, Tails automatically adds <i>Thunderbird</i> to your list of
-[[Additional Software|persistent_storage/additional_software]].</p>
-
-<p>[[Why is Tails installing <i>Thunderbird</i> as Additional Software?|thunderbird/additional_software]]</p>
-
-</div>
 
 For more documentation, visit the official [*Thunderbird*
 Support](https://support.mozilla.org/en-US/products/thunderbird) website.
@@ -41,6 +15,80 @@ Support](https://support.mozilla.org/en-US/products/thunderbird) website.
 features of <i>Thunderbird</i></a> don't work in Tails.</p>
 
 </div>
+
+[[!toc startlevel=2]]
+
+## Installing *Thunderbird* as additional software
+
+*Thunderbird* is no longer included by default since Tails 7.8 (May 2026).
+
+You can install *Thunderbird* as [[additional
+software|persistent_storage/additional_software]].
+
+A new version of *Thunderbird* is released in Debian shortly after each Tails
+release, because both *Tails* and *Thunderbird* follow the [[release calendar
+of *Firefox*|https://whattrainisitnow.com/calendar/]]. As a consequence, until
+Tails 7.5 (February 2026), the version of *Thunderbird* in Tails was almost
+always outdated, with known security vulnerabilities.
+
+By installing *Thunderbird* as additional software, the latest version
+of *Thunderbird* is installed automatically from your Persistent Storage each
+time you start Tails.
+
+To install *Thunderbird* as additional software:
+
+1. Choose **Apps&nbsp;▸ Tails&nbsp;▸ Persistent Storage** to open the
+   Persistent Storage settings.
+
+   1. Create a Persistent Storage if you don't have one already.
+
+   1. Make sure that the **Additional Software** feature is turned on.
+
+   1. Turn on the **Thunderbird** feature.
+
+   1. Close the Persistent Storage settings.
+
+1. Restart Tails.
+
+   Tails detects that you have both the **Thunderbird** and **Additional
+   Software** features of the Persistent Storage turned on and automatically
+   adds *Thunderbird* to your list of additional software.
+
+   Tails also tries to install as additional software the language package
+   that corresponds to the language of this Tails session. To
+   use *Thunderbird* in another language, see [[using *Thunderbird* in
+   another language|thunderbird#language]].
+
+1. [[Connect to the Tor network.|doc/anonymous_internet/tor]]
+
+   *Thunderbird* is downloaded and installed in the background after you
+   connected to the Tor network.
+
+   This first installation can take several minutes. During this time, no
+   *Thunderbird* launcher is available in the **Apps** menu.
+
+   XXX: At this point, I still get the **Install Thunderbird** launcher despite
+   Thunderbird already being in additional software. See screenshot and
+   wb://dd009bb3bc3000b7f0da38af3c1557ad.
+
+   <div class="tip">
+
+   <p>If you are comfortable with the command line and [[set up an
+   administration
+   password|doc/first_steps/welcome_screen/administration_password]] when
+   starting Tails, you can execute the following command to track the progress
+   of the download and installation:</p>
+
+   <p class="command">sudo journalctl -f -u tails-additional-software-upgrade.service</p>
+
+   </div>
+
+1. After *Thunderbird* is installed, choose **Apps&nbsp;▸ Internet&nbsp;▸
+   Thunderbird** to open *Thunderbird*.
+
+   *Thunderbird* will be reinstalled automatically every time you start Tails.
+   Future installations will be much faster since *Thunderbird* is already
+   downloaded to your Persistent Storage.
 
 <h2 id="account">Configuring an email account</h2>
 
