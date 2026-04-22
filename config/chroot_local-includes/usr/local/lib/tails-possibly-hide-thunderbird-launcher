@@ -1,0 +1,19 @@
+#!/bin/sh
+
+set -eu -o pipefail
+
+# Import is_package_installed(), is_package_in_additional_software()
+. /usr/local/lib/tails-shell-library/common.sh
+
+if is_package_installed thunderbird; then
+    echo "Thunderbird is installed, leaving the launcher from the package in place"
+elif is_package_in_additional_software thunderbird; then
+    # Avoid misleading the user: our wrapper would ask the user to add
+    # Thunderbird to their Additional Software, which they've done
+    # already; better remove our copy of our launcher, so that it only
+    # appears once Thunderbird is actually ready to be used.
+    echo "Thunderbird will be installed, hiding our copy of the launcher"
+    rm -f /usr/share/applications/thunderbird.desktop
+else
+    echo "Thunderbird won't be installed, leaving our copy of the launcher in place"
+fi

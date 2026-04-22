@@ -1,0 +1,18 @@
+[Unit]
+Description=Trigger hiding the Thunderbird launcher while the package is being installed
+# The 21375-thunderbird-iteration-1 migration may add the thunderbird
+# package to Additional Software. So we re-run
+# tails-possibly-hide-thunderbird-launcher once we have this
+# information: and then, if the package was just added to Additional
+# Software by the migration, we hide the Thunderbird launcher while
+# tails-additional-software-upgrade.service installs it.
+After=tails-additional-software-update-config.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/systemctl --system restart tails-possibly-hide-thunderbird-launcher.service
+TimeoutStartSec=0
+
+[Install]
+WantedBy=desktop.target
