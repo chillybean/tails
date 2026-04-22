@@ -1,8 +1,116 @@
 tails (7.7) UNRELEASED; urgency=medium
 
-  * Dummy entry for next release.
+  * Upgrade Thunderbird to 1:140.9.1esr-1~deb13u1
 
- -- anonym <anonym@riseup.net>  Wed, 15 Apr 2026 10:40:35 +0200
+  * Upgrade to Tor Browser 15.0.10 based on ESR 140.10 (tails/tails!2950)
+
+    Closes issues:
+      - Upgrade to Tor Browser based on Firefox ESR 140.10 (tails/tails#21484)
+      - Refresh about:tor patches for 7.7 (tails/tails#21485)
+
+    Commits:
+      - Commit CI configuration when preparing Tor Browser import branches
+      - CI: run all tests for 21484-tor-browser-15.0.10
+      - Upgrade Tor Browser to 15.0.10 (refs: tails#21484)
+      - Tor Browser: refresh custom about:tor patches onto tor-
+        browser-140.10.0esr-15.0-1-build1
+
+  * Warn user about old UEFI CA (tails/tails!2928)
+
+    Closes issues:
+      - Get ready for upcoming UEFI CA expiration & transition (tails/tails#21079)
+
+    Commits:
+      - Put the most important words first
+      - Use plural consistently
+      - Add screenshot
+      - FTBFS if hook fails
+      - change language to secure boot certificates (plural)
+      - test that serializing and loading actually works
+      - stop using pydantic
+      - drop OS detection
+      - also warn users which have no other OS
+      - note for ourselves is converted to GitLab thread
+      - updating the doc for the actual code that has been written
+      - simplify mokutil parsing code
+      - apply rubocop style suggestion
+      - fix CI dependencies for test-python-doctest
+      - fix CI dependencies for tailslib
+      - localize tails-uefi-ca-notify-user in Italian
+      - localize tails-uefi-ca-notify-user
+      - update test after language change in notification
+      - fix: actually handle actions after showing the notification
+      - fix: we're not running this as root
+      - improve notification language
+      - test that documentation can be opened
+      - Draft doc for Secure Boot update
+      - tails-uefi-ca-notify runs after other notifications have been hidden
+      - move code to a function
+      - assume that mokutil fails because secure boot is disabled
+      - fix: serialize to json... only once!
+      - UEFI CA: automated tests
+      - Display a notification for Uefi CA
+      - remove unneeded build hook dependency
+      - Detect Uefi CA status
+
+  * Make privacy.resistFingerprinting.letterboxing.rememberSize customization apply
+    to Unsafe Browser (tails/tails!2954)
+
+    Commits:
+      - Make privacy.resistFingerprinting.letterboxing.rememberSize customization apply
+        to Unsafe Browser
+
+  * Prevent upgrade of our forked packages to unpatched versions from Debian
+    (tails/tails!2949)
+
+    Closes issues:
+      - Prevent "upgrade" of the Debian packages we patch (tails/tails#21517)
+
+    Commits:
+      - Test suite: adjust to new pinning setup
+      - needed-package-updates: fix guidance provided when one of our custom packages
+        is outdated
+      - Prevent upgrade of our forked packages to unpatched versions from Debian
+
+  * Fix permissions for /root (tails/tails!2948)
+
+    Closes issues:
+      - /root is world-readable (tails/tails#21514)
+
+    Commits:
+      - Test suite: check permissions and ownership of /root (refs: tails/tails#21514)
+      - Fix permissions for /root (refs: tails/tails#21514)
+
+  * Misc design doc updates and Tor Browser prefs cleanup (tails/tails!2946)
+
+    Closes issues:
+      - Design doc is outdated wrt. Onion Grater listen port (tails/tails#21515)
+
+    Commits:
+      - Improve phrasing
+      - Be more specific
+      - Update obsolete references to the Tor Browser Bundle
+      - Remove obsolete pref
+      - Fix paragraphs layout
+      - Remove obsolete environment variable
+      - Update obsolete references to Torbutton
+      - Remove unnecessary mention of Torbutton in a comment
+      - Design doc: update onion-grater port
+
+  * run_test_suite: remove misleading useless check (tails/tails!2945)
+
+    Commits:
+      - Disable tests on this branch
+      - run_test_suite: remove misleading useless check
+
+  * Improve DSA handling in release process (tails/tails!2942)
+
+    Commits:
+      - Release process: improve phrasing
+      - Release process: clarify distinction between releases and upcoming DSA checks
+      - Fix typo in label in issue template
+
+ -- Tails developers <tails@boum.org>  Wed, 22 Apr 2026 06:10:40 +0000
 
 tails (7.6.2) unstable; urgency=medium
 
