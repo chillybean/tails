@@ -1113,7 +1113,7 @@ Tell testers that they can start testing. Remember to encrypt and sign your emai
     ./bin/automailer.py <<EOF
     To: rm@tails.net, sajolida@pimienta.org
     Subject: Testing Tails ${VERSION:?}
-    X-Attach: $(/bin/ls -1 "$ISOS/tails-amd64-${VERSION:?}/tails-amd64-${VERSION:?}.packages" "$ISOS/tails-amd64-${VERSION:?}/"tails-amd64-${VERSION:?}.{iso,img}.sig | tr '\n' ,)
+    X-Attach: $(/bin/ls -1 "$ISOS/tails-amd64-${VERSION:?}/tails-amd64-${VERSION:?}".{build-manifest,packages} "$ISOS/tails-amd64-${VERSION:?}/"tails-amd64-${VERSION:?}.{iso,img}.sig | tr '\n' ,)
 
     You can now start testing Tails ${VERSION}:
 
@@ -1133,7 +1133,17 @@ Tell testers that they can start testing. Remember to encrypt and sign your emai
         gpg --verify /path/to/tails-amd64-${VERSION:?}.img.sig tails-amd64-${VERSION:?}.img
         gpg --verify /path/to/tails-amd64-${VERSION:?}.iso.sig tails-amd64-${VERSION:?}.iso
 
-    3. Start testing :)
+    3. Save the attached build-manifest
+    ===================================
+
+    Replace any build-manifest you've downloaded with the one *attached to this email*.
+
+    If you've downloaded the images with \`git-annex\`, you can inject
+    the attachment into your local annex, to keep everything in one single place:
+
+        git annex reinject --known /path/to/tails-amd64-${VERSION:?}.build-manifest
+
+    4. Start testing :)
     ===================
     EOF
 
