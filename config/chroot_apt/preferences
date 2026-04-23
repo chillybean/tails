@@ -46,9 +46,10 @@ Package: *
 Pin: release o=chroot_local-packages
 Pin-Priority: 1010
 
+Explanation: Prevent upgrade of our forked packages to unpatched versions from Debian (tails/tails#21517)
 Package: *
 Pin: origin deb.tails.boum.org
-Pin-Priority: 990
+Pin-Priority: 1000
 
 Package: *
 Pin: release o=Debian,n=trixie

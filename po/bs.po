@@ -4,12 +4,13 @@
 #
 # Translators:
 # pacavarn <nahadster@gmail.com>, 2026.
+# Weblate <noreply-mt-weblate@weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-07 12:41+0200\n"
-"PO-Revision-Date: 2026-04-11 18:09+0000\n"
+"POT-Creation-Date: 2026-04-22 08:04+0200\n"
+"PO-Revision-Date: 2026-04-19 17:10+0000\n"
 "Last-Translator: pacavarn <nahadster@gmail.com>\n"
 "Language-Team: Bosnian <https://hosted.weblate.org/projects/tor/tails-gui/bs/"
 ">\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.17-dev\n"
+"X-Generator: Weblate 5.17.1-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:242
 #, python-brace-format
@@ -1514,6 +1515,7 @@ msgstr "Odbaci"
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:11
 #: config/chroot_local-includes/usr/local/lib/tails-additional-software-notify:63
 #: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:44
+#: config/chroot_local-includes/usr/local/lib/tails-uefi-ca-notify-user:52
 #: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:45
 msgid "Learn More"
 msgstr "Saznajte više"
@@ -1706,6 +1708,7 @@ msgstr ""
 "nestabilnost ili pad sistema."
 
 #: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:41
+#: config/chroot_local-includes/usr/local/lib/tails-uefi-ca-notify-user:47
 #: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:42
 msgid "Don't Show Again"
 msgstr "Ne prikazuj ponovo"
@@ -1831,6 +1834,17 @@ msgid ""
 msgstr ""
 "Anonimizacija MAC adrese vašeg mrežnog interfejsa nije uspjela. Oporavak od "
 "greške također nije uspio, tako da je sva mreža onemogućena."
+
+#: config/chroot_local-includes/usr/local/lib/tails-uefi-ca-notify-user:28
+msgid "Secure Boot Update Needed"
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-uefi-ca-notify-user:30
+msgid ""
+"Tails will no longer start on this computer at some point in the future. "
+"Apply all available updates from your regular operating system to update to "
+"the latest Secure Boot certificates of Microsoft."
+msgstr ""
 
 #: config/chroot_local-includes/usr/local/bin/tails-upgrade-frontend-wrapper:37
 #, python-brace-format
@@ -2182,16 +2196,16 @@ msgstr "Aktivacija nije uspjela. Pokušajte ponovo."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:182
 msgid "The data of this feature is still saved."
-msgstr ""
+msgstr "Podaci ove funkcije se i dalje čuvaju."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:289
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:296
 msgid "Error activating feature {}"
-msgstr ""
+msgstr "Greška pri aktiviranju funkcije {}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:297
 msgid "An error occurred while activating the feature."
-msgstr ""
+msgstr "Došlo je do greške prilikom aktiviranja funkcije."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:298
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:347
@@ -2205,11 +2219,11 @@ msgstr "Details"
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:338
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:345
 msgid "Error deactivating feature {}"
-msgstr ""
+msgstr "Greška prilikom deaktiviranja funkcije {}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:346
 msgid "An error occurred while deactivating the feature."
-msgstr ""
+msgstr "Došlo je do greške prilikom deaktiviranja funkcije."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:366
 msgid ""
@@ -2218,6 +2232,9 @@ msgid ""
 "\n"
 "If you cancel, the data will be restored when you turn this feature on again."
 msgstr ""
+"Izbrisati sve podatke funkcije {} koji su sačuvani u trajnom skladištu?\n"
+"\n"
+"Ako otkažete, podaci će biti vraćeni kada ponovo uključite ovu funkciju."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:377
 msgid "_Delete Data"
@@ -2225,62 +2242,62 @@ msgstr "_Brisanje podataka"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:407
 msgid "Error deleting data of feature {}"
-msgstr ""
+msgstr "Greška pri brisanju podataka obilježja {}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:408
 msgid "An error occurred while deleting the data of feature {}."
-msgstr ""
+msgstr "Došlo je do greške prilikom brisanja podataka obilježja {}."
 
 #. Translators: Don't translate {applications}, it's a placeholder
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:515
 #, python-brace-format
 msgid "Close {applications} to continue"
-msgstr ""
+msgstr "Zatvori {applications} da biste nastavili"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:516
 msgid " and "
-msgstr ""
+msgstr " i "
 
 #. Translators: Don't translate {app} and {pid}, they
 #. are placeholders.
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:527
 #, python-brace-format
 msgid "{app} (PID: {pid})"
-msgstr ""
+msgstr "{app} (PID: {pid})"
 
 #. Translators: Don't translate {app} and {pids}, they
 #. are placeholders.
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:532
 #, python-brace-format
 msgid "{app} (PIDs: {pids})"
-msgstr ""
+msgstr "{app} (PIDs: {pids})"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/change_passphrase_dialog.py:37
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:15
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:55
 msgid "Change Passphrase"
-msgstr ""
+msgstr "Promjeni frazu lozinke"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/change_passphrase_dialog.py:92
 msgid "The current passphrase is incorrect"
-msgstr ""
+msgstr "Trenutna fraza lozinke je netačna"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/change_passphrase_dialog.py:103
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/change_passphrase_dialog.py:113
 msgid "Changing the passphrase failed"
-msgstr ""
+msgstr "Promjena fraze lozinke nije uspjela"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/change_passphrase_dialog.py:114
 msgid "An error occurred while changing the passphrase."
-msgstr ""
+msgstr "Došlo je do greške prilikom promjene fraze lozinke."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/passphrase_strength_hint.py:44
 msgid "Weak"
-msgstr ""
+msgstr "Slaba"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/passphrase_strength_hint.py:47
 msgid "Fair"
-msgstr ""
+msgstr "Zadovoljavajuće"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/passphrase_strength_hint.py:50
 msgid "Good"
@@ -2288,15 +2305,16 @@ msgstr "Dobro"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/passphrase_strength_hint.py:53
 msgid "Strong"
-msgstr ""
+msgstr "Jaka"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/error_dialog.py:54
 msgid "You can send an error report to help solve the issue."
 msgstr ""
+"Možete poslati izvještaj o grešci kako biste pomogli u rješavanju problema."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/error_dialog.py:61
 msgid "_Send Error Report"
-msgstr ""
+msgstr "_Pošalji izvještaj o grešci"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:153
 msgid ""
@@ -2305,6 +2323,10 @@ msgid ""
 "To delete the Persistent Storage, restart Tails without unlocking the "
 "Persistent Storage and open the Persistent Storage settings again."
 msgstr ""
+"Nemoguće je izbrisati trajno skladište dok je otključano.\n"
+"\n"
+"Da biste izbrisali trajno skladište, ponovo pokrenite Tails bez "
+"otključavanja trajnog skladišta i ponovo otvorite postavke trajnog skladišta."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:167
 msgid ""
@@ -2315,6 +2337,11 @@ msgid ""
 "USB stick, restart Tails without unlocking the Persistent Storage and open "
 "the Persistent Storage settings again."
 msgstr ""
+"Nije moguće izbrisati trajno skladište jer je USB štapić samo za čitanje.\n"
+"\n"
+"Da biste izbrisali trajno skladište, isključite zaštitu samo za čitanje na "
+"USB štapiću, ponovo pokrenite Tails bez otključavanja trajnog skladišta i "
+"ponovo otvorite postavke trajnog skladišta."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:175
 msgid "Impossible to delete the Persistent Storage"
@@ -2324,13 +2351,15 @@ msgstr "Nemoguće je izbrisati trajno skladište"
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:218
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:35
 msgid "Delete Persistent Storage"
-msgstr ""
+msgstr "Izbriši trajno skladište"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:187
 msgid ""
 "Are you sure that you want to delete your Persistent Storage? This action "
 "cannot be undone."
 msgstr ""
+"Jeste li sigurni da želite izbrisati svoje trajno skladište? Ova radnja se "
+"ne može poništiti."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:191
 #: config/chroot_local-includes/usr/local/sbin/unsafe-browser:56
@@ -2341,9 +2370,8 @@ msgid "_Cancel"
 msgstr "_Otkaži"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:192
-#, fuzzy
 msgid "_Delete Persistent Storage"
-msgstr "_Kreirajte trajnu pohranu"
+msgstr "_Izbriši trajno skladište"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:202
 msgid "Deleting your Persistent Storage..."
@@ -2357,10 +2385,12 @@ msgstr "_Uredu"
 msgid ""
 "Sorry, you can't close this app until the ongoing operation has completed."
 msgstr ""
+"Žao nam je, ne možete zatvoriti ovu aplikaciju dok se tekuća operacija ne "
+"završi."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:233
 msgid "Please wait"
-msgstr ""
+msgstr "Molim sačekajte"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:261
 msgid "Not enough memory to create Persistent Storage"
@@ -2385,12 +2415,11 @@ msgstr "Došlo je do greške prilikom brisanja trajnog skladišta."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:334
 msgid "Details (command output)"
-msgstr ""
+msgstr "Detalji (izlaz naredbe)"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:349
-#, fuzzy
 msgid "Failed to open the documentation"
-msgstr "Dokumentacija"
+msgstr "Nije uspjelo otvaranje dokumentacije"
 
 #. Translators: Don't translate {volume_label} or {volume_size},
 #. they are placeholders and will be replaced. They need
@@ -2398,7 +2427,7 @@ msgstr "Dokumentacija"
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/unlock_veracrypt_volumes/volume.py:79
 #, python-brace-format
 msgid "{volume_label} ({volume_size})"
-msgstr ""
+msgstr "{volume_label} ({volume_size})"
 
 #. Translators: Don't translate {partition_name} or {partition_size},
 #. they are placeholders and will be replaced. They need
@@ -2406,7 +2435,7 @@ msgstr ""
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/unlock_veracrypt_volumes/volume.py:86
 #, python-brace-format
 msgid "{partition_name} ({partition_size})"
-msgstr ""
+msgstr "{partition_name} ({partition_size})"
 
 #. Translators: Don't translate {volume_size}, it's a placeholder
 #. and will be replaced. It needs to be present in the translated
@@ -2414,14 +2443,14 @@ msgstr ""
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/unlock_veracrypt_volumes/volume.py:94
 #, python-brace-format
 msgid "{volume_size} Volume"
-msgstr ""
+msgstr "{volume_size} Veličina volumena"
 
 #. Translators: Don't translate {volume_name}, it's a placeholder and
 #. will be replaced. It needs to be present in the translated string.
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/unlock_veracrypt_volumes/volume.py:140
 #, python-brace-format
 msgid "{volume_name} (Read-Only)"
-msgstr ""
+msgstr "{volume_name} (Samo za čitanje)"
 
 #. Translators: Don't translate {partition_name} and {container_path}, they
 #. are placeholders and will be replaced. They need to be present
@@ -2429,7 +2458,7 @@ msgstr ""
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/unlock_veracrypt_volumes/volume.py:149
 #, python-brace-format
 msgid "{partition_name} in {container_path}"
-msgstr ""
+msgstr "{partition_name} u {container_path}"
 
 #. Translators: Don't translate {volume_name} and {path_to_file_container},
 #. they are placeholders and will be replaced. You should only have to translate
@@ -2437,7 +2466,7 @@ msgstr ""
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/unlock_veracrypt_volumes/volume.py:157
 #, python-brace-format
 msgid "{volume_name} – {path_to_file_container}"
-msgstr ""
+msgstr "{volume_name} – {path_to_file_container}"
 
 #. Translators: Don't translate {partition_name} and {drive_name}, they
 #. are placeholders and will be replaced. They need to be present
@@ -2445,7 +2474,7 @@ msgstr ""
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/unlock_veracrypt_volumes/volume.py:165
 #, python-brace-format
 msgid "{partition_name} on {drive_name}"
-msgstr ""
+msgstr "{partition_name} na {drive_name}"
 
 #. Translators: Don't translate {volume_name} and {drive_name},
 #. they are placeholders and will be replaced. You should only have to translate
@@ -2453,15 +2482,15 @@ msgstr ""
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/unlock_veracrypt_volumes/volume.py:173
 #, python-brace-format
 msgid "{volume_name} – {drive_name}"
-msgstr ""
+msgstr "{volume_name} – {drive_name}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/unlock_veracrypt_volumes/volume.py:278
 msgid "Wrong passphrase or parameters"
-msgstr ""
+msgstr "Pogrešna fraza lozinke ili parametri"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/unlock_veracrypt_volumes/volume.py:280
 msgid "Error unlocking volume"
-msgstr ""
+msgstr "Greška pri otključavanju volumena"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/unlock_veracrypt_volumes/volume.py:286
 #, python-brace-format
@@ -2469,10 +2498,12 @@ msgid ""
 "Couldn't unlock volume {volume_name}:\n"
 "{error_message}"
 msgstr ""
+"Nije moguće otključati volumen {volume_name}:\n"
+"{error_message}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/unlock_veracrypt_volumes/volume.py:403
 msgid "One or more applications are keeping the volume busy."
-msgstr ""
+msgstr "Jedna ili više aplikacija zauzimaju uređaj."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/unlock_veracrypt_volumes/volume.py:411
 #, python-brace-format
@@ -2480,36 +2511,38 @@ msgid ""
 "Couldn't lock volume {volume_name}:\n"
 "{error_message}"
 msgstr ""
+"Nije moguće zaključati volumen {volume_name}:\n"
+"{error_message}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/unlock_veracrypt_volumes/volume.py:413
 msgid "Locking the volume failed"
-msgstr ""
+msgstr "Zaključavanje volumena nije uspjelo"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/unlock_veracrypt_volumes/volume_list.py:83
 msgid "No file containers added"
-msgstr ""
+msgstr "Nijedan kontejner za datoteke nije dodat"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/unlock_veracrypt_volumes/volume_list.py:99
 msgid "No VeraCrypt devices detected"
-msgstr ""
+msgstr "Nisu otkriveni VeraCrypt uređaji"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/unlock_veracrypt_volumes/volume_manager.py:43
 #: ../config/chroot_local-includes/usr/share/applications/unlock-veracrypt-volumes.desktop.in.h:1
 msgid "Unlock VeraCrypt Volumes"
-msgstr ""
+msgstr "Otključaj VeraCrypt volumene"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/unlock_veracrypt_volumes/volume_manager.py:120
 msgid "Container already added"
-msgstr ""
+msgstr "Kontejner je već dodat"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/unlock_veracrypt_volumes/volume_manager.py:121
 #, python-format
 msgid "The file container %s should already be listed."
-msgstr ""
+msgstr "Kontejner datoteke %s bi već trebao biti naveden."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/unlock_veracrypt_volumes/volume_manager.py:142
 msgid "Container opened read-only"
-msgstr ""
+msgstr "Kontejner otvoren samo za čitanje"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/unlock_veracrypt_volumes/volume_manager.py:145
 #, python-brace-format
@@ -2519,23 +2552,27 @@ msgid ""
 "container.\n"
 "{error_message}"
 msgstr ""
+"Kontejner datoteke {path} nije mogao biti otvoren s pristupom za pisanje. "
+"Umjesto toga, otvoren je samo za čitanje. Nećete moći mijenjati sadržaj "
+"kontejnera.\n"
+"{error_message}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/unlock_veracrypt_volumes/volume_manager.py:151
 msgid "Error opening file"
-msgstr ""
+msgstr "Greška pri otvaranju datoteke"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/unlock_veracrypt_volumes/volume_manager.py:178
 msgid "Not a VeraCrypt container"
-msgstr ""
+msgstr "Nije VeraCrypt kontejner"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/unlock_veracrypt_volumes/volume_manager.py:179
 #, python-format
 msgid "The file %s does not seem to be a VeraCrypt container."
-msgstr ""
+msgstr "Izgleda da datoteka %s nije VeraCrypt kontejner."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/unlock_veracrypt_volumes/volume_manager.py:183
 msgid "Failed to add container"
-msgstr ""
+msgstr "Dodavanje kontejnera nije uspjelo"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/unlock_veracrypt_volumes/volume_manager.py:185
 #, python-format
@@ -2705,7 +2742,7 @@ msgstr "Nevažeći OpenPGP ključ kontakta: %s"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/whisperback.py:78
 msgid "Invalid contact OpenPGP public key block"
-msgstr ""
+msgstr "Nevažeći blok javnog ključa OpenPGP kontakta"
 
 #: config/chroot_local-includes/usr/local/bin/tca:11
 msgid ""
@@ -2713,12 +2750,18 @@ msgid ""
 "It is impossible to connect to Tor in Offline Mode.\n"
 "To connect to Tor and the Internet, restart Tails without Offline Mode."
 msgstr ""
+"Uključili ste Offline način rada na početnom ekranu.\n"
+"Nemoguće se povezati na Tor u Offline načinu rada.\n"
+"Da biste se povezali na Tor i internet, ponovo pokrenite Tails bez Offline "
+"načina rada."
 
 #: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:65
 msgid ""
 "Authentication is required to run the Synaptic Package Manager. Enter the "
 "administration password that you set up in the Welcome Screen."
 msgstr ""
+"Za pokretanje Synaptic paketnog menađera potrebna je autentifikacija. "
+"Unesite administratorsku lozinku koju ste postavili na početnom ekranu."
 
 #: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:71
 msgid ""
@@ -2726,29 +2769,34 @@ msgid ""
 "default. To run the Synaptic Package Manager, restart Tails and set up an "
 "administration password in the Welcome Screen."
 msgstr ""
+"Radi bolje sigurnosti, u Tailsu nije postavljena administratorska lozinka "
+"prema zadanim postavkama. Da biste pokrenuli Synaptic Package Manager, "
+"ponovo pokrenite Tails i postavite administratorsku lozinku na početnom "
+"ekranu."
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:2
 msgid ""
 "Configure which files and application configuration are saved between "
 "working sessions"
 msgstr ""
+"Konfigurišite koje datoteke i konfiguracija aplikacije se čuvaju između "
+"radnih sesija"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:3
 msgid "configuration;saved"
-msgstr ""
+msgstr "konfiguracija; sačuvana"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:1
-#, fuzzy
 msgid "Tails Documentation"
-msgstr "Dokumentacija"
+msgstr "Dokumentacija o Tailsu"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:2
 msgid "Learn how to use Tails"
-msgstr ""
+msgstr "Naučite kako koristiti Tails"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-documentation.desktop.in.h:3
 msgid "learn"
-msgstr ""
+msgstr "uči"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-about.desktop.in.h:2
 msgid "Learn more about Tails"
@@ -2762,59 +2810,59 @@ msgstr "Sigurnosna kopija trajnog skladišta"
 msgid ""
 "Make a backup of the Tails Persistent Storage to another Tails USB stick"
 msgstr ""
+"Napravite sigurnosnu kopiju Tails trajnog skladišta na drugi Tails USB štapić"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-backup.desktop.in.h:3
 msgid "backup"
-msgstr ""
+msgstr "sigurnosna kopija"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-installer.desktop.in.h:2
 msgid "Install, clone, upgrade Tails"
-msgstr ""
+msgstr "Instaliraj, kloniraj, nadogradi Tails"
 
 #: ../config/chroot_local-includes/usr/share/applications/tails-installer.desktop.in.h:3
 msgid "install;clone;upgrade;manual"
-msgstr ""
+msgstr "instaliraj;kloniraj;nadogradi;priručnik"
 
 #: ../config/chroot_local-includes/usr/share/applications/tca.desktop.in.h:2
 msgid "Connect Tails to the Tor network"
-msgstr ""
+msgstr "Poveži Tails na Tor mrežu"
 
 #: ../config/chroot_local-includes/usr/share/applications/tca.desktop.in.h:3
 msgid "connect;tor;network"
-msgstr ""
+msgstr "konekt;tor;mreža"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:1
 msgid "Tor Browser"
-msgstr "Tor Browser"
+msgstr "Tor preglednik"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:2
 msgid "Anonymous Web Browser"
-msgstr ""
+msgstr "Anonimni web preglednik"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.TorBrowser.desktop.in.h:3
-#, fuzzy
 msgid "web;tor;browser"
-msgstr "Tor Browser"
+msgstr "Tor Preglednik"
 
 #: ../config/chroot_local-includes/usr/share/applications/unsafe-browser.desktop.in.h:2
 msgid "Browse the World Wide Web without anonymity"
-msgstr ""
+msgstr "Pregledajte World Wide Web bez anonimnosti"
 
 #: ../config/chroot_local-includes/usr/share/applications/unsafe-browser.desktop.in.h:3
 msgid "Unsafe Web Browser"
-msgstr ""
+msgstr "Nesiguran web preglednik"
 
 #: ../config/chroot_local-includes/usr/share/applications/unsafe-browser.desktop.in.h:4
 msgid "web;captive;portal"
-msgstr ""
+msgstr "web;zarobljeni;portal"
 
 #: ../config/chroot_local-includes/usr/share/applications/unlock-veracrypt-volumes.desktop.in.h:2
 msgid "Mount VeraCrypt encrypted file containers and devices"
-msgstr ""
+msgstr "Montiraj VeraCrypt šifrirane kontejnere i uređaje za datoteke"
 
 #: ../config/chroot_local-includes/usr/share/applications/unlock-veracrypt-volumes.desktop.in.h:3
 msgid "mount;encrypted;container;truecrypt"
-msgstr ""
+msgstr "montiranje;šifrirano;kontejner;truecrypt"
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop.in.h:2
 msgid ""
@@ -2826,39 +2874,41 @@ msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.AdditionalSoftware.desktop.in.h:3
 msgid "persistent;storage;package;install"
-msgstr ""
+msgstr "trajno;skladište;paket;instalacija"
 
 #: ../config/chroot_local-includes/usr/share/applications/whisperback.desktop.in.h:1
 msgid "WhisperBack Error Reporting"
-msgstr ""
+msgstr "Prijavljivanje grešaka WhisperBacka"
 
 #: ../config/chroot_local-includes/usr/share/applications/whisperback.desktop.in.h:2
 msgid "Send feedback via encrypted e-mail"
-msgstr ""
+msgstr "Pošalji povratne informacije putem šifrirane e-pošte"
 
 #: ../config/chroot_local-includes/usr/share/applications/whisperback.desktop.in.h:3
 msgid "feedback;bug;report;tails;error;"
-msgstr ""
+msgstr "povratne informacije;žohar;izvještaj;tails;greška;"
 
 #: ../config/chroot_local-includes/usr/share/desktop-directories/Tails.directory.in.h:2
 msgid "Tails specific tools"
-msgstr ""
+msgstr "Alati specifični za Tails"
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.AdditionalSoftware.policy.in.h:1
 msgid "Remove an additional software package"
-msgstr ""
+msgstr "Uklonite dodatni softverski paket"
 
 #: ../config/chroot_local-includes/usr/share/polkit-1/actions/org.boum.tails.AdditionalSoftware.policy.in.h:2
 msgid ""
 "Authentication is required to remove a package from your additional software "
 "($(command_line))"
 msgstr ""
+"Za uklanjanje paketa iz vašeg dodatnog softvera ($(command_line)) potrebna "
+"je autentifikacija"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:18
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:56
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:869
 msgid "Administration Password"
-msgstr ""
+msgstr "Administrativna lozinka"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:34
 msgid ""
@@ -2866,14 +2916,17 @@ msgid ""
 "tasks. Otherwise, the administration password is disabled for better "
 "security."
 msgstr ""
+"Postavite administratorsku lozinku ako trebate obavljati administrativne "
+"zadatke. U suprotnom, administratorska lozinka je onemogućena radi bolje "
+"sigurnosti."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:77
 msgid "Enter an administration password"
-msgstr ""
+msgstr "Unesite administratorsku lozinku"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:131
 msgid "Confirm your administration password"
-msgstr ""
+msgstr "Potvrdite svoju administratorsku lozinku"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:156
 msgid "Disable"
@@ -2882,7 +2935,7 @@ msgstr "Onemogući"
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:186
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:873
 msgid "MAC Address Anonymization"
-msgstr ""
+msgstr "Anonimizacija MAC adrese"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:202
 msgid ""
@@ -2891,24 +2944,30 @@ msgid ""
 "generally safer as it helps you hide your geographical location. But it "
 "might also create connectivity problems or look suspicious."
 msgstr ""
+"Anonimizacija MAC adrese skriva serijski broj vašeg mrežnog interfejsa (Wi-"
+"Fi ili žičanog) od lokalne mreže. Anonimizacija MAC adresa je generalno "
+"sigurnija jer vam pomaže da sakrijete svoju geografsku lokaciju. Ali može i "
+"stvoriti probleme s povezivanjem ili izgledati sumnjivo."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:244
 msgid "Anonymize all MAC addresses (default)"
-msgstr ""
+msgstr "Anonimiziraj sve MAC adrese (zadano)"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:290
 msgid "Don't anonymize MAC addresses"
-msgstr ""
+msgstr "Ne anonimizirajte MAC adrese"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:343
 msgid "Offline Mode"
-msgstr ""
+msgstr "Vanmrežni režim"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:359
 msgid ""
 "If you want to work completely offline, you can disable all networking for "
 "increased security."
 msgstr ""
+"Ako želite raditi potpuno van mreže, možete onemogućiti svu mrežnu vezu radi "
+"veće sigurnosti."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:514
 msgid ""
@@ -2922,14 +2981,23 @@ msgid ""
 "The Unsafe Browser is not anonymous and can deanonymize you. Use it only to "
 "sign in to networks."
 msgstr ""
+"Nesigurni preglednik vam omogućava prijavu na mrežu pomoću zaštitnog "
+"portala.\n"
+"\n"
+"Zaštitni portal je web stranica koja se prikazuje prije nego što možete "
+"pristupiti internetu. Zaštitni portali obično zahtijevaju da se prijavite na "
+"mrežu ili unesete informacije poput adrese e-pošte.\n"
+"\n"
+"Nesigurni preglednik nije anoniman i može vas deanonimizirati. Koristite ga "
+"samo za prijavu na mreže."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:560
 msgid "Enable the Unsafe Browser (default)"
-msgstr ""
+msgstr "Omogući nesigurni preglednik (zadano)"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/additional_settings.ui.in:606
 msgid "Disable the Unsafe Browser"
-msgstr ""
+msgstr "Onemogući nesigurni preglednik"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:46
 msgid "Settings were loaded from the Persistent Storage."
@@ -2937,15 +3005,15 @@ msgstr "Postavke su učitane iz trajnog skladišta."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:98
 msgid "Welcome to Tails!"
-msgstr ""
+msgstr "Dobrodošli u Tails!"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:131
 msgid "Language and Formats"
-msgstr ""
+msgstr "Jezik i formati"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:167
 msgid "Default Settings"
-msgstr ""
+msgstr "Zadane postavke"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:217
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:238
@@ -2954,9 +3022,8 @@ msgstr "Sačuvaj"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:267
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:379
-#, fuzzy
 msgid "_Persistent Storage"
-msgstr "_Kreirajte trajnu pohranu"
+msgstr "_Trajno skladište"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:287
 msgid ""
@@ -2964,6 +3031,9 @@ msgid ""
 "Storage on your Tails USB stick: your documents, browser bookmarks, Wi-Fi "
 "passwords, and so on."
 msgstr ""
+"Neke od svojih datoteka i konfiguracije možete sačuvati u šifriranom trajnom "
+"skladištu na vašem Tails USB štapiću: dokumente, oznake preglednika, lozinke "
+"za Wi-Fi i tako dalje."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:314
 msgid "Create and configure a Persistent Storage after starting Tails"
@@ -2971,15 +3041,15 @@ msgstr "Kreirajte i konfigurirajte trajno skladište nakon pokretanja Tailsa"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:406
 msgid "Show Passphrase"
-msgstr ""
+msgstr "Prikaži frazu lozinke"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:463
 msgid "Enter your passphrase"
-msgstr ""
+msgstr "Unesite svoju frazu lozinke"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:478
 msgid "Unlock Encryption"
-msgstr ""
+msgstr "Otključaj šifriranje"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:545
 msgid "Impossible to unlock the Persistent Storage."
@@ -2987,7 +3057,7 @@ msgstr "Nemoguće otključati trajno skladište."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:605
 msgid "Partitioning Errors"
-msgstr ""
+msgstr "Greške pri particioniranju"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:641
 msgid ""
@@ -2995,14 +3065,18 @@ msgid ""
 "\n"
 "Try reinstalling Tails. If the error persists, reinstall on a new USB stick."
 msgstr ""
+"Otkrivene su greške prilikom particioniranja vašeg Tails USB štapića.\n"
+"\n"
+"Pokušajte ponovo instalirati Tails. Ako greška i dalje postoji, ponovo "
+"instalirajte uređaj na novi USB štapić."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:673
 msgid "_Additional Settings"
-msgstr ""
+msgstr "_Dodatne postavke"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:756
 msgid "Add an additional setting"
-msgstr ""
+msgstr "Dodaj dodatnu postavku"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:803
 msgid "Shutdown"
@@ -3010,47 +3084,49 @@ msgstr "Gašenje"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:812
 msgid "_Start Tails"
-msgstr ""
+msgstr "_Pokreni Tails"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:841
 msgid ""
 "The default settings are safe in most situations. To add a custom setting, "
 "press the \"+\" button below."
 msgstr ""
+"Zadane postavke su sigurne u većini situacija. Da biste dodali prilagođenu "
+"postavku, pritisnite dugme \"+\" ispod."
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:877
 msgid "Network Configuration"
-msgstr ""
+msgstr "Konfiguracija mreže"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:94
 msgid "Current _Passphrase"
-msgstr ""
+msgstr "Trenutna _fraza lozinke"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:131
 msgid "_New Passphrase"
-msgstr ""
+msgstr "_Nova fraza lozinke"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:179
 msgid "_Confirm New Passphrase"
-msgstr ""
+msgstr "_Potvrdi novu frazu lozinke"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:219
 msgid "_Show Passphrases"
-msgstr ""
+msgstr "_Prikaži frazu lozinke"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:253
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:289
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:161
 msgid "The passphrases do not match"
-msgstr ""
+msgstr "Fraze lozinke se ne podudaraju"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/change_passphrase_dialog.ui.in:315
 msgid "Ch_ange"
-msgstr ""
+msgstr "Promjen_a"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/deleted_view.ui.in:20
 msgid "The Persistent Storage was successfully deleted."
-msgstr ""
+msgstr "Trajno skladište je uspješno izbrisano."
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/deleted_view.ui.in:36
 msgid "_Close"
@@ -3058,7 +3134,7 @@ msgstr "_Zatvori"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/fail_view.ui.in:31
 msgid "Oh no! Something has gone wrong."
-msgstr ""
+msgstr "O ne! Nešto je pošlo po zlu."
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/fail_view.ui.in:45
 msgid ""
@@ -3067,10 +3143,14 @@ msgid ""
 "You can send an error report or check the output of the following commands "
 "to investigate:"
 msgstr ""
+"Servis trajnog sjkladišta je neočekivano završio.\n"
+"\n"
+"Možete poslati izvještaj o grešci ili provjeriti izlaz sljedećih naredbi da "
+"biste istražili:"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/fail_view.ui.in:78
 msgid "Send Error Report"
-msgstr ""
+msgstr "Pošalji izvještaj o grešci"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:63
 msgid ""
@@ -3081,52 +3161,60 @@ msgid ""
 "<a href=\"doc/persistent_storage/backup\">Learn how to make a backup of your "
 "Persistent Storage.</a>"
 msgstr ""
+"Vaše trajno skladište je otključano.\n"
+"\n"
+"Njegov sadržaj je dostupan dok ne isključite Tails.\n"
+"\n"
+"<a href=\"doc/persistent_storage/backup\">Saznajte kako napraviti sigurnosnu "
+"kopiju vašeg trajnog skladišta.</a>"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:91
 msgid ""
 "Turn on the features of the Persistent Storage for the data that you want to "
 "save to your Tails USB stick."
 msgstr ""
+"Uključite funkcije trajnog skladišta za podatke koje želite spremiti na vaš "
+"Tails USB štapić."
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:108
 msgid "Personal Documents"
-msgstr ""
+msgstr "Lični dokumenti"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:136
 msgid "Persistent Folder"
-msgstr ""
+msgstr "Trajna mapa"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:137
 msgid "A folder where you can save your documents."
-msgstr ""
+msgstr "Fascikla u koju možete sačuvati svoje dokumente."
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:162
 msgid "Open Persistent Folder"
-msgstr ""
+msgstr "Otvori trajnu mapu"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:175
 msgid "Activate Persistent Folder"
-msgstr ""
+msgstr "Aktiviraj trajnu mapu"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:202
 msgid "System Settings"
-msgstr ""
+msgstr "Sistematske postavke"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:230
 msgid "Welcome Screen"
-msgstr ""
+msgstr "Ekran dobrodošlice"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:246
 msgid "Activate Welcome Screen"
-msgstr ""
+msgstr "Aktiviraj ekran dobrodošlice"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:259
 msgid "Printers"
-msgstr ""
+msgstr "Štampači"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:275
 msgid "Activate Printers"
-msgstr ""
+msgstr "Aktiviraj štampače"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:302
 msgid "Network"
@@ -3134,23 +3222,24 @@ msgstr "Mreža"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:330
 msgid "Network Connections"
-msgstr ""
+msgstr "Mrežne veze"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:331
 msgid "Save Wi-Fi passwords and mobile broadband configuration."
 msgstr ""
+"Sačuvajte lozinke za Wi-Fi i konfiguraciju mobilne širokopojasne mreže."
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:347
 msgid "Activate Network Connections"
-msgstr ""
+msgstr "Aktivirajte mrežne veze"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:360
 msgid "Tor Bridge"
-msgstr ""
+msgstr "Tor most"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:376
 msgid "Activate Tor Bridge"
-msgstr ""
+msgstr "Aktiviraj Tor most"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:403
 msgid "Applications"
@@ -3158,31 +3247,31 @@ msgstr "Aplikacije"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:431
 msgid "Tor Browser Bookmarks"
-msgstr ""
+msgstr "Oznake u Tor pregledniku"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:447
 msgid "Activate Tor Browser Bookmarks"
-msgstr ""
+msgstr "Aktiviraj oznake u Tor pregledniku"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:460
 msgid "Electrum Bitcoin Wallet"
-msgstr ""
+msgstr "Electrum Bitcoin novčanik"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:476
 msgid "Activate Electrum Bitcoin Wallet"
-msgstr ""
+msgstr "Aktiviraj Electrum Bitcoin novčanik"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:489
 msgid "Thunderbird Email Client"
-msgstr ""
+msgstr "Thunderbird klijent e-pošte"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:505
 msgid "Activate Thunderbird Email Client"
-msgstr ""
+msgstr "Aktiviraj Thunderbird klijent e-pošte"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:518
 msgid "GnuPG"
-msgstr ""
+msgstr "GnuPG"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:519
 msgid "OpenPGP keys outside of Thunderbird, including in Kleopatra."
@@ -3190,7 +3279,7 @@ msgstr "OpenPGP ključeve izvan Thunderbirda, uključujući i Kleopatru."
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:535
 msgid "Activate GnuPG"
-msgstr ""
+msgstr "Aktiviraj GnuPG"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:548
 msgid "Pidgin Internet Messenger"
@@ -3198,31 +3287,31 @@ msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:564
 msgid "Activate Pidgin Internet Messenger"
-msgstr ""
+msgstr "Aktiviraj Pidgin Internet Messenger"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:577
 msgid "SSH Client"
-msgstr ""
+msgstr "SSH klijent"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:593
 msgid "Activate SSH Client"
-msgstr ""
+msgstr "Aktiviraj SSH klijenta"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:620
 msgid "Advanced Settings"
-msgstr ""
+msgstr "Napredne postavke"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:649
 msgid "Install additional software automatically when starting Tails."
-msgstr ""
+msgstr "Automatski instaliraj dodatni softver prilikom pokretanja Tailsa."
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:674
 msgid "Configure Additional Software"
-msgstr ""
+msgstr "Konfiguriši dodatni softver"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:687
 msgid "Activate Additional Software"
-msgstr ""
+msgstr "Aktiviraj dodatni softver"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:700
 msgid "Dotfiles"
@@ -3230,11 +3319,11 @@ msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:701
 msgid "Symlink every file in the Dotfiles folder into the Home folder."
-msgstr ""
+msgstr "Simbolički poveži svaku datoteku u mapi Dotfiles s mapom Home."
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:734
 msgid "Activate Dotfiles"
-msgstr ""
+msgstr "Aktiviraj Dotfiles"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:766
 msgid "Custom"
@@ -3245,12 +3334,15 @@ msgid ""
 "To add or remove custom features, modify /live/persistence/"
 "TailsData_unlocked/persistence.conf."
 msgstr ""
+"Da biste dodali ili uklonili prilagođene funkcije, izmijenite datoteku /live/"
+"persistence/TailsData_unlocked/persistence.conf."
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:827
 msgid ""
 "<a href=\"doc/persistent_storage\">Learn more about the Persistent Storage.</"
 "a>"
 msgstr ""
+"<a href=\"doc/persistent_storage\">Saznajte više o trajnom skladištu.</a>"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/locked_view.ui.in:53
 msgid ""
@@ -3262,25 +3354,34 @@ msgid ""
 "To delete your Persistent Storage, click <b>Delete</b> on the right of the "
 "title bar."
 msgstr ""
+"<b>Vaše trajno skladište je zaključano.</b>\n"
+"\n"
+"Da biste koristili ili konfigurirali svoje trajno skladište, otključajte ga "
+"na početnom ekranu prilikom pokretanja Tailsa.\n"
+"\n"
+"Da biste izbrisali vaše trajno skladište, kliknite na <b>Izbriši</b> s desne "
+"strane naslovne trake."
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:60
 msgid ""
 "Choose the passphrase that you will use to unlock the encryption of your "
 "Persistent Storage and all its data."
 msgstr ""
+"Odaberite frazu lozinke koju ćete koristiti za otključavanje enkripcije "
+"vašeg trajnog skladišta i svih njenih podataka."
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:80
 msgid "We recommend a long passphrase of 5 to 7 random words."
-msgstr ""
+msgstr "Preporučujemo dugu frazu lozinku od 5 do 7 nasumičnih riječi."
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:92
 msgid " For example:"
-msgstr ""
+msgstr " Na primjer:"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:175
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:46
 msgid "Passphrase:"
-msgstr ""
+msgstr "Fraza lozinke:"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:194
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:65
@@ -3290,7 +3391,7 @@ msgstr "Potvrdi:"
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:317
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:185
 msgid "_Show Passphrase"
-msgstr ""
+msgstr "_Prikaži frazu lozinke"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:361
 msgid "_Back"
@@ -3298,7 +3399,7 @@ msgstr "_Nazad"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/passphrase_view.ui.in:378
 msgid "_Create Persistent Storage"
-msgstr ""
+msgstr "_Kreiraj trajno skladište"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:56
 msgid ""
@@ -3315,6 +3416,17 @@ msgid ""
 "<a href=\"doc/persistent_storage\">Learn more about the Persistent Storage.</"
 "a>"
 msgstr ""
+"Sve što radite automatski nestaje kada isključite Tails.\n"
+"\n"
+"Ali neke od svojih datoteka i konfiguracije možete sačuvati u šifriranom "
+"trajnom skladištu na vašem Tails USB štapiću, na primjer:\n"
+"\n"
+"• Vaši dokumenti\n"
+"• Vaše Wi-Fi lozinke\n"
+"• Vaši favoriti u pregledniku\n"
+"• ...\n"
+"\n"
+"<a href=\"doc/persistent_storage\">Saznajte više o trajnom skladištu.</a>"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:93
 msgid ""
@@ -3323,11 +3435,15 @@ msgid ""
 "To be able to use Tails with a Persistent Storage, please follow our "
 "instructions on <a href=\"install\">installing Tails on a USB stick</a>."
 msgstr ""
+"Žao nam je, nije moguće kreirati trajno skladište na ovom uređaju.\n"
+"\n"
+"Da biste mogli koristiti Tails s trajnim skladištem, slijedite naša uputstva "
+"za <a href=\"install\">instaliraj Tails na USB štapić</a>."
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:141
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:232
 msgid "Co_ntinue"
-msgstr ""
+msgstr "_Nastavite"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:29
 msgid "_Delete…"
@@ -3335,15 +3451,15 @@ msgstr "_Obriši…"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:49
 msgid "_Change Passphrase…"
-msgstr ""
+msgstr "_Promijeni frazu lozinke…"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/window.ui.in:66
 msgid "_Restart Tails"
-msgstr ""
+msgstr "_Ponovno pokreni Tails"
 
 #: ../config/chroot_local-includes/usr/share/tails/unlock-veracrypt-volumes/main.ui.in:61
 msgid "File Containers"
-msgstr ""
+msgstr "Kontejneri datoteka"
 
 #: ../config/chroot_local-includes/usr/share/tails/unlock-veracrypt-volumes/main.ui.in:80
 msgid "_Add"
@@ -3351,17 +3467,19 @@ msgstr "_Dodaj"
 
 #: ../config/chroot_local-includes/usr/share/tails/unlock-veracrypt-volumes/main.ui.in:86
 msgid "Add a file container"
-msgstr ""
+msgstr "Dodajte kontejner za datoteke"
 
 #: ../config/chroot_local-includes/usr/share/tails/unlock-veracrypt-volumes/main.ui.in:103
 msgid "Partitions and Drives"
-msgstr ""
+msgstr "Particije i diskovi"
 
 #: ../config/chroot_local-includes/usr/share/tails/unlock-veracrypt-volumes/main.ui.in:121
 msgid ""
 "This application is not affiliated with or endorsed by the VeraCrypt project "
 "or IDRIX."
 msgstr ""
+"Ova aplikacija nije povezana s VeraCrypt projektom ili IDRIX-om niti je "
+"podržavaju."
 
 #: ../config/chroot_local-includes/usr/share/tails/unlock-veracrypt-volumes/volume.ui.in:29
 msgid "_Open"
@@ -3369,55 +3487,59 @@ msgstr "_Otvori"
 
 #: ../config/chroot_local-includes/usr/share/tails/unlock-veracrypt-volumes/volume.ui.in:38
 msgid "Lock this volume"
-msgstr ""
+msgstr "Zaključaj ovaj volumen"
 
 #: ../config/chroot_local-includes/usr/share/tails/unlock-veracrypt-volumes/volume.ui.in:52
 msgid "_Unlock"
-msgstr ""
+msgstr "Otklj_učaj"
 
 #: ../config/chroot_local-includes/usr/share/tails/unlock-veracrypt-volumes/volume.ui.in:61
 msgid "Detach this volume"
-msgstr ""
+msgstr "Odvojite ovaj volumen"
 
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:8
 msgid "Choose Passphrase"
-msgstr ""
+msgstr "Odaberite frazu lozinke"
 
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:30
 msgid "Choose the passphrase for the cloned Persistent Storage."
-msgstr ""
+msgstr "Odaberite frazu lozinke za klonirano trajno skladište."
 
 #: ../config/chroot_local-includes/usr/share/tails-installer/tails-installer.ui.in:281
 msgid "Target USB stick:"
-msgstr ""
+msgstr "Ciljni USB štapić:"
 
 #: ../config/chroot_local-includes/usr/share/tails-installer/tails-installer.ui.in:357
 msgid "Reinstall (delete all data)"
-msgstr ""
+msgstr "Ponovo instaliraj (izbriši sve podatke)"
 
 #: ../config/chroot_local-includes/usr/share/whisperback/whisperback.ui.in:68
 msgid ""
 "If you want us to encrypt messages when we respond to you, add your key ID, "
 "a link to your key, or the key as a public key block:"
 msgstr ""
+"Ako želite da šifriramo poruke kada vam odgovaramo, dodajte ID vašeg ključa, "
+"vezu do vašeg ključa ili ključ kao blok javnog ključa:"
 
 #: ../config/chroot_local-includes/usr/share/whisperback/whisperback.ui.in:226
 msgid "WhisperBack"
-msgstr ""
+msgstr "WhisperBack"
 
 #: ../config/chroot_local-includes/usr/share/whisperback/whisperback.ui.in:255
 msgid "Summary"
-msgstr ""
+msgstr "Sažetak"
 
 #: ../config/chroot_local-includes/usr/share/whisperback/whisperback.ui.in:294
 msgid "What were you trying to achieve?"
-msgstr ""
+msgstr "Šta si pokušavao/la postići?"
 
 #: ../config/chroot_local-includes/usr/share/whisperback/whisperback.ui.in:340
 msgid ""
 "<b>What happened instead?</b>\n"
 "Describe the error with as many details as possible."
 msgstr ""
+"<b>Šta se umjesto toga dogodilo?</b>\n"
+"Opišite grešku sa što više detalja."
 
 #: ../config/chroot_local-includes/usr/share/whisperback/whisperback.ui.in:385
 msgid ""
@@ -3426,26 +3548,34 @@ msgid ""
 "happen again.\n"
 "Otherwise, we won't be able to troubleshoot and solve it."
 msgstr ""
+"<b>Šta ste uradili što je izazvalo ovu grešku?</b>\n"
+"Opišite tačne korake koji su uzrokovali grešku, kako bismo mogli pokušati da "
+"je ponovo ispravimo.\n"
+"U suprotnom, nećemo moći da otklonimo problem i riješimo ga."
 
 #: ../config/chroot_local-includes/usr/share/whisperback/whisperback.ui.in:427
 msgid "Error reporting guidelines"
-msgstr ""
+msgstr "Smjernice za prijavljivanje grešaka"
 
 #: ../config/chroot_local-includes/usr/share/whisperback/whisperback.ui.in:445
 msgid ""
 "<b>Email address</b>\n"
 "So we can answer you or ask for more details."
 msgstr ""
+"<b>Adresa e-pošte</b>\n"
+"Kako bismo vam mogli odgovoriti ili zatražiti više detalja."
 
 #: ../config/chroot_local-includes/usr/share/whisperback/whisperback.ui.in:480
 msgid "Optional PGP Key…"
-msgstr ""
+msgstr "Opcioni PGP ključ…"
 
 #: ../config/chroot_local-includes/usr/share/whisperback/whisperback.ui.in:505
 msgid ""
 "Even if we are not able to reply to every report, we analyze all reports to "
 "improve Tails."
 msgstr ""
+"Čak i ako nismo u mogućnosti odgovoriti na svaku prijavu, analiziramo sve "
+"prijave kako bismo poboljšali Tails."
 
 #: ../config/chroot_local-includes/usr/share/whisperback/whisperback.ui.in:520
 msgid "Description"
@@ -3454,19 +3584,19 @@ msgstr "Description"
 #: ../config/chroot_local-includes/usr/share/whisperback/whisperback.ui.in:537
 #: ../config/chroot_local-includes/usr/share/whisperback/whisperback.ui.in:694
 msgid "Technical Details"
-msgstr ""
+msgstr "Tehnički detalji"
 
 #: ../config/chroot_local-includes/usr/share/whisperback/whisperback.ui.in:576
 msgid "Headers"
-msgstr ""
+msgstr "Zaglavlja"
 
 #: ../config/chroot_local-includes/usr/share/whisperback/whisperback.ui.in:621
 msgid "information about the error being reported"
-msgstr ""
+msgstr "informacije o prijavljenoj grešci"
 
 #: ../config/chroot_local-includes/usr/share/whisperback/whisperback.ui.in:669
 msgid "Debugging Information"
-msgstr ""
+msgstr "Informacije o otklanjanju grešaka"
 
 #: ../config/chroot_local-includes/usr/share/whisperback/whisperback.ui.in:730
 msgid "_Send"
@@ -3474,11 +3604,11 @@ msgstr "_Pošalji"
 
 #: ../config/chroot_local-includes/usr/local/share/mime/packages/unlock-veracrypt-volumes.xml.in.h:1
 msgid "TrueCrypt/VeraCrypt container"
-msgstr ""
+msgstr "TrueCrypt/VeraCrypt kontejner"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:82
 msgid "Configure a Tor bridge"
-msgstr ""
+msgstr "Konfiguriši Tor most"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:106
 msgid ""
@@ -3487,18 +3617,22 @@ msgid ""
 "\n"
 "You can use <i>obfs4</i> and <i>WebTunnel</i> bridges in Tails.\n"
 msgstr ""
+"Mostovi su tajni Tor releji. Koristite most kao svoj prvi Tor relej ako je "
+"pristup Toru blokiran s vaše lokacije.\n"
+"\n"
+"Možete koristiti mostove <i>obfs4</i> i <i>WebTunnel</i> u Tailsu.\n"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:126
 msgid "<a href=\"doc/anonymous_internet/tor\">Learn more about Tor bridges</a>"
-msgstr ""
+msgstr "<a href=\"doc/anonymous_internet/tor\">Saznaj više o Tor mostovima</a>"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:161
 msgid "Use a _default bridge"
-msgstr ""
+msgstr "Koristite za_dani most"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:184
 msgid "obfs4 (recommended)"
-msgstr ""
+msgstr "obfs4 (preporučeno)"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:185
 msgid "WebTunnel"
@@ -3511,11 +3645,11 @@ msgstr "Ništa"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:242
 msgid "Ask for a bridge based on your _region"
-msgstr ""
+msgstr "Zatražite most na osnovu vaše _regije"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:301
 msgid "_Ask for a bridge by email"
-msgstr ""
+msgstr "Zatr_ažite most putem e-pošte"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:320
 msgid ""
@@ -3523,14 +3657,17 @@ msgid ""
 "Riseup email address with your phone and scan the QR code that is attached "
 "to the automatic reply."
 msgstr ""
+"Pošaljite praznu e-poruku na <tt>bridges@torproject.org</tt> sa e-poštanske "
+"adrese sa Gmail ili Riseup telefonom i skenirajte QR kod koji je priložen uz "
+"automatski odgovor."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:333
 msgid "Scan _QR code"
-msgstr ""
+msgstr "Skeniraj _QR kod"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:434
 msgid "_Enter a bridge that you already know"
-msgstr ""
+msgstr "Uđit_e na most koji već poznajete"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:460
 msgid "Bridge"
@@ -3538,86 +3675,84 @@ msgstr "Most"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:473
 msgid "obfs4 or webtunnel…"
-msgstr ""
+msgstr "obfs4 ili webtunnel…"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:546
 msgid "Save bridge to _Persistent Storage"
-msgstr ""
+msgstr "Sačuvaj most u _Trajno Skladište"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:571
 msgid "Save bridge to Persistent Storage"
-msgstr ""
+msgstr "Sačuvaj most u Trajno Skladište"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:711
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1462
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1859
 msgid "_Connect to Tor"
-msgstr ""
+msgstr "_Poveži se s Torom"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:763
 msgid "Error connecting to Tor"
-msgstr ""
+msgstr "Greška pri povezivanju na Tor"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:783
 msgid "This local network seems to be blocking access to Tor."
-msgstr ""
+msgstr "Izgleda da ova lokalna mreža blokira pristup Toru."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:811
-#, fuzzy
 msgid "Error connecting to Tor with this bridge"
-msgstr "Connected to Tor successfully with bridges"
+msgstr "Greška pri povezivanju na Tor putem ovog mosta"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:827
 msgid ""
 "Either this Tor bridge is not working or your network is blocking access to "
 "it."
-msgstr ""
+msgstr "Ili ovaj Tor most ne radi ili vaša mreža blokira pristup njemu."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:856
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:930
 msgid "Try configuring another bridge."
-msgstr ""
+msgstr "Pokušaj konfigurirati drugi most."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:884
-#, fuzzy
 msgid "Error connecting to Tor with default bridges"
-msgstr "Connected to Tor successfully with bridges"
+msgstr "Greška pri povezivanju na Tor sa zadanim mostovima"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:900
 msgid "Your network is blocking access to Tor and the default bridges."
-msgstr ""
+msgstr "Vaša mreža blokira pristup Toru i zadanim mostovima."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:916
 msgid "Bridge: <b>default bridges</b>"
-msgstr ""
+msgstr "Most: <b>zadani mostovi</b>"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:958
-#, fuzzy
 msgid "Error connecting to Tor with bridges"
-msgstr "Connected to Tor successfully with bridges"
+msgstr "Greška pri povezivanju na Tor putem mostova"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:974
 msgid "None of the bridges recommended for this region worked."
-msgstr ""
+msgstr "Nijedan od mostova preporučenih za ovu regiju nije radio."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:990
 msgid "Try another region or getting a bridge by mail."
-msgstr ""
+msgstr "Pokušajte s drugom regijom ili naručite most poštom."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1018
-#, fuzzy
 msgid "Error asking for a bridge"
-msgstr "Greška pri provjeravanju nadogradnji"
+msgstr "Greška prilikom traženja mosta"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1034
 msgid "Tails failed to ask for a bridge based on your region."
-msgstr ""
+msgstr "Tails nije uspio zatražiti most na osnovu vaše regije."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1050
 msgid ""
 "Please, <a href=\"support/talk\">report this error</a> and try asking for a "
 "bridge by email."
 msgstr ""
+"Molimo vas, <a href=\"support/talk\">prijavite ovu grešku</a> i pokušajte "
+"zatražiti most putem e-pošte."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1087
 msgid "Open _details"
@@ -3625,19 +3760,20 @@ msgstr "Otvori _detalje"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1142
 msgid "• Wrong clock"
-msgstr ""
+msgstr "• Pogrešan sat"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1162
 msgid "Your clock and time zone need to be correct to connect to Tor."
 msgstr ""
+"Vaš sat i vremenska zona moraju biti tačni da biste se povezali na Tor."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1175
 msgid "Fix _Clock"
-msgstr ""
+msgstr "Popravi _Sat"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1213
 msgid "• Public network"
-msgstr ""
+msgstr "• Javna mreža"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1233
 msgid ""
@@ -3649,25 +3785,27 @@ msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1246
 msgid "Try _Signing in to the Network"
-msgstr ""
+msgstr "Pokušajte _se prijaviti na mrežu"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1285
 msgid "• Local proxy"
-msgstr ""
+msgstr "• Lokalni proksi"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1305
 msgid ""
 "If you are on a corporate or university network, you might need to configure "
 "a local proxy."
 msgstr ""
+"Ako ste na korporativnoj ili univerzitetskoj mreži, možda ćete morati "
+"konfigurirati lokalni proksi."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1335
 msgid "Configure a Local _Proxy"
-msgstr ""
+msgstr "Konfiguriši lokalni _proksi"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1374
 msgid "• Tor bridge"
-msgstr ""
+msgstr "• Tor most"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1394
 msgid ""
@@ -3675,22 +3813,27 @@ msgid ""
 "connections to Tor are blocked, for example in some countries, by some "
 "public networks, or by some parental controls."
 msgstr ""
+"Tor mostovi su tajni Tor releji. Koristite most kao svoj prvi Tor relej ako "
+"su veze s Torom blokirane, na primjer u nekim zemljama, od strane nekih "
+"javnih mreža ili nekih roditeljskih kontrola."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1410
 msgid "Configure a Tor _Bridge"
-msgstr ""
+msgstr "Konfiguriši Tor _most"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1449
 msgid ""
 "<a href=\"doc/anonymous_internet/tor/troubleshoot\">Troubleshooting "
 "connecting to Tor</a>"
 msgstr ""
+"<a href=\"doc/anonymous_internet/tor/troubleshoot\">Rješavanje problema s "
+"povezivanjem na Tor</a>"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1494
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1902
 msgid ""
 "Everything you do on the Internet from Tails goes through the Tor network."
-msgstr ""
+msgstr "Sve što radite na internetu iz Tailsa prolazi kroz Tor mrežu."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1508
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1917
@@ -3699,6 +3842,9 @@ msgid ""
 "Tor relays are servers operated by different organizations and volunteers "
 "around the world."
 msgstr ""
+"Tor šifrira i anonimizira vašu vezu propuštajući je kroz 3 releja.\n"
+"Tor releji su serveri kojima upravljaju različite organizacije i volonteri "
+"širom svijeta."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1544
 msgid "<b>Connect to Tor _automatically</b>"
@@ -3709,6 +3855,8 @@ msgid ""
 "We recommend connecting to Tor automatically if you are on a public Wi-Fi "
 "network or if many people in your country use Tor to circumvent censorship."
 msgstr ""
+"Preporučujemo automatsko povezivanje na Tor ako ste na javnoj Wi-Fi mreži "
+"ili ako mnogi ljudi u vašoj zemlji koriste Tor za zaobilaženje cenzure."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1612
 msgid ""
@@ -3717,10 +3865,14 @@ msgid ""
 "Someone monitoring your Internet connection could identify these attempts as "
 "coming from a Tails user."
 msgstr ""
+"Tails će pokušati različite načine povezivanja na Tor dok ne uspije.\n"
+"\n"
+"Neko ko prati vašu internet konekciju mogao bi prepoznati ove pokušaje kao "
+"da dolaze od Tails korisnika."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1646
 msgid "Configure a Tor _bridge"
-msgstr ""
+msgstr "Konfiguriši Tor _most"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1692
 msgid ""
@@ -3732,6 +3884,13 @@ msgid ""
 "Tails will autodetect whether you need a bridge to connect to Tor from your "
 "local network."
 msgstr ""
+"Tor mostovi su tajni Tor releji. Koristite most kao svoj prvi Tor relej ako "
+"su veze s Torom blokirane, na primjer u nekim zemljama, nekim javnim mrežama "
+"ili nekim roditeljskim kontrolama.\n"
+"\n"
+"Odaberite ovu opciju ako već znate da vam je potreban most. U suprotnom, "
+"Tails će automatski otkriti da li vam je potreban most za povezivanje s "
+"Torom iz vaše lokalne mreže."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1734
 msgid "<b>_Hide to my local network that I'm connecting to Tor</b>"
@@ -3742,6 +3901,8 @@ msgid ""
 "You might need to go unnoticed if using Tor could look suspicious to someone "
 "who monitors your Internet connection."
 msgstr ""
+"Možda ćete morati proći nezapaženo ako bi korištenje Tora moglo izgledati "
+"sumnjivo nekome ko prati vašu internetsku vezu."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1802
 msgid ""
@@ -3755,16 +3916,27 @@ msgid ""
 "yet, if you connect from a public Wi-Fi network, or if you are in the "
 "Eastern Hemisphere."
 msgstr ""
+"Tails će se povezati s Torom tek nakon što konfigurirate Tor most. Mostovi "
+"su tajni Tor releji koji skrivaju da se povezujete s Torom.\n"
+"\n"
+"Naš tim čini sve što može da vam pomogne da se povežete s Torom koristeći "
+"najdiskretnije vrste Tor mostova.\n"
+"\n"
+"Morat ćete izvršiti dodatnu konfiguraciju ako još ne znate nijedan Tor most, "
+"ako se povezujete s javne Wi-Fi mreže ili ako se nalazite na istočnoj "
+"hemisferi."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1847
 msgid ""
 "<a href=\"doc/anonymous_internet/tor\">Learn more about how Tails connects "
 "to Tor</a>"
 msgstr ""
+"<a href=\"doc/anonymous_internet/tor\">Saznaj više o tome kako se Tails "
+"povezuje s Torom</a>"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1937
 msgid "No Wi-Fi hardware detected"
-msgstr ""
+msgstr "Nije otkriven Wi-Fi hardver"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1955
 msgid ""
@@ -3780,6 +3952,17 @@ msgid ""
 " • Buy a USB Wi-Fi adapter that works in Tails.\n"
 "                "
 msgstr ""
+"Tails nije mogao pronaći Wi-Fi interfejs na vašem računaru. Ako vaš računar "
+"ima Wi-Fi interfejs, možda neće raditi na Tailsu.\n"
+"\n"
+"Da biste se povezali na internet, možete pokušati sljedeće:\n"
+"\n"
+"• Koristite Ethernet kabl umjesto Wi-Fi-ja. Žični interfejsi rade mnogo "
+"pouzdanije od Wi-Fi-ja u Tailsu.\n"
+"• Koristite USB tethering za dijeljenje Wi-Fi ili mobilne podatkovne veze "
+"vašeg telefona pomoću kabla.\n"
+"• Kupite USB Wi-Fi adapter koji radi u Tailsu.\n"
+"                "
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1979
 msgid ""
@@ -3789,56 +3972,63 @@ msgid ""
 "</a>\n"
 "                "
 msgstr ""
+"\n"
+"<a href=\"doc/anonymous_internet/no-wifi\">\n"
+"Saznajte više o rješavanju problema s nefunkcionalnom Wi-Fi mrežom.\n"
+"</a>\n"
+"                "
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2007
 msgid "Connect to a local network"
-msgstr ""
+msgstr "Poveži se na lokalnu mrežu"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2024
 msgid ""
 "You are not connected to a local network yet. To be able to connect to the "
 "Tor network, you first need to connect to a Wi-Fi, wired, or mobile network."
 msgstr ""
+"Još niste povezani na lokalnu mrežu. Da biste se mogli povezati na Tor "
+"mrežu, prvo se morate povezati na Wi-Fi, žičanu ili mobilnu mrežu."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2038
 msgid "Open Wi-Fi Settings"
-msgstr ""
+msgstr "Otvorite postavke Wi-Fi mreže"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2087
 msgid "Testing Internet access…"
-msgstr ""
+msgstr "Testiranje pristupa internetu…"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2127
 msgid "You have access to the Internet"
-msgstr ""
+msgstr "Imate pristup internetu"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2161
 msgid "Testing access to Tor…"
-msgstr ""
+msgstr "Testiranje pristupa Toru…"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2204
 msgid "You can connect to Tor"
-msgstr ""
+msgstr "Možete se povezati na Tor"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2234
 msgid "Failed to connect to Tor without bridges."
-msgstr ""
+msgstr "Povezivanje na Tor bez mostova nije uspjelo."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2250
 msgid "This local network is blocking access to Tor."
-msgstr ""
+msgstr "Ova lokalna mreža blokira pristup Toru."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2282
 msgid "Connecting to Tor…"
-msgstr ""
+msgstr "Poveži se na Tor…"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2387
 msgid "Start Tor Browser"
-msgstr ""
+msgstr "Pokrenite Tor preglednik"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2446
 msgid "Configure a Local Proxy"
-msgstr ""
+msgstr "Konfiguriši lokalni proksi"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2472
 msgid "Proxy Type"
@@ -3846,19 +4036,19 @@ msgstr "Proxy Type"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2489
 msgid "No proxy"
-msgstr ""
+msgstr "Nema proksija"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2490
 msgid "SOCKS 4"
-msgstr ""
+msgstr "SOCKS 4"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2491
 msgid "SOCKS 5"
-msgstr ""
+msgstr "SOCKS 5"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2492
 msgid "HTTP / HTTPS"
-msgstr ""
+msgstr "HTTP / HTTPS"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2511
 msgid "Address"
@@ -3878,11 +4068,11 @@ msgstr "Port"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2687
 msgid "_Save Proxy Settings"
-msgstr ""
+msgstr "_Sačuvaj postavke proksija"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:7
 msgid "Tor Connection - Fix Clock"
-msgstr ""
+msgstr "Tor veza - Podesi sat"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:76
 msgid ""
@@ -3890,10 +4080,13 @@ msgid ""
 "never be sent over the network and will only be used to fix your clock and "
 "connect to Tor."
 msgstr ""
+"Vaša vremenska zona ne može se koristiti za vašu identifikaciju ili "
+"lociranje. Vaša vremenska zona nikada neće biti poslana preko mreže i "
+"koristit će se samo za podešavanje vašeg sata i povezivanje s Torom."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:142
 msgid "Time zone"
-msgstr ""
+msgstr "Vremenska zona"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:186
 msgid "Time"
@@ -3901,7 +4094,7 @@ msgstr "Vrijeme"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:223
 msgid ":"
-msgstr ""
+msgstr ":"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:277
 msgid "Date"
@@ -3909,55 +4102,55 @@ msgstr "Datum"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:311
 msgid "January"
-msgstr ""
+msgstr "Januar"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:312
 msgid "February"
-msgstr ""
+msgstr "Februar"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:313
 msgid "March"
-msgstr ""
+msgstr "Mart"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:314
 msgid "April"
-msgstr ""
+msgstr "April"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:315
 msgid "May"
-msgstr ""
+msgstr "Maj"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:316
 msgid "June"
-msgstr ""
+msgstr "Juni"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:317
 msgid "July"
-msgstr ""
+msgstr "Juli"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:318
 msgid "August"
-msgstr ""
+msgstr "Avgust"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:319
 msgid "September"
-msgstr ""
+msgstr "Septembar"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:320
 msgid "October"
-msgstr ""
+msgstr "Oktobar"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:321
 msgid "November"
-msgstr ""
+msgstr "Novembar"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:322
 msgid "December"
-msgstr ""
+msgstr "Decembar"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/time-dialog.ui.in:368
 msgid "Clock"
-msgstr ""
+msgstr "Sat"
 
 #~ msgid "Documentation"
 #~ msgstr "Dokumentacija"

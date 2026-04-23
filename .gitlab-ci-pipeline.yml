@@ -313,6 +313,7 @@ test-python-doctest:
     - apt-get -qy install python3 python3-sh python3-toml python3-requests python3-bs4
     - config/chroot_local-includes/usr/local/lib/tails-gdm-error-message doctest --verbose
     - env PYTHONPATH=config/chroot_local-includes/usr/lib/python3/dist-packages python3 config/chroot_local-includes/usr/local/bin/tails-documentation --doctest
+    - env PYTHONPATH=config/chroot_local-includes/usr/lib/python3/dist-packages python3 config/chroot_local-includes/usr/local/lib/tails-uefi-ca-detect --doctest
     - ./bin/locale-descriptions doctest
     - env PYTHONPATH=config/chroot_local-includes/usr/lib/python3/dist-packages python3 -m doctest --verbose config/chroot_local-includes/usr/lib/python3/dist-packages/tails_jsonrpc/__init__.py
 
