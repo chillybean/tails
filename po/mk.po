@@ -9,13 +9,14 @@
 # Nena <nena100janovska@gmail.com>, 2019
 # Zarko Gjurov <zarkogjurov@gmail.com>, 2019-2022
 # emma peel <emma.peel@riseup.net>, 2025, 2026.
+# Dimitar Poposki <dimitar.a.poposki@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-07 12:41+0200\n"
-"PO-Revision-Date: 2026-04-03 09:12+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"POT-Creation-Date: 2026-04-22 08:04+0200\n"
+"PO-Revision-Date: 2026-04-20 12:09+0000\n"
+"Last-Translator: Dimitar Poposki <dimitar.a.poposki@gmail.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/tor/tails-gui/"
 "mk/>\n"
 "Language: mk\n"
@@ -23,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : 1;\n"
-"X-Generator: Weblate 5.17-dev\n"
+"X-Generator: Weblate 5.17.1-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:242
 #, python-brace-format
@@ -51,9 +52,8 @@ msgid "Configure"
 msgstr "Конфигурирај"
 
 #: config/chroot_local-includes/usr/local/lib/change-apps-menu-name:25
-#, fuzzy
 msgid "Password Manager"
-msgstr "Лозинка"
+msgstr "Менаџер на лозинки"
 
 #: config/chroot_local-includes/usr/local/lib/change-apps-menu-name:26
 #, fuzzy
@@ -62,7 +62,7 @@ msgstr "Лозинка"
 
 #: config/chroot_local-includes/usr/local/lib/change-apps-menu-name:26
 msgid "password-manager"
-msgstr ""
+msgstr "Менаџер на лозинки"
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:57
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:95
@@ -239,6 +239,11 @@ msgid ""
 "Every bit helps in our fight against surveillance and censorship!\n"
 "\n"
 msgstr ""
+"На Tails му се потребни донации за да ги одржи сите слободни и безбедни "
+"онлајн.\n"
+"\n"
+"Секој дел помага во нашата борба против надзорот и цензурата!\n"
+"\n"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:72
 msgid ""
@@ -247,6 +252,10 @@ msgid ""
 "Help us keep your bitcoins safe!\n"
 "\n"
 msgstr ""
+"Tails го штити вашиот паричник.\n"
+"\n"
+"Помогнете ни да ги заштитиме вашите биткоини!\n"
+"\n"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:140
 msgid "Donate Now"
@@ -258,11 +267,11 @@ msgstr "Podocna"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:156
 msgid "Opening Electrum with our donation address..."
-msgstr ""
+msgstr "Отворање на Електрум со нашата адреса за донации..."
 
 #: config/chroot_local-includes/usr/local/bin/electrum:157
 msgid "Thank you for making the Internet a safer place!"
-msgstr ""
+msgstr "Ви благодариме што го правите интернетот побезбедно место!"
 
 #: config/chroot_local-includes/usr/local/bin/electrum:191
 msgid "Persistence is disabled for Electrum"
@@ -449,7 +458,7 @@ msgstr "Ситемот е ажуриран"
 msgid ""
 "You are currently running the latest version. There is no upgrade "
 "available.\n"
-msgstr ""
+msgstr "Моментално ја користите најновата верзија. Нема достапна надградба.\n"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:414
 #, fuzzy
@@ -806,6 +815,11 @@ msgid ""
 "Someone who finds your Tails USB stick can see your language and keyboard "
 "layout."
 msgstr ""
+"Вашиот јазик и распоред на тастатурата ќе бидат зачувани некриптирани на "
+"вашиот Tails USB стик и ќе се применат автоматски во иднина.\n"
+"\n"
+"Некој што ќе го пронајде вашиот Tails USB стик може да го види вашиот јазик "
+"и распоред на тастатурата."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:200
 msgid "Save Unencrypted"
@@ -965,9 +979,11 @@ msgid "Error upgrading Persistent Storage: {}"
 msgstr "Енкриптиран_Постојан склад: {}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/settings/persistence.py:176
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "Failed to activate some features of the Persistent Storage: {features}."
-msgstr "Не успеа кофигурирањето на вашиот Постојан склад."
+msgstr ""
+"Не успеа кофигурирањето на вНе успеаја да се активираат некои функции на "
+"трајното складирање: {features}."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/settings/persistence.py:181
 msgid "Error activating Persistent Storage: {}"
@@ -1509,6 +1525,7 @@ msgstr "Otfrli"
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:11
 #: config/chroot_local-includes/usr/local/lib/tails-additional-software-notify:63
 #: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:44
+#: config/chroot_local-includes/usr/local/lib/tails-uefi-ca-notify-user:52
 #: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:45
 msgid "Learn More"
 msgstr "Научи повеќе"
@@ -1527,6 +1544,8 @@ msgid ""
 "We recommend that you create a backup of your Tails using <i>Tails Cloner</"
 "i> to migrate to a new USB stick."
 msgstr ""
+"Препорачуваме да креирате резервна копија од вашиот Tails користејќи го "
+"<i>Tails Cloner</i> за да мигрирате на нов USB стик."
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:33
 #, fuzzy
@@ -1672,11 +1691,10 @@ msgstr ""
 "href=\"org.gnome.Terminal.desktop\">ATP на командната линија</a>."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:258
-#, fuzzy
 msgid "To do so, install Tails on a USB stick and create a Persistent Storage."
 msgstr ""
-"За да го направите тоа, потребно е да го инсталирате Tails на USB стик и да "
-"создадете постојан склад."
+"За да го направите тоа, инсталирајте го Tails на USB-стик и креирајте трајно "
+"складирање."
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:304
 msgid "[package not available]"
@@ -1704,6 +1722,7 @@ msgid ""
 msgstr ""
 
 #: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:41
+#: config/chroot_local-includes/usr/local/lib/tails-uefi-ca-notify-user:47
 #: config/chroot_local-includes/usr/local/lib/tails-virt-notify-user:42
 msgid "Don't Show Again"
 msgstr "Не појавувај повторно."
@@ -1827,6 +1846,17 @@ msgstr ""
 "поврзување беше оневозможено.\n"
 "Можеби повеќе ќе сакате повторно да го стартувате Tails и да го оневозможите "
 "анонимизирањето на MAC адресата."
+
+#: config/chroot_local-includes/usr/local/lib/tails-uefi-ca-notify-user:28
+msgid "Secure Boot Update Needed"
+msgstr ""
+
+#: config/chroot_local-includes/usr/local/lib/tails-uefi-ca-notify-user:30
+msgid ""
+"Tails will no longer start on this computer at some point in the future. "
+"Apply all available updates from your regular operating system to update to "
+"the latest Secure Boot certificates of Microsoft."
+msgstr ""
 
 #: config/chroot_local-includes/usr/local/bin/tails-upgrade-frontend-wrapper:37
 #, python-brace-format
@@ -2171,7 +2201,7 @@ msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:180
 msgid "Activation failed. Try again."
-msgstr ""
+msgstr "Активацијата не успеа. Обидете се повторно."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:182
 msgid "The data of this feature is still saved."
@@ -3196,9 +3226,8 @@ msgid "Printers"
 msgstr "Печатачи"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:275
-#, fuzzy
 msgid "Activate Printers"
-msgstr "Печатачи"
+msgstr "Активирај печатачи"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:302
 msgid "Network"
@@ -3211,24 +3240,24 @@ msgstr "Поврзување на мрежа"
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:331
 msgid "Save Wi-Fi passwords and mobile broadband configuration."
 msgstr ""
+"Зачувајте ги лозинките за Wi-Fi и конфигурацијата на мобилниот широкопојасен "
+"интернет."
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:347
-#, fuzzy
 msgid "Activate Network Connections"
-msgstr "Поврзување на мрежа"
+msgstr "Активирај ги мрежните конекции"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:360
 msgid "Tor Bridge"
 msgstr "Tor Мост"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:376
-#, fuzzy
 msgid "Activate Tor Bridge"
-msgstr "Tor Мост"
+msgstr "Активирај Тор Мост"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:403
 msgid "Applications"
-msgstr ""
+msgstr "Апликации"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:431
 #, fuzzy
@@ -3246,9 +3275,8 @@ msgid "Electrum Bitcoin Wallet"
 msgstr "Биткоин паричник и конфигурирање на Electrum"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:476
-#, fuzzy
 msgid "Activate Electrum Bitcoin Wallet"
-msgstr "Биткоин паричник и конфигурирање на Electrum"
+msgstr "Активирај Electrum Биткоин паричник"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/features_view.ui.in:489
 #, fuzzy

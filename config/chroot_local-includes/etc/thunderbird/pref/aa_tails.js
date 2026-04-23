@@ -131,8 +131,8 @@ pref("network.http.pipelining.read-timeout", 60000);
 // caution.
 pref("network.http.spdy.enabled", false);
 // We want pipelined requests and a bunch of them, as is explained in the
-// experimental-defense-website-traffic-fingerprinting blog post by Torbutton
-// author Mike Perry.
+// experimental-defense-website-traffic-fingerprinting blog post by
+// Mike Perry.
 pref("network.http.pipelining.ssl", true);
 pref("network.http.proxy.pipelining", true);
 pref("network.http.sendRefererHeader", 2);

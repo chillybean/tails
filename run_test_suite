@@ -401,13 +401,6 @@ fi
 check_dependencies ${GENERAL_DEPENDENCIES}
 check_tor_version
 
-if [ -n "${JENKINS_URL:-}" ]; then
-    if ! ./bin/ci-configuration should-test; then
-        echo "Tests disabled for this branch" >&2
-        exit 1
-    fi
-fi
-
 TARGET_DISPLAY=$(next_free_display)
 
 start_xvfb

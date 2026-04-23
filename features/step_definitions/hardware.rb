@@ -132,3 +132,27 @@ Then /^Tails detected partitioning error (.*)$/ do |expected_reason|
   ).chomp
   assert_equal(expected_reason, actual_reason)
 end
+
+Given /^I simulate a computer with (old|new) UEFI CA$/ do |ca|
+  old = "3590bfd89 Microsoft Corporation KEK CA 2011\n"
+  new = "xxxxxxxxx Microsoft Corporation KEK 2K CA 2023\n"
+  content = if ca == 'old'
+              old
+            else
+              old + new
+            end
+  $vm.file_overwrite('/etc/fake-mokutil.conf', content)
+  $vm.file_overwrite('/usr/bin/mokutil', [
+                       '#!/bin/sh',
+                       'until test -f /tails-uefi-ca-notify-run; do sleep 1; done',
+                       'cat /etc/fake-mokutil.conf',
+                     ])
+end
+
+Given /^I unblock tails-uefi-ca-notify$/ do
+  # Since the main "output" of tails-uefi-ca-notify is to show a notification,
+  # and in the automated test suite we're competing with multiple notifications,
+  # we make the script "hang" until this file is created, which we'll only do after we
+  # cleared previous notifications.
+  $vm.execute('touch /tails-uefi-ca-notify-run')
+end

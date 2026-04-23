@@ -132,15 +132,22 @@ Then /^the live user is a member of only its own group and "(.*?)"$/ do |groups|
                "live user not in expected groups #{missing}")
 end
 
-Then /^the live user owns its home directory which has strict permissions$/ do
-  home = "/home/#{LIVE_USER}"
+Then /^the (live|root) user owns its home directory which has strict permissions$/ do |name|
+  case name
+  when 'live'
+    user = LIVE_USER
+    home = "/home/#{user}"
+  when 'root'
+    user = 'root'
+    home = '/root'
+  end
   assert_vmcommand_success(
     $vm.execute("test -d #{home}"),
-    "The live user's home doesn't exist or is not a directory"
+    "The #{name} user's home doesn't exist or is not a directory"
   )
   owner = $vm.execute("stat -c %U:%G #{home}").stdout.chomp
   perms = $vm.execute("stat -c %a #{home}").stdout.chomp
-  assert_equal("#{LIVE_USER}:#{LIVE_USER}", owner)
+  assert_equal("#{user}:#{user}", owner)
   assert_equal('700', perms)
 end
 

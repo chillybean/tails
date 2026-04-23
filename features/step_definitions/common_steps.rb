@@ -454,11 +454,15 @@ Given /^the computer (?:re)?boots Tails$/ do
     wait_for_ponytail(user: 'Debian-gdm')
     # Close the notification which otherwise obscures parts of the
     # Welcome Screen window.
-    Dogtail::Application.new('gnome-shell', user: 'Debian-gdm')
-                        .child(roleName: 'notification')
-                        .child('System was put in unsafe mode', roleName: 'label')
-                        .click
+    close_notification('System was put in unsafe mode')
   end
+end
+
+def close_notification(msg)
+  Dogtail::Application.new('gnome-shell', user: 'Debian-gdm')
+                      .child(roleName: 'notification')
+                      .child(msg, roleName: 'label')
+                      .click
 end
 
 Given /^I set the formats to "(.*)"$/ do |region|
@@ -622,7 +626,17 @@ Given /^the Tails desktop is ready$/ do
   wait_for_ponytail
 end
 
-When /^I see the "(.+)" notification(?: after at most (\d+) seconds)?$/ do |title, timeout|
+When /^I (don't )?see the "(.+)" notification(?: after at most (\d+) seconds)?$/ do |negate, title, timeout|
+  if negate
+    assert_raise(Timeout::Error) do
+      wait_notification(title, timeout)
+    end
+  else
+    wait_notification(title, timeout)
+  end
+end
+
+def wait_notification(title, timeout)
   timeout = timeout ? timeout.to_i : nil
   gnome_shell = Dogtail::Application.new('gnome-shell')
   notification_list = gnome_shell.child(
@@ -1894,4 +1908,17 @@ When(/^I open "(.*[.].*)" in Files$/) do |filename|
   nautilus = Dogtail::Application.new('org.gnome.Nautilus')
   nautilus.child(filename, roleName: 'table cell').click
   @screen.press('Return')
+end
+
+When(/^I wait until (?:(\w+)'s )(.*[.]service) has completed$/) do |user, unit|
+  cmd = if user
+          "systemctl --user is-active #{unit}"
+        else
+          "systemctl is-active #{unit}"
+        end
+  user = 'root' if user.empty?
+  try_for(60) do
+    output = $vm.execute_successfully(cmd, user:).stdout.strip
+    output == 'active'
+  end
 end
