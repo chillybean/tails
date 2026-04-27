@@ -100,11 +100,11 @@ To install *Dangerzone* as additional software in Tails, you have to:
 1. Choose **Apps&nbsp;▸ Tails&nbsp;▸ Persistent Storage** to open the
    Persistent Storage settings.
 
-   Create a Persistent Storage if you don't have one already.
+   1. Create a Persistent Storage if you don't have one already.
 
-   Make sure that the **Additional Software** feature is enabled.
+   1. Make sure that the **Additional Software** feature is turned on.
 
-   Close the Persistent Storage settings.
+   1. Close the Persistent Storage settings.
 
 1. Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Console**.
 
@@ -113,18 +113,18 @@ To install *Dangerzone* as additional software in Tails, you have to:
 
        gnome-text-editor admin:/live/persistence/TailsData_unlocked/persistence.conf
 
-   Add the following line to store the configuration of third-party APT
-   repositories in your Persistent Storage.
+   1. Add the following line to store the configuration of third-party APT
+      repositories in your Persistent Storage.
 
-       /etc/apt/sources.list.d	source=apt/sources,link
+          /etc/apt/sources.list.d	source=apt/sources,link
 
-   Add the following line to store *Podman* containers in your Persistent
-   Storage. [*Podman*](https://podman.io/) is the containerization technology
-   used by *Dangerzone*.
+   1. Add the following line to store *Podman* containers in your Persistent
+      Storage. [*Podman*](https://podman.io/) is the containerization technology
+      used by *Dangerzone*.
 
-       /home/amnesia/.local/share/containers	source=podman
+          /home/amnesia/.local/share/containers	source=podman
 
-   Save your changes and close the *Text Editor*.
+   1. Save your changes and close the *Text Editor*.
 
 1. Execute the following commands to configure the *Dangerzone* repository as
    additional APT repository.
@@ -155,7 +155,7 @@ To install *Dangerzone* as additional software in Tails, you have to:
 
 1. When starting Tails, [[set up an administration password|doc/first_steps/welcome_screen/administration_password]].
 
-1. [[Connect to the Tor network|doc/anonymous_internet/tor]].
+1. [[Connect to the Tor network.|doc/anonymous_internet/tor]]
 
 1. Choose **Apps&nbsp;▸ System Tools&nbsp;▸ Console**.
 

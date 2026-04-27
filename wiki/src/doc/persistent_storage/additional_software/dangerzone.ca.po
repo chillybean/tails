@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2025-11-12 12:16+0100\n"
-"PO-Revision-Date: 2026-01-23 15:29+0000\n"
+"POT-Creation-Date: 2026-04-23 23:59+0000\n"
+"PO-Revision-Date: 2026-04-25 09:18+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ca\n"
@@ -222,10 +222,8 @@ msgid ""
 "securely.\n"
 msgstr ""
 "*Dangerzone* requereix molta memòria a l'ordinador i espai al vostre\n"
-"Emmagatzematge Persistent perquè es basa en els [[!wikipedia_ca "
-"Containerització\n"
-"(informàtica) desc=\"contenidors de programari\"]] per manipular fitxers "
-"perillosos\n"
+"Emmagatzematge Persistent perquè es basa en els [[!wikipedia_ca Containerització\n"
+"(informàtica) desc=\"contenidors de programari\"]] per manipular fitxers perillosos\n"
 "de forma segura.\n"
 
 #. type: Plain text
@@ -287,19 +285,24 @@ msgstr ""
 "Seleccioneu **Aplicacions&nbsp;▸ Tails&nbsp;▸ Emmagatzematge Persistent** "
 "per obrir la configuració de l'Emmagatzematge Persistent."
 
-#. type: Plain text
-#, no-wrap
-msgid "   Create a Persistent Storage if you don't have one already.\n"
+#. type: Bullet: '   1. '
+#, fuzzy
+#| msgid "   Create a Persistent Storage if you don't have one already.\n"
+msgid "Create a Persistent Storage if you don't have one already."
 msgstr "   Creeu un Emmagatzematge Persistent si encara no en teniu cap.\n"
 
-#. type: Plain text
-#, no-wrap
-msgid "   Make sure that the **Additional Software** feature is enabled.\n"
-msgstr "   Assegureu-vos que la funció de **Programari Addicional** estigui activada.\n"
+#. type: Bullet: '   1. '
+#, fuzzy
+#| msgid "   Make sure that the **Additional Software** feature is enabled.\n"
+msgid "Make sure that the **Additional Software** feature is turned on."
+msgstr ""
+"   Assegureu-vos que la funció de **Programari Addicional** estigui "
+"activada.\n"
 
-#. type: Plain text
-#, no-wrap
-msgid "   Close the Persistent Storage settings.\n"
+#. type: Bullet: '   1. '
+#, fuzzy
+#| msgid "   Close the Persistent Storage settings.\n"
+msgid "Close the Persistent Storage settings."
 msgstr "   Tanqueu la configuració de l'Emmagatzematge Persistent.\n"
 
 #. type: Bullet: '1. '
@@ -323,43 +326,53 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "       gnome-text-editor admin:/live/persistence/TailsData_unlocked/persistence.conf\n"
-msgstr ""
-"       gnome-text-editor admin:/live/persistence/TailsData_unlocked/"
-"persistence.conf\n"
+msgstr "       gnome-text-editor admin:/live/persistence/TailsData_unlocked/persistence.conf\n"
 
-#. type: Plain text
-#, no-wrap
+#. type: Bullet: '   1. '
+#, fuzzy
+#| msgid ""
+#| "   Add the following line to store the configuration of third-party APT\n"
+#| "   repositories in your Persistent Storage.\n"
 msgid ""
-"   Add the following line to store the configuration of third-party APT\n"
-"   repositories in your Persistent Storage.\n"
+"Add the following line to store the configuration of third-party APT "
+"repositories in your Persistent Storage."
 msgstr ""
 "   Afegiu la línia següent per emmagatzemar la configuració dels\n"
 "   repositoris APT de tercers al vostre Emmagatzematge Persistent.\n"
 
 #. type: Plain text
 #, no-wrap
-msgid "       /etc/apt/sources.list.d\tsource=apt/sources,link\n"
-msgstr "       /etc/apt/sources.list.d\tsource=apt/sources,link\n"
+msgid "          /etc/apt/sources.list.d\tsource=apt/sources,link\n"
+msgstr "          /etc/apt/sources.list.d\tsource=apt/sources,link\n"
 
-#. type: Plain text
-#, no-wrap
+#. type: Bullet: '   1. '
+#, fuzzy
+#| msgid ""
+#| "   Add the following line to store *Podman* containers in your "
+#| "Persistent\n"
+#| "   Storage. [*Podman*](https://podman.io/) is the containerization "
+#| "technology\n"
+#| "   used by *Dangerzone*.\n"
 msgid ""
-"   Add the following line to store *Podman* containers in your Persistent\n"
-"   Storage. [*Podman*](https://podman.io/) is the containerization technology\n"
-"   used by *Dangerzone*.\n"
+"Add the following line to store *Podman* containers in your Persistent "
+"Storage. [*Podman*](https://podman.io/) is the containerization technology "
+"used by *Dangerzone*."
 msgstr ""
-"   Afegiu la línia següent per emmagatzemar els contenidors *Podman* al vostre Emmagatzematge\n"
-"   Persistent. [*Podman*](https://podman.io/) és la tecnologia de contenidorització\n"
+"   Afegiu la línia següent per emmagatzemar els contenidors *Podman* al "
+"vostre Emmagatzematge\n"
+"   Persistent. [*Podman*](https://podman.io/) és la tecnologia de "
+"contenidorització\n"
 "   utilitzada per *Dangerzone*.\n"
 
 #. type: Plain text
 #, no-wrap
-msgid "       /home/amnesia/.local/share/containers\tsource=podman\n"
-msgstr "       /home/amnesia/.local/share/containers\tsource=podman\n"
+msgid "          /home/amnesia/.local/share/containers\tsource=podman\n"
+msgstr "          /home/amnesia/.local/share/containers\tsource=podman\n"
 
-#. type: Plain text
-#, no-wrap
-msgid "   Save your changes and close the *Text Editor*.\n"
+#. type: Bullet: '   1. '
+#, fuzzy
+#| msgid "   Save your changes and close the *Text Editor*.\n"
+msgid "Save your changes and close the *Text Editor*."
 msgstr "   Deseu els canvis i tanqueu l'*Editor de text*.\n"
 
 #. type: Bullet: '1. '
@@ -373,16 +386,12 @@ msgstr ""
 #. type: Plain text
 #, no-wrap
 msgid "   <p class=\"command\">sudo mkdir /live/persistence/TailsData_unlocked/apt/sources</p>\n"
-msgstr ""
-"   <p class=\"command\">sudo mkdir /live/persistence/TailsData_unlocked/apt/"
-"sources</p>\n"
+msgstr "   <p class=\"command\">sudo mkdir /live/persistence/TailsData_unlocked/apt/sources</p>\n"
 
 #. type: Plain text
 #, no-wrap
 msgid "   <p class=\"command\">sudo ln -s /usr/share/tails/apt/dangerzone.sources /live/persistence/TailsData_unlocked/apt/sources/</p>\n"
-msgstr ""
-"   <p class=\"command\">sudo ln -s /usr/share/tails/apt/dangerzone.sources /"
-"live/persistence/TailsData_unlocked/apt/sources/</p>\n"
+msgstr "   <p class=\"command\">sudo ln -s /usr/share/tails/apt/dangerzone.sources /live/persistence/TailsData_unlocked/apt/sources/</p>\n"
 
 #. type: Plain text
 #, no-wrap
@@ -434,7 +443,9 @@ msgid "<h2 id=\"install\">Install the <i>Dangerzone</i> package</h2>\n"
 msgstr "<h2 id=\"install\">Instal·lació del paquet de <i>Dangerzone</i></h2>\n"
 
 #. type: Bullet: '1. '
-msgid "[[Connect to the Tor network|doc/anonymous_internet/tor]]."
+#, fuzzy
+#| msgid "[[Connect to the Tor network|doc/anonymous_internet/tor]]."
+msgid "[[Connect to the Tor network.|doc/anonymous_internet/tor]]"
 msgstr "[[Connexió a la xarxa Tor|doc/anonymous_internet/tor]]."
 
 #. type: Bullet: '1. '
@@ -453,9 +464,7 @@ msgstr "   <p class=\"command\">sudo apt update</p>\n"
 #. type: Plain text
 #, no-wrap
 msgid "   <p class=\"command\">sudo apt install dangerzone fuse-overlayfs uidmap</p>\n"
-msgstr ""
-"   <p class=\"command\">sudo apt install dangerzone fuse-overlayfs uidmap</p>"
-"\n"
+msgstr "   <p class=\"command\">sudo apt install dangerzone fuse-overlayfs uidmap</p>\n"
 
 #. type: Bullet: '1. '
 msgid ""
