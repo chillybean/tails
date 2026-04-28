@@ -35,20 +35,21 @@ See <https://gitlab.tails.boum.org/tails/team/-/wikis/responsibilities>.
   with the correct due date. If needed, create a merge request against
   [[!tails_gitlab tails/gitlab-config]] to create or fix it.
 
-- Create issues with the `Tails Team` label:
-  - for upgrading Tor Browser in the release your shift is about.
-  - for refreshing the about:tor patches for the same Tor Browser
-    release, linking to [[the
-    instructions|contribute/release_process/tor-browser#refresh-about-tor-patches]].
-    Set the Due Date to the Thursday of the week before the Tails
-    release.
+- [Create an issue](https://gitlab.tails.boum.org/tails/tails/-/work_items/new?description_template=Upgrade%20Tor%20Browser)
+  for upgrading Tor Browser in the release your shift is about
 
-- Ensure there's [an issue about
-  writing the release notes](https://gitlab.tails.boum.org/tails/tails/-/issues?scope=all&state=opened&label_name[]=Core%20Work%3ATechnical%20writing&search=release+notes). This also applies to betas and release
-  candidates, so you might create multiple such issues during one
-  shift. Set `Write release notes for $VERSION` as title, and make
-  clear that the deadline is the same as for manual QA (so 10:00 UTC
-  in general).
+- [Create an issue](https://gitlab.tails.boum.org/tails/tails/-/work_items/new?description_template=Refresh%20About%20Tor%20Patches)
+  for refreshing the about:tor patches for that new Tor Browser
+
+- [Check](https://gitlab.tails.boum.org/tails/tails/-/issues?scope=all&state=opened&label_name[]=Core%20Work%3ATechnical%20writing&search=release+notes)
+  if there are issues about writing the release notes, for:
+    - the final release
+    - any prior beta and release candidate.
+
+  On every such existing issue, make the exact deadline explicit (usually it's
+  the same as for manual QA, i.e. 10:00 UTC).
+
+  [Create any missing issue](https://gitlab.tails.boum.org/tails/tails/-/work_items/new?description_template=Write%20Release%20Notes).
 
 - Verify there's a `missed:$VERSION` label
   on [[!tails_gitlab groups/tails/-/labels]]; if there's none,
