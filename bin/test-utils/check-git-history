@@ -7,7 +7,7 @@ REF=$(git rev-parse "$1")
 UNWANTED_COMMITS=$(
     git log \
         --extended-regexp \
-        --grep='^(amend|fixup|squash)!' \
+        --grep='^((amend|fixup|squash)!|WIP|XXX)' \
         --pretty=oneline \
         "$REF"..
 )
