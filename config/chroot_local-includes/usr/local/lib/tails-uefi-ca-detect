@@ -107,7 +107,7 @@ def main() -> int:
         return no_action_needed()
 
     uefi_state = detect_uefi_ca()
-    if uefi_state != UefiState.BAD:
+    if uefi_state in [UefiState.GOOD, UefiState.SECURE_BOOT_DISABLED]:
         return no_action_needed()
 
     output(Detection(action_needed=True))
