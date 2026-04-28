@@ -49,7 +49,10 @@ def parse_secure_boot_enabled(output: str) -> UefiState | None:
     return None
 
 
-def detect_uefi_ca() -> UefiState:
+def detect_uefi_ca() -> UefiState | None:
+    """
+    Returns None if mokutil fails, a UefiState otherwise.
+    """
     try:
         output = subprocess.check_output(
             ["/usr/bin/mokutil", "--kek", "--short"],
@@ -57,7 +60,7 @@ def detect_uefi_ca() -> UefiState:
         )
     except subprocess.CalledProcessError:
         log.exception("Error invoking mokutil")
-        return UefiState.SECURE_BOOT_DISABLED
+        return None
     else:
         return parse_uefi_ca(output)
 
