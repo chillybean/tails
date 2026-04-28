@@ -257,60 +257,6 @@ Then /^Pidgin has the expected persistent accounts configured$/ do
   )
 end
 
-def pidgin_add_certificate_from(cert_file)
-  src = '/usr/share/ca-certificates/mozilla/' \
-        'Baltimore_CyberTrust_Root.crt'
-  # Here, we need a certificate that is not already in the NSS database
-  step "I copy \"#{src}\" to \"#{cert_file}\" as user \"amnesia\""
-
-  focus_window('Buddy List')
-  @screen.wait('PidginToolsMenu.png', 10).click
-  @screen.wait('PidginCertificatesMenuItem.png', 10).click
-  @screen.wait('PidginCertificateManagerDialog.png', 10)
-  @screen.wait('PidginCertificateAddButton.png', 10).click
-  begin
-    @screen.wait('GtkFileChooserDesktopButton.png', 10).click
-  rescue FindFailed
-    # The first time we're run, the file chooser opens in the Recent
-    # view, so we have to browse a directory before we can use the
-    # "Type file name" button. But on subsequent runs, the file
-    # chooser is already in the Desktop directory, so we don't need to
-    # do anything. Hence, this noop exception handler.
-  end
-  @screen.wait('GtkFileTypeFileNameButton.png', 10).click
-  @screen.press('alt', 'l') # "Location" field
-  @screen.paste(cert_file)
-  @screen.press('Return')
-end
-
-Then /^I can add a certificate from the "([^"]+)" directory to Pidgin$/ do |cert_dir|
-  pidgin_add_certificate_from("#{cert_dir}/test.crt")
-  wait_and_focus('PidginCertificateAddHostnameDialog.png',
-                 'Certificate Import', 10)
-  @screen.paste('XXX test XXX')
-  @screen.press('Return')
-  wait_and_focus('PidginCertificateTestItem.png', 'Certificate Manager', 10)
-end
-
-Then /^I cannot add a certificate from the "([^"]+)" directory to Pidgin$/ do |cert_dir|
-  pidgin_add_certificate_from("#{cert_dir}/test.crt")
-  wait_and_focus('PidginCertificateImportFailed.png', 'Import Error', 10)
-end
-
-When /^I close Pidgin's certificate manager$/ do
-  wait_and_focus('PidginCertificateManagerDialog.png', 'Certificate Manager',
-                 10)
-  @screen.press('Escape')
-  # @screen.wait('PidginCertificateManagerClose.png', 10).click
-  @screen.wait_vanish('PidginCertificateManagerDialog.png', 10)
-end
-
-When /^I close Pidgin's certificate import failure dialog$/ do
-  @screen.press('Escape')
-  # @screen.wait('PidginCertificateManagerClose.png', 10).click
-  @screen.wait_vanish('PidginCertificateImportFailed.png', 10)
-end
-
 Then /^Pidgin's D-Bus interface is not available$/ do
   # Pidgin must be running to expose the interface
   assert($vm.process_running?('pidgin'))
