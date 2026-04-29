@@ -1,8 +1,57 @@
-tails (7.8) UNRELEASED; urgency=medium
+tails (7.7.1) UNRELEASED; urgency=medium
 
-  * Dummy entry for next release.
+  * Upgrade Thunderbird to 1:140.10.0esr-1~deb13u1
 
- -- anonym <anonym@riseup.net>  Thu, 23 Apr 2026 10:49:29 +0200
+  * Upgrade to Tor Browser 15.0.11 based on Firefox ESR 140.10.1 (tails/tails!2973)
+
+    Closes issues:
+      - Upgrade to Tor Browser 15.0.11 based on Firefox ESR 140.10.1
+        (tails/tails#21534)
+
+    Commits:
+      - Upgrade Tor Browser to 15.0.11 (refs: tails#21534)
+      - CI: run all tests for 21534-tor-browser-15.0.11
+
+  * about:tor: bump Tails version to 7.7.1 (tails/tails!2977)
+
+    Closes issues:
+      - Refresh about:tor patches for Tails 7.7.1 (tails/tails#21535)
+
+    Commits:
+      - about:tor: bump Tails version to 7.7.1
+
+  * Test suite: remove meaningless AppArmor policy tests (tails/tails!2953)
+
+    Commits:
+      - Test suite: remove AppArmor policy tests for Totem
+      - Test suite: remove AppArmor policy tests for Evince
+      - Test suite: remove AppArmor policy tests for Pidgin
+
+  * CI also fails on amend! and squash! commits (tails/tails!2951)
+
+    Commits:
+      - Lint
+      - Fix regexp matching
+      - GitLab CI: also fail on amend! commits
+      - Make terminology less specific
+      - CI also fails on squash! commits
+
+  * Stop making our ISO hybrid (tails/tails!2947)
+
+    Closes issues:
+      - Stop making our ISO hybrid (tails/tails#21518)
+      - Prevent starting from the ISO image on USB (tails/tails#18067)
+
+    Commits:
+      - shfmt
+      - Remove comment that has long expired its shelf life
+      - Don't suggest we support building with something else than "--binary-images
+        iso"
+      - Remove obsolete import
+      - Remove obsolete debugging output
+      - Stop making our ISO hybrid
+
+ -- Tails developers <tails@boum.org>  Wed, 29 Apr 2026 09:16:13 +0000
 
 tails (7.7) unstable; urgency=medium
 
