@@ -33,8 +33,8 @@ msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-22 08:04+0200\n"
-"PO-Revision-Date: 2026-04-03 09:11+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2026-04-27 09:11+0000\n"
+"Last-Translator: Toomore Chiang <toomore0929@gmail.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/tor/tails-gui/zh_Hant/>\n"
 "Language: zh_TW\n"
@@ -42,7 +42,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.17-dev\n"
+"X-Generator: Weblate 5.17.1-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:242
 #, python-brace-format
@@ -66,18 +66,16 @@ msgid "Configure"
 msgstr "設定"
 
 #: config/chroot_local-includes/usr/local/lib/change-apps-menu-name:25
-#, fuzzy
 msgid "Password Manager"
-msgstr "密碼"
+msgstr "密碼管理員"
 
 #: config/chroot_local-includes/usr/local/lib/change-apps-menu-name:26
-#, fuzzy
 msgid "password"
 msgstr "密碼"
 
 #: config/chroot_local-includes/usr/local/lib/change-apps-menu-name:26
 msgid "password-manager"
-msgstr ""
+msgstr "密碼管理員"
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:57
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:95
@@ -1409,7 +1407,7 @@ msgid "Could not open device for writing."
 msgstr "無法以寫入模式開啟裝置。"
 
 #: config/chroot_local-includes/usr/local/bin/secrets:19
-#, fuzzy, sh-format
+#, sh-format
 msgid ""
 "You have a <i>KeePassXC</i> or <i>Secrets</i> database in your "
 "<i>Persistent</i> folder:\n"
@@ -1419,14 +1417,13 @@ msgid ""
 "Renaming your database to <i>${default_filename}</i> allows <i>Secrets</i> "
 "to open it automatically in the future."
 msgstr ""
-"<b><big>您要重新命名您的 <i>KeePassXC</i> 資料庫嗎？</big></b>\n"
-"\n"
-"您在 <i>Persistent</i> 資料夾中有一個 <i>KeePassXC</i> 資料庫：\n"
+"您的 <i>KeePassXC</i> 或 <i>Secrets</i> 資料庫位於 <i>Persistent</i> 資料"
+"夾：\n"
 "\n"
 "<i>${filename}</i>\n"
 "\n"
-"將資料庫重新命名為 <i>${default_filename}</i>，可讓 <i>KeePassXC</i> 之後自動"
-"開啟它。"
+"將資料庫重新命名為 <i>${default_filename}</i> 後，可讓 <i>Secrets</i> 日後自"
+"動開啟它。"
 
 #: config/chroot_local-includes/usr/local/bin/secrets:25
 msgid "Rename"
@@ -1438,7 +1435,7 @@ msgstr "保持目前的時間"
 
 #: config/chroot_local-includes/usr/local/bin/secrets:29
 msgid "Rename Password Database?"
-msgstr ""
+msgstr "重新命名密碼資料庫？"
 
 #: config/chroot_local-includes/usr/local/bin/replace-su-with-sudo:19
 msgid "su is disabled. Please use sudo instead."
@@ -1770,7 +1767,7 @@ msgstr ""
 
 #: config/chroot_local-includes/usr/local/lib/tails-uefi-ca-notify-user:28
 msgid "Secure Boot Update Needed"
-msgstr ""
+msgstr "需要更新 Secure Boot"
 
 #: config/chroot_local-includes/usr/local/lib/tails-uefi-ca-notify-user:30
 msgid ""
@@ -1778,6 +1775,8 @@ msgid ""
 "Apply all available updates from your regular operating system to update to "
 "the latest Secure Boot certificates of Microsoft."
 msgstr ""
+"在未來某個時間點，Tails 將無法在此電腦上啟動。請從您的一般作業系統套用所有可"
+"用的更新，以取得 Microsoft 最新的 Secure Boot 憑證。"
 
 #: config/chroot_local-includes/usr/local/bin/tails-upgrade-frontend-wrapper:37
 #, python-brace-format
@@ -1838,11 +1837,11 @@ msgstr "自動"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:284
 msgid "Frequently selected regions"
-msgstr ""
+msgstr "常用地區"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:291
 msgid "Other regions"
-msgstr ""
+msgstr "其他地區"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:369
 msgid "_Use a bridge that you already know"
@@ -1894,9 +1893,8 @@ msgid "Synchronizing the system's clock…"
 msgstr "同步系統時鐘…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:726
-#, fuzzy
 msgid "Asking for a Tor bridge based on your region…"
-msgstr "_透過電子郵件請求 Tor 橋接"
+msgstr "正在依您的地區請求 Tor 橋接…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:774
 msgid "Connecting to Tor without bridges…"
@@ -1908,9 +1906,8 @@ msgid "Connecting to Tor with default bridges…"
 msgstr "透過預設橋接連接 Tor…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:789
-#, fuzzy
 msgid "Connecting to Tor with a bridge based on your region…"
-msgstr "透過預設橋接連接 Tor…"
+msgstr "正在使用依您地區推薦的橋接連線至 Tor…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:796
 msgid "Connecting to Tor with a custom bridge…"
@@ -1935,21 +1932,21 @@ msgstr "現在可以匿名與不受審查地瀏覽網際網路。"
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:985
 #, python-brace-format
 msgid "Bridge: <b>{bridge}</b>"
-msgstr ""
+msgstr "橋接：<b>{bridge}</b>"
 
 #. Translators: only translate "Error code:" and adjust
 #. text-direction
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:997
 #, python-brace-format
 msgid "Error code: {code}"
-msgstr ""
+msgstr "錯誤代碼：{code}"
 
 #. Translators: only translate "Proxy:" and adjust
 #. text-direction
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1024
 #, python-brace-format
 msgid "Proxy: <b>{proxy}</b>"
-msgstr ""
+msgstr "代理伺服器：<b>{proxy}</b>"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1323
 #, python-brace-format
@@ -3310,10 +3307,10 @@ msgid ""
 "To be able to use Tails with a Persistent Storage, please follow our "
 "instructions on <a href=\"install\">installing Tails on a USB stick</a>."
 msgstr ""
-"抱歉，無法在此裝置上建立 Persistent Storage。\n"
+"抱歉，無法在此裝置上建立持久性儲存空間。\n"
 "\n"
-"若要在 Tails 使用 Persistent Storage，請依照我們的指引<a href=\"install\">將 "
-"Tails 安裝到 USB 隨身碟</a>。"
+"若要搭配持久性儲存空間使用 Tails，請依照我們的說明 <a href=\"install\">將 "
+"Tails 安裝至 USB 隨身碟</a>。"
 
 #: ../config/chroot_local-includes/usr/share/tails/persistent-storage/welcome_view.ui.in:141
 #: ../config/chroot_local-includes/usr/share/tails-installer/passphrase_dialog.ui.in:232
@@ -3477,9 +3474,8 @@ msgid "TrueCrypt/VeraCrypt container"
 msgstr "TrueCrypt/VeraCrypt 容器"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:82
-#, fuzzy
 msgid "Configure a Tor bridge"
-msgstr "設置 Tor _橋接"
+msgstr "設定 Tor 橋接"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:106
 msgid ""
@@ -3515,14 +3511,12 @@ msgid "None"
 msgstr "無"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:242
-#, fuzzy
 msgid "Ask for a bridge based on your _region"
-msgstr "_透過電子郵件請求 Tor 橋接"
+msgstr "依您的地區請求橋接(_R)"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:301
-#, fuzzy
 msgid "_Ask for a bridge by email"
-msgstr "_透過電子郵件請求 Tor 橋接"
+msgstr "透過電子郵件請求橋接(_A)"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:320
 msgid ""
@@ -3572,69 +3566,62 @@ msgid "This local network seems to be blocking access to Tor."
 msgstr "本地網路似乎屏蔽了 Tor。"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:811
-#, fuzzy
 msgid "Error connecting to Tor with this bridge"
-msgstr "不透過橋接連線到 Tor…"
+msgstr "使用此橋接連線至 Tor 時發生錯誤"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:827
 msgid ""
 "Either this Tor bridge is not working or your network is blocking access to "
 "it."
-msgstr ""
+msgstr "此 Tor 橋接可能無法使用，或您的網路封鎖了對它的存取。"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:856
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:930
-#, fuzzy
 msgid "Try configuring another bridge."
-msgstr "設置 Tor 橋接器"
+msgstr "請嘗試設定其他橋接。"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:884
-#, fuzzy
 msgid "Error connecting to Tor with default bridges"
-msgstr "透過預設橋接連接 Tor…"
+msgstr "使用預設橋接連線至 Tor 時發生錯誤"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:900
-#, fuzzy
 msgid "Your network is blocking access to Tor and the default bridges."
-msgstr "本地網路正在屏蔽 Tor。"
+msgstr "您的網路封鎖了對 Tor 及預設橋接的存取。"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:916
-#, fuzzy
 msgid "Bridge: <b>default bridges</b>"
-msgstr "使用_預設橋接器"
+msgstr "橋接：<b>預設橋接</b>"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:958
-#, fuzzy
 msgid "Error connecting to Tor with bridges"
-msgstr "不透過橋接連線到 Tor…"
+msgstr "使用橋接連線至 Tor 時發生錯誤"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:974
 msgid "None of the bridges recommended for this region worked."
-msgstr ""
+msgstr "針對此地區推薦的橋接均無法使用。"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:990
 msgid "Try another region or getting a bridge by mail."
-msgstr ""
+msgstr "請嘗試其他地區，或透過電子郵件取得橋接。"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1018
-#, fuzzy
 msgid "Error asking for a bridge"
-msgstr "檢查升級時發生錯誤"
+msgstr "請求橋接時發生錯誤"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1034
 msgid "Tails failed to ask for a bridge based on your region."
-msgstr ""
+msgstr "Tails 無法依您的地區請求橋接。"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1050
 msgid ""
 "Please, <a href=\"support/talk\">report this error</a> and try asking for a "
 "bridge by email."
 msgstr ""
+"請 <a href=\"support/talk\">回報此錯誤</a> 並嘗試透過電子郵件請求橋接。"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1087
-#, fuzzy
 msgid "Open _details"
-msgstr "打開 Tails 安裝程式"
+msgstr "開啟詳細資料(_D)"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1142
 msgid "• Wrong clock"
@@ -3677,9 +3664,8 @@ msgid "Configure a Local _Proxy"
 msgstr "設置本地_代理"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1374
-#, fuzzy
 msgid "• Tor bridge"
-msgstr "• 透過電子郵件取得 Tor 橋接"
+msgstr "• Tor 橋接"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1394
 msgid ""
@@ -3691,9 +3677,8 @@ msgstr ""
 "家、公共網路或家長控制，此時可利用橋接器作為 Tor 第一個 入口中繼。"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1410
-#, fuzzy
 msgid "Configure a Tor _Bridge"
-msgstr "設置 Tor 橋接器"
+msgstr "設定 Tor 橋接(_B)"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1449
 msgid ""
@@ -3720,7 +3705,7 @@ msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1544
 msgid "<b>Connect to Tor _automatically</b>"
-msgstr "<b>_自動連線到 Tor</b>"
+msgstr "<b>自動連線至 _Tor</b>"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1594
 msgid ""
