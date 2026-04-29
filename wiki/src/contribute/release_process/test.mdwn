@@ -53,9 +53,11 @@ Packages
 --------
 
 Compare the list of bundled packages and versions with the one shipped last
-time. The new `.packages` file should have been attached to the
-call for testing email sent by the Release Manager after the images
-have been built.
+time.
+
+For this check, use the new `.packages` file that was attached to the "You can
+now start testing Tails" email sent by the Release Manager. **Do not** use
+a `.packages` file downloaded from Jenkins or with `git-annex`.
 
     /usr/bin/diff -u \
             ${MASTER_CHECKOUT:?}/wiki/src/torrents/files/tails-amd64-${PREVIOUS_VERSION:?}.packages \

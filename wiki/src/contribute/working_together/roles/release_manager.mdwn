@@ -16,13 +16,9 @@ See <https://gitlab.tails.boum.org/tails/team/-/wikis/responsibilities>.
 ## In the beginning of your shift
 
 - Check the [Tor Browser release
-  schedule](https://gitlab.torproject.org/tpo/applications/tor-browser/-/wikis/Release-Schedule). `[skip-if-emergency-release]`. In doubt, check the [logs from their last meeting](http://meetbot.debian.net/tor-meeting/).
+  schedule](https://gitlab.torproject.org/tpo/applications/tor-browser/-/wikis/Release-Schedule). `[skip-if-emergency-release]`. When in doubt, ask them.
 
-- Check the Firefox release calendars: `[skip-if-emergency-release]`
-
-  * [Google calendar](https://www.google.com/calendar/embed?src=mozilla.com_2d37383433353432352d3939%40resource.calendar.google.com)
-
-  * [Firefox Release Calendar](https://whattrainisitnow.com/calendar/)
+- Check the [Firefox Release Calendar](https://whattrainisitnow.com/calendar/) `[skip-if-emergency-release]`
 
 - Reply to the email sent to <tails-dev@boum.org> and
   <tails-l10n@boum.org> by the RM for the previous release,
@@ -34,25 +30,25 @@ See <https://gitlab.tails.boum.org/tails/team/-/wikis/responsibilities>.
 
 - Update [[contribute/calendar]] accordingly.
 
-- Check if there's a
-  [[!tails_gitlab groups/tails/-/milestones desc="GitLab milestone"]]
-  with the correct due date. If it is not, create a merge request against
-  [[!tails_gitlab tails/gitlab-config]] to fix it.
+- [[!tails_gitlab groups/tails/-/milestones desc="Check"]] if there's a GitLab
+  milestone with the correct due date. If needed, create a merge request against
+  [[!tails_gitlab tails/gitlab-config]] to create or fix it.
 
-- Create issues with the `Tails Team` label:
-  - for upgrading Tor Browser in the release your shift is about.
-  - for refreshing the about:tor patches for the same Tor Browser
-    release, linking to [[the
-    instructions|contribute/release_process/tor-browser#refresh-about-tor-patches]].
-    Set the Due Date to the Thursday of the week before the Tails
-    release.
+- [Create an issue](https://gitlab.tails.boum.org/tails/tails/-/work_items/new?description_template=Upgrade%20Tor%20Browser)
+  for upgrading Tor Browser in the release your shift is about
 
-- Ensure there's [an issue about
-  writing the release notes](https://gitlab.tails.boum.org/tails/tails/-/issues?scope=all&state=opened&label_name[]=Core%20Work%3ATechnical%20writing&search=release+notes). This also applies to betas and release
-  candidates, so you might create multiple such issues during one
-  shift. Set `Write release notes for $VERSION` as title, and make
-  clear that the deadline is the same as for manual QA (so 10:00 UTC
-  in general).
+- [Create an issue](https://gitlab.tails.boum.org/tails/tails/-/work_items/new?description_template=Refresh%20About%20Tor%20Patches)
+  for refreshing the about:tor patches for that new Tor Browser
+
+- [Check](https://gitlab.tails.boum.org/tails/tails/-/work_items?scope=all&state=opened&label_name[]=Core%20Work%3ATechnical%20writing&search=release+notes)
+  if there are issues about writing the release notes, for:
+    - the final release
+    - any prior beta and release candidate.
+
+  On every such existing issue, make the exact deadline explicit (usually it's
+  the same as for manual QA, i.e. 10:00 UTC).
+
+  [Create any missing issues](https://gitlab.tails.boum.org/tails/tails/-/work_items/new?description_template=Write%20Release%20Notes).
 
 - Verify there's a `missed:$VERSION` label
   on [[!tails_gitlab groups/tails/-/labels]]; if there's none,
@@ -87,10 +83,6 @@ See <https://gitlab.tails.boum.org/tails/team/-/wikis/responsibilities>.
 
 - Ensure the next steps are tracked in your preferred personal
   organization tool.
-
-## Continuously during your shift
-
-∅
 
 ## Two weeks after the beginning of your shift
 
@@ -222,4 +214,4 @@ Steps that are not relevant for emergency releases are tagged
 By definition, an emergency release happens under timing constraints that are
 different from a scheduled release. To account for this, ignore timing
 indications below such as "Two weeks after" or "The Friday": assume everything
-is relevant shall happen as soon as reasonably possible.
+that is relevant shall happen as soon as reasonably possible.
