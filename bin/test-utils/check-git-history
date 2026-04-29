@@ -13,7 +13,7 @@ UNWANTED_COMMITS=$(
 )
 
 if [ -n "$UNWANTED_COMMITS" ]; then
-    echo "Please squash these commits before merging:"
+    echo "Please clean up Git history before merging:"
     echo
     echo "${UNWANTED_COMMITS}" | sed --regexp-extended 's,^, - ,'
     echo
