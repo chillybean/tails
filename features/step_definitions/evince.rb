@@ -1,4 +1,4 @@
-When /^I(?:| try to) open "([^"]+)" with Evince$/ do |filename|
+When /^I open "([^"]+)" with Evince$/ do |filename|
   step "I run \"evince #{filename}\" in Console"
 end
 
@@ -27,17 +27,4 @@ Then /^I can print the current document to "([^"]+)"$/ do |output_file|
   try_for(10, msg: "The document was not printed to #{output_file}") do
     $vm.file_exist?(output_file)
   end
-end
-
-When /^I close Evince$/ do
-  @screen.press('ctrl', 'w')
-  step 'process "evince" has stopped running after at most 20 seconds'
-end
-
-Then /^Evince tells me it cannot open "([^"]+)"$/ do |filename|
-  assert(Dogtail::Application.new('org.gnome.Evince')
-                             .child?(
-                               "Unable to open document “file://#{filename}”.",
-                               roleName: 'label'
-                             ))
 end

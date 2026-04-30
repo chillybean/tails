@@ -22,15 +22,6 @@ exec 2> >(tee -a "$BUILD_LOG" >&2)
 # shellcheck disable=SC2064
 trap "kill -9 $! 2>/dev/null" EXIT HUP INT QUIT TERM
 
-### functions
-
-print_iso_size() {
-    local isofile="$1"
-    [ -f "$isofile" ] || return 23
-    size=$(stat --printf='%s' "$isofile")
-    echo "I: The ISO is ${size} bytes large."
-}
-
 ### Main
 
 # we require building from git
@@ -41,9 +32,6 @@ git rev-parse --is-inside-work-tree &>/dev/null ||
 
 # a clean starting point
 rm -rf cache/stages_rootfs
-
-# get LB_BINARY_IMAGES
-. config/binary
 
 # get LB_ARCHITECTURE and LB_DISTRIBUTION
 . config/bootstrap
@@ -202,19 +190,6 @@ echo "I: Building ISO image ${BUILD_ISO_FILENAME}..."
 time lb build noauto "${@}"
 BUILD_EXIT_CODE=$?
 [ -e binary.iso ] || fatal "lb build failed (${BUILD_EXIT_CODE})."
-
-echo "I: ISO image was successfully created"
-print_iso_size binary.iso
-
-echo "I: Hybriding it..."
-touch chroot/binary.iso
-mount --bind binary.iso chroot/binary.iso
-# shellcheck disable=SC2086
-chroot chroot isohybrid $ISOHYBRID_OPTS binary.iso || fatal "isohybrid failed"
-umount chroot/binary.iso
-print_iso_size binary.iso
-truncate -s %2048 binary.iso
-print_iso_size binary.iso
 
 echo "I: Renaming generated files..."
 mv -i binary.iso "${BUILD_ISO_FILENAME}"

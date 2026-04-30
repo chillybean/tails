@@ -24,14 +24,7 @@ if [ "${LB_BOOTLOADER}" != "syslinux" ]; then
 fi
 
 # Setting boot method specific variables
-case "${LB_BINARY_IMAGES}" in
-iso | iso-hybrid)
-    SYSLINUX_PATH="binary/isolinux"
-    ;;
-usb-hdd)
-    SYSLINUX_PATH="binary/syslinux"
-    ;;
-esac
+SYSLINUX_PATH="binary/isolinux"
 
 Echo_message "customize buggy syslinux help"
 

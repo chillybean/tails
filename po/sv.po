@@ -29,8 +29,8 @@ msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-22 08:04+0200\n"
-"PO-Revision-Date: 2026-04-03 09:12+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2026-04-22 18:09+0000\n"
+"Last-Translator: Mona Lisa <nickwick@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/tor/tails-gui/sv/"
 ">\n"
 "Language: sv\n"
@@ -38,7 +38,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.17-dev\n"
+"X-Generator: Weblate 5.17.1-dev\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:242
 #, python-brace-format
@@ -66,14 +66,12 @@ msgid "Configure"
 msgstr "Konfigurera"
 
 #: config/chroot_local-includes/usr/local/lib/change-apps-menu-name:25
-#, fuzzy
 msgid "Password Manager"
-msgstr "Lösenord"
+msgstr "Lösenordshanterare"
 
 #: config/chroot_local-includes/usr/local/lib/change-apps-menu-name:26
-#, fuzzy
 msgid "password"
-msgstr "Lösenord"
+msgstr "lösenord"
 
 #: config/chroot_local-includes/usr/local/lib/change-apps-menu-name:26
 msgid "password-manager"
@@ -1475,7 +1473,7 @@ msgid "Could not open device for writing."
 msgstr "Det gick inte att öppna enheten för skrivning."
 
 #: config/chroot_local-includes/usr/local/bin/secrets:19
-#, fuzzy, sh-format
+#, sh-format
 msgid ""
 "You have a <i>KeePassXC</i> or <i>Secrets</i> database in your "
 "<i>Persistent</i> folder:\n"
@@ -1485,14 +1483,13 @@ msgid ""
 "Renaming your database to <i>${default_filename}</i> allows <i>Secrets</i> "
 "to open it automatically in the future."
 msgstr ""
-"<b><big>Vill du byta namn på din <i>KeePassXC3</i>-databas?</big></b>\n"
-"\n"
-"Du har en <i>KeePassXC</i>-databas i din <i>bestående</i> mapp:\n"
+"Du har en <i>KeePassXC</i>- eller <i>Secrets</i>-databas i din "
+"<i>beständiga</i>-mapp:\n"
 "\n"
 "<i>${filename}</i>\n"
 "\n"
 "Om du byter namn på din databas till <i>${default_filename}</i> kan "
-"<i>KeePassXC</i> öppna den automatiskt i framtiden."
+"<i>Secrets</i> öppna den automatiskt i framtiden."
 
 #: config/chroot_local-includes/usr/local/bin/secrets:25
 msgid "Rename"
@@ -1504,7 +1501,7 @@ msgstr "Behåll nuvarande namn"
 
 #: config/chroot_local-includes/usr/local/bin/secrets:29
 msgid "Rename Password Database?"
-msgstr ""
+msgstr "Byta namn på lösenordsdatabasen?"
 
 #: config/chroot_local-includes/usr/local/bin/replace-su-with-sudo:19
 msgid "su is disabled. Please use sudo instead."
@@ -1929,11 +1926,11 @@ msgstr "Automatisk"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:284
 msgid "Frequently selected regions"
-msgstr ""
+msgstr "Ofta valda regioner"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:291
 msgid "Other regions"
-msgstr ""
+msgstr "Andra regioner"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:369
 msgid "_Use a bridge that you already know"
@@ -1992,9 +1989,8 @@ msgid "Synchronizing the system's clock…"
 msgstr "Synkroniserar systemets klocka…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:726
-#, fuzzy
 msgid "Asking for a Tor bridge based on your region…"
-msgstr "_Be om en Tor-bro via e-post"
+msgstr "Be om en Tor-bro baserat på din region…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:774
 msgid "Connecting to Tor without bridges…"
@@ -2006,9 +2002,8 @@ msgid "Connecting to Tor with default bridges…"
 msgstr "Ansluter till Tor med standardbroar…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:789
-#, fuzzy
 msgid "Connecting to Tor with a bridge based on your region…"
-msgstr "Ansluter till Tor med standardbroar…"
+msgstr "Ansluter till Tor med en bro baserad på din region…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:796
 msgid "Connecting to Tor with a custom bridge…"
@@ -2033,21 +2028,21 @@ msgstr "Du kan nu surfa på internet anonymt och ocensurerat."
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:985
 #, python-brace-format
 msgid "Bridge: <b>{bridge}</b>"
-msgstr ""
+msgstr "Bro: <b>{bridge}</b>"
 
 #. Translators: only translate "Error code:" and adjust
 #. text-direction
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:997
 #, python-brace-format
 msgid "Error code: {code}"
-msgstr ""
+msgstr "Felkod: {code}"
 
 #. Translators: only translate "Proxy:" and adjust
 #. text-direction
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1024
 #, python-brace-format
 msgid "Proxy: <b>{proxy}</b>"
-msgstr ""
+msgstr "Proxy: <b>{proxy}</b>"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1323
 #, python-brace-format
@@ -2785,7 +2780,7 @@ msgid ""
 "Authentication is required to run the Synaptic Package Manager. Enter the "
 "administration password that you set up in the Welcome Screen."
 msgstr ""
-"Autentisering krävs för att köra Synaptic Package Manager. Ange "
+"Autentisering krävs för att köra Synaptic-pakethanteraren. Ange "
 "administratörslösenordet som du ställde in på välkomstskärmen."
 
 #: config/chroot_local-includes/usr/local/lib/polkit-policy-change-message:71
@@ -2795,7 +2790,7 @@ msgid ""
 "administration password in the Welcome Screen."
 msgstr ""
 "För bättre säkerhet, inget administratörslösenord är konfigurerat i Tails "
-"som standard. För att köra Synaptic Package Manager, starta om Tails och "
+"som standard. För att köra Synaptic-pakethanteraren, starta om Tails och "
 "konfigurera ett administratörslösenord på välkomstskärmen."
 
 #: ../config/chroot_local-includes/usr/share/applications/org.boum.tails.PersistentStorage.desktop.in.h:2
@@ -3633,9 +3628,8 @@ msgid "TrueCrypt/VeraCrypt container"
 msgstr "TrueCrypt/VeraCrypt behållare"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:82
-#, fuzzy
 msgid "Configure a Tor bridge"
-msgstr "Konfigurera en Tor-_bro"
+msgstr "Konfigurera en Tor-bro"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:106
 msgid ""
@@ -3671,14 +3665,12 @@ msgid "None"
 msgstr "Ingen"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:242
-#, fuzzy
 msgid "Ask for a bridge based on your _region"
-msgstr "_Be om en Tor-bro via e-post"
+msgstr "Be om en Tor-bro baserat på din _region"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:301
-#, fuzzy
 msgid "_Ask for a bridge by email"
-msgstr "_Be om en Tor-bro via e-post"
+msgstr "_Be om en bro via e-post"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:320
 msgid ""
@@ -3729,69 +3721,65 @@ msgid "This local network seems to be blocking access to Tor."
 msgstr "Det här lokala nätverket verkar blockera åtkomst till Tor."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:811
-#, fuzzy
 msgid "Error connecting to Tor with this bridge"
-msgstr "Ansluter till Tor utan broar…"
+msgstr "Fel vid anslutning till Tor med den här bron"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:827
 msgid ""
 "Either this Tor bridge is not working or your network is blocking access to "
 "it."
 msgstr ""
+"Antingen fungerar inte den här Tor-bron eller så blockerar ditt nätverk "
+"åtkomst till den."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:856
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:930
-#, fuzzy
 msgid "Try configuring another bridge."
-msgstr "Konfigurera en Tor-bro"
+msgstr "Försök att konfigurera en annan bro."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:884
-#, fuzzy
 msgid "Error connecting to Tor with default bridges"
-msgstr "Ansluter till Tor med standardbroar…"
+msgstr "Fel vid anslutning till Tor med standardbroar"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:900
-#, fuzzy
 msgid "Your network is blocking access to Tor and the default bridges."
-msgstr "Detta lokala nätverk blockerar åtkomst till Tor."
+msgstr "Ditt nätverk blockerar åtkomst till Tor och standardbroarna."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:916
-#, fuzzy
 msgid "Bridge: <b>default bridges</b>"
-msgstr "Använd en _standardbro"
+msgstr "Bro: <b>standardbroar</b>"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:958
-#, fuzzy
 msgid "Error connecting to Tor with bridges"
-msgstr "Ansluter till Tor utan broar…"
+msgstr "Fel vid anslutning till Tor med broar"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:974
 msgid "None of the bridges recommended for this region worked."
-msgstr ""
+msgstr "Ingen av de broar som rekommenderades för den här regionen fungerade."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:990
 msgid "Try another region or getting a bridge by mail."
-msgstr ""
+msgstr "Försök med en annan region eller få en bro via post."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1018
-#, fuzzy
 msgid "Error asking for a bridge"
-msgstr "Fel vid sökning efter uppgraderingar"
+msgstr "Fel vid begäran om en bro"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1034
 msgid "Tails failed to ask for a bridge based on your region."
-msgstr ""
+msgstr "Tails misslyckades med att fråga efter en bro baserat på din region."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1050
 msgid ""
 "Please, <a href=\"support/talk\">report this error</a> and try asking for a "
 "bridge by email."
 msgstr ""
+"<a href=\"support/talk\">Rapportera detta fel</a> och försök att be om en "
+"bro via e-post."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1087
-#, fuzzy
 msgid "Open _details"
-msgstr "Öppna Tails Cloner"
+msgstr "Öppna _detaljer"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1142
 msgid "• Wrong clock"
@@ -3838,9 +3826,8 @@ msgid "Configure a Local _Proxy"
 msgstr "Konfigurera en lokal _proxy"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1374
-#, fuzzy
 msgid "• Tor bridge"
-msgstr "• Tor-bro via e-post"
+msgstr "• Tor-bro"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1394
 msgid ""
@@ -3853,9 +3840,8 @@ msgstr ""
 "offentliga nätverk eller av vissa föräldrakontroller."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1410
-#, fuzzy
 msgid "Configure a Tor _Bridge"
-msgstr "Konfigurera en Tor-bro"
+msgstr "Konfigurera en Tor-_bro"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1449
 msgid ""

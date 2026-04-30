@@ -27,7 +27,7 @@ Given /^I copy the sample videos to "([^"]+)" as user "([^"]+)"$/ do |destinatio
   end
 end
 
-When /^I(?:| try to) open "([^"]+)" with Totem$/ do |filename|
+When /^I open "([^"]+)" with Totem$/ do |filename|
   step "I run \"totem #{filename}\" in Console"
 end
 
@@ -52,14 +52,4 @@ Then /^I can watch a WebM video over HTTPs$/ do
     step "I open \"#{test_url}\" with Totem"
     @screen.wait('SampleRemoteWebMVideoFrame.png', 120)
   end
-end
-
-Then /^Totem tells me it is not allowed to open this file$/ do
-  assert(
-    Dogtail::Application.new('org.gnome.Totem')
-                        .child?(
-                          'You are not allowed to open this file.',
-                          roleName: 'label'
-                        )
-  )
 end

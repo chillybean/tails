@@ -4,7 +4,6 @@ Feature: Chatting anonymously using Pidgin
   As a Tails user
   when I chat using Pidgin
   I should be able to persist my Pidgin configuration
-  And AppArmor should prevent Pidgin from doing dangerous things
   And all Internet traffic should flow only through Tor
 
   Scenario: Make sure Pidgin's D-Bus interface is blocked
@@ -46,18 +45,3 @@ Feature: Chatting anonymously using Pidgin
     And Pidgin has the expected persistent accounts configured
     When I start "Pidgin Internet Messenger" via GNOME Activities Overview
     Then Pidgin automatically enables my XMPP account
-    # Exercise Pidgin AppArmor profile with persistence enabled.
-    # This should really be in dedicated scenarios, but it would be
-    # too costly to set up the virtual USB drive with persistence more
-    # than once in this feature.
-    Given I start monitoring the AppArmor log of "/usr/bin/pidgin"
-    Then I cannot add a certificate from the "/home/amnesia/.gnupg" directory to Pidgin
-    And AppArmor has denied "/usr/bin/pidgin" from opening "/home/amnesia/.gnupg/test.crt"
-    When I close Pidgin's certificate import failure dialog
-    And I close Pidgin's certificate manager
-    Given I restart monitoring the AppArmor log of "/usr/bin/pidgin"
-    Then I cannot add a certificate from the "/live/persistence/TailsData_unlocked/gnupg" directory to Pidgin
-    And AppArmor has denied "/usr/bin/pidgin" from opening "/live/persistence/TailsData_unlocked/gnupg/test.crt"
-    When I close Pidgin's certificate import failure dialog
-    And I close Pidgin's certificate manager
-    Then I can add a certificate from the "/home/amnesia" directory to Pidgin
