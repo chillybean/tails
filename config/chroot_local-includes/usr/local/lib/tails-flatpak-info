@@ -1,0 +1,32 @@
+#!/bin/bash
+
+set -eu
+set -o pipefail
+
+run_flatpak() {
+    local scope="$1"
+    local selection="$2"
+    typeset -a flatpakCmd
+    if [ "$scope" = user ]; then
+        flatpakCmd=(/usr/sbin/runuser -u amnesia -- /usr/bin/flatpak)
+    else
+        flatpakCmd=(/usr/bin/flatpak)
+    fi
+
+    "${flatpakCmd[@]}" "--${scope}" list --show-details "--${selection}" 2>&1
+}
+
+for scope in user system; do
+    for selection in runtime app; do
+        echo "## ${selection}s installed ${scope}-level:"
+        set +e
+        run_flatpak "${scope}" "${selection}"
+        ret=$?
+        set -e
+        if [ $ret -ne 0 ]; then
+            echo "ERROR $ret"
+        fi
+    done
+done
+
+exit 0
