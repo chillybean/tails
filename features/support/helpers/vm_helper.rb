@@ -459,7 +459,20 @@ class VM
         )
       else
         xml.elements['domain/os'].add_attribute('firmware', 'efi')
-        xml.elements['domain/os'].add_element('loader', { 'secure' => 'yes' })
+        xml.elements['domain/os'].add_element('firmware')
+        xml.elements['domain/os/firmware'].add_element(
+          'feature', { 'name' => 'secure-boot', 'enabled' => 'yes' }
+        )
+        xml.elements['domain/os/firmware'].add_element(
+          'feature', { 'name' => 'enrolled-keys', 'enabled' => 'yes' }
+        )
+        xml.elements['domain/os'].add_element(
+          'loader', { 'secure' => 'yes', 'type' => 'pflash' }
+        )
+        xml.elements['domain/os/loader'].text = '/usr/share/OVMF/OVMF_CODE_4M.ms.fd'
+        xml.elements['domain/os'].add_element(
+          'nvram', { 'template' => '/usr/share/OVMF/OVMF_VARS_4M.ms.fd' }
+        )
       end
     end
   end
