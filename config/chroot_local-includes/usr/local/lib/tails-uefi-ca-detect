@@ -25,6 +25,14 @@ class UefiState(enum.Enum):
     GOOD = 2
     BAD = 3
 
+    def __repr__(self):
+        # The standard representation includes the numerical value, which is redundant here
+        # Let's have a shorter one, this will prove handy when writing doctests
+        class_name = self.__class__.__name__
+        value = self.name
+        return f"<{class_name}.{value}>"
+
+
 
 def detect_secure_boot_enabled() -> UefiState | None:
     try:
@@ -43,6 +51,11 @@ def detect_secure_boot_enabled() -> UefiState | None:
 def parse_secure_boot_enabled(output: str) -> UefiState | None:
     """
     Returns UefiState.SECURE_BOOT_DISABLED if we're sure that's the case, None otherwise
+    >>> parse_secure_boot_enabled("SecureBoot disabled")
+    <UefiState.SECURE_BOOT_DISABLED>
+    >>> parse_secure_boot_enabled("SecureBoot enabled")
+    >>> parse_secure_boot_enabled("EFI variables are not supported on this system")
+    <UefiState.SECURE_BOOT_DISABLED>
     """
     if "SecureBoot disabled" in output:
         return UefiState.SECURE_BOOT_DISABLED
