@@ -43,9 +43,8 @@ def detect_secure_boot_enabled() -> UefiState | None:
         )
     except subprocess.CalledProcessError:
         log.exception("Error invoking mokutil")
-        return None
-    else:
-        return parse_secure_boot_enabled(output)
+
+    return parse_secure_boot_enabled(output)
 
 
 def parse_secure_boot_enabled(output: str) -> UefiState | None:
@@ -57,7 +56,11 @@ def parse_secure_boot_enabled(output: str) -> UefiState | None:
     >>> parse_secure_boot_enabled("EFI variables are not supported on this system")
     <UefiState.SECURE_BOOT_DISABLED>
     """
+    # UEFI enabled, but SecureBoot disabled
     if "SecureBoot disabled" in output:
+        return UefiState.SECURE_BOOT_DISABLED
+    # UEFI disabled (booting from MBR)
+    if "EFI variables are not supported on this system" in output:
         return UefiState.SECURE_BOOT_DISABLED
     return None
 
