@@ -107,6 +107,11 @@ class WhisperbackParts:
             raise Unknown from exc
         return ret
 
+    @property
+    def flatpak(self) -> dict:
+        key = "/usr/local/lib/tails-flatpak-info"
+        return self[key]
+
 
 class WhisperbackReport:
     coreboot_re = re.compile(r"""amnesia.*kernel.*ACPI:.*COREBOOT""")
@@ -275,6 +280,18 @@ class WhisperbackReport:
             (question, answer) for question, answer in self.parts.questions if answer
         ]
         return "\n".join(f"{q}: {a}\n\n" for q, a in questions)
+
+    @property
+    def flatpak_apps(self) -> list[str]:
+        try:
+            raw = self.parts.flatpak
+        except Unknown:
+            return []
+
+        return [l.split("\t")
+                     for l in raw.split("\n")
+                     if not l.startswith("## ") and l.strip()
+                     ]
 
 
 def parse_encrypted_part(part: "email.message.Message") -> str:
