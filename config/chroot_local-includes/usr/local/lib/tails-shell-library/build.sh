@@ -20,7 +20,7 @@ ensure_hook_dependency_is_installed() {
         shift
         if ! echo "${p}" | grep -q --extended-regexp '^[a-z0-9.+-]+$'; then
             echo "ensure_hook_dependency_is_installed():" \
-                 "doesn't look like a package name: ${p}" >&2
+                "doesn't look like a package name: ${p}" >&2
             exit 1
         fi
         if is_package_installed "${p}"; then
@@ -44,7 +44,7 @@ install_fake_package() {
     ensure_hook_dependency_is_installed equivs
     tmp="$(mktemp -d)"
     control_file="${tmp}/${name}_${version}.control"
-    cat > "${control_file}" << EOF
+    cat >"${control_file}" <<EOF
 Section: ${section}
 Priority: optional
 Homepage: https://tails.net/
@@ -52,7 +52,7 @@ Standards-Version: 3.9.6
 
 Package: ${name}
 Version: ${version}
-Maintainer: Tails developers <tails@boum.org>
+Maintainer: Tails developers <foundations@tails.net>
 Architecture: all
 Provides: ${provides}
 Description: (Fake) ${name}

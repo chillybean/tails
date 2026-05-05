@@ -13,7 +13,7 @@ Given /^Tails ([[:alnum:]~.]+) has been released$/ do |version|
 
         * New upstream release.
 
-       -- Tails developers <tails@boum.org>  Tue, 31 Jan 2012 15:12:57 +0100
+       -- Tails developers <foundations@tails.net>  Tue, 31 Jan 2012 15:12:57 +0100
 
       #{old_entries}
     END_OF_CHANGELOG
@@ -40,7 +40,7 @@ Given %r{^the last version mentioned in debian/changelog is ([[:alnum:]~.]+)$} d
   raise StandardError, 'dpkg-parsechangelog failed.' if $CHILD_STATUS != 0
 
   if last != version
-    fatal_system 'DEBEMAIL=tails@boum.org ' \
+    fatal_system 'DEBEMAIL=foundations@tails.net ' \
                  "debchange -v '#{version}' 'New upstream release'"
   end
 end

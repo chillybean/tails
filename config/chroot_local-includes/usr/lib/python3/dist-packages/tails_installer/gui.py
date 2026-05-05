@@ -1,7 +1,7 @@
 # Copyright © 2008-2013  Red Hat, Inc. All rights reserved.
 # Copyright © 2008-2013  Luke Macken <lmacken@redhat.com>
 # Copyright © 2008  Kushal Das <kushal@fedoraproject.org>
-# Copyright © 2012-2016  Tails Developers <tails@boum.org>
+# Copyright © 2012-2016  Tails Developers <foundations@tails.net>
 #
 # This copyrighted material is made available to anyone wishing to use, modify,
 # copy, or redistribute it subject to the terms and conditions of the GNU
@@ -18,7 +18,7 @@
 #
 # Author(s): Luke Macken <lmacken@redhat.com>
 #            Kushal Das <kushal@fedoraproject.org>
-#            Tails Developers <tails@boum.org>
+#            Tails Developers <foundations@tails.net>
 
 """
 A graphical interface for the Tails Installer

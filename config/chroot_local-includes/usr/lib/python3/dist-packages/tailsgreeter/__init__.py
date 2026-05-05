@@ -1,4 +1,4 @@
-# Copyright 2012-2016 Tails developers <tails@boum.org>
+# Copyright 2012-2016 Tails developers <foundations@tails.net>
 # Copyright 2011 Max <govnototalitarizm@gmail.com>
 # Copyright 2011 Martin Owens
 #
@@ -18,11 +18,9 @@
 """Tails Greeter
 
 """
-import tailsgreeter.errors
 
 __appname__ = "tails-greeter"
 __version__ = "1.0.11"
-__all__ = tailsgreeter.errors
 
 APPLICATION_TITLE = "Welcome to Tails!"
 APPLICATION_ICON_NAME = "gdm-setup"
