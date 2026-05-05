@@ -1,6 +1,6 @@
 ########################################################################
 # WhisperBack - Send feedback in an encrypted mail
-# Copyright (C) 2009-2018 Tails developers <tails@boum.org>
+# Copyright (C) 2009-2018 Tails developers <foundations@tails.net>
 # This file includes code Copyright (C) 2009 W. Trevor King <wking@drexel.edu>
 #
 # This file is part of WhisperBack

@@ -52,7 +52,7 @@ Standards-Version: 3.9.6
 
 Package: ${name}
 Version: ${version}
-Maintainer: Tails developers <tails@boum.org>
+Maintainer: Tails developers <foundations@tails.net>
 Architecture: all
 Provides: ${provides}
 Description: (Fake) ${name}
