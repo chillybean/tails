@@ -18,7 +18,6 @@
 """Tails Greeter
 
 """
-import tailsgreeter.errors
 
 __appname__ = "tails-greeter"
 __version__ = "1.0.11"
