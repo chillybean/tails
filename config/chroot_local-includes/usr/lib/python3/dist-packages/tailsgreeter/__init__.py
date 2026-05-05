@@ -22,7 +22,6 @@ import tailsgreeter.errors
 
 __appname__ = "tails-greeter"
 __version__ = "1.0.11"
-__all__ = tailsgreeter.errors
 
 APPLICATION_TITLE = "Welcome to Tails!"
 APPLICATION_ICON_NAME = "gdm-setup"
