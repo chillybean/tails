@@ -33,7 +33,6 @@ class UefiState(enum.Enum):
         return f"<{class_name}.{value}>"
 
 
-
 def detect_secure_boot_enabled() -> UefiState | None:
     try:
         output = subprocess.check_output(
