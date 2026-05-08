@@ -39,7 +39,7 @@ the upgrade:
         (
         set -eu -o pipefail
         git fetch origin && git checkout -b "${TOR_BRANCH:?}" origin/stable
-        echo "[test]\nforce_all_tests = true" \
+        echo -e "[test]\nforce_all_tests = true" \
         > config/ci/per_branch/${TOR_BRANCH:?}.toml
         git add "config/ci/per_branch/${TOR_BRANCH:?}.toml"
         git commit -m "Set this branch to run all tests"
