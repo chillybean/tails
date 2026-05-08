@@ -72,7 +72,7 @@ the upgrade:
            -o merge_request.create \
            -o merge_request.draft \
            --set-upstream \
-           origin "${branch:?}"
+           origin "${TOR_BRANCH:?}"
 
 6. Compare the Jenkins build and test results to the ones for our
    `stable` branch. What follows assumes that these CI results look good.
