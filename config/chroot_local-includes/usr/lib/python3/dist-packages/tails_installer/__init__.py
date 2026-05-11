@@ -45,13 +45,3 @@ branding = {
     "distribution": CONFIG["branding"]["distribution"],
     "header": CONFIG["branding"]["header"],
 }
-
-__all__ = (
-    "TailsInstallerCreator",
-    "TailsInstallerError",
-    "TargetDeviceBusy",
-    "TailsInstallerDialog",
-    "_",
-    "utf8_gettext",
-    "branding",
-)

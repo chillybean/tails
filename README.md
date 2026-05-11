@@ -30,7 +30,7 @@ https://tails.net/contribute/working_together/GitLab/transition/
 
  <a href="https://tails.net/doc/about/license/"><img alt="Tails is Free Software" src="https://tails.net/index/gift.svg" width="560"/>
 
-The Tails source code is released under the GNU/GPL (version 3 or above) and is Copyright (C) Tails developers tails@boum.org.
+The Tails source code is released under the GNU/GPL (version 3 or above) and is Copyright (C) Tails developers foundations@tails.net.
 Any exception to this rule is documented either [here](https://tails.net/doc/about/license/) or in the affected source file.
 However, Tails includes non-free firmware in order to work on as much hardware as possible.
 

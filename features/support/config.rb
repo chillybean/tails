@@ -206,6 +206,17 @@ EXPECTED_JOURNAL_ENTRIES = [
     'SYSLOG_IDENTIFIER' => 'systemd-udevd',
     'MESSAGE'           => %r{/usr/lib/udev/rules.d/90-alsa-restore.rules:[0-9]+ GOTO="alsa_restore_std" has no matching label, ignoring.},
   },
+  # The two following entries about shpchp are ACPI-related failures
+  # that started appearing when upgrading TailsToaster to the
+  # pc-q35-10.0 machine.
+  {
+    'SYSLOG_IDENTIFIER' => 'kernel',
+    'MESSAGE'           => 'shpchp 0000:01:00.0: pci_hp_register failed with error -16',
+  },
+  {
+    'SYSLOG_IDENTIFIER' => 'kernel',
+    'MESSAGE'           => 'shpchp 0000:01:00.0: Slot initialization failed',
+  },
 ].freeze
 # rubocop:enable Layout/LineLength
 
