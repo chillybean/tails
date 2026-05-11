@@ -2,7 +2,7 @@
 
 # shellcheck disable=SC2029
 
-set -eu
+set -eu -o pipefail
 
 error () {
     echo "error: ${*}" >&2

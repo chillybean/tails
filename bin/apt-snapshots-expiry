@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -eu
+set -eu -o pipefail
 
 FAILURE=no
 for dir in config/APT_snapshots.d vagrant/definitions/tails-builder/config/APT_snapshots.d; do
