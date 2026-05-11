@@ -2,7 +2,6 @@
 
 import logging
 from pathlib import Path
-from typing import List
 from git import Repo  # type: ignore
 from debian.changelog import Version
 
@@ -12,7 +11,7 @@ log = logging.getLogger()
 UDFS_DIR = Path("wiki/src/upgrade/v2/Tails")
 
 
-def dirs_to_delete(before_version: str, tags: List[str]) -> list:
+def dirs_to_delete(before_version: str, tags: list[str]) -> list:
     to_delete = []
 
     for version_dir in [
