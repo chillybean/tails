@@ -10,6 +10,8 @@ WEBSITE_RELEASE_BRANCH="web/release-$TAG"
 IDF=wiki/src/install/v2/Tails/amd64/stable/latest.json
 EXIT_CODE=0
 
+trap 'rm -f latest.json' EXIT HUP INT QUIT TERM
+
 git fetch origin "$WEBSITE_RELEASE_BRANCH"
 git show "origin/${WEBSITE_RELEASE_BRANCH}:${IDF}" >latest.json
 
