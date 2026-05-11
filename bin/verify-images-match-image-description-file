@@ -8,6 +8,7 @@ VERSION="$2"
 TAG="$(echo "$VERSION" | tr '~' '-')"
 WEBSITE_RELEASE_BRANCH="web/release-$TAG"
 IDF=wiki/src/install/v2/Tails/amd64/stable/latest.json
+EXIT_CODE=0
 
 git fetch origin "$WEBSITE_RELEASE_BRANCH"
 git show "origin/${WEBSITE_RELEASE_BRANCH}:${IDF}" >latest.json
@@ -20,6 +21,7 @@ for ext in iso img; do
         echo "OK: $ext size matches"
     else
         echo "FAIL: $ext size does not match"
+        EXIT_CODE=1
     fi
 
     idf_sha256=$(cat latest.json | jq --raw-output ".installations[0].\"installation-paths\" | map(select(.type == \"$ext\"))[0].\"target-files\"[0].sha256")
@@ -28,5 +30,8 @@ for ext in iso img; do
         echo "OK: $ext sha256 matches"
     else
         echo "FAIL: $ext sha256 does not match"
+        EXIT_CODE=1
     fi
 done
+
+exit "$EXIT_CODE"
