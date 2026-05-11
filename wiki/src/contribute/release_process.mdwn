@@ -407,14 +407,13 @@ Follow this part ONLY if you are preparing a bugfix release.
 
 ## In any case
 
-Look at [[!tails_gitlab tails/tails-private]]. If anything was merged there during the current development
-cycle, you need to merge into `$RELEASE_BRANCH`.
+Look at [[!tails_gitlab tails/tails-private]]:
 
     git fetch tails-private && \
     git log origin/"${RELEASE_BRANCH:?}"..tails-private/"${RELEASE_BRANCH:?}"
 
-Set base branch
-==================
+If anything was merged there during the current development cycle,
+merge it into `$RELEASE_BRANCH`.
 
 Reset the release branch's `config/base_branch`:
 
@@ -423,6 +422,16 @@ Reset the release branch's `config/base_branch`:
         git commit config/base_branch \
           -m "Restore ${RELEASE_BRANCH:?}'s base branch." || :
     )
+
+Push `$RELEASE_BRANCH`:
+
+    git push origin "${RELEASE_BRANCH:?}:${RELEASE_BRANCH:?}"
+
+Take note of the ID of the Jenkins build job that was triggered by this last
+push, wherever it works for you.
+
+Abort less important `test_Tails_ISO_*` to ensure this new build job starts
+ASAP: we'll need its artifacts later on.
 
 Manual testing coordination
 =============================
