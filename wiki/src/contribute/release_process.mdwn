@@ -408,7 +408,7 @@ Follow this part ONLY if you are preparing a bugfix release.
 ## In any case
 
 Look at [[!tails_gitlab tails/tails-private]]. If anything was merged there during the current development
-cycle, you need to merge.
+cycle, you need to merge into `$RELEASE_BRANCH`.
 
     git fetch tails-private && \
     git log origin/"${RELEASE_BRANCH:?}"..tails-private/"${RELEASE_BRANCH:?}"
