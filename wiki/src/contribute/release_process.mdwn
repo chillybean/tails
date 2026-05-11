@@ -289,6 +289,24 @@ Rationale: we don't want to release Tails and learn 2 days later about
 important security issues fixed by Debian security updates. In some cases, it
 may be worth delaying a Tails release a bit, while waiting for a DSA to happen.
 
+<a id="tor-browser-check"></a>
+
+Coordinate with Tor Browser releases
+------------------------------------
+
+Verify that the Tor Browser release used in Tails still is the most
+recent. Also look if there's a new `-buildX` tag (e.g.
+`tor-browser-60.3.0esr-8.0-1-build1`) for the Firefox version the Tor
+Browser we want to ship is based on in these Git repositories:
+
+* [tor-browser-build activity](https://gitlab.torproject.org/tpo/applications/tor-browser-build/activity)
+  (`maint-X.Y` branch)
+* [tor-browser activity](https://gitlab.torproject.org/tpo/applications/tor-browser/activity)
+
+A new tag may indicate that a new Tor Browser release or rebuild is imminent.
+
+Better catch this before people spend time doing manual tests.
+
 Sanity check
 ============
 
@@ -438,11 +456,6 @@ Bootstrap internal manual testing coordination:
 
 Update included files
 =====================
-
-Upgrade Tor Browser
--------------------
-
-If you did not import the new Tor Browser yet, [[do so now|tor-browser]].
 
 Update Tails version in about:tor
 ---------------------------------
@@ -854,22 +867,10 @@ Jenkins workers.
 Sanity check
 ------------
 
-<a id="tor-browser-check"></a>
-
 ### Tor Browser
 
-Verify that the Tor Browser release used in Tails still is the most
-recent. Also look if there's a new `-buildX` tag (e.g.
-`tor-browser-60.3.0esr-8.0-1-build1`) for the Firefox version the Tor
-Browser we want to ship is based on in these Git repositories:
-
-* [tor-browser-build activity](https://gitlab.torproject.org/tpo/applications/tor-browser-build/activity)
-  (`maint-X.Y` branch)
-* [tor-browser activity](https://gitlab.torproject.org/tpo/applications/tor-browser/activity)
-
-A new tag may indicate that a new Tor Browser release or rebuild is imminent.
-
-Better catch this before people spend time doing manual tests.
+[Verify](#tor-browser-check) that the Tor Browser we ship
+is still the most recent.
 
 ### Recent DSAs
 
