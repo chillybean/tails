@@ -130,7 +130,7 @@ Only perform this test for a final, stable release.
 
 1. Set environment variables:
 
-   * `ARTIFACTS`: the directory where the images you are testing live
+   * `IMAGES_DIR`: the directory where the images you are testing live
    * `VERSION`: the version you're trying to reproduce
 
 2. `cd` into a Tails Git clone
@@ -138,7 +138,7 @@ Only perform this test for a final, stable release.
 3. Check that the hashes and sizes in the image description file
    match what you are testing:
 
-       ./bin/verify-images-match-image-description-file "${ARTIFACTS:?}" "${VERSION:?}"
+       ./bin/verify-images-match-image-description-file "${IMAGES_DIR:?}" "${VERSION:?}"
 
 Tor Browser
 ===========
