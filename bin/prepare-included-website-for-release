@@ -43,7 +43,7 @@ fi
 
 ./build-website --rebuild
 git add wiki/src
-git commit -m 'Update website PO files.'
+git diff --cached --quiet HEAD wiki/src/ || git commit -m 'Update website PO files.'
 
 ### Push
 
