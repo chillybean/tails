@@ -426,10 +426,10 @@ Push `$RELEASE_BRANCH`:
     git push origin "${RELEASE_BRANCH:?}:${RELEASE_BRANCH:?}"
 
 Take note of the ID of the Jenkins build job that was triggered by this last
-push, wherever it works for you.
+push, wherever it works for you. We'll call it the *almost final* build.
 
-Abort less important `test_Tails_ISO_*` to ensure this new build job starts
-ASAP: we'll need its artifacts later on.
+Abort less important `test_Tails_ISO_*` to ensure the *almost final* build
+starts ASAP: we'll need its artifacts later on.
 
 Manual testing coordination
 =============================
@@ -750,17 +750,25 @@ signatures, like the defaults we set in Tails:
 
     cp config/chroot_local-includes/etc/skel/.gnupg/gpg.conf "${GNUPGHOME:?}"
 
-Build the almost-final images
-=============================
+Collect the almost-final build artifacts
+========================================
 
-1. [[Build ISO and USB images|contribute/build]] from the release branch,
+1. Check the status of the *almost final* build.
+
+   If it has completed:
+
+     - download the resulting build manifest to `$ARTIFACTS`
+     - download the resulting USB image to `$ARTIFACTS` `[skip-if-emergency-release]`
+
+   Otherwise, [[build ISO and USB images|contribute/build]] from the release branch,
    with `$TAILS_BUILD_OPTIONS` set like this:
 
-   - Set `defaultcomp`, so we can more accurately optimize our
-     SquashFS file ordering.
+     - Set `defaultcomp`, so we can more accurately optimize our
+       SquashFS file ordering.
 
-   - Do _not_ set `keeprunning`, nor `ignorechanges`, nor `rescue`.
-   Expected time: 15-45 minutes depending on your computer.
+     - Do _not_ set `keeprunning`, nor `ignorechanges`, nor `rescue`.
+
+   Expected time for the build: 15-45 minutes depending on your computer.
 
 2. Keep the resulting build artifacts until the end of this release process.
 
