@@ -5,12 +5,12 @@ set -u
 set -o pipefail
 set -x
 
-if [ ! -v VERSION ] || [ ! -v NEXT_PLANNED_VERSION ] ; then
+if [ ! -v VERSION ] || [ ! -v NEXT_PLANNED_VERSION ]; then
     echo "Some environment variable is unset" >&2
     exit 2
 fi
 
-if [ -z "${VERSION}" ] || [ -z "${NEXT_PLANNED_VERSION}" ] ; then
+if [ -z "${VERSION}" ] || [ -z "${NEXT_PLANNED_VERSION}" ]; then
     echo "Some environment variable is empty" >&2
     exit 2
 fi
