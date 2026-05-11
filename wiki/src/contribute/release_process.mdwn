@@ -510,12 +510,15 @@ Commit the changes (if any):
 
     git commit -m "Refresh localization list" config/chroot_local-includes/usr/share/tails/browser-localization/descriptions || :
 
-# If you are preparing a final release
+Merge APT overlays
+==================
+
+## If you are preparing a final release
 
 If we're about to prepare the images for a final (non-RC) release, then
 follow these instructions:
 
-## If you are preparing a Major final release
+### If you are preparing a Major final release
 
 Check that you are indeed preparing a major release:
 
@@ -526,7 +529,7 @@ Merge each APT overlay suite listed in the `testing` branch's
 
         ./bin/merge-APT-overlays testing
 
-## If you are preparing a Bugfix release
+### If you are preparing a Bugfix release
 
 Check that you are indeed preparing a bugfix release:
 
