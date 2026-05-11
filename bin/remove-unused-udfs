@@ -52,7 +52,7 @@ if __name__ == "__main__":
 
     repo = Repo(Path.cwd())
     assert not repo.bare
-    tags = repo.tags
+    tags = [str(tag) for tag in repo.tags]
     log.debug("Tags:\n%s", tags)
 
     to_delete = dirs_to_delete(args.before_version, tags)
