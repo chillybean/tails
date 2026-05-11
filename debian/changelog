@@ -1,8 +1,82 @@
-tails (7.8) UNRELEASED; urgency=medium
+tails (7.7.3) UNRELEASED; urgency=medium
 
-  * Dummy entry for next release.
+  * Upgrade Linux to 6.12.86
 
- -- intrigeri <intrigeri@debian.org>  Mon, 04 May 2026 09:33:33 +0000
+    Fixes Dirty Frag.
+
+  * Upgrade Thunderbird to 1:140.10.1esr-1~deb13u1
+
+  * Upgrade tor to 0.4.9.8 (tails/tails!2998)
+
+    Closes issues:
+      - Upgrade tor to 0.4.9.8 (tails/tails#21573)
+
+    Commits:
+      - Output correct TOML
+      - Fix TOML
+      - Use correct variable
+      - Upgrade tor to 0.4.9.8
+      - Set this branch to run all tests
+
+  * Upgrade to Tor Browser 15.0.12 based on Firefox ESR 140.10.2 (tails/tails!2994)
+
+    Closes issues:
+      - Upgrade to Tor Browser 15.0.12 based on Firefox ESR 140.10.2
+        (tails/tails#21562)
+
+    Commits:
+      - Tor Browser: refresh custom about:tor patches onto tor-
+        browser-140.10.2esr-15.0-1-build1
+      - Upgrade Tor Browser to 15.0.12 (refs: tails#21562)
+      - CI: run all tests for 21562-tor-browser-15.0.12
+
+  * Automate a bit more the tor upgrade process (tails/tails!2995)
+
+    Commits:
+      - Automate a bit more the tor upgrade process
+      - GitLab: add issue template for upgrading tor
+
+  * Mostly stop using @boum.org email addresses that have autoreplies
+    (tails/tails!2989)
+
+    Commits:
+      - Remove unused import
+      - Remove unused __all__
+      - Remove unused local variable (Ruff F841)
+      - Remove unnecessary UTF-8 encoding declaration (Ruff UP009)
+      - shfmt
+      - ruff format
+      - Mostly stop using @boum.org email addresses that have autoreplies
+
+  * GitLab CI: forbid commits whose message starts with XXX or WIP
+    (tails/tails!2975)
+
+    Commits:
+      - Make wording more generic
+      - GitLab CI: forbid commits whose message starts with XXX or WIP
+
+  * Bump debian APT snapshot so we get electrum 4.7.2+dfsg-1~bpo13+1
+    (tails/tails!2971)
+
+    Upgrade firmwares to 20260410-1.
+
+    Closes issues:
+      - needed-package-updates: electrum 4.7.0+dfsg-1~bpo13+1 → 4.7.2+dfsg-1~bpo13+1
+        (tails/tails#21528)
+
+    Commits:
+      - Bump debian APT snapshot so we get electrum 4.7.2+dfsg-1~bpo13+1
+
+  * Test suite: bump to the pc-q35-10.0 machine (tails/tails!2970)
+
+    Closes issues:
+      - Automated test suite is broken with QEMU 11 (tails/tails#21532)
+
+    Commits:
+      - Test suite: ignore two ACPI-related failures in the journal
+      - Test suite: bump to the pc-q35-10.0 machine (refs: tails#21532)
+
+ -- Tails developers <foundations@tails.net>  Mon, 11 May 2026 07:13:02 +0000
 
 tails (7.7.2) unstable; urgency=medium
 
