@@ -1249,10 +1249,7 @@ ISO history
 
 In this section, you will push the released ISO and USB images and their artifacts (`.buildlog`,
 `.build-manifest`, and `.packages` files) to our Tails ISO history git-annex
-repo, so that:
-
- - The Jenkins `build_IUKs` job can fetch them.
- - Our isotesters can fetch them from there for their testing.
+repo, so that the Jenkins `build_IUKs` and `test_Tails_ISO_*` jobs can download them.
 
 Make sure that Jenkins has finished building the images so you have set
 `MATCHING_JENKINS_IMAGES_BUILD_ID` (see above), then run:
