@@ -69,8 +69,8 @@ Prepare your checklist
    This ensures you won't mistakenly skip a step, without relying on memory, so
    "oops, I forgot X" cannot happen.
 
-5. Remove useless sections. Some sections of this checklist only apply to specific release types (RC, Major,
-   Bugfix, etc.). While you can skip them just-in-time, it's easier and less error-prone to do that now that
+5. Remove useless sections. Some sections of this checklist only apply to specific release types (RC, major,
+   bugfix, etc.). While you can skip them just-in-time, it's easier and less error-prone to do that now that
    you have a fresh mind. You can search for `^##* If you`.
 
 TRAP: whenever you go AFK for long times
@@ -369,10 +369,10 @@ Follow this part ONLY if you are preparing the *first* release candidate for a m
         git checkout "$RELEASE_BRANCH" && \
         ./bin/bump-APT-snapshots-expiration-date 183
 
-## If you are preparing a Bugfix release
+## If you are preparing a bugfix release
 
 
-Check that you are indeed preparing a Bugfix:
+Check that you are indeed preparing a bugfix release:
 
     [ "${DIST:?}" = stable ] && [ "${MAJOR_RELEASE:?}" -eq 0 ]
 
@@ -518,7 +518,7 @@ Merge APT overlays
 If we're about to prepare the images for a final (non-RC) release, then
 follow these instructions:
 
-### If you are preparing a Major final release
+### If you are preparing a major final release
 
 Check that you are indeed preparing a major release:
 
@@ -529,7 +529,7 @@ Merge each APT overlay suite listed in the `testing` branch's
 
         ./bin/merge-APT-overlays testing
 
-### If you are preparing a Bugfix release
+### If you are preparing a bugfix release
 
 Check that you are indeed preparing a bugfix release:
 
