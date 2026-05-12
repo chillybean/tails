@@ -289,9 +289,9 @@ class WhisperbackReport:
             return []
 
         return [
-            l.split("\t")
-            for l in raw.split("\n")
-            if not l.startswith("## ") and l.strip()
+            line.split("\t")
+            for line in raw.split("\n")
+            if not line.startswith("## ") and line.strip()
         ]
 
 
