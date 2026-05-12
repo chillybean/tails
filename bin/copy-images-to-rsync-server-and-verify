@@ -3,8 +3,10 @@
 set -eu
 set -o pipefail
 
+DOWNLOAD_IMAGES=yes
+
 NAME=$(basename "${0}")
-LONGOPTS="version:,dist:,release-branch:,matching-jenkins-images-build-id:"
+LONGOPTS="version:,dist:,release-branch:,matching-jenkins-images-build-id:,skip-downloading-images"
 OPTS=$(getopt -o "" --longoptions $LONGOPTS -n "${NAME}" -- "$@")
 eval set -- "$OPTS"
 while [ $# -gt 0 ]; do
@@ -25,6 +27,10 @@ while [ $# -gt 0 ]; do
         shift
         MATCHING_JENKINS_IMAGES_BUILD_ID="$1"
         ;;
+    --skip-downloading-images)
+        shift
+        DOWNLOAD_IMAGES=no
+        ;;
     esac
     shift
 done
@@ -32,10 +38,14 @@ done
 ssh rsync.lizard gpg --import <wiki/src/tails-signing.key
 
 # shellcheck disable=SC2087
-ssh rsync.lizard <<EOF
+[ "$DOWNLOAD_IMAGES" = no ] || ssh rsync.lizard <<EOF
    wget --continue --quiet \
       "https://nightly.tails.boum.org/build_Tails_ISO_${RELEASE_BRANCH:?}/builds/${MATCHING_JENKINS_IMAGES_BUILD_ID:?}/archive/build-artifacts/tails-amd64-${VERSION:?}.iso" \
-      "https://nightly.tails.boum.org/build_Tails_ISO_${RELEASE_BRANCH:?}/builds/${MATCHING_JENKINS_IMAGES_BUILD_ID:?}/archive/build-artifacts/tails-amd64-${VERSION:?}.img" && \
+      "https://nightly.tails.boum.org/build_Tails_ISO_${RELEASE_BRANCH:?}/builds/${MATCHING_JENKINS_IMAGES_BUILD_ID:?}/archive/build-artifacts/tails-amd64-${VERSION:?}.img"
+EOF
+
+# shellcheck disable=SC2087
+ssh rsync.lizard <<EOF
    gpg --verify tails-amd64-${VERSION:?}.iso{.sig,} && \
    gpg --verify tails-amd64-${VERSION:?}.img{.sig,}
 EOF
