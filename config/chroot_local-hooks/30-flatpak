@@ -42,3 +42,7 @@ touch "${FILES_DIR}/.ref"
 
 flatpak --installation=tails remote-delete --force platform-origin
 rm -r /usr/share/tails/build/flatpak/
+
+# Divert /usr/bin/flatpak so we can replace it with our wrapper
+dpkg-divert --add --rename --divert /usr/bin/flatpak.real /usr/bin/flatpak
+ln -s /usr/local/lib/flatpak /usr/bin/flatpak

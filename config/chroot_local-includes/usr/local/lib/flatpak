@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -e
+set -u
+
+export ALL_PROXY="socks5h://127.0.0.1:9050"
+
+exec /usr/bin/flatpak.real "${@}"
