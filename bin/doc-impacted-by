@@ -80,10 +80,10 @@ def read_package_manifest_file_as_package_map(path)
              package_manifest['packages']['source']
   packages
     .map do |entry|
-    [
-      entry['package'],
-      entry.clone.delete_if { |k, _| k == 'package' },
-    ]
+      [
+        entry['package'],
+        entry.clone.delete_if { |k, _| k == 'package' },
+      ]
   end
     .to_h
 end
@@ -110,7 +110,7 @@ def canonicalize_relationship(orig_entry)
          "lacks the obligatory 'pages' field")
   assert(entry.keys.size > 1,
          "entries with only a 'pages' field are meaningless")
-  # Note: `(a - b).empty?` <==> "a is a subset of b?"
+  # NOTE: `(a - b).empty?` <==> "a is a subset of b?"
   assert((entry.keys - fields).empty?,
          "contains invalid fields: #{entry.keys - fields}")
   fields.each do |field|
@@ -132,7 +132,7 @@ end
 def read_relationship_file_as_impact_map(relationship_file)
   impact_map = {}
   relationships = YAML.safe_load(File.read(relationship_file))
-  relationships.map { |e| canonicalize_relationship(e) } .each do |entry|
+  relationships.map { |e| canonicalize_relationship(e) }.each do |entry|
     entry['pages'].each do |page|
       source_files = entry.clone.delete_if { |k, _| k == 'pages' }
       impact_map.deep_merge({ page => source_files })

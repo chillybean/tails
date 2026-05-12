@@ -519,18 +519,18 @@ class ImageBumpingScreen
   screen_methods.each do |m|
     if overrides.include?(m)
       define_method(m) do |*args, **opts|
-        return @screen.method(m).call(*args, **opts)
+        @screen.method(m).call(*args, **opts)
       rescue FindFailed => e
         begin
           image = args.first
-          return interactive_image_bump(image, **opts)
+          interactive_image_bump(image, **opts)
         rescue ImageBumpFailed
           raise e
         end
       end
     else
       define_method(m) do |*args, **kwargs|
-        return @screen.method(m).call(*args, **kwargs)
+        @screen.method(m).call(*args, **kwargs)
       end
     end
   end
