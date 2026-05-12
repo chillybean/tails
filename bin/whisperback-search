@@ -288,10 +288,11 @@ class WhisperbackReport:
         except Unknown:
             return []
 
-        return [l.split("\t")
-                     for l in raw.split("\n")
-                     if not l.startswith("## ") and l.strip()
-                     ]
+        return [
+            l.split("\t")
+            for l in raw.split("\n")
+            if not l.startswith("## ") and l.strip()
+        ]
 
 
 def parse_encrypted_part(part: "email.message.Message") -> str:
