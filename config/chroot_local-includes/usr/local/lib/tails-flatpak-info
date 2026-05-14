@@ -20,7 +20,9 @@ report() {
     scope="$1"
     selection="$2"
     name="$3"
+    echo
     echo "## ${name} installed ${scope}-level:"
+    echo
     set +e
     run_flatpak "${scope}" "${selection}"
     ret=$?
