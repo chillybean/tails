@@ -16,17 +16,24 @@ run_flatpak() {
     "${flatpakCmd[@]}" "--${scope}" list --show-details "--${selection}" 2>&1
 }
 
+report() {
+    scope="$1"
+    selection="$2"
+    name="$3"
+    echo "## ${name} installed ${scope}-level:"
+    set +e
+    run_flatpak "${scope}" "${selection}"
+    ret=$?
+    set -e
+    if [ $ret -ne 0 ]; then
+        echo "ERROR $ret"
+    fi
+}
+
 for scope in user system; do
-    for selection in runtime app; do
-        echo "## ${selection}s installed ${scope}-level:"
-        set +e
-        run_flatpak "${scope}" "${selection}"
-        ret=$?
-        set -e
-        if [ $ret -ne 0 ]; then
-            echo "ERROR $ret"
-        fi
-    done
+    report "$scope" runtime runtimes
+    report "$scope" app apps
+    report "$scope" all everything
 done
 
 exit 0
