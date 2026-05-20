@@ -2,8 +2,7 @@
 
 import logging
 from pathlib import Path
-from typing import List
-from git import Repo  # type: ignore
+from git import Repo
 from debian.changelog import Version
 
 LOG_FORMAT = "%(levelname)s %(message)s"
@@ -12,21 +11,17 @@ log = logging.getLogger()
 UDFS_DIR = Path("wiki/src/upgrade/v2/Tails")
 
 
-def dirs_to_delete(before_version: str, tags: List[str]) -> list:
+def dirs_to_delete(before_version: str, tags: list[str]) -> list:
     to_delete = []
 
-    for version_dir in [
-            child for child in UDFS_DIR.iterdir() if child.is_dir()
-    ]:
+    for version_dir in [child for child in UDFS_DIR.iterdir() if child.is_dir()]:
         version = version_dir.name
-        tag = version.replace('~', '-')
-        log.debug("Looking at %s (version = %s, tag = %s)",
-                  version_dir, version, tag)
+        tag = version.replace("~", "-")
+        log.debug("Looking at %s (version = %s, tag = %s)", version_dir, version, tag)
 
         # Skip all the UDFs we have reasons to keep
         if Version(version) >= Version(before_version):
-            log.debug("Version %s newer than %s, skipping",
-                      version, before_version)
+            log.debug("Version %s newer than %s, skipping", version, before_version)
             continue
         if tag in tags:
             log.debug("Version %s was already released, skipping", version)
@@ -42,8 +37,9 @@ def dirs_to_delete(before_version: str, tags: List[str]) -> list:
     return to_delete
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     import argparse
+
     parser = argparse.ArgumentParser()
     parser.add_argument("--before-version", required=True)
     parser.add_argument("--debug", action="store_true", help="debug output")
@@ -56,13 +52,13 @@ if __name__ == '__main__':
 
     repo = Repo(Path.cwd())
     assert not repo.bare
-    tags = repo.tags
+    tags = [str(tag) for tag in repo.tags]
     log.debug("Tags:\n%s", tags)
 
     to_delete = dirs_to_delete(args.before_version, tags)
     if to_delete:
         log.info("Deleting %s", to_delete)
-        repo.git.rm('-r', to_delete)
+        repo.git.rm("-r", to_delete)
         repo.index.commit("Remove UDFs for versions we'll never release")
     else:
         log.info("Nothing to delete")

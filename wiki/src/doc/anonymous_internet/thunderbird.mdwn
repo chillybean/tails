@@ -1,37 +1,10 @@
 [[!meta title="Emailing and reading news with Thunderbird"]]
 
-Tails includes *Thunderbird* for:
+We recommend using [[*Thunderbird*|https://www.thunderbird.net/]] in Tails for:
 
 - Reading and writing emails
 
 - Reading [[!wikipedia RSS]] and [[!wikipedia Atom_(Web_standard) desc="Atom"]] feeds for news and blogs
-
-[[!toc levels=2]]
-
-To open *Thunderbird*, choose **Apps&nbsp;▸ Internet&nbsp;▸ Thunderbird**.
-
-<div class="tip">
-
-<p>To store your
-emails, feeds, and settings across different working sessions,
-turn on the [[Thunderbird Email Client|persistent_storage/configure#thunderbird]]
-feature of the Persistent Storage.</p>
-
-</div>
-
-<div class="note">
-
-<p><i>Thunderbird</i> will not be included by default anymore in Tails 7.8
-(May 2026) and later.</p>
-
-<p>If you have the [[Thunderbird Email
-Client|persistent_storage/configure#thunderbird]] feature of the Persistent
-Storage turned on, Tails automatically adds <i>Thunderbird</i> to your list of
-[[Additional Software|persistent_storage/additional_software]].</p>
-
-<p>[[Why is Tails installing <i>Thunderbird</i> as Additional Software?|thunderbird/additional_software]]</p>
-
-</div>
 
 For more documentation, visit the official [*Thunderbird*
 Support](https://support.mozilla.org/en-US/products/thunderbird) website.
@@ -43,7 +16,86 @@ features of <i>Thunderbird</i></a> don't work in Tails.</p>
 
 </div>
 
-<h1 id="account">Configuring an email account</h1>
+[[!toc startlevel=2]]
+
+## Installing *Thunderbird* as additional software
+
+*Thunderbird* is no longer included by default since Tails 7.8 (May 2026).
+
+You can install *Thunderbird* as [[additional
+software|persistent_storage/additional_software]].
+
+A new version of *Thunderbird* is released in Debian shortly after each Tails
+release, because both *Tails* and *Thunderbird* follow the [[release calendar
+of *Firefox*|https://whattrainisitnow.com/calendar/]]. As a consequence, until
+Tails 7.5 (February 2026), the version of *Thunderbird* in Tails was almost
+always outdated, with known security vulnerabilities.
+
+By installing *Thunderbird* as additional software, the latest version
+of *Thunderbird* is installed automatically from your Persistent Storage each
+time you start Tails.
+
+To install *Thunderbird* as additional software:
+
+1. Choose **Apps&nbsp;▸ Tails&nbsp;▸ Persistent Storage** to open the
+   Persistent Storage settings.
+
+   1. Create a Persistent Storage if you don't have one already.
+
+   1. Make sure that the **Additional Software** feature is turned on.
+
+   1. Turn on the **Thunderbird Email Client** feature.
+
+   1. Close the Persistent Storage settings.
+
+1. Restart Tails.
+
+   <div class="tip">
+
+   <p>To reopen this page after restarting Tails, choose <b>Apps&nbsp;▸
+   Tails&nbsp;▸ Tails Documentation</b> and go to <b>Documentation&nbsp;▸
+   Uncensored and anonymous Internet&nbsp;▸ Emailing and reading news with
+   Thunderbird</b>.</p>
+
+   </div>
+
+   Tails detects that you have both the **Thunderbird Email Client** and **Additional
+   Software** features of the Persistent Storage turned on and automatically
+   adds *Thunderbird* to your list of additional software.
+
+   Tails also tries to install as additional software the language package
+   that corresponds to the language of this Tails session, if it exists. To
+   use *Thunderbird* in another language, see [[using *Thunderbird* in
+   another language|thunderbird#language]].
+
+1. [[Connect to the Tor network.|doc/anonymous_internet/tor]]
+
+   *Thunderbird* is downloaded and installed in the background after you
+   connected to the Tor network.
+
+   This first installation can take several minutes. During this time, no
+   *Thunderbird* launcher is available in the **Apps** menu.
+
+   <div class="tip">
+
+   <p>If you are comfortable with the command line and [[set up an
+   administration
+   password|doc/first_steps/welcome_screen/administration_password]] when
+   starting Tails, you can execute the following command to track the progress
+   of the download and installation:</p>
+
+   <p class="command">sudo journalctl -f -u tails-additional-software-upgrade.service</p>
+
+   </div>
+
+1. After *Thunderbird* is installed, choose **Apps&nbsp;▸ Internet&nbsp;▸
+   Thunderbird** to open *Thunderbird*.
+
+   *Thunderbird* will be reinstalled automatically every time you start Tails.
+   Future installations will be much faster since *Thunderbird* is already
+   downloaded to your Persistent Storage.
+
+<h2 id="account">Configuring an email account</h2>
 
 1. When opening *Thunderbird* for the first
    time, an assistant appears to help you configure and access your email
@@ -98,7 +150,7 @@ features of <i>Thunderbird</i></a> don't work in Tails.</p>
 
 </div>
 
-<h1 id="news">Reading RSS and Atom news feeds</h1>
+<h2 id="news">Reading RSS and Atom news feeds</h2>
 
 On top of reading emails, you can read news feeds that use the RSS and Atom
 standards in *Thunderbird*.
@@ -144,7 +196,7 @@ To create a feed account:
 1. A new feed account named **Blogs & News Feeds** appears in the sidebar of
    the main window of *Thunderbird*.
 
-<h1 id="privacy">Enhanced privacy</h1>
+<h2 id="privacy">Enhanced privacy</h2>
 
 *Thunderbird* in Tails is configured
 for additional privacy and anonymity.
@@ -179,7 +231,7 @@ outgoing email addresses to my collected addresses</b>.</p>
 
 </div>
 
-<h1 id="language">Using Thunderbird in another language</h1>
+<h2 id="language">Using Thunderbird in another language</h2>
 
 To use *Thunderbird* in another language, you can
 install the <code>thunderbird-l10n-<span class="command-placeholder">lang</span></code>
@@ -187,13 +239,13 @@ package using the [[Additional Software|persistent_storage/additional_software]]
 feature. Replace <span class="command-placeholder">lang</span> with the code
 for your language. For example, `vi` for Vietnamese.
 
-Tails already includes language packages for Arabic,
+Tails automatically installs the language packages for Arabic,
 German, Spanish, Farsi, French, Hindi, Bahasa Indonesia, Italian,
 Portuguese, Russian, Turkish, and Simplified Chinese.
 
 [List of available *Thunderbird* language packages](https://packages.debian.org/search?keywords=thunderbird-l10n&searchon=names&suite=stable&section=all)
 
-<h1 id="openpgp">OpenPGP encryption</h1>
+<h2 id="openpgp">OpenPGP encryption</h2>
 
 <div class="next">
 
@@ -210,7 +262,7 @@ stored in <i>Thunderbird</i>.</p>
 See also the official [OpenPGP in Thunderbird - HOWTO and
 FAQ](https://support.mozilla.org/kb/openpgp-thunderbird-howto-and-faq).
 
-<h2 id="primary-password">Setting up a Primary Password (recommended)</h2>
+<h3 id="primary-password">Setting up a Primary Password (recommended)</h3>
 
 In *Thunderbird*, OpenPGP private keys are not protected by a passphrase.
 That's why we recommend that you set up a Primary Password.
@@ -232,7 +284,7 @@ profile and a second time by the encryption of the Persistent Storage.
 1. In the **Primary Password** dialog, enter your Primary Password
    and click **OK**.
 
-<h2 id="import-private">Importing an existing private key</h2>
+<h3 id="import-private">Importing an existing private key</h3>
 
 *Thunderbird* uses a different keyring than *GnuPG*.
 
@@ -283,7 +335,7 @@ In *Thunderbird*:
 1. Select your private key to enable OpenPGP encryption for this
    account.
 
-<h2 id="generate-private">Generating a new OpenPGP private key</h2>
+<h3 id="generate-private">Generating a new OpenPGP private key</h3>
 
 1. Choose **[[!img lib/open-menu.png alt="Menu" class="symbolic"
    link="no"]]&nbsp;▸ Account Settings**.
@@ -303,7 +355,7 @@ In *Thunderbird*:
    Your private key should now be listed in the **End-to-End
    Encryption** settings of your account.
 
-<h2 id="encrypting">Encrypting an email</h2>
+<h3 id="encrypting">Encrypting an email</h3>
 
 To prevent you from sending unencrypted emails by mistake, *Thunderbird*
 in Tails is configured with the option **Enable encryption for new

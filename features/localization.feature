@@ -20,13 +20,15 @@ Feature: Localization
   @doc @slow @not_release_blocker
   Scenario Outline: Tails is localized for every tier-1 language
     Given I have started Tails from DVD without network and stopped at Tails Greeter's login screen
+    And I set an administration password
     When I log in to a new session in <language> (<lang_code>)
     Then the keyboard layout is set to "<layout>"
     And tpsd is localized to the selected locale
-    When the network is plugged
+    Given the network is plugged
     And Tor is ready
     Then I successfully start the Unsafe Browser
     And I kill the Unsafe Browser
+    Given Thunderbird is installed
     When I enable the screen keyboard
     Then the screen keyboard works in Tor Browser
     And DuckDuckGo is the default search engine

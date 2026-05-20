@@ -637,7 +637,7 @@ When /^I (don't )?see the "(.+)" notification(?: after at most (\d+) seconds)?$/
 end
 
 def wait_notification(title, timeout)
-  timeout = timeout ? timeout.to_i : nil
+  timeout = timeout&.to_i
   gnome_shell = Dogtail::Application.new('gnome-shell')
   notification_list = gnome_shell.child(
     'No Notifications', roleName: 'label', showingOnly: false
@@ -934,11 +934,20 @@ When /^I warm reboot the computer$/ do
   $vm.spawn('reboot')
 end
 
-Given /^the package "([^"]+)" is( not)? installed( after Additional Software has been started)?$/ do |package, absent, asp|
+Given /^the package "([^"]+)" is( not)? installed( after Additional Software has been (installed|upgraded))?$/ do |package, absent, asp, operation|
   if absent
     wait_for_package_removal(package)
   else
-    step 'the Additional Software installation service has started' if asp
+    if asp
+      case operation
+      when 'installed'
+        step 'the Additional Software installation service has started'
+      when 'upgraded'
+        step 'the Additional Software upgrade service has started'
+      else
+        raise "Unsupported operation: #{operation}"
+      end
+    end
     wait_for_package_installation(package)
   end
 end

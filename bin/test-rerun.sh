@@ -1,5 +1,7 @@
 #!/bin/bash
 
+[ -v tmpdir ] || exit 2
+
 if [ "$(id -u)" -ne 0 ]; then
     exec sudo \
         VERSION="$VERSION" ISOS="$ISOS" PREVIOUS_STABLE_VERSION="$PREVIOUS_STABLE_VERSION" \

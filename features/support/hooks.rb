@@ -92,6 +92,10 @@ AfterConfiguration do |config|
     # hasn't done any release since then.
     require 'bindex'
   end
+
+  unless KEEP_SNAPSHOTS
+    FileUtils.rm_f('/var/lib/libvirt/qemu/nvram/TailsToaster_VARS.fd')
+  end
 end
 
 # Common

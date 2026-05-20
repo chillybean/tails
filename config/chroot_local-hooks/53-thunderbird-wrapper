@@ -1,8 +1,26 @@
 #!/bin/sh
 
-set -e
+set -eu
+set -o pipefail
 
 echo "Installing our Thunderbird wrapper"
+
+# Make the launcher available even when Debian's Thunderbird is not
+# installed (yet); in that case, our wrapper will point the user
+# to the doc that explains how to install Thunderbird.
+WORKDIR="$(mktemp -d)"
+cd "$WORKDIR"
+apt-get download thunderbird
+dpkg-deb --fsys-tarfile thunderbird*.deb |
+    tar x ./usr/share/applications/thunderbird.desktop
+mv ./usr/share/applications/thunderbird.desktop \
+    /usr/share/applications/thunderbird.desktop
+dpkg-deb --fsys-tarfile thunderbird*.deb |
+    tar x ./usr/share/icons/hicolor/scalable/apps/thunderbird.svg
+mv ./usr/share/icons/hicolor/scalable/apps/thunderbird.svg \
+    /usr/share/icons/
+cd
+rm -rf "${WORKDIR}"
 
 # Move /usr/bin/thunderbird out of the way (now and for packages
 # installed or upgraded in the future), so we can steal this path,
