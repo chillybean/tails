@@ -122,7 +122,7 @@ module RemoteShell
 
       args = [type, opts[:user], opts[:env], cmd]
       ret = RemoteShell.communicate(vm, *args, **opts)
-      if opts[:debug_log] && !(opts[:spawn])
+      if opts[:debug_log] && !opts[:spawn]
         debug_log("Remote shell: #{type} returned: #{ret}")
       end
       ret

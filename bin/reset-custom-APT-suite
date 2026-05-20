@@ -1,9 +1,9 @@
 #!/bin/bash
 
-set -eu
+set -eu -o pipefail
 set -x
 
-error () {
+error() {
     echo "error: ${*}" >&2
     exit 1
 }

@@ -4,8 +4,9 @@ Feature: Thunderbird email client
   I may want to use an email client
 
   Background:
-    Given I have started Tails from DVD and logged in and the network is connected
+    Given I have started Tails from DVD and logged in with an administration password and the network is connected
     And I have not configured an email account yet
+    And Thunderbird is installed
     When I start Thunderbird
     Then I am prompted to setup an email account
 
@@ -24,4 +25,4 @@ Feature: Thunderbird email client
     And I send an email to myself
     And I fetch my email
     Then I can find the email I sent to myself in my inbox
-    And the only connections have been made to my email server
+    And the system only established connections with my email server

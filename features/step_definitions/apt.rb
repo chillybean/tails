@@ -51,7 +51,7 @@ Then /^if releasing, no unversioned Tails APT source is enabled$/ do
   )
 end
 
-When /^I update APT using apt$/ do
+When /^I update the APT lists using apt$/ do
   recovery_proc = proc do
     ensure_process_is_terminated('apt')
     $vm.execute('rm -rf /var/lib/apt/lists/*')
@@ -66,8 +66,10 @@ end
 
 def wait_for_package_installation(package)
   try_for(2 * 60, delay: 3) do
-    $vm.execute_successfully("dpkg -s '#{package}' 2>/dev/null " \
-                             "| grep -qs '^Status:.*installed$'")
+    $vm.execute_successfully(
+      "is_package_installed '#{package}'",
+      libs: 'common'
+    )
   end
 end
 
@@ -108,7 +110,7 @@ When /^I configure APT to prefer an old version of cowsay$/ do
 end
 
 When /^I install an old version "([^"]*)" of the cowsay package using apt$/ do |version|
-  step 'I update APT using apt'
+  step 'I update the APT lists using apt'
   step 'I install "cowsay" using apt'
   step "the installed version of package \"cowsay\" is \"#{version}\""
 end
@@ -119,7 +121,7 @@ When /^I revert the APT tweaks that made it prefer an old version of cowsay$/ do
   )
 end
 
-When /^the installed version of package "([^"]*)" is( newer than)? "([^"]*)"( after Additional Software has been started)?$/ do |package, newer_than, version, asp|
+When /^the installed version of package "([^"]*)" is( newer than)? "([^"]*)"( after Additional Software has been installed)?$/ do |package, newer_than, version, asp|
   step 'the Additional Software installation service has started' if asp
   current_version = $vm.execute_successfully(
     "dpkg-query -W -f='${Version}' #{package}"
@@ -137,7 +139,7 @@ When /^I start Synaptic$/ do
   @screen.wait('SynapticReload.png', 30)
 end
 
-When /^I update APT using Synaptic$/ do
+When /^I update the APT lists using Synaptic$/ do
   recovery_proc = proc do
     ensure_process_is_terminated('synaptic')
     step 'I start Synaptic'

@@ -324,6 +324,20 @@ Given(/^I enable persistence creation in Tails Greeter$/) do
          .toggle
 end
 
+def pretend_migration_has_succeeded(migration_id)
+  migration_dir = "#{MIGRATIONS_DIR}/#{migration_id}"
+  $vm.execute_successfully(
+    'install --directory --owner root --group amnesia --mode 0750 ' \
+    "#{MIGRATIONS_DIR} #{migration_dir}"
+  )
+  $vm.execute_successfully(
+    "install --owner root --group root /dev/null #{migration_dir}/success"
+  )
+  $vm.execute_successfully(
+    "python3 /usr/lib/python3/dist-packages/tailslib/migration.py #{migration_id}"
+  )
+end
+
 Given /^I create a persistent partition( with the default settings)?( for Additional Software)?( using the wizard that was already open)?$/ do |default_settings, asp, dontrun|
   # When creating a persistent partition for Additional Software, we
   # want to use the default settings.
@@ -340,6 +354,12 @@ Given /^I create a persistent partition( with the default settings)?( for Additi
   end
 
   enable_all_tps_features unless default_settings
+
+  # Avoid having to deal with the installation of Thunderbird racing
+  # vs. the test suite checking that all expected services have
+  # started. We've tried making these checks smarter to cope with
+  # this, and gave up.
+  pretend_migration_has_succeeded('21375-thunderbird-iteration-1')
 end
 
 Given /^I try to create a persistent partition( for Additional Software)?( using the wizard that was already open)?$/ do |asp, dontrun|
@@ -1053,7 +1073,7 @@ Then /^all persistent directories(| from the old Tails version) have safe access
 end
 
 When /^I write some files expected to persist$/ do
-  tps_bind_mounts.each do |_, dir|
+  tps_bind_mounts.each_value do |dir|
     owner = $vm.execute("stat -c %U #{dir}").stdout.chomp
     assert_vmcommand_success(
       $vm.execute("touch #{dir}/XXX_persist", user: owner),
@@ -1073,7 +1093,7 @@ When /^I write some dotfile expected to persist$/ do
 end
 
 When /^I remove some files expected to persist$/ do
-  tps_bind_mounts.each do |_, dir|
+  tps_bind_mounts.each_value do |dir|
     owner = $vm.execute("stat -c %U #{dir}").stdout.chomp
     assert_vmcommand_success(
       $vm.execute("rm #{dir}/XXX_persist", user: owner),
@@ -1083,7 +1103,7 @@ When /^I remove some files expected to persist$/ do
 end
 
 When /^I write some files not expected to persist$/ do
-  tps_bind_mounts.each do |_, dir|
+  tps_bind_mounts.each_value do |dir|
     owner = $vm.execute("stat -c %U #{dir}").stdout.chomp
     assert_vmcommand_success(
       $vm.execute("touch #{dir}/XXX_gone", user: owner),
@@ -1105,7 +1125,7 @@ Then /^the expected persistent files(| created with the old Tails version) are p
     assert_not_nil($remembered_tps_bind_mounts)
     expected_mounts = $remembered_tps_bind_mounts
   end
-  expected_mounts.each do |_, dir|
+  expected_mounts.each_value do |dir|
     assert_vmcommand_success(
       $vm.execute("test -e #{dir}/XXX_persist"),
       "Could not find expected file in persistent directory #{dir}"
@@ -1155,7 +1175,7 @@ Then /^only the expected files are present on the persistence partition on USB d
     mount_point = '/'
     g.mount(luks_dev, mount_point)
     assert_not_nil($remembered_tps_bind_mounts)
-    $remembered_tps_bind_mounts.each do |dir, _|
+    $remembered_tps_bind_mounts.each_key do |dir|
       # Guestfs::exists may have a bug; if the file exists, 1 is
       # returned, but if it doesn't exist false is returned. It seems
       # the translation of C types into Ruby types is glitchy.

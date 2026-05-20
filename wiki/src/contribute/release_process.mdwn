@@ -69,8 +69,8 @@ Prepare your checklist
    This ensures you won't mistakenly skip a step, without relying on memory, so
    "oops, I forgot X" cannot happen.
 
-5. Remove useless sections. Some sections of this checklist only apply to specific release types (RC, Major,
-   Bugfix, etc.). While you can skip them just-in-time, it's easier and less error-prone to do that now that
+5. Remove useless sections. Some sections of this checklist only apply to specific release types (RC, major,
+   bugfix, etc.). While you can skip them just-in-time, it's easier and less error-prone to do that now that
    you have a fresh mind. You can search for `^##* If you`.
 
 TRAP: whenever you go AFK for long times
@@ -289,11 +289,28 @@ Rationale: we don't want to release Tails and learn 2 days later about
 important security issues fixed by Debian security updates. In some cases, it
 may be worth delaying a Tails release a bit, while waiting for a DSA to happen.
 
-Sanity check
-============
+<a id="tor-browser-check"></a>
 
-Jenkins
--------
+Coordinate with Tor Browser releases
+------------------------------------
+
+Verify that the Tor Browser release used in Tails still is the most
+recent. Also look if there's a new `-buildX` tag (e.g.
+`tor-browser-60.3.0esr-8.0-1-build1`) for the Firefox version the Tor
+Browser we want to ship is based on in these Git repositories:
+
+* [tor-browser-build activity](https://gitlab.torproject.org/tpo/applications/tor-browser-build/activity)
+  (`maint-X.Y` branch)
+* [tor-browser activity](https://gitlab.torproject.org/tpo/applications/tor-browser/activity)
+
+A new tag may indicate that a new Tor Browser release or rebuild is imminent.
+
+Better catch this before people spend time doing manual tests.
+
+Check CI results
+----------------
+
+### Jenkins
 
 Visit the [Jenkins RM view](https://jenkins.tails.boum.org/view/RM/)
 and check that the jobs for the release branch have good enough results:
@@ -314,8 +331,7 @@ and check that the jobs for the release branch have good enough results:
    package update are worth delaying the release. If not, create an issue
    to track them.
 
-GitLab CI
----------
+### GitLab CI
 
 Verify that the latest [[!tails_gitlab desc="pipeline" tails/tails/-/pipelines]]
 for the branch this release will be built from succeeded.
@@ -369,10 +385,10 @@ Follow this part ONLY if you are preparing the *first* release candidate for a m
         git checkout "$RELEASE_BRANCH" && \
         ./bin/bump-APT-snapshots-expiration-date 183
 
-## If you are preparing a Bugfix release
+## If you are preparing a bugfix release
 
 
-Check that you are indeed preparing a Bugfix:
+Check that you are indeed preparing a bugfix release:
 
     [ "${DIST:?}" = stable ] && [ "${MAJOR_RELEASE:?}" -eq 0 ]
 
@@ -389,14 +405,13 @@ Follow this part ONLY if you are preparing a bugfix release.
 
 ## In any case
 
-Look at [[!tails_gitlab tails/tails-private]]. If anything was merged there during the current development
-cycle, you need to merge.
+Look at [[!tails_gitlab tails/tails-private]]:
 
     git fetch tails-private && \
     git log origin/"${RELEASE_BRANCH:?}"..tails-private/"${RELEASE_BRANCH:?}"
 
-Set base branch
-==================
+If anything was merged there during the current development cycle,
+merge it into `$RELEASE_BRANCH`.
 
 Reset the release branch's `config/base_branch`:
 
@@ -405,6 +420,16 @@ Reset the release branch's `config/base_branch`:
         git commit config/base_branch \
           -m "Restore ${RELEASE_BRANCH:?}'s base branch." || :
     )
+
+Push `$RELEASE_BRANCH`:
+
+    git push origin "${RELEASE_BRANCH:?}:${RELEASE_BRANCH:?}"
+
+Take note of the ID of the Jenkins build job that was triggered by this last
+push, wherever it works for you. We'll call it the *almost final* build.
+
+Abort less important `test_Tails_ISO_*` to ensure the *almost final* build
+starts ASAP: we'll need its artifacts later on.
 
 Manual testing coordination
 =============================
@@ -438,11 +463,6 @@ Bootstrap internal manual testing coordination:
 
 Update included files
 =====================
-
-Upgrade Tor Browser
--------------------
-
-If you did not import the new Tor Browser yet, [[do so now|tor-browser]].
 
 Update Tails version in about:tor
 ---------------------------------
@@ -485,6 +505,9 @@ If `lint_po` complains:
      ([[!tails_ticket 20410]]), to lower the risk that other translators
      make the same mistake in the future.
 
+Update list of browser locales
+------------------------------
+
 Regenerate the localization list:
 
     ./bin/locale-descriptions generate > config/chroot_local-includes/usr/share/tails/browser-localization/descriptions
@@ -507,12 +530,15 @@ Commit the changes (if any):
 
     git commit -m "Refresh localization list" config/chroot_local-includes/usr/share/tails/browser-localization/descriptions || :
 
-# If you are preparing a final release
+Merge APT overlays
+==================
+
+## If you are preparing a final release
 
 If we're about to prepare the images for a final (non-RC) release, then
 follow these instructions:
 
-## If you are preparing a Major final release
+### If you are preparing a major final release
 
 Check that you are indeed preparing a major release:
 
@@ -523,7 +549,7 @@ Merge each APT overlay suite listed in the `testing` branch's
 
         ./bin/merge-APT-overlays testing
 
-## If you are preparing a Bugfix release
+### If you are preparing a bugfix release
 
 Check that you are indeed preparing a bugfix release:
 
@@ -724,17 +750,25 @@ signatures, like the defaults we set in Tails:
 
     cp config/chroot_local-includes/etc/skel/.gnupg/gpg.conf "${GNUPGHOME:?}"
 
-Build the almost-final images
-=============================
+Collect the almost-final build artifacts
+========================================
 
-1. [[Build ISO and USB images|contribute/build]] from the release branch,
+1. Check the status of the *almost final* build.
+
+   If it has completed:
+
+     - download the resulting build manifest to `$ARTIFACTS`
+     - download the resulting USB image to `$ARTIFACTS` `[skip-if-emergency-release]`
+
+   Otherwise, [[build ISO and USB images|contribute/build]] from the release branch,
    with `$TAILS_BUILD_OPTIONS` set like this:
 
-   - Set `defaultcomp`, so we can more accurately optimize our
-     SquashFS file ordering.
+     - Set `defaultcomp`, so we can more accurately optimize our
+       SquashFS file ordering.
 
-   - Do _not_ set `keeprunning`, nor `ignorechanges`, nor `rescue`.
-   Expected time: 15-45 minutes depending on your computer.
+     - Do _not_ set `keeprunning`, nor `ignorechanges`, nor `rescue`.
+
+   Expected time for the build: 15-45 minutes depending on your computer.
 
 2. Keep the resulting build artifacts until the end of this release process.
 
@@ -848,22 +882,10 @@ Jenkins workers.
 Sanity check
 ------------
 
-<a id="tor-browser-check"></a>
-
 ### Tor Browser
 
-Verify that the Tor Browser release used in Tails still is the most
-recent. Also look if there's a new `-buildX` tag (e.g.
-`tor-browser-60.3.0esr-8.0-1-build1`) for the Firefox version the Tor
-Browser we want to ship is based on in these Git repositories:
-
-* [tor-browser-build activity](https://gitlab.torproject.org/tpo/applications/tor-browser-build/activity)
-  (`maint-X.Y` branch)
-* [tor-browser activity](https://gitlab.torproject.org/tpo/applications/tor-browser/activity)
-
-A new tag may indicate that a new Tor Browser release or rebuild is imminent.
-
-Better catch this before people spend time doing manual tests.
+[Verify](#tor-browser-check) that the Tor Browser we ship
+is still the most recent.
 
 ### Recent DSAs
 
@@ -971,7 +993,7 @@ Jenkins workers.
    \~2-3 minutes). Jenkins will take
    20-30 minutes to complete the build.
 
-1. This could be a good time for break until both builds complete!
+1. This could be a good time for a break until both builds complete!
 
 1. Set the `MATCHING_JENKINS_IMAGES_BUILD_ID` environment variable to the ID of
    the Jenkins build.
@@ -1002,7 +1024,7 @@ Verify that Jenkins reproduced your images:
 
 ### If the ISO and USB images hashes match
 
-yay, we're good to go!
+Yay, we're good to go!
 
 Then:
 
@@ -1176,7 +1198,7 @@ Build the Incremental Upgrade Kits locally
 Verify there's enough free disk space in `$IUKS_DIR`:
 
     N_IUKS="$(echo ${IUK_SOURCE_VERSIONS:?} | wc -w)"
-    MIN_DISK_SPACE=$((N_IUKS * 700))
+    MIN_DISK_SPACE=$((N_IUKS * 1000))
     FREE_DISK_SPACE=$(/bin/df --block-size=M --output=avail "${IUKS_DIR:?}" \
        | tail -n1 | sed --regexp-extended 's,M$,,')
     if [ "$FREE_DISK_SPACE" -lt "$MIN_DISK_SPACE" ]; then
@@ -1246,10 +1268,7 @@ ISO history
 
 In this section, you will push the released ISO and USB images and their artifacts (`.buildlog`,
 `.build-manifest`, and `.packages` files) to our Tails ISO history git-annex
-repo, so that:
-
- - The Jenkins `build_IUKs` job can fetch them.
- - Our isotesters can fetch them from there for their testing.
+repo, so that the Jenkins `build_IUKs` and `test_Tails_ISO_*` jobs can download them.
 
 Make sure that Jenkins has finished building the images so you have set
 `MATCHING_JENKINS_IMAGES_BUILD_ID` (see above), then run:
@@ -1364,9 +1383,9 @@ If this is the case:
 
 ### If IUK verification fails
 
-if the last command failed:
+If the last command failed:
 
-1. Visit this page: `https://jenkins.tails.boum.org/job/build_IUKs/lastBuild/parameters/`
+1. Visit https://jenkins.tails.boum.org/job/build_IUKs/lastBuild/parameters/
 
    It tells you which parameters you've passed to the upstream Jenkins
    job, which spawned the many workers. Make sure to use the build
@@ -1392,7 +1411,6 @@ if the last command failed:
    Specify:
 
     - Which set of parameters you've passed to the *build_IUKs*
-
       job, so that the person who'll investigate the problem
       can reproduce it.
 
@@ -1976,14 +1994,14 @@ Look at the mirror status.
 
 Wait for each of these pages to include:
  - at least 6 working mirrors
- - at least one among the fallback mirrors: https://download.tails.net/tails/?mirrorlist
+ - at least one among the [fallback mirrors](https://download.tails.net/tails/?mirrorlist)
 
 Sanity checks
 -------------
 
-* Check for any feedback in the _Internal testing_ pad.
+* Triage feedback received on the _Internal testing_ pad.
 
-* Check for any feedback on [tails-testers@boum.org](https://lists.autistici.org/mindex/tails-testers@20380101.000000.00000000.en.html)
+* Triage feedback received on [tails-testers@boum.org](https://lists.autistici.org/mindex/tails-testers@20380101.000000.00000000.en.html).
 
 * [Verify once more](#tor-browser-check) that the Tor Browser we ship
   is still the most recent.
