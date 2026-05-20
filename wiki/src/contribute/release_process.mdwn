@@ -123,18 +123,6 @@ To release Tails you'll need some packages installed:
 
 * packages to [[build a local version of the website|contribute/build/website/]]
 
-System configuration
---------------------
-
-- Enable unprivileged user namespaces
-
-  If you're running a Debian kernel older than 5.10.1-1~exp1,
-  set the `kernel.unprivileged_userns_clone` sysctl to 1:
-
-        echo 'kernel.unprivileged_userns_clone=1' \
-           | sudo tee /etc/sysctl.d/unprivileged-user-namespaces.conf && \
-        sudo sysctl --system
-
 Configuration files
 -------------------
 
