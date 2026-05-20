@@ -29,6 +29,12 @@ libevdocument3-4t64
 libevview3-3t64
 "
 
+# Fix for CVE-2026-41054, until Debian has it
+TAILS_PACKAGES="${TAILS_PACKAGES}
+haveged
+libhavege2
+"
+
 # Fix for CVE-2026-41989, until Debian has it
 TAILS_PACKAGES="${TAILS_PACKAGES}
 libgcrypt20
