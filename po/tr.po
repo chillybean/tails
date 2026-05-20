@@ -35,13 +35,14 @@
 # Zynox <zynoxyer@proton.me>, 2025.
 # Weblate <noreply-mt-weblate@weblate.org>, 2025.
 # Oğuz Ersen <oguz@ersen.moe>, 2026.
+# axolot <berkantgzr@protonmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-22 08:04+0200\n"
-"PO-Revision-Date: 2026-04-03 09:12+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2026-05-19 18:11+0000\n"
+"Last-Translator: Kaya Zeren <kayazeren@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/tor/tails-gui/tr/"
 ">\n"
 "Language: tr\n"
@@ -49,7 +50,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.17-dev\n"
+"X-Generator: Weblate 2026.6.dev0\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:242
 #, python-brace-format
@@ -77,18 +78,16 @@ msgid "Configure"
 msgstr "Yapılandır"
 
 #: config/chroot_local-includes/usr/local/lib/change-apps-menu-name:25
-#, fuzzy
 msgid "Password Manager"
-msgstr "Parola"
+msgstr "Parola yöneticisi"
 
 #: config/chroot_local-includes/usr/local/lib/change-apps-menu-name:26
-#, fuzzy
 msgid "password"
-msgstr "Parola"
+msgstr "parola"
 
 #: config/chroot_local-includes/usr/local/lib/change-apps-menu-name:26
 msgid "password-manager"
-msgstr ""
+msgstr "parola-yoneticisi"
 
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:57
 #: config/chroot_local-includes/usr/local/lib/additional-software/asp-handle-package-changes:95
@@ -940,9 +939,9 @@ msgid ""
 "If you don't have a backup, we recommend that you create a partition image "
 "of your Persistent Storage first."
 msgstr ""
-"Kalıcı depolama biriminizin dosya sisteminde hatalar bulundu.\n"
+"Kalıcı depolama biriminizin dosya sisteminde sorunlar bulundu.\n"
 "\n"
-"Tails bu hataları düzeltmeye çalışabilir, ancak verilerinizin bir bölümü "
+"Tails bu sorunları düzeltmeye çalışabilir, ancak verilerinizin bir bölümü "
 "silinebilir ve işlem oldukça uzun sürebilir.\n"
 "\n"
 "Güncel bir kalıcı depolama birimi yedeğiniz varsa, onarmayı denemenizi "
@@ -1483,7 +1482,7 @@ msgid "Could not open device for writing."
 msgstr "Aygıt yazılmak üzere açılamadı."
 
 #: config/chroot_local-includes/usr/local/bin/secrets:19
-#, fuzzy, sh-format
+#, sh-format
 msgid ""
 "You have a <i>KeePassXC</i> or <i>Secrets</i> database in your "
 "<i>Persistent</i> folder:\n"
@@ -1493,15 +1492,13 @@ msgid ""
 "Renaming your database to <i>${default_filename}</i> allows <i>Secrets</i> "
 "to open it automatically in the future."
 msgstr ""
-"<b><big><i>KeePassXC</i> veri tabanınızı yeniden adlandırmak ister misiniz?</"
-"big></b>\n"
-"\n"
-"<i>Kalıcı depolama</i> klasörünüzde bir <i>KeePassXC</i> veri tabanı var:\n"
+"<i>Persistent</i> klasörünüzde bir <i>KeePassXC</i> veya <i>Secrets</i> veri "
+"tabanı bulunuyor:\n"
 "\n"
 "<i>${filename}</i>\n"
 "\n"
-"Veri tabanınızı <i>${default_filename}</i> olarak yeniden adlandırarak "
-"gelecekte <i>KeePassXC</i> ile otomatik olarak açılmasını sağlayabilirsiniz."
+"Veri tabanınızı <i>${default_filename}</i> olarak yeniden adlandırırsanız, "
+"<i>Secrets</i> ileride bu veri tabanını otomatik olarak açabilir."
 
 #: config/chroot_local-includes/usr/local/bin/secrets:25
 msgid "Rename"
@@ -1513,7 +1510,7 @@ msgstr "Geçerli ad korunsun"
 
 #: config/chroot_local-includes/usr/local/bin/secrets:29
 msgid "Rename Password Database?"
-msgstr ""
+msgstr "Parola veri tabanının adı değiştirilsin mi?"
 
 #: config/chroot_local-includes/usr/local/bin/replace-su-with-sudo:19
 msgid "su is disabled. Please use sudo instead."
@@ -1869,7 +1866,7 @@ msgstr ""
 
 #: config/chroot_local-includes/usr/local/lib/tails-uefi-ca-notify-user:28
 msgid "Secure Boot Update Needed"
-msgstr ""
+msgstr "Güvenli önyükleme güncellemesi gerekli"
 
 #: config/chroot_local-includes/usr/local/lib/tails-uefi-ca-notify-user:30
 msgid ""
@@ -1877,6 +1874,9 @@ msgid ""
 "Apply all available updates from your regular operating system to update to "
 "the latest Secure Boot certificates of Microsoft."
 msgstr ""
+"Tails OS, gelecekte bu bilgisayarda açılmayacak. Güncel Microsoft güvenli "
+"önyükleme sertifikalarını kullanmak için normal işletim sisteminizdeki tüm "
+"güncellemeleri yapın."
 
 #: config/chroot_local-includes/usr/local/bin/tails-upgrade-frontend-wrapper:37
 #, python-brace-format
@@ -1939,11 +1939,11 @@ msgstr "Otomatik"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:284
 msgid "Frequently selected regions"
-msgstr ""
+msgstr "Sık seçilen bölgeler"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:291
 msgid "Other regions"
-msgstr ""
+msgstr "Diğer bölgeler"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:369
 msgid "_Use a bridge that you already know"
@@ -2002,9 +2002,8 @@ msgid "Synchronizing the system's clock…"
 msgstr "Sistem saati eşitleniyor…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:726
-#, fuzzy
 msgid "Asking for a Tor bridge based on your region…"
-msgstr "_E-posta ile Tor köprüsü isteyin"
+msgstr "Bulunduğunuz bölgeye göre bir Tor köprüsü istemek…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:774
 msgid "Connecting to Tor without bridges…"
@@ -2016,9 +2015,8 @@ msgid "Connecting to Tor with default bridges…"
 msgstr "Varsayılan köprüler kullanılarak Tor bağlantısı kuruluyor…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:789
-#, fuzzy
 msgid "Connecting to Tor with a bridge based on your region…"
-msgstr "Varsayılan köprüler kullanılarak Tor bağlantısı kuruluyor…"
+msgstr "Bulunduğunuz bölgedeki bir köprü ile Tor bağlantısı kurmak…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:796
 msgid "Connecting to Tor with a custom bridge…"
@@ -2045,21 +2043,21 @@ msgstr ""
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:985
 #, python-brace-format
 msgid "Bridge: <b>{bridge}</b>"
-msgstr ""
+msgstr "Köprü: <b>{bridge}</b>"
 
 #. Translators: only translate "Error code:" and adjust
 #. text-direction
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:997
 #, python-brace-format
 msgid "Error code: {code}"
-msgstr ""
+msgstr "Hata kodu: {code}"
 
 #. Translators: only translate "Proxy:" and adjust
 #. text-direction
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1024
 #, python-brace-format
 msgid "Proxy: <b>{proxy}</b>"
-msgstr ""
+msgstr "Vekil sunucu: <b>{proxy}</b>"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1323
 #, python-brace-format
@@ -3653,9 +3651,8 @@ msgid "TrueCrypt/VeraCrypt container"
 msgstr "TrueCrypt/VeraCrypt kapsayıcısı"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:82
-#, fuzzy
 msgid "Configure a Tor bridge"
-msgstr "Bir Tor köprüsü _yapılandır"
+msgstr "Bir Tor köprüsü yapılandır"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:106
 msgid ""
@@ -3693,14 +3690,12 @@ msgid "None"
 msgstr "Hiçbiri"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:242
-#, fuzzy
 msgid "Ask for a bridge based on your _region"
-msgstr "_E-posta ile Tor köprüsü isteyin"
+msgstr "Bulunduğunuz _bölgeye göre bir köprü isteyin"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:301
-#, fuzzy
 msgid "_Ask for a bridge by email"
-msgstr "_E-posta ile Tor köprüsü isteyin"
+msgstr "_E-posta ile bir köprü isteyin"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:320
 msgid ""
@@ -3751,69 +3746,65 @@ msgid "This local network seems to be blocking access to Tor."
 msgstr "Bu yerel ağ Tor bağlantısı kurulmasını engelliyor gibi görünüyor."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:811
-#, fuzzy
 msgid "Error connecting to Tor with this bridge"
-msgstr "Köprü kullanmadan Tor bağlantısı kuruluyor…"
+msgstr "Bu köprü ile Tor ağına bağlanırken bir sorun çıktı"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:827
 msgid ""
 "Either this Tor bridge is not working or your network is blocking access to "
 "it."
 msgstr ""
+"Bu Tor köprüsü çalışmıyor ya da ağınız bu Tor köprüsüne bağlanmanızı "
+"engelliyor."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:856
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:930
-#, fuzzy
 msgid "Try configuring another bridge."
-msgstr "Bir Tor köprüsü yapılandırın"
+msgstr "Başka bir köprü yapılandırmayı deneyin."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:884
-#, fuzzy
 msgid "Error connecting to Tor with default bridges"
-msgstr "Varsayılan köprüler kullanılarak Tor bağlantısı kuruluyor…"
+msgstr "Varsayılan köprüler ile Tor ağına bağlanırken bir sorun çıktı"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:900
-#, fuzzy
 msgid "Your network is blocking access to Tor and the default bridges."
-msgstr "Bu yerel ağ Tor bağlantısı kurulmasını engelliyor."
+msgstr "Ağınız Tor ağına ve varsayılan köprülere bağlanmanızı engelliyor."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:916
-#, fuzzy
 msgid "Bridge: <b>default bridges</b>"
-msgstr "_Varsayılan köprülerden biri kullanılsın"
+msgstr "Köprü: <b>Varsayılan köprüler</b>"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:958
-#, fuzzy
 msgid "Error connecting to Tor with bridges"
-msgstr "Köprü kullanmadan Tor bağlantısı kuruluyor…"
+msgstr "Tor köprüleri ile Tor ağına bağlanırken bir sorun çıktı"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:974
 msgid "None of the bridges recommended for this region worked."
-msgstr ""
+msgstr "Bu bölge için önerilen Tor köprülerinin hiçbiri işe yaramadı."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:990
 msgid "Try another region or getting a bridge by mail."
-msgstr ""
+msgstr "Başka bir bölge deneyin ya da e-posta ile bir köprü edinin."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1018
-#, fuzzy
 msgid "Error asking for a bridge"
-msgstr "Güncellemeler denetlenirken sorun çıktı"
+msgstr "Köprü istenirken sorun çıktı"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1034
 msgid "Tails failed to ask for a bridge based on your region."
-msgstr ""
+msgstr "Tails OS, bulunduğunuz bölgeden bir köprü isteğinde bulunamadı."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1050
 msgid ""
 "Please, <a href=\"support/talk\">report this error</a> and try asking for a "
 "bridge by email."
 msgstr ""
+"Lütfen <a href=\"support/talk\">bu sorunu bildirin</a> ve e-posta ile bir "
+"köprü istemeyi deneyin."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1087
-#, fuzzy
 msgid "Open _details"
-msgstr "Tails Cloner aç"
+msgstr "_Ayrıntıları aç"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1142
 msgid "• Wrong clock"
@@ -3862,9 +3853,8 @@ msgid "Configure a Local _Proxy"
 msgstr "Bir yerel _vekil sunucu yapılandır"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1374
-#, fuzzy
 msgid "• Tor bridge"
-msgstr "• E-posta ile Tor köprüsü"
+msgstr "• Tor köprüsü"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1394
 msgid ""
@@ -3877,9 +3867,8 @@ msgstr ""
 "kurulması engellenmişse, ilk Tor aktarıcısı olarak bir köprü kullanın."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1410
-#, fuzzy
 msgid "Configure a Tor _Bridge"
-msgstr "Bir Tor köprüsü yapılandırın"
+msgstr "Bir Tor _köprüsü yapılandır"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1449
 msgid ""
