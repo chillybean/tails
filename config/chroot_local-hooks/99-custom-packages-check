@@ -21,6 +21,19 @@ libyelp0
 yelp
 "
 
+# Fix for CVE-2026-46529, until Debian has it
+TAILS_PACKAGES="${TAILS_PACKAGES}
+evince
+evince-common
+libevdocument3-4t64
+libevview3-3t64
+"
+
+# Fix for CVE-2026-41989, until Debian has it
+TAILS_PACKAGES="${TAILS_PACKAGES}
+libgcrypt20
+"
+
 OLD_VERSION_RE='([.]0|[+])tails[0-9]*$'
 NEW_VERSION_RE='tails[0-9]+$'
 BACKPORTS_VERSION_RE='~tails[0-9]*$'
