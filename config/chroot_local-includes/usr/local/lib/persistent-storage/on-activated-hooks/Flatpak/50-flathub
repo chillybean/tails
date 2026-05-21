@@ -1,0 +1,5 @@
+#!/bin/sh
+
+set -eu -o pipefail
+
+sudo -u amnesia flatpak --user remote-add --if-not-exists flathub /usr/share/tails/flathub.flatpakrepo

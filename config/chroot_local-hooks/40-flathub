@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -e
+set -u
+set -o pipefail
+
+echo "Fetching the Flathub .flatpakrepo file"
+
+# Import download_file()
+. /usr/local/lib/tails-shell-library/build.sh
+
+download_file https://dl.flathub.org/repo/flathub.flatpakrepo /usr/share/tails/flathub.flatpakrepo
