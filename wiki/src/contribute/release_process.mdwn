@@ -2359,17 +2359,6 @@ Check that you are indeed preparing a final release:
    - If there's a release candidate scheduled before our next release,
      do the same for the release manager of that release candidate.
 
-1. Put aside the configuration file used for this release:
-
-        mkdir -p ~/.config/tails/release_management/old && \
-        mv ~/.config/tails/release_management/current.yml \
-           ~/.config/tails/release_management/old/${VERSION:?}.yml.disabled
-
-1. You're done for today! Suggestion: enjoy some time AFK :)
-
-1. Tomorrow, make sure Jenkins manages to build all updated major branches:
-   <https://jenkins.tails.boum.org/view/RM/>.
-
 ## If you just released an RC
 
 Check that you are indeed preparing a RC:
@@ -2434,6 +2423,8 @@ Check that you are indeed preparing a RC:
 1. In our release calendar, mark the entry about the version that you've
    just released as released by adding " - Released" to the title.
 
+## In any case
+
 1. Put aside the configuration file used for this release:
 
         mkdir -p ~/.config/tails/release_management/old && \
@@ -2450,11 +2441,8 @@ Check that you are indeed preparing a RC:
 
 1. You're done for today! Suggestion: enjoy some time AFK :)
 
-1. Tomorrow, on <https://jenkins.tails.boum.org/view/RM/>, make sure Jenkins
-   successfully:
-    - builds `devel` and `${RELEASE_BRANCH}`
-    - builds the website
-    - checks PO files
+1. Tomorrow, make sure Jenkins manages to build all updated major branches:
+   <https://jenkins.tails.boum.org/view/RM/>.
 
 Related pages
 =============
