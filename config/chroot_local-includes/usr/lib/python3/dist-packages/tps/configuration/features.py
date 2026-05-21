@@ -1,5 +1,6 @@
 import inspect
 
+from tailslib.features import flatpak_is_enabled
 from tps.configuration.conflicting_app import ConflictingApp
 from tps.configuration.binding import Binding
 from tps.configuration.feature import Feature
@@ -103,6 +104,7 @@ class Electrum(Feature):
 class Flatpak(Feature):
     Id = "Flatpak"
     translatable_name = "Flatpak"
+    is_masked = not flatpak_is_enabled()
     Bindings = (
         Binding("flatpak/dot-local-share", "/home/amnesia/.local/share/flatpak"),
         Binding("flatpak/dot-var-app", "/home/amnesia/.var/app"),
