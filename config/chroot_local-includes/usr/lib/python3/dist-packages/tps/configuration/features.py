@@ -100,6 +100,22 @@ class Electrum(Feature):
     )
 
 
+class Flatpak(Feature):
+    Id = "Flatpak"
+    translatable_name = "Flatpak"
+    Bindings = (
+        Binding("flatpak/dot-local-share", "/home/amnesia/.local/share/flatpak"),
+        Binding("flatpak/dot-var-app", "/home/amnesia/.var/app"),
+        Binding(
+            "flatpak/dot-cache-gnome-software", "/home/amnesia/.cache/gnome-software"
+        ),
+    )
+    conflicting_apps = (
+        ConflictingApp(name="Flatpak", process_names=["flatpak"]),
+        ConflictingApp(name="GNOME Software", process_names=["gnome-software"]),
+    )
+
+
 class Pidgin(Feature):
     Id = "Pidgin"
     translatable_name = "Pidgin Internet Messenger"
