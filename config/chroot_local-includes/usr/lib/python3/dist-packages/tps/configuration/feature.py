@@ -38,6 +38,10 @@ class ConflictingProcessesError(Exception):
     pass
 
 
+class IsMaskedException(Exception):
+    pass
+
+
 class Feature(DBusObject, ServiceUsingJobs, metaclass=abc.ABCMeta):
     dbus_info = """
     <node>
@@ -49,11 +53,13 @@ class Feature(DBusObject, ServiceUsingJobs, metaclass=abc.ABCMeta):
             <property name="Description" type="s" access="read"/>
             <property name="IsActive" type="b" access="read"/>
             <property name="IsEnabled" type="b" access="read"/>
+            <property name="IsMasked" type="b" access="read"/>
             <property name="HasData" type="b" access="read"/>
             <property name="Job" type="o" access="read"/>
         </interface>
     </node>
     """
+    is_masked = False
 
     @property
     def dbus_path(self):
@@ -108,6 +114,10 @@ class Feature(DBusObject, ServiceUsingJobs, metaclass=abc.ABCMeta):
             self.refresh_state(emit_properties_changed_signal=True)
 
     def do_activate(self, job: Optional["Job"], non_blocking=False):
+        # Check if we can activate the feature
+        if self.is_masked:
+            raise IsMaskedException("Feature is masked")
+
         logger.info(f"Activating feature {self.Id}")
 
         apps = self.get_running_conflicting_apps()
@@ -161,6 +171,10 @@ class Feature(DBusObject, ServiceUsingJobs, metaclass=abc.ABCMeta):
             self.refresh_state(emit_properties_changed_signal=True)
 
     def do_deactivate(self, job: Optional["Job"]):
+        # Check if we can deactivate the feature
+        if self.is_masked:
+            raise IsMaskedException("Feature is masked")
+
         logger.info(f"Deactivating feature {self.Id}")
 
         # Wait for conflicting processes to terminate. If the job is
@@ -192,6 +206,8 @@ class Feature(DBusObject, ServiceUsingJobs, metaclass=abc.ABCMeta):
 
     def do_delete(self):
         # Check if we can delete the feature
+        if self.is_masked:
+            raise IsMaskedException("Feature is masked")
         if self.service.state != State.UNLOCKED:
             msg = "Can't delete features when state is '%s'" % self.service.state.name
             raise FailedPreconditionError(msg)
@@ -221,6 +237,10 @@ class Feature(DBusObject, ServiceUsingJobs, metaclass=abc.ABCMeta):
     @property
     def IsEnabled(self) -> bool:
         return self._is_enabled
+
+    @property
+    def IsMasked(self) -> bool:
+        return self.is_masked
 
     @property
     def HasData(self) -> bool:

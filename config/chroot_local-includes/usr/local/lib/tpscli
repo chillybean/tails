@@ -37,6 +37,9 @@ case "$SUBCOMMAND" in
     is-enabled)
 	tps_feature_is_enabled "${FEATURE_NAME}"
 	;;
+    is-masked)
+	tps_feature_is_masked "${FEATURE_NAME}"
+	;;
     ensure-is-active)
 	tps_ensure_feature_is_active "${FEATURE_NAME}"
 	;;
