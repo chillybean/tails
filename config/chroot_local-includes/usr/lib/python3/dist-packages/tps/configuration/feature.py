@@ -310,7 +310,7 @@ class Feature(DBusObject, ServiceUsingJobs, metaclass=abc.ABCMeta):
 
     def refresh_state(
         self,
-        properties: Optional[list[str]] = None,
+        properties: list[str] | None = None,
         emit_properties_changed_signal=False,
     ):
         if not properties:
