@@ -123,18 +123,6 @@ To release Tails you'll need some packages installed:
 
 * packages to [[build a local version of the website|contribute/build/website/]]
 
-System configuration
---------------------
-
-- Enable unprivileged user namespaces
-
-  If you're running a Debian kernel older than 5.10.1-1~exp1,
-  set the `kernel.unprivileged_userns_clone` sysctl to 1:
-
-        echo 'kernel.unprivileged_userns_clone=1' \
-           | sudo tee /etc/sysctl.d/unprivileged-user-namespaces.conf && \
-        sudo sysctl --system
-
 Configuration files
 -------------------
 
@@ -512,7 +500,7 @@ Regenerate the localization list:
 
     ./bin/locale-descriptions generate > config/chroot_local-includes/usr/share/tails/browser-localization/descriptions
 
-Take a look at error lines that are suggesting you to add more languages to `po/po-to-mozilla.toml`. Copy-paste everything into a new issue (title: `Update mozilla locale descriptions`, content: `https://tails.net/contribute/release_process/update_locale_descriptions/` ) and move on.
+Take a look at error lines that are suggesting you to add more languages to `po/po-to-mozilla.toml`. Copy-paste everything into a new issue (title: `Update Mozilla locale descriptions`, content: `https://tails.net/contribute/release_process/update_locale_descriptions/`) and move on.
 
 Manually inspect the diffs:
 
@@ -2302,7 +2290,7 @@ Check that you are indeed preparing a final release:
    Then checkout the `devel` branch, and there
    [[thaw the packages that were granted freeze exceptions|APT_repository/time-based_snapshots#freeze-exceptions-post-release]].
 
-1. Verify that the snapshots used for this release are ok,
+1. Verify that the snapshots used for this release are OK,
    e.g. they use the correct snapshots, and they were bumped
    appropriately (they should expire after the next planned major release date).
    Look carefully at the output of this command:
@@ -2371,17 +2359,6 @@ Check that you are indeed preparing a final release:
    - If there's a release candidate scheduled before our next release,
      do the same for the release manager of that release candidate.
 
-1. Put aside the configuration file used for this release:
-
-        mkdir -p ~/.config/tails/release_management/old && \
-        mv ~/.config/tails/release_management/current.yml \
-           ~/.config/tails/release_management/old/${VERSION:?}.yml.disabled
-
-1. You're done for today! Suggestion: enjoy some time AFK :)
-
-1. Tomorrow, make sure Jenkins manages to build all updated major branches:
-   <https://jenkins.tails.boum.org/view/RM/>.
-
 ## If you just released an RC
 
 Check that you are indeed preparing a RC:
@@ -2441,10 +2418,9 @@ Check that you are indeed preparing a RC:
         git push origin testing devel
 
 1. Follow the "Verify that the snapshots used in the release branch
-   are ok" step for final releases, above.
+   are OK" step for final releases, above.
 
-1. In our release calendar, mark the entry about the version that you've
-   just released as released by adding " - Released" to the title.
+## In any case
 
 1. Put aside the configuration file used for this release:
 
@@ -2462,11 +2438,8 @@ Check that you are indeed preparing a RC:
 
 1. You're done for today! Suggestion: enjoy some time AFK :)
 
-1. Tomorrow, on <https://jenkins.tails.boum.org/view/RM/>, make sure Jenkins
-   successfully:
-    - builds `devel` and `${RELEASE_BRANCH}`
-    - builds the website
-    - checks PO files
+1. Tomorrow, make sure Jenkins manages to build all updated major branches:
+   <https://jenkins.tails.boum.org/view/RM/>.
 
 Related pages
 =============
