@@ -17,9 +17,6 @@ if Net::DNS::RR::Types::TYPES['HTTPS'].nil?
     TYPES.freeze
     public_constant :TYPES
   end
-else
-  warn 'It seems your version of Net::DNS supports parsing type HTTPS ' \
-       "DNS queries; please file an issue about removing #{__FILE__}"
 end
 
 assert_equal(65, Net::DNS::RR::Types::TYPES['HTTPS'])
