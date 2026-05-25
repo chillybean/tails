@@ -1,3 +1,8 @@
+Explanation: Let official Debian security update supersede temporary custom fix
+Package: src:evince
+Pin: version 48.1-3tails1
+Pin-Priority: -10
+
 Package: firmware-linux-free
 Pin: release o=Debian,n=sid
 Pin-Priority: 999
@@ -21,6 +26,16 @@ Pin-Priority: 999
 Package: firmware-zd1211
 Pin: release o=Debian,n=sid
 Pin-Priority: 999
+
+Explanation: Let official Debian security update supersede temporary custom fix
+Package: src:haveged
+Pin: version 1.9.19-12tails1
+Pin-Priority: -10
+
+Explanation: Let official Debian security update supersede temporary custom fix
+Package: src:libgcrypt20
+Pin: version 1.11.0-7tails1
+Pin-Priority: -10
 
 Explanation: #15477
 Package: src:live-boot
