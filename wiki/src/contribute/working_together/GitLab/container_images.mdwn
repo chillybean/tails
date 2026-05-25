@@ -144,8 +144,8 @@ Protect [sensitive credentials](#sensitive-credentials):
 Use [trusted container images](#trusted-container-images) for [sensitive jobs](#sensitive-jobs):
 
 - Request the activation of your project's container registry to Sysadmins
-- Start with [one of the base images](https://gitlab.tails.boum.org/sysadmin-team/container-images/container_registry)
-- Use the Podman image to build and push images ([see examples](https://gitlab.tails.boum.org/sysadmin-team/container-images/-/blob/main/.gitlab-ci.yml))
+- Start with [[!tor_gitlab tpo/tpa/base-images/container_registry desc="one of the base images"]]
+- Use the Podman image to build and push images ([[!tor_gitlab tpo/tpa/base-images/-/blob/main/.gitlab-ci.yml desc="see examples"]])
 - Build and push container images to your project's container registry [using the CI/CD](https://docs.gitlab.com/ee/user/packages/container_registry/build_and_push_images.html)
 - Make sure the images you push to your project's registry are peer-reviewed
 
