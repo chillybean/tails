@@ -68,13 +68,15 @@ following apply:
 A trusted container image is a container image that is:
 
 - either reproducible or based on a reproducible image,
-- stored in the Tails GitLab registry, and
+- stored in the Tails or Tor GitLab registry, and
 - peer-reviewed
 
-The Tails sysadmin Team maintains a set of container images in the
-[[!tails_gitlab sysadmin-team/container-images]] project which are trusted and
+The sysadmin team maintains sets of container images which are trusted and
 meant to either be used directly or serve as the basis for other trusted
-container images.
+container images:
+
+ - [[!tor_gitlab tpo/tpa/base-images]]
+ - [[!tails_gitlab sysadmin-team/container-images]]
 
 <a id="trusted-runners"></a>
 ### Trusted runners
