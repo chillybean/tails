@@ -402,12 +402,11 @@ end
 Given /^the computer (?:re)?boots Tails$/ do
   enter_boot_menu_cmdline
   boot_key = @os_loader == 'UEFI' ? 'F10' : 'Return'
-  early_patch = config_bool('EARLY_PATCH') ? ' early_patch=umount' : ''
-  extra_boot_options = $config['EXTRA_BOOT_OPTIONS'] || ''
-  @screen.type(' autotest_never_use_this_option ' \
-               ' blacklist=psmouse' \
-               " #{early_patch} #{@boot_options} #{extra_boot_options}",
-               [boot_key])
+  cmdline = ' autotest_never_use_this_option blacklist=psmouse'
+  cmdline += ' early_patch=umount' if config_bool('EARLY_PATCH')
+  cmdline += " #{@boot_options}" if @boot_options
+  cmdline += " #{$config['EXTRA_BOOT_OPTIONS']}" if $config['EXTRA_BOOT_OPTIONS']
+  @screen.type(cmdline, [boot_key])
   $vm.wait_until_remote_shell_is_up(5 * 60)
 
   post_vm_start_hook
