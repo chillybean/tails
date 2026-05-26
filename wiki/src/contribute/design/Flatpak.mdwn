@@ -1,0 +1,20 @@
+[[!meta title="Flatpak apps"]]
+
+[[!toc levels=2]]
+
+# Routing all Flatpak apps' network traffic over Tor
+
+Our [[!tails_ticket 21554 desc="research"]] has shown that:
+
+ - Standard environment variables, such as `HTTP_PROXY` and `SOCKS_SERVER`,
+   are not honored by most Flatpak apps.
+ - `torsocks` is not a viable approach either.
+
+So instead we implemented transparent torification via the Tor's `TransPort`.
+
+# Related pages
+
+See also:
+
+ - [[additional software packages]]
+ - [[persistence]]
