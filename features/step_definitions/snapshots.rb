@@ -118,6 +118,59 @@ unless defined? CHECKPOINTS
         ],
       },
 
+      'flatpak-usb-install-with-persistence-without-network-logged-in' => {
+        temporary:         true,
+        description:       'I have started Tails without network with the Flatpak feature from a USB drive with a persistent partition enabled and logged in',
+        parent_checkpoint: nil,
+        steps:             [
+          'I set Tails to boot with options "flatpak"',
+          # usb-install-tails-greeter
+          'I create a 7200 MiB disk named "__internal"',
+          'I plug USB drive "__internal"',
+          'I write the Tails USB image to disk "__internal"',
+          'I start Tails from USB drive "__internal" with network unplugged',
+          'the boot device has safe access rights',
+          'the USB drive "__internal" has a valid partition table',
+          'Tails is running from USB drive "__internal"',
+          'there is no persistence partition on USB drive "__internal"',
+          'process "udev-watchdog" is running',
+          'udev-watchdog is monitoring the correct device',
+          # usb-install-logged-in
+          'I log in to a new session',
+          'all notifications have disappeared',
+          # usb-install-with-persistence-tails-greeter
+          'I create a persistent partition',
+          'a Tails persistence partition exists on USB drive "__internal"',
+          'I cold reboot the computer',
+          'the computer reboots Tails',
+          'the boot device has safe access rights',
+          'Tails is running from USB drive "__internal"',
+          'process "udev-watchdog" is running',
+          'udev-watchdog is monitoring the correct device',
+          # usb-install-with-persistence-logged-in
+          'I enable persistence',
+          'I log in to a new session',
+          'all tps features are active',
+          'all persistent filesystems have safe access rights',
+          'all persistence configuration files have safe access rights',
+          'all persistent directories have safe access rights',
+          'all notifications have disappeared',
+        ],
+      },
+
+      'flatpak-usb-install-with-persistence-with-network-logged-in'    => {
+        temporary:         true,
+        description:       'I have started Tails with the Flatpak feature from a USB drive with a persistent partition enabled and logged in and the network is connected',
+        parent_checkpoint: 'flatpak-usb-install-with-persistence-without-network-logged-in',
+        steps:             [
+          # with-network-logged-in
+          'the network is plugged',
+          'Tor is ready',
+          'all notifications have disappeared',
+          'available upgrades have been checked',
+        ],
+      },
+
     }.freeze
 
   def reach_checkpoint(name, num_try = 0)

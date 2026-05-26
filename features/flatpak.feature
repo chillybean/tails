@@ -7,3 +7,15 @@ Feature: Installing and running Flatpak apps in Tails
   Scenario: GNOME Software does not have the Debian plugin
     Given I have the build manifest for the image under test
     Then Debian package gnome-software-plugin-deb is not installed
+
+  Scenario: Installing, starting and uninstalling a Flatpak
+    Given I have started Tails with the Flatpak feature from a USB drive with a persistent partition enabled and logged in and the network is connected
+    When I start GNOME Software
+    And I install Signal Desktop using GNOME Software
+    Then the org.signal.Signal Flatpak is installed after at most 300 seconds
+    When I start "Signal" via GNOME Activities Overview
+    Then the org.signal.Signal Flatpak is running
+    Given I kill the org.signal.Signal Flatpak
+    And I go to the main screen of GNOME Software
+    When I uninstall Signal Desktop using GNOME Software
+    Then the org.signal.Signal Flatpak is uninstalled after at most 60 seconds

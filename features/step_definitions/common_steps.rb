@@ -1095,6 +1095,14 @@ def launch_gnome_disks(**opts)
   )
 end
 
+def launch_gnome_software(**opts)
+  launch_app(
+    'org.gnome.Software.desktop',
+    'gnome-software',
+    **opts
+  )
+end
+
 def launch_console(**opts)
   launch_app(
     'org.gnome.Console.desktop',
