@@ -2359,6 +2359,36 @@ Check that you are indeed preparing a final release:
    - If there's a release candidate scheduled before our next release,
      do the same for the release manager of that release candidate.
 
+1. Schedule the *disclosure of security vulnerabilities* fixed in the
+   release you've just published
+
+   Warning: not all confidential issues can, or should, be disclosed!
+
+   Open the list of potentially relevant issues:
+
+        echo "https://gitlab.tails.boum.org/groups/tails/-/work_items?sort=updated_asc&state=closed&milestone_title=Tails_${VERSION:?}&confidential=yes"
+
+   In that list, look for issues about security vulnerabilities, that have our
+   *Disclosure agreement* in the description. Those are the ones in scope for
+   this task and that should be disclosed eventually.
+
+   For these issues, follow the guidance from our [[security issue response
+   policy|contribute/security_policy]]. Unless specified otherwise there, we
+   follow [Tor's
+   policy](https://gitlab.torproject.org/tpo/core/team/-/wikis/NetworkTeam/SecurityPolicy#how-will-the-developers-handle-security-issues)
+   for this, which as of 2026-05-27 was:
+
+   > - For low and medium vulnerabilities, we will generally try make all
+   >   previously confidential info public upon release, or within a day or two
+   >   from the release.
+   >
+   > - For high and critical vulnerabilities, we may keep some details private
+   >   for a little while after the release, if we judge that doing so will
+   >   present a real obstacle to attackers.
+
+   Use whatever organization tool works for you to ensure you handle the next
+   steps at an appropriate time.
+
 ## If you just released an RC
 
 Check that you are indeed preparing a RC:
