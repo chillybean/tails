@@ -16,6 +16,7 @@ such as mounts, signals, and user namespaces.
 As of Debian 13 (Trixie) and Tails 7.x, other types of resources, such as Unix
 sockets and D-Bus, are not part of the isolation goals yet, which implies [[some
 of our AppArmor profiles have sandbox escape bugs|application_isolation#dbus]].
+There are also [[sandbox escape bugs caused by dconf access|application_isolation#dconf]].
 
 Tools and basic configuration
 =============================
@@ -194,6 +195,34 @@ Apps that run under Flatpak are generally not affected by these problems, thanks
 to `xdg-dbus-proxy`, as long as the Flatpak manifest for the app does not grant
 too broad D-Bus access.
 
+<a id="dconf"></a>
+
+dconf
+-----
+
+Many AppArmor profiles currently allow the confined process to escape its
+sandbox via dconf: as Simon McVittie put it, write access to the user's dconf
+database "is a complete sandbox escape via any dconf/GSettings option that can
+be configured to run arbitrary commands, for example GNOME's desktop-wide custom
+keyboard shortcuts".
+
+Such write access is available via any of these paths:
+
+ - `@{HOME}/.{cache,config}/dconf/user rw`
+ - `@{run}/user/*/dconf/user rw`
+ - access to the dconf D-Bus service
+   - Used as the fallback by apps when access via the aforementioned
+     `dconf/user` paths is blocked.
+   - So as long as [[D-Bus access is not mediated|application_isolation#dbus]],
+     dconf provides yet another way to leverage D-Bus access into arbitrary
+     code execution.
+
+Note that *read* access to dconf/GSettings is needed to react to session
+configuration changes, e.g. "Large text".
+
+Apps that run under Flatpak don't need such access: they're using their own
+dconf database under their own data directory.
+
 <a id="per-app"></a>
 
 Per-app caveats
@@ -213,22 +242,25 @@ Per-app caveats
   - Initially confined with AppArmor primarily for onion-grater, not needed
     anymore as long as we use network namespaces for that.
   - The AppArmor sandbox is currently ineffective due to D-Bus session access,
-    which the app should automatically lose in Tails 8.0 (Forky).
+    which indirectly also grants dconf access; the app should automatically lose
+    these in Tails 8.0 (Forky), after which we will
+    [[!tails_ticket 21632 desc="reconsider this topic"]].
 
 - OnionShare:
   - Initially confined with AppArmor primarily for onion-grater, security
     sandboxing has never been a goal of these profiles.
-  - The AppArmor sandbox is currently ineffective due to D-Bus session access;
+  - The AppArmor sandbox is currently ineffective due to D-Bus session access,
+    which indirectly also grants dconf access;
     it's OK, but we have plans to try to fix that if it's cheap ([[!tails_ticket
     21524]], maybe [[!tails_ticket 18123]]).
 
 - PDF reader (Evince, Papers): the AppArmor sandbox is currently ineffective due
-  to D-Bus session access; we have plans to fix that ([[!tails_ticket 21521]]).
+  to D-Bus session and dconf access; we have plans to fix that ([[!tails_ticket 21521]]).
 
-- Pidgin: the AppArmor sandbox is ineffective due to D-Bus session access;
+- Pidgin: the AppArmor sandbox is ineffective due to D-Bus session and dconf access;
   we plan to remove Pidgin so we won't fix that.
 
-- Thunderbird: the AppArmor sandbox is ineffective due to D-Bus session access
+- Thunderbird: the AppArmor sandbox is ineffective due to D-Bus session and dconf access,
   and also because the policy is wide open; we have plans to fix that
   ([[!tails_ticket 21374]], maybe [[!tails_ticket 21522]]).
 
@@ -236,7 +268,7 @@ Per-app caveats
 
 - Tor Browser: see [[application_isolation#tor-browser]].
 
-- Totem: the AppArmor sandbox is ineffective due to D-Bus session access;
+- Totem: the AppArmor sandbox is ineffective due to D-Bus session and dconf access;
   we have plans to fix that ([[!tails_ticket 7929]]).
 
 - Unsafe Browser: see [[design/Unsafe_Browser]].

@@ -97,7 +97,8 @@ to deanonymization.
 ### Caveat: D-Bus
 
 The AppArmor sandbox is ineffective in Tails 7.x [[due to D-Bus session
-access|design/application_isolation#dbus]].
+access|design/application_isolation#dbus]], which is a sandbox escape,
+and also grants dconf write access, which is another sandbox escape.
 
 We have plans to fix that ([[!tails_ticket 21523]], maybe [[!tails_ticket 19409]]).
 
