@@ -92,6 +92,13 @@ The Unsafe Browser is run in a restricted environment:
 It can also only go through the clearnet, but not interact with any other Tails service which could ever lead
 to deanonymization.
 
+### Caveat: D-Bus
+
+The AppArmor sandbox is ineffective in Tails 7.x [[due to D-Bus session
+access|design/application_isolation#dbus]].
+
+We have plans to fix that ([[!tails_ticket 21523]], maybe [[!tails_ticket 19409]]).
+
 ### Attack scenarios and known issues
 
 #### XWayland

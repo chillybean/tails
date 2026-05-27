@@ -108,6 +108,8 @@ Flatpak project. Once applications use these portals instead of accessing
 ressources directly, their AppArmor policy can be made much stricter and more
 effective… with some limitations, that are described below for Tor Browser.
 
+<a id="tor-browser"></a>
+
 Tor Browser
 -----------
 
@@ -191,6 +193,56 @@ sandbox via D-Bus:
 Apps that run under Flatpak are generally not affected by these problems, thanks
 to `xdg-dbus-proxy`, as long as the Flatpak manifest for the app does not grant
 too broad D-Bus access.
+
+<a id="per-app"></a>
+
+Per-app caveats
+---------------
+
+- `cupsd`: includes `abstractions/dbus`, so presumably it can do anything on the
+  system bus as root, even in Tails 8.0 (Forky); same on root's session bus in
+  Tails 7.x (due to lack of Unix socket mediation). Either of those probably
+  means arbitrary code execution as root.
+
+  Upstream bug: [[!debbug 1137638]]
+
+- `haveged`: can probably run arbitrary code as root via root's D-Bus
+  session bus. We plan to [[!tails_ticket 20352 desc="remove it"]].
+
+- OnionCircuits:
+  - Initially confined with AppArmor primarily for onion-grater, not needed
+    anymore as long as we use network namespaces for that.
+  - The AppArmor sandbox is currently ineffective due to D-Bus session access,
+    which the app should automatically lose in Tails 8.0 (Forky).
+
+- OnionShare:
+  - Initially confined with AppArmor primarily for onion-grater, security
+    sandboxing has never been a goal of these profiles.
+  - The AppArmor sandbox is currently ineffective due to D-Bus session access;
+    it's OK, but we have plans to try to fix that if it's cheap ([[!tails_ticket
+    21524]], maybe [[!tails_ticket 18123]]).
+
+- PDF reader (Evince, Papers): the AppArmor sandbox is currently ineffective due
+  to D-Bus session access; we have plans to fix that ([[!tails_ticket 21521]]).
+
+- Pidgin: the AppArmor sandbox is ineffective due to D-Bus session access;
+  we plan to remove Pidgin so we won't fix that.
+
+- Thunderbird: the AppArmor sandbox is ineffective due to D-Bus session access
+  and also because the policy is wide open; we have plans to fix that
+  ([[!tails_ticket 21374]], maybe [[!tails_ticket 21522]]).
+
+- tor: runs as the `debian-tor` user, which has no D-Bus daemon.
+
+- Tor Browser: see [[application_isolation#tor-browser]].
+
+- Totem: the AppArmor sandbox is ineffective due to D-Bus session access;
+  we have plans to fix that ([[!tails_ticket 7929]]).
+
+- Unsafe Browser: see [[design/Unsafe_Browser]].
+
+- Everything else: other apps generally run unconfined, which is a problem as well.
+  We have ideas to fix that ([[!tails_ticket 21525]]).
 
 Using alias rules to avoid modifying profiles
 ---------------------------------------------
