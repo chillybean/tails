@@ -4,8 +4,9 @@ Layout/LineLength:
   AllowedPatterns:
     # The first line of step definitions can be very long.
     - \A(Given|When|But|Then).*
-    # Snapshot descriptions can be very long.
+    # Snapshot descriptions and parent_checkpoints can be very long.
     - \A\s+description:\s+
+    - \A\s+parent_checkpoint:\s+
 
 Lint/AmbiguousRegexpLiteral:
   Description: This makes defining steps less verbose.
