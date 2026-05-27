@@ -4,9 +4,25 @@ set -e
 set -u
 set -o pipefail
 
-echo "Fetching the Flathub .flatpakrepo file"
+echo "Enabling the Flathub repo"
 
 # Import download_file()
 . /usr/local/lib/tails-shell-library/build.sh
 
-download_file https://dl.flathub.org/repo/flathub.flatpakrepo /usr/share/tails/flathub.flatpakrepo
+TMP=$(mktemp -d)
+(
+    cd "${TMP}"
+    download_file https://dl.flathub.org/repo/flathub.flatpakrepo
+    # We configure a non-existing proxy so that flatpak won't fetch
+    # the Flathub AppStream
+    export https_proxy=https://0.0.0.0:0
+    # We set a temporary home in order to not pollute /root
+    export HOME="${TMP}"
+    flatpak --user remote-add --if-not-exists flathub ./flathub.flatpakrepo
+    # For some reason this directory gets permission drwx--S---
+    chmod -R a-s "${TMP}"/.local/share/flatpak
+    cp "${TMP}"/.local/share/flatpak/repo/flathub.trustedkeys.gpg /usr/share/tails/
+    mkdir -p /etc/skel/.local/share
+    mv "${TMP}"/.local/share/flatpak /etc/skel/.local/share
+)
+rm -r "${TMP}"

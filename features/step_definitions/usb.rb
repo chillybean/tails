@@ -1057,11 +1057,7 @@ Then /^all persistent directories(| from the old Tails version) have safe access
                      .stdout.chomp
       dir_owner = $vm.execute_successfully("stat -c %U '#{full_src}'")
                      .stdout.chomp
-      if ["/home/#{LIVE_USER}/.cache/gnome-software",
-          "/home/#{LIVE_USER}/.local/share/flatpak",].include?(dest)
-        expected_perms = '755'
-        expected_owner = LIVE_USER
-      elsif dest.start_with?("/home/#{LIVE_USER}")
+      if dest.start_with?("/home/#{LIVE_USER}")
         expected_perms = '700'
         expected_owner = LIVE_USER
       elsif File.basename(src) == 'greeter-settings'
