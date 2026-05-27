@@ -2,7 +2,7 @@
 unless defined? CHECKPOINTS
   CHECKPOINTS =
     {
-      'tails-greeter'                                     => {
+      'tails-greeter'                                                  => {
         description:       "I have started Tails from DVD without network and stopped at Tails Greeter's login screen",
         parent_checkpoint: nil,
         steps:             [
@@ -11,7 +11,7 @@ unless defined? CHECKPOINTS
         ],
       },
 
-      'no-network-logged-in'                              => {
+      'no-network-logged-in'                                           => {
         description:       'I have started Tails from DVD without network and logged in',
         parent_checkpoint: 'tails-greeter',
         steps:             [
@@ -20,7 +20,7 @@ unless defined? CHECKPOINTS
         ],
       },
 
-      'with-network-logged-in'                            => {
+      'with-network-logged-in'                                         => {
         description:       'I have started Tails from DVD and logged in and the network is connected',
         parent_checkpoint: 'no-network-logged-in',
         steps:             [
@@ -31,7 +31,7 @@ unless defined? CHECKPOINTS
         ],
       },
 
-      'no-network-logged-in-sudo-passwd'                  => {
+      'no-network-logged-in-sudo-passwd'                               => {
         temporary:         true,
         description:       'I have started Tails from DVD without network and logged in with an administration password',
         parent_checkpoint: 'tails-greeter',
@@ -42,7 +42,7 @@ unless defined? CHECKPOINTS
         ],
       },
 
-      'with-network-logged-in-sudo-passwd'                => {
+      'with-network-logged-in-sudo-passwd'                             => {
         temporary:         true,
         description:       'I have started Tails from DVD and logged in with an administration password and the network is connected',
         parent_checkpoint: 'no-network-logged-in-sudo-passwd',
@@ -54,7 +54,7 @@ unless defined? CHECKPOINTS
         ],
       },
 
-      'usb-install-tails-greeter'                         => {
+      'usb-install-tails-greeter'                                      => {
         description:       "I have started Tails without network from a USB drive without a persistent partition and stopped at Tails Greeter's login screen",
         parent_checkpoint: nil,
         steps:             [
@@ -71,7 +71,7 @@ unless defined? CHECKPOINTS
         ],
       },
 
-      'usb-install-logged-in'                             => {
+      'usb-install-logged-in'                                          => {
         description:       'I have started Tails without network from a USB drive without a persistent partition and logged in',
         parent_checkpoint: 'usb-install-tails-greeter',
         steps:             [
@@ -80,7 +80,7 @@ unless defined? CHECKPOINTS
         ],
       },
 
-      'usb-install-with-persistence-tails-greeter'        => {
+      'usb-install-with-persistence-tails-greeter'                     => {
         description:       "I have started Tails without network from a USB drive with a persistent partition and stopped at Tails Greeter's login screen",
         parent_checkpoint: 'usb-install-logged-in',
         steps:             [
@@ -95,7 +95,7 @@ unless defined? CHECKPOINTS
         ],
       },
 
-      'usb-install-with-persistence-logged-in'            => {
+      'usb-install-with-persistence-logged-in'                         => {
         description:       'I have started Tails without network from a USB drive with a persistent partition enabled and logged in',
         parent_checkpoint: 'usb-install-with-persistence-tails-greeter',
         steps:             [
@@ -109,7 +109,7 @@ unless defined? CHECKPOINTS
         ],
       },
 
-      'usb-install-with-persistence-luks-1-tails-greeter' => {
+      'usb-install-with-persistence-luks-1-tails-greeter'              => {
         description:       "I have started Tails without network from a USB drive with a LUKS 1 persistent partition and stopped at Tails Greeter's login screen",
         parent_checkpoint: 'usb-install-with-persistence-tails-greeter',
         steps:             [
