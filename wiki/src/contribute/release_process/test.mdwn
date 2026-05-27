@@ -222,7 +222,9 @@ at the application level:
 
 3. To capture the packets before Tor encrypts them, run this command:
 
-           sudo tcpdump -n -i lo -w dump.pcap
+           sudo apt update && \
+           sudo apt install tcpdump && \
+           tcpdump -n -i lo -w dump.pcap
 
 4. Send an email with Thunderbird
 
