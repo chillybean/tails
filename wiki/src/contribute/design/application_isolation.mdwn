@@ -10,7 +10,7 @@ Goals
 For now, we are only aiming primarily at filesystem resources isolation: that
 is, making sure that e.g. our PDF reader cannot directly read the GnuPG keyring.
 
-AppArmor also mediates access to some other types of ressources and operations,
+AppArmor also mediates access to some other types of resources and operations,
 such as mounts, signals, and user namespaces.
 
 As of Debian 13 (Trixie) and Tails 7.x, other types of resources, such as Unix
@@ -96,7 +96,7 @@ User experience matters
 =======================
 
 Currently, for applications installed from the repositories of a general purpose
-distribution such as Debian, no good way exists to access ressources outside the
+distribution such as Debian, no good way exists to access resources outside the
 AppArmor sandbox. This is necessary, for example, to safely open a file chosen
 by the user outside of the sandbox, or to access the webcam.
 
@@ -106,7 +106,7 @@ a very broad range of permissions, such as read or write access to most of
 
 This problem has essentially been solved by Desktop Portals, thanks to the
 Flatpak project. Once applications use these portals instead of accessing
-ressources directly, their AppArmor policy can be made much stricter and more
+resources directly, their AppArmor policy can be made much stricter and more
 effective… with some limitations, that are described below for Tor Browser.
 
 <a id="tor-browser"></a>
