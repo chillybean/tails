@@ -112,7 +112,6 @@ class Flatpak(Feature):
             "flatpak/dot-cache-gnome-software", "/home/amnesia/.cache/gnome-software"
         ),
     )
-    conflicting_apps = (ConflictingApp(name="Flatpak", process_names=["flatpak"]),)
 
 
 class Pidgin(Feature):
