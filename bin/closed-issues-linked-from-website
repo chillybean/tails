@@ -55,21 +55,21 @@ cd "${DIRECTORY:?}"
 
 (
     case "$SCOPE" in
-        design_doc)
-            find wiki/src/contribute/design{/,.mdwn} \
-                 \( -name "*.mdwn" -o -name "*.html" \) \
-                 -exec cat '{}' +
-            ;;
-        end_user_doc)
-            find wiki/src/{doc,support} \
-                 ! -path wiki/src/support/known_issues/graphics.mdwn \
-                 \( -name "*.mdwn" -o -name "*.html" \) \
-                 -exec cat '{}' +
-            ;;
-        *)
-            echo "You've found a bug." >&2
-            exit 3
-            ;;
+    design_doc)
+        find wiki/src/contribute/design{/,.mdwn} \
+            \( -name "*.mdwn" -o -name "*.html" \) \
+            -exec cat '{}' +
+        ;;
+    end_user_doc)
+        find wiki/src/{doc,support} \
+            ! -path wiki/src/support/known_issues/graphics.mdwn \
+            \( -name "*.mdwn" -o -name "*.html" \) \
+            -exec cat '{}' +
+        ;;
+    *)
+        echo "You've found a bug." >&2
+        exit 3
+        ;;
     esac
 ) |
     ruby -e 'puts STDIN.read.scan(/\[\[!tails_ticket\s+(\d+)[^\]]*\]\]/)' |
