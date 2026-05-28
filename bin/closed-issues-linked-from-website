@@ -42,12 +42,12 @@ while [ $# -gt 1 ]; do
 done
 
 if [ -z ${SCOPE+x} ]; then
-    echo "Specificy 1 of --design-doc or --end-user-doc" >&2
+    echo "Specify 1 of --design-doc or --end-user-doc" >&2
     exit 2
 fi
 
 if [ -z ${DIRECTORY+x} ]; then
-    echo "Specificy --target-directory DIR" >&2
+    echo "Specify --target-directory DIR" >&2
     exit 3
 fi
 
