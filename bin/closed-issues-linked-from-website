@@ -3,6 +3,9 @@
 set -eu
 set -o pipefail
 
+IGNORED_ISSUES="
+"
+
 NAME=$(basename "${0}")
 LONGOPTS="target-directory:,end-user-doc,design-doc"
 OPTS=$(getopt -o "" --longoptions $LONGOPTS -n "${NAME}" -- "$@")
@@ -58,6 +61,9 @@ cd "${DIRECTORY:?}"
 ) |
     ruby -e 'puts STDIN.read.scan(/\[\[!tails_ticket\s+(\d+)[^\]]*\]\]/)' |
     while read -r ticket; do
+        if echo "$IGNORED_ISSUES" | grep --line-regexp -q "$ticket"; then
+            continue
+        fi
         ticket_status="$(python-gitlab --gitlab TailsRM -o json --fields state project-issue get --project-id 2 --iid "$ticket" | jq --raw-output .state)"
         if [ -z "${ticket_status:-}" ]; then
             echo "Failed to find the status of #${ticket:?}" >&2
