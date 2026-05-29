@@ -8,6 +8,7 @@ Feature: Installing and running Flatpak apps in Tails
     Given I have the build manifest for the image under test
     Then Debian package gnome-software-plugin-deb is not installed
 
+  @check_tor_leaks
   Scenario: Installing, starting and uninstalling a Flatpak
     Given I have started Tails with the Flatpak feature from a USB drive with a persistent partition enabled and logged in and the network is connected
     And GNOME Software has an up-to-date Flathub AppStream
