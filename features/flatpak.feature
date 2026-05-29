@@ -14,7 +14,7 @@ Feature: Installing and running Flatpak apps in Tails
     When I start GNOME Software
     And I install Signal Desktop using GNOME Software
     Then the org.signal.Signal Flatpak is installed after at most 300 seconds
-    When I start "Signal" via GNOME Activities Overview
+    When I start the org.signal.Signal Flatpak
     Then the org.signal.Signal Flatpak is running
     Given I kill the org.signal.Signal Flatpak
     And I go to the main screen of GNOME Software
