@@ -3,6 +3,7 @@
 set -eu
 set -o pipefail
 
+DIRECTORY=$(git rev-parse --show-toplevel)
 IGNORED_ISSUES="
 5501
 5785
@@ -44,11 +45,6 @@ done
 if [ -z "${SCOPE:-}" ]; then
     echo "Specify 1 of --design-doc or --end-user-doc" >&2
     exit 2
-fi
-
-if [ -z "${DIRECTORY:-}" ]; then
-    echo "Specify --target-directory DIR" >&2
-    exit 3
 fi
 
 cd "${DIRECTORY:?}"
