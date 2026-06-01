@@ -41,12 +41,12 @@ while [ $# -gt 1 ]; do
     esac
 done
 
-if [ -z ${SCOPE+x} ]; then
+if [ -z "${SCOPE:-}" ]; then
     echo "Specify 1 of --design-doc or --end-user-doc" >&2
     exit 2
 fi
 
-if [ -z ${DIRECTORY+x} ]; then
+if [ -z "${DIRECTORY:-}" ]; then
     echo "Specify --target-directory DIR" >&2
     exit 3
 fi
