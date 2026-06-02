@@ -46,6 +46,11 @@ Package: webext-ublock-origin-firefox
 Pin: release o=Debian,n=sid
 Pin-Priority: 999
 
+Explanation: Let official Debian security update supersede temporary custom fix
+Package: src:yelp
+Pin: version 42.2-4tails1
+Pin-Priority: -10
+
 Explanation: Upgrading to more recent version of Electrum allow us to get rid of Qt5 (tails#21085)
 Package: src:electrum
 Pin: release o=Debian,n=trixie-backports
