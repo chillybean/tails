@@ -1070,6 +1070,8 @@ Browser in Tails:
 
 - [Environment variables and related preferences](https://gitlab.torproject.org/tpo/applications/wiki/-/wikis/Environment-variables-and-related-preferences)
 
+<a id="tor-browser-flatpak"></a>
+
 #### Tor Browser Flatpak
 
 Tails runs the Tor Browser as a [Flatpak](https://flatpak.org/) that
@@ -1107,6 +1109,9 @@ disables the Flatpak seccomp filter to work around this. While this
 significantly degrades the Flatpak sandbox it allows Tor Browser's
 sandbox to run fully, which includes its own seccomp filter that is
 tailored to Tor Browser's specific needs.
+
+For an initial analysis of how these various sandboxes interact with each other, see
+[[!tails_ticket 21577#note_283734]].
 
 By running inside the Flatpak sandbox the filesystem exposed to Tor
 Browser is separated from the "host" one; it's an empty mount
