@@ -89,8 +89,18 @@ The Unsafe Browser is run in a restricted environment:
    - the amnesic XDG user directories, like `~/Downloads`,
      `~/Documents`, etc.
 
-It can also only go through the clearnet, but not interact with any other Tails service which could ever lead
+On top of AppArmor, we have a `bwrap` sandbox, but it's mostly useless since it does `--bind / /`.
+
+The Unsafe Browser can also only go through the clearnet, but not interact with any other Tails service which could ever lead
 to deanonymization.
+
+### Caveat: D-Bus
+
+The AppArmor sandbox is ineffective in Tails 7.x [[due to D-Bus session
+access|design/application_isolation#dbus]], which is a sandbox escape,
+and also grants dconf write access, which is another sandbox escape.
+
+We have plans to fix that ([[!tails_ticket 21523]], maybe [[!tails_ticket 19409]]).
 
 ### Attack scenarios and known issues
 
