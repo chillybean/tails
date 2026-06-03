@@ -1,8 +1,102 @@
-tails (7.8) UNRELEASED; urgency=medium
+tails (7.8.1) UNRELEASED; urgency=medium
 
-  * Dummy entry for next release.
+  * Upgrade tor to 0.4.9.9 (tails/tails!3046)
 
- -- intrigeri <intrigeri@debian.org>  Thu, 21 May 2026 06:59:19 +0000
+    Closes issues:
+      - Upgrade tor to 0.4.9.9 (tails/tails#21631)
+
+    Commits:
+      - Upgrade tor to 0.4.9.9
+      - Set this branch to run all tests
+
+  * Let Debian security update supersede our temporary yelp custom package
+    (tails/tails!3047)
+
+    Closes issues:
+      - Let Debian security update supersede our temporary yelp custom packages
+        (tails/tails#21636)
+
+    Commits:
+      - Let Debian security update supersede our temporary yelp custom package
+
+  * CI: ignore irrelevant carl9170fw 1.9.9-690-gc6e7ab0-0.2 update
+    (tails/tails!3042)
+
+    Closes issues:
+      - needed-package-updates: carl9170fw 1.9.9-690-gc6e7ab0-0.1 →
+        1.9.9-690-gc6e7ab0-0.2 (tails/tails#21634)
+
+    Commits:
+      - CI: ignore irrelevant carl9170fw 1.9.9-690-gc6e7ab0-0.2 update
+
+  * Design doc: add tooling to review links to closed issues and do the first pass
+    (tails/tails!3041)
+
+    Closes issues:
+      - Regularly review links to closed issues in design doc (tails/tails#21630)
+
+    Commits:
+      - Set default target directory for better ergonomics
+      - Use code pattern that's easier to reason about
+      - Fix typos
+      - shfmt
+      - Design doc: update or remove references to fixed problems
+      - Design doc: update broken links
+      - Design doc: remove obsolete plans for future work
+      - closed-issues-linked-from-website: ignore legit links
+      - Design doc: remove obsolete "XXX"
+      - closed-issues-linked-from-website: support ignoring a list of issues
+      - closed-issues-linked-from-website: also support checking the design doc
+
+  * Ensure we eventually disclose security vulnerabilities as per our policy
+    (tails/tails!3036)
+
+    Commits:
+      - Give the RM an escape route
+      - Remove now-duplicate work that we haven't been doing consistently
+      - Ensure we eventually disclose security vulnerabilities as per our policy
+
+  * Stop installing tcpdump (tails/tails!3034)
+
+    Closes issues:
+      - Stop installing tcpdump (tails/tails#21618)
+
+    Commits:
+      - Manual QA: install tcpdump when needed
+      - Stop installing tcpdump
+
+  * Let Debian security updates supersede our temporary evince, haveged, and
+    libgcrypt20 custom packages (tails/tails!3032)
+
+    Closes issues:
+      - Let Debian security updates supersede our temporary evince, haveged, and
+        libgcrypt20 custom packages (tails/tails#21615)
+
+    Commits:
+      - Let Debian security updates supersede our temporary evince, haveged, and
+        libgcrypt20 custom packages
+
+  * Test suite: drop warning from Net::DNS monkeypatch (tails/tails!3030)
+
+    Commits:
+      - Test suite: drop warning from Net::DNS monkeypatch
+
+  * Add issue template for team sprint (tails/tails!3026)
+
+    Commits:
+      - Add issue template for team sprint
+
+  * Release process: post-7.8 improvements (tails/tails!3025)
+
+    Commits:
+      - Remove busywork
+      - Release process: deduplicate and add missing steps
+      - Fix spelling
+      - Remove superfluous "set -x"
+      - Fix typos
+      - Release process: assume unprivileged user namespaces are enabled
+
+ -- Tails developers <foundations@tails.net>  Wed, 03 Jun 2026 09:33:22 +0000
 
 tails (7.8) unstable; urgency=medium
 
