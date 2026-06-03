@@ -3,16 +3,76 @@
 set -eu
 set -o pipefail
 
-MASTER_CHECKOUT="$1"
+DIRECTORY=$(git rev-parse --show-toplevel)
+IGNORED_ISSUES="
+5501
+5785
+8328
+10560
+10951
+11143
+11729
+11786
+11897
+12354
+17900
+18074
+19275
+"
 
-cd "${MASTER_CHECKOUT:?}"
+NAME=$(basename "${0}")
+LONGOPTS="target-directory:,end-user-doc,design-doc"
+OPTS=$(getopt -o "" --longoptions $LONGOPTS -n "${NAME}" -- "$@")
+eval set -- "$OPTS"
+while [ $# -gt 1 ]; do
+    case $1 in
+    --target-directory)
+        shift
+        DIRECTORY="$1"
+        shift
+        ;;
+    --design-doc)
+        shift
+        SCOPE=design_doc
+        ;;
+    --end-user-doc)
+        shift
+        SCOPE=end_user_doc
+        ;;
+    esac
+done
 
-find wiki/src/{doc,support} \
-    ! -path wiki/src/support/known_issues/graphics.mdwn \
-    \( -name "*.mdwn" -o -name "*.html" \) \
-    -exec cat '{}' + |
+if [ -z "${SCOPE:-}" ]; then
+    echo "Specify 1 of --design-doc or --end-user-doc" >&2
+    exit 2
+fi
+
+cd "${DIRECTORY:?}"
+
+(
+    case "$SCOPE" in
+    design_doc)
+        find wiki/src/contribute/design{/,.mdwn} \
+            \( -name "*.mdwn" -o -name "*.html" \) \
+            -exec cat '{}' +
+        ;;
+    end_user_doc)
+        find wiki/src/{doc,support} \
+            ! -path wiki/src/support/known_issues/graphics.mdwn \
+            \( -name "*.mdwn" -o -name "*.html" \) \
+            -exec cat '{}' +
+        ;;
+    *)
+        echo "You've found a bug." >&2
+        exit 3
+        ;;
+    esac
+) |
     ruby -e 'puts STDIN.read.scan(/\[\[!tails_ticket\s+(\d+)[^\]]*\]\]/)' |
     while read -r ticket; do
+        if echo "$IGNORED_ISSUES" | grep --line-regexp -q "$ticket"; then
+            continue
+        fi
         ticket_status="$(python-gitlab --gitlab TailsRM -o json --fields state project-issue get --project-id 2 --iid "$ticket" | jq --raw-output .state)"
         if [ -z "${ticket_status:-}" ]; then
             echo "Failed to find the status of #${ticket:?}" >&2

@@ -2061,7 +2061,9 @@ MR](https://gitlab.tails.boum.org/tails/gitlab-config/-/edit/master/main.yml)
    website to identify the issues that might
    be resolved in this release.
 
-        ./bin/closed-issues-linked-from-website "${MASTER_CHECKOUT:?}"
+        ./bin/closed-issues-linked-from-website \
+            --target-directory "${MASTER_CHECKOUT:?}" \
+            --end-user-doc
 
 2. Create a GitLab issue to list them.
 
