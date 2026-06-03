@@ -54,13 +54,3 @@ end
 When /^I kill the (.*) Flatpak$/ do |app_id|
   $vm.execute_successfully("flatpak kill #{app_id}", user: LIVE_USER)
 end
-
-# This step is a workaround that will be dropped once we figure out
-# how Tails will handle Flatpak/GNOME Software updates.
-# https://gitlab.tails.boum.org/tails/tails/-/merge_requests/3009#note_283839
-Given /^GNOME Software has an up-to-date Flathub AppStream$/ do
-  $vm.execute_successfully('gnome-software --quit', user: LIVE_USER)
-  Timeout.timeout(60) do
-    $vm.execute_successfully('flatpak --user update', user: LIVE_USER)
-  end
-end

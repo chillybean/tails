@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# Import tor_has_bootstrapped()
+. /usr/local/lib/tails-shell-library/systemd.sh
+
+if ! tor_has_bootstrapped; then
+    dialog_title=$(gettext "GNOME Software")
+    dialog_text=$(gettext "GNOME Software can only start once Tor has bootstrapped.")
+    exec zenity --error --no-wrap --title "$dialog_title" --text="$dialog_text"
+fi
+
+exec /usr/bin/gnome-software "${@}"

@@ -56,6 +56,9 @@ systemctl --global enable tails-start-system-gnome-session-target.service
 systemctl --global enable tails-post-greeter-docs.service
 systemctl --global enable tails-post-greeter-whisperback.service
 
+# Enable user unit file that was imported from Debian Forky
+systemctl --global enable gnome-software.service
+
 # This causes the proxies to run during the whole session, instead of
 # being started and stopped when needed. The only app which needs
 # the proxies and doesn't define this requirement in a systemd service

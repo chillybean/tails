@@ -46,3 +46,17 @@ rm -r /usr/share/tails/build/flatpak/
 # Divert /usr/bin/flatpak so we can replace it with our wrapper
 dpkg-divert --add --rename --divert /usr/bin/flatpak.real /usr/bin/flatpak
 ln -s /usr/local/lib/flatpak /usr/bin/flatpak
+
+# Don't autostart GNOME Software, we only want it to start after Tor
+# has bootstrapped.
+rm /etc/xdg/autostart/org.gnome.Software.desktop
+
+# Point the GNOME Software .desktop file to a wrapper that will error
+# out if Tor has not bootstrapped. Furthermore it cannot be
+# DBusActivatable since that makes it ignore the Exec directive and
+# make it D-Bus activate org.gnome.Software instead, which will start
+# GNOME Software without the wrapper.
+sed -i --regexp-extended \
+    -e 's,^Exec=(/.*/)?gnome-software\s+(.*)$,Exec=/usr/local/bin/gnome-software \2,' \
+    -e '/^DBusActivatable=/d' \
+    /usr/share/applications/org.gnome.Software.desktop

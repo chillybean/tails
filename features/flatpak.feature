@@ -11,7 +11,6 @@ Feature: Installing and running Flatpak apps in Tails
   @check_tor_leaks
   Scenario: Installing, starting and uninstalling a Flatpak
     Given I have started Tails with the Flatpak feature from a USB drive with a persistent partition enabled and logged in and the network is connected
-    And GNOME Software has an up-to-date Flathub AppStream
     When I start GNOME Software
     And I install Signal Desktop using GNOME Software
     Then the org.signal.Signal Flatpak is installed after at most 300 seconds
