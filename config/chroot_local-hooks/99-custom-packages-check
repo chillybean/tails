@@ -15,12 +15,6 @@ flatpak
 libapparmor1
 "
 
-# Fix for tails#21584
-TAILS_PACKAGES="${TAILS_PACKAGES}
-libyelp0
-yelp
-"
-
 OLD_VERSION_RE='([.]0|[+])tails[0-9]*$'
 NEW_VERSION_RE='tails[0-9]+$'
 BACKPORTS_VERSION_RE='~tails[0-9]*$'
