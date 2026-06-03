@@ -38,13 +38,16 @@
 # Tristan <tristan@thewoosh.me>, 2021
 # Volluta <volluta@tutanota.com>, 2015-2016
 # Thomas Boom <thomasnowprod@proton.me>, 2026.
+# kwadronaut <kwadronaut@autistici.org>, 2026.
+# Merijn <merijn@keemail.me>, 2026.
+# Weblate <noreply-mt-weblate@weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tor Project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-22 08:04+0200\n"
-"PO-Revision-Date: 2026-05-12 14:11+0000\n"
-"Last-Translator: Thomas Boom <thomasnowprod@proton.me>\n"
+"PO-Revision-Date: 2026-06-03 09:01+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/tor/tails-gui/nl/"
 ">\n"
 "Language: nl\n"
@@ -52,7 +55,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.5-dev\n"
+"X-Generator: Weblate 2026.6\n"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/additional_software.py:242
 #, python-brace-format
@@ -250,9 +253,9 @@ msgid ""
 "href=\"synaptic.desktop\">Synaptic Package Manager</a> or <a "
 "href=\"org.gnome.Terminal.desktop\">APT on the command line</a>."
 msgstr ""
-"Om meer toe te voegen, kunt u software installeren via <a "
+"Om meer toe te voegen, kun je software installeren via <a "
 "href=\"synaptic.desktop\">de Synaptic Package Manager </a> of <a "
-"href=\"org.gnome.Terminal.desktop\">APT op de opdrachtregel</a>."
+"href=\"org.gnome.Terminal.desktop\">APT via de terminal</a>."
 
 #: config/chroot_local-includes/usr/share/tails/additional-software/configuration-window.ui:154
 msgid "_Create persistent storage"
@@ -408,7 +411,6 @@ msgid "bytes"
 msgstr "bytes"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:295
-#, fuzzy
 msgid ""
 "<b>An error occurred while updating the signing key.</b>\\n\\n<b>This "
 "prevents determining whether an upgrade is available from our website.</"
@@ -431,7 +433,6 @@ msgid "Error while checking for upgrades"
 msgstr "Fout bij controleren op upgrades"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:344
-#, fuzzy
 msgid ""
 "<b>Could not determine whether an upgrade is available from our website.</"
 "b>\n"
@@ -446,8 +447,7 @@ msgstr ""
 "Controleer uw netwerkverbinding en start Tails opnieuw om de upgrade "
 "nogmaals te proberen.\n"
 "\n"
-"Als het probleem aanhoudt, ga dan naar file:///usr/share/doc/tails/website/"
-"doc/upgrade/error/check.nl.html"
+"Als het probleem aanhoudt, probeer dan een handmatige upgrade uit te voeren."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:359
 msgid "no automatic upgrade is available from our website for this version"
@@ -455,11 +455,9 @@ msgstr ""
 "voor deze versie is geen automatische upgrade beschikbaar via onze website"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:365
-#, fuzzy
 msgid "your device was not created using a USB image or Tails Cloner"
 msgstr ""
-"uw apparaat is niet aangemaakt door middel van een USB-image of Tails-"
-"installatieprogramma"
+"uw apparaat is niet gemaakt met behulp van een USB-image of Tails Cloner"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:370
 msgid "Tails was started from a DVD or a read-only device"
@@ -487,11 +485,11 @@ msgid ""
 "You are currently running the latest version. There is no upgrade "
 "available.\n"
 msgstr ""
+"U gebruikt nu de laatste versie. Er is geen nieuwe versie beschikbaar.\n"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:414
-#, fuzzy
 msgid "Tails is up to date"
-msgstr "Het systeem is up-to-date"
+msgstr "Tails is up-to-date"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:420
 msgid "This version of Tails is outdated, and may have security issues."
@@ -517,7 +515,6 @@ msgstr ""
 "maar er is slechts {free_memory} beschikbaar."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:473
-#, fuzzy
 msgid ""
 "An error occurred while detecting available upgrades.\n"
 "This should not happen. Please report a bug."
@@ -613,15 +610,13 @@ msgid "Downloading the upgrade to {name} {version}..."
 msgstr "Download de upgrade naar {name} {version}…"
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:711
-#, fuzzy
 msgid ""
 "<b>The upgrade could not be downloaded.</b>\\n\\nCheck your network "
 "connection, and restart Tails to try upgrading again."
 msgstr ""
 "<b>De upgrade kon niet worden gedownload.</b>\\n\\nControleer uw "
 "netwerkverbinding en start Tails opnieuw op om de upgrade nogmaals te "
-"proberen.\\n\\nAls het probleem aanhoudt, ga dan naar file:///usr/share/doc/"
-"tails/website/doc/upgrade/error/download.en.html"
+"proberen."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:714
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:729
@@ -734,7 +729,6 @@ msgstr ""
 "Om veiligheidsredenen wordt de netwerkverbinding nu uitgeschakeld."
 
 #: config/chroot_local-includes/usr/src/iuk/lib/Tails/IUK/Frontend.pm:855
-#, fuzzy
 msgid ""
 "<b>An error occurred while installing the upgrade.</b>\\n\\nYour Tails "
 "device needs to be repaired and might be unable to restart.\\n\\nPlease "
@@ -813,9 +807,8 @@ msgid "Off (default)"
 msgstr "Uit (standaard)"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:181
-#, fuzzy
 msgid "Persistent Storage Still Locked"
-msgstr "Persistent Storage Niet Ontgrendeld"
+msgstr "Permanente Opslag Nogsteeds Vergrendeld"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:183
 msgid ""
@@ -828,9 +821,8 @@ msgid "Start Without Persistent Storage"
 msgstr "Start op zonder Persistent Storage"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:193
-#, fuzzy
 msgid "Language and Keyboard layout"
-msgstr "Toetsen_bordindeling"
+msgstr "Taal en toetsenbordindeling"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:195
 msgid ""
@@ -840,19 +832,22 @@ msgid ""
 "Someone who finds your Tails USB stick can see your language and keyboard "
 "layout."
 msgstr ""
+"Je taal en toetsenbordindeling worden onversleuteld opgeslagen op je Tails-"
+"USB-stick en worden in de toekomst automatisch toegepast.\n"
+"\n"
+"Iemand die je Tails-USB-stick vindt, kan je taal en toetsenbordindeling zien."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:200
 msgid "Save Unencrypted"
-msgstr ""
+msgstr "Onversleuteld Opslaan"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:288
-#, fuzzy
 msgid ""
 "Impossible to unlock the Persistent Storage because the USB stick is read-"
 "only."
 msgstr ""
-"Het ontgrendelen van de Permanent Storage is mislukt. Start Tails en stuur "
-"een foutenrapport."
+"Het ontgrendelen van de Persistente Opslag is mislukt omdat de USB-stick "
+"read-only is."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:449
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:482
@@ -860,38 +855,39 @@ msgid "Unlocking…"
 msgstr "Ontgrendelen…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:490
-#, fuzzy
 msgid "Checking the file system…"
-msgstr "Bestandssysteem wordt geformatteerd..."
+msgstr "Bestandssysteem wordt nagekeken…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:523
-#, fuzzy
 msgid "Repairing the File System"
-msgstr "Bestandssysteem wordt geformatteerd..."
+msgstr "Bestandssysteem wordt gerepareerd"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:524
-#, fuzzy
 msgid "This might take a long time..."
-msgstr "Dit kan enige tijd duren..."
+msgstr "Dit kan mogelijk lang duren..."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:542
-#, fuzzy
 msgid "Failed to repair the file system of your Persistent Storage."
-msgstr "Mislukt om permanente opslag te configureren"
+msgstr "Mislukt om het bestandssysteem van de Persistente Opslag te repareren"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:544
 msgid "Start Tails to send an error report and learn how to recover your data."
 msgstr ""
+"Start Tails om een foutmeldingsrapport te sturen en te leren hoe u uw data "
+"kan herstellen."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:559
 msgid "File System Repaired Successfully"
-msgstr ""
+msgstr "Bestandssysteem Succesvol Gerepareerd"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:561
 msgid ""
 "It's possible that some data was lost during the repair. Please check the "
 "contents of your Persistent Storage and restore any lost data from a backup."
 msgstr ""
+"Het is mogelijk dat enige data zijn verloren tijdens de reparatie. Gelieve "
+"de inhoud van uw Persistente Opslag na te kijken en verloren data te "
+"herstellen van een backup."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:565
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:32
@@ -904,6 +900,9 @@ msgid ""
 "without Persistent Storage or restart the computer to try repairing the file "
 "system again."
 msgstr ""
+"U hebt het bestandssysteemreparatieproces onderbroken. U kan ofwel Tails "
+"starten zonder Persistente Opslag, of de computer herstarten, om het "
+"reparatieproces te herstarten."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:866
 msgid "Start Tails and open the Persistent Storage settings to find out more."
@@ -911,31 +910,32 @@ msgstr ""
 "Start Tails op en open de Persisten Opslag instelling voor meer informatie."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:896
-#, fuzzy
 msgid ""
 "Your Persistent Storage is unlocked. Its content will be available until you "
 "shut down Tails."
 msgstr ""
-"Uw permanente opslag is ontgrendeld. Herstart Tails om de opslag opnieuw te "
+"Uw Persistente Opslag is ontgrendeld. Herstart Tails om de opslag opnieuw te "
 "vergrendelen."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:911
 msgid "Incorrect passphrase. Please try again."
-msgstr ""
+msgstr "Incorrecte wachtwoordzin. Probeer nog eens."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:922
 msgid ""
 "Error reading data from your Persistent Storage. The hardware of your USB "
 "stick is probably failing."
 msgstr ""
+"Fout bij het lezen van uw Persistente Opslag. Waarschijnelijk door "
+"hardwarefalen van uw USB-stick."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:924
 msgid "Start Tails to learn how to recover your data."
-msgstr ""
+msgstr "Start Tails om te leren hoe u uw gegevens kunt herstellen."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:935
 msgid "File System Errors"
-msgstr ""
+msgstr "Bestandssysteemfouten"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:937
 msgid ""
@@ -950,29 +950,39 @@ msgid ""
 "If you don't have a backup, we recommend that you create a partition image "
 "of your Persistent Storage first."
 msgstr ""
+"Er zijn fouten gedetecteerd in het bestandssysteem van uw Persistente "
+"Opslag.\n"
+"\n"
+"Tails kan proberen deze fouten op te lossen, maar hierbij kunnen enkele van "
+"uw gegevens worden verwijderd en het proces kan lang duren.\n"
+"\n"
+"Als u al een actuele back-up van uw persistente opslag hebt, raden wij aan "
+"om deze te gebruiken om de fouten te herstellen.\n"
+"\n"
+"Als u geen back-ups hebt, raden wij aan eerst een nieuwe partitie-image van "
+"uw Persistente Opslag te maken."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:946
 msgid "Repair File System"
-msgstr ""
+msgstr "Bestandssysteem Repareren"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:947
-#, fuzzy
 msgid "Create Partition Image"
-msgstr "Permanente opslag aanmaken"
+msgstr "Permanente Opslag Aanmaken"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:958
-#, fuzzy
 msgid ""
 "Start Tails to learn how to create a partition image of your Persistent "
 "Storage."
-msgstr "Mislukt om permanente opslag te configureren"
+msgstr ""
+"Start Tails om te leren hoe u een partitie-image van uw Persistente Opslag "
+"kunt maken."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:967
-#, fuzzy
 msgid "Failed to unlock the Persistent Storage due to file system errors."
 msgstr ""
-"Het ontgrendelen van de Permanent Storage is mislukt. Start Tails en stuur "
-"een foutenrapport."
+"Het ontgrendelen van de permanente opslag is mislukt vanwege fouten in het "
+"bestandssysteem."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:976
 msgid ""
@@ -997,9 +1007,8 @@ msgstr ""
 "Permanent Storage is niet geactiveerd. Start Tails en stuur een foutrapport."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/main_window.py:1002
-#, fuzzy
 msgid "Upgrading the Persistent Storage. This might take a while…"
-msgstr "Het aanmaken van je Persistente Opslag is mislukt."
+msgstr "De Persistente Opslag wordt bijgewerkt. Dit kan even duren…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/settings/persistence.py:125
 msgid "Error unlocking Persistent Storage: {}"
@@ -1018,12 +1027,11 @@ msgstr ""
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/settings/persistence.py:181
 msgid "Error activating Persistent Storage: {}"
-msgstr "Fout bij activeren Persistent Storage: {}"
+msgstr "Fout bij het activeren van de Persistent opslag: {}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/settings/persistence.py:202
-#, fuzzy
 msgid "Failed to abort when repairing Persistent Storage filesystem: {}"
-msgstr "Mislukt om permanente opslag te configureren"
+msgstr "Mislukt om permanente opslag te configureren: {}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tailsgreeter/ui/region_settings.py:191
 msgid "_Language"
@@ -1043,9 +1051,9 @@ msgid "Unable to write on %(device)s, skipping."
 msgstr "Kan niet schrijven naar %(device)s; wordt overgeslagen."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:371
-#, fuzzy, python-format
+#, python-format
 msgid "Wrote to device at %(speed)d MB/s"
-msgstr "Naar apparaat geschreven met %(speed)d MB/sec"
+msgstr "Schreef naar apparaat met %(speed)d MB/s"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:383
 msgid "Extracting live image to the target device..."
@@ -1133,9 +1141,8 @@ msgid "No mount points found"
 msgstr "Geen koppelpunten gevonden"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:806
-#, fuzzy
 msgid "Target device has opened files"
-msgstr "Naar apparaat geschreven met %(speed)d MB/sec"
+msgstr "Doelapparaat heeft bestanden geopend"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/creator.py:834
 #, python-format
@@ -1226,6 +1233,9 @@ msgid ""
 "Unable to clone because the target USB stick is being used. Close all open "
 "files on the target USB stick, restart Tails Cloner, and try to clone again."
 msgstr ""
+"Het klonen is niet mogelijk omdat de doel-USB-stick in gebruik is. Sluit "
+"alle geopende bestanden op het doel-USB-stick, start Tails Cloner opnieuw en "
+"probeer opnieuw te klonen."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:189
 msgid ""
@@ -1236,9 +1246,9 @@ msgstr ""
 "verkrijgen. Kan niet doorgaan."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:234
-#, fuzzy, python-format
+#, python-format
 msgid "Cloning complete! (%s)"
-msgstr "Installatie voltooid! (%s)"
+msgstr "Klonen voltooid! (%s)"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:239
 msgid "Tails installation failed!"
@@ -1246,9 +1256,8 @@ msgstr "Tails-installatie is mislukt!"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:341
 #: ../config/chroot_local-includes/usr/share/applications/tails-installer.desktop.in.h:1
-#, fuzzy
 msgid "Tails Cloner"
-msgstr "Tails-installatieprogramma"
+msgstr "Tails Cloner"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:393
 #: ../config/chroot_local-includes/usr/share/tails-installer/tails-installer.ui.in:164
@@ -1280,9 +1289,8 @@ msgid "Installation Instructions"
 msgstr "Installatie-instructies"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:471
-#, fuzzy
 msgid "Backup Instructions"
-msgstr "Instructies voor handmatige upgrade"
+msgstr "Back-Up-Instructies"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:482
 #, python-format
@@ -1302,6 +1310,9 @@ msgid ""
 "Clone the current Persistent Storage\n"
 "Impossible to clone the Persistent Storage because it is locked."
 msgstr ""
+"De huidige Persistente opslag klonen\n"
+"Het is niet mogelijk om de Persistente Opslag te klonen omdat deze is "
+"vergrendeld."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:550
 #: ../config/chroot_local-includes/usr/share/tails-installer/tails-installer.ui.in:180
@@ -1313,6 +1324,9 @@ msgid ""
 "Clone the current Persistent Storage\n"
 "You can only choose to reinstall when cloning the Persistent Storage."
 msgstr ""
+"Kloon de huidige Persistente Opslag\n"
+"U kunt er alleen voor kiezen om opnieuw te installeren wanneer u de "
+"Persistente Opslag kloont."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:591
 #, python-format
@@ -1328,7 +1342,7 @@ msgstr ""
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:600
 #, python-format
 msgid "The device \"%(pretty_name)s\" is read-only."
-msgstr ""
+msgstr "Het apparaat \"%(pretty_name)s\" is alleen-lezen."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:608
 #, python-format
@@ -1355,9 +1369,9 @@ msgid "No device suitable to install Tails could be found"
 msgstr "Geen geschikt apparaat voor een Tails-installatie gevonden"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:647
-#, fuzzy, python-format
+#, python-format
 msgid "Plug in a USB stick of at least %0.1f GB."
-msgstr "Plaats een USB-flashstation of SD-kaart van ten minste %0.1fGB."
+msgstr "Sluit een USB-stick aan met een capaciteit van minimaal %0.1f GB."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:660
 msgid "An error happened while installing Tails"
@@ -1373,7 +1387,6 @@ msgid "%(parent_size)s %(vendor)s %(model)s device (%(device)s)"
 msgstr "%(parent_size)s%(vendor)s%(model)s apparaat (%(device)s)"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:786
-#, fuzzy
 msgid ""
 "\n"
 "\n"
@@ -1381,7 +1394,7 @@ msgid ""
 msgstr ""
 "\n"
 "\n"
-"De permanente opslag op deze USB-stick gaat verloren."
+"De Persistente Opslag op deze USB-stick zal verloren gaan."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tails_installer/gui.py:788
 msgid "Delete Persistent Storage and Reinstall"
@@ -1484,7 +1497,7 @@ msgid "Could not open device for writing."
 msgstr "Kon het apparaat niet openen om te schrijven."
 
 #: config/chroot_local-includes/usr/local/bin/secrets:19
-#, fuzzy, sh-format
+#, sh-format
 msgid ""
 "You have a <i>KeePassXC</i> or <i>Secrets</i> database in your "
 "<i>Persistent</i> folder:\n"
@@ -1494,15 +1507,13 @@ msgid ""
 "Renaming your database to <i>${default_filename}</i> allows <i>Secrets</i> "
 "to open it automatically in the future."
 msgstr ""
-"<b><big>Wil je de naam van je <i>KeePassXC</i> database wijzigen? </big></"
-"b>\n"
-"\n"
-"Je hebt een <i>KeePassXC</i> database in je <i>Persistente</i> map:\n"
+"Je hebt een <i>KeePassXC</i> of <i>Secrets</i>-database in je "
+"<i>Persistente</i> map:\n"
 "\n"
 "<i>${filename}</i>\n"
 "\n"
 "Door je database te hernoemen naar <i>${default_filename}</i> kan "
-"<i>KeePassXC</i> deze in de toekomst automatisch openen."
+"<i>Secrets</i> deze in de toekomst automatisch openen."
 
 #: config/chroot_local-includes/usr/local/bin/secrets:25
 msgid "Rename"
@@ -1514,7 +1525,7 @@ msgstr "Huidige naam behouden"
 
 #: config/chroot_local-includes/usr/local/bin/secrets:29
 msgid "Rename Password Database?"
-msgstr ""
+msgstr "Wachtwoorddatabase hernoemen?"
 
 #: config/chroot_local-includes/usr/local/bin/replace-su-with-sudo:19
 msgid "su is disabled. Please use sudo instead."
@@ -1522,24 +1533,23 @@ msgstr "su is uitgeschakeld. Gebruik in plaats daarvan sudo."
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:3
 msgid "Error Reading Data from Tails USB Stick"
-msgstr ""
+msgstr "Fout bij het lezen van gegevens van Tails USB-stick"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:4
 msgid "The hardware of your USB stick is probably failing."
-msgstr ""
+msgstr "De hardware van uw USB-stick is waarschijnlijk defect."
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:5
 msgid "We recommend that you reinstall Tails on a different USB stick."
-msgstr ""
+msgstr "Wij raden u aan om Tails te installeren op een andere USB-stick."
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:7
-#, fuzzy
 msgid ""
 "We recommend that you reinstall Tails on a different USB stick\n"
 "and recover the data from your Persistent Storage as soon as possible."
 msgstr ""
-"Installeer hiervoor Tails op een USB-stick en maak een permanente "
-"opslaglocatie aan."
+"Wij raden u aan om Tails opnieuw te installeren op een andere USB-stick\n"
+"en om de gegevens zo snel mogelijk van uw Persistente Opslag te herstellen."
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-ioerrors:10
 msgid "Dismiss"
@@ -1554,19 +1564,21 @@ msgid "Learn More"
 msgstr "Meer info"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:18
-#, fuzzy
 msgid "Partitioning Error"
-msgstr "Partities en schijven"
+msgstr "Partitioneringsfout"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:19
 msgid "Errors were detected in the partitioning of your Tails USB stick."
 msgstr ""
+"Er zijn fouten gedetecteerd bij het partitioneren van uw Tails USB-stick."
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:26
 msgid ""
 "We recommend that you create a backup of your Tails using <i>Tails Cloner</"
 "i> to migrate to a new USB stick."
 msgstr ""
+"We raden u aan een back-up van uw Tails te maken met behulp van <i>Tails "
+"Cloner</i> om naar een nieuwe USB-stick te migreren."
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:33
 #, fuzzy
@@ -1574,18 +1586,16 @@ msgid "Open Tails Cloner"
 msgstr "Tails-installatieprogramma"
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:42
-#, fuzzy
 msgid "Creation of Persistent Storage has been disabled."
-msgstr "Het aanmaken van je Persistente Opslag is mislukt."
+msgstr "Het aanmaken van Persistente Opslag is uitgeschakeld."
 
 #: config/chroot_local-includes/usr/local/lib/tails-report-disk-partitioning-errors:44
-#, fuzzy
 msgid ""
 "We recommend that you reinstall Tails from scratch. If the error persists, "
 "reinstall on a new USB stick."
 msgstr ""
-"Installeer hiervoor Tails op een USB-stick en maak een permanente "
-"opslaglocatie aan."
+"We raden je aan Tails helemaal opnieuw te installeren. Als de fout zich "
+"blijft voordoen, installeer het dan opnieuw op een nieuwe USB-stick."
 
 #: config/chroot_local-includes/usr/src/perl5lib/lib/Tails/RunningSystem.pm:207
 #: config/chroot_local-includes/usr/local/bin/tails-upgrade-frontend-wrapper:79
@@ -1641,18 +1651,17 @@ msgid "About Tails"
 msgstr "Over Tails"
 
 #: config/chroot_local-includes/usr/local/bin/tails-about:34
-#, fuzzy
 msgid "Check for Upgrades"
-msgstr "Fout bij controleren op upgrades"
+msgstr "Controleer op upgrades"
 
 #: config/chroot_local-includes/usr/local/bin/tails-about:57
 msgid "UNRELEASED"
-msgstr ""
+msgstr "NIET UITGEBRACHT"
 
 #: config/chroot_local-includes/usr/local/bin/tails-about:64
 #, python-format
 msgid "Built from %s"
-msgstr ""
+msgstr "Gebouwd op basis van %s"
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:114
 #, python-brace-format
@@ -1721,9 +1730,8 @@ msgid "[package not available]"
 msgstr "[pakket niet beschikbaar]"
 
 #: config/chroot_local-includes/usr/local/bin/tails-additional-software-config:311
-#, fuzzy
 msgid "[description not available]"
-msgstr "[pakket niet beschikbaar]"
+msgstr "[Beschrijving niet beschikbaar]"
 
 #: config/chroot_local-includes/usr/local/lib/tails-htp-notify-user:68
 msgid "Failed to synchronize the clock!"
@@ -1731,7 +1739,7 @@ msgstr "Het synchroniseren van de tijd is mislukt!"
 
 #: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:26
 msgid "Insufficient Memory Detected"
-msgstr ""
+msgstr "Onvoldoende Geheugen Gedetecteerd"
 
 #: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:28
 #, python-brace-format
@@ -1740,6 +1748,9 @@ msgid ""
 "{installed_ram_gb} GB. You might experience reduced performance, "
 "instability, or crashes."
 msgstr ""
+"Tails vereist {required_ram_gb} GB RAM, maar deze computer heeft slechts "
+"{installed_ram_gb} GB. Dit kan leiden tot verminderde prestaties, "
+"instabiliteit of crashes."
 
 #: config/chroot_local-includes/usr/local/lib/tails-low-ram-notify-user:41
 #: config/chroot_local-includes/usr/local/lib/tails-uefi-ca-notify-user:47
@@ -1756,9 +1767,8 @@ msgid "Set up a password to unlock the screen."
 msgstr "Stel een wachtwoord in om het scherm te ontgrendelen."
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:147
-#, fuzzy
 msgid "Show Password"
-msgstr "Wachtwoord"
+msgstr "Wachtwoord Tonen"
 
 #: config/chroot_local-includes/usr/local/bin/tails-screen-locker:151
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2580
@@ -1781,7 +1791,7 @@ msgstr "Bekende beveiligingsproblemen"
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:60
 #, sh-format
 msgid "Wi-Fi Interface Disabled"
-msgstr ""
+msgstr "Wi-Fi-Interface Uitgeschakeld"
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:61
 #, sh-format
@@ -1789,11 +1799,13 @@ msgid ""
 "MAC address anonymization failed for one of your Wi-Fi interfaces, so it is "
 "temporarily disabled."
 msgstr ""
+"Het anonimiseren van het MAC-adres is mislukt voor een van uw Wi-Fi-"
+"interfaces, waardoor deze tijdelijk is uitgeschakeld."
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:64
-#, fuzzy, sh-format
+#, sh-format
 msgid "Wi-Fi Disabled"
-msgstr "Uitgeschakeld"
+msgstr "WiFi Uitgeschakeld"
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:65
 #, sh-format
@@ -1801,11 +1813,13 @@ msgid ""
 "MAC address anonymization failed for your Wi-Fi interface, so it is "
 "temporarily disabled."
 msgstr ""
+"Anonimisering van het MAC-adres is mislukt voor uw Wi-Fi-interface, dus deze "
+"is tijdelijk uitgeschakeld."
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:67
 #, sh-format
 msgid "Wired Interface Disabled"
-msgstr ""
+msgstr "Bekabelde Interface Uitgeschakeld"
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:68
 #, sh-format
@@ -1813,11 +1827,13 @@ msgid ""
 "MAC address anonymization failed for one of your wired interfaces, so it is "
 "temporarily disabled."
 msgstr ""
+"Anonimisering van het MAC-adres is mislukt voor een van uw bekabelde "
+"interfaces, dus deze is tijdelijk uitgeschakeld."
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:71
-#, fuzzy, sh-format
+#, sh-format
 msgid "Wired Network Disabled"
-msgstr "Alle netwerken uitgeschakeld"
+msgstr "Bekabeld Netwerk Uitgeschakeld"
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:72
 #, sh-format
@@ -1825,11 +1841,13 @@ msgid ""
 "MAC address anonymization failed for your wired interface, so it is "
 "temporarily disabled."
 msgstr ""
+"Anonimisering van het MAC-adres is mislukt voor uw bekabelde interface, dus "
+"deze is tijdelijk uitgeschakeld."
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:74
-#, fuzzy, sh-format
+#, sh-format
 msgid "Network Interface Disabled"
-msgstr "Netwerkkaart ${nic} uitgeschakeld"
+msgstr "Netwerkinterface uitgeschakeld"
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:75
 #, sh-format
@@ -1837,37 +1855,35 @@ msgid ""
 "MAC address anonymization failed for one of your network interfaces, so it "
 "is temporarily disabled."
 msgstr ""
+"De anonimisering van het MAC-adres is mislukt voor een van uw "
+"netwerkinterfaces, dus deze is tijdelijk uitgeschakeld."
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:87
-#, fuzzy
 msgid "All Networking Disabled"
-msgstr "Alle netwerken uitgeschakeld"
+msgstr "Alle Netwerken Uitgeschakeld"
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:89
-#, fuzzy, sh-format
+#, sh-format
 msgid ""
 "MAC address anonymization failed for one of your network interfaces. The "
 "error recovery also failed, so all networking is disabled."
 msgstr ""
-"MAC adres anonimisering mislukt voor netwerkkaart ${nic_name} (${nic}). De "
-"foutherstelling is ook mislukt, dus alle netwerken zijn uitgeschakeld.\n"
-"Je voorkeur kan misschien zijn om Tails opnieuw opstarten en MAC adres "
-"anonimisering uitschakelen."
+"Het anonimiseren van het MAC-adres is mislukt voor een van uw "
+"netwerkinterfaces. Ook het herstel van de fout is mislukt, dus alle "
+"netwerken zijn uitgeschakeld."
 
 #: config/chroot_local-includes/usr/local/lib/tails-spoof-mac:92
-#, fuzzy, sh-format
+#, sh-format
 msgid ""
 "MAC address anonymization failed for your network interface. The error "
 "recovery also failed, so all networking is disabled."
 msgstr ""
-"MAC adres anonimisering mislukt voor netwerkkaart ${nic_name} (${nic}). De "
-"foutherstelling is ook mislukt, dus alle netwerken zijn uitgeschakeld.\n"
-"Je voorkeur kan misschien zijn om Tails opnieuw opstarten en MAC adres "
-"anonimisering uitschakelen."
+"Anonimisering van het MAC-adres is mislukt voor uw netwerkinterface. Het "
+"foutherstel is ook mislukt, dus alle netwerken zijn uitgeschakeld."
 
 #: config/chroot_local-includes/usr/local/lib/tails-uefi-ca-notify-user:28
 msgid "Secure Boot Update Needed"
-msgstr ""
+msgstr "Update voor Secure Boot vereist"
 
 #: config/chroot_local-includes/usr/local/lib/tails-uefi-ca-notify-user:30
 msgid ""
@@ -1875,6 +1891,10 @@ msgid ""
 "Apply all available updates from your regular operating system to update to "
 "the latest Secure Boot certificates of Microsoft."
 msgstr ""
+"Op een bepaald moment in de toekomst zal Tails niet meer opstarten op deze "
+"computer. Pas alle beschikbare updates toe voor uw besturingssysteem om te "
+"zorgen dat u over de nieuwste Secure Boot-certificaten van Microsoft "
+"beschikt."
 
 #: config/chroot_local-includes/usr/local/bin/tails-upgrade-frontend-wrapper:37
 #, python-brace-format
@@ -1939,11 +1959,11 @@ msgstr "Automatisch"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:284
 msgid "Frequently selected regions"
-msgstr ""
+msgstr "Veel gekozen regio’s"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:291
 msgid "Other regions"
-msgstr ""
+msgstr "Andere regio's"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:369
 msgid "_Use a bridge that you already know"
@@ -1971,11 +1991,12 @@ msgid "Invalid: {exception}"
 msgstr "Ongeldig: {exception}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:450
-#, fuzzy
 msgid ""
 "You need to configure a WebTunnel or an obfs4 bridge to hide that you are "
 "using Tor"
-msgstr "Je moet een obfs4 brug instellen om te verbergen dat je Tor gebruikt"
+msgstr ""
+"Je moet een WebTunnel of een obfs4-brug instellen om te verbergen dat je Tor "
+"gebruikt"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:514
 msgid "Failed to configure your Persistent Storage"
@@ -2002,9 +2023,8 @@ msgid "Synchronizing the system's clock…"
 msgstr "De klok van het systeem synchroniseren…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:726
-#, fuzzy
 msgid "Asking for a Tor bridge based on your region…"
-msgstr "_Vraag per e-mail om een Torbrug"
+msgstr "Een Tor-bridge aanvragen op basis van je regio…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:774
 msgid "Connecting to Tor without bridges…"
@@ -2016,9 +2036,8 @@ msgid "Connecting to Tor with default bridges…"
 msgstr "Verbinden met Tor met standaardbruggen…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:789
-#, fuzzy
 msgid "Connecting to Tor with a bridge based on your region…"
-msgstr "Verbinden met Tor met standaardbruggen…"
+msgstr "Verbinding maken met Tor via een bridge op basis van je regio…"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:796
 msgid "Connecting to Tor with a custom bridge…"
@@ -2043,21 +2062,21 @@ msgstr "U kan nu anoniem en zonder censuur op het internet browsen."
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:985
 #, python-brace-format
 msgid "Bridge: <b>{bridge}</b>"
-msgstr ""
+msgstr "Brug: <b>{bridge}</b>"
 
 #. Translators: only translate "Error code:" and adjust
 #. text-direction
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:997
 #, python-brace-format
 msgid "Error code: {code}"
-msgstr ""
+msgstr "Foutcode: {code}"
 
 #. Translators: only translate "Proxy:" and adjust
 #. text-direction
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1024
 #, python-brace-format
 msgid "Proxy: <b>{proxy}</b>"
-msgstr ""
+msgstr "Proxy: <b>{proxy}</b>"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tca/ui/main_window.py:1323
 #, python-brace-format
@@ -2111,9 +2130,8 @@ msgid "Tor Status"
 msgstr "Tor-status"
 
 #: config/chroot_local-includes/usr/share/gnome-shell/extensions/torstatus@tails.boum.org/extension.js:47
-#, fuzzy
 msgid "Open Tor Connection Assistant"
-msgstr "Open Tor-Verbinding"
+msgstr "Assistent voor het openen van een Tor-verbinding"
 
 #: config/chroot_local-includes/usr/share/gnome-shell/extensions/torstatus@tails.boum.org/extension.js:51
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2406
@@ -2128,6 +2146,11 @@ msgid ""
 "\n"
 "Try again after closing some applications or rebooting."
 msgstr ""
+"Er is slechts {available_memory} KiB geheugen beschikbaar, terwijl er "
+"minimaal {required_memory} KiB nodig is.\n"
+"\n"
+"Probeer het opnieuw nadat je enkele programma’s hebt afgesloten of de "
+"computer opnieuw hebt opgestart."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:367
 msgid "Creating a partition for the Persistent Storage..."
@@ -2138,10 +2161,12 @@ msgid ""
 "Initializing the LUKS encryption... The computer might stop responding for a "
 "few seconds."
 msgstr ""
+"LUKS-versleuteling initialiseren... De computer reageert mogelijk enkele "
+"seconden niet."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:420
 msgid "Unlocking the encryption..."
-msgstr ""
+msgstr "De encryptie wordt ontgrendeld..."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:428
 msgid "Formatting the file system..."
@@ -2162,12 +2187,20 @@ msgid ""
 "doesn't work, restart Tails and try deleting the Persistent Storage without "
 "unlocking it."
 msgstr ""
+"De permanente opslag kan niet worden ontkoppeld, een proces maakt er nog "
+"steeds gebruik van. Sluit alle programma's die er mogelijk toegang tot "
+"hebben en probeer het opnieuw. Als dat niet werkt, start Tails dan opnieuw "
+"op en probeer de Persistente Opslag te verwijderen zonder deze te "
+"ontgrendelen."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/device.py:737
 msgid ""
 "Not enough memory to change the passphrase of the Persistent Storage. Try "
 "again after closing some applications or rebooting."
 msgstr ""
+"Er is onvoldoende geheugen om de wachtwoordzin van de Persistente Opslag te "
+"wijzigen. Probeer het opnieuw nadat u enkele applicaties heeft gesloten of "
+"het systeem opnieuw hebt opgestart."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps/configuration/binding.py:411
 #, python-brace-format
@@ -2175,6 +2208,9 @@ msgid ""
 "Can't unmount target {target}, some process is still using it. Please close "
 "all applications that could be accessing the target and try again."
 msgstr ""
+"Het doelstation {target} kan niet worden ontkoppeld; een proces maakt er nog "
+"gebruik van. Sluit alle applicaties die mogelijk toegang hebben tot het "
+"doelstation en probeer het opnieuw."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/application.py:30
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:49
@@ -2184,13 +2220,12 @@ msgid "Persistent Storage"
 msgstr "Persistente Opslag"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/application.py:56
-#, fuzzy
 msgid "Failed to start the Persistent Storage service"
-msgstr "Mislukt om permanente opslag te configureren"
+msgstr "Mislukt om Persistente Opslag te configureren"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/application.py:80
 msgid "Could not find the WhisperBack application"
-msgstr ""
+msgstr "Kan de WhisperBack-applicatie niet vinden"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:94
 msgid "Delete Data…"
@@ -2201,7 +2236,7 @@ msgstr "Verwijderen…"
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:100
 #, python-brace-format
 msgid "Delete {feature} data"
-msgstr ""
+msgstr "Verwijder {feature} gegevens"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:122
 msgid "Activation failed"
@@ -2209,26 +2244,24 @@ msgstr "Activatie mislukt"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:178
 msgid "Activation failed. Try again or delete data."
-msgstr ""
+msgstr "Activering mislukt. Probeer het opnieuw of verwijder gegevens."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:180
 msgid "Activation failed. Try again."
-msgstr ""
+msgstr "Activering mislukt. Probeer het opnieuw."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:182
 msgid "The data of this feature is still saved."
-msgstr ""
+msgstr "De gegevens van deze functie wordt nog steeds opgeslagen."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:289
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:296
-#, fuzzy
 msgid "Error activating feature {}"
-msgstr "Fout bij activeren Persistent Storage: {}"
+msgstr "Fout bij het activeren van de functie: {}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:297
-#, fuzzy
 msgid "An error occurred while activating the feature."
-msgstr "Fout bij activeren Persistent Storage: {}"
+msgstr "Er is een fout opgetreden tijdens het activeren van de functie."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:298
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:347
@@ -2241,14 +2274,12 @@ msgstr "Details"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:338
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:345
-#, fuzzy
 msgid "Error deactivating feature {}"
-msgstr "Fout bij activeren Persistent Storage: {}"
+msgstr "Fout bij het deactiveren van functie {}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:346
-#, fuzzy
 msgid "An error occurred while deactivating the feature."
-msgstr "Fout bij activeren Persistent Storage: {}"
+msgstr "Er is een fout opgetreden bij het deactiveren van de functie."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:366
 msgid ""
@@ -2257,6 +2288,11 @@ msgid ""
 "\n"
 "If you cancel, the data will be restored when you turn this feature on again."
 msgstr ""
+"Alle gegevens verwijderen van de functie {} die is opgeslagen in de "
+"Persistente Opslag?\n"
+"\n"
+"Als u annuleert, worden de gegevens hersteld wanneer u deze functie weer "
+"inschakelt."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:377
 msgid "_Delete Data"
@@ -2264,17 +2300,19 @@ msgstr "_Verwijder Data"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:407
 msgid "Error deleting data of feature {}"
-msgstr ""
+msgstr "Fout bij verwijderen van gegevens van functie {}"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:408
 msgid "An error occurred while deleting the data of feature {}."
 msgstr ""
+"Er is een fout opgetreden bij het verwijderen van de gegevens van de functie "
+"{}."
 
 #. Translators: Don't translate {applications}, it's a placeholder
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:515
 #, python-brace-format
 msgid "Close {applications} to continue"
-msgstr ""
+msgstr "Sluit {applications} om door te gaan"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:516
 msgid " and "
@@ -2285,7 +2323,7 @@ msgstr " en "
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/feature.py:527
 #, python-brace-format
 msgid "{app} (PID: {pid})"
-msgstr ""
+msgstr "{app} (PID: {pid})"
 
 #. Translators: Don't translate {app} and {pids}, they
 #. are placeholders.
@@ -2301,19 +2339,17 @@ msgid "Change Passphrase"
 msgstr "Verander Wachtwoordzin"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/change_passphrase_dialog.py:92
-#, fuzzy
 msgid "The current passphrase is incorrect"
-msgstr "De wachtwoordzinnen komen niet overeen"
+msgstr "De huidige wachtwoordzin is onjuist"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/change_passphrase_dialog.py:103
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/change_passphrase_dialog.py:113
-#, fuzzy
 msgid "Changing the passphrase failed"
-msgstr "Verander Wachtwoordzin"
+msgstr "Het wijzigen van de wachtwoordzin is mislukt"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/change_passphrase_dialog.py:114
 msgid "An error occurred while changing the passphrase."
-msgstr ""
+msgstr "Er is een fout opgetreden bij het wijzigen van de wachtwoordzin."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/passphrase_strength_hint.py:44
 msgid "Weak"
@@ -2333,7 +2369,7 @@ msgstr "Sterk"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/error_dialog.py:54
 msgid "You can send an error report to help solve the issue."
-msgstr ""
+msgstr "U kunt een foutrapport verzenden om het probleem te helpen oplossen."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/error_dialog.py:61
 msgid "_Send Error Report"
@@ -2346,6 +2382,12 @@ msgid ""
 "To delete the Persistent Storage, restart Tails without unlocking the "
 "Persistent Storage and open the Persistent Storage settings again."
 msgstr ""
+"Het is onmogelijk om de Persistente Opslag te verwijderen terwijl deze "
+"ontgrendeld is.\n"
+"\n"
+"Om de Persistente Opslag te verwijderen, start Tails opnieuw op zonder de "
+"persistente opslag te ontgrendelen en opent u de instellingen voor "
+"persistente opslag opnieuw."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:167
 msgid ""
@@ -2356,11 +2398,16 @@ msgid ""
 "USB stick, restart Tails without unlocking the Persistent Storage and open "
 "the Persistent Storage settings again."
 msgstr ""
+"Het is onmogelijk om de Persistent Opslag te verwijderen omdat de USB-stick "
+"alleen-lezen is.\n"
+"\n"
+"Om de Persistent Opslag te verwijderen, schakelt de alleen-lezen-beveiliging "
+"van de USB-stick uit, start Tails opnieuw op zonder de Persistent Storage te "
+"ontgrendelen en opent u opnieuw de Persistent Opslag-instellingen."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:175
-#, fuzzy
 msgid "Impossible to delete the Persistent Storage"
-msgstr "Mislukt om permanente opslag te configureren"
+msgstr "Het is onmogelijk om de Persistente Opslag te verwijderen"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:183
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:218
@@ -2373,6 +2420,8 @@ msgid ""
 "Are you sure that you want to delete your Persistent Storage? This action "
 "cannot be undone."
 msgstr ""
+"Weet u zeker dat u uw Persistente Opslag wilt verwijderen? Deze actie kan "
+"niet ongedaan worden gemaakt."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:191
 #: config/chroot_local-includes/usr/local/sbin/unsafe-browser:56
@@ -2397,7 +2446,7 @@ msgstr "_Oké"
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:230
 msgid ""
 "Sorry, you can't close this app until the ongoing operation has completed."
-msgstr ""
+msgstr "Sorry, je kunt deze app pas sluiten als de lopende taak is voltooid."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:233
 msgid "Please wait"
@@ -2408,14 +2457,12 @@ msgid "Not enough memory to create Persistent Storage"
 msgstr "Niet genoeg geheugen om Persistente Opslag te maken"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:268
-#, fuzzy
 msgid "Failed to create Persistent Storage"
-msgstr "Mislukt om permanente opslag te configureren"
+msgstr "Mislukt om Persistente Opslag te configureren"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:269
-#, fuzzy
 msgid "An error occurred while creating the Persistent Storage."
-msgstr "Fout bij ontgrendelen Persistent Storage"
+msgstr "Er is een fout opgetreden bij het maken van de Persistente Opslag."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:289
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:296
@@ -2423,18 +2470,17 @@ msgid "Error deleting Persistent Storage"
 msgstr "Fout bij ontgrendelen Persistent Storage"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:297
-#, fuzzy
 msgid "An error occurred while deleting the Persistent Storage."
-msgstr "Fout bij ontgrendelen Persistent Storage"
+msgstr ""
+"Er is een fout opgetreden bij het verwijderen van de Persistente Opslag."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:334
 msgid "Details (command output)"
-msgstr ""
+msgstr "Details (opdrachtuitvoer)"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/tps_frontend/window.py:349
-#, fuzzy
 msgid "Failed to open the documentation"
-msgstr "Tails-documentatie"
+msgstr "Kan de documentatie niet openen"
 
 #. Translators: Don't translate {volume_label} or {volume_size},
 #. they are placeholders and will be replaced. They need
@@ -2718,9 +2764,8 @@ msgid "Unable to connect to the server."
 msgstr "Kan niet verbinden met de server."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:224
-#, fuzzy
 msgid "Tor is not ready yet"
-msgstr "Tor is niet gereed"
+msgstr "Tor is nog niet gereed"
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:226
 msgid "Unable to create or to send the mail."
@@ -2732,15 +2777,17 @@ msgid ""
 "\n"
 "Make sure that you are connected to Tor and click send again."
 msgstr ""
+"\n"
+"\n"
+"Zorg ervoor dat je verbonden bent met Tor en klik opnieuw op verzenden."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:241
 msgid "Your message has been sent."
 msgstr "Uw bericht is verstuurd."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:250
-#, fuzzy
 msgid "An error occurred during encryption."
-msgstr "Er is een fout opgetreden tijdens de versleuteling."
+msgstr "Er is een fout opgetreden tijdens de encryptie."
 
 #: config/chroot_local-includes/usr/lib/python3/dist-packages/whisperBack/gui.py:319
 msgid "This doesn't seem to be a valid URL or OpenPGP key."
@@ -3063,9 +3110,8 @@ msgid "Show Passphrase"
 msgstr "Wachtwoordzin tonen"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:463
-#, fuzzy
 msgid "Enter your passphrase"
-msgstr "Verifieer wachtwoordzin:"
+msgstr "Voer je wachtwoordzin in"
 
 #: ../config/chroot_local-includes/usr/share/tails/greeter/main.ui.in:478
 msgid "Unlock Encryption"
@@ -3610,12 +3656,11 @@ msgstr "Kopteksten"
 
 #: ../config/chroot_local-includes/usr/share/whisperback/whisperback.ui.in:621
 msgid "information about the error being reported"
-msgstr ""
+msgstr "informatie over de fout die wordt gerapporteerd"
 
 #: ../config/chroot_local-includes/usr/share/whisperback/whisperback.ui.in:669
-#, fuzzy
 msgid "Debugging Information"
-msgstr "debug-info"
+msgstr "Foutopsporingsinformatie"
 
 #: ../config/chroot_local-includes/usr/share/whisperback/whisperback.ui.in:730
 msgid "_Send"
@@ -3626,20 +3671,20 @@ msgid "TrueCrypt/VeraCrypt container"
 msgstr "TrueCrypt/VeraCrypt-container"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:82
-#, fuzzy
 msgid "Configure a Tor bridge"
-msgstr "Configureer een Tor_brug"
+msgstr "Configureer een Tor-brug"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:106
-#, fuzzy
 msgid ""
 "Bridges are secret Tor relays. Use a bridge as your first Tor relay if "
 "accessing Tor is blocked from where you are.\n"
 "\n"
 "You can use <i>obfs4</i> and <i>WebTunnel</i> bridges in Tails.\n"
 msgstr ""
-"Bidges zijn geheim Tor relays. Gebruik een brug als je eerste Tor relay als "
-"toegang tot Tor geblokkeerd is waar je bent."
+"Bridges zijn geheime Tor-relays. Gebruik een bridge als je toegang tot Tor "
+"is geblokkeerd vanaf jouw locatie.\n"
+"\n"
+"Je kunt in Tails <i>obfs4</i> en <i>WebTunnel</i> bridges gebruiken .\n"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:126
 msgid "<a href=\"doc/anonymous_internet/tor\">Learn more about Tor bridges</a>"
@@ -3663,9 +3708,8 @@ msgid "None"
 msgstr "Geen"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:242
-#, fuzzy
 msgid "Ask for a bridge based on your _region"
-msgstr "_Vraag per e-mail om een Torbrug"
+msgstr "Vraag om een brug op basis van uw _regio"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:301
 #, fuzzy
@@ -3733,57 +3777,52 @@ msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:856
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:930
-#, fuzzy
 msgid "Try configuring another bridge."
-msgstr "Stel een Tor brug in"
+msgstr "Probeer een andere bridge te configureren."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:884
-#, fuzzy
 msgid "Error connecting to Tor with default bridges"
-msgstr "Verbinden met Tor met standaardbruggen…"
+msgstr "Fout bij verbinden met Tor met standaard bruggen"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:900
-#, fuzzy
 msgid "Your network is blocking access to Tor and the default bridges."
-msgstr "Dit lokale netwerk blokkeert toegang tot Tor."
+msgstr "Uw netwerk blokkeert de toegang tot Tor en de standaard bruggen."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:916
-#, fuzzy
 msgid "Bridge: <b>default bridges</b>"
-msgstr "Gebruik een _standaardbrug"
+msgstr "Brug: <b>standaard bruggen</b>"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:958
-#, fuzzy
 msgid "Error connecting to Tor with bridges"
-msgstr "Verbinden met Tor zonder bruggen…"
+msgstr "Fout bij verbinden met Tor met bruggen"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:974
 msgid "None of the bridges recommended for this region worked."
-msgstr ""
+msgstr "Geen van de voor deze regio aanbevolen bruggen werkte."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:990
 msgid "Try another region or getting a bridge by mail."
-msgstr ""
+msgstr "Probeer een andere regio of ontvang een bridge per mail."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1018
-#, fuzzy
 msgid "Error asking for a bridge"
-msgstr "Fout bij controleren op upgrades"
+msgstr "Fout bij het vragen om een brug"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1034
 msgid "Tails failed to ask for a bridge based on your region."
-msgstr ""
+msgstr "Tails kon geen brug aanvragen voor jouw regio."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1050
 msgid ""
 "Please, <a href=\"support/talk\">report this error</a> and try asking for a "
 "bridge by email."
 msgstr ""
+"Meld deze fout alstublieft via <a href=\"support/talk\"> en probeer via e-"
+"mail een brug aan te vragen."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1087
-#, fuzzy
 msgid "Open _details"
-msgstr "Tails-installatieprogramma"
+msgstr "Open _details"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1142
 msgid "• Wrong clock"
@@ -3830,9 +3869,8 @@ msgid "Configure a Local _Proxy"
 msgstr "Een Lokale_Proxy configureren"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1374
-#, fuzzy
 msgid "• Tor bridge"
-msgstr "• Torbrug via e-mail"
+msgstr "• Tor-brug"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1394
 msgid ""
@@ -3845,9 +3883,8 @@ msgstr ""
 "door sommige publieke netwerken, of door enig ouderlijk toezicht."
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1410
-#, fuzzy
 msgid "Configure a Tor _Bridge"
-msgstr "Stel een Tor brug in"
+msgstr "Configureer een Tor_brug"
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1449
 msgid ""
@@ -3988,7 +4025,6 @@ msgid ""
 msgstr ""
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:1979
-#, fuzzy
 msgid ""
 "\n"
 "<a href=\"doc/anonymous_internet/no-wifi\">\n"
@@ -3996,8 +4032,11 @@ msgid ""
 "</a>\n"
 "                "
 msgstr ""
-"<a href=\"doc/anonymous_internet/tor\">Leer meer over hoe Tails verbinding "
-"maakt met Tor</a>"
+"\n"
+"<a href=\"doc/anonymous_internet/no-wifi\">\n"
+"Lees hoe je problemen met wifi oplost.\n"
+"</a>\n"
+"                "
 
 #: ../config/chroot_local-includes/usr/share/tails/tca/main.ui.in:2007
 msgid "Connect to a local network"
