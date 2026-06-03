@@ -1,0 +1,52 @@
+#!/usr/bin/python3
+
+"""
+Compare sizes, got with "du -xc $path" on two different Tails
+Find biggest changes
+"""
+
+import argparse
+import re
+from collections import defaultdict
+from pathlib import Path
+
+kernel_re = re.compile(r"/usr/lib/modules/(\d[^/]+)")
+
+
+def normalize_path(p):
+    p = p.strip()
+    # some paths change often (ie: kernel) so let's normalize it to make the comparison
+    # more meaningful
+    return kernel_re.sub("/usr/lib/modules/KERNEL_VERSION", p)
+
+
+def parse_file(f: Path) -> defaultdict:
+    d = defaultdict(int)
+    with f.open() as buf:
+        for line in buf:
+            size, path = line.rstrip("\n").split("\t", 1)
+            d[normalize_path(path)] = int(size)
+    return d
+
+
+def main():
+    p = argparse.ArgumentParser()
+    p.add_argument("old", type=Path)
+    p.add_argument("new", type=Path)
+    args = p.parse_args()
+    old_sizes = parse_file(args.old)
+    new_sizes = parse_file(args.new)
+    diffs = {
+        path: new_size - old_sizes[path]
+        for path, new_size in new_sizes.items()
+        if old_sizes[path] != new_size
+    }
+    for path in sorted(diffs, key=lambda x: diffs[x]):
+        flags = ""
+        if path not in old_sizes:
+            flags += "NEW "
+        print(f"{diffs[path]}\t{path} {flags.strip()}")
+
+
+if __name__ == "__main__":
+    main()

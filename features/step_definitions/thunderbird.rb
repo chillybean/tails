@@ -111,7 +111,7 @@ Then /^the autoconfiguration wizard's choice for the (incoming|outgoing) server 
   section = thunderbird_wizard.child(type, roleName: 'heading').parent
   subsections = section.children(roleName: 'section')
   assert(subsections.any? { |s| s.text == protocol })
-  assert(subsections.any? { |s| s.text == 'SSL/TLS' || s.text == 'STARTTLS' })
+  assert(subsections.any? { |s| ['SSL/TLS', 'STARTTLS'].include?(s.text) })
 end
 
 def wait_for_thunderbird_progress_bar_to_vanish
@@ -226,18 +226,22 @@ Then(/^the screen keyboard works in Thunderbird$/) do
   @screen.wait('ThunderbirdTextEntry.png', 20).click
   @screen.wait('ScreenKeyboard.png', 20)
   @screen.wait(osk_key, 20).click
-  # In Russian and Turkish the the text is displayed one pixel off
+  # In Russian and Turkish the text is displayed one pixel off
   # since Thunderbird 128, so use a slightly lower sensitivity.
   @screen.wait(thunderbird_x, 20, sensitivity: 0.8)
 end
 
 def thunderbird_non_suspicious_connections
   [
-    # Used to get addon lists
+    # Used to get add-on lists
     'addons.thunderbird.net', 'services.addons.thunderbird.net',
     # Used for many things, in particular the account auto config
     # database (mailnews.auto_config_url pref)
     'live.thunderbird.net',
+    # Used to install Thunderbird in the first place
+    'cloudfront.debian.net',
+    'deb.tails.boum.org',
+    'deb.torproject.org',
   ]
 end
 
@@ -249,7 +253,7 @@ Then /^no unexpected connection has leaked from Thunderbird$/ do
   assert_equal(0, connections.size, "Unexpected connections: #{connections.join(',')}")
 end
 
-Then /^the only connections have been made to my email server$/ do
+Then /^the system only established connections with my email server$/ do
   all_connections = tor_connections_from_log
   assert_false(all_connections.empty?,
                'No connections have been logged; ' \
@@ -271,4 +275,22 @@ Then /^the only connections have been made to my email server$/ do
 
   assert(unwanted_connections.empty?,
          "Unexpected connections: #{unwanted_connections.join(',')}")
+end
+
+Given(/^Thunderbird is installed$/) do
+  # Avoid having to deal with the Additional Software notification
+  # obscuring bits of UI that we need to interact with in following
+  # steps: this is a "Given" step, so we don't need to replicate
+  # exactly what a user would do.
+  apt_asp_conf_file = '/etc/apt/apt.conf.d/80tails-additional-software'
+  $vm.execute_successfully("mv '#{apt_asp_conf_file}' '#{apt_asp_conf_file}.disabled'")
+
+  step 'I update the APT lists using apt'
+  step 'I install "thunderbird" using apt'
+  # Some of our localization tests exercise specifically RTL behaviour,
+  # which is only enabled when the corresponding langpack is installed.
+  step 'I install "thunderbird-l10n-ar" using apt'
+
+  # Reset the APT configuration to its original state
+  $vm.execute_successfully("mv #{apt_asp_conf_file}.disabled #{apt_asp_conf_file}")
 end

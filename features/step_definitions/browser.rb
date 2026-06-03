@@ -71,7 +71,7 @@ def get_current_browser_url(as_displayed: false)
     return address
   end
 
-  if !as_displayed && !(address['://'])
+  if !as_displayed && !address['://']
     address = "https://#{address}"
   end
   address

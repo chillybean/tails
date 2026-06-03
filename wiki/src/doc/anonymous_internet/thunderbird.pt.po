@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tails-l10n@boum.org\n"
-"POT-Creation-Date: 2026-02-25 11:55+0100\n"
-"PO-Revision-Date: 2026-03-26 15:22+0000\n"
+"POT-Creation-Date: 2026-05-20 11:21+0200\n"
+"PO-Revision-Date: 2026-05-21 15:22+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pt\n"
@@ -24,8 +24,10 @@ msgid "[[!meta title=\"Emailing and reading news with Thunderbird\"]]\n"
 msgstr "[[!meta title=\"Mandando Emails e lendo noticias com o Thunderbird\"]]\n"
 
 #. type: Plain text
-msgid "Tails includes *Thunderbird* for:"
-msgstr "Tails inclui o *Thunderbird* para:"
+msgid ""
+"We recommend using [[*Thunderbird*|https://www.thunderbird.net/]] in Tails "
+"for:"
+msgstr ""
 
 #. type: Bullet: '- '
 #, fuzzy
@@ -44,82 +46,6 @@ msgid ""
 msgstr ""
 "- Ler feeds [[!wikipedia_pt RSS]] e [[!wikipedia_pt Atom]] de sites de "
 "notícias e blogs"
-
-#. type: Plain text
-#, no-wrap
-msgid "[[!toc levels=2]]\n"
-msgstr "[[!toc levels=2]]\n"
-
-#. type: Plain text
-#, fuzzy
-#| msgid ""
-#| "To start *Thunderbird* choose\n"
-#| "<span class=\"menuchoice\">\n"
-#| "  **Applications**&nbsp;▸\n"
-#| "  **Internet**&nbsp;▸\n"
-#| "  **Thunderbird**</span>.\n"
-msgid ""
-"To open *Thunderbird*, choose **Apps&nbsp;▸ Internet&nbsp;▸ Thunderbird**."
-msgstr ""
-"Para iniciar o *Thunderbird* escolha\n"
-"<span class=\"menuchoice\">\n"
-"  **Aplicativos**&nbsp;▸\n"
-"  **Internet**&nbsp;▸\n"
-"  **Thunderbird**</span>.\n"
-
-#. type: Plain text
-#, no-wrap
-msgid "<div class=\"tip\">\n"
-msgstr "<div class=\"tip\">\n"
-
-#. type: Plain text
-#, fuzzy, no-wrap
-#| msgid ""
-#| "<p>To store your\n"
-#| "emails, feeds, and settings across different working sessions,\n"
-#| "turn on the [[Thunderbird|doc/first_steps/persistence/configure#thunderbird]]\n"
-#| "feature of the Persistent Storage.</p>\n"
-msgid ""
-"<p>To store your\n"
-"emails, feeds, and settings across different working sessions,\n"
-"turn on the [[Thunderbird Email Client|persistent_storage/configure#thunderbird]]\n"
-"feature of the Persistent Storage.</p>\n"
-msgstr ""
-"<p>Para armazenar seus\n"
-"emails, feeds e configurações entre diferentes sessões de trabalho,\n"
-"ative a opção [[Thunderbird|doc/first_steps/persistence/configure#thunderbird]]\n"
-"do armazenamento persistente.</p>\n"
-
-#. type: Plain text
-#, no-wrap
-msgid "</div>\n"
-msgstr "</div>\n"
-
-#. type: Plain text
-#, no-wrap
-msgid "<div class=\"note\">\n"
-msgstr "<div class=\"note\">\n"
-
-#. type: Plain text
-#, no-wrap
-msgid ""
-"<p><i>Thunderbird</i> will not be included by default anymore in Tails 7.8\n"
-"(May 2026) and later.</p>\n"
-msgstr ""
-
-#. type: Plain text
-#, no-wrap
-msgid ""
-"<p>If you have the [[Thunderbird Email\n"
-"Client|persistent_storage/configure#thunderbird]] feature of the Persistent\n"
-"Storage turned on, Tails automatically adds <i>Thunderbird</i> to your list of\n"
-"[[Additional Software|persistent_storage/additional_software]].</p>\n"
-msgstr ""
-
-#. type: Plain text
-#, no-wrap
-msgid "<p>[[Why is Tails installing <i>Thunderbird</i> as Additional Software?|thunderbird/additional_software]]</p>\n"
-msgstr ""
 
 #. type: Plain text
 #, fuzzy
@@ -148,7 +74,177 @@ msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid "<h1 id=\"account\">Configuring an email account</h1>\n"
+msgid "</div>\n"
+msgstr "</div>\n"
+
+#. type: Plain text
+#, no-wrap
+msgid "[[!toc startlevel=2]]\n"
+msgstr "[[!toc startlevel=2]]\n"
+
+#. type: Title ##
+#, no-wrap
+msgid "Installing *Thunderbird* as additional software"
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid "*Thunderbird* is no longer included by default since Tails 7.8 (May 2026).\n"
+msgstr ""
+
+#. type: Plain text
+msgid ""
+"You can install *Thunderbird* as [[additional software|persistent_storage/"
+"additional_software]]."
+msgstr ""
+
+#. type: Plain text
+msgid ""
+"A new version of *Thunderbird* is released in Debian shortly after each "
+"Tails release, because both *Tails* and *Thunderbird* follow the [[release "
+"calendar of *Firefox*|https://whattrainisitnow.com/calendar/]]. As a "
+"consequence, until Tails 7.5 (February 2026), the version of *Thunderbird* "
+"in Tails was almost always outdated, with known security vulnerabilities."
+msgstr ""
+
+#. type: Plain text
+msgid ""
+"By installing *Thunderbird* as additional software, the latest version of "
+"*Thunderbird* is installed automatically from your Persistent Storage each "
+"time you start Tails."
+msgstr ""
+
+#. type: Plain text
+msgid "To install *Thunderbird* as additional software:"
+msgstr ""
+
+#. type: Bullet: '1. '
+msgid ""
+"Choose **Apps&nbsp;▸ Tails&nbsp;▸ Persistent Storage** to open the "
+"Persistent Storage settings."
+msgstr ""
+
+#. type: Bullet: '   1. '
+msgid "Create a Persistent Storage if you don't have one already."
+msgstr ""
+
+#. type: Bullet: '   1. '
+msgid "Make sure that the **Additional Software** feature is turned on."
+msgstr ""
+
+#. type: Bullet: '   1. '
+msgid "Turn on the **Thunderbird Email Client** feature."
+msgstr ""
+
+#. type: Bullet: '   1. '
+msgid "Close the Persistent Storage settings."
+msgstr ""
+
+#. type: Bullet: '1. '
+msgid "Restart Tails."
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid "   <div class=\"tip\">\n"
+msgstr "   <div class=\"tip\">\n"
+
+#. type: Plain text
+#, no-wrap
+msgid ""
+"   <p>To reopen this page after restarting Tails, choose <b>Apps&nbsp;▸\n"
+"   Tails&nbsp;▸ Tails Documentation</b> and go to <b>Documentation&nbsp;▸\n"
+"   Uncensored and anonymous Internet&nbsp;▸ Emailing and reading news with\n"
+"   Thunderbird</b>.</p>\n"
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid "   </div>\n"
+msgstr "   </div>\n"
+
+#. type: Plain text
+#, no-wrap
+msgid ""
+"   Tails detects that you have both the **Thunderbird Email Client** and **Additional\n"
+"   Software** features of the Persistent Storage turned on and automatically\n"
+"   adds *Thunderbird* to your list of additional software.\n"
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid ""
+"   Tails also tries to install as additional software the language package\n"
+"   that corresponds to the language of this Tails session, if it exists. To\n"
+"   use *Thunderbird* in another language, see [[using *Thunderbird* in\n"
+"   another language|thunderbird#language]].\n"
+msgstr ""
+
+#. type: Bullet: '1. '
+msgid "[[Connect to the Tor network.|doc/anonymous_internet/tor]]"
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid ""
+"   *Thunderbird* is downloaded and installed in the background after you\n"
+"   connected to the Tor network.\n"
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid ""
+"   This first installation can take several minutes. During this time, no\n"
+"   *Thunderbird* launcher is available in the **Apps** menu.\n"
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid ""
+"   <p>If you are comfortable with the command line and [[set up an\n"
+"   administration\n"
+"   password|doc/first_steps/welcome_screen/administration_password]] when\n"
+"   starting Tails, you can execute the following command to track the progress\n"
+"   of the download and installation:</p>\n"
+msgstr ""
+
+#. type: Plain text
+#, no-wrap
+msgid "   <p class=\"command\">sudo journalctl -f -u tails-additional-software-upgrade.service</p>\n"
+msgstr ""
+"   <p class=\"command\">sudo journalctl -f -u tails-additional-software-"
+"upgrade.service</p>\n"
+
+#. type: Bullet: '1. '
+#, fuzzy
+#| msgid ""
+#| "To start *Thunderbird* choose\n"
+#| "<span class=\"menuchoice\">\n"
+#| "  **Applications**&nbsp;▸\n"
+#| "  **Internet**&nbsp;▸\n"
+#| "  **Thunderbird**</span>.\n"
+msgid ""
+"After *Thunderbird* is installed, choose **Apps&nbsp;▸ Internet&nbsp;▸ "
+"Thunderbird** to open *Thunderbird*."
+msgstr ""
+"Para iniciar o *Thunderbird* escolha\n"
+"<span class=\"menuchoice\">\n"
+"  **Aplicativos**&nbsp;▸\n"
+"  **Internet**&nbsp;▸\n"
+"  **Thunderbird**</span>.\n"
+
+#. type: Plain text
+#, no-wrap
+msgid ""
+"   *Thunderbird* will be reinstalled automatically every time you start Tails.\n"
+"   Future installations will be much faster since *Thunderbird* is already\n"
+"   downloaded to your Persistent Storage.\n"
+msgstr ""
+
+#. type: Plain text
+#, fuzzy, no-wrap
+#| msgid "<h1 id=\"account\">Configuring an email account</h1>\n"
+msgid "<h2 id=\"account\">Configuring an email account</h2>\n"
 msgstr "<h1 id=\"account\">configurando uma conta de email</h1>\n"
 
 #. type: Bullet: '1. '
@@ -274,7 +370,7 @@ msgstr ""
 
 #. type: Plain text
 #, no-wrap
-msgid "<h1 id=\"news\">Reading RSS and Atom news feeds</h1>\n"
+msgid "<h2 id=\"news\">Reading RSS and Atom news feeds</h2>\n"
 msgstr ""
 
 #. type: Plain text
@@ -374,8 +470,9 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#, no-wrap
-msgid "<h1 id=\"privacy\">Enhanced privacy</h1>\n"
+#, fuzzy, no-wrap
+#| msgid "<h1 id=\"privacy\">Enhanced privacy</h1>\n"
+msgid "<h2 id=\"privacy\">Enhanced privacy</h2>\n"
 msgstr "<h1 id=\"privacy\">Privacidade melhorada</h1>\n"
 
 #. type: Plain text
@@ -451,7 +548,7 @@ msgstr ""
 #. type: Plain text
 #, fuzzy, no-wrap
 #| msgid "<h1 id=\"language\">Using Thunderbird in your language</h1>\n"
-msgid "<h1 id=\"language\">Using Thunderbird in another language</h1>\n"
+msgid "<h2 id=\"language\">Using Thunderbird in another language</h2>\n"
 msgstr "<h1 id=\"language\">Usando Thunderbird na sua língua</h1>\n"
 
 #. type: Plain text
@@ -479,9 +576,9 @@ msgstr ""
 
 #. type: Plain text
 msgid ""
-"Tails already includes language packages for Arabic, German, Spanish, Farsi, "
-"French, Hindi, Bahasa Indonesia, Italian, Portuguese, Russian, Turkish, and "
-"Simplified Chinese."
+"Tails automatically installs the language packages for Arabic, German, "
+"Spanish, Farsi, French, Hindi, Bahasa Indonesia, Italian, Portuguese, "
+"Russian, Turkish, and Simplified Chinese."
 msgstr ""
 
 #. type: Plain text
@@ -492,8 +589,9 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#, no-wrap
-msgid "<h1 id=\"openpgp\">OpenPGP encryption</h1>\n"
+#, fuzzy, no-wrap
+#| msgid "<h1 id=\"openpgp\">OpenPGP encryption</h1>\n"
+msgid "<h2 id=\"openpgp\">OpenPGP encryption</h2>\n"
 msgstr "<h1 id=\"openpgp\">Criptografia OpenPGP</h1>\n"
 
 #. type: Plain text
@@ -528,7 +626,7 @@ msgstr ""
 #. type: Plain text
 #, fuzzy, no-wrap
 #| msgid "<h2 id=\"master-password\">Setting up a Master Password (recommended)</h2>\n"
-msgid "<h2 id=\"primary-password\">Setting up a Primary Password (recommended)</h2>\n"
+msgid "<h3 id=\"primary-password\">Setting up a Primary Password (recommended)</h3>\n"
 msgstr "<h2 id=\"master-password\">Definindo uma senha principal (recomendado)</h2>\n"
 
 #. type: Plain text
@@ -588,8 +686,9 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#, no-wrap
-msgid "<h2 id=\"import-private\">Importing an existing private key</h2>\n"
+#, fuzzy, no-wrap
+#| msgid "<h2 id=\"import-private\">Importing an existing private key</h2>\n"
+msgid "<h3 id=\"import-private\">Importing an existing private key</h3>\n"
 msgstr "<h2 id=\"import-private\">Importando uma chave privada existente</h2>\n"
 
 #. type: Plain text
@@ -694,9 +793,10 @@ msgid "Select your private key to enable OpenPGP encryption for this account."
 msgstr ""
 
 #. type: Plain text
-#, no-wrap
-msgid "<h2 id=\"generate-private\">Generating a new OpenPGP private key</h2>\n"
-msgstr ""
+#, fuzzy, no-wrap
+#| msgid "<h2 id=\"import-private\">Importing an existing private key</h2>\n"
+msgid "<h3 id=\"generate-private\">Generating a new OpenPGP private key</h3>\n"
+msgstr "<h2 id=\"import-private\">Importando uma chave privada existente</h2>\n"
 
 #. type: Bullet: '1. '
 msgid ""
@@ -717,9 +817,10 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#, no-wrap
-msgid "<h2 id=\"encrypting\">Encrypting an email</h2>\n"
-msgstr ""
+#, fuzzy, no-wrap
+#| msgid "<h1 id=\"account\">Configuring an email account</h1>\n"
+msgid "<h3 id=\"encrypting\">Encrypting an email</h3>\n"
+msgstr "<h1 id=\"account\">configurando uma conta de email</h1>\n"
 
 #. type: Plain text
 msgid ""
@@ -756,6 +857,34 @@ msgstr ""
 msgid "To send an unencrypted email, turn off the **Encrypt** toggle button."
 msgstr ""
 
+#~ msgid "Tails includes *Thunderbird* for:"
+#~ msgstr "Tails inclui o *Thunderbird* para:"
+
+#, no-wrap
+#~ msgid "<div class=\"tip\">\n"
+#~ msgstr "<div class=\"tip\">\n"
+
+#, fuzzy, no-wrap
+#~| msgid ""
+#~| "<p>To store your\n"
+#~| "emails, feeds, and settings across different working sessions,\n"
+#~| "turn on the [[Thunderbird|doc/first_steps/persistence/configure#thunderbird]]\n"
+#~| "feature of the Persistent Storage.</p>\n"
+#~ msgid ""
+#~ "<p>To store your\n"
+#~ "emails, feeds, and settings across different working sessions,\n"
+#~ "turn on the [[Thunderbird Email Client|persistent_storage/configure#thunderbird]]\n"
+#~ "feature of the Persistent Storage.</p>\n"
+#~ msgstr ""
+#~ "<p>Para armazenar seus\n"
+#~ "emails, feeds e configurações entre diferentes sessões de trabalho,\n"
+#~ "ative a opção [[Thunderbird|doc/first_steps/persistence/configure#thunderbird]]\n"
+#~ "do armazenamento persistente.</p>\n"
+
+#, no-wrap
+#~ msgid "<div class=\"note\">\n"
+#~ msgstr "<div class=\"note\">\n"
+
 #, fuzzy, no-wrap
 #~| msgid ""
 #~| "<p>Emails and feeds in HTML format are displayed in plain text by\n"
@@ -766,14 +895,6 @@ msgstr ""
 #~ msgstr ""
 #~ "<p> E-mails e feeds no formato HTML são mostrados em texto sem formatação por\n"
 #~ "padrão e podem se tornar mais difíceis de serem lidos. </p>\n"
-
-#, no-wrap
-#~ msgid "   <div class=\"tip\">\n"
-#~ msgstr "   <div class=\"tip\">\n"
-
-#, no-wrap
-#~ msgid "   </div>\n"
-#~ msgstr "   </div>\n"
 
 #, no-wrap
 #~ msgid ""

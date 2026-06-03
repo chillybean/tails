@@ -68,20 +68,22 @@ following apply:
 A trusted container image is a container image that is:
 
 - either reproducible or based on a reproducible image,
-- stored in the Tails GitLab registry, and
+- stored in the Tails or Tor GitLab registry, and
 - peer-reviewed
 
-The Tails sysadmin Team maintains a set of container images in the
-[[!tails_gitlab sysadmin-team/container-images]] project which are trusted and
+The sysadmin team maintains sets of container images which are trusted and
 meant to either be used directly or serve as the basis for other trusted
-container images.
+container images:
+
+ - [[!tor_gitlab tpo/tpa/base-images]]
+ - [[!tails_gitlab sysadmin-team/container-images]]
 
 <a id="trusted-runners"></a>
 ### Trusted runners
 
 A trusted GitLab runner is one that:
 
-- runs on systems which only Tails sysadmins have access to,
+- runs on systems which only Tor sysadmins have access to,
 - runs on top of trusted software stack, and
 - is restricted to only run trusted container images.
 
@@ -142,8 +144,8 @@ Protect [sensitive credentials](#sensitive-credentials):
 Use [trusted container images](#trusted-container-images) for [sensitive jobs](#sensitive-jobs):
 
 - Request the activation of your project's container registry to Sysadmins
-- Start with [one of the base images](https://gitlab.tails.boum.org/sysadmin-team/container-images/container_registry)
-- Use the Podman image to build and push images ([see examples](https://gitlab.tails.boum.org/sysadmin-team/container-images/-/blob/main/.gitlab-ci.yml))
+- Start with [[!tor_gitlab tpo/tpa/base-images/container_registry desc="one of the base images"]]
+- Use the Podman image to build and push images ([[!tor_gitlab tpo/tpa/base-images/-/blob/main/.gitlab-ci.yml desc="see examples"]])
 - Build and push container images to your project's container registry [using the CI/CD](https://docs.gitlab.com/ee/user/packages/container_registry/build_and_push_images.html)
 - Make sure the images you push to your project's registry are peer-reviewed
 

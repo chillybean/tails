@@ -129,6 +129,9 @@ changes:
 When creating a new Tails device, Tails Cloner writes a random seed to 
 LBA 34 to initialize the seed for the first boot.
 
+However, this is not the case for Tails installed from a USB image,
+which is the most common use case.
+
 ## Possible disadvantages
 
 On [[!tails_ticket 11897]], the concern was raised that writing to the
@@ -196,10 +199,6 @@ possible cases:
 * If the one that wins the race may change depending on the context, then it's
   still useful to ship both `rngd` and `haveged`: it achieves our goal
   of not relying purely on either one.
-
-## Interaction between haveged and rngd
-
-This area is left to be researched.
 
 ## Early boot time
 

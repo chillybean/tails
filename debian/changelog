@@ -1,8 +1,278 @@
-tails (7.8) UNRELEASED; urgency=medium
+tails (7.8) unstable; urgency=medium
 
-  * Dummy entry for next release.
+  * Upgrade to Tor Browser 15.0.14 (tails/tails!3017)
 
- -- boyska <boyska@riseup.net>  Thu, 30 Apr 2026 13:31:31 +0200
+    Closes issues:
+      - Upgrade to Tor Browser based on Firefox ESR 140.11 (tails/tails#21537)
+
+    Commits:
+      - Tor Browser: refresh custom about:tor patches onto tor-
+        browser-140.11.0esr-15.0-1-build3
+      - Update instructions for importing changes from the official Mozilla Firefox
+        Flatpak
+      - Upgrade Tor Browser to 15.0.14-build1 (refs: tails#21537)
+      - CI: run all tests for 21537-tor-browser-15.0.14
+
+  * Mitigate the Fragnesia Linux kernel LPE (tails/tails!3000)
+
+    Closes issues:
+      - Fragnesia (Linux LPE) (tails/tails#21601)
+
+    Commits:
+      - Generalize blocklisting of esp4, esp6, and rxrpc
+      - Mitigate the Drity Frag Linux kernel LPE
+
+  * Mitigate Flatpak Sandbox Escape via Yelp (tails/tails!3015)
+
+    Closes issues:
+      - Flatpak Sandbox Escape via Yelp (tails/tails#21584)
+
+    Commits:
+      - Upgrade yelp to 42.2-4tails1 (refs: tails#21584)
+
+  * Fix CVE-2026-46529 (evince), CVE-2026-41989 (libgcrypt20),
+    and CVE-2026-41054 (haveged) (tails/tails!3020)
+
+  * Only ask users to update the Secure Boot CA if Secure Boot is enabled
+    (tails/tails!2972)
+
+    Closes issues:
+      - Confusing notifications about updating the Secure Boot CA while Secure Boot is
+        disabled (tails/tails#21539)
+
+    Commits:
+      - ruff format
+      - detects booting from MBR as SECURE_BOOT_DISABLED
+      - tests for SECURE_BOOT_DISABLED
+      - Stop interpreting mokutil failure as SECURE_BOOT_DISABLED
+      - be more explicit about cases which need no user action
+      - actually check if secure boot is disabled
+
+  * Upgrade to Trixie 13.5 (tails/tails!3014)
+
+    Closes issues:
+      - Upgrade to Trixie 13.5 (tails/tails#21170)
+
+    Commits:
+      - CI: run all tests
+      - Upgrade to Trixie 13.5
+
+  * WhisperBack reports installed Flatpak apps and runtimes (tails/tails!3006)
+
+    Closes issues:
+      - Add Flatpak support to WhisperBack (P202 1.3) (tails/tails#21550)
+
+    Commits:
+      - add empty lines to improve readability
+      - also report locales
+      - ruff E741: avoid ambiguous variable name
+      - ruff format
+      - whisperback-search supports tails-flatpak-info
+      - whisperback include details about flatpak
+
+  * Post-7.7.3 release process improvements (tails/tails!3005)
+
+    Closes issues:
+      - Release process: drop the "Build the almost-final images" step
+        (tails/tails#19015)
+
+    Commits:
+      - Add boyska's compare-directories-sizes
+      - Remove useless cat
+      - Ensure variable is set
+      - Fix incompatible types
+      - Remove UDFs for versions we'll never release
+      - Remove UDFs for versions we'll never release
+      - Remove obsolete type issue suppression
+      - ruff format
+      - shfmt
+      - Release process: drop the need to build the almost-final images locally
+      - Release process: move CI checks to "Pre-freeze"
+      - Release process: maximize the chances we have an almost-final image built on
+        Jenkins by the time we need it
+      - Release process: be explicit about the destination of the merge
+      - Release process: make heading more specific
+      - Release process: check earlier for Tor Browser update
+      - Add pipefail guard rail
+      - Update type annotation
+      - Verify that needed variables are set
+      - Add pipefail guard rail
+      - Release process: improve phrasing
+      - Give link its text
+      - Release process: use consistent spelling
+      - Release process: add missing heading
+      - copy-images-to-rsync-server-and-verify: allow skipping the download
+      - Don't use confusing variable name
+      - Don't reuse variable name for something else
+      - Clean up after ourselves
+      - Use a helpful exit code
+      - shfmt
+      - Lint
+      - Move code from manual QA doc to script
+      - Release process: fix formatting
+      - Release process: make link clickable and simplify phrasing
+      - Release process: fix typo
+      - Release process: drop obsolete "isotester" terminology and simply phrasing
+      - Release process: increase expected IUK size
+      - Release process: fix typo
+      - Release process: add missing word
+      - Fix doc structure
+      - Add pipefail safety net
+      - prepare-included-website-for-release: don't abort if there are no changes to
+        commit
+
+  * Test suite: switch to boot loader that contains the new 2023 Secure Boot keys
+    (tails/tails!2969)
+
+    Closes issues:
+      - Test suite: system under testing lacks 2023 UEFI CA keys when configured to use
+        Secure Boot (tails/tails#21529)
+
+    Commits:
+      - Test suite: make sure NVRAM is reset at startup
+      - Test suite: drop obsolete workaround
+      - Test suite: switch to boot loader that contains the new 2023 Secure Boot keys
+
+  * Stop installing Thunderbird packages in the images (tails/tails!2835)
+
+    Closes issues:
+      - Install & update Thunderbird from Debian repositories instead of shipping a
+        perpetually outdated version (tails/tails#21375)
+
+    Commits:
+      - Polish UX and doc
+      - Adjust test suite to updated dialog UI
+      - Update doc to Thunderbird no longer being included
+      - Fix heading levels
+      - Adjust wrapper to Thunderbird no longer being included
+      - Don't display a Thunderbird launcher while the package is still not installed
+      - Partially revert "Better support the user when they try to start Thunderbird
+        before it's installed"
+      - Git, please ignore Flycheck temporary files, thanks
+      - shfmt
+      - Remove unused import
+      - Remove overly noisy set -x
+      - Better support the user when they try to start Thunderbird before it's
+        installed
+      - Test suite: adjust to updated Thunderbird migration dialog
+      - Test suite: avoid having to deal with Thunderbird when we don't need it
+      - RuboCop: ignore Ruby LSP dynamically generated files
+      - Test suite: fix Style/HashEachMethods offenses
+      - rubocop --autocorrect
+      - Test suite: fix waiting for package installation
+      - Test suite: ensure Thunderbird is installed for the tests that use it
+      - Test suite: improve step name
+      - run_test_suite: improve phrasing of help text
+      - run_test_suite: remove obsolete details
+      - Test suite: have "XXX" comments reference the corresponding issue
+      - Test suite: remove duplicate word
+      - Test suite: improve phrasing of step
+      - Consistently use the "add-on" spelling in code comments
+      - Test suite: give step a clearer name
+      - Include the Thunderbird icon in our image
+      - Add some shell guardrails
+      - shfmt
+      - Add thunderbird.desktop that explains how to install Thunderbird
+      - Add some shell guardrails
+      - Thunderbird AppArmor profile: don't enable anymore, drop customization
+      - Thunderbird: update doc and UI strings that announced the migration
+      - Stop installing Thunderbird packages in the images
+
+ -- Tails developers <foundations@tails.net>  Wed, 20 May 2026 10:54:27 +0000
+
+tails (7.7.3) unstable; urgency=medium
+
+  * Upgrade Linux to 6.12.86
+
+    Fixes Dirty Frag.
+
+  * Upgrade Thunderbird to 1:140.10.1esr-1~deb13u1
+
+  * Upgrade tor to 0.4.9.8 (tails/tails!2998)
+
+    Closes issues:
+      - Upgrade tor to 0.4.9.8 (tails/tails#21573)
+
+    Commits:
+      - Output correct TOML
+      - Fix TOML
+      - Use correct variable
+      - Upgrade tor to 0.4.9.8
+      - Set this branch to run all tests
+
+  * Upgrade to Tor Browser 15.0.12 based on Firefox ESR 140.10.2 (tails/tails!2994)
+
+    Closes issues:
+      - Upgrade to Tor Browser 15.0.12 based on Firefox ESR 140.10.2
+        (tails/tails#21562)
+
+    Commits:
+      - Tor Browser: refresh custom about:tor patches onto tor-
+        browser-140.10.2esr-15.0-1-build1
+      - Upgrade Tor Browser to 15.0.12 (refs: tails#21562)
+      - CI: run all tests for 21562-tor-browser-15.0.12
+
+  * Automate a bit more the tor upgrade process (tails/tails!2995)
+
+    Commits:
+      - Automate a bit more the tor upgrade process
+      - GitLab: add issue template for upgrading tor
+
+  * Mostly stop using @boum.org email addresses that have autoreplies
+    (tails/tails!2989)
+
+    Commits:
+      - Remove unused import
+      - Remove unused __all__
+      - Remove unused local variable (Ruff F841)
+      - Remove unnecessary UTF-8 encoding declaration (Ruff UP009)
+      - shfmt
+      - ruff format
+      - Mostly stop using @boum.org email addresses that have autoreplies
+
+  * GitLab CI: forbid commits whose message starts with XXX or WIP
+    (tails/tails!2975)
+
+    Commits:
+      - Make wording more generic
+      - GitLab CI: forbid commits whose message starts with XXX or WIP
+
+  * Bump debian APT snapshot so we get electrum 4.7.2+dfsg-1~bpo13+1
+    (tails/tails!2971)
+
+    Upgrade firmwares to 20260410-1.
+
+    Closes issues:
+      - needed-package-updates: electrum 4.7.0+dfsg-1~bpo13+1 → 4.7.2+dfsg-1~bpo13+1
+        (tails/tails#21528)
+
+    Commits:
+      - Bump debian APT snapshot so we get electrum 4.7.2+dfsg-1~bpo13+1
+
+  * Test suite: bump to the pc-q35-10.0 machine (tails/tails!2970)
+
+    Closes issues:
+      - Automated test suite is broken with QEMU 11 (tails/tails#21532)
+
+    Commits:
+      - Test suite: ignore two ACPI-related failures in the journal
+      - Test suite: bump to the pc-q35-10.0 machine (refs: tails#21532)
+
+ -- Tails developers <foundations@tails.net>  Mon, 11 May 2026 07:47:08 +0000
+
+tails (7.7.2) unstable; urgency=medium
+
+  * Upgrade Linux to 6.12.85-1 (DSA 6238-1, Copy Fail aka. CVE-2026-31431)
+
+  * Forbid AF_ALG to mitigate Copy Fail (tails/tails!2984)
+
+    Closes issues:
+      - Copy Fail (CVE-2026-31431) (tails/tails#21542)
+
+    Commits:
+      - Forbid AF_ALG
+
+ -- Tails developers <tails@boum.org>  Fri, 01 May 2026 08:33:45 +0000
 
 tails (7.7.1) unstable; urgency=medium
 

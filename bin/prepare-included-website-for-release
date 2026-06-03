@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eu
+set -eu -o pipefail
 set -x
 
 # For git_current_branch
@@ -43,7 +43,7 @@ fi
 
 ./build-website --rebuild
 git add wiki/src
-git commit -m 'Update website PO files.'
+git diff --cached --quiet HEAD wiki/src/ || git commit -m 'Update website PO files.'
 
 ### Push
 

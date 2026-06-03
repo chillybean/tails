@@ -1,0 +1,15 @@
+[Unit]
+Description=Trigger hiding the Thunderbird launcher while the package is being installed
+# If the thunderbird package is *already* in Additional Software at
+# this time, let's hide the Thunderbird launcher while the package is
+# being installed.
+Before=tails-additional-software-install.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/systemctl --system start tails-possibly-hide-thunderbird-launcher.service
+TimeoutStartSec=0
+
+[Install]
+WantedBy=gnome-early-initialization.target

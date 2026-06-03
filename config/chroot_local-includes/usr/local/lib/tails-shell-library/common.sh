@@ -5,7 +5,7 @@
 # arithmetic is a PITA in the shell.
 clock_gettime_monotonic() {
     perl -w -MTime::HiRes=clock_gettime,CLOCK_MONOTONIC \
-         -E 'say int(clock_gettime(CLOCK_MONOTONIC))'
+        -E 'say int(clock_gettime(CLOCK_MONOTONIC))'
 }
 
 # Run `check_expr` until `timeout` seconds has passed, and sleep
@@ -62,12 +62,18 @@ is_package_installed() {
     package_name="${1}"
     # shellcheck disable=SC2016
     package_status="$(no_abort dpkg-query --show \
-                      --showformat='${db:Status-Status}' "${package_name}" \
-                      2>/dev/null)"
+        --showformat='${db:Status-Status}' "${package_name}" \
+        2>/dev/null)"
     [ "${package_status}" = "installed" ]
 }
 
-extract_from_file_between_markers () {
+is_package_in_additional_software() {
+    local package_name
+    package_name="${1}"
+    python3 -c "import additional_software, sys; sys.exit(0) if \"$package_name\" in additional_software.get_additional_packages() else sys.exit(1)"
+}
+
+extract_from_file_between_markers() {
     local file start stop
     file="${1}"
     start="${2}"
@@ -75,5 +81,5 @@ extract_from_file_between_markers () {
     awk "/${start}/ { between=1; next; }
          /${stop}/ { between=0; }
          { if (between) { print; } }" \
-             "${file}"
+        "${file}"
 }

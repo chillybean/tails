@@ -21,7 +21,7 @@ To Do
 - [ ] Have the severity assessment confirmed by another Tails Team member
 - [ ] Track the next steps, according to our [Security issue response policy](https://tails.net/contribute/security_policy/)
   - The next steps depend on the severity of this issue.
-  - For example: track when this issue can be disclosed, in a way that will survive this issue being closed and the corresponding MR being merged.
+  - Disclosing this issue is already covered by the release process.
 - [ ] [Decide](https://tails.net/contribute/working_together/roles/release_manager/#emergency-release) whether we will do an emergency release or document mitigation measures
 
 Impact

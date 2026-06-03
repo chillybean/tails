@@ -1,0 +1,9 @@
+[Unit]
+Description=Hide the Thunderbird launcher while the package is being installed
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/local/lib/tails-possibly-hide-thunderbird-launcher
+PrivateDevices=yes
+PrivateTmp=yes
