@@ -4,6 +4,19 @@ When /^I start GNOME Software$/ do
   try_for(60) { @gnome_software.child('Explore', roleName: 'page tab') }
 end
 
+When /^I try to start GNOME Software$/ do
+  launch_gnome_software(check_started: false)
+end
+
+Then /^I see an error about GNOME Software requiring Tor to be ready$/ do
+  Dogtail::Application.new('zenity')
+                      .dialog('GNOME Software')
+                      .child(
+                        'GNOME Software can only start once Tor has bootstrapped.',
+                        roleName: 'label'
+                      )
+end
+
 When /^I install (.*) using GNOME Software$/ do |term|
   @gnome_software.child('Explore', roleName: 'page tab').click
   @gnome_software.child('Search', roleName: 'toggle button').click
