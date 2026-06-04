@@ -1660,6 +1660,11 @@ Upload the ISO and USB image signatures to our rsync server:
 
     scp "${ISO_PATH:?}.sig" "${IMG_PATH:?}.sig" rsync.lizard:
 
+If the network is still very slow, then copy images from your own computer,
+which is often faster:
+
+    rsync -vhL --partial --progress --inplace "${IMG_PATH}" "${ISO_PATH}" rsync.lizard:
+
 Copy the ISO and USB images to our rsync server, verify their signature,
 move them in place with proper ownership and permissions and update
 the time in `project/trace` file on our rsync server and on the live
