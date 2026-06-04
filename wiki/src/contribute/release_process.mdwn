@@ -1348,22 +1348,19 @@ Verify that Jenkins reproduced your IUKs
 
 ### Compare the IUKs
 
-#### If the network is still very slow
+If the network is still very slow:
 
-The "normal" command we had in place is really slow nowadays. The snippet that
-follows is much faster. However, it's not as smart, so it can only handle cases
-in which IUKs have been built exactly once.
+1. Upload the IUKs you've built to `rsync.lizard`:
 
-    ssh jenkins.lizard <<EOF | grep -E '[.]iuk$' > "jenkins_${VERSION}.sha256sum"
-    find /var/lib/jenkins/jobs/ -name '*.iuk' -mtime -1 \
-    -exec sha256sum {} \;
-    EOF
-    sed -i 's@/.*/Tails_@Tails_@'  "jenkins_${VERSION}.sha256sum"
-    diff <(sort jenkins_${VERSION}.sha256sum) <(sort "${IUKS_HASHES:?}")
+        for source_version in $(echo ${IUK_SOURCE_VERSIONS:?}); do
+           rsync --partial --inplace --progress -v \
+              "${IUKS_DIR:?}/Tails_amd64_${source_version:?}_to_${VERSION:?}.iuk" \
+              rsync.lizard:/srv/tmp/
+        done
 
-If this script is not working fine for you, please refer to the next section.
-
-#### Otherwise, if the network problem is over or if if you want a safe, non-optimized, script
+2. Pass `--skip-downloading-iuks` to the `copy-iuks-to-rsync-server-and-verify`
+   command below so it uses the IUKs you've uploaded, instead of downloading
+   them from Jenkins.
 
 Run this command to verify that Jenkins reproduced your IUKs:
 
