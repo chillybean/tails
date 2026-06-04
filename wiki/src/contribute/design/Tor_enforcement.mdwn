@@ -130,8 +130,9 @@ web server used by Fedora:
  - [[!tails_gitweb config/chroot_local-includes/etc/tails-get-network-time-url desc="configuration file"]]
  - [[!tails_gitweb config/chroot_local-packageslists/tails-get-network-time.list desc="dependencies"]]
 
-Incidentally, this program also has heuristics to detect captive portals,
-but currently Tails merely logs the result of these checks ([[!tails_ticket 5785]]).
+This program also has heuristics to detect captive portals,
+which we use to better guide the user when a captive portal is detected
+([[!tails_ticket 5785]]).
 
 `tails-get-network-time` is run by `tca-portal.service`, which accordingly
 is allowed to initiate network traffic without Tor:
