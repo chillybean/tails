@@ -1662,6 +1662,9 @@ then copy images from your own computer, which is often faster:
 
     rsync -vhL --partial --progress --inplace "${IMG_PATH}" "${ISO_PATH}" rsync.lizard:
 
+… then pass `--skip-downloading-images` to the `copy-images-to-rsync-server-and-verify`
+command below.
+
 Copy the ISO and USB images to our rsync server, verify their signature,
 move them in place with proper ownership and permissions and update
 the time in `project/trace` file on our rsync server and on the live
