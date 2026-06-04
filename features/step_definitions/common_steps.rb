@@ -1069,13 +1069,14 @@ def switch_input_source
 end
 
 def launch_app(desktop_file_name, app_name, user: LIVE_USER, timeout: 30,
-               check_started: true)
+               check_started: true, launch_args: [])
   # We use systemd-run to launch the app, because we want the app to run
   # in the active systemd login session, so that polkit rules for active
   # sessions apply to it.
   cmd = ['systemd-run', '--user',
          '--remain-after-exit',
          '/usr/local/bin/gtk-abspath-launch',
+         *launch_args,
          "/usr/share/applications/#{desktop_file_name}",].join(' ')
   $vm.execute(cmd, user:)
   return unless check_started
@@ -1096,6 +1097,7 @@ def launch_gnome_disks(**opts)
 end
 
 def launch_gnome_software(**opts)
+  opts[:launch_args] ||= '--no-dbus-ping'
   launch_app(
     'org.gnome.Software.desktop',
     'gnome-software',
