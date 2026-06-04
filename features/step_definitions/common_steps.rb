@@ -1069,7 +1069,8 @@ def switch_input_source
 end
 
 def launch_app(desktop_file_name, app_name, user: LIVE_USER, timeout: 30,
-               check_started: true, launch_args: [])
+               check_started: true, launch_args: [],
+               applications_dir: '/usr/share/applications')
   # We use systemd-run to launch the app, because we want the app to run
   # in the active systemd login session, so that polkit rules for active
   # sessions apply to it.
@@ -1077,7 +1078,7 @@ def launch_app(desktop_file_name, app_name, user: LIVE_USER, timeout: 30,
          '--remain-after-exit',
          '/usr/local/bin/gtk-abspath-launch',
          *launch_args,
-         "/usr/share/applications/#{desktop_file_name}",].join(' ')
+         "#{applications_dir}/#{desktop_file_name}",].join(' ')
   $vm.execute(cmd, user:)
   return unless check_started
 
@@ -1086,6 +1087,16 @@ def launch_app(desktop_file_name, app_name, user: LIVE_USER, timeout: 30,
     app = Dogtail::Application.new(app_name)
   end
   app
+end
+
+def launch_user_flatpak_app(app_id, **opts)
+  opts[:user] ||= LIVE_USER
+  launch_app(
+    "#{app_id}.desktop", app_id,
+    applications_dir: "/home/#{opts[:user]}/.local/share/flatpak/" \
+                      'exports/share/applications',
+    **opts
+  )
 end
 
 def launch_gnome_disks(**opts)

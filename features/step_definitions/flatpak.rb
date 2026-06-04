@@ -53,7 +53,7 @@ Then /^the (.*) Flatpak is (un)?installed after at most (\d+) seconds$/ do |app_
 end
 
 When /^I start the (.*) Flatpak$/ do |app_id|
-  $vm.spawn("flatpak --user run #{app_id}", user: LIVE_USER)
+  launch_user_flatpak_app(app_id, check_started: false)
 end
 
 Then /^the (.*) Flatpak is running$/ do |app_id|
