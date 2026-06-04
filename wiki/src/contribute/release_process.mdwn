@@ -1348,7 +1348,7 @@ Verify that Jenkins reproduced your IUKs
 
 ### Compare the IUKs
 
-If the network is still very slow:
+If the network between `rsync.lizard` and Jenkins is still very slow:
 
 1. Upload the IUKs you've built to `rsync.lizard`:
 
@@ -1657,8 +1657,8 @@ Upload the ISO and USB image signatures to our rsync server:
 
     scp "${ISO_PATH:?}.sig" "${IMG_PATH:?}.sig" rsync.lizard:
 
-If the network is still very slow, then copy images from your own computer,
-which is often faster:
+If the network between `rsync.lizard` and Jenkins is still very slow,
+then copy images from your own computer, which is often faster:
 
     rsync -vhL --partial --progress --inplace "${IMG_PATH}" "${ISO_PATH}" rsync.lizard:
 
