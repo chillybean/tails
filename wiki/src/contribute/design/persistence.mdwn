@@ -83,6 +83,20 @@ bind-mounted and the files of symlink bindings are made available via
 symlinks. For examples and further explanation, see the
 [[Configuration File|persistence#configuration-file]] section below.
 
+### Feature states
+
+Each feature has three boolean flags whose names and semantics are
+inspired by systemd units:
+
+* "active" means it's currently mounted.
+* "enabled" means the feature is configured to be activated on
+  boot. Only enabled features can be activated.
+* "masked" means that even if it is enabled it will be skipped when
+  activating all enabled features at boot, and will not be listed in
+  the frontend. Attempting to activate (or otherwise interact with) a
+  masked feature via D-Bus will result in an error. The intention is
+  to make an enabled feature temporarily unavailable.
+
 ### Initial activation
 
 We want to support this user story:
