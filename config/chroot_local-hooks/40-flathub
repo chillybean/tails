@@ -18,7 +18,7 @@ TMP=$(mktemp -d)
     export https_proxy=https://0.0.0.0:0
     # We set a temporary home in order to not pollute /root
     export HOME="${TMP}"
-    flatpak --user remote-add --if-not-exists flathub ./flathub.flatpakrepo
+    /usr/local/lib/flatpak --user remote-add --if-not-exists flathub ./flathub.flatpakrepo
     # For some reason this directory gets permission drwx--S---
     chmod -R a-s "${TMP}"/.local/share/flatpak
     cp "${TMP}"/.local/share/flatpak/repo/flathub.trustedkeys.gpg /usr/share/tails/

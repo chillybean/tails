@@ -5,10 +5,14 @@
 
 export TEXTDOMAIN='tails'
 
+# This wrapper is in the $PATH so it might be called by unknown code
+# in environments that do not support user interaction, so it must
+# supper being called non-interactively.
+
 if ! tor_has_bootstrapped; then
     dialog_title=$(gettext "GNOME Software")
     dialog_text=$(gettext "GNOME Software can only start once Tor has bootstrapped.")
     exec zenity --error --no-wrap --title "$dialog_title" --text="$dialog_text"
 fi
 
-exec /usr/bin/gnome-software "${@}"
+exec /usr/local/lib/gnome-software "${@}"
