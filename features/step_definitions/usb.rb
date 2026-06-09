@@ -441,14 +441,13 @@ end
 
 Given /^I close the Persistent Storage app$/ do
   # Close any alerts
-  alert = persistent_storage_frontend.child(roleName: 'alert', retry: false)
-  while alert
-    alert.button('Close').click
-    begin
-      alert = persistent_storage_frontend.child(roleName: 'alert', retry: false)
-    rescue StandardError
-      alert = nil
-    end
+  loop do
+    persistent_storage_frontend.child(roleName: 'alert',
+                                      retry:    false)
+                               .button('Close')
+                               .click
+  rescue StandardError
+    break
   end
 
   # Close the main window
