@@ -9,7 +9,7 @@ Feature: Installing and running Flatpak apps in Tails
     Then Debian package gnome-software-plugin-deb is not installed
 
   @check_tor_leaks
-  Scenario: GNOME Software requires Tor to be ready
+  Scenario: GNOME Software does not start until Tor is ready
     Given I have started Tails without network with the Flatpak feature from a USB drive with a persistent partition enabled and logged in
     Then process "gnome-software" is not running
     When I try to start GNOME Software
