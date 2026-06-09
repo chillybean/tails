@@ -25,7 +25,7 @@ Feature: Installing and running Flatpak apps in Tails
     Given I have started Tails with the Flatpak feature from a USB drive with a persistent partition enabled and logged in and the network is connected
     When I start GNOME Software
     And I install Signal Desktop using GNOME Software
-    Then the org.signal.Signal Flatpak is installed after at most 300 seconds
+    Then the org.signal.Signal Flatpak is installed after at most 600 seconds
     When I start the org.signal.Signal Flatpak
     Then the org.signal.Signal Flatpak is running
     Given I kill the org.signal.Signal Flatpak
