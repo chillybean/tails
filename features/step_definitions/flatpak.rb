@@ -60,7 +60,7 @@ Then /^the (.*) Flatpak is running$/ do |app_id|
   try_for(30) do
     $vm.execute(
       'flatpak ps --columns=application', user: LIVE_USER
-    ).stdout[/^#{app_id}$/]
+    ).stdout.split("\n").include?(app_id)
   end
 end
 
