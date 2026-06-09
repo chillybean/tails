@@ -97,6 +97,7 @@ OPENCV_IMAGE_PATH = "#{Dir.pwd}/features/images/".freeze
 OPENCV_MIN_SIMILARITY = 0.9
 
 # Constants that are statically initialized.
+LAN_SUBNETS = ['10.0.0.0/8', '172.16.0.0/12', '192.168.0.0/16'].freeze
 LIBVIRT_DOMAIN_NAME = 'TailsToaster'.freeze
 LIBVIRT_DOMAIN_UUID = '203552d5-819c-41f3-800e-2c8ef2545404'.freeze
 LIBVIRT_NETWORK_NAME = 'TailsToasterNet'.freeze

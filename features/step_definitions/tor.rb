@@ -125,8 +125,7 @@ Then /^the firewall is configured to only allow the (.+) users? to connect direc
                  "(#{users_str}) to have such access:\n#{rule}")
         end
       elsif action.name == 'call' && action.elements[1].name == 'lan'
-        lan_subnets = ['10.0.0.0/8', '172.16.0.0/12', '192.168.0.0/16']
-        assert(lan_subnets.include?(destination),
+        assert(LAN_SUBNETS.include?(destination),
                "The following lan-targeted rule's destination is " \
                "#{destination} which may not be a private subnet:\n" +
                rule.to_s)
@@ -146,7 +145,6 @@ end
 Then /^the firewall's NAT rules only redirect traffic for the Unsafe Browser, Tor's TransPort, and DNSPort$/ do
   loopback_address = '127.0.0.1/32'
   tor_onion_addr_space = '127.192.0.0/10'
-  lan_subnets = ['10.0.0.0/8', '172.16.0.0/12', '192.168.0.0/16']
   tor_trans_port = '9040'
   dns_port = '53'
   tor_dns_port = '5353'
@@ -187,7 +185,7 @@ Then /^the firewall's NAT rules only redirect traffic for the Unsafe Browser, To
           end
         when 'RETURN'
           # LAN addresses are exempt from transparent proxying for the live user
-          if owner == 1000 && lan_subnets.include?(destination)
+          if owner == 1000 && LAN_SUBNETS.include?(destination)
             good_rules << rule
           end
         end
