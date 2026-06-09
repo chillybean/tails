@@ -3,6 +3,8 @@
 # Import tor_has_bootstrapped()
 . /usr/local/lib/tails-shell-library/systemd.sh
 
+export TEXTDOMAIN='tails'
+
 if ! tor_has_bootstrapped; then
     dialog_title=$(gettext "GNOME Software")
     dialog_text=$(gettext "GNOME Software can only start once Tor has bootstrapped.")
