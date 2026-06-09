@@ -56,14 +56,21 @@ When /^I start the (.*) Flatpak$/ do |app_id|
   launch_user_flatpak_app(app_id, check_started: false)
 end
 
+def flatpak_running?(app_id)
+  $vm.execute(
+    'flatpak ps --columns=application', user: LIVE_USER
+  ).stdout.split("\n").include?(app_id)
+end
+
 Then /^the (.*) Flatpak is running$/ do |app_id|
   try_for(30) do
-    $vm.execute(
-      'flatpak ps --columns=application', user: LIVE_USER
-    ).stdout.split("\n").include?(app_id)
+    flatpak_running?(app_id)
   end
 end
 
 When /^I kill the (.*) Flatpak$/ do |app_id|
   $vm.execute_successfully("flatpak kill #{app_id}", user: LIVE_USER)
+  try_for(10, msg: "Flatpak #{app_id} could not be killed") do
+    !flatpak_running?(app_id)
+  end
 end
