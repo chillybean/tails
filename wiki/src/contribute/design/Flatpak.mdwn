@@ -56,6 +56,41 @@ GNOME Software uses AppStream to get the list of apps available on Flathub:
 machine-readable information (screenshots, descriptions, versions) for app
 stores, including Flathub".
 
+## GNOME Software startup and update schedule
+
+GNOME Software follows an update schedule by checking if certain
+conditions are met on its startup and every hour following that, and
+if met proceeds to fetch updates. The main condition is that it will
+only fetch updates if the last attempt for that was done another
+calendar day. It implements that by comparing the current time with a
+timestamp (`org.gnome.software.check-timestamp` GSetting) that was set
+last time it fetched updates (if not set it will also proceed).
+
+An issue in Tails is that this timestamp is updated even when the
+update fetch fails, so if GNOME Software starts before Tor has
+bootstrapped it will set the timestamp even though no updates were
+fetched. Combined with the condition mentioned above that means that
+GNOME Software only will fetch updates in Tails sessions that run from
+one calendar day to the next. For this reason we take great care in
+preventing GNOME Software from starting before Tor has bootstrapped.
+
+A wrapper for GNOME Software prevents it from starting if Tor isn't
+bootstrapped, informing users of this requirement:
+
+- [[!tails_gitweb
+  config/chroot_local-includes/usr/local/bin/gnome-software]]
+
+The service that starts GNOME Software is scheduled to start after Tor
+has bootstrapped:
+
+- [[!tails_gitweb
+  config/chroot_local-includes/usr/lib/systemd/user/gnome-software.service.d/after-tor-has-bootstrapped.conf]]
+
+XDG autostart is disabled, and `DBusActivatable` is dropped from the
+Desktop file to ensure that it executes the wrapper:
+
+- [[!tails_gitweb config/chroot_local-hooks/30-flatpak]]
+
 # Related pages
 
 See also:
