@@ -8,7 +8,8 @@ workflow:
 # This block is nothing special in GitLab CI semantics. It's just a place we're
 # putting "variables" to be reused later
 .definitions:
-  # Please, make sure to only use images from `registry.gitlab.tails.boum.org`,
+  # Please, make sure to only use images from `registry.gitlab.tails.boum.org`
+  # or `containers.torproject.org/tpo/tpa/base-images`
   # as we give significant privileges to our Runners wrt. what they can do in our
   # repositories.
   image-trixie: &image-trixie "registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:trixie"
