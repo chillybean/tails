@@ -13,45 +13,23 @@ echo "Install the Tor Browser"
 # a new browser profile we can simply copy the profile directory
 # without duplicating all extensions.
 . /usr/local/lib/tails-shell-library/tor-browser.sh
-# Import ensure_hook_dependency_is_installed,
+# Import download_file(),
+# ensure_hook_dependency_is_installed,
 # install_fake_package,
 # strip_nondeterminism_wrapper
 . /usr/local/lib/tails-shell-library/build.sh
-# Import JENKINS_URL and TAILS_PROXY_TYPE
-. /usr/share/tails/build/variables
 
 download_and_verify_files() {
-    local base_url target_files destination apt_proxy
+    local base_url target_files destination
     base_url="${1}"
     target_files="${2}"
     destination="${3}"
-
-    # Use the builder's caching APT proxy, if any
-    apt_proxy="$(apt-config --format '%v' dump Acquire::http::Proxy)"
-    if [ -n "${apt_proxy}" ]; then
-        if [ "${TAILS_PROXY_TYPE}" = 'vmproxy' ] || [ -n "${JENKINS_URL:-}" ]; then
-            # When using the vmproxy or building on Jenkins, we know
-            # that apt-cacher-ng is used, so we fetch and cache over
-            # https using the HTTPS/// trick
-            # (https://www.unix-ag.uni-kl.de/~bloch/acng/html/howtos.html#ssluse)
-            base_url="$(echo "$base_url" | sed "s@^https://@${apt_proxy}/HTTPS///@")"
-            unset HTTP_PROXY http_proxy HTTPS_PROXY https_proxy
-        else
-            # Otherwise it's the user's responsibility to configure their proxy
-            # to support the (possibly HTTPS) URL we want to download.
-            export HTTP_PROXY="${apt_proxy}"
-            export http_proxy="${apt_proxy}"
-            export HTTPS_PROXY="${apt_proxy}"
-            export https_proxy="${apt_proxy}"
-        fi
-    fi
 
     echo "${target_files}" | while read -r expected_sha256 tarball; do
         (
             cd "${destination}"
             echo "Fetching ${base_url}/${tarball} ..."
-            # Bypass the /usr/local/bin/curl wrapper
-            /usr/bin/curl --retry 20 --remote-name "${base_url}/${tarball}"
+            download_file "${base_url}/${tarball}"
         )
         actual_sha256="$(sha256sum "${destination}/${tarball}" | cut -d' ' -f1)"
         if [ "${actual_sha256}" != "${expected_sha256}" ]; then

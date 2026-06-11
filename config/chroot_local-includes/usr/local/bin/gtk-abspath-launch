@@ -19,6 +19,11 @@ def str_to_gfile(s) -> Gio.File:
 
 def main():
     p = argparse.ArgumentParser()
+    p.add_argument(
+        "--no-dbus-ping",
+        action="store_true",
+        help="Don't send a D-Bus Ping to the application's bus after start",
+    )
     p.add_argument("desktop", help="Path to the .desktop file", type=Path)
     p.add_argument(
         "app_args",
@@ -37,6 +42,8 @@ def main():
     launch_context: Gdk.AppLaunchContext = display.get_app_launch_context()
     launch_context.set_timestamp(Gtk.get_current_event_time())
     app.launch(files=args.app_args, context=launch_context)
+    if args.no_dbus_ping:
+        exit()
     bus_name = args.desktop.name.removesuffix(".desktop")
     if Gio.dbus_is_name(bus_name):
         object_path = "/" + bus_name.replace(".", "/")

@@ -212,7 +212,9 @@ class Service(DBusObject, ServiceUsingJobs):
             self._tps_partition = TPSPartition.create(job, passphrase)
 
         # Activate all features that should be enabled by default
-        for feature in (f for f in self.features if f.enabled_by_default):
+        for feature in (
+            f for f in self.features if f.enabled_by_default and not f.IsMasked
+        ):
             try:
                 feature.do_activate(None, non_blocking=True)
             except ConflictingProcessesError as e:
@@ -339,7 +341,7 @@ class Service(DBusObject, ServiceUsingJobs):
 
         self.refresh_features()
         failed_feature_names = list()
-        for feature in [f for f in self.features if f.IsEnabled]:
+        for feature in [f for f in self.features if f.IsEnabled and not f.IsMasked]:
             try:
                 feature.do_activate(None, non_blocking=True)
             except Exception:

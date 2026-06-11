@@ -56,6 +56,21 @@ tps_feature_is_enabled() {
     return 1
 }
 
+tps_feature_is_masked() {
+    local feature="${1}"
+    local object_path="/org/boum/tails/PersistentStorage/Features/${feature}"
+    local out
+    out="$(gdbus call --system --dest org.boum.tails.PersistentStorage \
+        --object-path "${object_path}" \
+        --method org.freedesktop.DBus.Properties.Get \
+        org.boum.tails.PersistentStorage.Feature IsMasked)"
+
+    if [ "${out}" = "(<true>,)" ]; then
+        return 0
+    fi
+    return 1
+}
+
 tps_get_features() {
     # Notes:
     # - Only tails-persistent-storage and Debian-gdm have the required

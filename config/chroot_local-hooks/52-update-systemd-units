@@ -37,6 +37,7 @@ systemctl --global enable tails-additional-software-update-config.service
 systemctl --global enable tails-configure-keyboard.service
 systemctl --global enable tails-gnome-automated-testing.service
 systemctl --global enable tails-low-ram-notify-user.service
+systemctl --global enable tails-possibly-hide-gnome-software-launcher.service
 systemctl --global enable tails-possibly-hide-thunderbird-launcher-after-update-config.service
 systemctl --global enable tails-possibly-hide-thunderbird-launcher-before-install.service
 systemctl --global enable tails-report-disk-partitioning-errors.service
@@ -54,6 +55,9 @@ systemctl --global enable tails-dump-user-env.service
 systemctl --global enable tails-start-system-gnome-session-target.service
 systemctl --global enable tails-post-greeter-docs.service
 systemctl --global enable tails-post-greeter-whisperback.service
+
+# Enable user unit file that was imported from Debian Forky
+systemctl --global enable gnome-software.service
 
 # This causes the proxies to run during the whole session, instead of
 # being started and stopped when needed. The only app which needs
