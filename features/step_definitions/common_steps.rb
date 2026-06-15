@@ -105,6 +105,9 @@ Given /^the computer is set to boot from the Tails DVD$/ do
 end
 
 Given /^the computer is set to boot from (.+?) drive "(.+?)"$/ do |type, name|
+  # Let's not risk issues with picking boot device by keeping the
+  # Tails DVD present.
+  $vm.remove_cdrom_image
   $vm.set_disk_boot(name, type.downcase)
 end
 
