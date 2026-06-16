@@ -463,7 +463,7 @@ to-be-released version of Tails:
 Update PO files
 ---------------
 
-Expected time: 15-30 minutes depending on how many errors you'll get.
+Expected time: 5-30 minutes depending on how many errors you'll get.
 
 Pull updated translations for languages translated in Transifex,
 refresh the code PO files,
@@ -544,7 +544,7 @@ Check that you are indeed preparing a bugfix release:
     [ "${DIST:?}" = stable ] && [ "${MAJOR_RELEASE:?}" -eq 0 ]
 
 <div class="note">
-For bugfix releases, we generally do not put any RC out, so freeze time
+For bugfix releases, we do not put any RC out, so freeze time
 is the same as preparing the actual release. Hence, the following
 steps have already been done above, and this section is a noop in the
 general case.
@@ -918,7 +918,7 @@ Finalize and tag the release
 Prepare the versioned APT suites
 --------------------------------
 
-Expected time: 15 minutes
+Expected time: 10 minutes
 
 ### Versioned APT suite in our custom APT repository
 
@@ -944,7 +944,7 @@ Create tagged snapshots of upstream APT repositories:
 
 Note:
 
-  - This command takes a while (about a dozen minutes).
+  - This command takes 5-15 minutes
 
   - It's expected that the packages that were pulled from our
     [[custom APT repository|APT_repository/custom]] are
@@ -1348,6 +1348,23 @@ Verify that Jenkins reproduced your IUKs
 
 ### Compare the IUKs
 
+#### If the network between `rsync.lizard` and Jenkins is still very slow
+
+The "normal" command we had in place is really slow nowadays. The snippet that
+follows is much faster. However, it's not as smart, so it can only handle cases
+in which IUKs have been built exactly once.
+
+    ssh jenkins.lizard <<EOF | grep -E '[.]iuk$' > "jenkins_${VERSION}.sha256sum"
+    find /var/lib/jenkins/jobs/ -name '*.iuk' -mtime -1 \
+    -exec sha256sum {} \;
+    EOF
+    sed -i 's@/.*/Tails_@Tails_@'  "jenkins_${VERSION}.sha256sum"
+    diff <(sort jenkins_${VERSION}.sha256sum) <(sort "${IUKS_HASHES:?}")
+
+If this script is not working fine for you, please refer to the next section.
+
+#### Otherwise, if the network problem is over or if if you want a safe, non-optimized, script
+
 Run this command to verify that Jenkins reproduced your IUKs:
 
     "${RELEASE_CHECKOUT:?}"/bin/copy-iuks-to-rsync-server-and-verify \
@@ -1642,6 +1659,14 @@ While waiting for the IUKs to be uploaded, you can proceed with the next steps.
 Upload the ISO and USB image signatures to our rsync server:
 
     scp "${ISO_PATH:?}.sig" "${IMG_PATH:?}.sig" rsync.lizard:
+
+If the network between `rsync.lizard` and Jenkins is still very slow,
+then copy images from your own computer, which is often faster:
+
+    rsync -vhL --partial --progress --inplace "${IMG_PATH}" "${ISO_PATH}" rsync.lizard:
+
+… then pass `--skip-downloading-images` to the `copy-images-to-rsync-server-and-verify`
+command below.
 
 Copy the ISO and USB images to our rsync server, verify their signature,
 move them in place with proper ownership and permissions and update
