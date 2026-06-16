@@ -30,6 +30,12 @@ end
 
 When /^I uninstall (.*) using GNOME Software$/ do |app_name|
   @gnome_software.child('Installed', roleName: 'page tab').click
+  # While "Apps" are listed instantaneously "Add-ons" are not showing
+  # immediately, and will in fact trigger a loading screen before it
+  # loads which is racing with the interaction of the "Uninstall..."
+  # button. We have seen that lead to lost clicks, so let's prevent
+  # that by waiting for the "Add-ons" to be listed.
+  try_for(30) { @gnome_software.child('Add-ons', roleName: 'label') }
   @gnome_software.child(app_name, roleName: 'label')
                  .parent.parent.parent.child('Uninstall…', roleName: 'button').click
   @gnome_software.child("Uninstall #{app_name}?", roleName: 'alert')
