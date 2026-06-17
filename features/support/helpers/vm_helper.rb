@@ -248,7 +248,7 @@ class VM
   def remove_cdrom_image
     update do |xml|
       cdrom_el = xml.elements["domain/devices/disk[@device='cdrom']"]
-      raise 'No CDROM device is present' if cdrom_el.nil?
+      return if cdrom_el.nil?
 
       cdrom_el.delete_element('source')
     end

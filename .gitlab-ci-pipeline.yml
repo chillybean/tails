@@ -1,3 +1,10 @@
+#
+# ⚠️
+#
+# Make sure you follow our Container images policy when selecting images:
+# https://tails.net/contribute/working_together/GitLab/container_images/
+#
+
 workflow:
   rules:
     - if: $CI_FORCE_RUN
@@ -8,16 +15,17 @@ workflow:
 # This block is nothing special in GitLab CI semantics. It's just a place we're
 # putting "variables" to be reused later
 .definitions:
-  # Please, make sure to only use images from `registry.gitlab.tails.boum.org`,
+  # Please, make sure to only use images from `registry.gitlab.tails.boum.org`
+  # or `containers.torproject.org/tpo/tpa/base-images`
   # as we give significant privileges to our Runners wrt. what they can do in our
   # repositories.
-  image-trixie: &image-trixie "registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:trixie"
-  image-forky: &image-forky "registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:forky"
-  image-sid: &image-sid "registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:sid"
+  image-trixie: &image-trixie "containers.torproject.org/tpo/tpa/base-images/debian:trixie"
+  image-forky: &image-forky "containers.torproject.org/tpo/tpa/base-images/debian:forky"
+  image-sid: &image-sid "containers.torproject.org/tpo/tpa/base-images/debian:sid"
 
   # Some tests specifically need to use the same Debian suite as a Tails built
   # from this branch.  To ensure this, those jobs must set `image: *current-suite-image`.
-  current-suite-image: &current-suite-image "registry.gitlab.tails.boum.org/sysadmin-team/container-images/debian:trixie"
+  current-suite-image: &current-suite-image "containers.torproject.org/tpo/tpa/base-images/debian:trixie"
 
 image: *image-trixie
 

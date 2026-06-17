@@ -95,7 +95,20 @@ Then /^the firewall is configured to only allow the (.+) users? to connect direc
   allowed_output.each do |rule|
     rule.elements.each('actions/*') do |action|
       destination = try_xml_element_text(rule, 'conditions/match/d')
+      protocol = try_xml_element_text(rule, 'conditions/match/p')
+      outerface = rule.elements['conditions/match/o']
+      outerface_not_loopback = outerface&.text == 'lo' &&
+                               outerface&.attribute('invert').to_s == '1'
       if action.name == 'ACCEPT'
+        # Ignore transparent proxying rule
+        if outerface_not_loopback &&
+           protocol == 'tcp' &&
+           destination == '127.0.0.1/32' &&
+           try_xml_element_text(rule, 'conditions/tcp/dport').to_i == 9040 &&
+           try_xml_element_text(rule, 'conditions/owner/uid-owner').to_i == 1000
+          next
+        end
+
         # nil == 0.0.0.0/0 according to iptables-xml
         assert(destination == '0.0.0.0/0' || destination.nil?,
                "The following rule has an unexpected destination:\n#{rule}")
@@ -112,8 +125,7 @@ Then /^the firewall is configured to only allow the (.+) users? to connect direc
                  "(#{users_str}) to have such access:\n#{rule}")
         end
       elsif action.name == 'call' && action.elements[1].name == 'lan'
-        lan_subnets = ['10.0.0.0/8', '172.16.0.0/12', '192.168.0.0/16']
-        assert(lan_subnets.include?(destination),
+        assert(LAN_SUBNETS.include?(destination),
                "The following lan-targeted rule's destination is " \
                "#{destination} which may not be a private subnet:\n" +
                rule.to_s)
@@ -136,13 +148,14 @@ Then /^the firewall's NAT rules only redirect traffic for the Unsafe Browser, To
   tor_trans_port = '9040'
   dns_port = '53'
   tor_dns_port = '5353'
-  ip4tables_chains('nat') do |name, _, rules|
+  ip4tables_chains('nat') do |name, _, rules| # rubocop:disable Metrics/BlockLength
     case name
     when 'OUTPUT'
-      good_rules = rules.select do |rule|
-        redirect = rule.get_elements('actions/*').all? do |action|
-          action.name == 'REDIRECT'
-        end
+      good_rules = []
+      rules.each do |rule|
+        actions = rule.get_elements('actions/*')
+        assert_equal(1, actions.size, 'Support for multiple actions not implemented')
+        action = actions.first.name
         destination = try_xml_element_text(rule, 'conditions/match/d')
         redir_port = try_xml_element_text(rule, 'actions/REDIRECT/to-ports')
         redirected_to_trans_port = redir_port == tor_trans_port
@@ -150,11 +163,32 @@ Then /^the firewall's NAT rules only redirect traffic for the Unsafe Browser, To
                                                     'conditions/udp/dport')
         dns_redirected_to_tor_dns_port = (udp_destination_port == dns_port) &&
                                          (redir_port == tor_dns_port)
-        redirect &&
-          (
-           (destination == tor_onion_addr_space && redirected_to_trans_port) ||
-           (destination == loopback_address && dns_redirected_to_tor_dns_port)
-         )
+        owner = try_xml_element_text(rule, 'conditions/owner/uid-owner').to_i
+        protocol = try_xml_element_text(rule, 'conditions/match/p')
+        outerface = rule.elements['conditions/match/o']
+        outerface_not_loopback = outerface&.text == 'lo' &&
+                                 outerface&.attribute('invert').to_s == '1'
+        case action
+        when 'REDIRECT'
+          # .onion mapped addresses
+          if destination == tor_onion_addr_space && redirected_to_trans_port
+            good_rules << rule
+          end
+          # DNS queries
+          if destination == loopback_address && dns_redirected_to_tor_dns_port
+            good_rules << rule
+          end
+          # transparent proxying for the live user
+          if owner == 1000 && outerface_not_loopback && protocol == 'tcp' &&
+             redirected_to_trans_port
+            good_rules << rule
+          end
+        when 'RETURN'
+          # LAN addresses are exempt from transparent proxying for the live user
+          if owner == 1000 && LAN_SUBNETS.include?(destination)
+            good_rules << rule
+          end
+        end
       end
       bad_rules = rules - good_rules
       assert(bad_rules.empty?,
@@ -255,6 +289,11 @@ Then /^the untorified connection fails$/ do
   assert(conn_failed,
          "The untorified #{@conn_proto} connection didn't fail as expected:\n" +
          @conn_res.to_s)
+end
+
+Then /^the untorified TCP connection succeeds$/ do
+  assert_equal('TCP', @conn_proto)
+  assert(@conn_res.success?, "The untorified TCP connection failed:\n#{@conn_res}")
 end
 
 Then /^the untorified connection is logged as dropped by the firewall$/ do

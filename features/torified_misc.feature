@@ -13,3 +13,8 @@ Feature: Various checks for torified software
     When I curl "https://example.com/" to stdout
     Then the curl command is successful
     And the curl standard output contains "Example Domain"
+
+  Scenario: Transparent proxying through Tor
+    Given I have started Tails from DVD and logged in and the network is connected
+    When I open an untorified TCP connection to 8.8.8.8 on port 53
+    Then the untorified TCP connection succeeds

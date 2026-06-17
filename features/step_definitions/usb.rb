@@ -14,6 +14,8 @@ def get_tps_bindings(skip_links: false)
   script = [
     'from tps.configuration import features',
     'for feature in features.get_classes():',
+    '    if feature.is_masked:',
+    '        continue',
     '    for binding in feature.Bindings:',
     '        print(binding)',
   ]
@@ -53,7 +55,7 @@ end
 
 def tps_features
   c = $vm.execute_successfully('/usr/local/lib/tpscli get-features')
-  JSON.parse(c.stdout.chomp)
+  JSON.parse(c.stdout.chomp).reject { |f| tps_feature_is_masked(f) }
 end
 
 def tps_feature_is_enabled(feature, reload: true)
@@ -65,6 +67,12 @@ end
 def tps_feature_is_active(feature, reload: true)
   tps_reload if reload
   c = $vm.execute("/usr/local/lib/tpscli is-active #{feature}")
+  c.success?
+end
+
+def tps_feature_is_masked(feature, reload: true)
+  tps_reload if reload
+  c = $vm.execute("/usr/local/lib/tpscli is-masked #{feature}")
   c.success?
 end
 
@@ -433,14 +441,13 @@ end
 
 Given /^I close the Persistent Storage app$/ do
   # Close any alerts
-  alert = persistent_storage_frontend.child(roleName: 'alert', retry: false)
-  while alert
-    alert.button('Close').click
-    begin
-      alert = persistent_storage_frontend.child(roleName: 'alert', retry: false)
-    rescue StandardError
-      alert = nil
-    end
+  loop do
+    persistent_storage_frontend.child(roleName: 'alert',
+                                      retry:    false)
+                               .button('Close')
+                               .click
+  rescue StandardError
+    break
   end
 
   # Close the main window

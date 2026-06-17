@@ -694,6 +694,35 @@ Its content is available until you shut down Tails.
                               </object>
                             </child>
                             <child>
+                              <object class="HdyActionRow" id="flatpak_row">
+                                <property name="visible">True</property>
+                                <property name="can-focus">False</property>
+                                <property name="title" translatable="yes">Flatpak</property>
+                                <property name="icon-name">flatpak</property>
+                                <child>
+                                  <object class="GtkBox" id="flatpak_box">
+                                    <property name="valign">center</property>
+                                    <property name="margin_start">6</property>
+                                    <property name="spacing">6</property>
+                                    <property name="visible">True</property>
+                                    <child>
+                                      <object class="GtkSwitch" id="flatpak_switch">
+                                        <property name="visible">True</property>
+                                        <property name="can-focus">True</property>
+                                        <property name="halign">end</property>
+                                        <property name="valign">center</property>
+                                        <child internal-child="accessible">
+                                          <object class="AtkObject" id="flatpak_switch-atkobject">
+                                            <property name="AtkObject::accessible-name" translatable="yes">Activate Flatpak</property>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                            <child>
                               <object class="HdyActionRow" id="dotfiles_row">
                                 <property name="visible">True</property>
                                 <property name="can-focus">False</property>

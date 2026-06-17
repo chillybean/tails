@@ -66,3 +66,40 @@ EOF
     )
     rm -R "${tmp}"
 }
+
+download_file() {
+    local url target curl_opts
+    url="${1}"
+    target="${2:-}"
+    if [ -n "${target}" ]; then
+        curl_opts="--output ${target}"
+    else
+        curl_opts="--remote-name"
+    fi
+    (
+        # Use the builder's caching APT proxy, if any
+        apt_proxy="$(apt-config --format '%v' dump Acquire::http::Proxy)"
+        if [ -n "${apt_proxy}" ]; then
+            # Import JENKINS_URL and TAILS_PROXY_TYPE
+            . /usr/share/tails/build/variables
+            if [ "${TAILS_PROXY_TYPE}" = 'vmproxy' ] || [ -n "${JENKINS_URL:-}" ]; then
+                # When using the vmproxy or building on Jenkins, we know
+                # that apt-cacher-ng is used, so we fetch and cache over
+                # https using the HTTPS/// trick
+                # (https://www.unix-ag.uni-kl.de/~bloch/acng/html/howtos.html#ssluse)
+                url="$(echo "${url}" | sed "s@^https://@${apt_proxy}/HTTPS///@")"
+                unset HTTP_PROXY http_proxy HTTPS_PROXY https_proxy
+            else
+                # Otherwise it's the user's responsibility to configure their proxy
+                # to support the (possibly HTTPS) URL we want to download.
+                export HTTP_PROXY="${apt_proxy}"
+                export http_proxy="${apt_proxy}"
+                export HTTPS_PROXY="${apt_proxy}"
+                export https_proxy="${apt_proxy}"
+            fi
+        fi
+        # Bypass the /usr/local/bin/curl wrapper
+        # shellcheck disable=SC2086
+        /usr/bin/curl --retry 20 ${curl_opts} "${url}"
+    )
+}

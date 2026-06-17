@@ -756,6 +756,13 @@ to push usage of such hardening features in Debian.
 
 See [[doc/about/features]].
 
+### 3.2.3 Software installed by the user
+
+Tails supports 2 ways for the user to persistently install additional software:
+
+ - [[Debian packages|design/additional_software_packages]]
+ - [[Flatpak apps|design/Flatpak]]
+
 ## 3.3 Localization
 
 ### 3.3.1 Best supported (Tier-1) languages
@@ -854,8 +861,8 @@ those are mainly for usability issues and similar.
 The Tor software is currently configured as a client only (onion
 proxy). The client listens for control connections on port 9052 (using
 cookie authentication) which is non-standard (see about the "control
-port filter" below), as a transparent proxy on port 9040 (only used
-for remapped onion services) and as a DNS server on port 8853.
+port filter" below), as a transparent proxy on port 9040,
+and as a DNS server on port 8853.
 
 The client listens on a few SOCKS address/ports. For details,
 see the [[Tor stream isolation design

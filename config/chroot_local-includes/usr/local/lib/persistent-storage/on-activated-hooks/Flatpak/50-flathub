@@ -1,0 +1,10 @@
+#!/bin/sh
+
+set -eu -o pipefail
+
+# Get LIVE_USERNAME
+. /etc/live/config.d/username.conf
+
+install --owner="${LIVE_USERNAME}" --group="${LIVE_USERNAME}" --mode=755 \
+    --target-directory=/home/"${LIVE_USERNAME}"/.local/share/flatpak/repo/ \
+    /usr/share/tails/flathub.trustedkeys.gpg

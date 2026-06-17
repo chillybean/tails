@@ -134,8 +134,8 @@ Then /^Tails detected partitioning error (.*)$/ do |expected_reason|
 end
 
 Given /^I simulate a computer with (old|new) UEFI CA$/ do |ca|
-  old = "3590bfd89 Microsoft Corporation KEK CA 2011\n"
-  new = "xxxxxxxxx Microsoft Corporation KEK 2K CA 2023\n"
+  old = "46def63b5c Microsoft Corporation UEFI CA 2011\n"
+  new = "b5eeb4a670 Microsoft UEFI CA 2023\n"
   content = if ca == 'old'
               old
             else

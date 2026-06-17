@@ -61,6 +61,10 @@ class Electrum(Feature):
     pass
 
 
+class Flatpak(Feature):
+    pass
+
+
 class Thunderbird(Feature):
     pass
 

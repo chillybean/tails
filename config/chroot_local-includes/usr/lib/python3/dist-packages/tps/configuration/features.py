@@ -1,5 +1,6 @@
 import inspect
 
+from tailslib.features import flatpak_is_enabled
 from tps.configuration.conflicting_app import ConflictingApp
 from tps.configuration.binding import Binding
 from tps.configuration.feature import Feature
@@ -96,6 +97,19 @@ class Electrum(Feature):
     conflicting_apps = (
         ConflictingApp(
             name="Electrum", desktop_id="electrum.desktop", process_names=["electrum"]
+        ),
+    )
+
+
+class Flatpak(Feature):
+    Id = "Flatpak"
+    translatable_name = "Flatpak"
+    is_masked = not flatpak_is_enabled()
+    Bindings = (
+        Binding("flatpak/dot-local-share", "/home/amnesia/.local/share/flatpak"),
+        Binding("flatpak/dot-var-app", "/home/amnesia/.var/app"),
+        Binding(
+            "flatpak/dot-cache-gnome-software", "/home/amnesia/.cache/gnome-software"
         ),
     )
 

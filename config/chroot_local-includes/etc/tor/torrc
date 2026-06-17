@@ -22,7 +22,7 @@ AutomapHostsOnResolve 1
 AutomapHostsSuffixes .exit,.onion
 
 ## Transparent proxy
-TransPort 127.0.0.1:9040
+TransPort 127.0.0.1:9040 IsolateDestAddr IsolateDestPort
 
 ## Enable the Seccomp sandbox. It will disabled later (by the
 ## tor-pt-configuration-helper) if we configure any pluggable transport

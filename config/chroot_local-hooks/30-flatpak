@@ -14,12 +14,17 @@ WORKDIR="$(mktemp -d)"
 BUILD_DIR="${WORKDIR}/build-dir"
 REPO_DIR="${WORKDIR}/repo"
 
+# We temporarily disable our wrapper because it is in $PATH and
+# otherwise would be what flatpak-builder runs, which would cause
+# problems since tor isn't running at build time.
+mv /usr/local/bin/flatpak /usr/local/bin/flatpak.disabled
+
 ostree init --mode archive-z2 --repo="${REPO_DIR}"
 mkdir -p "${BUILD_DIR}/export" "${BUILD_DIR}/files" "${BUILD_DIR}/usr"
 cp -a /usr/share/tails/build/flatpak/org.boum.tails.Platform/metadata "${BUILD_DIR}"
-flatpak build-export "${REPO_DIR}" "${BUILD_DIR}" stable
-flatpak --installation=tails remote-add --no-gpg-verify platform-origin "${REPO_DIR}"
-flatpak --installation=tails install --reinstall -y platform-origin org.boum.tails.Platform
+/usr/bin/flatpak build-export "${REPO_DIR}" "${BUILD_DIR}" stable
+/usr/bin/flatpak --installation=tails remote-add --no-gpg-verify platform-origin "${REPO_DIR}"
+/usr/bin/flatpak --installation=tails install --reinstall -y platform-origin org.boum.tails.Platform
 rm -rf "${WORKDIR}"
 
 # Next let's build the org.boum.tails.TorBrowser flatpak app
@@ -40,5 +45,24 @@ touch "${FILES_DIR}/.ref"
 
 # Clean up
 
-flatpak --installation=tails remote-delete --force platform-origin
+/usr/bin/flatpak --installation=tails remote-delete --force platform-origin
 rm -r /usr/share/tails/build/flatpak/
+
+# Restore wrapper
+mv /usr/local/bin/flatpak.disabled /usr/local/bin/flatpak
+
+# Divert /usr/bin/flatpak in favor of our wrapper
+dpkg-divert --add --rename --divert /usr/local/lib/flatpak /usr/bin/flatpak
+ln -s /usr/local/bin/flatpak /usr/bin/flatpak
+
+# Divert /usr/bin/gnome-software in favor of our wrapper
+dpkg-divert --add --rename --divert /usr/local/lib/gnome-software /usr/bin/gnome-software
+ln -s /usr/local/bin/gnome-software /usr/bin/gnome-software
+
+# Don't autostart GNOME Software, we only want it to start after Tor
+# has bootstrapped.
+rm /etc/xdg/autostart/org.gnome.Software.desktop
+
+# We drop DBusActivatable so that the Exec directive is not ignored,
+# because we want it to start our wrapper.
+sed -i '/^DBusActivatable=/d' /usr/share/applications/org.gnome.Software.desktop
