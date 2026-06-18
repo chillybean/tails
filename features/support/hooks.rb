@@ -32,6 +32,10 @@ AfterConfiguration do |config|
     # Features not using snapshots but using large amounts of scratch
     # space for other reasons:
     'features/untrusted_partitions.feature',
+    # flatpak.feature uses its own tree of snapshots which are
+    # temporary, so running them early will minimize its impact on
+    # peak space usage
+    'features/flatpak.feature',
     # Features using temporary snapshots:
     'features/root_access_control.feature',
     'features/time_syncing.feature',

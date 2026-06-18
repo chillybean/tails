@@ -1,0 +1,20 @@
+#!/bin/sh
+
+set -eu -o pipefail
+
+# Get LIVE_USERNAME
+. /etc/live/config.d/username.conf
+
+# It matters if this persistence feature is activated on the fly _after_
+# GNOME Software has started. So far we have noticed that after
+# installing a Flatpak in GNOME Software the "Install" button converts
+# to "Uninstall" instead of "Open", which is what we expect and want
+# it to be. Presumably this has to do with ~/.cache/gnome-software
+# being in use by GNOME Software, and suddenly mounting on top of that
+# directory breaks some (very reasonable!) assumptions. Restarting
+# GNOME Software fixes this issue.
+# We use --no-block so this doesn't block until the condition
+# After=tails-wait-until-tor-has-bootstrapped.service is met.
+# We use try-restart so it's not started when not running, e.g. at the
+# Welcome Screen.
+systemctl --user --machine="${LIVE_USERNAME}"@ --no-block try-restart gnome-software.service

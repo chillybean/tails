@@ -10,6 +10,20 @@ Then /^all packages listed in the build manifest are up-to-date$/ do
   cmd_helper([command, "--config=#{config}", "--file=#{TAILS_BUILD_MANIFEST}"])
 end
 
+Then /^Debian packages? (.*) (?:is|are) (not )?installed$/ do |packages_str, negated|
+  packages = packages_str.split(/,? and |, /)
+  expected_installed = !negated
+  manifest = YAML.safe_load(File.read(TAILS_BUILD_MANIFEST))
+  installed_packages = manifest['packages']['binary'].map { |b| b['package'] }
+  unwanted = packages.reject do |p|
+    installed_packages.include?(p) == expected_installed
+  end
+  assert_empty(
+    unwanted,
+    "Some packages are unexpectedly #{negated ? '' : 'not '}installed"
+  )
+end
+
 Then /^no Qt5 package is installed$/ do
   manifest = YAML.safe_load(File.read(TAILS_BUILD_MANIFEST))
   packages = manifest['packages']['binary'].map { |b| b['package'] }

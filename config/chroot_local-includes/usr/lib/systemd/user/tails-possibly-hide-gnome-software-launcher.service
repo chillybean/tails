@@ -1,0 +1,12 @@
+[Unit]
+Description=Hide GNOME Software launcher unless the flatpak feature flag is enabled
+ConditionKernelCommandLine=!flatpak
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=mkdir -p ~/.local/share/applications/
+ExecStart=/bin/sh -c "(cat /usr/share/applications/org.gnome.Software.desktop && echo 'NoDisplay=true') >> ~/.local/share/applications/org.gnome.Software.desktop"
+
+[Install]
+WantedBy=desktop.target

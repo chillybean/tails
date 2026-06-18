@@ -70,7 +70,7 @@ def detect_uefi_ca() -> UefiState | None:
     """
     try:
         output = subprocess.check_output(
-            ["/usr/bin/mokutil", "--kek", "--short"],
+            ["/usr/bin/mokutil", "--db", "--short"],
             text=True,
         )
     except subprocess.CalledProcessError:
@@ -84,8 +84,8 @@ def parse_uefi_ca(output: str) -> UefiState:
     """
     >>> parse_uefi_ca("\\n\\n").name
     'SECURE_BOOT_DISABLED'
-    >>> old = "3590bfd89 Microsoft Corporation KEK CA 2011\\n"
-    >>> new = "xxxxxxxxx Microsoft Corporation KEK 2K CA 2023\\n"
+    >>> old = "3590bfd89 Microsoft Corporation UEFI CA 2011\\n"
+    >>> new = "b5eeb4a670 Microsoft UEFI CA 2023\\n"
     >>> parse_uefi_ca(old).name
     'BAD'
     >>> parse_uefi_ca(old + new).name
@@ -93,7 +93,7 @@ def parse_uefi_ca(output: str) -> UefiState:
     """
     if not output.strip():
         return UefiState.SECURE_BOOT_DISABLED
-    if "Microsoft Corporation KEK 2K CA 2023" in output:
+    if "Microsoft UEFI CA 2023" in output:
         return UefiState.GOOD
     return UefiState.BAD
 

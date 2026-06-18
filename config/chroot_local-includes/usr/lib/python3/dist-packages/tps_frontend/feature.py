@@ -68,6 +68,7 @@ class Feature:
 
         self.is_enabled = self.proxy.get_cached_property("IsEnabled").get_boolean()
         self.is_active = self.proxy.get_cached_property("IsActive").get_boolean()
+        self.is_masked = self.proxy.get_cached_property("IsMasked").get_boolean()
         self.has_data = self.proxy.get_cached_property("HasData").get_boolean()
 
         # Connect to properties-changed signal
@@ -85,6 +86,7 @@ class Feature:
         self.action_row.__setattr__("original_subtitle", self.action_row.get_subtitle())
         if not self.action_row:
             raise RuntimeError(f"Could not find {action_row_name}")
+        self.action_row.set_visible(not self.is_masked)
 
         self.name = self.dbus_object_name
         self.translated_name = self.action_row.get_title()

@@ -86,7 +86,8 @@ in [[!tails_gitweb config/chroot_local-includes/etc/tor/torrc]]:
   dedicated to web browser's netns): no stream
   isolation options
 
-* no specific isolation options for the `TransPort` ([[!tails_ticket 6378]])
+* `TransPort`, primarily for [[design/Flatpak]] apps:
+  `IsolateDestAddr` and `IsolateDestPort` enabled
 
 Applications are configured to use the right SOCKS port:
 
