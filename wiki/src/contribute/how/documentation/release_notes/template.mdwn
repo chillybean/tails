@@ -30,11 +30,26 @@ vulnerability in $APPLICATION.
 
 - Update *Tor Browser* to [1.2.3](https://blog.torproject.org/new-release-tor-browser-123),
   which fixes [[$CODE|$LINK]], a (major|minor) $TYPE vulnerability. Using this
-  vulnerability, an attacked could $IMPACT.
+  vulnerability, (an attacked could $IMPACT|an application in Tails could gain administration privileges).
+
+  For example, if an attacker was able to exploit other unknown security
+  vulnerabilities in an application included in Tails, they might then use $CODE
+  to take full control of your Tails and deanonymize you.
 
   <div class="attack">
 
-  <p>We are (not) aware of this (attack|vulnerability) being (used|exploited) in practice until now.</p>
+  <p>
+
+  This attack is very unlikely, but could be performed by a powerful attacker,
+  such as a government or a hacking firm.
+
+  This vulnerability can only be exploited by a powerful attacker who has
+  already exploited another vulnerability to take control of $APPLICATION.
+
+  We are (not) aware of this (attack|vulnerability) being (used|exploited) in
+  practice until now.
+
+  </p>
 
   </div>
 
