@@ -1,46 +1,58 @@
 #!/bin/bash
 # Download Gemma 4 E4B GGUF model through Tor
 # Run this on first boot if the model is not pre-bundled
+#
+# Security: verifies SHA256 hash after download to detect tampering.
+# The expected hash is from HuggingFace LFS (unsloth/gemma-4-E4B-it-GGUF).
 
 MODEL_DIR="/var/lib/llama/models"
 MODEL_FILE="gemma-4-E4B-it-Q4_K_M.gguf"
 MODEL_URL="https://huggingface.co/unsloth/gemma-4-E4B-it-GGUF/resolve/main/${MODEL_FILE}"
 MODEL_SIZE="4.7GB"
+# SHA256 from HuggingFace LFS (unsloth/gemma-4-E4B-it-GGUF, Q4_K_M quant)
+EXPECTED_SHA256="519b9793ed6ce0ff530f1b7c96e848e08e49e7af4d57bb97f76215963a54146d"
 
 echo "============================================"
 echo "  Downloading Gemma 4 E4B Model"
 echo "============================================"
 echo ""
 echo "  Model:  ${MODEL_FILE}"
-echo "  Size:   ${MODEL_SIZE}"
+echo "  Size:   ~${MODEL_SIZE}"
 echo "  Dest:   ${MODEL_DIR}/"
 echo "  Route:  Tor (SOCKS5 127.0.0.1:9050)"
 echo ""
 
-# Check if already present
+# Check if already present and valid
 if [ -f "${MODEL_DIR}/${MODEL_FILE}" ]; then
-    echo "✅ Model already exists at ${MODEL_DIR}/${MODEL_FILE}"
-    ls -lh "${MODEL_DIR}/${MODEL_FILE}"
-    exit 0
+    echo "Found existing model. Verifying integrity..."
+    ACTUAL_SHA256=$(sha256sum "${MODEL_DIR}/${MODEL_FILE}" 2>/dev/null | awk '{print $1}')
+    if [ "$ACTUAL_SHA256" = "$EXPECTED_SHA256" ]; then
+        echo "✅ Model integrity verified. Already downloaded."
+        ls -lh "${MODEL_DIR}/${MODEL_FILE}"
+        exit 0
+    else
+        echo "⚠️  Existing model hash mismatch (may be corrupted). Re-downloading..."
+        rm -f "${MODEL_DIR}/${MODEL_FILE}"
+    fi
 fi
 
 # Check Tor is running
 echo "Checking Tor connectivity..."
-if ! curl -s --socks5 127.0.0.1:9050 --max-time 10 https://check.torproject.org/ > /dev/null 2>&1; then
-    echo "❌ Tor is not running. Start Tor first:"
-    echo "   sudo systemctl start tor@default.service"
+TOR_CHECK=$(curl -s --socks5 127.0.0.1:9050 --max-time 15 \
+    https://check.torproject.org/api/ip 2>/dev/null)
+if ! echo "$TOR_CHECK" | grep -q '"IsTor":true'; then
+    echo "❌ Tor is not working properly."
+    echo "   Start Tor: sudo systemctl start tor@default.service"
     exit 1
 fi
-
-TOR_IP=$(curl -s --socks5 127.0.0.1:9050 --max-time 15 https://check.torproject.org/api/ip 2>/dev/null | grep -oP '"IP":"[^"]*"' | cut -d'"' -f4)
-echo "✅ Tor is active (exit IP: ${TOR_IP})"
+echo "✅ Tor is active and working."
 echo ""
 
 # Create directory
 mkdir -p "$MODEL_DIR"
 
-# Download through Tor
-echo "📥 Downloading through Tor (this will take a while)..."
+# Download through Tor with progress
+echo "📥 Downloading through Tor (this will take several minutes)..."
 echo "   URL: ${MODEL_URL}"
 echo ""
 
@@ -48,20 +60,48 @@ curl -fSL \
     --socks5 127.0.0.1:9050 \
     -A "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0" \
     -o "${MODEL_DIR}/${MODEL_FILE}" \
-    -w "\nDownloaded: %{size_download} bytes in %{time_total}s (%{speed_download} bytes/s)\n" \
     "$MODEL_URL" 2>&1
 
-if [ $? -eq 0 ] && [ -f "${MODEL_DIR}/${MODEL_FILE}" ]; then
+CURL_EXIT=$?
+
+if [ $CURL_EXIT -ne 0 ] || [ ! -f "${MODEL_DIR}/${MODEL_FILE}" ]; then
+    echo ""
+    echo "❌ Download failed (curl exit: ${CURL_EXIT})."
+    echo "   HuggingFace may rate-limit Tor exit nodes."
+    echo "   Retry: hermes-download-model"
+    echo "   Or manually: torsocks curl -fSL -o ${MODEL_DIR}/${MODEL_FILE} '${MODEL_URL}'"
+    rm -f "${MODEL_DIR}/${MODEL_FILE}"
+    exit 1
+fi
+
+DOWNLOADED_SIZE=$(stat -c%s "${MODEL_DIR}/${MODEL_FILE}" 2>/dev/null || echo "0")
+echo ""
+echo "Downloaded: $(numfmt --to=iec $DOWNLOADED_SIZE 2>/dev/null || echo "${DOWNLOADED_SIZE} bytes")"
+echo ""
+
+# Verify SHA256 integrity
+echo "🔒 Verifying model integrity (SHA256)..."
+echo "  Expected: ${EXPECTED_SHA256:0:16}..."
+
+ACTUAL_SHA256=$(sha256sum "${MODEL_DIR}/${MODEL_FILE}" 2>/dev/null | awk '{print $1}')
+echo "  Actual:   ${ACTUAL_SHA256:0:16}..."
+
+if [ "$ACTUAL_SHA256" = "$EXPECTED_SHA256" ]; then
     echo ""
     echo "============================================"
-    echo "  ✅ Model downloaded successfully!"
+    echo "  ✅ Model downloaded and verified!"
     echo "============================================"
     ls -lh "${MODEL_DIR}/${MODEL_FILE}"
     echo ""
     echo "Start Hermes with: hermes-start"
 else
     echo ""
-    echo "❌ Download failed. You can retry with:"
-    echo "   curl -fsSL --socks5 127.0.0.1:9050 -o ${MODEL_DIR}/${MODEL_FILE} ${MODEL_URL}"
+    echo "❌ SHA256 MISMATCH — model may be corrupted or tampered!"
+    echo "  Expected: ${EXPECTED_SHA256}"
+    echo "  Actual:   ${ACTUAL_SHA256}"
+    echo ""
+    echo "  The corrupted file has been deleted for safety."
+    rm -f "${MODEL_DIR}/${MODEL_FILE}"
+    echo "  Retry with: hermes-download-model"
     exit 1
 fi
