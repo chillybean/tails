@@ -2,7 +2,7 @@
 set -e
 
 # ============================================================
-# Tails Hermes Hook — Installs Hermes AI Agent + Ollama
+# Tails Hermes Hook — Installs Hermes AI Agent + llama.cpp
 # ============================================================
 
 echo "============================================"
@@ -10,42 +10,50 @@ echo "  Installing Hermes AI Agent for Tails"
 echo "============================================"
 
 # --- 1. Create hermes system user ---
-echo "[1/6] Creating hermes user..."
-addgroup --system --gid 125 hermes
+echo "[1/7] Creating hermes user..."
+addgroup --system --gid 125 hermes 2>/dev/null || true
 adduser --system --uid 118 --gid 125 --no-create-home \
     --gecos "Hermes AI Agent" hermes 2>/dev/null || true
 
-# --- 2. Install Ollama ---
-echo "[2/6] Installing Ollama..."
-OLLAMA_INSTALL_DIR="/opt/ollama"
-mkdir -p "$OLLAMA_INSTALL_DIR"
+# --- 2. Install llama.cpp server ---
+echo "[2/7] Installing llama.cpp..."
+LLAMA_DIR="/opt/llama-cpp"
+mkdir -p "$LLAMA_DIR"
 
-# Check if Ollama binary was bundled in local-includes
-if [ -f "/opt/ollama/ollama" ]; then
-    echo "  Using bundled Ollama binary."
-elif [ ! -f "$OLLAMA_INSTALL_DIR/ollama" ]; then
-    curl -fsSL https://ollama.com/download/ollama-linux-amd64 \
-        -o "$OLLAMA_INSTALL_DIR/ollama" 2>/dev/null || \
-    echo "  WARNING: Could not download Ollama binary (build env has no internet)"
+# Copy bundled llama.cpp binaries and libs
+if [ -d "/opt/llama-cpp" ] && [ -f "/opt/llama-cpp/llama-server" ]; then
+    echo "  Using bundled llama.cpp binary."
+    chmod +x /opt/llama-cpp/llama-server
+    chmod +x /opt/llama-cpp/llama-cli 2>/dev/null || true
+    # Symlink into PATH
+    ln -sf /opt/llama-cpp/llama-server /usr/local/bin/llama-server
+    ln -sf /opt/llama-cpp/llama-cli /usr/local/bin/llama-cli
+    echo "  llama.cpp installed: $(/opt/llama-cpp/llama-server --version 2>&1 | head -1)"
+else
+    echo "  WARNING: llama.cpp binary not found in local-includes."
+    echo "  Run: curl -fsSL https://github.com/ggml-org/llama.cpp/releases/latest/download/llama-linux-x64.tar.gz"
 fi
 
-chmod +x "$OLLAMA_INSTALL_DIR/ollama" 2>/dev/null || true
+# Create llama.cpp library path config
+echo "/opt/llama-cpp" > /etc/ld.so.conf.d/llama-cpp.conf 2>/dev/null || true
+ldconfig 2>/dev/null || true
 
-# Symlink into PATH
-ln -sf "$OLLAMA_INSTALL_DIR/ollama" /usr/local/bin/ollama 2>/dev/null || true
+# --- 3. Set up model directory ---
+echo "[3/7] Setting up model directory..."
+mkdir -p /var/lib/llama/models
+chown -R hermes:hermes /var/lib/llama
 
-# Ollama data directory (will be on persistent volume at runtime)
-mkdir -p /var/lib/ollama
-chown hermes:hermes /var/lib/ollama
+# Copy bundled model if present
+if [ -f "/var/lib/llama/models/gemma-4-E4B-it-Q4_K_M.gguf" ]; then
+    echo "  Bundled Gemma 4 E4B model found."
+    ls -lh /var/lib/llama/models/gemma-4-E4B-it-Q4_K_M.gguf
+else
+    echo "  No bundled model found. Run on first boot:"
+    echo "    hermes-start"
+fi
 
-# Create ollama system user
-addgroup --system --gid 126 ollama 2>/dev/null || true
-adduser --system --uid 119 --gid 126 --no-create-home \
-    --gecos "Ollama Service" ollama 2>/dev/null || true
-usermod -aG hermes ollama 2>/dev/null || true
-
-# --- 3. Install Hermes Agent ---
-echo "[3/6] Installing Hermes Agent..."
+# --- 4. Install Hermes Agent ---
+echo "[4/7] Installing Hermes Agent..."
 HERMES_VENV="/opt/hermes"
 python3 -m venv "$HERMES_VENV"
 "$HERMES_VENV/bin/pip" install --upgrade pip setuptools wheel 2>/dev/null
@@ -57,8 +65,8 @@ python3 -m venv "$HERMES_VENV"
 # Symlink hermes into PATH
 ln -sf "$HERMES_VENV/bin/hermes" /usr/local/bin/hermes 2>/dev/null || true
 
-# --- 4. Install Hermes GTK4 Desktop App ---
-echo "[4/6] Installing Hermes Desktop App..."
+# --- 5. Install Hermes GTK4 Desktop App ---
+echo "[5/7] Installing Hermes Desktop App..."
 HERMES_GUI_DIR="/opt/hermes/gui"
 mkdir -p "$HERMES_GUI_DIR"
 
@@ -67,28 +75,27 @@ if [ -d "/tmp/hermes-gui" ]; then
     cp -r /tmp/hermes-gui/* "$HERMES_GUI_DIR/"
 fi
 
-# --- 5. Configure Ollama as Hermes backend ---
-echo "[5/6] Configuring Hermes backend..."
+# --- 6. Configure Hermes backend ---
+echo "[6/7] Configuring Hermes backend..."
 HERMES_CONFIG_DIR="/etc/hermes"
 mkdir -p "$HERMES_CONFIG_DIR"
 
 cat > "$HERMES_CONFIG_DIR/config.yaml" << 'HERMES_CFG'
 # Hermes Agent Configuration for Tails
-# Local-only AI via Ollama — no cloud, no API keys needed
+# Local-only AI via llama.cpp — no cloud, no API keys needed
 
 model:
-  provider: ollama
-  name: "gemma4:e4b"
-  base_url: "http://127.0.0.1:11434"
+  provider: llama.cpp
+  name: "gemma-4-E4B-it-Q4_K_M.gguf"
+  base_url: "http://127.0.0.1:8080"
 
-ollama:
+llama_cpp:
   host: "127.0.0.1"
-  port: 11434
-  data_dir: "/var/lib/ollama"
-  auto_pull: true
-  default_model: "gemma4:e4b"
-  # Ollama downloads models through Tor
-  tor_proxy: "socks5h://127.0.0.1:9050"
+  port: 8080
+  model_path: "/var/lib/llama/models/gemma-4-E4B-it-Q4_K_M.gguf"
+  n_ctx: 8192
+  n_predict: 2048
+  temperature: 0.7
   # Gemma 4 thinking mode (set to false for faster tool calls)
   enable_thinking: false
 
@@ -114,32 +121,28 @@ gui:
   font_size: 14
 HERMES_CFG
 
-# --- 6. Enable Ollama systemd service ---
-echo "[6/6] Enabling Ollama service..."
+# --- 7. Enable llama.cpp systemd service ---
+echo "[7/7] Enabling llama.cpp service..."
 if command -v systemctl >/dev/null 2>&1; then
-    systemctl enable ollama.service 2>/dev/null || true
-    echo "  Ollama service enabled (starts after Tor)."
+    systemctl enable llama-cpp.service 2>/dev/null || true
+    echo "  llama.cpp service enabled (starts after Tor)."
 else
     echo "  WARNING: systemctl not available (expected in build env)."
 fi
 
-# --- 7. Set up persistence symlinks ---
-echo "[7/7] Setting up persistence..."
-# At runtime, these will be symlinked to the persistent volume
+# --- Set up persistence symlinks ---
+echo "Setting up persistence..."
 mkdir -p /var/lib/hermes/memory
 chown -R hermes:hermes /var/lib/hermes
 
-# --- 8. Configure Tor proxy for Ollama model downloads ---
-echo "[8/8] Configuring Tor proxy for Ollama..."
-# Write a profile script so hermes/ollama users get Tor proxy env vars
+# --- Configure Tor proxy for model downloads ---
+echo "Configuring Tor proxy..."
 cat > /etc/profile.d/hermes-tor-proxy.sh << 'PROFILE'
 # Hermes AI — route outbound traffic through Tor
 export HTTP_PROXY="socks5h://127.0.0.1:9050"
 export HTTPS_PROXY="socks5h://127.0.0.1:9050"
 export http_proxy="socks5h://127.0.0.1:9050"
 export https_proxy="socks5h://127.0.0.1:9050"
-# Ollama-specific
-export OLLAMA_ORIGINS="*"
 PROFILE
 chmod 644 /etc/profile.d/hermes-tor-proxy.sh
 
@@ -151,14 +154,14 @@ echo ""
 echo "  Binary:     /usr/local/bin/hermes"
 echo "  GUI:        /opt/hermes/gui/"
 echo "  Config:     /etc/hermes/config.yaml"
-echo "  Ollama:     /usr/local/bin/ollama"
-echo "  Service:    systemctl start ollama (after Tor)"
-echo "  Models:     /var/lib/ollama/"
+echo "  llama.cpp:  /opt/llama-cpp/llama-server"
+echo "  Service:    systemctl start llama-cpp (after Tor)"
+echo "  Models:     /var/lib/llama/models/"
 echo "  Tor proxy:  socks5h://127.0.0.1:9050"
 echo ""
 
-# --- 9. Update desktop and icon databases ---
-echo "[9/9] Updating desktop database..."
+# --- Update desktop and icon databases ---
+echo "Updating desktop database..."
 if command -v update-desktop-database >/dev/null 2>&1; then
     update-desktop-database /usr/share/applications/
 fi

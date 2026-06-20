@@ -172,7 +172,7 @@ class HermesApp(Adw.Application):
             application_id="org.tails.hermes",
             flags=Gio.ApplicationFlags.DEFAULT_FLAGS,
         )
-        self.ollama_running = False
+        self.llama_running = False
         self.hermes_config_path = "/etc/hermes/config.yaml"
         self.conversation_history = []
 
@@ -297,12 +297,12 @@ class HermesApp(Adw.Application):
         spacer.set_vexpand(True)
         sidebar.append(spacer)
 
-        # Ollama status indicator
-        self.ollama_indicator = Gtk.Label()
-        self.ollama_indicator.set_margin_start(16)
-        self.ollama_indicator.set_margin_bottom(12)
-        self.ollama_indicator.set_xalign(0.0)
-        sidebar.append(self.ollama_indicator)
+        # llama.cpp status indicator
+        self.llama_indicator = Gtk.Label()
+        self.llama_indicator.set_margin_start(16)
+        self.llama_indicator.set_margin_bottom(12)
+        self.llama_indicator.set_xalign(0.0)
+        sidebar.append(self.llama_indicator)
 
         return sidebar
 
@@ -476,27 +476,26 @@ class HermesApp(Adw.Application):
                 "content": result,
             })
 
-        # Send back to Ollama for final response
+        # Send back to llama.cpp for final response
         try:
             result = subprocess.run(
                 [
-                    "curl", "-s", "http://127.0.0.1:11434/api/chat",
+                    "curl", "-s", "http://127.0.0.1:8080/v1/chat/completions",
+                    "-H", "Content-Type: application/json",
                     "-d", json.dumps({
-                        "model": "gemma4:e4b",
+                        "model": "gemma-4-E4B",
                         "messages": messages,
                         "stream": False,
-                        "options": {
-                            "temperature": 0.7,
-                            "num_ctx": 8192,
-                            "num_predict": 2048,
-                        },
+                        "temperature": 0.7,
+                        "max_tokens": 2048,
                     }),
                 ],
                 capture_output=True, text=True, timeout=180,
             )
             if result.returncode == 0 and result.stdout.strip():
                 data = json.loads(result.stdout)
-                return data.get("message", {}).get("content", "Tool executed successfully.")
+                choice = data.get("choices", [{}])[0]
+                return choice.get("message", {}).get("content", "Tool executed successfully.")
             return f"Tool '{func_name}' executed. Raw output: {result.stdout[:500]}"
         except Exception as e:
             return f"Error during tool response: {e}"
@@ -579,21 +578,19 @@ class HermesApp(Adw.Application):
     # --- End tool definitions ---
 
     def _query_hermes(self, prompt: str):
-        """Query Hermes/Ollama in background."""
+        """Query Hermes/llama.cpp in background."""
         try:
-            # Try Ollama directly first with Gemma 4 native tool calling
+            # Try llama.cpp server (OpenAI-compatible API)
             result = subprocess.run(
                 [
-                    "curl", "-s", "http://127.0.0.1:11434/api/chat",
+                    "curl", "-s", "http://127.0.0.1:8080/v1/chat/completions",
+                    "-H", "Content-Type: application/json",
                     "-d", json.dumps({
-                        "model": "gemma4:e4b",
+                        "model": "gemma-4-E4B",
                         "messages": self._build_messages(prompt),
                         "stream": False,
-                        "options": {
-                            "temperature": 0.7,
-                            "num_ctx": 8192,
-                            "num_predict": 2048,
-                        },
+                        "temperature": 0.7,
+                        "max_tokens": 2048,
                         "tools": self._get_available_tools(),
                     }),
                 ],
@@ -604,7 +601,8 @@ class HermesApp(Adw.Application):
                 try:
                     data = json.loads(result.stdout)
                     # Check for tool calls (Gemma 4 native function calling)
-                    message = data.get("message", {})
+                    choice = data.get("choices", [{}])[0]
+                    message = choice.get("message", {})
                     if message.get("tool_calls"):
                         # Execute tool calls and build response
                         response = self._handle_tool_calls(message["tool_calls"], prompt)
@@ -624,9 +622,9 @@ class HermesApp(Adw.Application):
             response = "Request timed out. The model may still be loading."
         except FileNotFoundError:
             response = (
-                "Ollama is not running.\n\n"
-                "To start: ollama serve &\n"
-                "To pull a model: ollama pull gemma4:e4b"
+                "llama.cpp server is not running.\n\n"
+                "To start: systemctl start llama-cpp\n"
+                "Or run: hermes-start"
             )
         except Exception as e:
             response = f"Error: {e}"
@@ -650,8 +648,10 @@ class HermesApp(Adw.Application):
             transient_for=self.window,
             heading="Hermes Settings",
             body="Configuration is managed in /etc/hermes/config.yaml\n\n"
-                 "Ollama models: /var/lib/ollama/\n"
-                 "Hermes memory: /var/lib/hermes/memory/",
+                 "llama.cpp:     /opt/llama-cpp/llama-server\n"
+                 "Models:        /var/lib/llama/models/\n"
+                 "Hermes memory: /var/lib/hermes/memory/\n"
+                 "Service:       systemctl start llama-cpp",
         )
         dialog.add_response("ok", "OK")
         dialog.present()
@@ -671,30 +671,29 @@ class HermesApp(Adw.Application):
         dialog.present()
 
     def _check_status(self):
-        """Check Ollama and Hermes status on startup."""
-        # Check Ollama
+        """Check llama.cpp and Hermes status on startup."""
+        # Check llama.cpp server
         try:
             result = subprocess.run(
-                ["curl", "-s", "http://127.0.0.1:11434/"],
+                ["curl", "-s", "http://127.0.0.1:8080/v1/models"],
                 capture_output=True, text=True, timeout=5,
             )
-            if result.returncode == 0:
-                self.ollama_running = True
-                self.ollama_indicator.set_text("🟢 Ollama running")
-                self.status_label.set_text("Ready — Ollama is running")
+            if result.returncode == 0 and result.stdout.strip():
+                self.llama_running = True
+                self.llama_indicator.set_text("🟢 llama.cpp running")
+                self.status_label.set_text("Ready — llama.cpp is running")
             else:
                 raise Exception("not running")
         except Exception:
-            self.ollama_running = False
-            self.ollama_indicator.set_text("🔴 Ollama not running")
+            self.llama_running = False
+            self.llama_indicator.set_text("🔴 llama.cpp not running")
             self.status_label.set_text(
-                "Ollama not detected. Start with: ollama serve"
+                "llama.cpp not detected. Start with: systemctl start llama-cpp"
             )
             self.chat_view.add_system_message(
-                "⚠️ Ollama is not running. Start it with:\n"
-                "  ollama serve &\n"
-                "Then pull a model:\n"
-                "  ollama pull gemma4:e4b"
+                "⚠️ llama.cpp server is not running. Start it with:\n"
+                "  systemctl start llama-cpp\n"
+                "Or use: hermes-start"
             )
 
         # Check Hermes CLI
@@ -709,7 +708,7 @@ class HermesApp(Adw.Application):
                 )
         except Exception:
             self.chat_view.add_system_message(
-                "ℹ️ Hermes CLI not found in PATH. Using Ollama directly."
+                "ℹ️ Hermes CLI not found in PATH. Using llama.cpp directly."
             )
 
 

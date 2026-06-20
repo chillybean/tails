@@ -1,5 +1,5 @@
 # Hermes AI Agent for Tails
-# Packages needed for Hermes + Ollama + GTK4 desktop integration
+# Packages needed for Hermes + llama.cpp + GTK4 desktop integration
 
 # --- Python / Hermes deps ---
 python3-pip
@@ -12,11 +12,12 @@ gir1.2-gtk-4.0
 libgtk-4-1
 libgtk-4-bin
 
-# --- Ollama ---
-curl
-wget
+# --- llama.cpp runtime deps ---
+libgomp1
+libssl3
 
 # --- General deps ---
-git
+curl
+wget
 ca-certificates
 jq

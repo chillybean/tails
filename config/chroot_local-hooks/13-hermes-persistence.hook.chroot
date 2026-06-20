@@ -13,7 +13,7 @@ PERSISTENT="/live/persistence/TailsData_unlocked"
 
 # Hermes dirs that should persist
 HERMES_PERSIST_DIRS="
-    /var/lib/ollama
+    /var/lib/llama
     /var/lib/hermes
     /etc/hermes
 "
@@ -36,10 +36,10 @@ for dir in $HERMES_PERSIST_DIRS; do
     fi
 done
 
-# Create convenience script for starting Hermes + Ollama (Tor-routed)
+# Create convenience script for starting Hermes + llama.cpp (Tor-routed)
 cat > /usr/local/bin/hermes-start << 'SCRIPT'
 #!/bin/bash
-# Start Hermes AI with Ollama (all traffic routed through Tor)
+# Start Hermes AI with llama.cpp (all traffic routed through Tor)
 
 echo "============================================"
 echo "  Hermes AI — Tor-Routed Startup"
@@ -61,51 +61,55 @@ else
     echo "⚠️  Could not verify Tor. Proceeding anyway..."
 fi
 
-# Set Tor proxy for this session
-export HTTP_PROXY="socks5h://127.0.0.1:9050"
-export HTTPS_PROXY="socks5h://127.0.0.1:9050"
-export http_proxy="socks5h://127.0.0.1:9050"
-export https_proxy="socks5h://127.0.0.1:9050"
+# Check if model exists
+MODEL_PATH="/var/lib/llama/models/gemma-4-E4B-it-Q4_K_M.gguf"
+if [ ! -f "$MODEL_PATH" ]; then
+    echo ""
+    echo "📥 Gemma 4 E4B model not found."
+    echo "   The model should be pre-bundled in the ISO."
+    echo "   If missing, download through Tor with:"
+    echo "   huggingface-cli download unsloth/gemma-4-E4B-it-GGUF gemma-4-E4B-it-Q4_K_M.gguf --local-dir /var/lib/llama/models"
+    echo ""
+fi
 
-# Start Ollama via systemd (preferred) or manually
-echo ""
-echo "Starting Ollama..."
-if systemctl is-active --quiet ollama.service 2>/dev/null; then
-    echo "✅ Ollama is already running."
+# Start llama.cpp via systemd (preferred) or manually
+echo "Starting llama.cpp server..."
+if systemctl is-active --quiet llama-cpp.service 2>/dev/null; then
+    echo "✅ llama.cpp is already running."
 else
-    sudo systemctl start ollama.service 2>/dev/null || {
-        echo "  Starting Ollama manually..."
-        nohup ollama serve > /tmp/ollama.log 2>&1 &
+    sudo systemctl start llama-cpp.service 2>/dev/null || {
+        echo "  Starting llama.cpp manually..."
+        export LD_LIBRARY_PATH="/opt/llama-cpp:$LD_LIBRARY_PATH"
+        nohup /opt/llama-cpp/llama-server \
+            --model "$MODEL_PATH" \
+            --host 127.0.0.1 --port 8080 \
+            --ctx-size 8192 \
+            --n-predict 2048 \
+            --temp 0.7 \
+            --cont-batching \
+            > /tmp/llama.cpp.log 2>&1 &
     }
 fi
 
-# Wait for Ollama
-echo "Waiting for Ollama API..."
+# Wait for llama.cpp
+echo "Waiting for llama.cpp API..."
 for i in $(seq 1 30); do
-    if curl -s http://127.0.0.1:11434/ > /dev/null 2>&1; then
-        echo "✅ Ollama API is ready."
+    if curl -s http://127.0.0.1:8080/v1/models > /dev/null 2>&1; then
+        echo "✅ llama.cpp API is ready."
         break
     fi
     sleep 1
 done
-
-# Check if default model exists
-if ! ollama list 2>/dev/null | grep -q "gemma4:e4b"; then
-    echo ""
-    echo "📥 Pulling default model (gemma4:e4b) through Tor..."
-    echo "   This may take a while depending on your Tor circuit speed..."
-    ollama pull gemma4:e4b
-fi
 
 echo ""
 echo "============================================"
 echo "  Hermes AI is ready!"
 echo "============================================"
 echo ""
-echo "  Launch GUI:     hermes-ai"
-echo "  CLI:            hermes"
-echo "  Ollama status:  systemctl status ollama"
-echo "  Tor exit IP:    $TOR_IP"
+echo "  Launch GUI:       hermes-ai"
+echo "  CLI:              hermes"
+echo "  llama.cpp status: systemctl status llama-cpp"
+echo "  Tor exit IP:      $TOR_IP"
 echo ""
 SCRIPT
 chmod +x /usr/local/bin/hermes-start

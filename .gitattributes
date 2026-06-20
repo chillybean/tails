@@ -1,0 +1,6 @@
+# Binary libraries — keep in git, not LFS
+*.so filter= diff= merge= -text
+*.so.* filter= diff= merge= -text
+# Model files — too large for git, download at runtime
+*.gguf binary
+config/chroot_local-includes/var/lib/llama/models/gemma-4-E4B-it-Q4_K_M.gguf export-ignore

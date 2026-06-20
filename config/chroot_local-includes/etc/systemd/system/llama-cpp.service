@@ -1,6 +1,6 @@
 [Unit]
-Description=Ollama AI Model Server (Tor-routed)
-Documentation=https://ollama.com
+Description=llama.cpp Model Server (Tor-routed)
+Documentation=https://github.com/ggml-org/llama.cpp
 After=network.target tor@default.service
 Requires=tor@default.service
 StartLimitIntervalSec=300
@@ -8,11 +8,22 @@ StartLimitBurst=5
 
 [Service]
 Type=simple
-User=ollama
-Group=ollama
-ExecStart=/usr/local/bin/ollama serve
+User=hermes
+Group=hermes
+ExecStart=/opt/llama-cpp/llama-server \
+    --model /var/lib/llama/models/gemma-4-E4B-it-Q4_K_M.gguf \
+    --host 127.0.0.1 --port 8080 \
+    --ctx-size 8192 \
+    --n-predict 2048 \
+    --temp 0.7 \
+    --parallel 1 \
+    --cont-batching \
+    --embedding
 Restart=on-failure
 RestartSec=10
+
+# --- Library path ---
+Environment="LD_LIBRARY_PATH=/opt/llama-cpp"
 
 # --- Tor proxy configuration ---
 # Route all outbound traffic through Tor's SOCKS port
@@ -20,19 +31,12 @@ Environment="HTTP_PROXY=socks5h://127.0.0.1:9050"
 Environment="HTTPS_PROXY=socks5h://127.0.0.1:9050"
 Environment="http_proxy=socks5h://127.0.0.1:9050"
 Environment="https_proxy=socks5h://127.0.0.1:9050"
-# Ollama-specific: use Tor proxy for model downloads from ollama.com
-Environment="OLLAMA_ORIGINS=*"
-
-# Ollama data directory
-Environment="OLLAMA_MODELS=/var/lib/ollama"
-Environment="OLLAMA_HOST=127.0.0.1:11434"
-Environment="OLLAMA_KEEP_ALIVE=5m"
 
 # Security hardening
 NoNewPrivileges=true
 ProtectSystem=strict
 ProtectHome=true
-ReadWritePaths=/var/lib/ollama /tmp
+ReadWritePaths=/var/lib/llama /var/lib/hermes /tmp
 PrivateTmp=true
 ProtectKernelTunables=true
 ProtectKernelModules=true
@@ -44,7 +48,7 @@ RestrictSUIDSGID=true
 MemoryDenyWriteExecute=true
 LockPersonality=true
 
-# Resource limits (Ollama can be memory-hungry)
+# Resource limits
 MemoryMax=12G
 CPUQuota=800%
 

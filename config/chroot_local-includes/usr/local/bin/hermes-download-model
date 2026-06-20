@@ -1,0 +1,65 @@
+#!/bin/bash
+# Download Gemma 4 E4B GGUF model through Tor
+# Run this on first boot if the model is not pre-bundled
+
+MODEL_DIR="/var/lib/llama/models"
+MODEL_FILE="gemma-4-E4B-it-Q4_K_M.gguf"
+MODEL_URL="https://huggingface.co/unsloth/gemma-4-E4B-it-GGUF/resolve/main/${MODEL_FILE}"
+MODEL_SIZE="4.7GB"
+
+echo "============================================"
+echo "  Downloading Gemma 4 E4B Model"
+echo "============================================"
+echo ""
+echo "  Model:  ${MODEL_FILE}"
+echo "  Size:   ${MODEL_SIZE}"
+echo "  Dest:   ${MODEL_DIR}/"
+echo "  Route:  Tor (SOCKS5 127.0.0.1:9050)"
+echo ""
+
+# Check if already present
+if [ -f "${MODEL_DIR}/${MODEL_FILE}" ]; then
+    echo "✅ Model already exists at ${MODEL_DIR}/${MODEL_FILE}"
+    ls -lh "${MODEL_DIR}/${MODEL_FILE}"
+    exit 0
+fi
+
+# Check Tor is running
+echo "Checking Tor connectivity..."
+if ! curl -s --socks5 127.0.0.1:9050 --max-time 10 https://check.torproject.org/ > /dev/null 2>&1; then
+    echo "❌ Tor is not running. Start Tor first:"
+    echo "   sudo systemctl start tor@default.service"
+    exit 1
+fi
+
+TOR_IP=$(curl -s --socks5 127.0.0.1:9050 --max-time 15 https://check.torproject.org/api/ip 2>/dev/null | grep -oP '"IP":"[^"]*"' | cut -d'"' -f4)
+echo "✅ Tor is active (exit IP: ${TOR_IP})"
+echo ""
+
+# Create directory
+mkdir -p "$MODEL_DIR"
+
+# Download through Tor
+echo "📥 Downloading through Tor (this will take a while)..."
+echo "   URL: ${MODEL_URL}"
+echo ""
+
+curl -fsSL \
+    --socks5 127.0.0.1:9050 \
+    -o "${MODEL_DIR}/${MODEL_FILE}" \
+    "$MODEL_URL" 2>&1
+
+if [ $? -eq 0 ] && [ -f "${MODEL_DIR}/${MODEL_FILE}" ]; then
+    echo ""
+    echo "============================================"
+    echo "  ✅ Model downloaded successfully!"
+    echo "============================================"
+    ls -lh "${MODEL_DIR}/${MODEL_FILE}"
+    echo ""
+    echo "Start Hermes with: hermes-start"
+else
+    echo ""
+    echo "❌ Download failed. You can retry with:"
+    echo "   curl -fsSL --socks5 127.0.0.1:9050 -o ${MODEL_DIR}/${MODEL_FILE} ${MODEL_URL}"
+    exit 1
+fi
