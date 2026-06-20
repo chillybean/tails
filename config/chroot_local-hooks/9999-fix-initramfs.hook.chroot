@@ -1,0 +1,8 @@
+#!/bin/sh
+# Fix initramfs for container build environment
+# The partitioning hook requires /dev block devices which don't exist in Docker.
+# Remove it so update-initramfs can succeed during lb chroot_hacks.
+echo "Fixing initramfs hooks for container build..."
+rm -f /usr/share/initramfs-tools/hooks/partitioning
+rm -f /usr/share/initramfs-tools/scripts/local-premount/partitioning
+echo "Done."
