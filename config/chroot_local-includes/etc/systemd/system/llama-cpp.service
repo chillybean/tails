@@ -17,8 +17,7 @@ ExecStart=/opt/llama-cpp/llama-server \
     --n-predict 2048 \
     --temp 0.7 \
     --parallel 1 \
-    --cont-batching \
-    --embedding
+    --cont-batching
 Restart=on-failure
 RestartSec=10
 

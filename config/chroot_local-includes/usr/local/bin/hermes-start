@@ -1,0 +1,74 @@
+#!/bin/bash
+# Start Hermes AI with llama.cpp (all traffic routed through Tor)
+# This file is version-controlled in the Tails Hermes integration.
+
+set -e
+
+echo "============================================"
+echo "  Hermes AI — Tor-Routed Startup"
+echo "============================================"
+
+# Check Tor is running
+if ! curl -s --socks5 127.0.0.1:9050 --max-time 10 https://check.torproject.org/ > /dev/null 2>&1; then
+    echo "⚠️  Tor is not running. Starting Tor..."
+    sudo systemctl start tor@default.service
+    sleep 3
+fi
+
+# Verify Tor connectivity — only show status, NOT the exit IP
+# (exit IP is an opsec risk if user screenshots/shares terminal)
+echo "Checking Tor connectivity..."
+if curl -s --socks5 127.0.0.1:9050 --max-time 15 https://check.torproject.org/api/ip 2>/dev/null | grep -q '"IsTor":true'; then
+    echo "✅ Tor is active and working."
+else
+    echo "⚠️  Could not verify Tor. Proceeding anyway..."
+fi
+
+# Check if model exists
+MODEL_PATH="/var/lib/llama/models/gemma-4-E4B-it-Q4_K_M.gguf"
+if [ ! -f "$MODEL_PATH" ]; then
+    echo ""
+    echo "📥 Gemma 4 E4B model not found."
+    echo "   Download through Tor with:"
+    echo "   hermes-download-model"
+    echo ""
+fi
+
+# Start llama.cpp via systemd (preferred) or manually
+echo "Starting llama.cpp server..."
+if systemctl is-active --quiet llama-cpp.service 2>/dev/null; then
+    echo "✅ llama.cpp is already running."
+else
+    sudo systemctl start llama-cpp.service 2>/dev/null || {
+        echo "  Starting llama.cpp manually..."
+        export LD_LIBRARY_PATH="/opt/llama-cpp:$LD_LIBRARY_PATH"
+        nohup /opt/llama-cpp/llama-server \
+            --model "$MODEL_PATH" \
+            --host 127.0.0.1 --port 8080 \
+            --ctx-size 8192 \
+            --n-predict 2048 \
+            --temp 0.7 \
+            --cont-batching \
+            > /tmp/llama.cpp.log 2>&1 &
+    }
+fi
+
+# Wait for llama.cpp
+echo "Waiting for llama.cpp API..."
+for i in $(seq 1 30); do
+    if curl -s http://127.0.0.1:8080/v1/models > /dev/null 2>&1; then
+        echo "✅ llama.cpp API is ready."
+        break
+    fi
+    sleep 1
+done
+
+echo ""
+echo "============================================"
+echo "  Hermes AI is ready!"
+echo "============================================"
+echo ""
+echo "  Launch GUI:       hermes-ai"
+echo "  CLI:              hermes"
+echo "  llama.cpp status: systemctl status llama-cpp"
+echo ""

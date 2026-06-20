@@ -44,9 +44,11 @@ echo "📥 Downloading through Tor (this will take a while)..."
 echo "   URL: ${MODEL_URL}"
 echo ""
 
-curl -fsSL \
+curl -fSL \
     --socks5 127.0.0.1:9050 \
+    -A "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0" \
     -o "${MODEL_DIR}/${MODEL_FILE}" \
+    -w "\nDownloaded: %{size_download} bytes in %{time_total}s (%{speed_download} bytes/s)\n" \
     "$MODEL_URL" 2>&1
 
 if [ $? -eq 0 ] && [ -f "${MODEL_DIR}/${MODEL_FILE}" ]; then

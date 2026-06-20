@@ -16,6 +16,7 @@ HERMES_PERSIST_DIRS="
     /var/lib/llama
     /var/lib/hermes
     /etc/hermes
+    /home/amnesia/HermesWorkspace
 "
 
 for dir in $HERMES_PERSIST_DIRS; do
@@ -37,81 +38,13 @@ for dir in $HERMES_PERSIST_DIRS; do
 done
 
 # Create convenience script for starting Hermes + llama.cpp (Tor-routed)
-cat > /usr/local/bin/hermes-start << 'SCRIPT'
-#!/bin/bash
-# Start Hermes AI with llama.cpp (all traffic routed through Tor)
-
-echo "============================================"
-echo "  Hermes AI — Tor-Routed Startup"
-echo "============================================"
-
-# Check Tor is running
-if ! curl -s --socks5 127.0.0.1:9050 https://check.torproject.org/ > /dev/null 2>&1; then
-    echo "⚠️  Tor is not running. Starting Tor..."
-    sudo systemctl start tor@default.service
-    sleep 3
-fi
-
-# Verify Tor connectivity
-echo "Checking Tor connectivity..."
-TOR_IP=$(curl -s --socks5 127.0.0.1:9050 https://check.torproject.org/api/ip 2>/dev/null | grep -oP '"IP":"[^"]*"' | cut -d'"' -f4)
-if [ -n "$TOR_IP" ]; then
-    echo "✅ Tor is active (exit IP: $TOR_IP)"
+# Script is version-controlled in chroot_local-includes/usr/local/bin/hermes-start
+# The persistence hook just ensures it's executable and available
+if [ -f "/usr/local/bin/hermes-start" ]; then
+    chmod +x /usr/local/bin/hermes-start
+    echo "  hermes-start script available."
 else
-    echo "⚠️  Could not verify Tor. Proceeding anyway..."
+    echo "  WARNING: hermes-start script not found in chroot_local-includes."
 fi
-
-# Check if model exists
-MODEL_PATH="/var/lib/llama/models/gemma-4-E4B-it-Q4_K_M.gguf"
-if [ ! -f "$MODEL_PATH" ]; then
-    echo ""
-    echo "📥 Gemma 4 E4B model not found."
-    echo "   The model should be pre-bundled in the ISO."
-    echo "   If missing, download through Tor with:"
-    echo "   huggingface-cli download unsloth/gemma-4-E4B-it-GGUF gemma-4-E4B-it-Q4_K_M.gguf --local-dir /var/lib/llama/models"
-    echo ""
-fi
-
-# Start llama.cpp via systemd (preferred) or manually
-echo "Starting llama.cpp server..."
-if systemctl is-active --quiet llama-cpp.service 2>/dev/null; then
-    echo "✅ llama.cpp is already running."
-else
-    sudo systemctl start llama-cpp.service 2>/dev/null || {
-        echo "  Starting llama.cpp manually..."
-        export LD_LIBRARY_PATH="/opt/llama-cpp:$LD_LIBRARY_PATH"
-        nohup /opt/llama-cpp/llama-server \
-            --model "$MODEL_PATH" \
-            --host 127.0.0.1 --port 8080 \
-            --ctx-size 8192 \
-            --n-predict 2048 \
-            --temp 0.7 \
-            --cont-batching \
-            > /tmp/llama.cpp.log 2>&1 &
-    }
-fi
-
-# Wait for llama.cpp
-echo "Waiting for llama.cpp API..."
-for i in $(seq 1 30); do
-    if curl -s http://127.0.0.1:8080/v1/models > /dev/null 2>&1; then
-        echo "✅ llama.cpp API is ready."
-        break
-    fi
-    sleep 1
-done
-
-echo ""
-echo "============================================"
-echo "  Hermes AI is ready!"
-echo "============================================"
-echo ""
-echo "  Launch GUI:       hermes-ai"
-echo "  CLI:              hermes"
-echo "  llama.cpp status: systemctl status llama-cpp"
-echo "  Tor exit IP:      $TOR_IP"
-echo ""
-SCRIPT
-chmod +x /usr/local/bin/hermes-start
 
 echo "Hermes persistence configured."

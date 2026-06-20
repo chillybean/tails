@@ -507,10 +507,23 @@ class HermesApp(Adw.Application):
                 path = args.get("path", "")
                 if not path:
                     return "Error: No file path specified."
-                # Security: restrict to /home/amnesia and /tmp
-                allowed_prefixes = ["/home/amnesia", "/tmp", "/var/lib/hermes"]
+                # Restrict to safe directories
+                allowed_prefixes = [
+                    "/home/amnesia/HermesWorkspace",
+                    "/tmp",
+                    "/var/lib/hermes/workspace",
+                    "/home/amnesia/Documents",
+                    "/home/amnesia/Downloads",
+                ]
                 if not any(path.startswith(p) for p in allowed_prefixes):
-                    return f"Error: Access denied. Path must be within allowed directories (home, tmp, hermes)."
+                    return (
+                        "Error: Access denied. Allowed directories:\n"
+                        "  /home/amnesia/HermesWorkspace/\n"
+                        "  /home/amnesia/Documents/\n"
+                        "  /home/amnesia/Downloads/\n"
+                        "  /tmp/\n"
+                        "  /var/lib/hermes/workspace/"
+                    )
                 with open(path, "r") as f:
                     content = f.read(10000)  # Limit output
                 return content or "(empty file)"
@@ -520,9 +533,20 @@ class HermesApp(Adw.Application):
                 content = args.get("content", "")
                 if not path:
                     return "Error: No file path specified."
-                allowed_prefixes = ["/home/amnesia", "/tmp", "/var/lib/hermes"]
+                # Restrict to dedicated workspace to prevent writing to
+                # sensitive locations (.bashrc, .ssh, autostart, etc.)
+                allowed_prefixes = [
+                    "/home/amnesia/HermesWorkspace",
+                    "/tmp",
+                    "/var/lib/hermes/workspace",
+                ]
                 if not any(path.startswith(p) for p in allowed_prefixes):
-                    return f"Error: Access denied. Path must be within allowed directories."
+                    return (
+                        "Error: Access denied. Files can only be written to:\n"
+                        "  /home/amnesia/HermesWorkspace/\n"
+                        "  /tmp/\n"
+                        "  /var/lib/hermes/workspace/"
+                    )
                 os.makedirs(os.path.dirname(path), exist_ok=True)
                 with open(path, "w") as f:
                     f.write(content)
@@ -532,14 +556,39 @@ class HermesApp(Adw.Application):
                 command = args.get("command", "")
                 if not command:
                     return "Error: No command specified."
-                # Run through Tor for any network commands
-                env = os.environ.copy()
-                env["HTTP_PROXY"] = "socks5h://127.0.0.1:9050"
-                env["HTTPS_PROXY"] = "socks5h://127.0.0.1:9050"
+                # Block dangerous commands that could exfiltrate data
+                # or modify system state
+                blocked_patterns = [
+                    "curl", "wget", "nc", "ncat", "netcat",
+                    "python -c", "python3 -c", "perl -e", "ruby -e",
+                    "bash -c", "sh -c", "eval", "exec",
+                    "sudo", "su ", "chmod", "chown",
+                    "dd ", "mkfs", "fdisk",
+                    "iptables", "ufw",
+                    "systemctl", "service ",
+                    "crontab", "at ",
+                    "ssh ", "scp ", "rsync",
+                    "tar ", "zip ", "gzip",
+                ]
+                cmd_lower = command.lower()
+                for pattern in blocked_patterns:
+                    if pattern in cmd_lower:
+                        return (
+                            f"Error: Command blocked for security. "
+                            f"Pattern '{pattern}' is not allowed.\n"
+                            f"Allowed: file operations, text processing, "
+                            f"system info queries."
+                        )
+                # Run with restricted env (no proxy vars, no secrets)
+                env = {
+                    "PATH": "/usr/bin:/bin:/usr/local/bin",
+                    "HOME": "/home/amnesia",
+                    "TMPDIR": "/tmp",
+                    "LANG": "C.UTF-8",
+                }
                 result = subprocess.run(
                     command, shell=True, capture_output=True, text=True,
-                    timeout=30, env=env,
-                    cwd="/home/amnesia",
+                    timeout=30, env=env, cwd="/home/amnesia/HermesWorkspace",
                 )
                 output = result.stdout or "(no output)"
                 if result.stderr:
@@ -547,14 +596,16 @@ class HermesApp(Adw.Application):
                 return output[:5000]
 
             elif func_name == "search_web":
+                import urllib.parse
                 query = args.get("query", "")
                 if not query:
                     return "Error: No search query specified."
-                # Use curl through Tor to search
+                # URL-encode the query to prevent injection
+                encoded_query = urllib.parse.quote(query)
                 result = subprocess.run(
                     [
                         "curl", "-s", "--socks5", "127.0.0.1:9050",
-                        f"https://html.duckduckgo.com/html/?q={query}",
+                        f"https://html.duckduckgo.com/html/?q={encoded_query}",
                     ],
                     capture_output=True, text=True, timeout=30,
                 )

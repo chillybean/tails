@@ -43,6 +43,10 @@ echo "[3/7] Setting up model directory..."
 mkdir -p /var/lib/llama/models
 chown -R hermes:hermes /var/lib/llama
 
+# Create Hermes workspace for file operations
+mkdir -p /home/amnesia/HermesWorkspace
+chown -R 1000:1000 /home/amnesia/HermesWorkspace
+
 # Copy bundled model if present
 if [ -f "/var/lib/llama/models/gemma-4-E4B-it-Q4_K_M.gguf" ]; then
     echo "  Bundled Gemma 4 E4B model found."
@@ -135,10 +139,11 @@ echo "Setting up persistence..."
 mkdir -p /var/lib/hermes/memory
 chown -R hermes:hermes /var/lib/hermes
 
-# --- Configure Tor proxy for model downloads ---
-echo "Configuring Tor proxy..."
+# --- Configure Tor proxy for hermes user only ---
+echo "Configuring Tor proxy for hermes user..."
 cat > /etc/profile.d/hermes-tor-proxy.sh << 'PROFILE'
 # Hermes AI — route outbound traffic through Tor
+# Only applies to interactive login shells; systemd services use their own env
 export HTTP_PROXY="socks5h://127.0.0.1:9050"
 export HTTPS_PROXY="socks5h://127.0.0.1:9050"
 export http_proxy="socks5h://127.0.0.1:9050"
