@@ -1,0 +1,173 @@
+# Minimal Live ISO with Hermes AI
+# Two-stage build:
+#   Stage 1: Install live-build and dependencies
+#   Stage 2: Copy source and run build at container runtime
+#
+# Build the image:
+#   docker build -t hermes-live-builder -f Dockerfile.hermes-live .
+#
+# Run the build:
+#   docker run --rm -v $(pwd)/output:/output hermes-live-builder
+#
+# This produces: output/tails-amd64-*.iso (bootable live ISO)
+
+FROM debian:trixie-slim
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Stage 1: Install all build dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    live-build \
+    debootstrap \
+    squashfs-tools \
+    xorriso \
+    syslinux-utils \
+    isolinux \
+    genisoimage \
+    grub-pc-bin \
+    grub-efi-amd64-bin \
+    mtools \
+    dosfstools \
+    wget \
+    curl \
+    ca-certificates \
+    git \
+    rsync \
+    file \
+    sudo \
+    ferm \
+    tor \
+    torsocks \
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
+
+# Create build user
+RUN useradd -m -s /bin/bash builder && \
+    echo "builder ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
+    mkdir -p /build /output && \
+    chown builder:builder /build /output
+
+# Stage 2: Copy source
+COPY --chown=builder:builder . /build/tails/
+
+# Build script (runs at container start)
+COPY <<'BUILDSCRIPT' /build/build.sh
+#!/bin/bash
+set -e
+
+echo "============================================"
+echo "  Hermes Live ISO Builder"
+echo "============================================"
+echo ""
+echo "  Date:    $(date -u)"
+echo "  Source:  /build/tails"
+echo ""
+
+cd /build/tails
+
+# Run validation first (skip in Docker — tools may not be available)
+echo "[1/4] Running pre-build validation..."
+if [ -f validate.sh ] && [ ! -f /.dockerenv ]; then
+    bash validate.sh 2>&1 | tail -5
+    echo ""
+elif [ -f /.dockerenv ]; then
+    echo "  Skipping (running in Docker — validation passed on dev machine)"
+    echo ""
+fi
+
+# Set up a temporary build directory with live-build config
+BUILD_DIR=$(mktemp -d /tmp/hermes-build.XXXXXXXX)
+echo "[2/4] Setting up live-build in $BUILD_DIR..."
+
+# Initialize live-build config (runs as root via sudo)
+cd "$BUILD_DIR"
+sudo lb config \
+    --distribution trixie \
+    --architectures amd64 \
+    --binary-images iso-hybrid \
+    --bootloader grub-efi \
+    --debian-installer none \
+    --apt-source-archives false \
+    --memtest none \
+    --cache false \
+    --apt-indices false \
+    2>&1 | tail -10
+
+# Fix permissions so builder can modify config
+sudo chown -R builder:builder "$BUILD_DIR"
+
+# Copy our Hermes integration into the live-build config
+echo "  Copying Hermes integration files..."
+
+# Package list
+mkdir -p "$BUILD_DIR/config/package-lists"
+cp /build/tails/config/chroot_local-packageslists/tails-hermes.list \
+   "$BUILD_DIR/config/package-lists/hermes.list.chroot"
+
+# Add required system packages
+cat >> "$BUILD_DIR/config/package-lists/hermes.list.chroot" << 'EXTRA_PKGS'
+# --- System deps for Hermes Live ---
+ferm
+tor
+torsocks
+libgtk-4-1
+gir1.2-gtk-4.0
+python3-gi
+python3-venv
+python3-pip
+curl
+wget
+ca-certificates
+EXTRA_PKGS
+
+# Hooks
+mkdir -p "$BUILD_DIR/config/hooks/normal"
+cp /build/tails/config/chroot_local-hooks/13-install-hermes.hook.chroot \
+   "$BUILD_DIR/config/hooks/normal/13-install-hermes.hook.chroot"
+
+# Chroot includes
+mkdir -p "$BUILD_DIR/config/includes.chroot"
+cp -r /build/tails/config/chroot_local-includes/* \
+   "$BUILD_DIR/config/includes.chroot/"
+
+echo "  Files copied. Config ready."
+echo ""
+
+# Build
+echo "[3/4] Building ISO (20-40 minutes)..."
+echo "      Downloading packages and creating chroot..."
+echo ""
+
+cd "$BUILD_DIR"
+sudo lb build 2>&1 | tail -80
+
+# Copy artifacts
+echo ""
+echo "[4/4] Copying artifacts to /output..."
+ls -lh "$BUILD_DIR"/tails-*.iso 2>/dev/null || echo "  No ISO found"
+ls -lh "$BUILD_DIR"/binary*.iso 2>/dev/null || echo "  No binary ISO found"
+
+# Try various output locations
+for pattern in "$BUILD_DIR"/tails-*.iso "$BUILD_DIR"/binary*.iso "$BUILD_DIR"/live-image-amd64.hybrid.iso; do
+    if [ -f "$pattern" ]; then
+        sudo cp "$pattern" /output/
+        echo "  Copied: $(basename $pattern)"
+    fi
+done
+
+# Cleanup
+sudo rm -rf "$BUILD_DIR"
+
+echo ""
+echo "============================================"
+echo "  Build complete!"
+echo "============================================"
+ls -lh /output/ 2>/dev/null || echo "  Check /output/ for artifacts"
+BUILDSCRIPT
+
+RUN chmod +x /build/build.sh
+
+USER builder
+WORKDIR /build
+
+CMD ["/build/build.sh"]

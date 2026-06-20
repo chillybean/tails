@@ -1,0 +1,129 @@
+# Tails Hermes — ISO Build Container
+# Usage: docker build -t tails-hermes-builder -f Dockerfile.build .
+#        docker run --rm -v $(pwd)/output:/output tails-hermes-builder
+#
+# This container installs live-build and all dependencies needed to
+# build the Tails ISO with Hermes AI integration.
+
+FROM debian:trixie-slim
+
+LABEL maintainer="Hermes Tails Project"
+
+# Prevent interactive prompts
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install all build dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    # Core build tools
+    live-build \
+    debootstrap \
+    # ISO creation
+    squashfs-tools \
+    xorriso \
+    syslinux-utils \
+    isolinux \
+    genisoimage \
+    grub-pc-bin \
+    grub-efi-amd64-bin \
+    mtools \
+    dosfstools \
+    # General tools
+    wget \
+    curl \
+    ca-certificates \
+    git \
+    rsync \
+    file \
+    faketime \
+    sudo \
+    make \
+    gcc \
+    g++ \
+    pkg-config \
+    libssl-dev \
+    perl \
+    # Cleanup
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
+
+# Create build user (matching Tails Vagrant VM)
+RUN useradd -m -s /bin/bash -u 1000 builder && \
+    echo "builder ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
+    mkdir -p /build /output && \
+    chown builder:builder /build /output
+
+USER builder
+WORKDIR /build
+
+# Copy Tails source into container
+COPY --chown=builder:builder . /build/tails/
+
+# Build script
+COPY --chown=builder:builder <<'BUILDSH' /build/build.sh
+#!/bin/bash
+set -e
+
+cd /build/tails
+
+echo "============================================"
+echo "  Tails + Hermes AI — ISO Build"
+echo "============================================"
+echo ""
+echo "  Date:    $(date -u)"
+echo "  Branch:  $(git rev-parse --abbrev-ref HEAD)"
+echo "  Commit:  $(git rev-parse --short HEAD)"
+echo ""
+
+# Set up git safe directory
+git config --global --add safe.directory /build/tails 2>/dev/null || true
+
+# Create build directory
+BUILD_DIR=$(mktemp -d /tmp/tails-build.XXXXXXXX)
+echo "  Build dir: $BUILD_DIR"
+echo ""
+
+# Copy source to build dir
+sudo rsync -a /build/tails/ "$BUILD_DIR"/
+
+cd "$BUILD_DIR"
+
+# Configure live-build
+echo "[1/3] Configuring live-build..."
+sudo lb config \
+    --distribution trixie \
+    --architectures amd64 \
+    --binary-images iso-hybrid \
+    --bootloader grub-efi \
+    --debian-installer none \
+    --apt-source-archives false \
+    --memtest none \
+    --cache false \
+    2>&1 | tail -20
+
+echo ""
+echo "[2/3] Building ISO (this will take 30-60 minutes)..."
+echo "      Downloading packages, creating chroot, building image..."
+echo ""
+
+sudo lb build 2>&1 | tail -100
+
+# Copy artifacts to output
+echo ""
+echo "[3/3] Copying build artifacts..."
+ls -lh tails-*.iso 2>/dev/null || echo "No ISO found in build dir"
+find . -name "tails-*.iso" -exec sudo cp {} /output/ \; 2>/dev/null || true
+find . -name "tails-*.img" -exec sudo cp {} /output/ \; 2>/dev/null || true
+
+# Cleanup
+sudo rm -rf "$BUILD_DIR"
+
+echo ""
+echo "============================================"
+echo "  Build complete!"
+echo "============================================"
+ls -lh /output/ 2>/dev/null || echo "Check /output/ for artifacts"
+BUILDSH
+
+RUN chmod +x /build/build.sh
+
+CMD ["/build/build.sh"]

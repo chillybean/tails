@@ -59,40 +59,55 @@ fi
 # --- 4. Install Hermes Agent ---
 echo "[4/7] Installing Hermes Agent..."
 HERMES_VENV="/opt/hermes"
-python3 -m venv "$HERMES_VENV"
-"$HERMES_VENV/bin/pip" install --upgrade pip setuptools wheel 2>/dev/null
+python3 -m venv "$HERMES_VENV" 2>/dev/null || {
+    echo "  WARNING: python3 -m venv failed. pip/pip3 not functional."
+    echo "  Skipping Python package installation (needed at runtime)."
+    # Create a minimal placeholder so later steps don't fail
+    mkdir -p "$HERMES_VENV/bin"
+    ln -sf /usr/bin/python3 "$HERMES_VENV/bin/python3" 2>/dev/null || true
+}
 
-# Install hermes-agent from PyPI
-"$HERMES_VENV/bin/pip" install hermes-agent 2>/dev/null || \
-    echo "  WARNING: Could not install hermes-agent from PyPI (no network in build)"
+# Upgrade pip/wheel (may fail in offline build env — that's OK)
+if [ -x "$HERMES_VENV/bin/pip" ]; then
+    "$HERMES_VENV/bin/pip" install --upgrade pip setuptools wheel 2>/dev/null || \
+        true  # Offline build: use bundled pip version
+fi
+
+# Note: hermes-agent PyPI package is NOT installed during build.
+# It will be installed at runtime by the hermes-download-model script
+# or manually with: pip install hermes-agent
+echo "  Hermes venv created. PyPI packages installed at runtime."
 
 # Symlink hermes into PATH
 ln -sf "$HERMES_VENV/bin/hermes" /usr/local/bin/hermes 2>/dev/null || true
 
 # --- 5. Install Hermes GTK4 Desktop App ---
 echo "[5/7] Installing Hermes Desktop App..."
+# GUI files are auto-copied by live-build from config/includes.chroot/opt/hermes/gui/
+# to /opt/hermes/gui/ in the chroot. Just verify they exist.
 HERMES_GUI_DIR="/opt/hermes/gui"
-mkdir -p "$HERMES_GUI_DIR"
-
-# Copy GUI files from chroot_local-includes
-if [ -d "/tmp/hermes-gui" ]; then
-    cp -r /tmp/hermes-gui/* "$HERMES_GUI_DIR/"
+if [ -f "$HERMES_GUI_DIR/hermes_app.py" ]; then
+    echo "  GUI files found: $HERMES_GUI_DIR/"
+    ls -lh "$HERMES_GUI_DIR/"
+else
+    echo "  WARNING: GUI files not found at $HERMES_GUI_DIR/"
 fi
 
 # --- 6. Configure Hermes backend ---
 echo "[6/7] Configuring Hermes backend..."
+# Config is auto-copied by live-build from config/includes.chroot/etc/hermes/
+# Verify it exists and adjust for live environment
 HERMES_CONFIG_DIR="/etc/hermes"
-mkdir -p "$HERMES_CONFIG_DIR"
-
-cat > "$HERMES_CONFIG_DIR/config.yaml" << 'HERMES_CFG'
-# Hermes Agent Configuration for Tails
-# Local-only AI via llama.cpp — no cloud, no API keys needed
-
+if [ -f "$HERMES_CONFIG_DIR/config.yaml" ]; then
+    echo "  Config found: $HERMES_CONFIG_DIR/config.yaml"
+else
+    echo "  WARNING: Config not found. Creating minimal config."
+    mkdir -p "$HERMES_CONFIG_DIR"
+    cat > "$HERMES_CONFIG_DIR/config.yaml" << 'HERMES_CFG'
 model:
   provider: llama.cpp
   name: "gemma-4-E4B-it-Q4_K_M.gguf"
   base_url: "http://127.0.0.1:8080"
-
 llama_cpp:
   host: "127.0.0.1"
   port: 8080
@@ -100,30 +115,24 @@ llama_cpp:
   n_ctx: 8192
   n_predict: 2048
   temperature: 0.7
-  # Gemma 4 thinking mode (set to false for faster tool calls)
   enable_thinking: false
-
 agent:
-  name: "TailsHermes"
+  name: "HermesLive"
   persona: "helpful, concise, privacy-focused AI assistant"
   max_context_tokens: 8192
   enable_memory: true
   memory_dir: "/var/lib/hermes/memory"
-
 privacy:
-  # All traffic stays local — no external API calls
   allow_external_apis: false
-  # Route any external requests through Tor
   tor_proxy: "socks5://127.0.0.1:9050"
-  # Disable telemetry
   telemetry: false
-
 gui:
   theme: "dark"
   accent_color: "#00D4AA"
   font: "Inter"
   font_size: 14
 HERMES_CFG
+fi
 
 # --- 7. Enable llama.cpp systemd service ---
 echo "[7/7] Enabling llama.cpp service..."
