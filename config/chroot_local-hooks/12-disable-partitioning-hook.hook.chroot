@@ -1,5 +1,0 @@
-#!/bin/sh
-# Disable partitioning initramfs hook — fails in Docker/container environments
-# because /dev block devices are not available. Safe to remove for live ISOs.
-rm -f /usr/share/initramfs-tools/hooks/partitioning
-rm -f /usr/share/initramfs-tools/scripts/local-premount/partitioning
