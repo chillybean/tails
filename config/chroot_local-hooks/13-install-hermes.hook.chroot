@@ -87,6 +87,8 @@ ollama:
   data_dir: "/var/lib/ollama"
   auto_pull: true
   default_model: "qwen2.5:7b"
+  # Ollama downloads models through Tor
+  tor_proxy: "socks5h://127.0.0.1:9050"
 
 agent:
   name: "TailsHermes"
@@ -110,11 +112,34 @@ gui:
   font_size: 14
 HERMES_CFG
 
-# --- 6. Set up persistence symlinks ---
-echo "[6/6] Setting up persistence..."
+# --- 6. Enable Ollama systemd service ---
+echo "[6/6] Enabling Ollama service..."
+if command -v systemctl >/dev/null 2>&1; then
+    systemctl enable ollama.service 2>/dev/null || true
+    echo "  Ollama service enabled (starts after Tor)."
+else
+    echo "  WARNING: systemctl not available (expected in build env)."
+fi
+
+# --- 7. Set up persistence symlinks ---
+echo "[7/7] Setting up persistence..."
 # At runtime, these will be symlinked to the persistent volume
 mkdir -p /var/lib/hermes/memory
 chown -R hermes:hermes /var/lib/hermes
+
+# --- 8. Configure Tor proxy for Ollama model downloads ---
+echo "[8/8] Configuring Tor proxy for Ollama..."
+# Write a profile script so hermes/ollama users get Tor proxy env vars
+cat > /etc/profile.d/hermes-tor-proxy.sh << 'PROFILE'
+# Hermes AI — route outbound traffic through Tor
+export HTTP_PROXY="socks5h://127.0.0.1:9050"
+export HTTPS_PROXY="socks5h://127.0.0.1:9050"
+export http_proxy="socks5h://127.0.0.1:9050"
+export https_proxy="socks5h://127.0.0.1:9050"
+# Ollama-specific
+export OLLAMA_ORIGINS="*"
+PROFILE
+chmod 644 /etc/profile.d/hermes-tor-proxy.sh
 
 echo ""
 echo "============================================"
@@ -125,11 +150,13 @@ echo "  Binary:     /usr/local/bin/hermes"
 echo "  GUI:        /opt/hermes/gui/"
 echo "  Config:     /etc/hermes/config.yaml"
 echo "  Ollama:     /usr/local/bin/ollama"
+echo "  Service:    systemctl start ollama (after Tor)"
 echo "  Models:     /var/lib/ollama/"
+echo "  Tor proxy:  socks5h://127.0.0.1:9050"
 echo ""
 
-# --- 7. Update desktop and icon databases ---
-echo "[7/6] Updating desktop database..."
+# --- 9. Update desktop and icon databases ---
+echo "[9/9] Updating desktop database..."
 if command -v update-desktop-database >/dev/null 2>&1; then
     update-desktop-database /usr/share/applications/
 fi

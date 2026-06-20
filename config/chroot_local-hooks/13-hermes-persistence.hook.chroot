@@ -36,19 +36,54 @@ for dir in $HERMES_PERSIST_DIRS; do
     fi
 done
 
-# Create convenience script for starting Ollama
+# Create convenience script for starting Hermes + Ollama (Tor-routed)
 cat > /usr/local/bin/hermes-start << 'SCRIPT'
 #!/bin/bash
-# Start Ollama and pull default model if needed
+# Start Hermes AI with Ollama (all traffic routed through Tor)
 
+echo "============================================"
+echo "  Hermes AI — Tor-Routed Startup"
+echo "============================================"
+
+# Check Tor is running
+if ! curl -s --socks5 127.0.0.1:9050 https://check.torproject.org/ > /dev/null 2>&1; then
+    echo "⚠️  Tor is not running. Starting Tor..."
+    sudo systemctl start tor@default.service
+    sleep 3
+fi
+
+# Verify Tor connectivity
+echo "Checking Tor connectivity..."
+TOR_IP=$(curl -s --socks5 127.0.0.1:9050 https://check.torproject.org/api/ip 2>/dev/null | grep -oP '"IP":"[^"]*"' | cut -d'"' -f4)
+if [ -n "$TOR_IP" ]; then
+    echo "✅ Tor is active (exit IP: $TOR_IP)"
+else
+    echo "⚠️  Could not verify Tor. Proceeding anyway..."
+fi
+
+# Set Tor proxy for this session
+export HTTP_PROXY="socks5h://127.0.0.1:9050"
+export HTTPS_PROXY="socks5h://127.0.0.1:9050"
+export http_proxy="socks5h://127.0.0.1:9050"
+export https_proxy="socks5h://127.0.0.1:9050"
+
+# Start Ollama via systemd (preferred) or manually
+echo ""
 echo "Starting Ollama..."
-nohup ollama serve > /tmp/ollama.log 2>&1 &
-OLLAMA_PID=$!
+if systemctl is-active --quiet ollama.service 2>/dev/null; then
+    echo "✅ Ollama is already running."
+else
+    sudo systemctl start ollama.service 2>/dev/null || {
+        echo "  Starting Ollama manually..."
+        nohup ollama serve > /tmp/ollama.log 2>&1 &
+    }
+fi
 
-echo "Waiting for Ollama to start..."
+# Wait for Ollama
+echo "Waiting for Ollama API..."
 for i in $(seq 1 30); do
     if curl -s http://127.0.0.1:11434/ > /dev/null 2>&1; then
-        echo "Ollama is running (PID: $OLLAMA_PID)"
+        echo "✅ Ollama API is ready."
         break
     fi
     sleep 1
@@ -56,14 +91,22 @@ done
 
 # Check if default model exists
 if ! ollama list 2>/dev/null | grep -q "qwen2.5:7b"; then
-    echo "Pulling default model (qwen2.5:7b)..."
-    echo "This may take a while..."
+    echo ""
+    echo "📥 Pulling default model (qwen2.5:7b) through Tor..."
+    echo "   This may take a while depending on your Tor circuit speed..."
     ollama pull qwen2.5:7b
 fi
 
 echo ""
-echo "Hermes AI is ready!"
-echo "Launch from the Applications menu or run: hermes"
+echo "============================================"
+echo "  Hermes AI is ready!"
+echo "============================================"
+echo ""
+echo "  Launch GUI:     hermes-ai"
+echo "  CLI:            hermes"
+echo "  Ollama status:  systemctl status ollama"
+echo "  Tor exit IP:    $TOR_IP"
+echo ""
 SCRIPT
 chmod +x /usr/local/bin/hermes-start
 
