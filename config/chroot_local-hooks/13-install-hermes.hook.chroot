@@ -48,8 +48,8 @@ if [ -f "/var/lib/llama/models/gemma-4-E4B-it-Q4_K_M.gguf" ]; then
     echo "  Bundled Gemma 4 E4B model found."
     ls -lh /var/lib/llama/models/gemma-4-E4B-it-Q4_K_M.gguf
 else
-    echo "  No bundled model found. Run on first boot:"
-    echo "    hermes-start"
+    echo "  No bundled model found. Download on first boot with:"
+    echo "    hermes-download-model"
 fi
 
 # --- 4. Install Hermes Agent ---
