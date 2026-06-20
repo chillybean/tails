@@ -350,26 +350,266 @@ class HermesApp(Adw.Application):
         thread.daemon = True
         thread.start()
 
+    # --- Tool definitions for Gemma 4 native function calling ---
+
+    def _get_available_tools(self) -> list:
+        """Return tool definitions for Gemma 4 function calling."""
+        return [
+            {
+                "type": "function",
+                "function": {
+                    "name": "read_file",
+                    "description": "Read the contents of a file on the local system.",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {
+                            "path": {
+                                "type": "string",
+                                "description": "Absolute path to the file to read.",
+                            }
+                        },
+                        "required": ["path"],
+                    },
+                },
+            },
+            {
+                "type": "function",
+                "function": {
+                    "name": "write_file",
+                    "description": "Write content to a file on the local system. Creates the file if it doesn't exist, overwrites if it does.",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {
+                            "path": {
+                                "type": "string",
+                                "description": "Absolute path to the file to write.",
+                            },
+                            "content": {
+                                "type": "string",
+                                "description": "The text content to write to the file.",
+                            },
+                        },
+                        "required": ["path", "content"],
+                    },
+                },
+            },
+            {
+                "type": "function",
+                "function": {
+                    "name": "run_command",
+                    "description": "Execute a shell command on the local system and return the output. Use for system tasks, file operations, and running programs.",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {
+                            "command": {
+                                "type": "string",
+                                "description": "The shell command to execute.",
+                            }
+                        },
+                        "required": ["command"],
+                    },
+                },
+            },
+            {
+                "type": "function",
+                "function": {
+                    "name": "search_web",
+                    "description": "Search the web for current information. Results are routed through Tor for privacy.",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {
+                            "query": {
+                                "type": "string",
+                                "description": "The search query string.",
+                            }
+                        },
+                        "required": ["query"],
+                    },
+                },
+            },
+        ]
+
+    def _build_messages(self, user_prompt: str) -> list:
+        """Build the message history for the chat API."""
+        system_msg = {
+            "role": "system",
+            "content": (
+                "You are Hermes, a privacy-focused AI assistant running on Tails OS. "
+                "You have access to local tools for file operations, command execution, and web search. "
+                "All web traffic is routed through Tor. Be helpful, concise, and security-conscious. "
+                "When a task requires local system operations, use the available tools."
+            ),
+        }
+        messages = [system_msg]
+        # Add conversation history (last 10 turns to stay within context)
+        for entry in self.conversation_history[-10:]:
+            role = entry.get("role", "user")
+            content = entry.get("content", "")
+            if role in ("user", "assistant"):
+                messages.append({"role": role, "content": content})
+        messages.append({"role": "user", "content": user_prompt})
+        return messages
+
+    def _handle_tool_calls(self, tool_calls: list, original_prompt: str) -> str:
+        """Execute tool calls and return the final response."""
+        # Build messages with tool call responses
+        messages = self._build_messages(original_prompt)
+        messages.append({
+            "role": "assistant",
+            "content": None,
+            "tool_calls": tool_calls,
+        })
+
+        # Execute each tool call
+        for call in tool_calls:
+            func_name = call.get("function", {}).get("name", "")
+            args_str = call.get("function", {}).get("arguments", "{}")
+            try:
+                args = json.loads(args_str) if isinstance(args_str, str) else args_str
+            except json.JSONDecodeError:
+                args = {}
+
+            result = self._execute_tool(func_name, args)
+            messages.append({
+                "role": "tool",
+                "tool_call_id": call.get("id", ""),
+                "content": result,
+            })
+
+        # Send back to Ollama for final response
+        try:
+            result = subprocess.run(
+                [
+                    "curl", "-s", "http://127.0.0.1:11434/api/chat",
+                    "-d", json.dumps({
+                        "model": "gemma4:e4b",
+                        "messages": messages,
+                        "stream": False,
+                        "options": {
+                            "temperature": 0.7,
+                            "num_ctx": 8192,
+                            "num_predict": 2048,
+                        },
+                    }),
+                ],
+                capture_output=True, text=True, timeout=180,
+            )
+            if result.returncode == 0 and result.stdout.strip():
+                data = json.loads(result.stdout)
+                return data.get("message", {}).get("content", "Tool executed successfully.")
+            return f"Tool '{func_name}' executed. Raw output: {result.stdout[:500]}"
+        except Exception as e:
+            return f"Error during tool response: {e}"
+
+    def _execute_tool(self, func_name: str, args: dict) -> str:
+        """Execute a single tool and return the result as a string."""
+        try:
+            if func_name == "read_file":
+                path = args.get("path", "")
+                if not path:
+                    return "Error: No file path specified."
+                # Security: restrict to /home/amnesia and /tmp
+                allowed_prefixes = ["/home/amnesia", "/tmp", "/var/lib/hermes"]
+                if not any(path.startswith(p) for p in allowed_prefixes):
+                    return f"Error: Access denied. Path must be within allowed directories (home, tmp, hermes)."
+                with open(path, "r") as f:
+                    content = f.read(10000)  # Limit output
+                return content or "(empty file)"
+
+            elif func_name == "write_file":
+                path = args.get("path", "")
+                content = args.get("content", "")
+                if not path:
+                    return "Error: No file path specified."
+                allowed_prefixes = ["/home/amnesia", "/tmp", "/var/lib/hermes"]
+                if not any(path.startswith(p) for p in allowed_prefixes):
+                    return f"Error: Access denied. Path must be within allowed directories."
+                os.makedirs(os.path.dirname(path), exist_ok=True)
+                with open(path, "w") as f:
+                    f.write(content)
+                return f"Written {len(content)} bytes to {path}"
+
+            elif func_name == "run_command":
+                command = args.get("command", "")
+                if not command:
+                    return "Error: No command specified."
+                # Run through Tor for any network commands
+                env = os.environ.copy()
+                env["HTTP_PROXY"] = "socks5h://127.0.0.1:9050"
+                env["HTTPS_PROXY"] = "socks5h://127.0.0.1:9050"
+                result = subprocess.run(
+                    command, shell=True, capture_output=True, text=True,
+                    timeout=30, env=env,
+                    cwd="/home/amnesia",
+                )
+                output = result.stdout or "(no output)"
+                if result.stderr:
+                    output += f"\nSTDERR: {result.stderr[:500]}"
+                return output[:5000]
+
+            elif func_name == "search_web":
+                query = args.get("query", "")
+                if not query:
+                    return "Error: No search query specified."
+                # Use curl through Tor to search
+                result = subprocess.run(
+                    [
+                        "curl", "-s", "--socks5", "127.0.0.1:9050",
+                        f"https://html.duckduckgo.com/html/?q={query}",
+                    ],
+                    capture_output=True, text=True, timeout=30,
+                )
+                # Extract titles from results (basic parsing)
+                import re
+                titles = re.findall(r'<a rel="nofollow" class="result__a" href="[^"]*">([^<]+)</a>', result.stdout)
+                if titles:
+                    return "Search results:\n" + "\n".join(f"• {t}" for t in titles[:10])
+                return f"Search completed but no results parsed. Raw length: {len(result.stdout)}"
+
+            else:
+                return f"Unknown tool: {func_name}"
+
+        except subprocess.TimeoutExpired:
+            return "Error: Command timed out (30s limit)."
+        except PermissionError:
+            return f"Error: Permission denied for {func_name}."
+        except Exception as e:
+            return f"Error executing {func_name}: {e}"
+
+    # --- End tool definitions ---
+
     def _query_hermes(self, prompt: str):
         """Query Hermes/Ollama in background."""
         try:
-            # Try Ollama directly first
+            # Try Ollama directly first with Gemma 4 native tool calling
             result = subprocess.run(
                 [
-                    "curl", "-s", "http://127.0.0.1:11434/api/generate",
+                    "curl", "-s", "http://127.0.0.1:11434/api/chat",
                     "-d", json.dumps({
-                        "model": "qwen2.5:7b",
-                        "prompt": prompt,
+                        "model": "gemma4:e4b",
+                        "messages": self._build_messages(prompt),
                         "stream": False,
+                        "options": {
+                            "temperature": 0.7,
+                            "num_ctx": 8192,
+                            "num_predict": 2048,
+                        },
+                        "tools": self._get_available_tools(),
                     }),
                 ],
-                capture_output=True, text=True, timeout=120,
+                capture_output=True, text=True, timeout=180,
             )
 
             if result.returncode == 0 and result.stdout.strip():
                 try:
                     data = json.loads(result.stdout)
-                    response = data.get("response", "No response from model.")
+                    # Check for tool calls (Gemma 4 native function calling)
+                    message = data.get("message", {})
+                    if message.get("tool_calls"):
+                        # Execute tool calls and build response
+                        response = self._handle_tool_calls(message["tool_calls"], prompt)
+                    else:
+                        response = message.get("content", "No response from model.")
                 except json.JSONDecodeError:
                     response = result.stdout.strip() or "Model returned empty response."
             else:
@@ -386,7 +626,7 @@ class HermesApp(Adw.Application):
             response = (
                 "Ollama is not running.\n\n"
                 "To start: ollama serve &\n"
-                "To pull a model: ollama pull qwen2.5:7b"
+                "To pull a model: ollama pull gemma4:e4b"
             )
         except Exception as e:
             response = f"Error: {e}"
@@ -454,7 +694,7 @@ class HermesApp(Adw.Application):
                 "⚠️ Ollama is not running. Start it with:\n"
                 "  ollama serve &\n"
                 "Then pull a model:\n"
-                "  ollama pull qwen2.5:7b"
+                "  ollama pull gemma4:e4b"
             )
 
         # Check Hermes CLI

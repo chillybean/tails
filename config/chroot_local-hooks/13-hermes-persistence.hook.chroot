@@ -90,11 +90,11 @@ for i in $(seq 1 30); do
 done
 
 # Check if default model exists
-if ! ollama list 2>/dev/null | grep -q "qwen2.5:7b"; then
+if ! ollama list 2>/dev/null | grep -q "gemma4:e4b"; then
     echo ""
-    echo "📥 Pulling default model (qwen2.5:7b) through Tor..."
+    echo "📥 Pulling default model (gemma4:e4b) through Tor..."
     echo "   This may take a while depending on your Tor circuit speed..."
-    ollama pull qwen2.5:7b
+    ollama pull gemma4:e4b
 fi
 
 echo ""

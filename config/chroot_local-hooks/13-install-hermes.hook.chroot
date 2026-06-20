@@ -78,7 +78,7 @@ cat > "$HERMES_CONFIG_DIR/config.yaml" << 'HERMES_CFG'
 
 model:
   provider: ollama
-  name: "qwen2.5:7b"
+  name: "gemma4:e4b"
   base_url: "http://127.0.0.1:11434"
 
 ollama:
@@ -86,9 +86,11 @@ ollama:
   port: 11434
   data_dir: "/var/lib/ollama"
   auto_pull: true
-  default_model: "qwen2.5:7b"
+  default_model: "gemma4:e4b"
   # Ollama downloads models through Tor
   tor_proxy: "socks5h://127.0.0.1:9050"
+  # Gemma 4 thinking mode (set to false for faster tool calls)
+  enable_thinking: false
 
 agent:
   name: "TailsHermes"
