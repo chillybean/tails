@@ -1,0 +1,70 @@
+#!/bin/sh
+set -e
+
+# ============================================================
+# Tails Hermes Persistence Hook
+# Symlinks Hermes data dirs to the persistent volume
+# ============================================================
+
+echo "Setting up Hermes persistence..."
+
+# Persistent storage mount point in Tails
+PERSISTENT="/live/persistence/TailsData_unlocked"
+
+# Hermes dirs that should persist
+HERMES_PERSIST_DIRS="
+    /var/lib/ollama
+    /var/lib/hermes
+    /etc/hermes
+"
+
+for dir in $HERMES_PERSIST_DIRS; do
+    if [ -d "$PERSISTENT" ]; then
+        # Create persistent backing dir
+        persist_dir="$PERSISTENT/hermes$(dirname "$dir")"
+        mkdir -p "$persist_dir"
+
+        # Move existing data to persistent
+        if [ -d "$dir" ] && [ ! -L "$dir" ]; then
+            cp -a "$dir" "$persist_dir/"
+            rm -rf "$dir"
+        fi
+
+        # Create symlink
+        ln -sf "$persist_dir/$(basename "$dir")" "$dir"
+        echo "  Persisted: $dir → $persist_dir/$(basename "$dir")"
+    fi
+done
+
+# Create convenience script for starting Ollama
+cat > /usr/local/bin/hermes-start << 'SCRIPT'
+#!/bin/bash
+# Start Ollama and pull default model if needed
+
+echo "Starting Ollama..."
+nohup ollama serve > /tmp/ollama.log 2>&1 &
+OLLAMA_PID=$!
+
+echo "Waiting for Ollama to start..."
+for i in $(seq 1 30); do
+    if curl -s http://127.0.0.1:11434/ > /dev/null 2>&1; then
+        echo "Ollama is running (PID: $OLLAMA_PID)"
+        break
+    fi
+    sleep 1
+done
+
+# Check if default model exists
+if ! ollama list 2>/dev/null | grep -q "qwen2.5:7b"; then
+    echo "Pulling default model (qwen2.5:7b)..."
+    echo "This may take a while..."
+    ollama pull qwen2.5:7b
+fi
+
+echo ""
+echo "Hermes AI is ready!"
+echo "Launch from the Applications menu or run: hermes"
+SCRIPT
+chmod +x /usr/local/bin/hermes-start
+
+echo "Hermes persistence configured."

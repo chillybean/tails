@@ -1,0 +1,16 @@
+[Desktop Entry]
+Name=Hermes AI
+Comment=Private AI Assistant for Tails OS
+Exec=/usr/bin/python3 /opt/hermes/gui/hermes_app.py
+Icon=hermes-ai
+Terminal=false
+Type=Application
+Categories=Utility;AI;Chat;
+Keywords=ai;assistant;chat;ollama;hermes;privacy;
+StartupNotify=true
+StartupWMClass=org.tails.hermes
+Actions=NewChat;
+
+[Desktop Action NewChat]
+Name=New Chat
+Exec=/usr/bin/python3 /opt/hermes/gui/hermes_app.py --new-chat
